@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Geo Distance Calculator</title>
+<meta name="description" content="Calculate the distance between two GPS coordinates using the Haversine formula. Kilometers, miles, meters, nautical miles.">
+<meta property="og:title" content="Geo Distance Calculator">
+<link rel="canonical" href="https://yurukusa.github.io/geo-distance/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Geo Distance Calculator","description":"Calculate distance between two GPS coordinates using Haversine formula.","url":"https://yurukusa.github.io/geo-distance/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:700px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+.card{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:16px}
+.card h3{font-size:0.95rem;color:#ccc;margin-bottom:12px;font-weight:600}
+.coord-row{display:flex;gap:10px;margin-bottom:10px}
+.coord-row input{flex:1;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.85rem;outline:none}
+.coord-row input:focus{border-color:#3b82f6}
+.label{font-size:0.8rem;color:#888;margin-bottom:4px;font-weight:600}
+.dist-row{display:flex;justify-content:space-between;padding:8px 0;border-bottom:1px solid #1a1a1a}
+.dist-row:last-child{border-bottom:none}
+.dist-label{font-size:0.85rem;color:#888}
+.dist-val{font-family:monospace;font-size:0.9rem;color:#10b981;font-weight:600;cursor:pointer}
+.dist-val:hover{color:#4ade80}
+.copy-toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+.geo-btn{padding:8px 18px;border-radius:8px;border:1px solid #3b82f6;background:transparent;color:#3b82f6;font-size:0.82rem;cursor:pointer;font-weight:600;margin-bottom:10px}
+.geo-btn:hover{background:#1a2744}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:600px){.coord-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Geo Distance Calculator</h1>
+<p class="subtitle">Calculate distance between two GPS coordinates.</p>
+
+<div class="card">
+  <h3>Point A</h3>
+  <div class="coord-row">
+    <input id="lat1" type="number" step="any" placeholder="Latitude" value="48.8566" oninput="calc()">
+    <input id="lng1" type="number" step="any" placeholder="Longitude" value="2.3522" oninput="calc()">
+  </div>
+  <button class="geo-btn" onclick="useMyLocation('A')">📍 Use my location</button>
+
+  <h3>Point B</h3>
+  <div class="coord-row">
+    <input id="lat2" type="number" step="any" placeholder="Latitude" value="51.5074" oninput="calc()">
+    <input id="lng2" type="number" step="any" placeholder="Longitude" value="-0.1278" oninput="calc()">
+  </div>
+  <button class="geo-btn" onclick="useMyLocation('B')">📍 Use my location</button>
+</div>
+
+<div class="card">
+  <div class="dist-row"><span class="dist-label">Kilometers</span><span class="dist-val" id="dKm" onclick="copyVal('dKm')">—</span></div>
+  <div class="dist-row"><span class="dist-label">Miles</span><span class="dist-val" id="dMile" onclick="copyVal('dMile')">—</span></div>
+  <div class="dist-row"><span class="dist-label">Meters</span><span class="dist-val" id="dMeter" onclick="copyVal('dMeter')">—</span></div>
+  <div class="dist-row"><span class="dist-label">Nautical Miles</span><span class="dist-val" id="dNmi" onclick="copyVal('dNmi')">—</span></div>
+</div>
+
+<div class="card">
+  <h3>Your Position</h3>
+  <div class="dist-row"><span class="dist-label">Latitude</span><span class="dist-val" id="myLat">—</span></div>
+  <div class="dist-row"><span class="dist-label">Longitude</span><span class="dist-val" id="myLng">—</span></div>
+</div>
+
+<footer>
+  <p><a href="https://github.com/yurukusa/dev-toolkit">GitHub</a></p>
+</footer>
+</div>
+
+<script>
+function toRad(deg) { return deg * Math.PI / 180; }
+
+function haversine(lat1, lng1, lat2, lng2) {
+  const R = 6371; // km
+  const dLat = toRad(lat2 - lat1);
+  const dLng = toRad(lng2 - lng1);
+  const a = Math.sin(dLat/2)**2 + Math.cos(toRad(lat1)) * Math.cos(toRad(lat2)) * Math.sin(dLng/2)**2;
+  return R * 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a));
+}
+
+function calc() {
+  const lat1 = parseFloat(document.getElementById('lat1').value);
+  const lng1 = parseFloat(document.getElementById('lng1').value);
+  const lat2 = parseFloat(document.getElementById('lat2').value);
+  const lng2 = parseFloat(document.getElementById('lng2').value);
+  
+  if (isNaN(lat1) || isNaN(lng1) || isNaN(lat2) || isNaN(lng2)) {
+    document.getElementById('dKm').textContent = '—';
+    document.getElementById('dMile').textContent = '—';
+    document.getElementById('dMeter').textContent = '—';
+    document.getElementById('dNmi').textContent = '—';
+    return;
+  }
+  
+  const km = haversine(lat1, lng1, lat2, lng2);
+  document.getElementById('dKm').textContent = km.toFixed(3);
+  document.getElementById('dMile').textContent = (km * 0.621371).toFixed(3);
+  document.getElementById('dMeter').textContent = (km * 1000).toFixed(1);
+  document.getElementById('dNmi').textContent = (km * 0.539957).toFixed(3);
+}
+
+function copyVal(id) {
+  const val = document.getElementById(id).textContent;
+  if (!val || val === '—') return;
+  navigator.clipboard.writeText(val).then(() => {
+    const t = document.createElement('div');
+    t.className = 'copy-toast';
+    t.textContent = 'Copied!';
+    document.body.appendChild(t);
+    setTimeout(() => t.remove(), 1500);
+  });
+}
+
+function useMyLocation(point) {
+  if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+  navigator.geolocation.getCurrentPosition(pos => {
+    if (point === 'A') {
+      document.getElementById('lat1').value = pos.coords.latitude;
+      document.getElementById('lng1').value = pos.coords.longitude;
+    } else {
+      document.getElementById('lat2').value = pos.coords.latitude;
+      document.getElementById('lng2').value = pos.coords.longitude;
+    }
+    calc();
+  });
+}
+
+// Show user position
+if (navigator.geolocation) {
+  navigator.geolocation.getCurrentPosition(pos => {
+    document.getElementById('myLat').textContent = pos.coords.latitude.toFixed(6);
+    document.getElementById('myLng').textContent = pos.coords.longitude.toFixed(6);
+  });
+}
+
+calc();
+</script>
+</body>
+</html>

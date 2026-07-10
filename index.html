@@ -619,6 +619,19 @@ const TOOLS=[
   {name:'XML to JSON',desc:'Convert XML to JSON format and back. Preserves attributes, text content, and array structures.',url:'tools/converter/xml-to-json.html',cat:'converter',icon:'X→J'},
   {name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'},
   {name:'YAML Viewer',desc:'Parse and explore YAML content with collapsible tree view, syntax highlighting, and search.',url:'tools/converter/yaml-viewer.html',cat:'converter',icon:'YML'},
+  {name:'GZIP Converter',desc:'Compress strings using GZIP, Deflate, or Zlib. Decompress base64 compressed strings back to text.',url:'tools/converter/gzip-converter.html',cat:'converter',icon:'ZIP'},
+  {name:'IBAN Generator',desc:'Generate valid IBAN numbers for 40+ countries. Random bank codes and account numbers for testing.',url:'tools/converter/iban-generator.html',cat:'converter',icon:'IB'},
+  {name:'MongoDB ObjectID',desc:'Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates with MongoDB query syntax.',url:'tools/converter/mongo-objectid.html',cat:'converter',icon:'₿'},
+  {name:'Hex Converter',desc:'Convert between hex and text/numbers with configurable endianness, bit width, and signed/unsigned.',url:'tools/converter/hex-converter.html',cat:'converter',icon:'0x'},
+  {name:'VAT Validator',desc:'Validate European VAT numbers for all 27 EU countries. Country-specific format checking.',url:'tools/converter/vat-validator.html',cat:'converter',icon:'%'},
+  {name:'Geo Distance',desc:'Calculate distance between two GPS coordinates using the Haversine formula. KM, miles, meters, nautical miles.',url:'tools/math/geo-distance.html',cat:'math',icon:'🌍'},
+  {name:'JS Obfuscator',desc:'Obfuscate JavaScript code using Base64 encoding or ROT13 cipher. Copy or download as .js file.',url:'tools/code/js-obfuscator.html',cat:'code',icon:'🔐'},
+  {name:'Code Highlighter',desc:'Syntax-highlight code and copy as HTML for Word or plain text. 16 languages, 8 themes, line numbers.',url:'tools/code/code-highlighter.html',cat:'code',icon:'<#>'},
+  {name:'Mermaid Exporter',desc:'Render Mermaid diagrams and export as SVG, PNG, or JPG. Live preview while you type.',url:'tools/code/mermaid-export.html',cat:'code',icon:'📊'},
+  {name:'Markdown Diff',desc:'Compare two Markdown documents side by side. Code view and rendered HTML preview mode.',url:'tools/code/markdown-diff.html',cat:'code',icon:'±'},
+  {name:'Icon Generator',desc:'Generate app icons in multiple sizes from one image. PWA, Android, iOS presets. Download as ZIP.',url:'tools/design/icon-generator.html',cat:'design',icon:'🖼'},
+  {name:'HAR Sanitizer',desc:'Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params.',url:'tools/network/har-sanitizer.html',cat:'network',icon:'🛡'},
+  {name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'🔒'},
 ];
 
 const CATEGORIES=[
@@ -1173,6 +1186,19 @@ document.addEventListener('keydown',e=>{
   {name:'XML to JSON',desc:'Convert XML to JSON format and back. Preserves attributes, text content, and array structures.',url:'tools/converter/xml-to-json.html',cat:'converter',icon:'X→J'},
   {name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'},
   {name:'YAML Viewer',desc:'Parse and explore YAML content with collapsible tree view, syntax highlighting, and search.',url:'tools/converter/yaml-viewer.html',cat:'converter',icon:'YML'},
+  {name:'GZIP Converter',desc:'Compress strings using GZIP, Deflate, or Zlib. Decompress base64 compressed strings back to text.',url:'tools/converter/gzip-converter.html',cat:'converter',icon:'ZIP'},
+  {name:'IBAN Generator',desc:'Generate valid IBAN numbers for 40+ countries. Random bank codes and account numbers for testing.',url:'tools/converter/iban-generator.html',cat:'converter',icon:'IB'},
+  {name:'MongoDB ObjectID',desc:'Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates with MongoDB query syntax.',url:'tools/converter/mongo-objectid.html',cat:'converter',icon:'₿'},
+  {name:'Hex Converter',desc:'Convert between hex and text/numbers with configurable endianness, bit width, and signed/unsigned.',url:'tools/converter/hex-converter.html',cat:'converter',icon:'0x'},
+  {name:'VAT Validator',desc:'Validate European VAT numbers for all 27 EU countries. Country-specific format checking.',url:'tools/converter/vat-validator.html',cat:'converter',icon:'%'},
+  {name:'Geo Distance',desc:'Calculate distance between two GPS coordinates using the Haversine formula. KM, miles, meters, nautical miles.',url:'tools/math/geo-distance.html',cat:'math',icon:'🌍'},
+  {name:'JS Obfuscator',desc:'Obfuscate JavaScript code using Base64 encoding or ROT13 cipher. Copy or download as .js file.',url:'tools/code/js-obfuscator.html',cat:'code',icon:'🔐'},
+  {name:'Code Highlighter',desc:'Syntax-highlight code and copy as HTML for Word or plain text. 16 languages, 8 themes, line numbers.',url:'tools/code/code-highlighter.html',cat:'code',icon:'<#>'},
+  {name:'Mermaid Exporter',desc:'Render Mermaid diagrams and export as SVG, PNG, or JPG. Live preview while you type.',url:'tools/code/mermaid-export.html',cat:'code',icon:'📊'},
+  {name:'Markdown Diff',desc:'Compare two Markdown documents side by side. Code view and rendered HTML preview mode.',url:'tools/code/markdown-diff.html',cat:'code',icon:'±'},
+  {name:'Icon Generator',desc:'Generate app icons in multiple sizes from one image. PWA, Android, iOS presets. Download as ZIP.',url:'tools/design/icon-generator.html',cat:'design',icon:'🖼'},
+  {name:'HAR Sanitizer',desc:'Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params.',url:'tools/network/har-sanitizer.html',cat:'network',icon:'🛡'},
+  {name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'🔒'},
 ];
 
 const CATEGORIES=[
@@ -1726,6 +1752,19 @@ document.addEventListener('keydown',e=>{
   {name:'XML to JSON',desc:'Convert XML to JSON format and back. Preserves attributes, text content, and array structures.',url:'tools/converter/xml-to-json.html',cat:'converter',icon:'X→J'},
   {name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'},
   {name:'YAML Viewer',desc:'Parse and explore YAML content with collapsible tree view, syntax highlighting, and search.',url:'tools/converter/yaml-viewer.html',cat:'converter',icon:'YML'},
+  {name:'GZIP Converter',desc:'Compress strings using GZIP, Deflate, or Zlib. Decompress base64 compressed strings back to text.',url:'tools/converter/gzip-converter.html',cat:'converter',icon:'ZIP'},
+  {name:'IBAN Generator',desc:'Generate valid IBAN numbers for 40+ countries. Random bank codes and account numbers for testing.',url:'tools/converter/iban-generator.html',cat:'converter',icon:'IB'},
+  {name:'MongoDB ObjectID',desc:'Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates with MongoDB query syntax.',url:'tools/converter/mongo-objectid.html',cat:'converter',icon:'₿'},
+  {name:'Hex Converter',desc:'Convert between hex and text/numbers with configurable endianness, bit width, and signed/unsigned.',url:'tools/converter/hex-converter.html',cat:'converter',icon:'0x'},
+  {name:'VAT Validator',desc:'Validate European VAT numbers for all 27 EU countries. Country-specific format checking.',url:'tools/converter/vat-validator.html',cat:'converter',icon:'%'},
+  {name:'Geo Distance',desc:'Calculate distance between two GPS coordinates using the Haversine formula. KM, miles, meters, nautical miles.',url:'tools/math/geo-distance.html',cat:'math',icon:'🌍'},
+  {name:'JS Obfuscator',desc:'Obfuscate JavaScript code using Base64 encoding or ROT13 cipher. Copy or download as .js file.',url:'tools/code/js-obfuscator.html',cat:'code',icon:'🔐'},
+  {name:'Code Highlighter',desc:'Syntax-highlight code and copy as HTML for Word or plain text. 16 languages, 8 themes, line numbers.',url:'tools/code/code-highlighter.html',cat:'code',icon:'<#>'},
+  {name:'Mermaid Exporter',desc:'Render Mermaid diagrams and export as SVG, PNG, or JPG. Live preview while you type.',url:'tools/code/mermaid-export.html',cat:'code',icon:'📊'},
+  {name:'Markdown Diff',desc:'Compare two Markdown documents side by side. Code view and rendered HTML preview mode.',url:'tools/code/markdown-diff.html',cat:'code',icon:'±'},
+  {name:'Icon Generator',desc:'Generate app icons in multiple sizes from one image. PWA, Android, iOS presets. Download as ZIP.',url:'tools/design/icon-generator.html',cat:'design',icon:'🖼'},
+  {name:'HAR Sanitizer',desc:'Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params.',url:'tools/network/har-sanitizer.html',cat:'network',icon:'🛡'},
+  {name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'🔒'},
 ];
 
 const CATEGORIES=[
@@ -2280,6 +2319,19 @@ document.addEventListener('keydown',e=>{
   {name:'XML to JSON',desc:'Convert XML to JSON format and back. Preserves attributes, text content, and array structures.',url:'tools/converter/xml-to-json.html',cat:'converter',icon:'X→J'},
   {name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'},
   {name:'YAML Viewer',desc:'Parse and explore YAML content with collapsible tree view, syntax highlighting, and search.',url:'tools/converter/yaml-viewer.html',cat:'converter',icon:'YML'},
+  {name:'GZIP Converter',desc:'Compress strings using GZIP, Deflate, or Zlib. Decompress base64 compressed strings back to text.',url:'tools/converter/gzip-converter.html',cat:'converter',icon:'ZIP'},
+  {name:'IBAN Generator',desc:'Generate valid IBAN numbers for 40+ countries. Random bank codes and account numbers for testing.',url:'tools/converter/iban-generator.html',cat:'converter',icon:'IB'},
+  {name:'MongoDB ObjectID',desc:'Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates with MongoDB query syntax.',url:'tools/converter/mongo-objectid.html',cat:'converter',icon:'₿'},
+  {name:'Hex Converter',desc:'Convert between hex and text/numbers with configurable endianness, bit width, and signed/unsigned.',url:'tools/converter/hex-converter.html',cat:'converter',icon:'0x'},
+  {name:'VAT Validator',desc:'Validate European VAT numbers for all 27 EU countries. Country-specific format checking.',url:'tools/converter/vat-validator.html',cat:'converter',icon:'%'},
+  {name:'Geo Distance',desc:'Calculate distance between two GPS coordinates using the Haversine formula. KM, miles, meters, nautical miles.',url:'tools/math/geo-distance.html',cat:'math',icon:'🌍'},
+  {name:'JS Obfuscator',desc:'Obfuscate JavaScript code using Base64 encoding or ROT13 cipher. Copy or download as .js file.',url:'tools/code/js-obfuscator.html',cat:'code',icon:'🔐'},
+  {name:'Code Highlighter',desc:'Syntax-highlight code and copy as HTML for Word or plain text. 16 languages, 8 themes, line numbers.',url:'tools/code/code-highlighter.html',cat:'code',icon:'<#>'},
+  {name:'Mermaid Exporter',desc:'Render Mermaid diagrams and export as SVG, PNG, or JPG. Live preview while you type.',url:'tools/code/mermaid-export.html',cat:'code',icon:'📊'},
+  {name:'Markdown Diff',desc:'Compare two Markdown documents side by side. Code view and rendered HTML preview mode.',url:'tools/code/markdown-diff.html',cat:'code',icon:'±'},
+  {name:'Icon Generator',desc:'Generate app icons in multiple sizes from one image. PWA, Android, iOS presets. Download as ZIP.',url:'tools/design/icon-generator.html',cat:'design',icon:'🖼'},
+  {name:'HAR Sanitizer',desc:'Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params.',url:'tools/network/har-sanitizer.html',cat:'network',icon:'🛡'},
+  {name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'🔒'},
 ];
 
 const CATEGORIES=[
