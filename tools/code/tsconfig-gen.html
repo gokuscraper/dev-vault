@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>tsconfig.json Generator — TypeScript Config Builder</title>
+<meta name="description" content="Generate tsconfig.json visually. Strict mode, ESM, path aliases, JSX. 8 project presets. No signup.">
+<link rel="canonical" href="https://yurukusa.github.io/tsconfig-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"tsconfig.json Generator","description":"Generate tsconfig.json visually with presets for Node.js, React, Next.js, Library, and more.","url":"https://yurukusa.github.io/tsconfig-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;justify-content:center}
+.preset{padding:7px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.8rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.preset.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+label{display:block;font-size:0.8rem;color:#aaa;margin-bottom:4px;font-weight:600}
+input,select{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #333;background:#161616;color:#fff;font-size:0.85rem;outline:none}
+input:focus,select:focus{border-color:#3b82f6}
+.row{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.col{flex:1;min-width:160px}
+.check-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.check-row input[type=checkbox]{width:16px;height:16px;accent-color:#3b82f6}
+.check-row label{margin:0;font-size:0.85rem;color:#ccc;font-weight:normal}
+.kv-row{display:flex;gap:8px;margin-bottom:6px;align-items:center}
+.kv-row input{flex:1}
+.kv-row .rm{color:#666;cursor:pointer;font-size:0.8rem;padding:0 4px}
+.kv-row .rm:hover{color:#f85149}
+.add-btn{padding:5px 12px;font-size:0.78rem;border:1px dashed #444;background:transparent;color:#888;border-radius:4px;cursor:pointer}
+.add-btn:hover{border-color:#3b82f6;color:#4da6ff}
+.output{position:relative;background:#0d1117;border:1px solid #333;border-radius:8px;padding:14px;margin-top:12px;min-height:200px}
+.output pre{white-space:pre-wrap;font-family:'Fira Code',monospace;font-size:0.82rem;color:#c9d1d9;line-height:1.6}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 12px;font-size:0.75rem;border-radius:4px;border:1px solid #444;background:#21262d;color:#aaa;cursor:pointer}
+.copy-btn:hover{color:#fff;border-color:#3b82f6}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+.hint{font-size:0.75rem;color:#666;margin-top:2px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>tsconfig.json Generator</h1>
+<p class="sub">Build TypeScript configuration visually</p>
+
+<div class="presets" id="presetBtns"></div>
+
+<div class="section">
+<h3>Compiler Options — Target & Module</h3>
+<div class="row">
+<div class="col"><label>target</label>
+<select id="oTarget" onchange="gen()">
+<option>ES5</option><option>ES2015</option><option>ES2016</option><option>ES2017</option><option>ES2018</option><option>ES2019</option><option>ES2020</option><option>ES2021</option><option selected>ES2022</option><option>ES2023</option><option>ESNext</option>
+</select></div>
+<div class="col"><label>module</label>
+<select id="oModule" onchange="gen()">
+<option>CommonJS</option><option>AMD</option><option>UMD</option><option>ES2015</option><option>ES2020</option><option>ES2022</option><option selected>ESNext</option><option>Node16</option><option>NodeNext</option><option>None</option><option>Preserve</option>
+</select></div>
+<div class="col"><label>moduleResolution</label>
+<select id="oModRes" onchange="gen()">
+<option>node</option><option>classic</option><option selected>bundler</option><option>node16</option><option>nodenext</option>
+</select></div>
+</div>
+<div class="row">
+<div class="col"><label>lib (comma-sep)</label><input id="oLib" oninput="gen()" placeholder="ES2022, DOM, DOM.Iterable"></div>
+<div class="col"><label>jsx</label>
+<select id="oJsx" onchange="gen()">
+<option value="">None</option><option>preserve</option><option>react</option><option>react-jsx</option><option>react-jsxdev</option><option>react-native</option>
+</select></div>
+</div>
+</div>
+
+<div class="section">
+<h3>Strict Checks</h3>
+<div class="row">
+<div class="col">
+<div class="check-row"><input type="checkbox" id="oStrict" checked onchange="gen()"><label for="oStrict">strict (enables all below)</label></div>
+<div class="check-row"><input type="checkbox" id="oNoImplicitAny" onchange="gen()"><label for="oNoImplicitAny">noImplicitAny</label></div>
+<div class="check-row"><input type="checkbox" id="oStrictNull" onchange="gen()"><label for="oStrictNull">strictNullChecks</label></div>
+<div class="check-row"><input type="checkbox" id="oStrictFunc" onchange="gen()"><label for="oStrictFunc">strictFunctionTypes</label></div>
+</div>
+<div class="col">
+<div class="check-row"><input type="checkbox" id="oNoUnused" checked onchange="gen()"><label for="oNoUnused">noUnusedLocals</label></div>
+<div class="check-row"><input type="checkbox" id="oNoUnusedP" checked onchange="gen()"><label for="oNoUnusedP">noUnusedParameters</label></div>
+<div class="check-row"><input type="checkbox" id="oNoFallthrough" checked onchange="gen()"><label for="oNoFallthrough">noFallthroughCasesInSwitch</label></div>
+<div class="check-row"><input type="checkbox" id="oExactOptional" checked onchange="gen()"><label for="oExactOptional">exactOptionalPropertyTypes</label></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3>Output</h3>
+<div class="row">
+<div class="col"><label>outDir</label><input id="oOutDir" oninput="gen()" placeholder="dist"></div>
+<div class="col"><label>rootDir</label><input id="oRootDir" oninput="gen()" placeholder="src"></div>
+</div>
+<div class="row">
+<div class="col">
+<div class="check-row"><input type="checkbox" id="oDecl" checked onchange="gen()"><label for="oDecl">declaration</label></div>
+<div class="check-row"><input type="checkbox" id="oDeclMap" onchange="gen()"><label for="oDeclMap">declarationMap</label></div>
+<div class="check-row"><input type="checkbox" id="oSourceMap" checked onchange="gen()"><label for="oSourceMap">sourceMap</label></div>
+</div>
+<div class="col">
+<div class="check-row"><input type="checkbox" id="oEmitDecl" onchange="gen()"><label for="oEmitDecl">emitDeclarationOnly</label></div>
+<div class="check-row"><input type="checkbox" id="oNoEmit" onchange="gen()"><label for="oNoEmit">noEmit</label></div>
+<div class="check-row"><input type="checkbox" id="oIncremental" onchange="gen()"><label for="oIncremental">incremental</label></div>
+</div>
+</div>
+</div>
+
+<div class="section">
+<h3>Interop & Resolution</h3>
+<div class="check-row"><input type="checkbox" id="oEsInterop" checked onchange="gen()"><label for="oEsInterop">esModuleInterop</label></div>
+<div class="check-row"><input type="checkbox" id="oSynDefault" onchange="gen()"><label for="oSynDefault">allowSyntheticDefaultImports</label></div>
+<div class="check-row"><input type="checkbox" id="oResolveJson" checked onchange="gen()"><label for="oResolveJson">resolveJsonModule</label></div>
+<div class="check-row"><input type="checkbox" id="oIsolated" checked onchange="gen()"><label for="oIsolated">isolatedModules</label></div>
+<div class="check-row"><input type="checkbox" id="oSkipLib" checked onchange="gen()"><label for="oSkipLib">skipLibCheck</label></div>
+<div class="check-row"><input type="checkbox" id="oForceConsistent" checked onchange="gen()"><label for="oForceConsistent">forceConsistentCasingInFileNames</label></div>
+<div class="check-row"><input type="checkbox" id="oVerbatim" onchange="gen()"><label for="oVerbatim">verbatimModuleSyntax</label></div>
+</div>
+
+<div class="section">
+<h3>Path Aliases</h3>
+<div class="row"><div class="col"><label>baseUrl</label><input id="oBaseUrl" oninput="gen()" placeholder="."></div></div>
+<div id="pathsList"></div>
+<button class="add-btn" onclick="addPath()">+ Add Path Alias</button>
+<p class="hint">e.g., @/* → src/*</p>
+</div>
+
+<div class="section">
+<h3>Include / Exclude</h3>
+<div class="row">
+<div class="col"><label>include</label><input id="oInclude" oninput="gen()" placeholder="src/**/*.ts, src/**/*.tsx"></div>
+<div class="col"><label>exclude</label><input id="oExclude" oninput="gen()" placeholder="node_modules, dist"></div>
+</div>
+</div>
+
+<div class="output">
+<button class="copy-btn" onclick="copyOut()">Copy</button>
+<pre id="out"></pre>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/package-json-gen/">package.json Gen</a> | <a href="https://yurukusa.github.io/json-format/">JSON Format</a> | <a href="https://yurukusa.github.io/gh-actions-gen/">GH Actions Gen</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const PRESETS = {
+  'Node.js (ESM)': {target:'ES2022',module:'NodeNext',modRes:'nodenext',lib:'',jsx:'',strict:true,outDir:'dist',rootDir:'src',decl:true,sourceMap:true,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src/**/*.ts',exclude:'node_modules, dist',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:false,baseUrl:'',paths:[],verbatim:true,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'React (Vite)': {target:'ES2020',module:'ESNext',modRes:'bundler',lib:'ES2020, DOM, DOM.Iterable',jsx:'react-jsx',strict:true,outDir:'',rootDir:'',decl:false,sourceMap:false,noEmit:true,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src',exclude:'',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:false,baseUrl:'.',paths:[{k:'@/*',v:'src/*'}],verbatim:false,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'Next.js': {target:'ES2017',module:'ESNext',modRes:'bundler',lib:'DOM, DOM.Iterable, ESNext',jsx:'preserve',strict:true,outDir:'',rootDir:'',decl:false,sourceMap:false,noEmit:true,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'next-env.d.ts, **/*.ts, **/*.tsx',exclude:'node_modules',noUnused:false,noUnusedP:false,noFallthrough:false,exactOptional:false,baseUrl:'.',paths:[{k:'@/*',v:'./*'}],verbatim:false,declMap:false,emitDecl:false,incremental:true,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:true},
+  'Library': {target:'ES2020',module:'ESNext',modRes:'bundler',lib:'ES2020',jsx:'',strict:true,outDir:'dist',rootDir:'src',decl:true,sourceMap:true,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src/**/*.ts',exclude:'node_modules, dist, **/*.test.ts',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:true,baseUrl:'',paths:[],verbatim:false,declMap:true,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'CLI': {target:'ES2022',module:'NodeNext',modRes:'nodenext',lib:'',jsx:'',strict:true,outDir:'dist',rootDir:'src',decl:false,sourceMap:false,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src/**/*.ts',exclude:'node_modules, dist',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:false,baseUrl:'',paths:[],verbatim:true,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'Deno': {target:'ESNext',module:'ESNext',modRes:'bundler',lib:'ESNext, DOM',jsx:'',strict:true,outDir:'',rootDir:'',decl:false,sourceMap:false,noEmit:true,esInterop:false,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'**/*.ts',exclude:'',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:false,baseUrl:'',paths:[],verbatim:false,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'Monorepo Base': {target:'ES2022',module:'ESNext',modRes:'bundler',lib:'',jsx:'',strict:true,outDir:'',rootDir:'',decl:true,sourceMap:true,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'',exclude:'node_modules',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:true,baseUrl:'',paths:[],verbatim:false,declMap:true,emitDecl:false,incremental:true,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
+  'Minimal': {target:'ES2022',module:'ESNext',modRes:'bundler',lib:'',jsx:'',strict:true,outDir:'dist',rootDir:'src',decl:false,sourceMap:false,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src',exclude:'node_modules',noUnused:false,noUnusedP:false,noFallthrough:false,exactOptional:false,baseUrl:'',paths:[],verbatim:false,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false}
+};
+
+let paths = [];
+
+function esc(s){return(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+
+function initPresets(){
+  const c=document.getElementById('presetBtns');
+  Object.keys(PRESETS).forEach(n=>{
+    const b=document.createElement('div');b.className='preset';b.textContent=n;
+    b.onclick=()=>loadPreset(n);c.appendChild(b);
+  });
+}
+
+function loadPreset(name){
+  const p=PRESETS[name];if(!p)return;
+  document.querySelectorAll('.preset').forEach(el=>el.classList.toggle('active',el.textContent===name));
+  document.getElementById('oTarget').value=p.target;
+  document.getElementById('oModule').value=p.module;
+  document.getElementById('oModRes').value=p.modRes;
+  document.getElementById('oLib').value=p.lib;
+  document.getElementById('oJsx').value=p.jsx;
+  document.getElementById('oStrict').checked=p.strict;
+  document.getElementById('oNoImplicitAny').checked=p.noImplicitAny;
+  document.getElementById('oStrictNull').checked=p.strictNull;
+  document.getElementById('oStrictFunc').checked=p.strictFunc;
+  document.getElementById('oNoUnused').checked=p.noUnused;
+  document.getElementById('oNoUnusedP').checked=p.noUnusedP;
+  document.getElementById('oNoFallthrough').checked=p.noFallthrough;
+  document.getElementById('oExactOptional').checked=p.exactOptional;
+  document.getElementById('oOutDir').value=p.outDir;
+  document.getElementById('oRootDir').value=p.rootDir;
+  document.getElementById('oDecl').checked=p.decl;
+  document.getElementById('oDeclMap').checked=p.declMap;
+  document.getElementById('oSourceMap').checked=p.sourceMap;
+  document.getElementById('oEmitDecl').checked=p.emitDecl;
+  document.getElementById('oNoEmit').checked=p.noEmit;
+  document.getElementById('oIncremental').checked=p.incremental;
+  document.getElementById('oEsInterop').checked=p.esInterop;
+  document.getElementById('oSynDefault').checked=p.synDefault;
+  document.getElementById('oResolveJson').checked=p.resolveJson;
+  document.getElementById('oIsolated').checked=p.isolated;
+  document.getElementById('oSkipLib').checked=p.skipLib;
+  document.getElementById('oForceConsistent').checked=p.forceCase;
+  document.getElementById('oVerbatim').checked=p.verbatim;
+  document.getElementById('oBaseUrl').value=p.baseUrl;
+  document.getElementById('oInclude').value=p.include;
+  document.getElementById('oExclude').value=p.exclude;
+  paths=JSON.parse(JSON.stringify(p.paths||[]));
+  renderPaths();gen();
+}
+
+function addPath(){paths.push({k:'@/*',v:'src/*'});renderPaths();gen()}
+function removePath(i){paths.splice(i,1);renderPaths();gen()}
+function renderPaths(){
+  const c=document.getElementById('pathsList');c.innerHTML='';
+  paths.forEach((p,i)=>{
+    const d=document.createElement('div');d.className='kv-row';
+    d.innerHTML=`<input style="max-width:120px" value="${esc(p.k)}" onchange="paths[${i}].k=this.value;gen()" placeholder="@/*">
+    <span style="color:#666">→</span>
+    <input value="${esc(p.v)}" onchange="paths[${i}].v=this.value;gen()" placeholder="src/*">
+    <span class="rm" onclick="removePath(${i})">✕</span>`;
+    c.appendChild(d);
+  });
+}
+
+function gen(){
+  const co={};
+  co.target=document.getElementById('oTarget').value;
+  co.module=document.getElementById('oModule').value;
+  co.moduleResolution=document.getElementById('oModRes').value;
+  const lib=document.getElementById('oLib').value.split(',').map(s=>s.trim()).filter(Boolean);
+  if(lib.length) co.lib=lib;
+  const jsx=document.getElementById('oJsx').value;
+  if(jsx) co.jsx=jsx;
+  if(document.getElementById('oStrict').checked) co.strict=true;
+  if(document.getElementById('oNoImplicitAny').checked) co.noImplicitAny=true;
+  if(document.getElementById('oStrictNull').checked) co.strictNullChecks=true;
+  if(document.getElementById('oStrictFunc').checked) co.strictFunctionTypes=true;
+  if(document.getElementById('oNoUnused').checked) co.noUnusedLocals=true;
+  if(document.getElementById('oNoUnusedP').checked) co.noUnusedParameters=true;
+  if(document.getElementById('oNoFallthrough').checked) co.noFallthroughCasesInSwitch=true;
+  if(document.getElementById('oExactOptional').checked) co.exactOptionalPropertyTypes=true;
+  const outDir=document.getElementById('oOutDir').value;
+  if(outDir) co.outDir=outDir;
+  const rootDir=document.getElementById('oRootDir').value;
+  if(rootDir) co.rootDir=rootDir;
+  if(document.getElementById('oDecl').checked) co.declaration=true;
+  if(document.getElementById('oDeclMap').checked) co.declarationMap=true;
+  if(document.getElementById('oSourceMap').checked) co.sourceMap=true;
+  if(document.getElementById('oEmitDecl').checked) co.emitDeclarationOnly=true;
+  if(document.getElementById('oNoEmit').checked) co.noEmit=true;
+  if(document.getElementById('oIncremental').checked) co.incremental=true;
+  if(document.getElementById('oEsInterop').checked) co.esModuleInterop=true;
+  if(document.getElementById('oSynDefault').checked) co.allowSyntheticDefaultImports=true;
+  if(document.getElementById('oResolveJson').checked) co.resolveJsonModule=true;
+  if(document.getElementById('oIsolated').checked) co.isolatedModules=true;
+  if(document.getElementById('oSkipLib').checked) co.skipLibCheck=true;
+  if(document.getElementById('oForceConsistent').checked) co.forceConsistentCasingInFileNames=true;
+  if(document.getElementById('oVerbatim').checked) co.verbatimModuleSyntax=true;
+
+  const baseUrl=document.getElementById('oBaseUrl').value;
+  if(baseUrl) co.baseUrl=baseUrl;
+  if(paths.length){
+    co.paths={};
+    paths.forEach(p=>{if(p.k&&p.v) co.paths[p.k]=[p.v]});
+  }
+
+  const cfg={compilerOptions:co};
+  const inc=document.getElementById('oInclude').value.split(',').map(s=>s.trim()).filter(Boolean);
+  if(inc.length) cfg.include=inc;
+  const exc=document.getElementById('oExclude').value.split(',').map(s=>s.trim()).filter(Boolean);
+  if(exc.length) cfg.exclude=exc;
+
+  document.getElementById('out').textContent=JSON.stringify(cfg,null,2);
+}
+
+function copyOut(){
+  navigator.clipboard.writeText(document.getElementById('out').textContent);
+  const t=document.getElementById('toast');t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+initPresets();
+loadPreset('Node.js (ESM)');
+</script>
+</body>
+</html>

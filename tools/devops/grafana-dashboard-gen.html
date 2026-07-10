@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grafana Dashboard Generator — Create Dashboard JSON Visually</title>
+<meta name="description" content="Generate Grafana dashboard JSON visually. Add panels, set queries, configure thresholds. Import-ready JSON. No signup required.">
+<link rel="canonical" href="https://yurukusa.github.io/grafana-dashboard-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Grafana Dashboard Generator","description":"Generate Grafana dashboard JSON visually. Panels, queries, thresholds.","url":"https://yurukusa.github.io/grafana-dashboard-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:0.78rem;color:#888;margin-bottom:4px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:6px 10px;color:#e6e6e6;font-size:0.82rem}
+.field textarea{min-height:60px;resize:vertical;font-family:'Fira Code',monospace}
+.field-row{display:flex;gap:10px}
+.field-row .field{flex:1}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.preset{padding:5px 12px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.75rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.panel-card{background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:12px;margin-bottom:10px;position:relative}
+.panel-card h4{font-size:0.82rem;color:#4da6ff;margin-bottom:8px}
+.panel-card .remove{position:absolute;top:8px;right:8px;width:20px;height:20px;background:#ef4444;color:#fff;border:none;border-radius:4px;cursor:pointer;font-size:12px;display:flex;align-items:center;justify-content:center}
+.btn{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#ccc;font-size:0.8rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#3b82f6;color:#4da6ff}
+.btn-primary{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.btn-sm{padding:4px 10px;font-size:0.75rem}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+.output-area{width:100%;min-height:350px;max-height:600px;background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:10px;color:#e6e6e6;font-family:'Fira Code',monospace;font-size:0.72rem;overflow:auto;white-space:pre}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Grafana Dashboard Generator</h1>
+<p class="sub">Create import-ready Grafana dashboard JSON — no Grafana needed</p>
+
+<div class="section">
+<h3>Dashboard</h3>
+<div class="field-row">
+<div class="field"><label>Title</label><input id="dTitle" value="My Dashboard" oninput="gen()"></div>
+<div class="field"><label>Refresh Interval</label><select id="dRefresh" onchange="gen()"><option value="5s">5s</option><option value="10s">10s</option><option value="30s" selected>30s</option><option value="1m">1m</option><option value="5m">5m</option></select></div>
+</div>
+<div class="field"><label>Tags (comma-separated)</label><input id="dTags" value="monitoring" oninput="gen()"></div>
+</div>
+
+<div class="section">
+<h3>Presets</h3>
+<div class="presets">
+<div class="preset" onclick="loadPreset('node-exporter')">Node Exporter</div>
+<div class="preset" onclick="loadPreset('docker')">Docker</div>
+<div class="preset" onclick="loadPreset('nginx')">Nginx</div>
+<div class="preset" onclick="loadPreset('kubernetes')">Kubernetes</div>
+<div class="preset" onclick="loadPreset('api')">API Monitoring</div>
+</div>
+</div>
+
+<div class="layout">
+<div>
+<div class="section">
+<h3>Panels</h3>
+<div id="panelsList"></div>
+<button class="btn btn-sm" onclick="addPanel()">+ Add Panel</button>
+</div>
+</div>
+
+<div>
+<div class="output-area" id="output"></div>
+<div class="actions">
+<button class="btn btn-primary" onclick="copyJSON()">Copy JSON</button>
+<button class="btn" onclick="downloadJSON()">Download .json</button>
+</div>
+</div>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/k8s-yaml-gen/">K8s YAML</a> | <a href="https://yurukusa.github.io/docker-compose-gen/">Docker Compose</a> | <a href="https://yurukusa.github.io/json-formatter/">JSON Formatter</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+let panels=[];
+let nextId=1;
+
+function addPanel(title,type,query,unit){
+  panels.push({
+    id:nextId++,
+    title:title||'Panel '+(panels.length+1),
+    type:type||'timeseries',
+    query:query||'up',
+    unit:unit||'short',
+    thresholdMode:'off',
+    thresholdValue:80
+  });
+  renderPanels();gen();
+}
+
+function removePanel(id){
+  panels=panels.filter(p=>p.id!==id);
+  renderPanels();gen();
+}
+
+function renderPanels(){
+  const list=document.getElementById('panelsList');
+  list.innerHTML='';
+  panels.forEach((p,i)=>{
+    const card=document.createElement('div');
+    card.className='panel-card';
+    card.innerHTML=`
+      <h4>Panel ${i+1}</h4>
+      <button class="remove" onclick="removePanel(${p.id})">×</button>
+      <div class="field"><label>Title</label><input value="${esc(p.title)}" onchange="panels[${i}].title=this.value;gen()"></div>
+      <div class="field-row">
+        <div class="field"><label>Type</label><select onchange="panels[${i}].type=this.value;gen()">
+          <option value="timeseries"${p.type==='timeseries'?' selected':''}>Time Series</option>
+          <option value="stat"${p.type==='stat'?' selected':''}>Stat</option>
+          <option value="gauge"${p.type==='gauge'?' selected':''}>Gauge</option>
+          <option value="bargauge"${p.type==='bargauge'?' selected':''}>Bar Gauge</option>
+          <option value="table"${p.type==='table'?' selected':''}>Table</option>
+          <option value="heatmap"${p.type==='heatmap'?' selected':''}>Heatmap</option>
+        </select></div>
+        <div class="field"><label>Unit</label><select onchange="panels[${i}].unit=this.value;gen()">
+          <option value="short"${p.unit==='short'?' selected':''}>Short</option>
+          <option value="percent"${p.unit==='percent'?' selected':''}>Percent</option>
+          <option value="bytes"${p.unit==='bytes'?' selected':''}>Bytes</option>
+          <option value="s"${p.unit==='s'?' selected':''}>Seconds</option>
+          <option value="reqps"${p.unit==='reqps'?' selected':''}>Req/s</option>
+          <option value="decbytes"${p.unit==='decbytes'?' selected':''}>Dec Bytes</option>
+        </select></div>
+      </div>
+      <div class="field"><label>PromQL Query</label><input value="${esc(p.query)}" onchange="panels[${i}].query=this.value;gen()"></div>
+    `;
+    list.appendChild(card);
+  });
+}
+
+function esc(s){return s.replace(/"/g,'&quot;')}
+
+function gen(){
+  const title=document.getElementById('dTitle').value;
+  const refresh=document.getElementById('dRefresh').value;
+  const tags=document.getElementById('dTags').value.split(',').map(t=>t.trim()).filter(Boolean);
+
+  const gridW=12;
+  const panelHeight=8;
+
+  const dashboard={
+    __inputs:[{name:'DS_PROMETHEUS',label:'Prometheus',type:'datasource',pluginId:'prometheus'}],
+    title:title,
+    tags:tags,
+    timezone:'browser',
+    refresh:refresh,
+    time:{from:'now-1h',to:'now'},
+    panels:panels.map((p,i)=>{
+      const col=(i%2)*gridW;
+      const row=Math.floor(i/2)*panelHeight;
+      const panel={
+        id:p.id,
+        title:p.title,
+        type:p.type,
+        gridPos:{h:panelHeight,w:gridW,x:col,y:row},
+        datasource:{type:'prometheus',uid:'${DS_PROMETHEUS}'},
+        targets:[{expr:p.query,refId:'A'}],
+        fieldConfig:{
+          defaults:{
+            unit:p.unit,
+            thresholds:{mode:'absolute',steps:[{color:'green',value:null}]}
+          },
+          overrides:[]
+        }
+      };
+      return panel;
+    }),
+    schemaVersion:39,
+    version:1
+  };
+
+  document.getElementById('output').textContent=JSON.stringify(dashboard,null,2);
+}
+
+function loadPreset(name){
+  panels=[];nextId=1;
+  const presets={
+    'node-exporter':[
+      {title:'CPU Usage',type:'timeseries',query:'100 - (avg by(instance) (rate(node_cpu_seconds_total{mode="idle"}[5m])) * 100)',unit:'percent'},
+      {title:'Memory Usage',type:'gauge',query:'(1 - (node_memory_MemAvailable_bytes / node_memory_MemTotal_bytes)) * 100',unit:'percent'},
+      {title:'Disk Usage',type:'stat',query:'(1 - (node_filesystem_avail_bytes{mountpoint="/"} / node_filesystem_size_bytes{mountpoint="/"})) * 100',unit:'percent'},
+      {title:'Network Received',type:'timeseries',query:'rate(node_network_receive_bytes_total{device="eth0"}[5m])',unit:'bytes'},
+      {title:'Load Average',type:'timeseries',query:'node_load1',unit:'short'},
+      {title:'Uptime',type:'stat',query:'node_time_seconds - node_boot_time_seconds',unit:'s'}
+    ],
+    docker:[
+      {title:'Container CPU',type:'timeseries',query:'rate(container_cpu_usage_seconds_total[5m]) * 100',unit:'percent'},
+      {title:'Container Memory',type:'timeseries',query:'container_memory_usage_bytes',unit:'bytes'},
+      {title:'Running Containers',type:'stat',query:'count(container_last_seen)',unit:'short'},
+      {title:'Network I/O',type:'timeseries',query:'rate(container_network_receive_bytes_total[5m])',unit:'bytes'}
+    ],
+    nginx:[
+      {title:'Requests/sec',type:'timeseries',query:'rate(nginx_http_requests_total[5m])',unit:'reqps'},
+      {title:'Active Connections',type:'stat',query:'nginx_connections_active',unit:'short'},
+      {title:'5xx Errors',type:'timeseries',query:'rate(nginx_http_requests_total{status=~"5.."}[5m])',unit:'reqps'},
+      {title:'Response Time',type:'timeseries',query:'histogram_quantile(0.95, rate(nginx_request_duration_seconds_bucket[5m]))',unit:'s'}
+    ],
+    kubernetes:[
+      {title:'Pod CPU',type:'timeseries',query:'sum(rate(container_cpu_usage_seconds_total{namespace="default"}[5m])) by (pod)',unit:'short'},
+      {title:'Pod Memory',type:'timeseries',query:'sum(container_memory_working_set_bytes{namespace="default"}) by (pod)',unit:'bytes'},
+      {title:'Pod Restarts',type:'stat',query:'sum(kube_pod_container_status_restarts_total{namespace="default"}) by (pod)',unit:'short'},
+      {title:'Node Count',type:'stat',query:'count(kube_node_info)',unit:'short'}
+    ],
+    api:[
+      {title:'Request Rate',type:'timeseries',query:'rate(http_requests_total[5m])',unit:'reqps'},
+      {title:'Error Rate',type:'timeseries',query:'rate(http_requests_total{status=~"5.."}[5m]) / rate(http_requests_total[5m]) * 100',unit:'percent'},
+      {title:'P95 Latency',type:'timeseries',query:'histogram_quantile(0.95, rate(http_request_duration_seconds_bucket[5m]))',unit:'s'},
+      {title:'Availability',type:'stat',query:'(1 - rate(http_requests_total{status=~"5.."}[24h]) / rate(http_requests_total[24h])) * 100',unit:'percent'}
+    ]
+  };
+  const p=presets[name];if(!p)return;
+  p.forEach(panel=>addPanel(panel.title,panel.type,panel.query,panel.unit));
+}
+
+function copyJSON(){
+  navigator.clipboard.writeText(document.getElementById('output').textContent).then(()=>showToast('Copied!'));
+}
+
+function downloadJSON(){
+  const text=document.getElementById('output').textContent;
+  const blob=new Blob([text],{type:'application/json'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download='dashboard.json';a.click();
+  showToast('Downloaded!');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+// Init with example
+addPanel('Example','timeseries','up','short');
+</script>
+</body>
+</html>

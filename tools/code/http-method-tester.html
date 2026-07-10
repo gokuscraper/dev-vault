@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTTP Method Explorer</title>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;line-height:1.6;padding:20px;max-width:1200px;margin:0 auto}
+h1{text-align:center;margin-bottom:8px;font-size:1.8rem;color:#ff9800}
+.subtitle{text-align:center;color:#888;margin-bottom:24px;font-size:0.95rem}
+.section{background:#141414;border:1px solid #2a2a2a;border-radius:8px;padding:20px;margin-bottom:16px}
+.section h2{font-size:1.1rem;color:#ff9800;margin-bottom:12px}
+h3{color:#ffb74d;margin:12px 0 8px;font-size:1rem}
+table{width:100%;border-collapse:collapse;font-size:0.85rem}
+th{background:#1a1a2e;color:#ff9800;text-align:left;padding:10px 12px;border:1px solid #2a2a2a;position:sticky;top:0}
+td{padding:10px 12px;border:1px solid #2a2a2a;vertical-align:top}
+tr:nth-child(even){background:#111}
+tr:hover{background:#1a1a1a}
+.badge{display:inline-block;padding:2px 8px;border-radius:10px;font-size:0.75rem;font-weight:bold}
+.badge.yes{background:#1b3a1b;color:#81c784}
+.badge.no{background:#3a1b1b;color:#ef9a9a}
+.badge.cond{background:#3a3a1b;color:#fff176}
+.methods-nav{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.methods-nav button{padding:8px 16px;border:1px solid #333;background:#1a1a1a;color:#e0e0e0;border-radius:4px;cursor:pointer;font-size:0.85rem;transition:all .2s}
+.methods-nav button:hover,.methods-nav button.active{background:#e65100;border-color:#ff9800;color:#fff}
+.method-detail{display:none}
+.method-detail.active{display:block}
+.method-color{font-weight:bold;padding:2px 6px;border-radius:3px}
+.mc-get{color:#81c784}.mc-post{color:#ffb74d}.mc-put{color:#64b5f6}.mc-patch{color:#ce93d8}
+.mc-delete{color:#ef9a9a}.mc-head{color:#80deea}.mc-options{color:#fff176}.mc-trace{color:#bcaaa4}.mc-connect{color:#b0bec5}
+pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;font-family:'Fira Code',monospace;font-size:0.82rem;overflow-x:auto;white-space:pre;margin:8px 0}
+.req{color:#81c784}.res{color:#64b5f6}.header{color:#ce93d8}.status{color:#ffb74d}
+.tabs{display:flex;gap:4px;margin-bottom:16px}
+.tabs button{flex:1;padding:10px;background:#1a1a1a;color:#e0e0e0;border:1px solid #333;border-radius:4px;cursor:pointer;font-size:0.85rem}
+.tabs button.active{background:#e65100;border-color:#ff9800}
+.tab-content{display:none}.tab-content.active{display:block}
+.status-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+.status-card{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:4px;padding:10px}
+.status-code{font-weight:bold;font-size:1rem}
+.s1xx{color:#64b5f6}.s2xx{color:#81c784}.s3xx{color:#fff176}.s4xx{color:#ffb74d}.s5xx{color:#ef9a9a}
+.cors-flow{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:8px;padding:16px;margin:12px 0}
+.cors-step{padding:8px 12px;margin:4px 0;border-left:3px solid #ff9800;background:#141414;border-radius:0 4px 4px 0;font-size:0.85rem}
+.rest-pattern{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin:8px 0}
+.rest-pattern code{color:#ff9800}
+</style>
+</head>
+<body>
+<h1>HTTP Method Explorer</h1>
+<p class="subtitle">Interactive reference for HTTP methods, status codes, and REST patterns</p>
+
+<div class="section">
+<h2>Comparison Table</h2>
+<div style="overflow-x:auto">
+<table>
+<thead><tr><th>Method</th><th>Safe</th><th>Idempotent</th><th>Cacheable</th><th>Request Body</th><th>Response Body</th><th>Use Case</th></tr></thead>
+<tbody>
+<tr><td class="mc-get">GET</td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td>Retrieve resource</td></tr>
+<tr><td class="mc-post">POST</td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge cond">Cond</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td>Create resource</td></tr>
+<tr><td class="mc-put">PUT</td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge cond">Cond</span></td><td>Replace resource</td></tr>
+<tr><td class="mc-patch">PATCH</td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td>Partial update</td></tr>
+<tr><td class="mc-delete">DELETE</td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge cond">Cond</span></td><td><span class="badge cond">Cond</span></td><td>Remove resource</td></tr>
+<tr><td class="mc-head">HEAD</td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td>Headers only</td></tr>
+<tr><td class="mc-options">OPTIONS</td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td>Discover options</td></tr>
+<tr><td class="mc-trace">TRACE</td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td>Diagnostic loopback</td></tr>
+<tr><td class="mc-connect">CONNECT</td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge cond">Cond</span></td><td><span class="badge yes">Yes</span></td><td>Establish tunnel</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<div class="section">
+<h2>Method Details</h2>
+<div class="methods-nav" id="methodNav"></div>
+<div id="methodDetails"></div>
+</div>
+
+<div class="section">
+<h2>Explore</h2>
+<div class="tabs">
+<button class="active" onclick="showTab('statusCodes',this)">Status Codes</button>
+<button onclick="showTab('restPatterns',this)">REST Patterns</button>
+<button onclick="showTab('corsExplain',this)">CORS & Preflight</button>
+</div>
+<div class="tab-content active" id="statusCodes"></div>
+<div class="tab-content" id="restPatterns"></div>
+<div class="tab-content" id="corsExplain"></div>
+</div>
+
+<script>
+const methods = {
+  GET: {
+    color:'mc-get', desc:'Retrieves the representation of a resource. Must not have side effects.',
+    semantics:'The GET method requests transfer of a current selected representation for the target resource. GET is the primary mechanism of information retrieval.',
+    idempotent:true, safe:true, cacheable:true, body:'Should not', responseBody:true,
+    example:{req:'GET /api/users/42 HTTP/1.1\nHost: api.example.com\nAccept: application/json\nAuthorization: Bearer token123',
+             res:'HTTP/1.1 200 OK\nContent-Type: application/json\nCache-Control: max-age=3600\nETag: "abc123"\n\n{\n  "id": 42,\n  "name": "Alice",\n  "email": "alice@example.com"\n}'}
+  },
+  POST: {
+    color:'mc-post', desc:'Submits data to create a new resource or trigger a process.',
+    semantics:'The POST method requests that the target resource process the representation enclosed in the request according to the resource\'s own specific semantics.',
+    idempotent:false, safe:false, cacheable:'Conditionally', body:'Yes', responseBody:true,
+    example:{req:'POST /api/users HTTP/1.1\nHost: api.example.com\nContent-Type: application/json\nAuthorization: Bearer token123\n\n{\n  "name": "Bob",\n  "email": "bob@example.com"\n}',
+             res:'HTTP/1.1 201 Created\nContent-Type: application/json\nLocation: /api/users/43\n\n{\n  "id": 43,\n  "name": "Bob",\n  "email": "bob@example.com"\n}'}
+  },
+  PUT: {
+    color:'mc-put', desc:'Replaces the entire target resource with the request payload.',
+    semantics:'The PUT method requests that the state of the target resource be created or replaced with the state defined by the representation enclosed in the request message content.',
+    idempotent:true, safe:false, cacheable:false, body:'Yes', responseBody:'Optional',
+    example:{req:'PUT /api/users/42 HTTP/1.1\nHost: api.example.com\nContent-Type: application/json\n\n{\n  "id": 42,\n  "name": "Alice Updated",\n  "email": "alice.new@example.com"\n}',
+             res:'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n  "id": 42,\n  "name": "Alice Updated",\n  "email": "alice.new@example.com"\n}'}
+  },
+  PATCH: {
+    color:'mc-patch', desc:'Applies partial modifications to a resource.',
+    semantics:'The PATCH method requests that a set of changes described in the request entity be applied to the resource identified by the Request-URI. Differs from PUT in that it contains instructions for modification rather than a complete replacement.',
+    idempotent:false, safe:false, cacheable:false, body:'Yes', responseBody:true,
+    example:{req:'PATCH /api/users/42 HTTP/1.1\nHost: api.example.com\nContent-Type: application/json\n\n{\n  "email": "alice.patched@example.com"\n}',
+             res:'HTTP/1.1 200 OK\nContent-Type: application/json\n\n{\n  "id": 42,\n  "name": "Alice",\n  "email": "alice.patched@example.com"\n}'}
+  },
+  DELETE: {
+    color:'mc-delete', desc:'Removes the target resource.',
+    semantics:'The DELETE method requests that the origin server remove the association between the target resource and its current functionality.',
+    idempotent:true, safe:false, cacheable:false, body:'Optional', responseBody:'Optional',
+    example:{req:'DELETE /api/users/42 HTTP/1.1\nHost: api.example.com\nAuthorization: Bearer token123',
+             res:'HTTP/1.1 204 No Content'}
+  },
+  HEAD: {
+    color:'mc-head', desc:'Identical to GET but without the response body. Used for checking resource existence or metadata.',
+    semantics:'The HEAD method is identical to GET except that the server MUST NOT send content in the response. Used to obtain metadata about the selected representation without transferring the representation data.',
+    idempotent:true, safe:true, cacheable:true, body:'No', responseBody:false,
+    example:{req:'HEAD /api/users/42 HTTP/1.1\nHost: api.example.com',
+             res:'HTTP/1.1 200 OK\nContent-Type: application/json\nContent-Length: 128\nETag: "abc123"\nLast-Modified: Wed, 12 Mar 2026 10:00:00 GMT'}
+  },
+  OPTIONS: {
+    color:'mc-options', desc:'Describes the communication options for the target resource. Used in CORS preflight.',
+    semantics:'The OPTIONS method requests information about the communication options available for the target resource. This method allows a client to determine the options and/or requirements associated with a resource.',
+    idempotent:true, safe:true, cacheable:false, body:'No', responseBody:true,
+    example:{req:'OPTIONS /api/users HTTP/1.1\nHost: api.example.com\nOrigin: https://app.example.com\nAccess-Control-Request-Method: POST\nAccess-Control-Request-Headers: Content-Type, Authorization',
+             res:'HTTP/1.1 204 No Content\nAccess-Control-Allow-Origin: https://app.example.com\nAccess-Control-Allow-Methods: GET, POST, PUT, DELETE\nAccess-Control-Allow-Headers: Content-Type, Authorization\nAccess-Control-Max-Age: 86400'}
+  },
+  TRACE: {
+    color:'mc-trace', desc:'Performs a message loop-back test along the path to the target resource.',
+    semantics:'The TRACE method requests a remote, application-level loop-back of the request message. Typically disabled in production due to security concerns (Cross-Site Tracing).',
+    idempotent:true, safe:true, cacheable:false, body:'No', responseBody:true,
+    example:{req:'TRACE /api/debug HTTP/1.1\nHost: api.example.com',
+             res:'HTTP/1.1 200 OK\nContent-Type: message/http\n\nTRACE /api/debug HTTP/1.1\nHost: api.example.com'}
+  },
+  CONNECT: {
+    color:'mc-connect', desc:'Establishes a tunnel to the server identified by the target resource.',
+    semantics:'The CONNECT method requests that the recipient establish a tunnel to the destination origin server identified by the request-target and, if successful, thereafter restrict its behavior to blind forwarding of data in both directions until the tunnel is closed.',
+    idempotent:false, safe:false, cacheable:false, body:'Optional', responseBody:true,
+    example:{req:'CONNECT www.example.com:443 HTTP/1.1\nHost: www.example.com:443\nProxy-Authorization: Basic encoded-credentials',
+             res:'HTTP/1.1 200 Connection Established\n\n[TLS handshake begins...]'}
+  }
+};
+
+const statusCodes = [
+  {code:'100',name:'Continue',cat:'1xx',desc:'Server received headers, client should continue'},
+  {code:'101',name:'Switching Protocols',cat:'1xx',desc:'Server agrees to switch protocols (e.g., WebSocket)'},
+  {code:'200',name:'OK',cat:'2xx',desc:'Request succeeded'},
+  {code:'201',name:'Created',cat:'2xx',desc:'Resource created (POST). Include Location header'},
+  {code:'204',name:'No Content',cat:'2xx',desc:'Success, no body (DELETE, PUT)'},
+  {code:'206',name:'Partial Content',cat:'2xx',desc:'Range request fulfilled'},
+  {code:'301',name:'Moved Permanently',cat:'3xx',desc:'Resource permanently moved. Update bookmarks'},
+  {code:'302',name:'Found',cat:'3xx',desc:'Temporary redirect'},
+  {code:'304',name:'Not Modified',cat:'3xx',desc:'Cached version is still valid (ETag/If-Modified-Since)'},
+  {code:'307',name:'Temporary Redirect',cat:'3xx',desc:'Like 302 but preserves method'},
+  {code:'308',name:'Permanent Redirect',cat:'3xx',desc:'Like 301 but preserves method'},
+  {code:'400',name:'Bad Request',cat:'4xx',desc:'Malformed request syntax or invalid parameters'},
+  {code:'401',name:'Unauthorized',cat:'4xx',desc:'Authentication required or failed'},
+  {code:'403',name:'Forbidden',cat:'4xx',desc:'Authenticated but not authorized'},
+  {code:'404',name:'Not Found',cat:'4xx',desc:'Resource does not exist'},
+  {code:'405',name:'Method Not Allowed',cat:'4xx',desc:'Method not supported for this resource'},
+  {code:'409',name:'Conflict',cat:'4xx',desc:'Request conflicts with current state'},
+  {code:'415',name:'Unsupported Media Type',cat:'4xx',desc:'Content-Type not supported'},
+  {code:'422',name:'Unprocessable Entity',cat:'4xx',desc:'Syntactically correct but semantically invalid'},
+  {code:'429',name:'Too Many Requests',cat:'4xx',desc:'Rate limit exceeded'},
+  {code:'500',name:'Internal Server Error',cat:'5xx',desc:'Unexpected server error'},
+  {code:'502',name:'Bad Gateway',cat:'5xx',desc:'Invalid response from upstream'},
+  {code:'503',name:'Service Unavailable',cat:'5xx',desc:'Server temporarily overloaded or in maintenance'},
+  {code:'504',name:'Gateway Timeout',cat:'5xx',desc:'Upstream server timed out'}
+];
+
+// Render method nav
+const nav = document.getElementById('methodNav');
+const details = document.getElementById('methodDetails');
+Object.keys(methods).forEach((m, i) => {
+  const btn = document.createElement('button');
+  btn.textContent = m;
+  btn.className = i === 0 ? 'active' : '';
+  btn.onclick = () => showMethod(m, btn);
+  nav.appendChild(btn);
+});
+
+function showMethod(name, btn) {
+  nav.querySelectorAll('button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  const m = methods[name];
+  details.innerHTML = `
+    <div class="method-detail active">
+      <h3 class="${m.color}">${name}</h3>
+      <p>${m.desc}</p>
+      <h3>Semantics</h3>
+      <p style="color:#aaa;font-size:0.9rem">${m.semantics}</p>
+      <h3>Properties</h3>
+      <table style="width:auto">
+        <tr><td>Safe</td><td>${m.safe?'<span class="badge yes">Yes</span>':'<span class="badge no">No</span>'}</td></tr>
+        <tr><td>Idempotent</td><td>${m.idempotent?'<span class="badge yes">Yes</span>':'<span class="badge no">No</span>'}</td></tr>
+        <tr><td>Cacheable</td><td>${typeof m.cacheable==='string'?`<span class="badge cond">${m.cacheable}</span>`:m.cacheable?'<span class="badge yes">Yes</span>':'<span class="badge no">No</span>'}</td></tr>
+        <tr><td>Request Body</td><td>${m.body}</td></tr>
+        <tr><td>Response Body</td><td>${typeof m.responseBody==='string'?m.responseBody:m.responseBody?'Yes':'No'}</td></tr>
+      </table>
+      <h3>Request Example</h3>
+      <pre><span class="req">${m.example.req}</span></pre>
+      <h3>Response Example</h3>
+      <pre><span class="res">${m.example.res}</span></pre>
+    </div>`;
+}
+showMethod('GET', nav.querySelector('button'));
+
+// Status codes
+document.getElementById('statusCodes').innerHTML = '<div class="status-grid">' +
+  statusCodes.map(s => `<div class="status-card"><span class="status-code s${s.cat}">${s.code}</span> <strong>${s.name}</strong><br><span style="color:#888;font-size:0.82rem">${s.desc}</span></div>`).join('') + '</div>';
+
+// REST patterns
+document.getElementById('restPatterns').innerHTML = `
+<h3>RESTful Resource Patterns</h3>
+<div class="rest-pattern"><code>GET    /users</code> &mdash; List all users (collection)</div>
+<div class="rest-pattern"><code>GET    /users/:id</code> &mdash; Get single user (resource)</div>
+<div class="rest-pattern"><code>POST   /users</code> &mdash; Create new user</div>
+<div class="rest-pattern"><code>PUT    /users/:id</code> &mdash; Replace user entirely</div>
+<div class="rest-pattern"><code>PATCH  /users/:id</code> &mdash; Update user partially</div>
+<div class="rest-pattern"><code>DELETE /users/:id</code> &mdash; Delete user</div>
+<h3>Nested Resources</h3>
+<div class="rest-pattern"><code>GET    /users/:id/posts</code> &mdash; List user's posts</div>
+<div class="rest-pattern"><code>POST   /users/:id/posts</code> &mdash; Create post for user</div>
+<div class="rest-pattern"><code>GET    /users/:id/posts/:pid</code> &mdash; Get specific post</div>
+<h3>Filtering, Sorting, Pagination</h3>
+<div class="rest-pattern"><code>GET /users?status=active&sort=name&page=2&limit=20</code></div>
+<h3>Bulk Operations</h3>
+<div class="rest-pattern"><code>POST   /users/bulk</code> &mdash; Create multiple (non-standard but common)</div>
+<div class="rest-pattern"><code>PATCH  /users/bulk</code> &mdash; Update multiple</div>
+<div class="rest-pattern"><code>DELETE /users/bulk</code> &mdash; Delete multiple (body contains IDs)</div>
+<h3>Actions (RPC-style)</h3>
+<div class="rest-pattern"><code>POST /users/:id/activate</code> &mdash; When CRUD doesn't fit</div>
+<div class="rest-pattern"><code>POST /orders/:id/cancel</code> &mdash; Action on resource</div>
+<h3>Versioning</h3>
+<div class="rest-pattern"><code>GET /v2/users</code> &mdash; URL path versioning (most common)</div>
+<div class="rest-pattern"><code>Accept: application/vnd.api+json;version=2</code> &mdash; Header versioning</div>`;
+
+// CORS
+document.getElementById('corsExplain').innerHTML = `
+<h3>CORS Preflight Flow</h3>
+<p style="color:#aaa;font-size:0.9rem;margin-bottom:12px">When a browser makes a cross-origin request that is not "simple", it first sends an OPTIONS preflight request to check if the actual request is permitted.</p>
+<div class="cors-flow">
+  <div class="cors-step"><strong>1. Browser detects cross-origin request</strong><br>Non-simple conditions: custom headers, methods other than GET/HEAD/POST, Content-Type other than form types</div>
+  <div class="cors-step"><strong>2. Browser sends OPTIONS preflight</strong><br><code>Origin: https://app.example.com</code><br><code>Access-Control-Request-Method: POST</code><br><code>Access-Control-Request-Headers: Content-Type, Authorization</code></div>
+  <div class="cors-step"><strong>3. Server responds with allowed origins/methods/headers</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br><code>Access-Control-Allow-Methods: GET, POST, PUT, DELETE</code><br><code>Access-Control-Allow-Headers: Content-Type, Authorization</code><br><code>Access-Control-Max-Age: 86400</code></div>
+  <div class="cors-step"><strong>4. If allowed, browser sends actual request</strong><br>The real POST/PUT/DELETE with the actual payload</div>
+  <div class="cors-step"><strong>5. Server includes CORS headers in response</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br>Without this header, browser blocks the response from JS</div>
+</div>
+<h3>Simple Requests (No Preflight)</h3>
+<p style="color:#aaa;font-size:0.9rem">Methods: GET, HEAD, POST. Headers: Accept, Accept-Language, Content-Language, Content-Type (only application/x-www-form-urlencoded, multipart/form-data, text/plain).</p>
+<h3>Credentialed Requests</h3>
+<p style="color:#aaa;font-size:0.9rem">When <code>credentials: 'include'</code> is set, the server must respond with a specific origin (not <code>*</code>) and <code>Access-Control-Allow-Credentials: true</code>.</p>`;
+
+function showTab(id, btn) {
+  document.querySelectorAll('.tabs button').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>

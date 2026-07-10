@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dependabot Config Generator — Build dependabot.yml Visually</title>
+<meta name="description" content="Generate dependabot.yml visually. npm, pip, cargo, go, docker, github-actions ecosystems. Schedule, groups, ignore rules.">
+<link rel="canonical" href="https://yurukusa.github.io/dependabot-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Dependabot Config Generator","description":"Generate GitHub Dependabot configuration visually with ecosystem presets.","url":"https://yurukusa.github.io/dependabot-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;justify-content:center}
+.preset{padding:7px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.8rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.preset.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+label{display:block;font-size:0.8rem;color:#aaa;margin-bottom:4px;font-weight:600}
+input,select{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #333;background:#161616;color:#fff;font-size:0.85rem;outline:none}
+.row{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.col{flex:1;min-width:140px}
+.check-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.check-row input[type=checkbox]{width:16px;height:16px;accent-color:#3b82f6}
+.check-row label{margin:0;font-size:0.85rem;color:#ccc;font-weight:normal}
+.eco-item{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin-bottom:8px;position:relative}
+.eco-item .remove{position:absolute;top:6px;right:8px;color:#666;cursor:pointer;font-size:0.8rem}
+.eco-item .remove:hover{color:#f85149}
+.add-btn{padding:5px 12px;font-size:0.78rem;border:1px dashed #444;background:transparent;color:#888;border-radius:4px;cursor:pointer}
+.add-btn:hover{border-color:#3b82f6;color:#4da6ff}
+.output{position:relative;background:#0d1117;border:1px solid #333;border-radius:8px;padding:14px;margin-top:12px;min-height:200px}
+.output pre{white-space:pre-wrap;font-family:'Fira Code',monospace;font-size:0.82rem;color:#c9d1d9;line-height:1.6}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 12px;font-size:0.75rem;border-radius:4px;border:1px solid #444;background:#21262d;color:#aaa;cursor:pointer}
+.copy-btn:hover{color:#fff;border-color:#3b82f6}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Dependabot Config Generator</h1>
+<p class="sub">Build .github/dependabot.yml visually</p>
+<div class="presets" id="presetBtns"></div>
+
+<div class="section">
+<h3>Package Ecosystems</h3>
+<div id="ecoList"></div>
+<button class="add-btn" onclick="addEco()">+ Add Ecosystem</button>
+</div>
+
+<div class="output">
+<button class="copy-btn" onclick="copyOut()">Copy</button>
+<pre id="out"></pre>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/gh-actions-gen/">GH Actions Gen</a> | <a href="https://yurukusa.github.io/package-json-gen/">package.json Gen</a> | <a href="https://yurukusa.github.io/semver-calc/">Semver Calc</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const ECOSYSTEMS=['npm','pip','cargo','gomod','docker','github-actions','composer','maven','nuget','bundler','terraform','hex','pub','gradle'];
+
+const PRESETS={
+  'Node.js':[{eco:'npm',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'dependencies',assignees:'',versioning:'auto',groups:true,ignore:''}],
+  'Python':[{eco:'pip',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'dependencies',assignees:'',versioning:'auto',groups:true,ignore:''}],
+  'Full Stack':[
+    {eco:'npm',dir:'/',schedule:'weekly',day:'monday',open:10,labels:'dependencies',assignees:'',versioning:'auto',groups:true,ignore:''},
+    {eco:'docker',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'docker',assignees:'',versioning:'auto',groups:false,ignore:''},
+    {eco:'github-actions',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'ci',assignees:'',versioning:'auto',groups:true,ignore:''}
+  ],
+  'Rust':[{eco:'cargo',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'dependencies',assignees:'',versioning:'auto',groups:true,ignore:''}],
+  'Go':[{eco:'gomod',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'dependencies',assignees:'',versioning:'auto',groups:true,ignore:''}],
+  'Monorepo':[
+    {eco:'npm',dir:'/packages/frontend',schedule:'weekly',day:'monday',open:10,labels:'frontend',assignees:'',versioning:'auto',groups:true,ignore:''},
+    {eco:'npm',dir:'/packages/backend',schedule:'weekly',day:'monday',open:10,labels:'backend',assignees:'',versioning:'auto',groups:true,ignore:''},
+    {eco:'github-actions',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'ci',assignees:'',versioning:'auto',groups:true,ignore:''}
+  ]
+};
+
+let ecos=[];
+
+function esc(s){return(s||'').replace(/"/g,'&quot;').replace(/</g,'&lt;')}
+
+function initPresets(){
+  const c=document.getElementById('presetBtns');
+  Object.keys(PRESETS).forEach(n=>{
+    const b=document.createElement('div');b.className='preset';b.textContent=n;
+    b.onclick=()=>loadPreset(n);c.appendChild(b);
+  });
+}
+
+function loadPreset(name){
+  const p=PRESETS[name];if(!p)return;
+  document.querySelectorAll('.preset').forEach(el=>el.classList.toggle('active',el.textContent===name));
+  ecos=JSON.parse(JSON.stringify(p));
+  renderEcos();gen();
+}
+
+function addEco(){
+  ecos.push({eco:'npm',dir:'/',schedule:'weekly',day:'monday',open:5,labels:'dependencies',assignees:'',versioning:'auto',groups:false,ignore:''});
+  renderEcos();gen();
+}
+
+function removeEco(i){ecos.splice(i,1);renderEcos();gen()}
+
+function renderEcos(){
+  const c=document.getElementById('ecoList');c.innerHTML='';
+  ecos.forEach((e,i)=>{
+    const d=document.createElement('div');d.className='eco-item';
+    const ecoOpts=ECOSYSTEMS.map(ec=>`<option${ec===e.eco?' selected':''}>${ec}</option>`).join('');
+    d.innerHTML=`<span class="remove" onclick="removeEco(${i})">✕</span>
+    <div class="row">
+      <div class="col"><label>Ecosystem</label><select onchange="ecos[${i}].eco=this.value;gen()">${ecoOpts}</select></div>
+      <div class="col"><label>Directory</label><input value="${esc(e.dir)}" onchange="ecos[${i}].dir=this.value;gen()"></div>
+    </div>
+    <div class="row">
+      <div class="col"><label>Schedule</label><select onchange="ecos[${i}].schedule=this.value;gen()">
+        <option${e.schedule==='daily'?' selected':''}>daily</option>
+        <option${e.schedule==='weekly'?' selected':''}>weekly</option>
+        <option${e.schedule==='monthly'?' selected':''}>monthly</option>
+      </select></div>
+      <div class="col"><label>Day</label><select onchange="ecos[${i}].day=this.value;gen()">
+        <option${e.day==='monday'?' selected':''}>monday</option>
+        <option${e.day==='tuesday'?' selected':''}>tuesday</option>
+        <option${e.day==='wednesday'?' selected':''}>wednesday</option>
+        <option${e.day==='thursday'?' selected':''}>thursday</option>
+        <option${e.day==='friday'?' selected':''}>friday</option>
+      </select></div>
+      <div class="col" style="max-width:100px"><label>Open PRs</label><input type="number" value="${e.open}" min="1" max="20" onchange="ecos[${i}].open=+this.value;gen()"></div>
+    </div>
+    <div class="row">
+      <div class="col"><label>Labels (comma-sep)</label><input value="${esc(e.labels)}" onchange="ecos[${i}].labels=this.value;gen()"></div>
+      <div class="col"><label>Assignees (comma-sep)</label><input value="${esc(e.assignees)}" onchange="ecos[${i}].assignees=this.value;gen()"></div>
+    </div>
+    <div class="check-row"><input type="checkbox" ${e.groups?'checked':''} onchange="ecos[${i}].groups=this.checked;gen()" id="grp${i}"><label for="grp${i}">Group minor+patch updates</label></div>
+    <div class="row"><div class="col"><label>Ignore packages (comma-sep)</label><input value="${esc(e.ignore)}" onchange="ecos[${i}].ignore=this.value;gen()" placeholder="@types/node, webpack"></div></div>`;
+    c.appendChild(d);
+  });
+}
+
+function gen(){
+  let y='version: 2\nupdates:\n';
+  ecos.forEach(e=>{
+    y+=`  - package-ecosystem: "${e.eco}"\n`;
+    y+=`    directory: "${e.dir}"\n`;
+    y+=`    schedule:\n      interval: "${e.schedule}"\n`;
+    if(e.schedule==='weekly') y+=`      day: "${e.day}"\n`;
+    y+=`    open-pull-requests-limit: ${e.open}\n`;
+    const labels=e.labels.split(',').map(s=>s.trim()).filter(Boolean);
+    if(labels.length){
+      y+=`    labels:\n`;
+      labels.forEach(l=>y+=`      - "${l}"\n`);
+    }
+    const assignees=e.assignees.split(',').map(s=>s.trim()).filter(Boolean);
+    if(assignees.length){
+      y+=`    assignees:\n`;
+      assignees.forEach(a=>y+=`      - "${a}"\n`);
+    }
+    if(e.groups){
+      y+=`    groups:\n      minor-and-patch:\n        update-types:\n          - "minor"\n          - "patch"\n`;
+    }
+    const ignores=e.ignore.split(',').map(s=>s.trim()).filter(Boolean);
+    if(ignores.length){
+      y+=`    ignore:\n`;
+      ignores.forEach(ig=>y+=`      - dependency-name: "${ig}"\n`);
+    }
+  });
+  document.getElementById('out').textContent=y;
+}
+
+function copyOut(){
+  navigator.clipboard.writeText(document.getElementById('out').textContent);
+  const t=document.getElementById('toast');t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+initPresets();
+loadPreset('Node.js');
+</script>
+</body>
+</html>

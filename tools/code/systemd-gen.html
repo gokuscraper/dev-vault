@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Systemd Service Generator — Build Unit Files Visually</title>
+<meta name="description" content="Generate systemd .service unit files visually. Type, restart, user, environment, dependencies. 8 presets. No signup.">
+<link rel="canonical" href="https://yurukusa.github.io/systemd-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Systemd Service Generator","description":"Build systemd service unit files visually with presets and all common directives.","url":"https://yurukusa.github.io/systemd-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:16px;justify-content:center}
+.preset{padding:7px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.8rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.preset.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+label{display:block;font-size:0.8rem;color:#aaa;margin-bottom:4px;font-weight:600}
+input,select,textarea{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #333;background:#161616;color:#fff;font-size:0.85rem;outline:none;font-family:'Fira Code',monospace}
+input:focus,select:focus,textarea:focus{border-color:#3b82f6}
+textarea{min-height:60px;resize:vertical}
+.row{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.col{flex:1;min-width:140px}
+.check-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.check-row input[type=checkbox]{width:16px;height:16px;accent-color:#3b82f6}
+.check-row label{margin:0;font-size:0.85rem;color:#ccc;font-weight:normal}
+.output{position:relative;background:#0d1117;border:1px solid #333;border-radius:8px;padding:14px;margin-top:12px;min-height:200px}
+.output pre{white-space:pre-wrap;font-family:'Fira Code',monospace;font-size:0.82rem;color:#c9d1d9;line-height:1.6}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 12px;font-size:0.75rem;border-radius:4px;border:1px solid #444;background:#21262d;color:#aaa;cursor:pointer}
+.copy-btn:hover{color:#fff;border-color:#3b82f6}
+.install-cmd{background:#1c1c1c;border:1px solid #2a2a2a;border-radius:6px;padding:12px;margin-top:12px;font-size:0.82rem;font-family:'Fira Code',monospace;color:#c9d1d9;line-height:1.6}
+.install-cmd h4{font-size:0.8rem;color:#4da6ff;margin-bottom:6px;font-family:-apple-system,sans-serif}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Systemd Service Generator</h1>
+<p class="sub">Build .service unit files visually</p>
+
+<div class="presets" id="presetBtns"></div>
+
+<div class="section">
+<h3>[Unit]</h3>
+<div class="row">
+<div class="col"><label>Description</label><input id="desc" value="My Application" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>After</label><input id="after" value="network.target" oninput="gen()" placeholder="network.target multi-user.target"></div>
+<div class="col"><label>Wants</label><input id="wants" value="" oninput="gen()" placeholder="network-online.target"></div>
+</div>
+</div>
+
+<div class="section">
+<h3>[Service]</h3>
+<div class="row">
+<div class="col"><label>Type</label><select id="svcType" onchange="gen()">
+<option value="simple" selected>simple</option>
+<option value="exec">exec</option>
+<option value="forking">forking</option>
+<option value="oneshot">oneshot</option>
+<option value="notify">notify</option>
+<option value="idle">idle</option>
+</select></div>
+<div class="col"><label>Restart</label><select id="restart" onchange="gen()">
+<option value="no">no</option>
+<option value="on-failure" selected>on-failure</option>
+<option value="on-abnormal">on-abnormal</option>
+<option value="always">always</option>
+<option value="on-success">on-success</option>
+</select></div>
+<div class="col" style="max-width:120px"><label>RestartSec</label><input id="restartSec" type="number" value="5" min="0" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>ExecStart</label><input id="execStart" value="/usr/local/bin/myapp" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>ExecStartPre (optional)</label><input id="execStartPre" value="" oninput="gen()" placeholder="/usr/bin/mkdir -p /var/run/myapp"></div>
+<div class="col"><label>ExecStop (optional)</label><input id="execStop" value="" oninput="gen()" placeholder="/bin/kill -TERM $MAINPID"></div>
+</div>
+<div class="row">
+<div class="col"><label>User</label><input id="user" value="www-data" oninput="gen()"></div>
+<div class="col"><label>Group</label><input id="group" value="www-data" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>WorkingDirectory</label><input id="workDir" value="/opt/myapp" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>Environment (KEY=VALUE per line)</label><textarea id="env" rows="2" oninput="gen()" placeholder="NODE_ENV=production&#10;PORT=3000"></textarea></div>
+</div>
+<div class="row">
+<div class="col"><label>EnvironmentFile (optional)</label><input id="envFile" value="" oninput="gen()" placeholder="/etc/myapp/env"></div>
+</div>
+
+<h3 style="margin-top:12px">Resource Limits</h3>
+<div class="row">
+<div class="col"><label>LimitNOFILE</label><input id="limitNofile" value="" oninput="gen()" placeholder="65535"></div>
+<div class="col"><label>MemoryMax</label><input id="memoryMax" value="" oninput="gen()" placeholder="512M"></div>
+<div class="col"><label>CPUQuota</label><input id="cpuQuota" value="" oninput="gen()" placeholder="80%"></div>
+</div>
+
+<h3 style="margin-top:12px">Security Hardening</h3>
+<div class="check-row"><input type="checkbox" id="noNewPriv" checked onchange="gen()"><label for="noNewPriv">NoNewPrivileges=true</label></div>
+<div class="check-row"><input type="checkbox" id="protectSystem" onchange="gen()"><label for="protectSystem">ProtectSystem=strict</label></div>
+<div class="check-row"><input type="checkbox" id="protectHome" onchange="gen()"><label for="protectHome">ProtectHome=true</label></div>
+<div class="check-row"><input type="checkbox" id="privateTmp" checked onchange="gen()"><label for="privateTmp">PrivateTmp=true</label></div>
+<div class="check-row"><input type="checkbox" id="readWritePaths" onchange="gen()"><label for="readWritePaths">ReadWritePaths=/opt/myapp</label></div>
+
+<h3 style="margin-top:12px">Logging</h3>
+<div class="row">
+<div class="col"><label>StandardOutput</label><select id="stdOut" onchange="gen()">
+<option value="journal" selected>journal</option>
+<option value="syslog">syslog</option>
+<option value="file:/var/log/myapp.log">file</option>
+<option value="inherit">inherit</option>
+</select></div>
+<div class="col"><label>StandardError</label><select id="stdErr" onchange="gen()">
+<option value="journal" selected>journal</option>
+<option value="syslog">syslog</option>
+<option value="file:/var/log/myapp-error.log">file</option>
+<option value="inherit">inherit</option>
+</select></div>
+<div class="col"><label>SyslogIdentifier</label><input id="syslogId" value="" oninput="gen()" placeholder="myapp"></div>
+</div>
+</div>
+
+<div class="section">
+<h3>[Install]</h3>
+<div class="row">
+<div class="col"><label>WantedBy</label><input id="wantedBy" value="multi-user.target" oninput="gen()"></div>
+</div>
+</div>
+
+<div class="output">
+<button class="copy-btn" onclick="copyOut()">Copy</button>
+<pre id="out"></pre>
+</div>
+
+<div class="install-cmd" id="installCmd"></div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/nginx-config-gen/">Nginx Config Gen</a> | <a href="https://yurukusa.github.io/docker-compose-gen/">Docker Compose Gen</a> | <a href="https://yurukusa.github.io/cron-builder/">Cron Builder</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const PRESETS={
+'Node.js App':{desc:'Node.js Application',after:'network.target',wants:'',type:'simple',restart:'on-failure',restartSec:5,execStart:'/usr/bin/node /opt/myapp/index.js',execStartPre:'',execStop:'',user:'node',group:'node',workDir:'/opt/myapp',env:'NODE_ENV=production\nPORT=3000',envFile:'',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:true,protectSystem:false,protectHome:false,privateTmp:true,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'myapp',wantedBy:'multi-user.target'},
+'Python (Gunicorn)':{desc:'Python Gunicorn Application',after:'network.target',wants:'',type:'notify',restart:'on-failure',restartSec:5,execStart:'/opt/myapp/venv/bin/gunicorn --workers 4 --bind 0.0.0.0:8000 wsgi:app',execStartPre:'',execStop:'',user:'www-data',group:'www-data',workDir:'/opt/myapp',env:'',envFile:'/opt/myapp/.env',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:true,protectSystem:false,protectHome:false,privateTmp:true,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'gunicorn',wantedBy:'multi-user.target'},
+'Go Binary':{desc:'Go Application',after:'network.target',wants:'',type:'exec',restart:'always',restartSec:3,execStart:'/usr/local/bin/myapp',execStartPre:'',execStop:'',user:'myapp',group:'myapp',workDir:'/opt/myapp',env:'PORT=8080\nGIN_MODE=release',envFile:'',limitNofile:'65535',memoryMax:'',cpuQuota:'',noNewPriv:true,protectSystem:true,protectHome:true,privateTmp:true,readWritePaths:true,stdOut:'journal',stdErr:'journal',syslogId:'myapp',wantedBy:'multi-user.target'},
+'Docker Container':{desc:'Docker Container Service',after:'docker.service',wants:'docker.service',type:'simple',restart:'always',restartSec:10,execStart:'/usr/bin/docker start -a mycontainer',execStartPre:'/usr/bin/docker pull myimage:latest',execStop:'/usr/bin/docker stop -t 10 mycontainer',user:'root',group:'root',workDir:'/',env:'',envFile:'',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:false,protectSystem:false,protectHome:false,privateTmp:false,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'docker-myapp',wantedBy:'multi-user.target'},
+'Nginx (custom)':{desc:'Custom Nginx Service',after:'network.target',wants:'',type:'forking',restart:'on-failure',restartSec:5,execStart:'/usr/sbin/nginx',execStartPre:'/usr/sbin/nginx -t',execStop:'/bin/kill -QUIT $MAINPID',user:'root',group:'root',workDir:'/',env:'',envFile:'',limitNofile:'65535',memoryMax:'',cpuQuota:'',noNewPriv:false,protectSystem:false,protectHome:false,privateTmp:true,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'nginx',wantedBy:'multi-user.target'},
+'Backup Script':{desc:'Daily Backup Job',after:'network.target',wants:'',type:'oneshot',restart:'no',restartSec:0,execStart:'/opt/backup/backup.sh',execStartPre:'',execStop:'',user:'backup',group:'backup',workDir:'/opt/backup',env:'BACKUP_DIR=/mnt/backup',envFile:'',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:true,protectSystem:false,protectHome:false,privateTmp:true,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'backup',wantedBy:'multi-user.target'},
+'Hardened Web':{desc:'Hardened Web Application',after:'network.target',wants:'',type:'exec',restart:'always',restartSec:3,execStart:'/opt/webapp/server',execStartPre:'',execStop:'',user:'webapp',group:'webapp',workDir:'/opt/webapp',env:'',envFile:'/etc/webapp/env',limitNofile:'4096',memoryMax:'512M',cpuQuota:'80%',noNewPriv:true,protectSystem:true,protectHome:true,privateTmp:true,readWritePaths:true,stdOut:'journal',stdErr:'journal',syslogId:'webapp',wantedBy:'multi-user.target'},
+'Minimal':{desc:'My Service',after:'network.target',wants:'',type:'simple',restart:'on-failure',restartSec:5,execStart:'/usr/local/bin/myapp',execStartPre:'',execStop:'',user:'root',group:'root',workDir:'/',env:'',envFile:'',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:false,protectSystem:false,protectHome:false,privateTmp:false,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'',wantedBy:'multi-user.target'}
+};
+
+function initPresets(){
+  const c=document.getElementById('presetBtns');
+  Object.keys(PRESETS).forEach(name=>{
+    const b=document.createElement('div');b.className='preset';b.textContent=name;
+    b.onclick=()=>{
+      document.querySelectorAll('.preset').forEach(el=>el.classList.remove('active'));
+      b.classList.add('active');
+      applyPreset(PRESETS[name]);
+    };
+    c.appendChild(b);
+  });
+}
+
+function applyPreset(p){
+  document.getElementById('desc').value=p.desc;
+  document.getElementById('after').value=p.after;
+  document.getElementById('wants').value=p.wants;
+  document.getElementById('svcType').value=p.type;
+  document.getElementById('restart').value=p.restart;
+  document.getElementById('restartSec').value=p.restartSec;
+  document.getElementById('execStart').value=p.execStart;
+  document.getElementById('execStartPre').value=p.execStartPre;
+  document.getElementById('execStop').value=p.execStop;
+  document.getElementById('user').value=p.user;
+  document.getElementById('group').value=p.group;
+  document.getElementById('workDir').value=p.workDir;
+  document.getElementById('env').value=p.env;
+  document.getElementById('envFile').value=p.envFile;
+  document.getElementById('limitNofile').value=p.limitNofile;
+  document.getElementById('memoryMax').value=p.memoryMax;
+  document.getElementById('cpuQuota').value=p.cpuQuota;
+  document.getElementById('noNewPriv').checked=p.noNewPriv;
+  document.getElementById('protectSystem').checked=p.protectSystem;
+  document.getElementById('protectHome').checked=p.protectHome;
+  document.getElementById('privateTmp').checked=p.privateTmp;
+  document.getElementById('readWritePaths').checked=p.readWritePaths;
+  document.getElementById('stdOut').value=p.stdOut;
+  document.getElementById('stdErr').value=p.stdErr;
+  document.getElementById('syslogId').value=p.syslogId;
+  document.getElementById('wantedBy').value=p.wantedBy;
+  gen();
+}
+
+function gen(){
+  const svcName=document.getElementById('desc').value.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/-+$/,'');
+  let unit='[Unit]\n';
+  unit+=`Description=${document.getElementById('desc').value}\n`;
+  if(document.getElementById('after').value) unit+=`After=${document.getElementById('after').value}\n`;
+  if(document.getElementById('wants').value) unit+=`Wants=${document.getElementById('wants').value}\n`;
+
+  unit+='\n[Service]\n';
+  unit+=`Type=${document.getElementById('svcType').value}\n`;
+  if(document.getElementById('execStartPre').value) unit+=`ExecStartPre=${document.getElementById('execStartPre').value}\n`;
+  unit+=`ExecStart=${document.getElementById('execStart').value}\n`;
+  if(document.getElementById('execStop').value) unit+=`ExecStop=${document.getElementById('execStop').value}\n`;
+
+  const restart=document.getElementById('restart').value;
+  if(restart!=='no'){
+    unit+=`Restart=${restart}\n`;
+    unit+=`RestartSec=${document.getElementById('restartSec').value}\n`;
+  }
+
+  const user=document.getElementById('user').value;
+  const group=document.getElementById('group').value;
+  if(user) unit+=`User=${user}\n`;
+  if(group&&group!==user) unit+=`Group=${group}\n`;
+  if(document.getElementById('workDir').value&&document.getElementById('workDir').value!=='/') unit+=`WorkingDirectory=${document.getElementById('workDir').value}\n`;
+
+  const envLines=(document.getElementById('env').value||'').split('\n').filter(l=>l.trim());
+  envLines.forEach(e=>unit+=`Environment=${e.trim()}\n`);
+  if(document.getElementById('envFile').value) unit+=`EnvironmentFile=${document.getElementById('envFile').value}\n`;
+
+  // Limits
+  if(document.getElementById('limitNofile').value) unit+=`LimitNOFILE=${document.getElementById('limitNofile').value}\n`;
+  if(document.getElementById('memoryMax').value) unit+=`MemoryMax=${document.getElementById('memoryMax').value}\n`;
+  if(document.getElementById('cpuQuota').value) unit+=`CPUQuota=${document.getElementById('cpuQuota').value}\n`;
+
+  // Security
+  if(document.getElementById('noNewPriv').checked) unit+=`NoNewPrivileges=true\n`;
+  if(document.getElementById('protectSystem').checked) unit+=`ProtectSystem=strict\n`;
+  if(document.getElementById('protectHome').checked) unit+=`ProtectHome=true\n`;
+  if(document.getElementById('privateTmp').checked) unit+=`PrivateTmp=true\n`;
+  if(document.getElementById('readWritePaths').checked) unit+=`ReadWritePaths=${document.getElementById('workDir').value||'/opt/myapp'}\n`;
+
+  // Logging
+  const stdOut=document.getElementById('stdOut').value;
+  const stdErr=document.getElementById('stdErr').value;
+  if(stdOut!=='journal') unit+=`StandardOutput=${stdOut}\n`;
+  if(stdErr!=='journal') unit+=`StandardError=${stdErr}\n`;
+  if(document.getElementById('syslogId').value) unit+=`SyslogIdentifier=${document.getElementById('syslogId').value}\n`;
+
+  unit+=`\n[Install]\n`;
+  unit+=`WantedBy=${document.getElementById('wantedBy').value}\n`;
+
+  document.getElementById('out').textContent=unit;
+
+  // Install commands
+  const fname=svcName||'myapp';
+  document.getElementById('installCmd').innerHTML=`<h4>Install Commands</h4>
+sudo cp ${fname}.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable ${fname}
+sudo systemctl start ${fname}
+sudo systemctl status ${fname}`;
+}
+
+function copyOut(){
+  navigator.clipboard.writeText(document.getElementById('out').textContent);
+  const t=document.getElementById('toast');t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+initPresets();
+gen();
+</script>
+</body>
+</html>

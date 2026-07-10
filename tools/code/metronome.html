@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Metronome — BPM Counter & Beat Timer</title>
+<meta name="description" content="Free browser-based metronome with tap tempo, time signatures, subdivisions, and precise Web Audio API timing. No install needed.">
+<link rel="canonical" href="https://yurukusa.github.io/metronome/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Web Metronome","description":"Browser-based metronome with tap tempo, time signatures, subdivisions, and precise Web Audio API scheduling.","url":"https://yurukusa.github.io/metronome/","applicationCategory":"MusicApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#0a0a0a;color:#e0e0e0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center}
+h1{font-size:1.5rem;margin:1.5rem 0 .5rem;text-align:center;color:#fff}
+.subtitle{color:#888;font-size:.85rem;margin-bottom:1.2rem;text-align:center}
+.card{background:#161616;border:1px solid #252525;border-radius:10px;padding:1.2rem;margin:.5rem;width:100%;max-width:520px}
+.card h2{font-size:.9rem;color:#4da6ff;margin-bottom:.8rem;text-transform:uppercase;letter-spacing:.5px}
+.row{display:flex;align-items:center;gap:.6rem;margin-bottom:.6rem;flex-wrap:wrap}
+.row:last-child{margin-bottom:0}
+label{font-size:.8rem;color:#aaa;min-width:50px}
+input[type=range]{flex:1;accent-color:#4da6ff;min-width:100px}
+input[type=number]{width:70px;background:#0a0a0a;border:1px solid #333;color:#fff;padding:4px 8px;border-radius:5px;font-size:.95rem;text-align:center}
+input[type=number]:focus{outline:none;border-color:#4da6ff}
+select{background:#0a0a0a;border:1px solid #333;color:#fff;padding:5px 8px;border-radius:5px;font-size:.85rem}
+select:focus{outline:none;border-color:#4da6ff}
+.bpm-display{font-size:3.5rem;font-weight:700;color:#fff;text-align:center;line-height:1;margin:.3rem 0}
+.bpm-label{text-align:center;color:#888;font-size:.75rem;margin-bottom:.5rem}
+.btn{background:#222;border:1px solid #333;color:#e0e0e0;padding:7px 14px;border-radius:6px;cursor:pointer;font-size:.8rem;transition:background .15s,border-color .15s}
+.btn:hover{background:#2a2a2a;border-color:#4da6ff}
+.btn.active{background:#1a3a5c;border-color:#4da6ff;color:#4da6ff}
+.play-btn{display:block;margin:1rem auto;width:160px;height:52px;font-size:1.2rem;font-weight:600;background:#4da6ff;color:#0a0a0a;border:none;border-radius:10px;cursor:pointer;transition:background .15s,transform .1s}
+.play-btn:hover{background:#6bb8ff}
+.play-btn:active{transform:scale(.97)}
+.play-btn.playing{background:#ff4d4d}
+.play-btn.playing:hover{background:#ff6b6b}
+.tap-btn{background:#1a3a5c;border:2px solid #4da6ff;color:#4da6ff;padding:8px 20px;border-radius:8px;font-size:.95rem;font-weight:600;cursor:pointer;transition:background .1s}
+.tap-btn:active{background:#4da6ff;color:#0a0a0a}
+.beats{display:flex;gap:8px;justify-content:center;padding:1rem 0}
+.beat{width:36px;height:36px;border-radius:50%;background:#1a1a1a;border:2px solid #333;transition:background .08s,border-color .08s,box-shadow .08s}
+.beat.lit{background:#4da6ff;border-color:#4da6ff;box-shadow:0 0 12px #4da6ff80}
+.beat.accent{background:#ff9f1a;border-color:#ff9f1a;box-shadow:0 0 14px #ff9f1a80}
+.presets{display:flex;flex-wrap:wrap;gap:5px}
+.presets .btn{font-size:.75rem;padding:5px 10px}
+.subs{display:flex;gap:5px;flex-wrap:wrap}
+footer{margin:2rem 0 1.5rem;text-align:center;font-size:.75rem;color:#666}
+footer a{color:#4da6ff;text-decoration:none}
+footer a:hover{text-decoration:underline}
+@media(max-width:560px){.card{margin:.4rem .8rem;padding:1rem}.bpm-display{font-size:2.8rem}.beat{width:28px;height:28px}}
+</style>
+</head>
+<body>
+<h1>Web Metronome</h1>
+<p class="subtitle">BPM Counter & Beat Timer</p>
+
+<div class="card">
+  <div class="bpm-display" id="bpmDisplay">120</div>
+  <div class="bpm-label">BPM</div>
+  <div class="row">
+    <input type="range" id="bpmSlider" min="20" max="300" value="120">
+    <input type="number" id="bpmInput" min="20" max="300" value="120">
+  </div>
+  <div class="row" style="justify-content:center;margin-top:.5rem">
+    <button class="tap-btn" id="tapBtn">Tap Tempo</button>
+  </div>
+</div>
+
+<div class="beats" id="beatIndicators"></div>
+
+<button class="play-btn" id="playBtn">&#9654; Play</button>
+
+<div class="card">
+  <h2>Settings</h2>
+  <div class="row">
+    <label>Time Sig</label>
+    <select id="timeSig">
+      <option value="2">2/4</option>
+      <option value="3">3/4</option>
+      <option value="4" selected>4/4</option>
+      <option value="5">5/4</option>
+      <option value="6">6/8</option>
+      <option value="7">7/8</option>
+    </select>
+    <label style="margin-left:.5rem">Sound</label>
+    <select id="soundType">
+      <option value="click">Click</option>
+      <option value="beep">Beep</option>
+      <option value="woodblock">Woodblock</option>
+    </select>
+  </div>
+  <div class="row">
+    <label>Volume</label>
+    <input type="range" id="volumeSlider" min="0" max="100" value="70">
+  </div>
+  <div class="row">
+    <label>Subdiv</label>
+    <div class="subs">
+      <button class="btn active" data-sub="1">None</button>
+      <button class="btn" data-sub="2">8th</button>
+      <button class="btn" data-sub="3">Triplet</button>
+      <button class="btn" data-sub="4">16th</button>
+    </div>
+  </div>
+  <div class="row">
+    <label>Accent</label>
+    <button class="btn active" id="accentBtn">Beat 1</button>
+  </div>
+</div>
+
+<div class="card">
+  <h2>Presets</h2>
+  <div class="presets">
+    <button class="btn" data-bpm="50">Largo 50</button>
+    <button class="btn" data-bpm="70">Adagio 70</button>
+    <button class="btn" data-bpm="90">Andante 90</button>
+    <button class="btn" data-bpm="110">Moderato 110</button>
+    <button class="btn" data-bpm="140">Allegro 140</button>
+    <button class="btn" data-bpm="180">Presto 180</button>
+    <button class="btn" data-bpm="200">Vivace 200</button>
+  </div>
+</div>
+
+<footer>
+  <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a> &middot;
+  <a href="https://yurukusa.github.io/tone-gen/">Tone Generator</a> &middot;
+  <a href="https://yurukusa.github.io/frequency-calc/">Frequency Calculator</a>
+</footer>
+
+<script>
+(function(){
+  /* --- State --- */
+  let bpm = 120, beats = 4, subdivision = 1, volume = 0.7;
+  let accentOn = true, playing = false, soundType = 'click';
+  let audioCtx = null, currentBeat = 0, currentSub = 0;
+  let nextNoteTime = 0, timerID = null;
+  const SCHEDULE_AHEAD = 0.1, LOOKAHEAD = 25; // ms
+
+  /* --- DOM --- */
+  const $=s=>document.querySelector(s), $$=s=>document.querySelectorAll(s);
+  const bpmDisplay=$('#bpmDisplay'), bpmSlider=$('#bpmSlider'), bpmInput=$('#bpmInput');
+  const playBtn=$('#playBtn'), tapBtn=$('#tapBtn'), timeSig=$('#timeSig');
+  const soundSel=$('#soundType'), volSlider=$('#volumeSlider'), accentBtn=$('#accentBtn');
+  const beatContainer=$('#beatIndicators');
+
+  /* --- BPM sync --- */
+  function setBpm(v){
+    bpm = Math.max(20, Math.min(300, Math.round(v)));
+    bpmDisplay.textContent = bpm;
+    bpmSlider.value = bpm;
+    bpmInput.value = bpm;
+  }
+  bpmSlider.addEventListener('input', ()=> setBpm(+bpmSlider.value));
+  bpmInput.addEventListener('change', ()=> setBpm(+bpmInput.value));
+
+  /* --- Beat indicators --- */
+  function buildBeats(){
+    beatContainer.innerHTML = '';
+    for(let i=0;i<beats;i++){
+      const d=document.createElement('div');
+      d.className='beat';
+      beatContainer.appendChild(d);
+    }
+  }
+  buildBeats();
+  timeSig.addEventListener('change',()=>{
+    beats=+timeSig.value; buildBeats();
+    if(playing){ currentBeat=0; currentSub=0; }
+  });
+
+  /* --- Presets --- */
+  $$('[data-bpm]').forEach(b=> b.addEventListener('click',()=> setBpm(+b.dataset.bpm)));
+
+  /* --- Subdivision --- */
+  $$('[data-sub]').forEach(b=> b.addEventListener('click',()=>{
+    subdivision = +b.dataset.sub;
+    $$('[data-sub]').forEach(x=> x.classList.remove('active'));
+    b.classList.add('active');
+  }));
+
+  /* --- Accent --- */
+  accentBtn.addEventListener('click',()=>{
+    accentOn = !accentOn;
+    accentBtn.classList.toggle('active', accentOn);
+  });
+
+  /* --- Volume --- */
+  volSlider.addEventListener('input',()=>{ volume = +volSlider.value/100; });
+
+  /* --- Sound type --- */
+  soundSel.addEventListener('change',()=>{ soundType = soundSel.value; });
+
+  /* --- Audio engine --- */
+  function initAudio(){
+    if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)();
+    if(audioCtx.state==='suspended') audioCtx.resume();
+  }
+
+  /* Schedule a single click/beep/woodblock */
+  function scheduleNote(time, isAccent, isSub){
+    const gain = audioCtx.createGain();
+    gain.connect(audioCtx.destination);
+    const vol = isSub ? volume*0.4 : (isAccent ? volume : volume*0.75);
+
+    if(soundType==='click'){
+      /* Short noise-like burst via high-freq oscillator with fast decay */
+      const osc = audioCtx.createOscillator();
+      osc.type = 'square';
+      osc.frequency.value = isAccent ? 880 : (isSub ? 500 : 660);
+      gain.gain.setValueAtTime(vol, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time+0.03);
+      osc.connect(gain);
+      osc.start(time);
+      osc.stop(time+0.04);
+    } else if(soundType==='beep'){
+      const osc = audioCtx.createOscillator();
+      osc.type = 'sine';
+      osc.frequency.value = isAccent ? 1000 : (isSub ? 600 : 800);
+      gain.gain.setValueAtTime(vol, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time+0.06);
+      osc.connect(gain);
+      osc.start(time);
+      osc.stop(time+0.07);
+    } else { /* woodblock */
+      const osc = audioCtx.createOscillator();
+      osc.type = 'triangle';
+      osc.frequency.setValueAtTime(isAccent ? 900 : (isSub ? 550 : 720), time);
+      osc.frequency.exponentialRampToValueAtTime(isAccent?450:360, time+0.04);
+      const bp = audioCtx.createBiquadFilter();
+      bp.type = 'bandpass'; bp.frequency.value = 800; bp.Q.value = 3;
+      osc.connect(bp); bp.connect(gain);
+      gain.gain.setValueAtTime(vol, time);
+      gain.gain.exponentialRampToValueAtTime(0.001, time+0.05);
+      osc.start(time);
+      osc.stop(time+0.06);
+    }
+  }
+
+  /* Advance to next sub-beat, wrap to next beat */
+  function advance(){
+    currentSub++;
+    if(currentSub >= subdivision){
+      currentSub = 0;
+      currentBeat = (currentBeat + 1) % beats;
+    }
+    const secPerBeat = 60 / bpm;
+    nextNoteTime += secPerBeat / subdivision;
+  }
+
+  /* Lookahead scheduler — runs on setInterval */
+  function scheduler(){
+    while(nextNoteTime < audioCtx.currentTime + SCHEDULE_AHEAD){
+      const isAccent = accentOn && currentBeat===0 && currentSub===0;
+      const isSub = currentSub !== 0;
+      scheduleNote(nextNoteTime, isAccent, isSub);
+      /* Queue visual update */
+      const b = currentBeat, s = currentSub, t = nextNoteTime;
+      if(s===0){
+        const delay = Math.max(0, (t - audioCtx.currentTime)*1000);
+        setTimeout(()=> lightBeat(b, isAccent), delay);
+      }
+      advance();
+    }
+  }
+
+  function lightBeat(idx, accent){
+    const dots = beatContainer.children;
+    for(let i=0;i<dots.length;i++) dots[i].className='beat';
+    if(dots[idx]) dots[idx].className = 'beat ' + (accent ? 'accent' : 'lit');
+  }
+
+  /* --- Play / Stop --- */
+  function start(){
+    initAudio();
+    playing = true;
+    currentBeat = 0; currentSub = 0;
+    nextNoteTime = audioCtx.currentTime + 0.05;
+    timerID = setInterval(scheduler, LOOKAHEAD);
+    playBtn.textContent = '\u25A0 Stop';
+    playBtn.classList.add('playing');
+  }
+  function stop(){
+    playing = false;
+    clearInterval(timerID); timerID = null;
+    playBtn.textContent = '\u25B6 Play';
+    playBtn.classList.remove('playing');
+    const dots = beatContainer.children;
+    for(let i=0;i<dots.length;i++) dots[i].className='beat';
+  }
+  playBtn.addEventListener('click',()=> playing ? stop() : start());
+
+  /* --- Tap Tempo --- */
+  let tapTimes = [];
+  tapBtn.addEventListener('click',()=>{
+    initAudio();
+    const now = performance.now();
+    tapTimes.push(now);
+    /* Keep last 6 taps within 3 seconds */
+    tapTimes = tapTimes.filter(t=> now-t < 3000);
+    if(tapTimes.length >= 2){
+      let total = 0;
+      for(let i=1;i<tapTimes.length;i++) total += tapTimes[i]-tapTimes[i-1];
+      const avgMs = total / (tapTimes.length-1);
+      setBpm(60000/avgMs);
+    }
+  });
+
+  /* --- Keyboard shortcuts --- */
+  document.addEventListener('keydown', e=>{
+    if(e.target.tagName==='INPUT'||e.target.tagName==='SELECT') return;
+    if(e.code==='Space'){ e.preventDefault(); playing ? stop() : start(); }
+    if(e.code==='KeyT'){ tapBtn.click(); }
+  });
+})();
+</script>
+</body>
+</html>

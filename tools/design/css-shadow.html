@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Shadow — Visual Box Shadow Generator</title>
+<meta name="description" content="Generate CSS box-shadow visually. Multiple layers, presets, live preview. Copy CSS. Free, instant, no signup.">
+<meta property="og:title" content="CSS Shadow — Visual Box Shadow Generator">
+<meta property="og:description" content="Drag sliders, see shadows. Copy CSS. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/css-shadow/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/css-shadow/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "CSS Shadow", "description": "Generate CSS box-shadow visually. Multiple layers, presets, live preview. Copy CSS. Free, instant, no signup.", "url": "https://yurukusa.github.io/css-shadow/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:1000px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:24px;margin-bottom:32px}
+.preview-panel{display:flex;align-items:center;justify-content:center;min-height:400px;border-radius:14px;position:relative}
+.preview-box{width:200px;height:200px;border-radius:16px;transition:box-shadow 0.15s ease,border-radius 0.15s ease}
+.controls-panel{display:flex;flex-direction:column;gap:12px}
+.control-group{background:#161616;border:1px solid #222;border-radius:10px;padding:14px}
+.control-group h3{font-size:0.85rem;color:#888;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.control-row{display:flex;align-items:center;gap:10px;margin-bottom:8px}
+.control-row label{width:70px;font-size:0.78rem;color:#888;flex-shrink:0}
+.control-row input[type="range"]{flex:1;accent-color:#3b82f6;height:4px}
+.control-row input[type="color"]{width:32px;height:28px;border:1px solid #333;border-radius:6px;cursor:pointer;background:none;padding:0}
+.control-row input[type="color"]::-webkit-color-swatch-wrapper{padding:0}
+.control-row input[type="color"]::-webkit-color-swatch{border:none;border-radius:4px}
+.control-row .val{width:40px;font-size:0.75rem;color:#666;text-align:right;flex-shrink:0}
+.control-row input[type="checkbox"]{accent-color:#3b82f6}
+.layer-tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:8px}
+.layer-tab{padding:5px 12px;border-radius:6px;border:1px solid #333;background:#0a0a0a;color:#888;font-size:0.75rem;cursor:pointer}
+.layer-tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.layer-tab.add{color:#555;border-style:dashed}
+.layer-tab.add:hover{color:#888}
+.remove-layer{font-size:0.7rem;color:#555;cursor:pointer;margin-left:4px}
+.remove-layer:hover{color:#ef4444}
+
+.presets{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:20px;justify-content:center}
+.preset-btn{padding:8px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.8rem;cursor:pointer}
+.preset-btn:hover{border-color:#555;color:#ccc}
+
+.output-section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:24px}
+.output-section h3{font-size:0.85rem;color:#888;margin-bottom:8px}
+.css-output{font-family:'Fira Code',monospace;font-size:0.82rem;color:#10b981;background:#0a0a0a;padding:14px;border-radius:8px;border:1px solid #1a1a1a;word-break:break-all;cursor:pointer;line-height:1.6}
+.css-output:hover{border-color:#333}
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+
+.bg-toggle{display:flex;gap:0;border-radius:6px;overflow:hidden;border:1px solid #333;position:absolute;top:10px;right:10px}
+.bg-btn{padding:4px 10px;background:#161616;color:#888;font-size:0.7rem;cursor:pointer;border:none}
+.bg-btn.active{background:#1a2744;color:#4da6ff}
+
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:700px){.layout{grid-template-columns:1fr}.preview-panel{min-height:280px}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>CSS Shadow</h1>
+<p class="subtitle">Visual box-shadow generator. Multiple layers, presets, live preview.</p>
+
+<div class="presets" id="presets"></div>
+
+<div class="layout">
+  <div class="preview-panel" id="previewPanel" style="background:#1a1a1a">
+    <div class="bg-toggle">
+      <button class="bg-btn active" onclick="setBg('#1a1a1a')">Dark</button>
+      <button class="bg-btn" onclick="setBg('#f0f0f0')">Light</button>
+      <button class="bg-btn" onclick="setBg('#ffffff')">White</button>
+    </div>
+    <div class="preview-box" id="previewBox" style="background:#ffffff"></div>
+  </div>
+
+  <div class="controls-panel">
+    <div class="control-group">
+      <h3>Layers <span id="layerCount"></span></h3>
+      <div class="layer-tabs" id="layerTabs"></div>
+    </div>
+
+    <div class="control-group" id="layerControls"></div>
+
+    <div class="control-group">
+      <h3>Box</h3>
+      <div class="control-row">
+        <label>Radius</label>
+        <input type="range" id="borderRadius" min="0" max="100" value="16" oninput="update()">
+        <span class="val" id="borderRadiusVal">16</span>
+      </div>
+      <div class="control-row">
+        <label>Box Color</label>
+        <input type="color" id="boxColor" value="#ffffff" oninput="update()">
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="output-section">
+  <h3>CSS Output (click to copy)</h3>
+  <div class="css-output" id="cssOutput" onclick="copyCSSOutput()"></div>
+</div>
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/css-shadow">GitHub</a> ·
+  Also: <a href="https://yurukusa.github.io/color-palette/">Color Palette</a> ·
+  <a href="https://yurukusa.github.io/font-pair/">Font Pair</a> ·
+  <a href="https://yurukusa.github.io/gh-stats/">gh-stats</a>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+
+let layers=[
+  {x:0,y:4,blur:15,spread:0,color:'#000000',opacity:25,inset:false},
+];
+let activeLayer=0;
+
+const PRESETS=[
+  {name:'Subtle',layers:[{x:0,y:1,blur:3,spread:0,color:'#000000',opacity:12,inset:false}]},
+  {name:'Medium',layers:[{x:0,y:4,blur:15,spread:0,color:'#000000',opacity:25,inset:false}]},
+  {name:'Elevated',layers:[{x:0,y:10,blur:40,spread:-5,color:'#000000',opacity:30,inset:false}]},
+  {name:'Heavy',layers:[{x:0,y:20,blur:60,spread:-10,color:'#000000',opacity:40,inset:false}]},
+  {name:'Layered',layers:[{x:0,y:1,blur:2,spread:0,color:'#000000',opacity:7,inset:false},{x:0,y:2,blur:4,spread:0,color:'#000000',opacity:7,inset:false},{x:0,y:4,blur:8,spread:0,color:'#000000',opacity:7,inset:false},{x:0,y:8,blur:16,spread:0,color:'#000000',opacity:7,inset:false}]},
+  {name:'Glow',layers:[{x:0,y:0,blur:30,spread:5,color:'#3b82f6',opacity:40,inset:false}]},
+  {name:'Neumorphic',layers:[{x:8,y:8,blur:16,spread:0,color:'#000000',opacity:20,inset:false},{x:-8,y:-8,blur:16,spread:0,color:'#ffffff',opacity:5,inset:false}]},
+  {name:'Inset',layers:[{x:0,y:2,blur:8,spread:0,color:'#000000',opacity:30,inset:true}]},
+  {name:'Sharp',layers:[{x:6,y:6,blur:0,spread:0,color:'#000000',opacity:100,inset:false}]},
+  {name:'Double',layers:[{x:0,y:4,blur:8,spread:0,color:'#000000',opacity:15,inset:false},{x:0,y:0,blur:0,spread:3,color:'#3b82f6',opacity:30,inset:false}]},
+];
+
+function renderPresets(){
+  $('presets').innerHTML=PRESETS.map((p,i)=>
+    `<button class="preset-btn" onclick="applyPreset(${i})">${p.name}</button>`
+  ).join('');
+}
+
+function applyPreset(i){
+  layers=PRESETS[i].layers.map(l=>({...l}));
+  activeLayer=0;
+  renderLayers();
+  renderControls();
+  update();
+}
+
+function renderLayers(){
+  $('layerCount').textContent=`(${layers.length})`;
+  $('layerTabs').innerHTML=layers.map((l,i)=>
+    `<div class="layer-tab ${i===activeLayer?'active':''}" onclick="selectLayer(${i})">
+      Layer ${i+1}${layers.length>1?`<span class="remove-layer" onclick="event.stopPropagation();removeLayer(${i})">×</span>`:''}
+    </div>`
+  ).join('')+`<div class="layer-tab add" onclick="addLayer()">+ Add</div>`;
+}
+
+function selectLayer(i){activeLayer=i;renderLayers();renderControls()}
+
+function addLayer(){
+  layers.push({x:0,y:4,blur:15,spread:0,color:'#000000',opacity:25,inset:false});
+  activeLayer=layers.length-1;
+  renderLayers();renderControls();update();
+}
+
+function removeLayer(i){
+  if(layers.length<=1)return;
+  layers.splice(i,1);
+  if(activeLayer>=layers.length)activeLayer=layers.length-1;
+  renderLayers();renderControls();update();
+}
+
+function renderControls(){
+  const l=layers[activeLayer];
+  $('layerControls').innerHTML=`
+    <h3>Layer ${activeLayer+1} Settings</h3>
+    <div class="control-row">
+      <label>X Offset</label>
+      <input type="range" min="-50" max="50" value="${l.x}" oninput="setLayer('x',this.value)">
+      <span class="val">${l.x}px</span>
+    </div>
+    <div class="control-row">
+      <label>Y Offset</label>
+      <input type="range" min="-50" max="50" value="${l.y}" oninput="setLayer('y',this.value)">
+      <span class="val">${l.y}px</span>
+    </div>
+    <div class="control-row">
+      <label>Blur</label>
+      <input type="range" min="0" max="100" value="${l.blur}" oninput="setLayer('blur',this.value)">
+      <span class="val">${l.blur}px</span>
+    </div>
+    <div class="control-row">
+      <label>Spread</label>
+      <input type="range" min="-30" max="50" value="${l.spread}" oninput="setLayer('spread',this.value)">
+      <span class="val">${l.spread}px</span>
+    </div>
+    <div class="control-row">
+      <label>Color</label>
+      <input type="color" value="${l.color}" oninput="setLayer('color',this.value)">
+      <label style="width:auto">Opacity</label>
+      <input type="range" min="0" max="100" value="${l.opacity}" style="width:80px" oninput="setLayer('opacity',this.value)">
+      <span class="val">${l.opacity}%</span>
+    </div>
+    <div class="control-row">
+      <label>Inset</label>
+      <input type="checkbox" ${l.inset?'checked':''} onchange="setLayer('inset',this.checked)">
+    </div>
+  `;
+}
+
+function setLayer(prop,val){
+  if(prop==='color')layers[activeLayer][prop]=val;
+  else if(prop==='inset')layers[activeLayer][prop]=val;
+  else layers[activeLayer][prop]=parseInt(val);
+  renderControls();
+  update();
+}
+
+function hexToRgb(hex){
+  const r=parseInt(hex.slice(1,3),16),g=parseInt(hex.slice(3,5),16),b=parseInt(hex.slice(5,7),16);
+  return{r,g,b};
+}
+
+function getShadowCSS(){
+  return layers.map(l=>{
+    const{r,g,b}=hexToRgb(l.color);
+    const a=(l.opacity/100).toFixed(2);
+    return`${l.inset?'inset ':''}${l.x}px ${l.y}px ${l.blur}px ${l.spread}px rgba(${r}, ${g}, ${b}, ${a})`;
+  }).join(',\n    ');
+}
+
+function update(){
+  const shadow=getShadowCSS();
+  const radius=$('borderRadius').value;
+  const boxColor=$('boxColor').value;
+
+  $('borderRadiusVal').textContent=radius;
+  $('previewBox').style.boxShadow=shadow.replace(/\n\s+/g,' ');
+  $('previewBox').style.borderRadius=radius+'px';
+  $('previewBox').style.background=boxColor;
+  $('cssOutput').textContent=`box-shadow: ${shadow};\nborder-radius: ${radius}px;`;
+}
+
+function setBg(color){
+  $('previewPanel').style.background=color;
+  document.querySelectorAll('.bg-btn').forEach(b=>b.classList.remove('active'));
+  event.target.classList.add('active');
+}
+
+function copyCSSOutput(){
+  navigator.clipboard.writeText($('cssOutput').textContent);
+  const el=document.createElement('div');
+  el.className='copied';
+  el.textContent='CSS copied!';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+// Init
+renderPresets();
+renderLayers();
+renderControls();
+update();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/css-text-shadow/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Text Shadow</a>
+<a href="https://yurukusa.github.io/css-glass/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Glass</a>
+<a href="https://yurukusa.github.io/css-neumorphism/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Neumorphism</a>
+<a href="https://yurukusa.github.io/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

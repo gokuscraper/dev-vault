@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MAC Address Generator</title>
+<meta name="description" content="Generate random MAC addresses with customizable prefix, case, and separator. Bulk generate up to 100 at once.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh;display:flex;justify-content:center;padding:24px}
+.container{max-width:560px;width:100%}
+h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
+.desc{color:#888;font-size:0.9rem;margin-bottom:20px}
+.card{background:#161616;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:16px}
+.row{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap}
+.row label{color:#aaa;font-size:0.85rem;font-weight:600;min-width:120px}
+input,select{padding:8px 12px;border-radius:6px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:0.9rem;outline:none}
+input:focus,select:focus{border-color:#3b82f6}
+input[type=number]{width:80px}
+input[type=text]{flex:1;min-width:150px}
+pre{background:#0d1520;border:1px solid #2a4a7a;border-radius:8px;padding:16px;overflow-x:auto;white-space:pre;font-family:monospace;font-size:0.85rem;color:#e6e6e6;min-height:60px;margin-bottom:12px}
+.actions{display:flex;gap:8px;justify-content:center}
+button{padding:8px 20px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#e6e6e6;font-size:0.85rem;cursor:pointer;font-weight:600}
+button:hover{background:#252525;border-color:#3b82f6}
+button.primary{background:#3b82f6;color:#fff;border-color:#3b82f6}
+button.primary:hover{background:#2563eb}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>MAC Address Generator</h1>
+  <p class="desc">Generate random MAC addresses with custom prefix, case, and separator</p>
+
+  <div class="card">
+    <div class="row">
+      <label>Quantity</label>
+      <input type="number" id="amount" value="5" min="1" max="100">
+    </div>
+    <div class="row">
+      <label>Prefix (optional)</label>
+      <input type="text" id="prefix" value="64:16:7F" placeholder="e.g. 64:16:7F" spellcheck="false">
+    </div>
+    <div class="row">
+      <label>Case</label>
+      <select id="caseSel">
+        <option value="upper">Uppercase</option>
+        <option value="lower">Lowercase</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Separator</label>
+      <select id="separator">
+        <option value=":">:</option>
+        <option value="-">-</option>
+        <option value=".">.</option>
+        <option value="">None</option>
+      </select>
+    </div>
+  </div>
+
+  <pre id="output">64:16:7F:A3:B2:C1
+64:16:7F:D4:E5:F6
+64:16:7F:78:90:AB
+64:16:7F:CD:EF:12
+64:16:7F:34:56:78</pre>
+
+  <div class="actions">
+    <button class="primary" id="refreshBtn">Generate</button>
+    <button id="copyBtn">Copy</button>
+  </div>
+</div>
+<script>
+function randomByte() { return Math.floor(Math.random() * 256).toString(16).padStart(2, '0'); }
+
+function splitPrefix(prefix) {
+  if (!prefix) return [];
+  const hasSep = /[^0-9a-f]/i.test(prefix);
+  const parts = hasSep ? prefix.split(/[^0-9a-f]/i) : prefix.match(/.{1,2}/g) || [];
+  return parts.filter(Boolean).map(b => b.padStart(2, '0'));
+}
+
+function generate(prefix, separator, caseFn, count) {
+  const pref = splitPrefix(prefix);
+  return Array.from({length: count}, () => {
+    const bytes = [...pref];
+    while (bytes.length < 6) bytes.push(randomByte());
+    return caseFn(bytes.join(separator));
+  }).join('\n');
+}
+
+function getCaseFn() {
+  return document.getElementById('caseSel').value === 'upper' ? s => s.toUpperCase() : s => s.toLowerCase();
+}
+
+function update() {
+  const amount = parseInt(document.getElementById('amount').value) || 1;
+  const prefix = document.getElementById('prefix').value;
+  const sep = document.getElementById('separator').value;
+  const caseFn = getCaseFn();
+  document.getElementById('output').textContent = generate(prefix, sep, caseFn, Math.min(amount, 100));
+}
+
+document.getElementById('refreshBtn').addEventListener('click', update);
+document.getElementById('copyBtn').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('output').textContent);
+});
+['amount','prefix','caseSel','separator'].forEach(id =>
+  document.getElementById(id).addEventListener('change', update));
+update();
+</script>
+</body>
+</html>

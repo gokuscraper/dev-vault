@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MutationObserver Patterns Playground</title>
+<meta name="description" content="Interactive playground for MutationObserver API - config builder, live DOM manipulation, mutation logging, and performance patterns.">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface-2: #1e1e1e;
+  --surface-3: #282828;
+  --border: #333;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --accent: #4fc3f7;
+  --accent-2: #81c784;
+  --accent-3: #ffb74d;
+  --accent-4: #e57373;
+  --accent-5: #ba68c8;
+  --radius: 8px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+header {
+  background: var(--surface); border-bottom: 1px solid var(--border);
+  padding: 1.5rem 2rem; text-align: center;
+}
+header h1 {
+  font-size: 1.8rem; font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-3), var(--accent-4));
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+}
+header p { color: var(--text-dim); margin-top: .3rem; font-size: .95rem; }
+.container { max-width: 1200px; margin: 0 auto; padding: 1.5rem; display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.full-width { grid-column: 1 / -1; }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.25rem; }
+.card h2 { font-size: 1.1rem; color: var(--accent); margin-bottom: 1rem; display: flex; align-items: center; gap: .5rem; }
+.card h2 .icon { font-size: 1.2rem; }
+button {
+  background: var(--surface-3); color: var(--text); border: 1px solid var(--border);
+  padding: .5rem 1rem; border-radius: var(--radius); cursor: pointer;
+  font-family: var(--font); font-size: .85rem; transition: all .15s;
+}
+button:hover { background: var(--accent); color: #000; border-color: var(--accent); }
+button.primary { background: var(--accent); color: #000; border-color: var(--accent); font-weight: 600; }
+button.primary:hover { background: #29b6f6; }
+button.danger { border-color: var(--accent-4); color: var(--accent-4); }
+button.danger:hover { background: var(--accent-4); color: #000; }
+.btn-row { display: flex; gap: .5rem; flex-wrap: wrap; margin-top: .75rem; }
+input[type="text"], select {
+  background: var(--surface-2); color: var(--text); border: 1px solid var(--border);
+  padding: .45rem .7rem; border-radius: var(--radius); font-family: var(--mono); font-size: .85rem; width: 100%;
+}
+input:focus, select:focus { outline: none; border-color: var(--accent); }
+label { display: block; font-size: .8rem; color: var(--text-dim); margin-bottom: .3rem; font-weight: 500; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: .75rem; }
+.log-area {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .75rem; max-height: 300px; overflow-y: auto; font-family: var(--mono); font-size: .78rem; line-height: 1.5;
+}
+.log-entry { padding: .2rem 0; border-bottom: 1px solid #1a1a1a; }
+.log-entry:last-child { border-bottom: none; }
+.checkbox-row { display: flex; align-items: center; gap: .5rem; margin: .4rem 0; font-size: .85rem; }
+.checkbox-row input[type="checkbox"] { accent-color: var(--accent); width: auto; }
+.stat-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(120px, 1fr)); gap: .75rem; }
+.stat-item { background: var(--surface-2); border-radius: var(--radius); padding: .75rem; text-align: center; }
+.stat-value { font-size: 1.3rem; font-weight: 700; font-family: var(--mono); color: var(--accent); }
+.stat-label { font-size: .75rem; color: var(--text-dim); margin-top: .2rem; }
+.dom-tree {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .75rem; min-height: 120px; font-family: var(--mono); font-size: .8rem;
+}
+.dom-node { padding: .15rem 0; padding-left: 1.5rem; position: relative; }
+.dom-node::before { content: ''; position: absolute; left: .5rem; top: 0; bottom: 0; width: 1px; background: var(--border); }
+.dom-node::after { content: ''; position: absolute; left: .5rem; top: .7rem; width: .75rem; height: 1px; background: var(--border); }
+.dom-node .tag { color: var(--accent-4); }
+.dom-node .attr-name { color: var(--accent-3); }
+.dom-node .attr-val { color: var(--accent-2); }
+.dom-node .text-content { color: var(--text-dim); font-style: italic; }
+.dom-node.highlight { background: var(--accent)11; border-left: 2px solid var(--accent); }
+.mutation-badge {
+  display: inline-block; padding: .1rem .4rem; border-radius: 4px; font-size: .7rem; font-weight: 600; margin-right: .3rem;
+}
+.badge-childList { background: var(--accent); color: #000; }
+.badge-attributes { background: var(--accent-3); color: #000; }
+.badge-characterData { background: var(--accent-5); color: #000; }
+.config-preview {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .75rem; font-family: var(--mono); font-size: .78rem; white-space: pre-wrap; color: var(--text-dim);
+  margin-top: .75rem;
+}
+.config-preview .kw { color: var(--accent-5); }
+.config-preview .prop { color: var(--accent); }
+.config-preview .val { color: var(--accent-2); }
+.diff-view {
+  background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: .75rem; font-family: var(--mono); font-size: .78rem; max-height: 200px; overflow-y: auto;
+}
+.diff-add { color: var(--accent-2); }
+.diff-add::before { content: '+ '; }
+.diff-remove { color: var(--accent-4); }
+.diff-remove::before { content: '- '; }
+.diff-mod { color: var(--accent-3); }
+.diff-mod::before { content: '~ '; }
+.tag-pill { display: inline-block; padding: .1rem .4rem; background: var(--surface-3); border: 1px solid var(--border); border-radius: 4px; font-size: .75rem; margin: .1rem; font-family: var(--mono); }
+footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .8rem; border-top: 1px solid var(--border); margin-top: 2rem; }
+@media (max-width: 768px) {
+  .container { grid-template-columns: 1fr; padding: 1rem; }
+  .form-row { grid-template-columns: 1fr; }
+  .stat-grid { grid-template-columns: repeat(2, 1fr); }
+  header h1 { font-size: 1.3rem; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <h1>MutationObserver Patterns Playground</h1>
+  <p>Build configs, manipulate the DOM live, and watch mutations in real time</p>
+</header>
+
+<div class="container">
+
+  <!-- Config Builder -->
+  <div class="card">
+    <h2><span class="icon">&#9881;</span> Config Builder</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Build a MutationObserver configuration. At least one of childList, attributes, or characterData must be true.
+    </p>
+    <div class="checkbox-row"><input type="checkbox" id="cfgChildList" checked><label style="margin:0">childList</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor child additions/removals</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgAttributes" checked><label style="margin:0">attributes</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor attribute changes</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgCharacterData"><label style="margin:0">characterData</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor text node changes</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgSubtree" checked><label style="margin:0">subtree</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Observe descendants too</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgAttrOldValue"><label style="margin:0">attributeOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old attribute values</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgCharOldValue"><label style="margin:0">characterDataOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old text values</span></div>
+    <div style="margin-top:.75rem;">
+      <label>attributeFilter (comma-separated, leave empty for all)</label>
+      <input type="text" id="cfgAttrFilter" placeholder="e.g. class, style, data-active">
+    </div>
+    <div class="config-preview" id="configPreview"></div>
+    <div class="btn-row">
+      <button class="primary" onclick="applyConfig()">Apply & Observe</button>
+      <button onclick="disconnectObserver()">Disconnect</button>
+      <button onclick="reconnectObserver()">Reconnect</button>
+    </div>
+  </div>
+
+  <!-- Stats -->
+  <div class="card">
+    <h2><span class="icon">&#128202;</span> Mutation Statistics</h2>
+    <div class="stat-grid">
+      <div class="stat-item">
+        <div class="stat-value" id="statTotal">0</div>
+        <div class="stat-label">Total Mutations</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="statChildList">0</div>
+        <div class="stat-label">childList</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="statAttributes">0</div>
+        <div class="stat-label">attributes</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="statCharData">0</div>
+        <div class="stat-label">characterData</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="statCallbacks">0</div>
+        <div class="stat-label">Callbacks</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="statConnected" style="color:var(--accent-2)">Yes</div>
+        <div class="stat-label">Connected</div>
+      </div>
+    </div>
+    <div class="btn-row">
+      <button onclick="resetStats()">Reset Stats</button>
+      <button onclick="takeRecordsDemo()">takeRecords()</button>
+    </div>
+    <div id="takeRecordsResult" style="font-size:.8rem;color:var(--text-dim);margin-top:.5rem;"></div>
+  </div>
+
+  <!-- Live DOM Playground -->
+  <div class="card full-width">
+    <h2><span class="icon">&#128736;</span> Live DOM Manipulation</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Manipulate the observed target element below. Every change triggers a mutation record.
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <h4 style="color:var(--accent-2);font-size:.9rem;margin-bottom:.5rem;">DOM Target</h4>
+        <div class="dom-tree" id="domTarget">
+          <div id="observedRoot" data-status="active" class="root-node" style="padding:.5rem;">
+            <p id="textNode">Hello, MutationObserver!</p>
+            <span class="child-a" data-index="1">Child A</span>
+            <span class="child-b" data-index="2">Child B</span>
+          </div>
+        </div>
+        <div style="margin-top:.5rem;font-size:.8rem;color:var(--text-dim);">
+          Tree visualization:
+        </div>
+        <div class="dom-tree" id="treeView" style="margin-top:.25rem;min-height:60px;font-size:.75rem;"></div>
+      </div>
+      <div>
+        <h4 style="color:var(--accent-3);font-size:.9rem;margin-bottom:.5rem;">Actions</h4>
+        <div class="form-row">
+          <div>
+            <label>Add Child</label>
+            <div style="display:flex;gap:.3rem;">
+              <select id="addTag" style="width:60%;">
+                <option>div</option><option>span</option><option>p</option><option>button</option><option>a</option>
+              </select>
+              <button onclick="addChild()">Add</button>
+            </div>
+          </div>
+          <div>
+            <label>Text content</label>
+            <input type="text" id="addText" value="New element" placeholder="Text">
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:0;">
+          <button onclick="removeLastChild()">Remove Last</button>
+          <button onclick="removeFirstChild()">Remove First</button>
+          <button class="danger" onclick="clearChildren()">Clear All</button>
+        </div>
+        <div style="margin-top:.75rem;">
+          <label>Modify Attribute</label>
+          <div class="form-row" style="margin-bottom:0;">
+            <input type="text" id="attrName" value="data-status" placeholder="Attribute name">
+            <input type="text" id="attrValue" value="updated" placeholder="Value">
+          </div>
+          <div class="btn-row">
+            <button onclick="setAttr()">Set Attribute</button>
+            <button onclick="removeAttr()">Remove Attribute</button>
+            <button onclick="toggleClass()">Toggle Class</button>
+          </div>
+        </div>
+        <div style="margin-top:.75rem;">
+          <label>Modify Text (characterData)</label>
+          <input type="text" id="newText" value="Updated text content" placeholder="New text">
+          <div class="btn-row">
+            <button onclick="changeText()">Change Text</button>
+          </div>
+        </div>
+        <div style="margin-top:.75rem;">
+          <label>Batch Operations</label>
+          <div class="btn-row" style="margin-top:.25rem;">
+            <button onclick="batchAdd(5)">Add 5 Elements</button>
+            <button onclick="batchAttributes(5)">Change 5 Attrs</button>
+            <button onclick="moveChild()">Move First to Last</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mutation Log -->
+  <div class="card">
+    <h2><span class="icon">&#128220;</span> Mutation Log</h2>
+    <div class="log-area" id="mutationLog">
+      <div style="color:var(--text-dim)">Mutations will appear here as they occur...</div>
+    </div>
+    <div class="btn-row">
+      <button onclick="clearLog()">Clear Log</button>
+    </div>
+  </div>
+
+  <!-- Diff Visualization -->
+  <div class="card">
+    <h2><span class="icon">&#128203;</span> DOM Change Diff</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Visual diff of DOM changes. Shows additions, removals, and modifications.
+    </p>
+    <div class="diff-view" id="diffView">
+      <div style="color:var(--text-dim)">DOM changes will be shown as diffs here...</div>
+    </div>
+    <div class="btn-row">
+      <button onclick="clearDiff()">Clear Diff</button>
+    </div>
+  </div>
+
+  <!-- Attribute Filter Demo -->
+  <div class="card full-width">
+    <h2><span class="icon">&#128269;</span> Attribute Filter Demo</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Use attributeFilter to observe only specific attributes. Changes to non-filtered attributes are ignored.
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
+      <div>
+        <label>Filtered attributes (watching these only)</label>
+        <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin:.3rem 0;">
+          <span class="tag-pill" style="border-color:var(--accent)">class</span>
+          <span class="tag-pill" style="border-color:var(--accent)">data-active</span>
+        </div>
+        <div id="filterTarget" class="demo-el" data-active="true" data-ignored="yes" style="background:var(--surface-2);padding:.75rem;border-radius:var(--radius);margin-top:.5rem;border:1px solid var(--border);">
+          <code style="font-size:.8rem;color:var(--text-dim)">
+            class="<span id="filterClassVal">demo-el</span>" data-active="<span id="filterActiveVal">true</span>" data-ignored="<span id="filterIgnoredVal">yes</span>"
+          </code>
+        </div>
+        <div class="btn-row">
+          <button onclick="changeFilteredAttr('class','highlighted')">Change class</button>
+          <button onclick="changeFilteredAttr('data-active','false')">Change data-active</button>
+          <button onclick="changeFilteredAttr('data-ignored','changed')">Change data-ignored</button>
+        </div>
+      </div>
+      <div>
+        <label>Filter observer log</label>
+        <div class="log-area" id="filterLog" style="min-height:100px;">
+          <div style="color:var(--text-dim)">Only class and data-active changes will be logged...</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Disconnect/Reconnect Pattern -->
+  <div class="card">
+    <h2><span class="icon">&#128260;</span> Disconnect/Reconnect Pattern</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Temporarily disconnect to make bulk changes without flooding with mutation records, then reconnect.
+    </p>
+    <div class="log-area" id="dcLog" style="min-height:80px;">
+      <div style="color:var(--text-dim)">Click buttons to see disconnect/reconnect in action...</div>
+    </div>
+    <div class="btn-row">
+      <button onclick="dcPatternDemo('connected')">Add While Connected</button>
+      <button onclick="dcPatternDemo('disconnected')">Add While Disconnected</button>
+      <button onclick="clearDcLog()">Clear</button>
+    </div>
+  </div>
+
+  <!-- takeRecords Demo -->
+  <div class="card">
+    <h2><span class="icon">&#128230;</span> takeRecords() Demo</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      <code style="color:var(--accent)">takeRecords()</code> retrieves pending mutations synchronously, clearing the queue before the callback fires.
+    </p>
+    <div class="log-area" id="trLog" style="min-height:100px;">
+      <div style="color:var(--text-dim)">Click to see takeRecords() in action...</div>
+    </div>
+    <div class="btn-row">
+      <button class="primary" onclick="takeRecordsFullDemo()">Run Demo</button>
+      <button onclick="document.getElementById('trLog').innerHTML='<div style=color:var(--text-dim)>Click to see takeRecords() in action...</div>'">Clear</button>
+    </div>
+  </div>
+
+  <!-- Performance Monitoring -->
+  <div class="card full-width">
+    <h2><span class="icon">&#9889;</span> Performance Monitoring Use Case</h2>
+    <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
+      Track DOM mutations to detect performance issues. Excessive mutations per second can indicate inefficient rendering.
+    </p>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:.75rem;">
+      <div class="stat-item">
+        <div class="stat-value" id="perfRate">0</div>
+        <div class="stat-label">Mutations/sec</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="perfPeak">0</div>
+        <div class="stat-label">Peak/sec</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-value" id="perfHealth" style="color:var(--accent-2)">Healthy</div>
+        <div class="stat-label">Status</div>
+      </div>
+    </div>
+    <div style="margin-top:.75rem;height:80px;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);position:relative;overflow:hidden;" id="perfChart">
+      <canvas id="perfCanvas" style="width:100%;height:100%;"></canvas>
+    </div>
+    <div class="btn-row">
+      <button onclick="startPerfStorm()">Simulate Mutation Storm</button>
+      <button onclick="resetPerfChart()">Reset Chart</button>
+    </div>
+  </div>
+
+</div>
+
+<footer>MutationObserver Patterns Playground &mdash; Interactive API Explorer</footer>
+
+<script>
+// === State ===
+let observer, filterObserver, dcObserver, trObserver;
+let connected = true;
+let mutationStats = { total: 0, childList: 0, attributes: 0, characterData: 0, callbacks: 0 };
+let currentConfig = {};
+let perfHistory = [];
+let perfInterval;
+let mutationsThisSecond = 0;
+let peakRate = 0;
+
+// === Config Builder ===
+function buildConfig() {
+  const config = {};
+  if (document.getElementById('cfgChildList').checked) config.childList = true;
+  if (document.getElementById('cfgAttributes').checked) config.attributes = true;
+  if (document.getElementById('cfgCharacterData').checked) config.characterData = true;
+  if (document.getElementById('cfgSubtree').checked) config.subtree = true;
+  if (document.getElementById('cfgAttrOldValue').checked) config.attributeOldValue = true;
+  if (document.getElementById('cfgCharOldValue').checked) config.characterDataOldValue = true;
+  const filter = document.getElementById('cfgAttrFilter').value.trim();
+  if (filter) config.attributeFilter = filter.split(',').map(s => s.trim()).filter(Boolean);
+  return config;
+}
+
+function updateConfigPreview() {
+  const config = buildConfig();
+  const preview = document.getElementById('configPreview');
+  let html = '<span class="kw">observer</span>.<span class="prop">observe</span>(target, {\n';
+  for (const [key, value] of Object.entries(config)) {
+    if (Array.isArray(value)) {
+      html += `  <span class="prop">${key}</span>: [${value.map(v => `<span class="val">"${v}"</span>`).join(', ')}],\n`;
+    } else {
+      html += `  <span class="prop">${key}</span>: <span class="val">${value}</span>,\n`;
+    }
+  }
+  html += '});';
+  preview.innerHTML = html;
+}
+
+// Update preview on change
+document.querySelectorAll('#cfgChildList,#cfgAttributes,#cfgCharacterData,#cfgSubtree,#cfgAttrOldValue,#cfgCharOldValue').forEach(el => {
+  el.addEventListener('change', updateConfigPreview);
+});
+document.getElementById('cfgAttrFilter').addEventListener('input', updateConfigPreview);
+updateConfigPreview();
+
+// === Main Observer ===
+function createObserver() {
+  if (observer) observer.disconnect();
+  observer = new MutationObserver((mutations) => {
+    mutationStats.callbacks++;
+    mutations.forEach(m => {
+      mutationStats.total++;
+      mutationStats[m.type]++;
+      mutationsThisSecond++;
+      logMutation(m);
+      diffMutation(m);
+    });
+    updateStatsDisplay();
+    updateTreeView();
+  });
+}
+
+function applyConfig() {
+  currentConfig = buildConfig();
+  createObserver();
+  const target = document.getElementById('observedRoot');
+  try {
+    observer.observe(target, currentConfig);
+    connected = true;
+    document.getElementById('statConnected').textContent = 'Yes';
+    document.getElementById('statConnected').style.color = 'var(--accent-2)';
+    addLog('mutationLog', 'Observer connected with new config');
+  } catch (e) {
+    addLog('mutationLog', `<span style="color:var(--accent-4)">Error: ${e.message}</span>`);
+  }
+}
+
+function disconnectObserver() {
+  if (observer) observer.disconnect();
+  connected = false;
+  document.getElementById('statConnected').textContent = 'No';
+  document.getElementById('statConnected').style.color = 'var(--accent-4)';
+  addLog('mutationLog', '<span style="color:var(--accent-3)">Observer disconnected</span>');
+}
+
+function reconnectObserver() {
+  if (!observer || Object.keys(currentConfig).length === 0) {
+    applyConfig();
+    return;
+  }
+  observer.observe(document.getElementById('observedRoot'), currentConfig);
+  connected = true;
+  document.getElementById('statConnected').textContent = 'Yes';
+  document.getElementById('statConnected').style.color = 'var(--accent-2)';
+  addLog('mutationLog', '<span style="color:var(--accent-2)">Observer reconnected</span>');
+}
+
+// === DOM Manipulation ===
+function addChild() {
+  const tag = document.getElementById('addTag').value;
+  const text = document.getElementById('addText').value;
+  const root = document.getElementById('observedRoot');
+  const el = document.createElement(tag);
+  el.textContent = text;
+  el.setAttribute('data-index', root.children.length);
+  root.appendChild(el);
+}
+
+function removeLastChild() {
+  const root = document.getElementById('observedRoot');
+  if (root.lastElementChild) root.removeChild(root.lastElementChild);
+}
+
+function removeFirstChild() {
+  const root = document.getElementById('observedRoot');
+  if (root.firstElementChild) root.removeChild(root.firstElementChild);
+}
+
+function clearChildren() {
+  const root = document.getElementById('observedRoot');
+  while (root.firstChild) root.removeChild(root.firstChild);
+}
+
+function setAttr() {
+  const name = document.getElementById('attrName').value;
+  const value = document.getElementById('attrValue').value;
+  document.getElementById('observedRoot').setAttribute(name, value);
+}
+
+function removeAttr() {
+  const name = document.getElementById('attrName').value;
+  document.getElementById('observedRoot').removeAttribute(name);
+}
+
+function toggleClass() {
+  document.getElementById('observedRoot').classList.toggle('toggled-class');
+}
+
+function changeText() {
+  const text = document.getElementById('newText').value;
+  const textNode = document.getElementById('textNode');
+  if (textNode && textNode.firstChild) {
+    textNode.firstChild.textContent = text;
+  }
+}
+
+function batchAdd(count) {
+  const root = document.getElementById('observedRoot');
+  for (let i = 0; i < count; i++) {
+    const el = document.createElement('span');
+    el.textContent = `Batch-${Date.now()}-${i}`;
+    root.appendChild(el);
+  }
+}
+
+function batchAttributes(count) {
+  const root = document.getElementById('observedRoot');
+  for (let i = 0; i < count; i++) {
+    root.setAttribute(`data-batch-${i}`, `value-${Date.now()}`);
+  }
+}
+
+function moveChild() {
+  const root = document.getElementById('observedRoot');
+  if (root.firstElementChild) root.appendChild(root.firstElementChild);
+}
+
+// === Logging ===
+function logMutation(m) {
+  const log = document.getElementById('mutationLog');
+  if (log.querySelector('div[style]')) log.innerHTML = '';
+  const badge = `<span class="mutation-badge badge-${m.type}">${m.type}</span>`;
+  let detail = '';
+  if (m.type === 'childList') {
+    if (m.addedNodes.length) detail += `+${m.addedNodes.length} added `;
+    if (m.removedNodes.length) detail += `-${m.removedNodes.length} removed `;
+  } else if (m.type === 'attributes') {
+    detail = `${m.attributeName}`;
+    if (m.oldValue !== null) detail += ` (was: "${m.oldValue}")`;
+  } else if (m.type === 'characterData') {
+    detail = 'text changed';
+    if (m.oldValue !== null) detail += ` (was: "${m.oldValue.substring(0, 30)}")`;
+  }
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = `${badge}${detail}`;
+  log.appendChild(entry);
+  if (log.children.length > 100) log.removeChild(log.firstChild);
+  log.scrollTop = log.scrollHeight;
+}
+
+function clearLog() {
+  document.getElementById('mutationLog').innerHTML = '<div style="color:var(--text-dim)">Mutations will appear here as they occur...</div>';
+}
+
+function addLog(id, html) {
+  const log = document.getElementById(id);
+  if (log.querySelector('div[style*="color:var(--text-dim)"]') && !html.includes('text-dim')) log.innerHTML = '';
+  const entry = document.createElement('div');
+  entry.className = 'log-entry';
+  entry.innerHTML = `<span style="color:var(--accent)">[${new Date().toLocaleTimeString()}]</span> ${html}`;
+  log.appendChild(entry);
+  if (log.children.length > 50) log.removeChild(log.firstChild);
+  log.scrollTop = log.scrollHeight;
+}
+
+// === Diff ===
+function diffMutation(m) {
+  const view = document.getElementById('diffView');
+  if (view.querySelector('div[style]')) view.innerHTML = '';
+  const entry = document.createElement('div');
+  if (m.type === 'childList') {
+    let html = '';
+    m.addedNodes.forEach(n => { html += `<div class="diff-add">${nodeDesc(n)}</div>`; });
+    m.removedNodes.forEach(n => { html += `<div class="diff-remove">${nodeDesc(n)}</div>`; });
+    entry.innerHTML = html;
+  } else if (m.type === 'attributes') {
+    const newVal = m.target.getAttribute(m.attributeName);
+    entry.innerHTML = `<div class="diff-mod">${m.attributeName}: "${m.oldValue || ''}" → "${newVal || ''}"</div>`;
+  } else if (m.type === 'characterData') {
+    entry.innerHTML = `<div class="diff-mod">text: "${(m.oldValue || '').substring(0, 50)}" → "${(m.target.textContent || '').substring(0, 50)}"</div>`;
+  }
+  view.appendChild(entry);
+  if (view.children.length > 50) view.removeChild(view.firstChild);
+  view.scrollTop = view.scrollHeight;
+}
+
+function clearDiff() {
+  document.getElementById('diffView').innerHTML = '<div style="color:var(--text-dim)">DOM changes will be shown as diffs here...</div>';
+}
+
+function nodeDesc(node) {
+  if (node.nodeType === 3) return `#text "${node.textContent.substring(0, 40)}"`;
+  if (node.nodeType === 1) return `&lt;${node.tagName.toLowerCase()}&gt; "${(node.textContent || '').substring(0, 30)}"`;
+  return `node(${node.nodeType})`;
+}
+
+// === Tree View ===
+function updateTreeView() {
+  const root = document.getElementById('observedRoot');
+  const view = document.getElementById('treeView');
+  view.innerHTML = renderNode(root, 0);
+}
+
+function renderNode(node, depth) {
+  if (node.nodeType === 3) {
+    const text = node.textContent.trim();
+    if (!text) return '';
+    return `<div class="dom-node" style="padding-left:${depth * 1.2}rem;"><span class="text-content">"${text.substring(0, 40)}"</span></div>`;
+  }
+  if (node.nodeType !== 1) return '';
+  let attrs = '';
+  for (const attr of node.attributes) {
+    if (attr.name === 'style') continue;
+    attrs += ` <span class="attr-name">${attr.name}</span>=<span class="attr-val">"${attr.value}"</span>`;
+  }
+  let html = `<div class="dom-node" style="padding-left:${depth * 1.2}rem;"><span class="tag">&lt;${node.tagName.toLowerCase()}</span>${attrs}<span class="tag">&gt;</span></div>`;
+  for (const child of node.childNodes) html += renderNode(child, depth + 1);
+  return html;
+}
+updateTreeView();
+
+// === Stats ===
+function updateStatsDisplay() {
+  document.getElementById('statTotal').textContent = mutationStats.total;
+  document.getElementById('statChildList').textContent = mutationStats.childList;
+  document.getElementById('statAttributes').textContent = mutationStats.attributes;
+  document.getElementById('statCharData').textContent = mutationStats.characterData;
+  document.getElementById('statCallbacks').textContent = mutationStats.callbacks;
+}
+
+function resetStats() {
+  mutationStats = { total: 0, childList: 0, attributes: 0, characterData: 0, callbacks: 0 };
+  updateStatsDisplay();
+}
+
+// === takeRecords ===
+function takeRecordsDemo() {
+  if (!observer) return;
+  const records = observer.takeRecords();
+  const result = document.getElementById('takeRecordsResult');
+  result.innerHTML = `<span style="color:var(--accent)">takeRecords() returned ${records.length} pending mutation(s).</span>`;
+}
+
+function takeRecordsFullDemo() {
+  const log = document.getElementById('trLog');
+  log.innerHTML = '';
+
+  const target = document.createElement('div');
+  target.textContent = 'test';
+  document.getElementById('observedRoot').appendChild(target);
+
+  const trObs = new MutationObserver((mutations) => {
+    addLog('trLog', `Callback fired with ${mutations.length} mutation(s) — but we already took them!`);
+  });
+  trObs.observe(document.getElementById('observedRoot'), { childList: true, subtree: true });
+
+  // Make a change
+  const child = document.createElement('span');
+  child.textContent = 'added via takeRecords demo';
+  target.appendChild(child);
+
+  // takeRecords synchronously
+  const records = trObs.takeRecords();
+  addLog('trLog', `takeRecords() returned ${records.length} record(s) synchronously`);
+  records.forEach((r, i) => {
+    addLog('trLog', `  Record ${i}: ${r.type}, addedNodes: ${r.addedNodes.length}, removedNodes: ${r.removedNodes.length}`);
+  });
+  addLog('trLog', 'Callback should NOT fire now (queue was drained)');
+
+  trObs.disconnect();
+  target.remove();
+
+  setTimeout(() => {
+    addLog('trLog', '<span style="color:var(--accent-2)">Confirmed: callback did not fire for drained records.</span>');
+  }, 100);
+}
+
+// === Attribute Filter ===
+filterObserver = new MutationObserver((mutations) => {
+  mutations.forEach(m => {
+    addLog('filterLog', `<span class="mutation-badge badge-attributes">attributes</span> ${m.attributeName} changed`);
+  });
+});
+filterObserver.observe(document.getElementById('filterTarget'), {
+  attributes: true,
+  attributeFilter: ['class', 'data-active']
+});
+
+function changeFilteredAttr(name, value) {
+  const target = document.getElementById('filterTarget');
+  target.setAttribute(name, value);
+  if (name === 'class') document.getElementById('filterClassVal').textContent = value;
+  else if (name === 'data-active') document.getElementById('filterActiveVal').textContent = value;
+  else if (name === 'data-ignored') {
+    document.getElementById('filterIgnoredVal').textContent = value;
+    addLog('filterLog', '<span style="color:var(--text-dim)">data-ignored changed but NOT observed (filtered out)</span>');
+  }
+}
+
+// === Disconnect/Reconnect Pattern ===
+function dcPatternDemo(mode) {
+  const target = document.getElementById('observedRoot');
+  const log = document.getElementById('dcLog');
+  if (log.querySelector('div[style*="text-dim"]')) log.innerHTML = '';
+
+  if (mode === 'disconnected') {
+    addLog('dcLog', 'Disconnecting observer...');
+    if (observer) observer.disconnect();
+    addLog('dcLog', 'Adding 3 elements while disconnected...');
+    for (let i = 0; i < 3; i++) {
+      const el = document.createElement('div');
+      el.textContent = `Silent-${i}`;
+      target.appendChild(el);
+    }
+    addLog('dcLog', '<span style="color:var(--accent-3)">No mutations recorded!</span>');
+    addLog('dcLog', 'Reconnecting...');
+    if (observer && Object.keys(currentConfig).length) observer.observe(target, currentConfig);
+    addLog('dcLog', '<span style="color:var(--accent-2)">Reconnected. Future mutations will be observed.</span>');
+    updateTreeView();
+  } else {
+    addLog('dcLog', 'Adding 3 elements while connected...');
+    for (let i = 0; i < 3; i++) {
+      const el = document.createElement('div');
+      el.textContent = `Observed-${i}`;
+      target.appendChild(el);
+    }
+    addLog('dcLog', '<span style="color:var(--accent-2)">Mutations were recorded!</span>');
+  }
+}
+
+function clearDcLog() {
+  document.getElementById('dcLog').innerHTML = '<div style="color:var(--text-dim)">Click buttons to see disconnect/reconnect in action...</div>';
+}
+
+// === Performance Monitor ===
+const canvas = document.getElementById('perfCanvas');
+const ctx = canvas.getContext('2d');
+
+function startPerfMonitor() {
+  perfInterval = setInterval(() => {
+    perfHistory.push(mutationsThisSecond);
+    if (perfHistory.length > 60) perfHistory.shift();
+    if (mutationsThisSecond > peakRate) peakRate = mutationsThisSecond;
+
+    document.getElementById('perfRate').textContent = mutationsThisSecond;
+    document.getElementById('perfPeak').textContent = peakRate;
+
+    const health = document.getElementById('perfHealth');
+    if (mutationsThisSecond > 100) { health.textContent = 'Storm!'; health.style.color = 'var(--accent-4)'; }
+    else if (mutationsThisSecond > 30) { health.textContent = 'Warning'; health.style.color = 'var(--accent-3)'; }
+    else { health.textContent = 'Healthy'; health.style.color = 'var(--accent-2)'; }
+
+    mutationsThisSecond = 0;
+    drawPerfChart();
+  }, 1000);
+}
+
+function drawPerfChart() {
+  const rect = canvas.parentElement.getBoundingClientRect();
+  canvas.width = rect.width * devicePixelRatio;
+  canvas.height = rect.height * devicePixelRatio;
+  ctx.scale(devicePixelRatio, devicePixelRatio);
+  const w = rect.width;
+  const h = rect.height;
+  ctx.clearRect(0, 0, w, h);
+
+  if (perfHistory.length < 2) return;
+  const max = Math.max(...perfHistory, 10);
+  const step = w / 59;
+
+  ctx.beginPath();
+  ctx.strokeStyle = '#4fc3f7';
+  ctx.lineWidth = 1.5;
+  perfHistory.forEach((v, i) => {
+    const x = i * step;
+    const y = h - (v / max) * (h - 10) - 5;
+    i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+  });
+  ctx.stroke();
+
+  // Warning line at 100
+  if (max > 100) {
+    const y = h - (100 / max) * (h - 10) - 5;
+    ctx.beginPath();
+    ctx.strokeStyle = '#e5737744';
+    ctx.setLineDash([4, 4]);
+    ctx.moveTo(0, y);
+    ctx.lineTo(w, y);
+    ctx.stroke();
+    ctx.setLineDash([]);
+  }
+}
+
+function startPerfStorm() {
+  const root = document.getElementById('observedRoot');
+  let count = 0;
+  const interval = setInterval(() => {
+    for (let i = 0; i < 20; i++) {
+      const el = document.createElement('span');
+      el.textContent = 'x';
+      root.appendChild(el);
+      root.removeChild(el);
+    }
+    count++;
+    if (count > 15) clearInterval(interval);
+  }, 100);
+}
+
+function resetPerfChart() {
+  perfHistory = [];
+  peakRate = 0;
+  mutationsThisSecond = 0;
+  drawPerfChart();
+  document.getElementById('perfRate').textContent = '0';
+  document.getElementById('perfPeak').textContent = '0';
+  document.getElementById('perfHealth').textContent = 'Healthy';
+  document.getElementById('perfHealth').style.color = 'var(--accent-2)';
+}
+
+// === Init ===
+applyConfig();
+startPerfMonitor();
+</script>
+
+</body>
+</html>

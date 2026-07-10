@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Actions Generator — Create CI/CD Workflows Visually</title>
+<meta name="description" content="Generate GitHub Actions workflow YAML visually. CI/CD for Node.js, Python, Go, Rust, Docker. Test, build, deploy. Copy or download.">
+<link rel="canonical" href="https://yurukusa.github.io/github-actions-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"GitHub Actions Generator","description":"Generate GitHub Actions workflows visually. Node.js, Python, Go, Docker CI/CD.","url":"https://yurukusa.github.io/github-actions-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.preset{padding:6px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.78rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.preset.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:0.78rem;color:#888;margin-bottom:4px;font-weight:600}
+.field input,.field select{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:6px 10px;color:#e6e6e6;font-size:0.82rem}
+.field-row{display:flex;gap:10px}
+.field-row .field{flex:1}
+.check-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.check-row label{font-size:0.78rem;color:#aaa}
+.check-group{margin-bottom:10px}
+.check-group h4{font-size:0.78rem;color:#666;margin-bottom:6px;font-weight:600}
+.output-area{width:100%;min-height:400px;max-height:600px;background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:10px;color:#e6e6e6;font-family:'Fira Code',monospace;font-size:0.75rem;overflow:auto;white-space:pre}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#ccc;font-size:0.8rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#3b82f6;color:#4da6ff}
+.btn-primary{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>GitHub Actions Generator</h1>
+<p class="sub">Create CI/CD workflows visually — copy YAML to your repo</p>
+
+<div class="section">
+<h3>Presets</h3>
+<div class="presets" id="presetList">
+<div class="preset active" onclick="loadPreset('node')">Node.js CI</div>
+<div class="preset" onclick="loadPreset('python')">Python CI</div>
+<div class="preset" onclick="loadPreset('go')">Go CI</div>
+<div class="preset" onclick="loadPreset('rust')">Rust CI</div>
+<div class="preset" onclick="loadPreset('docker')">Docker Build</div>
+<div class="preset" onclick="loadPreset('static')">Static Deploy</div>
+<div class="preset" onclick="loadPreset('release')">Release</div>
+<div class="preset" onclick="loadPreset('lint')">Lint Only</div>
+</div>
+</div>
+
+<div class="layout">
+<div>
+<div class="section">
+<h3>Workflow</h3>
+<div class="field"><label>Name</label><input id="wName" value="CI" oninput="gen()"></div>
+<div class="field"><label>File name (.github/workflows/)</label><input id="wFile" value="ci.yml" oninput="gen()"></div>
+</div>
+
+<div class="section">
+<h3>Triggers</h3>
+<div class="check-group">
+<div class="check-row"><input type="checkbox" id="tPush" checked onchange="gen()"><label for="tPush">Push</label></div>
+<div class="check-row"><input type="checkbox" id="tPR" checked onchange="gen()"><label for="tPR">Pull Request</label></div>
+<div class="check-row"><input type="checkbox" id="tManual" onchange="gen()"><label for="tManual">Manual (workflow_dispatch)</label></div>
+<div class="check-row"><input type="checkbox" id="tSchedule" onchange="gen()"><label for="tSchedule">Schedule (cron)</label></div>
+</div>
+<div class="field"><label>Branches (comma-separated)</label><input id="tBranches" value="main" oninput="gen()"></div>
+<div class="field" id="fCron" style="display:none"><label>Cron Schedule</label><input id="tCron" value="0 0 * * 1" oninput="gen()"></div>
+</div>
+
+<div class="section">
+<h3>Job Settings</h3>
+<div class="field"><label>Runner</label><select id="jRunner" onchange="gen()">
+<option value="ubuntu-latest">ubuntu-latest</option>
+<option value="ubuntu-22.04">ubuntu-22.04</option>
+<option value="macos-latest">macos-latest</option>
+<option value="windows-latest">windows-latest</option>
+</select></div>
+<div class="field"><label>Language</label><select id="jLang" onchange="gen()">
+<option value="node">Node.js</option>
+<option value="python">Python</option>
+<option value="go">Go</option>
+<option value="rust">Rust</option>
+<option value="none">None (custom)</option>
+</select></div>
+<div class="field" id="fVersion"><label>Version</label><input id="jVersion" value="20" oninput="gen()"></div>
+<div class="field" id="fMatrix" style="display:none"><label>Matrix Versions (comma-separated)</label><input id="jMatrix" value="" oninput="gen()"></div>
+<div class="check-row"><input type="checkbox" id="jMatrixEnable" onchange="toggleMatrix()"><label for="jMatrixEnable">Enable matrix strategy</label></div>
+</div>
+
+<div class="section">
+<h3>Steps</h3>
+<div class="check-group">
+<div class="check-row"><input type="checkbox" id="sCheckout" checked onchange="gen()"><label for="sCheckout">Checkout</label></div>
+<div class="check-row"><input type="checkbox" id="sSetup" checked onchange="gen()"><label for="sSetup">Setup language</label></div>
+<div class="check-row"><input type="checkbox" id="sInstall" checked onchange="gen()"><label for="sInstall">Install dependencies</label></div>
+<div class="check-row"><input type="checkbox" id="sLint" onchange="gen()"><label for="sLint">Lint</label></div>
+<div class="check-row"><input type="checkbox" id="sTest" checked onchange="gen()"><label for="sTest">Test</label></div>
+<div class="check-row"><input type="checkbox" id="sBuild" onchange="gen()"><label for="sBuild">Build</label></div>
+<div class="check-row"><input type="checkbox" id="sCache" checked onchange="gen()"><label for="sCache">Cache dependencies</label></div>
+<div class="check-row"><input type="checkbox" id="sDocker" onchange="gen()"><label for="sDocker">Docker build & push</label></div>
+<div class="check-row"><input type="checkbox" id="sDeploy" onchange="gen()"><label for="sDeploy">Deploy step (placeholder)</label></div>
+</div>
+</div>
+</div>
+
+<div>
+<div class="output-area" id="output"></div>
+<div class="actions">
+<button class="btn btn-primary" onclick="copyYaml()">Copy YAML</button>
+<button class="btn" onclick="downloadYaml()">Download</button>
+</div>
+</div>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/dependabot-gen/">Dependabot Config</a> | <a href="https://yurukusa.github.io/docker-compose-gen/">Docker Compose</a> | <a href="https://yurukusa.github.io/github-profile-gen/">GitHub Profile</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const LANG_CONFIG={
+  node:{setup:'actions/setup-node@v4',versionKey:'node-version',install:'npm ci',lint:'npm run lint',test:'npm test',build:'npm run build',cache:'node_modules',cacheKey:'npm',hashFile:'**/package-lock.json'},
+  python:{setup:'actions/setup-python@v5',versionKey:'python-version',install:'pip install -r requirements.txt',lint:'flake8 .',test:'pytest',build:'python setup.py build',cache:'~/.cache/pip',cacheKey:'pip',hashFile:'**/requirements.txt'},
+  go:{setup:'actions/setup-go@v5',versionKey:'go-version',install:'go mod download',lint:'golangci-lint run',test:'go test ./...',build:'go build -v ./...',cache:'~/go/pkg/mod',cacheKey:'go',hashFile:'**/go.sum'},
+  rust:{setup:'dtolnay/rust-toolchain@stable',versionKey:'toolchain',install:'',lint:'cargo clippy -- -D warnings',test:'cargo test',build:'cargo build --release',cache:'~/.cargo/registry',cacheKey:'cargo',hashFile:'**/Cargo.lock'}
+};
+
+function v(id){return document.getElementById(id).value}
+function ch(id){return document.getElementById(id).checked}
+
+document.getElementById('tSchedule').addEventListener('change',()=>{
+  document.getElementById('fCron').style.display=ch('tSchedule')?'block':'none';
+});
+
+function toggleMatrix(){
+  document.getElementById('fMatrix').style.display=ch('jMatrixEnable')?'block':'none';
+  gen();
+}
+
+function gen(){
+  const name=v('wName');
+  const lang=v('jLang');
+  const lc=LANG_CONFIG[lang]||{};
+  const runner=v('jRunner');
+  const version=v('jVersion');
+  const branches=v('tBranches').split(',').map(b=>b.trim()).filter(Boolean);
+  const matrixEnabled=ch('jMatrixEnable');
+  const matrixVersions=v('jMatrix').split(',').map(b=>b.trim()).filter(Boolean);
+
+  let y=`name: ${name}\n\non:\n`;
+
+  // Triggers
+  if(ch('tPush')){
+    y+=`  push:\n    branches: [${branches.map(b=>`"${b}"`).join(', ')}]\n`;
+  }
+  if(ch('tPR')){
+    y+=`  pull_request:\n    branches: [${branches.map(b=>`"${b}"`).join(', ')}]\n`;
+  }
+  if(ch('tManual'))y+=`  workflow_dispatch:\n`;
+  if(ch('tSchedule'))y+=`  schedule:\n    - cron: "${v('tCron')}"\n`;
+
+  // Jobs
+  y+=`\njobs:\n  build:\n    runs-on: ${runner}\n`;
+
+  if(matrixEnabled&&matrixVersions.length>1&&lang!=='none'){
+    y+=`    strategy:\n      matrix:\n        ${lc.versionKey||'version'}: [${matrixVersions.map(v=>`"${v}"`).join(', ')}]\n`;
+  }
+
+  y+=`    steps:\n`;
+
+  // Steps
+  if(ch('sCheckout')){
+    y+=`      - uses: actions/checkout@v4\n`;
+  }
+
+  if(ch('sSetup')&&lang!=='none'&&lc.setup){
+    y+=`\n      - name: Set up ${lang}\n        uses: ${lc.setup}\n`;
+    if(lang!=='rust'){
+      const ver=matrixEnabled&&matrixVersions.length>1?`\${{ matrix.${lc.versionKey} }}`:version;
+      y+=`        with:\n          ${lc.versionKey}: "${ver}"\n`;
+    }
+  }
+
+  if(ch('sCache')&&lang!=='none'&&lc.cache){
+    y+=`\n      - name: Cache dependencies\n        uses: actions/cache@v4\n        with:\n          path: ${lc.cache}\n          key: \${{ runner.os }}-${lc.cacheKey}-\${{ hashFiles('${lc.hashFile}') }}\n          restore-keys: |\n            \${{ runner.os }}-${lc.cacheKey}-\n`;
+  }
+
+  if(ch('sInstall')&&lc.install){
+    y+=`\n      - name: Install dependencies\n        run: ${lc.install}\n`;
+  }
+
+  if(ch('sLint')&&lc.lint){
+    y+=`\n      - name: Lint\n        run: ${lc.lint}\n`;
+  }
+
+  if(ch('sTest')&&lc.test){
+    y+=`\n      - name: Test\n        run: ${lc.test}\n`;
+  }
+
+  if(ch('sBuild')&&lc.build){
+    y+=`\n      - name: Build\n        run: ${lc.build}\n`;
+  }
+
+  if(ch('sDocker')){
+    y+=`\n      - name: Log in to Docker Hub\n        uses: docker/login-action@v3\n        with:\n          username: \${{ secrets.DOCKER_USERNAME }}\n          password: \${{ secrets.DOCKER_PASSWORD }}\n`;
+    y+=`\n      - name: Build and push Docker image\n        uses: docker/build-push-action@v5\n        with:\n          push: true\n          tags: \${{ secrets.DOCKER_USERNAME }}/\${{ github.event.repository.name }}:latest\n`;
+  }
+
+  if(ch('sDeploy')){
+    y+=`\n      - name: Deploy\n        run: echo "Add your deploy commands here"\n        env:\n          DEPLOY_TOKEN: \${{ secrets.DEPLOY_TOKEN }}\n`;
+  }
+
+  document.getElementById('output').textContent=y;
+}
+
+// Presets
+function loadPreset(name){
+  const presets={
+    node:{name:'CI',lang:'node',version:'20',push:true,pr:true,manual:false,schedule:false,checkout:true,setup:true,install:true,lint:true,test:true,build:false,cache:true,docker:false,deploy:false},
+    python:{name:'Python CI',lang:'python',version:'3.12',push:true,pr:true,manual:false,schedule:false,checkout:true,setup:true,install:true,lint:true,test:true,build:false,cache:true,docker:false,deploy:false},
+    go:{name:'Go CI',lang:'go',version:'1.22',push:true,pr:true,manual:false,schedule:false,checkout:true,setup:true,install:true,lint:true,test:true,build:true,cache:true,docker:false,deploy:false},
+    rust:{name:'Rust CI',lang:'rust',version:'stable',push:true,pr:true,manual:false,schedule:false,checkout:true,setup:true,install:false,lint:true,test:true,build:true,cache:true,docker:false,deploy:false},
+    docker:{name:'Docker Build',lang:'none',version:'',push:true,pr:false,manual:true,schedule:false,checkout:true,setup:false,install:false,lint:false,test:false,build:false,cache:false,docker:true,deploy:false},
+    static:{name:'Deploy Static Site',lang:'node',version:'20',push:true,pr:false,manual:false,schedule:false,checkout:true,setup:true,install:true,lint:false,test:false,build:true,cache:true,docker:false,deploy:true},
+    release:{name:'Release',lang:'node',version:'20',push:true,pr:false,manual:true,schedule:false,checkout:true,setup:true,install:true,lint:true,test:true,build:true,cache:true,docker:false,deploy:false},
+    lint:{name:'Lint',lang:'node',version:'20',push:true,pr:true,manual:false,schedule:false,checkout:true,setup:true,install:true,lint:true,test:false,build:false,cache:true,docker:false,deploy:false}
+  };
+  const p=presets[name];if(!p)return;
+
+  document.getElementById('wName').value=p.name;
+  document.getElementById('jLang').value=p.lang;
+  document.getElementById('jVersion').value=p.version;
+  document.getElementById('tPush').checked=p.push;
+  document.getElementById('tPR').checked=p.pr;
+  document.getElementById('tManual').checked=p.manual;
+  document.getElementById('tSchedule').checked=p.schedule;
+  document.getElementById('sCheckout').checked=p.checkout;
+  document.getElementById('sSetup').checked=p.setup;
+  document.getElementById('sInstall').checked=p.install;
+  document.getElementById('sLint').checked=p.lint;
+  document.getElementById('sTest').checked=p.test;
+  document.getElementById('sBuild').checked=p.build;
+  document.getElementById('sCache').checked=p.cache;
+  document.getElementById('sDocker').checked=p.docker;
+  document.getElementById('sDeploy').checked=p.deploy;
+
+  document.querySelectorAll('.preset').forEach(el=>el.classList.remove('active'));
+  document.querySelector(`.preset[onclick="loadPreset('${name}')"]`).classList.add('active');
+  gen();
+}
+
+function copyYaml(){
+  navigator.clipboard.writeText(document.getElementById('output').textContent).then(()=>showToast('Copied!'));
+}
+
+function downloadYaml(){
+  const text=document.getElementById('output').textContent;
+  const blob=new Blob([text],{type:'text/yaml'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=v('wFile')||'ci.yml';a.click();
+  showToast('Downloaded!');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+// Init
+gen();
+</script>
+</body>
+</html>

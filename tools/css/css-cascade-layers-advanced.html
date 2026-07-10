@@ -1,0 +1,895 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CSS Cascade Layers Advanced Playground</title>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #141414;
+    --surface-2: #1e1e1e;
+    --surface-3: #282828;
+    --border: #333;
+    --text: #e0e0e0;
+    --text-dim: #888;
+    --accent: #e040fb;
+    --accent-2: #ea80fc;
+    --success: #4caf50;
+    --warning: #ff9800;
+    --error: #f44336;
+    --info: #29b6f6;
+    --radius: 8px;
+    --mono: 'SF Mono', 'Fira Code', 'Cascadia Code', monospace;
+    --sans: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: var(--sans); background: var(--bg); color: var(--text); line-height: 1.6; }
+
+  header {
+    text-align: center; padding: 2rem 1rem;
+    border-bottom: 1px solid var(--border);
+    background: linear-gradient(180deg, var(--surface) 0%, var(--bg) 100%);
+  }
+  header h1 {
+    font-size: 2rem;
+    background: linear-gradient(135deg, var(--accent), var(--accent-2));
+    -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+  }
+  header p { color: var(--text-dim); font-size: 0.95rem; max-width: 600px; margin: 0.5rem auto 0; }
+
+  .container { max-width: 1200px; margin: 0 auto; padding: 1.5rem 1rem; }
+
+  .tabs {
+    display: flex; flex-wrap: wrap; gap: 0.5rem;
+    margin-bottom: 1.5rem; border-bottom: 1px solid var(--border); padding-bottom: 1rem;
+  }
+  .tab-btn {
+    background: var(--surface); border: 1px solid var(--border); color: var(--text-dim);
+    padding: 0.5rem 1rem; border-radius: var(--radius); cursor: pointer;
+    font-size: 0.85rem; font-family: var(--sans); transition: all 0.2s;
+  }
+  .tab-btn:hover { border-color: var(--accent); color: var(--text); }
+  .tab-btn.active { background: var(--accent); border-color: var(--accent); color: #fff; }
+
+  .panel { display: none; }
+  .panel.active { display: block; }
+
+  .card {
+    background: var(--surface); border: 1px solid var(--border);
+    border-radius: var(--radius); margin-bottom: 1.5rem; overflow: hidden;
+  }
+  .card-header {
+    padding: 1rem 1.25rem; border-bottom: 1px solid var(--border);
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .card-header h3 { font-size: 1rem; color: var(--accent); }
+  .card-body { padding: 1.25rem; }
+
+  .desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; line-height: 1.7; }
+
+  .code-block {
+    background: var(--surface-2); border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1rem; font-family: var(--mono); font-size: 0.85rem; line-height: 1.7;
+    overflow-x: auto; white-space: pre; margin-bottom: 1rem;
+  }
+
+  .demo-frame {
+    background: #fff; border: 1px solid var(--border); border-radius: var(--radius);
+    padding: 1.5rem; margin-bottom: 1rem; min-height: 80px;
+  }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+  .layer-viz {
+    display: flex; flex-direction: column; gap: 4px;
+  }
+
+  .layer-bar {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.5rem 0.75rem; border-radius: 4px; font-size: 0.85rem;
+    font-family: var(--mono); transition: all 0.3s;
+  }
+
+  .layer-bar .priority {
+    background: rgba(255,255,255,0.15); padding: 0.1rem 0.4rem;
+    border-radius: 3px; font-size: 0.75rem; min-width: 24px; text-align: center;
+  }
+
+  .interactive-panel {
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: var(--radius); padding: 1rem; margin-top: 1rem;
+  }
+
+  select.styled, input.styled-input {
+    background: var(--surface-3); border: 1px solid var(--border); color: var(--text);
+    padding: 0.5rem; border-radius: var(--radius); font-family: var(--mono); font-size: 0.85rem;
+    width: 100%;
+  }
+  select.styled:focus, input.styled-input:focus { outline: none; border-color: var(--accent); }
+
+  .btn {
+    background: var(--accent); color: #fff; border: none;
+    padding: 0.5rem 1.25rem; border-radius: var(--radius); cursor: pointer;
+    font-family: var(--sans); font-size: 0.85rem; transition: opacity 0.2s;
+  }
+  .btn:hover { opacity: 0.85; }
+  .btn-sm { padding: 0.3rem 0.8rem; font-size: 0.8rem; }
+  .btn-outline {
+    background: transparent; border: 1px solid var(--accent); color: var(--accent);
+  }
+
+  .label { display: block; color: var(--text-dim); font-size: 0.8rem; margin-bottom: 0.3rem; }
+
+  .result-text {
+    font-family: var(--mono); font-size: 0.85rem; padding: 0.5rem;
+    background: var(--surface-3); border-radius: var(--radius); margin-top: 0.5rem;
+  }
+
+  .tag {
+    display: inline-block; padding: 0.15rem 0.5rem; border-radius: 3px;
+    font-size: 0.7rem; background: var(--surface-3); color: var(--text-dim);
+    border: 1px solid var(--border);
+  }
+
+  .important-note {
+    background: rgba(244, 67, 54, 0.1); border-left: 3px solid var(--error);
+    padding: 0.75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 1rem; font-size: 0.85rem;
+  }
+
+  .tip-note {
+    background: rgba(76, 175, 80, 0.1); border-left: 3px solid var(--success);
+    padding: 0.75rem 1rem; border-radius: 0 var(--radius) var(--radius) 0;
+    margin-bottom: 1rem; font-size: 0.85rem;
+  }
+
+  .sortable-list {
+    list-style: none; padding: 0;
+  }
+  .sortable-item {
+    display: flex; align-items: center; gap: 0.5rem;
+    padding: 0.6rem 0.75rem; margin-bottom: 4px;
+    background: var(--surface-2); border: 1px solid var(--border);
+    border-radius: var(--radius); cursor: grab; user-select: none;
+    font-family: var(--mono); font-size: 0.85rem;
+  }
+  .sortable-item:active { cursor: grabbing; }
+  .sortable-item .handle { color: var(--text-dim); }
+  .sortable-item.dragging { opacity: 0.5; }
+
+  footer {
+    text-align: center; padding: 2rem 1rem;
+    border-top: 1px solid var(--border); color: var(--text-dim); font-size: 0.8rem;
+  }
+  footer a { color: var(--accent); text-decoration: none; }
+
+  @media (max-width: 768px) {
+    .grid-2 { grid-template-columns: 1fr; }
+    header h1 { font-size: 1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>CSS Cascade Layers Advanced</h1>
+  <p>Deep dive into @layer ordering, nesting, specificity interaction, !important reversal, and migration strategies</p>
+</header>
+
+<div class="container">
+  <div class="tabs">
+    <button class="tab-btn active" data-tab="ordering">Ordering</button>
+    <button class="tab-btn" data-tab="nested">Nested</button>
+    <button class="tab-btn" data-tab="specificity">Specificity</button>
+    <button class="tab-btn" data-tab="important">!important</button>
+    <button class="tab-btn" data-tab="anonymous">Anonymous</button>
+    <button class="tab-btn" data-tab="import">@import</button>
+    <button class="tab-btn" data-tab="revert">revert-layer</button>
+    <button class="tab-btn" data-tab="migration">Migration</button>
+  </div>
+
+  <!-- Ordering -->
+  <div class="panel active" id="panel-ordering">
+    <div class="card">
+      <div class="card-header">
+        <h3>@layer Ordering Rules</h3>
+      </div>
+      <div class="card-body">
+        <p class="desc">Layer order is determined by the first appearance of each layer name. Later layers have higher priority. Unlayered styles always win over layered styles (unless !important is involved).</p>
+
+        <div class="grid-2">
+          <div>
+            <span class="label">Layer Priority Visualization</span>
+            <div class="layer-viz" id="layerViz">
+              <div class="layer-bar" style="background: rgba(224,64,251,0.15);">
+                <span class="priority">1</span> <span>reset</span>
+                <span class="tag" style="margin-left:auto;">lowest</span>
+              </div>
+              <div class="layer-bar" style="background: rgba(224,64,251,0.25);">
+                <span class="priority">2</span> <span>base</span>
+              </div>
+              <div class="layer-bar" style="background: rgba(224,64,251,0.35);">
+                <span class="priority">3</span> <span>components</span>
+              </div>
+              <div class="layer-bar" style="background: rgba(224,64,251,0.45);">
+                <span class="priority">4</span> <span>utilities</span>
+              </div>
+              <div class="layer-bar" style="background: rgba(224,64,251,0.6);">
+                <span class="priority">5</span> <span style="color:var(--warning);">unlayered</span>
+                <span class="tag" style="margin-left:auto;">highest</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="label">CSS</span>
+            <div class="code-block">/* Order declaration — first appearance wins */
+@layer reset, base, components, utilities;
+
+@layer reset {
+  * { margin: 0; padding: 0; }
+}
+
+@layer base {
+  body { font-family: sans-serif; }
+}
+
+@layer components {
+  .btn { padding: 0.5rem 1rem; }
+}
+
+@layer utilities {
+  .text-center { text-align: center; }
+}
+
+/* Unlayered styles beat ALL layers */
+.special { color: red; }</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">
+        <h3>Interactive: Reorder Layers</h3>
+      </div>
+      <div class="card-body">
+        <p class="desc">Drag layers to reorder them. The preview shows which layer's style wins for the target element. Lower position = higher priority.</p>
+
+        <div class="grid-2">
+          <div>
+            <span class="label">Drag to reorder (bottom = highest priority)</span>
+            <ul class="sortable-list" id="sortableList">
+              <li class="sortable-item" data-layer="reset" draggable="true">
+                <span class="handle">::</span>
+                <span>reset</span>
+                <span style="margin-left:auto; color:var(--text-dim); font-size:0.75rem;">color: black</span>
+              </li>
+              <li class="sortable-item" data-layer="theme" draggable="true">
+                <span class="handle">::</span>
+                <span>theme</span>
+                <span style="margin-left:auto; color:var(--text-dim); font-size:0.75rem;">color: blue</span>
+              </li>
+              <li class="sortable-item" data-layer="components" draggable="true">
+                <span class="handle">::</span>
+                <span>components</span>
+                <span style="margin-left:auto; color:var(--text-dim); font-size:0.75rem;">color: green</span>
+              </li>
+              <li class="sortable-item" data-layer="overrides" draggable="true">
+                <span class="handle">::</span>
+                <span>overrides</span>
+                <span style="margin-left:auto; color:var(--text-dim); font-size:0.75rem;">color: red</span>
+              </li>
+            </ul>
+          </div>
+          <div>
+            <span class="label">Live Preview</span>
+            <div id="orderPreview" class="demo-frame">
+              <p id="orderPreviewText" style="font-size: 1.25rem; font-weight: 600;">
+                Hello World
+              </p>
+            </div>
+            <div class="result-text" id="orderResult">
+              Winner: overrides (color: red) — last in declaration order
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Nested Layers -->
+  <div class="panel" id="panel-nested">
+    <div class="card">
+      <div class="card-header"><h3>Nested Layers (outer.inner)</h3></div>
+      <div class="card-body">
+        <p class="desc">Layers can be nested. The flat name <code>framework.base</code> is equivalent to nesting <code>base</code> inside <code>framework</code>. Nested layers follow the same ordering rules within their parent.</p>
+
+        <div class="grid-2">
+          <div>
+            <div class="code-block">/* Nested layer syntax */
+@layer framework {
+  @layer base {
+    p { color: blue; }
+  }
+  @layer theme {
+    p { color: green; }
+  }
+}
+
+/* Equivalent flat syntax */
+@layer framework.base {
+  p { color: blue; }
+}
+@layer framework.theme {
+  p { color: green; }
+}
+
+/* framework.theme wins over framework.base
+   because theme appears after base */</div>
+          </div>
+          <div>
+            <span class="label">Nested Layer Hierarchy</span>
+            <div class="layer-viz">
+              <div class="layer-bar" style="background:rgba(224,64,251,0.1); margin-left:0;">
+                <span class="priority">1</span> framework
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.2); margin-left:1.5rem;">
+                <span class="priority">1.1</span> framework.base
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.3); margin-left:1.5rem;">
+                <span class="priority">1.2</span> framework.theme
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.4); margin-left:0;">
+                <span class="priority">2</span> app
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.5); margin-left:1.5rem;">
+                <span class="priority">2.1</span> app.components
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.6); margin-left:1.5rem;">
+                <span class="priority">2.2</span> app.utilities
+              </div>
+            </div>
+
+            <div class="tip-note" style="margin-top:1rem;">
+              <strong>Key Rule:</strong> All sublayers of <code>framework</code> have lower priority than any sublayer of <code>app</code>, regardless of specificity.
+            </div>
+          </div>
+        </div>
+
+        <span class="label">Live Demo</span>
+        <style>
+          @layer nested-demo-fw, nested-demo-app;
+          @layer nested-demo-fw {
+            @layer base { #nestedDemoText { color: #1565c0; } }
+            @layer theme { #nestedDemoText { color: #2e7d32; } }
+          }
+          @layer nested-demo-app {
+            @layer base { #nestedDemoText { color: #e65100; } }
+          }
+        </style>
+        <div class="demo-frame">
+          <p id="nestedDemoText" style="font-size: 1.25rem; font-weight: 600;">
+            This text is styled by nested layers. Inspect to see which layer wins.
+          </p>
+        </div>
+        <div class="result-text">
+          Winner: nested-demo-app.base (color: #e65100) — app layers always beat framework layers
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Specificity -->
+  <div class="panel" id="panel-specificity">
+    <div class="card">
+      <div class="card-header"><h3>Layer Priority vs Specificity</h3></div>
+      <div class="card-body">
+        <p class="desc">Layer order completely overrides specificity. A simple selector in a higher-priority layer beats a complex selector in a lower-priority layer. This is a fundamental shift in how CSS conflicts are resolved.</p>
+
+        <div class="important-note">
+          <strong>Critical Concept:</strong> Cascade layers are evaluated BEFORE specificity. A <code>.class</code> in a later layer beats <code>#id.class[attr]:hover</code> in an earlier layer.
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <div class="code-block">@layer base, override;
+
+@layer base {
+  /* Specificity: (1,1,0) — very high */
+  #myElement.special {
+    color: blue;
+    font-weight: bold;
+  }
+}
+
+@layer override {
+  /* Specificity: (0,1,0) — lower */
+  .special {
+    color: red;
+    /* WINS because layer order > specificity */
+  }
+}</div>
+          </div>
+          <div>
+            <span class="label">Cascade Resolution Order</span>
+            <div style="font-size: 0.85rem; line-height: 2;">
+              <div style="padding: 0.3rem 0.6rem; background: var(--surface-2); border-radius: 4px; margin-bottom: 4px;">
+                1. Origin &amp; Importance (user-agent, user, author)
+              </div>
+              <div style="padding: 0.3rem 0.6rem; background: var(--surface-2); border-radius: 4px; margin-bottom: 4px;">
+                2. Context (shadow DOM)
+              </div>
+              <div style="padding: 0.3rem 0.6rem; background: rgba(224,64,251,0.2); border: 1px solid var(--accent); border-radius: 4px; margin-bottom: 4px;">
+                <strong>3. Layer order</strong> ← @layer fits here
+              </div>
+              <div style="padding: 0.3rem 0.6rem; background: var(--surface-2); border-radius: 4px; margin-bottom: 4px;">
+                4. Specificity
+              </div>
+              <div style="padding: 0.3rem 0.6rem; background: var(--surface-2); border-radius: 4px;">
+                5. Source order
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <span class="label" style="margin-top: 1rem;">Live Demo</span>
+        <style>
+          @layer spec-base, spec-override;
+          @layer spec-base {
+            #specDemo.spec-target.extra-class[data-x] { color: #1565c0; font-size: 1.25rem; }
+          }
+          @layer spec-override {
+            .spec-target { color: #c62828; font-size: 1.25rem; font-weight: 600; }
+          }
+        </style>
+        <div class="demo-frame">
+          <p id="specDemo" class="spec-target extra-class" data-x="1">
+            I'm red despite having lower specificity, because layer order wins.
+          </p>
+        </div>
+        <div class="result-text">
+          spec-base: #specDemo.spec-target.extra-class[data-x] (1,2,1) = blue<br>
+          spec-override: .spec-target (0,1,0) = red <strong style="color:var(--success);">WINS</strong> (higher layer)
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- !important -->
+  <div class="panel" id="panel-important">
+    <div class="card">
+      <div class="card-header"><h3>!important Reversal in Layers</h3></div>
+      <div class="card-body">
+        <p class="desc">When <code>!important</code> is used inside layers, the priority order is <strong>reversed</strong>. Lower-priority layers' <code>!important</code> declarations win over higher-priority layers' <code>!important</code> declarations. This mirrors how the cascade handles importance across origins.</p>
+
+        <div class="important-note">
+          <strong>Mind-bending rule:</strong> With <code>!important</code>, the FIRST layer in the order has the HIGHEST priority. This is the opposite of normal (non-important) declarations.
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <span class="label">Normal order (no !important)</span>
+            <div class="layer-viz">
+              <div class="layer-bar" style="background:rgba(100,100,100,0.3);">
+                <span class="priority">1</span> reset <span style="margin-left:auto;" class="tag">lowest</span>
+              </div>
+              <div class="layer-bar" style="background:rgba(100,100,100,0.4);">
+                <span class="priority">2</span> base
+              </div>
+              <div class="layer-bar" style="background:rgba(100,100,100,0.5);">
+                <span class="priority">3</span> components
+              </div>
+              <div class="layer-bar" style="background:rgba(224,64,251,0.6);">
+                <span class="priority">4</span> utilities <span style="margin-left:auto;" class="tag">highest</span>
+              </div>
+            </div>
+          </div>
+          <div>
+            <span class="label">!important order (REVERSED)</span>
+            <div class="layer-viz">
+              <div class="layer-bar" style="background:rgba(244,67,54,0.5);">
+                <span class="priority">1</span> reset <span style="margin-left:auto;" class="tag" style="background:rgba(244,67,54,0.3);">highest !</span>
+              </div>
+              <div class="layer-bar" style="background:rgba(244,67,54,0.35);">
+                <span class="priority">2</span> base
+              </div>
+              <div class="layer-bar" style="background:rgba(244,67,54,0.25);">
+                <span class="priority">3</span> components
+              </div>
+              <div class="layer-bar" style="background:rgba(244,67,54,0.15);">
+                <span class="priority">4</span> utilities <span style="margin-left:auto;" class="tag">lowest !</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="code-block" style="margin-top: 1rem;">@layer reset, base, theme;
+
+@layer reset {
+  p { color: black !important; }
+  /* !important from lowest layer = HIGHEST priority */
+}
+
+@layer theme {
+  p { color: purple !important; }
+  /* !important from highest layer = LOWEST priority */
+}
+
+/* Result: color is BLACK (reset wins with !important) */</div>
+
+        <span class="label">Live Demo</span>
+        <style>
+          @layer imp-reset, imp-base, imp-theme;
+          @layer imp-reset { #impDemo { color: #000 !important; } }
+          @layer imp-base { #impDemo { color: #1565c0 !important; } }
+          @layer imp-theme { #impDemo { color: #7b1fa2 !important; } }
+        </style>
+        <div class="demo-frame">
+          <p id="impDemo" style="font-size: 1.25rem; font-weight: 600;">
+            This text is BLACK because reset's !important wins (reversed order).
+          </p>
+        </div>
+
+        <div class="tip-note" style="margin-top: 1rem;">
+          <strong>Why this exists:</strong> It ensures that reset/normalize layers can use <code>!important</code> to truly lock down base styles, even if later layers also use <code>!important</code>. The earlier (more fundamental) layer wins.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Anonymous -->
+  <div class="panel" id="panel-anonymous">
+    <div class="card">
+      <div class="card-header"><h3>Anonymous Layers</h3></div>
+      <div class="card-body">
+        <p class="desc">Layers without a name are anonymous. Each anonymous <code>@layer { }</code> block creates a separate, unique layer. They cannot be referenced or appended to later.</p>
+
+        <div class="code-block">/* Each anonymous block is a separate layer */
+@layer {
+  p { color: red; }
+}
+
+@layer {
+  p { color: blue; }
+  /* This is a DIFFERENT anonymous layer */
+  /* It has higher priority (appears later) */
+}
+
+/* You cannot add more rules to either anonymous layer.
+   They are sealed at definition. */
+
+/* Use case: isolating third-party CSS */
+@layer {
+  /* All of widget.css goes here — isolated! */
+  .widget { /* ... */ }
+}
+
+/* Named layers CAN be extended */
+@layer theme { p { font-size: 16px; } }
+@layer theme { p { line-height: 1.5; } }  /* appended */</div>
+
+        <span class="label">Live Demo</span>
+        <style>
+          @layer { #anonDemo { color: #c62828; } }
+          @layer { #anonDemo { color: #1565c0; } }
+          @layer { #anonDemo { color: #2e7d32; } }
+        </style>
+        <div class="demo-frame">
+          <p id="anonDemo" style="font-size: 1.25rem; font-weight: 600;">
+            I'm green — the last anonymous layer wins.
+          </p>
+        </div>
+        <div class="result-text">
+          3 anonymous layers created. Last one (color: green) wins by order.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- @import -->
+  <div class="panel" id="panel-import">
+    <div class="card">
+      <div class="card-header"><h3>@import with layer()</h3></div>
+      <div class="card-body">
+        <p class="desc">You can assign imported stylesheets to layers using <code>@import url() layer(name)</code>. This is ideal for controlling third-party CSS priority.</p>
+
+        <div class="code-block">/* Import into a named layer */
+@import url("reset.css") layer(reset);
+@import url("bootstrap.css") layer(framework);
+@import url("theme.css") layer(theme);
+
+/* Pre-declare order before imports */
+@layer reset, framework, theme, app;
+
+@import url("reset.css") layer(reset);
+@import url("bootstrap.css") layer(framework);
+
+/* Import into anonymous layer */
+@import url("legacy-widget.css") layer;
+
+/* Layer order with @import:
+   The @layer declaration establishes order.
+   @import layer() respects that order. */</div>
+
+        <div class="tip-note">
+          <strong>Browser Support Note:</strong> <code>@import layer()</code> is supported in all modern browsers (Chrome 99+, Firefox 97+, Safari 15.4+). This is the cleanest way to layer third-party CSS.
+        </div>
+
+        <div class="code-block">/* Real-world example: layering a framework */
+
+/* 1. Declare layer order upfront */
+@layer normalize, framework, app, utilities;
+
+/* 2. Import framework into its layer */
+@import url("https://cdn.example.com/framework.css") layer(framework);
+
+/* 3. Your app styles — higher priority than framework */
+@layer app {
+  .card {
+    /* Overrides framework .card without !important
+       and without specificity wars */
+    border-radius: 12px;
+  }
+}
+
+/* 4. Utility classes — highest layered priority */
+@layer utilities {
+  .hidden { display: none; }
+}</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- revert-layer -->
+  <div class="panel" id="panel-revert">
+    <div class="card">
+      <div class="card-header"><h3>revert-layer Keyword</h3></div>
+      <div class="card-body">
+        <p class="desc"><code>revert-layer</code> rolls a property back to the value it would have in the previous layer. It's like <code>revert</code> but for layers instead of origins.</p>
+
+        <div class="grid-2">
+          <div>
+            <div class="code-block">@layer base, theme, overrides;
+
+@layer base {
+  .btn { color: gray; background: white; }
+}
+
+@layer theme {
+  .btn { color: blue; background: lightblue; }
+}
+
+@layer overrides {
+  .btn {
+    /* Keep theme's background,
+       but revert color to base layer */
+    color: revert-layer;
+    /* Result: color = blue (from theme) */
+    /* Wait, no — revert-layer reverts to
+       the PREVIOUS cascade layer */
+  }
+}
+
+/* Comparison:
+   revert-layer → previous layer's value
+   revert       → previous origin's value
+   unset        → inherited or initial
+   initial      → spec initial value
+*/</div>
+          </div>
+          <div>
+            <span class="label">Revert Keyword Comparison</span>
+            <table style="width:100%; font-size:0.85rem; border-collapse:collapse;">
+              <tr style="border-bottom:1px solid var(--border);">
+                <th style="padding:0.5rem; text-align:left; color:var(--accent);">Keyword</th>
+                <th style="padding:0.5rem; text-align:left; color:var(--accent);">Reverts to</th>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem; font-family:var(--mono);">initial</td>
+                <td style="padding:0.5rem; color:var(--text-dim);">Spec-defined initial value</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem; font-family:var(--mono);">inherit</td>
+                <td style="padding:0.5rem; color:var(--text-dim);">Parent element's value</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem; font-family:var(--mono);">unset</td>
+                <td style="padding:0.5rem; color:var(--text-dim);">inherit or initial (depends)</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.5rem; font-family:var(--mono);">revert</td>
+                <td style="padding:0.5rem; color:var(--text-dim);">Previous cascade origin</td>
+              </tr>
+              <tr>
+                <td style="padding:0.5rem; font-family:var(--mono); color:var(--accent);">revert-layer</td>
+                <td style="padding:0.5rem; color:var(--accent);">Previous cascade layer</td>
+              </tr>
+            </table>
+          </div>
+        </div>
+
+        <span class="label" style="margin-top: 1rem;">Live Demo</span>
+        <style>
+          @layer rv-base, rv-theme, rv-override;
+          @layer rv-base { .rv-text { color: #c62828; font-style: normal; font-size: 1.25rem; } }
+          @layer rv-theme { .rv-text { color: #1565c0; font-style: italic; } }
+          @layer rv-override { .rv-text { color: revert-layer; font-style: revert-layer; } }
+        </style>
+        <div class="demo-frame">
+          <p class="rv-text" style="font-weight: 600;">
+            color and font-style reverted from override to theme layer (blue, italic).
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Migration -->
+  <div class="panel" id="panel-migration">
+    <div class="card">
+      <div class="card-header"><h3>Migration Strategy</h3></div>
+      <div class="card-body">
+        <p class="desc">Step-by-step guide for migrating existing CSS to use cascade layers without breaking anything.</p>
+
+        <div class="code-block">/* STEP 1: Wrap ALL existing CSS in a single layer */
+/* This changes nothing — one layer behaves like no layers */
+
+@layer legacy {
+  /* paste all existing CSS here */
+  .header { color: navy; }
+  .card { border: 1px solid gray; }
+  /* ... */
+}
+
+/* STEP 2: New CSS goes outside (unlayered = higher priority) */
+.header { color: teal; }  /* wins over legacy */</div>
+
+        <div class="code-block">/* STEP 3: Split legacy into logical layers */
+@layer reset, legacy, components, utilities;
+
+@layer reset {
+  * { margin: 0; box-sizing: border-box; }
+}
+
+@layer legacy {
+  /* Gradually move code out of here */
+  .old-widget { /* ... */ }
+}
+
+@layer components {
+  .card { border-radius: 8px; }
+  .btn { padding: 0.5rem 1rem; }
+}
+
+@layer utilities {
+  .sr-only { /* screen reader only */ }
+}</div>
+
+        <div class="code-block">/* STEP 4: Layer third-party CSS */
+@layer reset, vendor, legacy, components, utilities;
+
+@import url("bootstrap.css") layer(vendor);
+
+/* Now Bootstrap can NEVER override your component styles,
+   regardless of specificity. No more !important wars. */</div>
+
+        <div class="tip-note">
+          <strong>Migration Tip:</strong> Start with Step 1 (wrap everything in one layer). This is zero-risk and lets you start writing new styles that automatically override old ones.
+        </div>
+
+        <div class="important-note">
+          <strong>Watch out:</strong> Unlayered <code>!important</code> declarations have LOWER priority than layered <code>!important</code>. If your existing CSS uses <code>!important</code>, moving it into a layer changes behavior.
+        </div>
+
+        <span class="label" style="margin-top: 1rem;">Migration Checklist</span>
+        <div style="font-size: 0.9rem; line-height: 2;">
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Audit existing !important usage
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Wrap all existing CSS in @layer legacy
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Write new CSS unlayered (or in higher layer)
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Layer third-party CSS with @import layer()
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Split legacy layer into logical sublayers
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Test !important behavior in layered context
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Remove unnecessary !important declarations
+          </label>
+          <label style="display:flex; align-items:center; gap:0.5rem; cursor:pointer;">
+            <input type="checkbox" style="accent-color:var(--accent);"> Document layer architecture for team
+          </label>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <p>CSS Cascade Layers Advanced Playground</p>
+  <p style="margin-top: 0.5rem;"><a href="https://github.com/yurukusa/css-cascade-layers-advanced" target="_blank">Source</a></p>
+</footer>
+
+<script>
+(function() {
+  'use strict';
+
+  // --- Tab switching ---
+  document.querySelectorAll('.tab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+      btn.classList.add('active');
+      document.getElementById('panel-' + btn.dataset.tab).classList.add('active');
+    });
+  });
+
+  // --- Drag & drop layer reordering ---
+  const list = document.getElementById('sortableList');
+  let draggedItem = null;
+
+  list.addEventListener('dragstart', (e) => {
+    draggedItem = e.target.closest('.sortable-item');
+    if (draggedItem) draggedItem.classList.add('dragging');
+  });
+
+  list.addEventListener('dragend', () => {
+    if (draggedItem) draggedItem.classList.remove('dragging');
+    draggedItem = null;
+    updateOrderPreview();
+  });
+
+  list.addEventListener('dragover', (e) => {
+    e.preventDefault();
+    const afterElement = getDragAfterElement(list, e.clientY);
+    if (afterElement) {
+      list.insertBefore(draggedItem, afterElement);
+    } else {
+      list.appendChild(draggedItem);
+    }
+  });
+
+  function getDragAfterElement(container, y) {
+    const elements = [...container.querySelectorAll('.sortable-item:not(.dragging)')];
+    return elements.reduce((closest, child) => {
+      const box = child.getBoundingClientRect();
+      const offset = y - box.top - box.height / 2;
+      if (offset < 0 && offset > closest.offset) {
+        return { offset, element: child };
+      }
+      return closest;
+    }, { offset: Number.NEGATIVE_INFINITY }).element;
+  }
+
+  const layerColors = {
+    reset: { color: '#000', name: 'black' },
+    theme: { color: '#1565c0', name: 'blue' },
+    components: { color: '#2e7d32', name: 'green' },
+    overrides: { color: '#c62828', name: 'red' }
+  };
+
+  function updateOrderPreview() {
+    const items = list.querySelectorAll('.sortable-item');
+    const lastItem = items[items.length - 1];
+    const layer = lastItem.dataset.layer;
+    const info = layerColors[layer];
+
+    document.getElementById('orderPreviewText').style.color = info.color;
+    document.getElementById('orderResult').innerHTML =
+      `Winner: <strong>${layer}</strong> (color: ${info.name}) &mdash; last in declaration order`;
+  }
+
+  updateOrderPreview();
+})();
+</script>
+</body>
+</html>

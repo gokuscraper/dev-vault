@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SRI Gen — Subresource Integrity Hash Generator</title>
+<meta name="description" content="Generate SRI integrity hashes for scripts and stylesheets. Paste content or fetch from URL. SHA-256, SHA-384, SHA-512. Free.">
+<meta property="og:title" content="SRI Gen — Subresource Integrity Hash Generator">
+<meta property="og:description" content="Generate SRI hashes for CDN scripts. SHA-256/384/512. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/sri-gen/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/sri-gen/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "SRI Gen", "description": "Generate SRI integrity hashes for scripts and stylesheets. Paste content or fetch from URL. SHA-256, SHA-384, SHA-512. Free.", "url": "https://yurukusa.github.io/sri-gen/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:24px;font-size:0.95rem}
+
+.input-section{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:16px}
+.input-row{display:flex;gap:10px;align-items:center;margin-bottom:12px;flex-wrap:wrap}
+.input-row:last-child{margin-bottom:0}
+.input-row label{font-size:0.85rem;color:#888;min-width:70px;font-weight:600}
+.input-row input[type=text],.input-row input[type=url]{flex:1;padding:8px 12px;border-radius:8px;border:1px solid #333;background:#0d0d0d;color:#ddd;font-family:'Fira Code',monospace;font-size:0.85rem;outline:none;min-width:200px}
+.input-row input:focus{border-color:#3b82f6}
+textarea{width:100%;height:180px;padding:12px;border-radius:10px;border:1px solid #333;background:#0d0d0d;color:#ddd;font-family:'Fira Code',monospace;font-size:0.82rem;resize:vertical;outline:none;line-height:1.5}
+textarea:focus{border-color:#3b82f6}
+
+.btn-row{display:flex;gap:8px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.btn{padding:8px 16px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.82rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#555;color:#ccc}
+.btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.btn.primary:hover{background:#2563eb}
+
+.check-label{font-size:0.82rem;color:#ccc;cursor:pointer;display:flex;align-items:center;gap:6px}
+.check-label input{accent-color:#3b82f6;width:15px;height:15px}
+
+.results{margin-bottom:16px}
+.result-card{background:#0d0d0d;border:1px solid #222;border-radius:10px;padding:14px 16px;margin-bottom:10px;cursor:pointer;position:relative}
+.result-card:hover{border-color:#3b82f6}
+.result-label{font-size:0.78rem;color:#888;font-weight:600;margin-bottom:6px}
+.result-hash{font-family:'Fira Code',monospace;font-size:0.78rem;color:#10b981;word-break:break-all;line-height:1.5}
+.result-tag{font-family:'Fira Code',monospace;font-size:0.75rem;color:#ddd;word-break:break-all;line-height:1.5;margin-top:8px;padding-top:8px;border-top:1px solid #1a1a1a}
+.copy-hint{position:absolute;top:8px;right:12px;font-size:0.68rem;color:#555}
+
+.info{background:#111;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:16px;font-size:0.8rem;color:#888;line-height:1.6}
+.info code{background:#1a1a1a;padding:2px 6px;border-radius:4px;font-family:'Fira Code',monospace;font-size:0.78rem;color:#4da6ff}
+.info h3{color:#ccc;font-size:0.88rem;margin-bottom:8px}
+
+.status{text-align:center;font-size:0.82rem;margin:10px 0}
+.status.error{color:#ef4444}
+.status.loading{color:#f59e0b}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+
+footer{text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>SRI Gen</h1>
+<p class="subtitle">Generate Subresource Integrity hashes for scripts and stylesheets.</p>
+
+<div class="input-section">
+  <div class="input-row">
+    <label>URL</label>
+    <input type="url" id="urlInput" placeholder="https://cdn.jsdelivr.net/npm/..." value="">
+    <button class="btn primary" onclick="fetchAndHash()">Fetch &amp; Hash</button>
+  </div>
+  <div style="text-align:center;color:#555;font-size:0.78rem;margin:10px 0">— or paste content directly —</div>
+  <textarea id="contentInput" placeholder="Paste script or stylesheet content here..."></textarea>
+  <div class="input-row" style="margin-top:10px">
+    <label class="check-label"><input type="checkbox" id="sha256" checked> SHA-256</label>
+    <label class="check-label"><input type="checkbox" id="sha384" checked> SHA-384</label>
+    <label class="check-label"><input type="checkbox" id="sha512"> SHA-512</label>
+  </div>
+</div>
+
+<div class="btn-row">
+  <button class="btn primary" onclick="hashContent()">Generate Hash</button>
+  <button class="btn" onclick="clearAll()">Clear</button>
+</div>
+
+<div id="status"></div>
+<div class="results" id="results"></div>
+
+<div class="info">
+  <h3>What is SRI?</h3>
+  <p>Subresource Integrity (SRI) lets browsers verify that fetched resources haven't been tampered with. Add an <code>integrity</code> attribute to <code>&lt;script&gt;</code> or <code>&lt;link&gt;</code> tags:</p>
+  <p style="margin-top:8px"><code>&lt;script src="https://cdn.example.com/lib.js" integrity="sha384-..." crossorigin="anonymous"&gt;&lt;/script&gt;</code></p>
+  <p style="margin-top:8px">If the file changes (CDN compromise, version mismatch), the browser blocks it. Always include <code>crossorigin="anonymous"</code> for cross-origin resources.</p>
+</div>
+
+<div class="info">
+  <h3>Popular CDN URLs</h3>
+  <p style="cursor:pointer;margin-bottom:4px" onclick="setUrl('https://cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js')">📦 <code>Vue 3.4.21</code> — cdn.jsdelivr.net/npm/vue@3.4.21/dist/vue.global.prod.min.js</p>
+  <p style="cursor:pointer;margin-bottom:4px" onclick="setUrl('https://cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js')">📦 <code>Alpine.js 3.14</code> — cdn.jsdelivr.net/npm/alpinejs@3.14.8/dist/cdn.min.js</p>
+  <p style="cursor:pointer;margin-bottom:4px" onclick="setUrl('https://cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js')">📦 <code>htmx 2.0</code> — cdn.jsdelivr.net/npm/htmx.org@2.0.4/dist/htmx.min.js</p>
+  <p style="cursor:pointer" onclick="setUrl('https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js')">📦 <code>Chart.js 4.4</code> — cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js</p>
+</div>
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/sri-gen">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+  <div class="related" style="margin-top:12px">
+    <strong style="color:#888">Related Tools</strong><br>
+    <a href="https://yurukusa.github.io/csp-builder/">CSP Builder</a>
+    <a href="https://yurukusa.github.io/hash-gen/">Hash Gen</a>
+    <a href="https://yurukusa.github.io/headers-check/">Headers Check</a>
+    <a href="https://yurukusa.github.io/ssl-check/">SSL Check</a>
+  </div>
+  <div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666">Dev Toolkit — 101 free tools</a></div>
+</footer>
+
+<script>
+function setUrl(url){
+  document.getElementById('urlInput').value=url;
+  fetchAndHash();
+}
+
+async function fetchAndHash(){
+  const url=document.getElementById('urlInput').value.trim();
+  if(!url){setStatus('Enter a URL first','error');return}
+  setStatus('Fetching...','loading');
+  try{
+    const resp=await fetch(url);
+    if(!resp.ok)throw new Error('HTTP '+resp.status);
+    const text=await resp.text();
+    document.getElementById('contentInput').value=text;
+    setStatus('');
+    hashContent();
+  }catch(e){
+    // Try via a CORS proxy hint
+    setStatus('Fetch failed: '+e.message+'. The resource may block CORS. Try pasting the content directly.','error');
+  }
+}
+
+async function hashContent(){
+  const content=document.getElementById('contentInput').value;
+  if(!content){setStatus('No content to hash','error');return}
+
+  const encoder=new TextEncoder();
+  const data=encoder.encode(content);
+  const algos=[];
+  if(document.getElementById('sha256').checked)algos.push({name:'SHA-256',prefix:'sha256'});
+  if(document.getElementById('sha384').checked)algos.push({name:'SHA-384',prefix:'sha384'});
+  if(document.getElementById('sha512').checked)algos.push({name:'SHA-512',prefix:'sha512'});
+
+  if(algos.length===0){setStatus('Select at least one algorithm','error');return}
+
+  const results=[];
+  for(const algo of algos){
+    const hashBuf=await crypto.subtle.digest(algo.name,data);
+    const b64=btoa(String.fromCharCode(...new Uint8Array(hashBuf)));
+    results.push({algo:algo.name,prefix:algo.prefix,hash:b64,integrity:algo.prefix+'-'+b64});
+  }
+
+  const url=document.getElementById('urlInput').value.trim();
+  const integrityAll=results.map(r=>r.integrity).join(' ');
+
+  let html='';
+  results.forEach(r=>{
+    html+=`<div class="result-card" onclick="copyText('${r.integrity}')">
+      <div class="copy-hint">Click to copy</div>
+      <div class="result-label">${r.algo}</div>
+      <div class="result-hash">${r.integrity}</div>
+    </div>`;
+  });
+
+  // Generate full tags
+  if(url){
+    const isCSS=url.endsWith('.css');
+    const tag=isCSS
+      ?`<link rel="stylesheet" href="${esc(url)}" integrity="${integrityAll}" crossorigin="anonymous">`
+      :`<script src="${esc(url)}" integrity="${integrityAll}" crossorigin="anonymous"><\/script>`;
+    html+=`<div class="result-card" onclick="copyText(this.querySelector('.result-tag').textContent)">
+      <div class="copy-hint">Click to copy</div>
+      <div class="result-label">Ready-to-use tag</div>
+      <div class="result-tag">${esc(tag)}</div>
+    </div>`;
+  }
+
+  document.getElementById('results').innerHTML=html;
+  setStatus('');
+}
+
+function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+
+function copyText(text){
+  navigator.clipboard.writeText(text);
+  toast('Copied!');
+}
+
+function clearAll(){
+  document.getElementById('urlInput').value='';
+  document.getElementById('contentInput').value='';
+  document.getElementById('results').innerHTML='';
+  setStatus('');
+}
+
+function setStatus(msg,type){
+  const el=document.getElementById('status');
+  el.textContent=msg;
+  el.className='status'+(type?' '+type:'');
+}
+
+function toast(msg){
+  const el=document.createElement('div');
+  el.className='copied';el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+</script>
+</body>
+</html>

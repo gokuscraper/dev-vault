@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>RSA Key Pair Generator</title>
+<meta name="description" content="Generate RSA public/private key pairs. Supports 1024, 2048, and 4096 bit keys. Export as PEM or JWK.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh;display:flex;justify-content:center;padding:24px}
+.container{max-width:640px;width:100%}
+h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
+.desc{color:#888;font-size:0.9rem;margin-bottom:20px}
+.card{background:#161616;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:16px}
+label{display:block;color:#aaa;font-size:0.85rem;margin-bottom:4px;font-weight:600}
+textarea{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:0.85rem;outline:none;font-family:monospace;resize:vertical;min-height:80px}
+textarea:focus{border-color:#3b82f6}
+.row{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.row select{flex:1;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:0.95rem;outline:none}
+.row select:focus{border-color:#3b82f6}
+button{padding:8px 20px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#e6e6e6;font-size:0.85rem;cursor:pointer;font-weight:600}
+button:hover{background:#252525;border-color:#3b82f6}
+button.primary{background:#3b82f6;color:#fff;border-color:#3b82f6}
+button.primary:hover{background:#2563eb}
+button:disabled{opacity:.4;cursor:default}
+.flex-center{display:flex;justify-content:center;gap:8px;margin-top:10px}
+.loading{color:#888;font-size:0.85rem;margin-top:8px;display:none}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>RSA Key Pair Generator</h1>
+  <p class="desc">Generate RSA public/private key pairs in your browser using the Web Crypto API</p>
+  <div class="card">
+    <div class="row">
+      <label style="margin:0;min-width:80px">Key size</label>
+      <select id="keySize">
+        <option value="1024">1024 bits</option>
+        <option value="2048" selected>2048 bits</option>
+        <option value="4096">4096 bits</option>
+      </select>
+      <button class="primary" id="generateBtn">Generate</button>
+    </div>
+    <label>Public key (PEM)</label>
+    <textarea id="publicKey" readonly></textarea>
+    <label>Private key (PEM)</label>
+    <textarea id="privateKey" readonly></textarea>
+    <div class="loading" id="loadingMsg">Generating...</div>
+    <div class="flex-center">
+      <button id="copyPubBtn" disabled>Copy public key</button>
+      <button id="copyPrivBtn" disabled>Copy private key</button>
+    </div>
+  </div>
+</div>
+<script>
+async function arrayBufferToBase64(buf) {
+  const bytes = new Uint8Array(buf);
+  let binary = '';
+  for (let i = 0; i < bytes.length; i++) binary += String.fromCharCode(bytes[i]);
+  return btoa(binary);
+}
+
+function formatPem(base64, label) {
+  const lines = base64.match(/.{1,64}/g) || [];
+  return `-----BEGIN ${label} KEY-----\n${lines.join('\n')}\n-----END ${label} KEY-----`;
+}
+
+async function generate() {
+  const size = parseInt(document.getElementById('keySize').value);
+  const pubEl = document.getElementById('publicKey');
+  const privEl = document.getElementById('privateKey');
+  const loading = document.getElementById('loadingMsg');
+  const copyPub = document.getElementById('copyPubBtn');
+  const copyPriv = document.getElementById('copyPrivBtn');
+
+  loading.style.display = 'block';
+  pubEl.value = '';
+  privEl.value = '';
+  copyPub.disabled = true;
+  copyPriv.disabled = true;
+
+  try {
+    const keyPair = await crypto.subtle.generateKey(
+      { name: 'RSA-OAEP', modulusLength: size, publicExponent: new Uint8Array([1, 0, 1]), hash: 'SHA-256' },
+      true,
+      ['encrypt', 'decrypt']
+    );
+
+    const pubRaw = await crypto.subtle.exportKey('spki', keyPair.publicKey);
+    const privRaw = await crypto.subtle.exportKey('pkcs8', keyPair.privateKey);
+
+    pubEl.value = formatPem(await arrayBufferToBase64(pubRaw), 'PUBLIC');
+    privEl.value = formatPem(await arrayBufferToBase64(privRaw), 'PRIVATE');
+    copyPub.disabled = false;
+    copyPriv.disabled = false;
+  } catch(e) {
+    pubEl.value = 'Error: ' + e.message;
+  }
+  loading.style.display = 'none';
+}
+
+document.getElementById('generateBtn').addEventListener('click', generate);
+document.getElementById('copyPubBtn').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('publicKey').value);
+});
+document.getElementById('copyPrivBtn').addEventListener('click', () => {
+  navigator.clipboard.writeText(document.getElementById('privateKey').value);
+});
+
+generate();
+</script>
+</body>
+</html>

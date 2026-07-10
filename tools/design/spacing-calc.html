@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Spacing Calc — Design System Spacing Scale Generator</title>
+<meta name="description" content="Generate consistent spacing scales for design systems. Tailwind, custom base, ratio-based. CSS/Tailwind export. Free.">
+<meta property="og:title" content="Spacing Calc — Design System Spacing Scale">
+<meta property="og:description" content="Generate spacing scales for design systems. Tailwind, custom base. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/spacing-calc/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/spacing-calc/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Spacing Calc", "description": "Generate consistent spacing scales for design systems. Tailwind, custom base, ratio-based. CSS/Tailwind export. Free.", "url": "https://yurukusa.github.io/spacing-calc/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:24px;font-size:0.95rem}
+
+.config{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:20px}
+.config-row{display:flex;gap:16px;flex-wrap:wrap;align-items:end;margin-bottom:12px}
+.config-item{display:flex;flex-direction:column;gap:4px}
+.config-item label{font-size:0.72rem;color:#555}
+.config-item input,.config-item select{padding:6px 10px;border-radius:6px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-family:'Fira Code',monospace;font-size:0.82rem;outline:none}
+.config-item input:focus,.config-item select:focus{border-color:#3b82f6}
+.config-item input[type=number]{width:80px}
+
+.presets{display:flex;gap:6px;margin-bottom:20px;flex-wrap:wrap;justify-content:center}
+.preset-btn{padding:4px 10px;border-radius:6px;border:1px solid #222;background:#0d0d0d;color:#555;font-size:0.72rem;cursor:pointer}
+.preset-btn:hover{border-color:#3b82f6;color:#888}
+
+.scale-table{width:100%;border-collapse:collapse;margin-bottom:20px}
+.scale-table th{background:#161616;padding:10px;font-size:0.72rem;color:#888;text-align:left;border-bottom:1px solid #222}
+.scale-table td{padding:10px;border-bottom:1px solid #1a1a1a;font-size:0.82rem}
+.scale-table .name{color:#4da6ff;font-family:'Fira Code',monospace;font-weight:600}
+.scale-table .px-val{color:#10b981;font-family:'Fira Code',monospace}
+.scale-table .rem-val{color:#888;font-family:'Fira Code',monospace}
+.bar-cell{width:40%}
+.bar{height:16px;background:#3b82f6;border-radius:3px;transition:width 0.2s;min-width:2px}
+
+.output-tabs{display:flex;gap:4px;margin-bottom:12px}
+.out-tab{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.78rem;cursor:pointer}
+.out-tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+
+.output{background:#0d0d0d;border:1px solid #222;border-radius:10px;padding:14px;cursor:pointer;margin-bottom:16px}
+.output:hover{border-color:#3b82f6}
+.output pre{font-family:'Fira Code',monospace;font-size:0.75rem;color:#10b981;white-space:pre-wrap}
+.output .hint{font-size:0.72rem;color:#555;margin-top:6px}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Spacing Calc</h1>
+<p class="subtitle">Design system spacing scale generator.</p>
+
+<div class="presets">
+  <button class="preset-btn" onclick="loadPreset('tailwind')">Tailwind</button>
+  <button class="preset-btn" onclick="loadPreset('material')">Material</button>
+  <button class="preset-btn" onclick="loadPreset('bootstrap')">Bootstrap</button>
+  <button class="preset-btn" onclick="loadPreset('linear4')">Linear ×4</button>
+  <button class="preset-btn" onclick="loadPreset('linear8')">Linear ×8</button>
+  <button class="preset-btn" onclick="loadPreset('golden')">Golden Ratio</button>
+  <button class="preset-btn" onclick="loadPreset('fibonacci')">Fibonacci</button>
+</div>
+
+<div class="config">
+  <div class="config-row">
+    <div class="config-item"><label>Base (px)</label><input type="number" id="base" value="4" min="1" max="16" onchange="generate()"></div>
+    <div class="config-item"><label>Steps</label><input type="number" id="steps" value="12" min="4" max="20" onchange="generate()"></div>
+    <div class="config-item"><label>Scale</label><select id="scaleType" onchange="generate()"><option value="linear">Linear</option><option value="ratio">Ratio</option><option value="custom">Custom</option></select></div>
+    <div class="config-item"><label>Ratio</label><input type="number" id="ratio" value="1.5" min="1.1" max="3" step="0.1" onchange="generate()"></div>
+    <div class="config-item"><label>Root font-size</label><input type="number" id="rootSize" value="16" min="10" max="24" onchange="generate()"></div>
+  </div>
+</div>
+
+<table class="scale-table">
+  <thead><tr><th>Name</th><th>px</th><th>rem</th><th>Preview</th></tr></thead>
+  <tbody id="scaleBody"></tbody>
+</table>
+
+<div class="output-tabs">
+  <button class="out-tab active" onclick="setFormat('css')">CSS Variables</button>
+  <button class="out-tab" onclick="setFormat('tailwind')">Tailwind Config</button>
+  <button class="out-tab" onclick="setFormat('scss')">SCSS Variables</button>
+</div>
+
+<div class="output" onclick="copyCSS()">
+  <pre id="cssOutput"></pre>
+  <div class="hint">Click to copy</div>
+</div>
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/spacing-calc">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+let scale=[];
+let format='css';
+
+const PRESETS={
+  tailwind:{base:4,steps:13,type:'custom',values:[0,1,2,4,5,6,8,10,12,14,16,20,24].map(n=>n*4)},
+  material:{base:8,steps:10,type:'custom',values:[0,4,8,12,16,24,32,40,48,64]},
+  bootstrap:{base:4,steps:6,type:'custom',values:[0,4,8,16,24,48]},
+  linear4:{base:4,steps:12,type:'linear',ratio:1},
+  linear8:{base:8,steps:10,type:'linear',ratio:1},
+  golden:{base:4,steps:10,type:'ratio',ratio:1.618},
+  fibonacci:{base:4,steps:10,type:'custom',values:[0,1,2,3,5,8,13,21,34,55].map(n=>n*4)},
+};
+
+function loadPreset(name){
+  const p=PRESETS[name];
+  document.getElementById('base').value=p.base;
+  document.getElementById('steps').value=p.steps;
+  document.getElementById('scaleType').value=p.type==='custom'?'custom':p.type;
+  if(p.ratio)document.getElementById('ratio').value=p.ratio;
+  if(p.values){scale=[...p.values]}
+  else{scale=[]}
+  generate();
+}
+
+function generate(){
+  const base=+document.getElementById('base').value;
+  const steps=+document.getElementById('steps').value;
+  const type=document.getElementById('scaleType').value;
+  const ratio=+document.getElementById('ratio').value;
+  const rootSize=+document.getElementById('rootSize').value;
+
+  if(type==='linear'){
+    scale=[];for(let i=0;i<steps;i++)scale.push(i*base);
+  }else if(type==='ratio'){
+    scale=[0];for(let i=1;i<steps;i++)scale.push(Math.round(base*Math.pow(ratio,i-1)));
+  }else if(!scale.length||scale.length!==steps){
+    scale=[];for(let i=0;i<steps;i++)scale.push(i*base);
+  }
+
+  const maxVal=Math.max(...scale,1);
+  const body=document.getElementById('scaleBody');
+  body.innerHTML=scale.map((px,i)=>{
+    const rem=(px/rootSize).toFixed(px%rootSize===0&&px>0?0:3).replace(/\.?0+$/,'');
+    const w=Math.max(2,px/maxVal*100);
+    return`<tr>
+      <td class="name">${i}</td>
+      <td class="px-val">${px}px</td>
+      <td class="rem-val">${rem}rem</td>
+      <td class="bar-cell"><div class="bar" style="width:${w}%"></div></td>
+    </tr>`;
+  }).join('');
+
+  renderOutput();
+}
+
+function setFormat(f){
+  format=f;
+  document.querySelectorAll('.out-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.out-tab')[f==='css'?0:f==='tailwind'?1:2].classList.add('active');
+  renderOutput();
+}
+
+function renderOutput(){
+  const rootSize=+document.getElementById('rootSize').value;
+  let out='';
+  if(format==='css'){
+    out=':root {\n';
+    scale.forEach((px,i)=>{
+      const rem=(px/rootSize).toFixed(px%rootSize===0&&px>0?0:3).replace(/\.?0+$/,'');
+      out+=`  --space-${i}: ${rem}rem; /* ${px}px */\n`;
+    });
+    out+='}';
+  }else if(format==='tailwind'){
+    out='// tailwind.config.js\nmodule.exports = {\n  theme: {\n    spacing: {\n';
+    scale.forEach((px,i)=>{
+      const rem=(px/rootSize).toFixed(px%rootSize===0&&px>0?0:3).replace(/\.?0+$/,'');
+      out+=`      '${i}': '${rem}rem', // ${px}px\n`;
+    });
+    out+='    },\n  },\n};';
+  }else{
+    scale.forEach((px,i)=>{
+      const rem=(px/rootSize).toFixed(px%rootSize===0&&px>0?0:3).replace(/\.?0+$/,'');
+      out+=`$space-${i}: ${rem}rem; // ${px}px\n`;
+    });
+  }
+  document.getElementById('cssOutput').textContent=out;
+}
+
+function copyCSS(){
+  navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
+  const el=document.createElement('div');
+  el.className='copied';el.textContent='Copied!';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+loadPreset('tailwind');
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
+<a href="https://yurukusa.github.io/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
+<a href="https://yurukusa.github.io/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
+<a href="https://yurukusa.github.io/tailwind-converter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Tailwind Converter</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

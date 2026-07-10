@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kubernetes YAML Generator — Deployment, Service, Ingress &amp; More</title>
+<meta name="description" content="Generate Kubernetes YAML manifests visually. Deployment, Service, Ingress, ConfigMap, Secret, CronJob, PVC. Presets for common stacks. No signup.">
+<link rel="canonical" href="https://yurukusa.github.io/k8s-yaml-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Kubernetes YAML Generator","description":"Generate K8s manifests visually. Deployment, Service, Ingress, ConfigMap. No signup.","url":"https://yurukusa.github.io/k8s-yaml-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin-bottom:12px}
+.tab{padding:5px 12px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.75rem;cursor:pointer;font-weight:600}
+.tab:hover{border-color:#3b82f6;color:#4da6ff}
+.tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:0.78rem;color:#888;margin-bottom:4px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:6px 10px;color:#e6e6e6;font-size:0.82rem}
+.field textarea{min-height:60px;resize:vertical;font-family:'Fira Code',monospace}
+.field-row{display:flex;gap:10px}
+.field-row .field{flex:1}
+.kv-list{margin-bottom:8px}
+.kv-row{display:flex;gap:6px;margin-bottom:4px}
+.kv-row input{flex:1;background:#0d0d0d;border:1px solid #333;border-radius:4px;padding:4px 8px;color:#e6e6e6;font-size:0.78rem}
+.kv-row button{padding:4px 8px;border-radius:4px;border:1px solid #333;background:#161616;color:#888;cursor:pointer;font-size:0.7rem}
+.kv-row button:hover{color:#ef4444;border-color:#ef4444}
+.add-btn{padding:4px 10px;border-radius:4px;border:1px solid #333;background:#161616;color:#4da6ff;cursor:pointer;font-size:0.75rem;font-weight:600}
+.add-btn:hover{border-color:#3b82f6}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.preset{padding:5px 12px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.75rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.output-area{width:100%;min-height:300px;max-height:500px;background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:10px;color:#e6e6e6;font-family:'Fira Code',monospace;font-size:0.75rem;overflow:auto;white-space:pre}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#ccc;font-size:0.8rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#3b82f6;color:#4da6ff}
+.btn-primary{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.info{font-size:0.78rem;color:#666;text-align:center;margin-top:8px}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+.check-row{display:flex;align-items:center;gap:6px;margin-bottom:6px}
+.check-row label{font-size:0.78rem;color:#aaa}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Kubernetes YAML Generator</h1>
+<p class="sub">Generate K8s manifests visually — no kubectl needed</p>
+
+<div class="section">
+<h3>Resource Type</h3>
+<div class="tabs" id="resourceTabs">
+<div class="tab active" data-res="deployment">Deployment</div>
+<div class="tab" data-res="service">Service</div>
+<div class="tab" data-res="ingress">Ingress</div>
+<div class="tab" data-res="configmap">ConfigMap</div>
+<div class="tab" data-res="secret">Secret</div>
+<div class="tab" data-res="cronjob">CronJob</div>
+<div class="tab" data-res="pvc">PVC</div>
+</div>
+<div class="presets">
+<div class="preset" onclick="loadPreset('node')">Node.js</div>
+<div class="preset" onclick="loadPreset('nginx')">Nginx</div>
+<div class="preset" onclick="loadPreset('postgres')">PostgreSQL</div>
+<div class="preset" onclick="loadPreset('redis')">Redis</div>
+<div class="preset" onclick="loadPreset('python')">Python/Django</div>
+<div class="preset" onclick="loadPreset('go')">Go API</div>
+</div>
+</div>
+
+<div class="layout">
+<div>
+<!-- Deployment fields -->
+<div class="section" id="fDeployment">
+<h3>Deployment</h3>
+<div class="field"><label>Name</label><input id="dName" value="my-app" oninput="gen()"></div>
+<div class="field"><label>Namespace</label><input id="dNamespace" value="default" oninput="gen()"></div>
+<div class="field"><label>Image</label><input id="dImage" value="nginx:latest" oninput="gen()"></div>
+<div class="field-row">
+<div class="field"><label>Replicas</label><input id="dReplicas" type="number" value="1" min="1" oninput="gen()"></div>
+<div class="field"><label>Container Port</label><input id="dPort" type="number" value="80" oninput="gen()"></div>
+</div>
+<div class="field-row">
+<div class="field"><label>CPU Request</label><input id="dCpuReq" value="100m" oninput="gen()"></div>
+<div class="field"><label>CPU Limit</label><input id="dCpuLim" value="500m" oninput="gen()"></div>
+</div>
+<div class="field-row">
+<div class="field"><label>Memory Request</label><input id="dMemReq" value="128Mi" oninput="gen()"></div>
+<div class="field"><label>Memory Limit</label><input id="dMemLim" value="512Mi" oninput="gen()"></div>
+</div>
+<div class="field"><label>Environment Variables</label></div>
+<div class="kv-list" id="dEnvList"></div>
+<button class="add-btn" onclick="addKV('dEnvList');gen()">+ Add Env</button>
+
+<div style="margin-top:10px">
+<div class="check-row"><input type="checkbox" id="dLiveness" onchange="gen()"><label for="dLiveness">Liveness Probe (HTTP GET /healthz)</label></div>
+<div class="check-row"><input type="checkbox" id="dReadiness" onchange="gen()"><label for="dReadiness">Readiness Probe (HTTP GET /ready)</label></div>
+</div>
+</div>
+
+<!-- Service fields -->
+<div class="section" id="fService" style="display:none">
+<h3>Service</h3>
+<div class="field"><label>Name</label><input id="sName" value="my-app-svc" oninput="gen()"></div>
+<div class="field"><label>Type</label><select id="sType" onchange="gen()">
+<option value="ClusterIP">ClusterIP</option>
+<option value="NodePort">NodePort</option>
+<option value="LoadBalancer">LoadBalancer</option>
+</select></div>
+<div class="field-row">
+<div class="field"><label>Port</label><input id="sPort" type="number" value="80" oninput="gen()"></div>
+<div class="field"><label>Target Port</label><input id="sTargetPort" type="number" value="80" oninput="gen()"></div>
+</div>
+<div class="field"><label>Selector (app label)</label><input id="sSelector" value="my-app" oninput="gen()"></div>
+</div>
+
+<!-- Ingress fields -->
+<div class="section" id="fIngress" style="display:none">
+<h3>Ingress</h3>
+<div class="field"><label>Name</label><input id="iName" value="my-app-ingress" oninput="gen()"></div>
+<div class="field"><label>Host</label><input id="iHost" value="app.example.com" oninput="gen()"></div>
+<div class="field"><label>Path</label><input id="iPath" value="/" oninput="gen()"></div>
+<div class="field"><label>Service Name</label><input id="iSvcName" value="my-app-svc" oninput="gen()"></div>
+<div class="field"><label>Service Port</label><input id="iSvcPort" type="number" value="80" oninput="gen()"></div>
+<div class="check-row"><input type="checkbox" id="iTls" onchange="gen()"><label for="iTls">Enable TLS</label></div>
+<div class="field" id="iTlsSecret" style="display:none"><label>TLS Secret Name</label><input id="iTlsSecretName" value="tls-secret" oninput="gen()"></div>
+</div>
+
+<!-- ConfigMap fields -->
+<div class="section" id="fConfigmap" style="display:none">
+<h3>ConfigMap</h3>
+<div class="field"><label>Name</label><input id="cmName" value="my-config" oninput="gen()"></div>
+<div class="field"><label>Data (key=value per line)</label></div>
+<div class="kv-list" id="cmDataList"></div>
+<button class="add-btn" onclick="addKV('cmDataList');gen()">+ Add Entry</button>
+</div>
+
+<!-- Secret fields -->
+<div class="section" id="fSecret" style="display:none">
+<h3>Secret</h3>
+<div class="field"><label>Name</label><input id="secName" value="my-secret" oninput="gen()"></div>
+<div class="field"><label>Type</label><select id="secType" onchange="gen()">
+<option value="Opaque">Opaque</option>
+<option value="kubernetes.io/tls">TLS</option>
+<option value="kubernetes.io/dockerconfigjson">Docker Registry</option>
+</select></div>
+<div class="field"><label>Data (values will be base64-encoded)</label></div>
+<div class="kv-list" id="secDataList"></div>
+<button class="add-btn" onclick="addKV('secDataList');gen()">+ Add Entry</button>
+</div>
+
+<!-- CronJob fields -->
+<div class="section" id="fCronjob" style="display:none">
+<h3>CronJob</h3>
+<div class="field"><label>Name</label><input id="cjName" value="my-cronjob" oninput="gen()"></div>
+<div class="field"><label>Schedule (cron)</label><input id="cjSchedule" value="0 * * * *" oninput="gen()"></div>
+<div class="field"><label>Image</label><input id="cjImage" value="busybox" oninput="gen()"></div>
+<div class="field"><label>Command</label><input id="cjCommand" value="echo Hello" oninput="gen()"></div>
+<div class="field"><label>Restart Policy</label><select id="cjRestart" onchange="gen()">
+<option value="OnFailure">OnFailure</option>
+<option value="Never">Never</option>
+</select></div>
+</div>
+
+<!-- PVC fields -->
+<div class="section" id="fPvc" style="display:none">
+<h3>PersistentVolumeClaim</h3>
+<div class="field"><label>Name</label><input id="pvcName" value="my-data" oninput="gen()"></div>
+<div class="field"><label>Storage Class</label><input id="pvcClass" value="" placeholder="(default)" oninput="gen()"></div>
+<div class="field"><label>Size</label><input id="pvcSize" value="10Gi" oninput="gen()"></div>
+<div class="field"><label>Access Mode</label><select id="pvcAccess" onchange="gen()">
+<option value="ReadWriteOnce">ReadWriteOnce</option>
+<option value="ReadOnlyMany">ReadOnlyMany</option>
+<option value="ReadWriteMany">ReadWriteMany</option>
+</select></div>
+</div>
+</div>
+
+<div>
+<div class="output-area" id="output"></div>
+<div class="actions">
+<button class="btn btn-primary" onclick="copyYaml()">Copy YAML</button>
+<button class="btn" onclick="downloadYaml()">Download</button>
+</div>
+</div>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/docker-compose-gen/">Docker Compose</a> | <a href="https://yurukusa.github.io/nginx-config-gen/">Nginx Config</a> | <a href="https://yurukusa.github.io/yaml-json/">YAML ↔ JSON</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+let currentRes='deployment';
+
+// Resource tab switching
+document.querySelectorAll('#resourceTabs .tab').forEach(tab=>{
+  tab.onclick=()=>{
+    currentRes=tab.dataset.res;
+    document.querySelectorAll('#resourceTabs .tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    ['Deployment','Service','Ingress','Configmap','Secret','Cronjob','Pvc'].forEach(r=>{
+      const el=document.getElementById('f'+r);
+      if(el)el.style.display=r.toLowerCase()===currentRes?'block':'none';
+    });
+    gen();
+  };
+});
+
+document.getElementById('iTls').addEventListener('change',()=>{
+  document.getElementById('iTlsSecret').style.display=document.getElementById('iTls').checked?'block':'none';
+});
+
+// KV pair management
+function addKV(listId,key,val){
+  const list=document.getElementById(listId);
+  const row=document.createElement('div');
+  row.className='kv-row';
+  row.innerHTML=`<input placeholder="key" value="${key||''}" oninput="gen()"><input placeholder="value" value="${val||''}" oninput="gen()"><button onclick="this.parentElement.remove();gen()">×</button>`;
+  list.appendChild(row);
+}
+
+function getKVs(listId){
+  const rows=document.getElementById(listId).querySelectorAll('.kv-row');
+  const result=[];
+  rows.forEach(row=>{
+    const inputs=row.querySelectorAll('input');
+    if(inputs[0].value)result.push({key:inputs[0].value,value:inputs[1].value});
+  });
+  return result;
+}
+
+// YAML generation
+function gen(){
+  let yaml='';
+  switch(currentRes){
+    case 'deployment':yaml=genDeployment();break;
+    case 'service':yaml=genService();break;
+    case 'ingress':yaml=genIngress();break;
+    case 'configmap':yaml=genConfigMap();break;
+    case 'secret':yaml=genSecret();break;
+    case 'cronjob':yaml=genCronJob();break;
+    case 'pvc':yaml=genPVC();break;
+  }
+  document.getElementById('output').textContent=yaml;
+}
+
+function genDeployment(){
+  const name=v('dName'),ns=v('dNamespace'),image=v('dImage');
+  const replicas=v('dReplicas'),port=v('dPort');
+  const cpuReq=v('dCpuReq'),cpuLim=v('dCpuLim'),memReq=v('dMemReq'),memLim=v('dMemLim');
+  const envs=getKVs('dEnvList');
+  const liveness=document.getElementById('dLiveness').checked;
+  const readiness=document.getElementById('dReadiness').checked;
+
+  let y=`apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ${name}
+  namespace: ${ns}
+  labels:
+    app: ${name}
+spec:
+  replicas: ${replicas}
+  selector:
+    matchLabels:
+      app: ${name}
+  template:
+    metadata:
+      labels:
+        app: ${name}
+    spec:
+      containers:
+        - name: ${name}
+          image: ${image}
+          ports:
+            - containerPort: ${port}
+          resources:
+            requests:
+              cpu: "${cpuReq}"
+              memory: "${memReq}"
+            limits:
+              cpu: "${cpuLim}"
+              memory: "${memLim}"`;
+
+  if(envs.length){
+    y+='\n          env:';
+    envs.forEach(e=>y+=`\n            - name: "${e.key}"\n              value: "${e.value}"`);
+  }
+  if(liveness){
+    y+=`\n          livenessProbe:\n            httpGet:\n              path: /healthz\n              port: ${port}\n            initialDelaySeconds: 15\n            periodSeconds: 20`;
+  }
+  if(readiness){
+    y+=`\n          readinessProbe:\n            httpGet:\n              path: /ready\n              port: ${port}\n            initialDelaySeconds: 5\n            periodSeconds: 10`;
+  }
+  return y;
+}
+
+function genService(){
+  const name=v('sName'),type=v('sType'),port=v('sPort'),target=v('sTargetPort'),sel=v('sSelector');
+  return `apiVersion: v1
+kind: Service
+metadata:
+  name: ${name}
+spec:
+  type: ${type}
+  selector:
+    app: ${sel}
+  ports:
+    - port: ${port}
+      targetPort: ${target}
+      protocol: TCP`;
+}
+
+function genIngress(){
+  const name=v('iName'),host=v('iHost'),path=v('iPath'),svc=v('iSvcName'),port=v('iSvcPort');
+  const tls=document.getElementById('iTls').checked;
+  let y=`apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: ${name}
+  annotations:
+    nginx.ingress.kubernetes.io/rewrite-target: /
+spec:`;
+  if(tls){
+    const secret=v('iTlsSecretName');
+    y+=`\n  tls:\n    - hosts:\n        - ${host}\n      secretName: ${secret}`;
+  }
+  y+=`\n  rules:
+    - host: ${host}
+      http:
+        paths:
+          - path: ${path}
+            pathType: Prefix
+            backend:
+              service:
+                name: ${svc}
+                port:
+                  number: ${port}`;
+  return y;
+}
+
+function genConfigMap(){
+  const name=v('cmName');
+  const data=getKVs('cmDataList');
+  let y=`apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: ${name}
+data:`;
+  if(data.length){
+    data.forEach(d=>y+=`\n  ${d.key}: "${d.value}"`);
+  }else{
+    y+='\n  # Add key-value pairs above';
+  }
+  return y;
+}
+
+function genSecret(){
+  const name=v('secName'),type=v('secType');
+  const data=getKVs('secDataList');
+  let y=`apiVersion: v1
+kind: Secret
+metadata:
+  name: ${name}
+type: ${type}
+data:`;
+  if(data.length){
+    data.forEach(d=>y+=`\n  ${d.key}: ${btoa(d.value)}`);
+  }else{
+    y+='\n  # Add key-value pairs above (values will be base64-encoded)';
+  }
+  return y;
+}
+
+function genCronJob(){
+  const name=v('cjName'),schedule=v('cjSchedule'),image=v('cjImage'),cmd=v('cjCommand'),restart=v('cjRestart');
+  return `apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: ${name}
+spec:
+  schedule: "${schedule}"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+          containers:
+            - name: ${name}
+              image: ${image}
+              command: ["/bin/sh", "-c", "${cmd}"]
+          restartPolicy: ${restart}`;
+}
+
+function genPVC(){
+  const name=v('pvcName'),cls=v('pvcClass'),size=v('pvcSize'),access=v('pvcAccess');
+  let y=`apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: ${name}
+spec:`;
+  if(cls)y+=`\n  storageClassName: ${cls}`;
+  y+=`\n  accessModes:
+    - ${access}
+  resources:
+    requests:
+      storage: ${size}`;
+  return y;
+}
+
+function v(id){return document.getElementById(id).value}
+
+// Presets
+function loadPreset(name){
+  const presets={
+    node:{dName:'node-app',dImage:'node:20-alpine',dPort:3000,dCpuReq:'100m',dCpuLim:'500m',dMemReq:'128Mi',dMemLim:'512Mi',env:[{key:'NODE_ENV',value:'production'}]},
+    nginx:{dName:'nginx',dImage:'nginx:alpine',dPort:80,dCpuReq:'50m',dCpuLim:'200m',dMemReq:'64Mi',dMemLim:'256Mi',env:[]},
+    postgres:{dName:'postgres',dImage:'postgres:16-alpine',dPort:5432,dCpuReq:'250m',dCpuLim:'1000m',dMemReq:'256Mi',dMemLim:'1Gi',env:[{key:'POSTGRES_DB',value:'mydb'},{key:'POSTGRES_USER',value:'admin'},{key:'POSTGRES_PASSWORD',value:'changeme'}]},
+    redis:{dName:'redis',dImage:'redis:7-alpine',dPort:6379,dCpuReq:'100m',dCpuLim:'500m',dMemReq:'128Mi',dMemLim:'512Mi',env:[]},
+    python:{dName:'django-app',dImage:'python:3.12-slim',dPort:8000,dCpuReq:'200m',dCpuLim:'1000m',dMemReq:'256Mi',dMemLim:'1Gi',env:[{key:'DJANGO_SETTINGS_MODULE',value:'app.settings'},{key:'DEBUG',value:'false'}]},
+    go:{dName:'go-api',dImage:'golang:1.22-alpine',dPort:8080,dCpuReq:'100m',dCpuLim:'500m',dMemReq:'64Mi',dMemLim:'256Mi',env:[{key:'GIN_MODE',value:'release'}]}
+  };
+  const p=presets[name];if(!p)return;
+  document.getElementById('dName').value=p.dName;
+  document.getElementById('dImage').value=p.dImage;
+  document.getElementById('dPort').value=p.dPort;
+  document.getElementById('dCpuReq').value=p.dCpuReq;
+  document.getElementById('dCpuLim').value=p.dCpuLim;
+  document.getElementById('dMemReq').value=p.dMemReq;
+  document.getElementById('dMemLim').value=p.dMemLim;
+  // Reset env
+  document.getElementById('dEnvList').innerHTML='';
+  p.env.forEach(e=>addKV('dEnvList',e.key,e.value));
+  // Switch to deployment tab
+  currentRes='deployment';
+  document.querySelectorAll('#resourceTabs .tab').forEach(t=>t.classList.toggle('active',t.dataset.res==='deployment'));
+  ['Deployment','Service','Ingress','Configmap','Secret','Cronjob','Pvc'].forEach(r=>{
+    const el=document.getElementById('f'+r);
+    if(el)el.style.display=r==='Deployment'?'block':'none';
+  });
+  gen();
+}
+
+function copyYaml(){
+  navigator.clipboard.writeText(document.getElementById('output').textContent).then(()=>showToast('Copied!'));
+}
+
+function downloadYaml(){
+  const text=document.getElementById('output').textContent;
+  const blob=new Blob([text],{type:'text/yaml'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=currentRes+'.yaml';a.click();
+  showToast('Downloaded!');
+}
+
+function showToast(msg){
+  const t=document.getElementById('toast');t.textContent=msg;t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+// Init
+gen();
+</script>
+</body>
+</html>

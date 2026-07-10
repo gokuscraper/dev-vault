@@ -1,0 +1,1014 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AbortSignal Patterns Playground</title>
+<meta name="description" content="Interactive playground for AbortSignal patterns - AbortController, timeout, any, fetch cancellation, event cleanup, and race condition handling.">
+<style>
+:root {
+  --bg: #0a0a0a;
+  --surface: #141414;
+  --surface2: #1e1e1e;
+  --border: #2a2a2a;
+  --text: #e0e0e0;
+  --text-dim: #888;
+  --accent: #4fc3f7;
+  --accent2: #81c784;
+  --accent3: #ffb74d;
+  --accent4: #e57373;
+  --accent5: #ce93d8;
+  --radius: 8px;
+  --font: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  --mono: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); line-height: 1.6; min-height: 100vh; }
+header { background: var(--surface); border-bottom: 1px solid var(--border); padding: 1.5rem 2rem; text-align: center; }
+header h1 { font-size: 1.6rem; font-weight: 600; background: linear-gradient(135deg, var(--accent4), var(--accent3)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+header p { color: var(--text-dim); margin-top: 0.3rem; font-size: 0.9rem; }
+.tabs { display: flex; flex-wrap: wrap; gap: 0.25rem; padding: 1rem 2rem; background: var(--surface); border-bottom: 1px solid var(--border); }
+.tab { padding: 0.5rem 1rem; border: 1px solid var(--border); border-radius: var(--radius); background: transparent; color: var(--text-dim); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; font-family: var(--font); }
+.tab:hover { border-color: var(--accent4); color: var(--text); }
+.tab.active { background: var(--accent4); color: #000; border-color: var(--accent4); font-weight: 600; }
+main { max-width: 1100px; margin: 0 auto; padding: 1.5rem; }
+.panel { display: none; background: var(--surface); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; margin-bottom: 1rem; }
+.panel.active { display: block; }
+.panel h2 { font-size: 1.2rem; margin-bottom: 0.5rem; color: var(--accent4); }
+.panel h3 { font-size: 1rem; margin: 1rem 0 0.5rem; color: var(--accent); }
+.desc { color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1rem; }
+button { padding: 0.5rem 1.2rem; border: 1px solid var(--accent); border-radius: var(--radius); background: transparent; color: var(--accent); cursor: pointer; font-size: 0.85rem; transition: all 0.2s; font-family: var(--font); }
+button:hover { background: var(--accent); color: #000; }
+button.success { border-color: var(--accent2); color: var(--accent2); }
+button.success:hover { background: var(--accent2); color: #000; }
+button.warn { border-color: var(--accent3); color: var(--accent3); }
+button.warn:hover { background: var(--accent3); color: #000; }
+button.danger { border-color: var(--accent4); color: var(--accent4); }
+button.danger:hover { background: var(--accent4); color: #000; }
+button:disabled { opacity: 0.4; cursor: not-allowed; }
+.btn-row { display: flex; gap: 0.5rem; flex-wrap: wrap; margin: 0.75rem 0; }
+input, select { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); padding: 0.5rem 0.75rem; font-family: var(--mono); font-size: 0.85rem; width: 100%; }
+select { width: auto; cursor: pointer; }
+.log-area { background: #0d0d0d; border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem; font-family: var(--mono); font-size: 0.8rem; max-height: 320px; overflow-y: auto; margin-top: 0.75rem; line-height: 1.5; }
+.log-area .entry { padding: 0.15rem 0; border-bottom: 1px solid #1a1a1a; }
+.log-area .entry:last-child { border-bottom: none; }
+.log-area .info { color: var(--accent); }
+.log-area .data { color: var(--accent2); }
+.log-area .warn { color: var(--accent3); }
+.log-area .error { color: var(--accent4); }
+.log-area .system { color: var(--text-dim); }
+.grid2 { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+.code-block { background: #0d0d0d; border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem; font-family: var(--mono); font-size: 0.78rem; overflow-x: auto; margin: 0.5rem 0; color: var(--text-dim); white-space: pre; }
+.signal-viz { display: flex; align-items: center; gap: 1rem; padding: 1rem; margin: 0.75rem 0; background: var(--surface2); border-radius: var(--radius); flex-wrap: wrap; }
+.signal-box { padding: 0.5rem 1rem; border: 2px solid var(--border); border-radius: var(--radius); text-align: center; min-width: 100px; transition: all 0.3s; }
+.signal-box.active { border-color: var(--accent2); box-shadow: 0 0 10px rgba(129,199,132,0.3); }
+.signal-box.aborted { border-color: var(--accent4); box-shadow: 0 0 10px rgba(229,115,115,0.3); }
+.signal-label { font-size: 0.75rem; color: var(--text-dim); }
+.signal-state { font-weight: 600; font-size: 0.85rem; }
+.progress-bar { height: 20px; background: var(--surface2); border-radius: var(--radius); overflow: hidden; margin: 0.5rem 0; border: 1px solid var(--border); }
+.progress-fill { height: 100%; border-radius: var(--radius); transition: width 0.3s; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; font-weight: 600; }
+.support-badge { display: inline-block; padding: 0.2rem 0.6rem; border-radius: 4px; font-size: 0.75rem; font-weight: 600; margin: 0 0.3rem; }
+.support-badge.yes { background: rgba(129,199,132,0.2); color: var(--accent2); }
+.support-badge.no { background: rgba(229,115,115,0.2); color: var(--accent4); }
+.req-card { background: var(--surface2); border: 1px solid var(--border); border-radius: var(--radius); padding: 0.75rem; margin: 0.25rem 0; display: flex; justify-content: space-between; align-items: center; }
+.req-card .status { font-weight: 600; }
+.req-card .status.pending { color: var(--accent3); }
+.req-card .status.done { color: var(--accent2); }
+.req-card .status.cancelled { color: var(--accent4); }
+@media (max-width: 768px) { .grid2 { grid-template-columns: 1fr; } .tabs { padding: 0.75rem 1rem; } main { padding: 1rem; } }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>AbortSignal Patterns Playground</h1>
+  <p>AbortController, timeout, any, fetch cancellation & cleanup patterns</p>
+</header>
+
+<div class="tabs">
+  <button class="tab active" data-panel="basics">Basics</button>
+  <button class="tab" data-panel="timeout">Timeout</button>
+  <button class="tab" data-panel="any">Any Combinator</button>
+  <button class="tab" data-panel="fetch">Fetch Cancellation</button>
+  <button class="tab" data-panel="concurrent">Concurrent</button>
+  <button class="tab" data-panel="events">Event Cleanup</button>
+  <button class="tab" data-panel="reason">Reason Inspection</button>
+  <button class="tab" data-panel="race">Race Conditions</button>
+</div>
+
+<main>
+  <!-- Panel 1: Basics -->
+  <div class="panel active" id="panel-basics">
+    <h2>AbortController / AbortSignal Basics</h2>
+    <p class="desc">AbortController creates an AbortSignal that can be used to cancel asynchronous operations. The signal is a one-way communication channel: once aborted, it stays aborted.</p>
+
+    <div style="margin-bottom:0.75rem;">
+      <span class="support-badge" id="ac-badge">Checking...</span>
+      <span class="support-badge" id="timeout-badge">Checking...</span>
+      <span class="support-badge" id="any-badge">Checking...</span>
+    </div>
+
+    <div class="signal-viz">
+      <div class="signal-box active" id="sig-box">
+        <div class="signal-label">AbortSignal</div>
+        <div class="signal-state" id="sig-state">active</div>
+      </div>
+      <div>
+        <div style="font-size:0.8rem;color:var(--text-dim);">aborted: <span id="sig-aborted">false</span></div>
+        <div style="font-size:0.8rem;color:var(--text-dim);">reason: <span id="sig-reason">undefined</span></div>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="success" onclick="createController()">Create New Controller</button>
+      <button class="danger" onclick="abortController()">Abort!</button>
+      <button class="warn" onclick="abortWithReason()">Abort with Custom Reason</button>
+    </div>
+    <div class="log-area" id="basic-log"><div class="entry system">Basic demo log...</div></div>
+
+    <h3>Signal Event Listeners</h3>
+    <div class="btn-row">
+      <button onclick="demoAbortEvent()">Demo: abort event listener</button>
+    </div>
+    <div class="log-area" id="event-log"><div class="entry system">Event log...</div></div>
+
+    <h3>Code Pattern</h3>
+    <div class="code-block">const controller = new AbortController();
+const signal = controller.signal;
+
+signal.addEventListener('abort', () => {
+  console.log('Aborted!', signal.reason);
+});
+
+// Pass signal to async operations
+fetch(url, { signal });
+addEventListener('click', handler, { signal });
+
+// Later: cancel everything
+controller.abort('User cancelled');</div>
+  </div>
+
+  <!-- Panel 2: Timeout -->
+  <div class="panel" id="panel-timeout">
+    <h2>AbortSignal.timeout()</h2>
+    <p class="desc">Creates a signal that automatically aborts after a specified duration. The reason is set to a TimeoutError DOMException.</p>
+
+    <h3>Timeout Demo</h3>
+    <div class="grid2">
+      <div>
+        <label style="color:var(--text-dim);font-size:0.85rem;">Timeout (ms):</label>
+        <input type="number" id="timeout-ms" value="2000" min="100" max="10000" />
+      </div>
+      <div>
+        <label style="color:var(--text-dim);font-size:0.85rem;">Operation duration (ms):</label>
+        <input type="number" id="op-duration" value="3000" min="100" max="10000" />
+      </div>
+    </div>
+    <div class="btn-row">
+      <button class="success" onclick="timeoutDemo()">Run (operation slower than timeout)</button>
+      <button onclick="timeoutFast()">Run (operation faster than timeout)</button>
+    </div>
+
+    <div class="progress-bar" id="timeout-progress" style="display:none;">
+      <div class="progress-fill" id="timeout-fill" style="width:0%;background:var(--accent2);">0%</div>
+    </div>
+    <div class="log-area" id="timeout-log"><div class="entry system">Timeout results...</div></div>
+
+    <h3>Practical: Timeout with Fetch</h3>
+    <div class="btn-row">
+      <button onclick="fetchTimeout()">Simulated Fetch with Timeout</button>
+    </div>
+    <div class="log-area" id="fetch-timeout-log"><div class="entry system">Fetch timeout results...</div></div>
+  </div>
+
+  <!-- Panel 3: Any -->
+  <div class="panel" id="panel-any">
+    <h2>AbortSignal.any() Combinator</h2>
+    <p class="desc">Combines multiple signals - aborts when ANY of them abort. Perfect for combining user cancellation with timeout.</p>
+
+    <h3>User Cancel + Timeout</h3>
+    <div class="btn-row">
+      <button class="success" onclick="anyDemo()">Start (5s timeout + manual cancel)</button>
+      <button class="danger" onclick="anyCancelUser()">Cancel (user)</button>
+    </div>
+    <div class="signal-viz">
+      <div class="signal-box" id="any-user-box">
+        <div class="signal-label">User Signal</div>
+        <div class="signal-state" id="any-user-state">idle</div>
+      </div>
+      <div style="color:var(--text-dim);">+</div>
+      <div class="signal-box" id="any-timeout-box">
+        <div class="signal-label">Timeout Signal</div>
+        <div class="signal-state" id="any-timeout-state">idle</div>
+      </div>
+      <div style="color:var(--text-dim);">=</div>
+      <div class="signal-box" id="any-combined-box">
+        <div class="signal-label">Combined</div>
+        <div class="signal-state" id="any-combined-state">idle</div>
+      </div>
+    </div>
+    <div class="log-area" id="any-log"><div class="entry system">Any combinator results...</div></div>
+
+    <h3>Multiple Sources</h3>
+    <div class="btn-row">
+      <button onclick="anyMultiple()">3 signals: timeout(3s) + timeout(5s) + manual</button>
+      <button class="danger" onclick="anyMultiCancel()">Cancel Manual</button>
+    </div>
+    <div class="log-area" id="any-multi-log"><div class="entry system">Multi-signal results...</div></div>
+  </div>
+
+  <!-- Panel 4: Fetch Cancellation -->
+  <div class="panel" id="panel-fetch">
+    <h2>Fetch Cancellation with Progress</h2>
+    <p class="desc">Cancel in-flight fetch requests. The browser actually cancels the network request, not just ignoring the response.</p>
+
+    <h3>Simulated Download with Cancel</h3>
+    <div class="btn-row">
+      <button class="success" onclick="startFetchCancel()">Start Download (5s)</button>
+      <button class="danger" onclick="cancelFetch()">Cancel Download</button>
+    </div>
+    <div class="progress-bar" id="dl-progress">
+      <div class="progress-fill" id="dl-fill" style="width:0%;background:linear-gradient(90deg,var(--accent2),var(--accent));">0%</div>
+    </div>
+    <div class="log-area" id="dl-log"><div class="entry system">Download log...</div></div>
+
+    <h3>Retry with Abort</h3>
+    <p class="desc">Automatically cancel previous request when a new one starts.</p>
+    <input id="search-input" placeholder="Type to search (each keystroke cancels previous)..." />
+    <div class="log-area" id="search-log"><div class="entry system">Search log (type above)...</div></div>
+  </div>
+
+  <!-- Panel 5: Concurrent Requests -->
+  <div class="panel" id="panel-concurrent">
+    <h2>Multiple Concurrent Requests Cancellation</h2>
+    <p class="desc">Cancel all in-flight requests with a single controller, or cancel them individually.</p>
+
+    <h3>Cancel All Pattern</h3>
+    <div class="btn-row">
+      <button class="success" onclick="concurrentAll()">Start 5 Requests (shared controller)</button>
+      <button class="danger" onclick="cancelAll()">Cancel All</button>
+    </div>
+    <div id="concurrent-cards"></div>
+    <div class="log-area" id="concurrent-log"><div class="entry system">Concurrent request log...</div></div>
+
+    <h3>Individual Cancellation</h3>
+    <div class="btn-row">
+      <button class="success" onclick="individualStart()">Start 3 Independent Requests</button>
+    </div>
+    <div id="individual-cards"></div>
+    <div class="log-area" id="individual-log"><div class="entry system">Individual request log...</div></div>
+  </div>
+
+  <!-- Panel 6: Event Cleanup -->
+  <div class="panel" id="panel-events">
+    <h2>Event Listener Cleanup with Signal</h2>
+    <p class="desc">Use AbortSignal to automatically remove event listeners. No need to keep references to handler functions.</p>
+
+    <h3>Click Counter (auto-cleanup)</h3>
+    <div class="btn-row">
+      <button class="success" onclick="startListening()">Start Listening (click anywhere)</button>
+      <button class="danger" onclick="stopListening()">Stop & Cleanup</button>
+    </div>
+    <div style="font-size:1.2rem;margin:0.5rem 0;">Clicks: <span id="click-count">0</span></div>
+    <div class="log-area" id="listener-log"><div class="entry system">Listener log...</div></div>
+
+    <h3>Multiple Listeners, One Cleanup</h3>
+    <p class="desc">Register multiple event types with a single signal. Abort once to remove all.</p>
+    <div class="btn-row">
+      <button onclick="multiListenerDemo()">Register: click + keydown + mousemove</button>
+      <button class="danger" onclick="cleanupMulti()">Cleanup All</button>
+    </div>
+    <div class="log-area" id="multi-listener-log"><div class="entry system">Multi-listener log...</div></div>
+
+    <h3>Code Pattern</h3>
+    <div class="code-block">const controller = new AbortController();
+
+// Register multiple listeners with same signal
+el.addEventListener('click', onClick, { signal: controller.signal });
+el.addEventListener('keydown', onKey, { signal: controller.signal });
+window.addEventListener('resize', onResize, { signal: controller.signal });
+
+// One call removes ALL listeners
+controller.abort();
+// No need for removeEventListener!</div>
+  </div>
+
+  <!-- Panel 7: Reason Inspection -->
+  <div class="panel" id="panel-reason">
+    <h2>AbortSignal.reason Inspection</h2>
+    <p class="desc">The reason property tells you WHY an abort happened. It can be any value: string, Error, DOMException, or custom object.</p>
+
+    <h3>Different Reason Types</h3>
+    <div class="btn-row">
+      <button onclick="reasonDemo('string')">String reason</button>
+      <button onclick="reasonDemo('error')">Error reason</button>
+      <button onclick="reasonDemo('timeout')">TimeoutError (from .timeout())</button>
+      <button onclick="reasonDemo('default')">Default (no reason)</button>
+      <button onclick="reasonDemo('object')">Custom object reason</button>
+    </div>
+    <div class="log-area" id="reason-log"><div class="entry system">Reason inspection results...</div></div>
+
+    <h3>Reason-based Error Handling</h3>
+    <div class="btn-row">
+      <button onclick="reasonHandling()">Demo: Handle different abort reasons</button>
+    </div>
+    <div class="log-area" id="reason-handling-log"><div class="entry system">Error handling results...</div></div>
+
+    <h3>throwIfAborted()</h3>
+    <div class="btn-row">
+      <button onclick="throwIfAbortedDemo()">Demo: signal.throwIfAborted()</button>
+    </div>
+    <div class="log-area" id="throw-log"><div class="entry system">throwIfAborted results...</div></div>
+  </div>
+
+  <!-- Panel 8: Race Conditions -->
+  <div class="panel" id="panel-race">
+    <h2>Race Condition Handling Patterns</h2>
+    <p class="desc">AbortSignal prevents stale responses from overwriting fresh data. Critical for search-as-you-type and similar patterns.</p>
+
+    <h3>Stale Closure Problem</h3>
+    <div class="btn-row">
+      <button class="danger" onclick="raceWithoutAbort()">Without Abort (race condition!)</button>
+      <button class="success" onclick="raceWithAbort()">With Abort (correct)</button>
+    </div>
+    <div class="log-area" id="race-log"><div class="entry system">Race condition results...</div></div>
+
+    <h3>Debounce + Abort Pattern</h3>
+    <input id="debounce-input" placeholder="Type to search with debounce + abort..." />
+    <div class="log-area" id="debounce-log"><div class="entry system">Debounce results...</div></div>
+
+    <h3>AbortSignal for Async Iteration</h3>
+    <div class="btn-row">
+      <button class="success" onclick="asyncIterAbort()">Start Async Iterator</button>
+      <button class="danger" onclick="stopAsyncIter()">Stop Iterator</button>
+    </div>
+    <div class="log-area" id="iter-log"><div class="entry system">Async iteration results...</div></div>
+  </div>
+</main>
+
+<script>
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.panel).classList.add('active');
+  });
+});
+function log(id, msg, cls='info') {
+  const a = document.getElementById(id);
+  const e = document.createElement('div');
+  e.className = 'entry ' + cls;
+  e.textContent = `[${new Date().toLocaleTimeString()}] ${msg}`;
+  a.appendChild(e);
+  a.scrollTop = a.scrollHeight;
+}
+function clearLog(id) { document.getElementById(id).innerHTML = ''; }
+
+// Feature detection
+const acBadge = document.getElementById('ac-badge');
+acBadge.className = 'support-badge ' + (typeof AbortController !== 'undefined' ? 'yes' : 'no');
+acBadge.textContent = 'AbortController: ' + (typeof AbortController !== 'undefined' ? 'Yes' : 'No');
+
+const toBadge = document.getElementById('timeout-badge');
+toBadge.className = 'support-badge ' + (typeof AbortSignal?.timeout === 'function' ? 'yes' : 'no');
+toBadge.textContent = 'timeout(): ' + (typeof AbortSignal?.timeout === 'function' ? 'Yes' : 'No');
+
+const anyBadge = document.getElementById('any-badge');
+anyBadge.className = 'support-badge ' + (typeof AbortSignal?.any === 'function' ? 'yes' : 'no');
+anyBadge.textContent = 'any(): ' + (typeof AbortSignal?.any === 'function' ? 'Yes' : 'No');
+
+// Simulate async operation
+function simulateAsync(duration, signal) {
+  return new Promise((resolve, reject) => {
+    if (signal?.aborted) { reject(signal.reason || new DOMException('Aborted', 'AbortError')); return; }
+    const timer = setTimeout(() => resolve(`Completed in ${duration}ms`), duration);
+    signal?.addEventListener('abort', () => {
+      clearTimeout(timer);
+      reject(signal.reason || new DOMException('Aborted', 'AbortError'));
+    });
+  });
+}
+
+// --- Panel 1: Basics ---
+let currentController;
+function updateSignalViz() {
+  const box = document.getElementById('sig-box');
+  const state = document.getElementById('sig-state');
+  const aborted = document.getElementById('sig-aborted');
+  const reason = document.getElementById('sig-reason');
+
+  if (!currentController) {
+    box.className = 'signal-box';
+    state.textContent = 'none';
+    aborted.textContent = '-';
+    reason.textContent = '-';
+    return;
+  }
+  const s = currentController.signal;
+  box.className = 'signal-box ' + (s.aborted ? 'aborted' : 'active');
+  state.textContent = s.aborted ? 'ABORTED' : 'active';
+  state.style.color = s.aborted ? 'var(--accent4)' : 'var(--accent2)';
+  aborted.textContent = s.aborted;
+  reason.textContent = s.reason !== undefined ? String(s.reason) : 'undefined';
+}
+function createController() {
+  clearLog('basic-log');
+  currentController = new AbortController();
+  log('basic-log', 'Created new AbortController', 'info');
+  log('basic-log', `signal.aborted: ${currentController.signal.aborted}`, 'data');
+  updateSignalViz();
+}
+function abortController() {
+  if (!currentController) { log('basic-log', 'Create a controller first', 'error'); return; }
+  currentController.abort();
+  log('basic-log', 'controller.abort() called', 'error');
+  log('basic-log', `signal.aborted: ${currentController.signal.aborted}`, 'data');
+  log('basic-log', `signal.reason: ${currentController.signal.reason}`, 'data');
+  updateSignalViz();
+}
+function abortWithReason() {
+  if (!currentController) { log('basic-log', 'Create a controller first', 'error'); return; }
+  currentController.abort('User requested cancellation');
+  log('basic-log', 'controller.abort("User requested cancellation") called', 'error');
+  log('basic-log', `signal.reason: "${currentController.signal.reason}"`, 'data');
+  log('basic-log', `typeof reason: ${typeof currentController.signal.reason}`, 'system');
+  updateSignalViz();
+}
+function demoAbortEvent() {
+  clearLog('event-log');
+  const ac = new AbortController();
+  ac.signal.addEventListener('abort', () => {
+    log('event-log', 'abort event fired!', 'error');
+    log('event-log', `reason: ${ac.signal.reason}`, 'data');
+  });
+  log('event-log', 'Registered abort event listener', 'info');
+  log('event-log', 'Aborting in 1 second...', 'system');
+  setTimeout(() => {
+    ac.abort('Timed abort demo');
+    log('event-log', 'After abort: signal.aborted = ' + ac.signal.aborted, 'data');
+  }, 1000);
+}
+
+// --- Panel 2: Timeout ---
+async function timeoutDemo() {
+  clearLog('timeout-log');
+  if (typeof AbortSignal.timeout !== 'function') { log('timeout-log', 'AbortSignal.timeout() not supported', 'error'); return; }
+
+  const timeoutMs = parseInt(document.getElementById('timeout-ms').value);
+  const duration = parseInt(document.getElementById('op-duration').value);
+
+  const signal = AbortSignal.timeout(timeoutMs);
+  const progressEl = document.getElementById('timeout-progress');
+  const fillEl = document.getElementById('timeout-fill');
+  progressEl.style.display = 'block';
+
+  log('timeout-log', `Starting operation (${duration}ms) with timeout (${timeoutMs}ms)`, 'info');
+
+  const startTime = Date.now();
+  const interval = setInterval(() => {
+    const elapsed = Date.now() - startTime;
+    const pct = Math.min(100, (elapsed / duration * 100));
+    fillEl.style.width = pct + '%';
+    fillEl.textContent = Math.round(pct) + '%';
+    if (signal.aborted || elapsed >= duration) clearInterval(interval);
+  }, 50);
+
+  try {
+    await simulateAsync(duration, signal);
+    fillEl.style.background = 'var(--accent2)';
+    log('timeout-log', 'Operation completed before timeout!', 'data');
+  } catch(e) {
+    fillEl.style.background = 'var(--accent4)';
+    log('timeout-log', `Aborted: ${e.name}: ${e.message}`, 'error');
+    log('timeout-log', `This is a ${e.constructor.name}`, 'system');
+  }
+}
+async function timeoutFast() {
+  clearLog('timeout-log');
+  if (typeof AbortSignal.timeout !== 'function') { log('timeout-log', 'AbortSignal.timeout() not supported', 'error'); return; }
+
+  const signal = AbortSignal.timeout(5000);
+  log('timeout-log', 'Starting fast operation (500ms) with 5s timeout', 'info');
+  try {
+    await simulateAsync(500, signal);
+    log('timeout-log', 'Completed in 500ms (well before 5s timeout)', 'data');
+  } catch(e) {
+    log('timeout-log', `Error: ${e.message}`, 'error');
+  }
+}
+async function fetchTimeout() {
+  clearLog('fetch-timeout-log');
+  if (typeof AbortSignal.timeout !== 'function') { log('fetch-timeout-log', 'AbortSignal.timeout() not supported', 'error'); return; }
+
+  log('fetch-timeout-log', 'Simulating fetch with 1.5s timeout, server takes 3s...', 'info');
+  const signal = AbortSignal.timeout(1500);
+  try {
+    await simulateAsync(3000, signal);
+    log('fetch-timeout-log', 'Response received', 'data');
+  } catch(e) {
+    log('fetch-timeout-log', `Timeout! ${e.name}: ${e.message}`, 'error');
+    log('fetch-timeout-log', 'The request was cancelled before the server could respond', 'warn');
+  }
+}
+
+// --- Panel 3: Any ---
+let anyController;
+function updateAnyViz(userId, timeoutId, combinedId, uc, tc, cc) {
+  const sets = [[userId, uc], [timeoutId, tc], [combinedId, cc]];
+  sets.forEach(([id, cls]) => {
+    document.getElementById(id).className = 'signal-box ' + cls;
+    const state = document.getElementById(id.replace('-box', '-state'));
+    state.textContent = cls === 'aborted' ? 'ABORTED' : cls === 'active' ? 'active' : 'idle';
+    state.style.color = cls === 'aborted' ? 'var(--accent4)' : cls === 'active' ? 'var(--accent2)' : '';
+  });
+}
+async function anyDemo() {
+  clearLog('any-log');
+  if (typeof AbortSignal.any !== 'function') { log('any-log', 'AbortSignal.any() not supported', 'error'); return; }
+
+  anyController = new AbortController();
+  const timeoutSignal = AbortSignal.timeout(5000);
+  const combined = AbortSignal.any([anyController.signal, timeoutSignal]);
+
+  updateAnyViz('any-user-box', 'any-timeout-box', 'any-combined-box', 'active', 'active', 'active');
+
+  log('any-log', 'Started: user cancel + 5s timeout', 'info');
+  log('any-log', 'Click "Cancel (user)" or wait 5s...', 'system');
+
+  combined.addEventListener('abort', () => {
+    const isTimeout = combined.reason instanceof DOMException && combined.reason.name === 'TimeoutError';
+    updateAnyViz('any-user-box', 'any-timeout-box', 'any-combined-box',
+      anyController.signal.aborted ? 'aborted' : 'active',
+      isTimeout ? 'aborted' : 'active',
+      'aborted');
+    log('any-log', `Combined signal aborted!`, 'error');
+    log('any-log', `Source: ${isTimeout ? 'TIMEOUT' : 'USER CANCEL'}`, 'warn');
+    log('any-log', `Reason: ${combined.reason}`, 'data');
+  });
+
+  try {
+    await simulateAsync(10000, combined);
+  } catch(e) {
+    log('any-log', `Operation cancelled: ${e}`, 'error');
+  }
+}
+function anyCancelUser() {
+  if (anyController) { anyController.abort('User pressed cancel'); }
+}
+
+let anyMultiController;
+async function anyMultiple() {
+  clearLog('any-multi-log');
+  if (typeof AbortSignal.any !== 'function') { log('any-multi-log', 'AbortSignal.any() not supported', 'error'); return; }
+
+  anyMultiController = new AbortController();
+  const t1 = AbortSignal.timeout(3000);
+  const t2 = AbortSignal.timeout(5000);
+  const combined = AbortSignal.any([t1, t2, anyMultiController.signal]);
+
+  log('any-multi-log', 'Signals: timeout(3s) + timeout(5s) + manual', 'info');
+  log('any-multi-log', 'First to fire wins. Press cancel or wait...', 'system');
+
+  try {
+    await simulateAsync(10000, combined);
+  } catch(e) {
+    const isTimeout = combined.reason instanceof DOMException && combined.reason.name === 'TimeoutError';
+    log('any-multi-log', `Aborted by: ${isTimeout ? 'TIMEOUT (3s won)' : 'MANUAL CANCEL'}`, 'error');
+    log('any-multi-log', `Reason: ${combined.reason}`, 'data');
+  }
+}
+function anyMultiCancel() { if (anyMultiController) anyMultiController.abort('Manual cancel'); }
+
+// --- Panel 4: Fetch Cancellation ---
+let fetchController;
+async function startFetchCancel() {
+  clearLog('dl-log');
+  fetchController = new AbortController();
+  const fill = document.getElementById('dl-fill');
+  fill.style.width = '0%';
+  fill.style.background = 'linear-gradient(90deg,var(--accent2),var(--accent))';
+
+  log('dl-log', 'Starting simulated download...', 'info');
+
+  const totalChunks = 10;
+  try {
+    for (let i = 1; i <= totalChunks; i++) {
+      fetchController.signal.throwIfAborted();
+      await new Promise((resolve, reject) => {
+        const timer = setTimeout(resolve, 500);
+        fetchController.signal.addEventListener('abort', () => {
+          clearTimeout(timer);
+          reject(fetchController.signal.reason || new DOMException('Aborted', 'AbortError'));
+        });
+      });
+      const pct = (i / totalChunks * 100);
+      fill.style.width = pct + '%';
+      fill.textContent = Math.round(pct) + '%';
+      log('dl-log', `Chunk ${i}/${totalChunks} received (${Math.round(pct)}%)`, 'data');
+    }
+    log('dl-log', 'Download complete!', 'data');
+  } catch(e) {
+    fill.style.background = 'var(--accent4)';
+    fill.textContent = 'CANCELLED';
+    log('dl-log', `Download cancelled: ${e}`, 'error');
+  }
+}
+function cancelFetch() { if (fetchController) fetchController.abort('User cancelled download'); }
+
+// Search-as-you-type with abort
+let searchController;
+document.getElementById('search-input').addEventListener('input', async (e) => {
+  const query = e.target.value;
+  if (searchController) {
+    searchController.abort();
+    log('search-log', `Cancelled previous search`, 'warn');
+  }
+  if (!query) return;
+
+  searchController = new AbortController();
+  log('search-log', `Searching: "${query}"...`, 'info');
+
+  try {
+    const delay = 300 + Math.random() * 700;
+    await simulateAsync(delay, searchController.signal);
+    log('search-log', `Results for "${query}": ${Math.floor(Math.random() * 100)} hits (${delay.toFixed(0)}ms)`, 'data');
+  } catch(e) {
+    // Silently ignore aborted searches
+  }
+});
+
+// --- Panel 5: Concurrent ---
+let concurrentController;
+async function concurrentAll() {
+  clearLog('concurrent-log');
+  concurrentController = new AbortController();
+  const cardsEl = document.getElementById('concurrent-cards');
+  cardsEl.innerHTML = '';
+
+  const requests = Array.from({length: 5}, (_, i) => ({
+    id: i + 1,
+    duration: 1000 + Math.random() * 4000,
+    name: ['Users', 'Posts', 'Comments', 'Tags', 'Stats'][i],
+  }));
+
+  requests.forEach(r => {
+    const card = document.createElement('div');
+    card.className = 'req-card';
+    card.id = `req-${r.id}`;
+    card.innerHTML = `<span>${r.name} (~${(r.duration/1000).toFixed(1)}s)</span><span class="status pending" id="status-${r.id}">pending...</span>`;
+    cardsEl.appendChild(card);
+  });
+
+  log('concurrent-log', `Starting ${requests.length} concurrent requests with shared controller`, 'info');
+
+  const promises = requests.map(async r => {
+    try {
+      await simulateAsync(r.duration, concurrentController.signal);
+      document.getElementById(`status-${r.id}`).textContent = 'done';
+      document.getElementById(`status-${r.id}`).className = 'status done';
+      log('concurrent-log', `${r.name} completed (${(r.duration/1000).toFixed(1)}s)`, 'data');
+    } catch(e) {
+      document.getElementById(`status-${r.id}`).textContent = 'cancelled';
+      document.getElementById(`status-${r.id}`).className = 'status cancelled';
+      log('concurrent-log', `${r.name} cancelled`, 'error');
+    }
+  });
+
+  await Promise.allSettled(promises);
+  log('concurrent-log', 'All requests settled', 'system');
+}
+function cancelAll() { if (concurrentController) concurrentController.abort('Cancel all'); }
+
+let individualControllers = [];
+async function individualStart() {
+  clearLog('individual-log');
+  const cardsEl = document.getElementById('individual-cards');
+  cardsEl.innerHTML = '';
+  individualControllers = [];
+
+  const requests = [
+    { name: 'API Call A', duration: 3000 },
+    { name: 'API Call B', duration: 5000 },
+    { name: 'API Call C', duration: 7000 },
+  ];
+
+  requests.forEach((r, i) => {
+    const ac = new AbortController();
+    individualControllers.push(ac);
+
+    const card = document.createElement('div');
+    card.className = 'req-card';
+    card.innerHTML = `<span>${r.name} (${r.duration/1000}s)</span>
+      <span style="display:flex;gap:0.5rem;align-items:center;">
+        <span class="status pending" id="ind-status-${i}">pending...</span>
+        <button class="danger" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="cancelIndividual(${i})">Cancel</button>
+      </span>`;
+    cardsEl.appendChild(card);
+
+    (async () => {
+      try {
+        await simulateAsync(r.duration, ac.signal);
+        document.getElementById(`ind-status-${i}`).textContent = 'done';
+        document.getElementById(`ind-status-${i}`).className = 'status done';
+        log('individual-log', `${r.name} completed`, 'data');
+      } catch(e) {
+        document.getElementById(`ind-status-${i}`).textContent = 'cancelled';
+        document.getElementById(`ind-status-${i}`).className = 'status cancelled';
+        log('individual-log', `${r.name} cancelled`, 'error');
+      }
+    })();
+  });
+
+  log('individual-log', 'Started 3 independent requests - cancel individually', 'info');
+}
+function cancelIndividual(i) {
+  if (individualControllers[i]) individualControllers[i].abort('Individually cancelled');
+}
+
+// --- Panel 6: Event Cleanup ---
+let listenerController;
+let clickCount = 0;
+function startListening() {
+  clearLog('listener-log');
+  clickCount = 0;
+  document.getElementById('click-count').textContent = '0';
+
+  listenerController = new AbortController();
+
+  document.addEventListener('click', (e) => {
+    clickCount++;
+    document.getElementById('click-count').textContent = clickCount;
+    log('listener-log', `Click #${clickCount} at (${e.clientX}, ${e.clientY})`, 'data');
+  }, { signal: listenerController.signal });
+
+  log('listener-log', 'Listening for clicks... (click anywhere on the page)', 'info');
+  log('listener-log', 'The listener will be automatically removed when aborted', 'system');
+}
+function stopListening() {
+  if (listenerController) {
+    listenerController.abort();
+    log('listener-log', `Stopped! Total clicks: ${clickCount}`, 'warn');
+    log('listener-log', 'Listener removed via abort signal (no removeEventListener needed)', 'info');
+  }
+}
+
+let multiController;
+function multiListenerDemo() {
+  clearLog('multi-listener-log');
+  multiController = new AbortController();
+  const signal = multiController.signal;
+
+  document.addEventListener('click', () => {
+    log('multi-listener-log', 'click event', 'data');
+  }, { signal });
+
+  document.addEventListener('keydown', (e) => {
+    log('multi-listener-log', `keydown: ${e.key}`, 'data');
+  }, { signal });
+
+  document.addEventListener('mousemove', (() => {
+    let last = 0;
+    return (e) => {
+      const now = Date.now();
+      if (now - last < 500) return; // throttle
+      last = now;
+      log('multi-listener-log', `mousemove: (${e.clientX}, ${e.clientY})`, 'system');
+    };
+  })(), { signal });
+
+  log('multi-listener-log', 'Registered 3 listeners with single signal', 'info');
+  log('multi-listener-log', 'Click, press keys, or move mouse to see events', 'system');
+}
+function cleanupMulti() {
+  if (multiController) {
+    multiController.abort();
+    log('multi-listener-log', 'All 3 listeners removed with single abort()', 'warn');
+  }
+}
+
+// --- Panel 7: Reason Inspection ---
+function reasonDemo(type) {
+  clearLog('reason-log');
+  const ac = new AbortController();
+
+  switch(type) {
+    case 'string':
+      ac.abort('User cancelled the operation');
+      log('reason-log', `reason: "${ac.signal.reason}"`, 'data');
+      log('reason-log', `typeof: ${typeof ac.signal.reason}`, 'system');
+      break;
+    case 'error':
+      ac.abort(new Error('Network failure'));
+      log('reason-log', `reason: ${ac.signal.reason}`, 'data');
+      log('reason-log', `instanceof Error: ${ac.signal.reason instanceof Error}`, 'system');
+      log('reason-log', `message: ${ac.signal.reason.message}`, 'system');
+      break;
+    case 'timeout':
+      if (typeof AbortSignal.timeout === 'function') {
+        const sig = AbortSignal.timeout(0);
+        setTimeout(() => {
+          log('reason-log', `reason: ${sig.reason}`, 'data');
+          log('reason-log', `name: ${sig.reason?.name}`, 'system');
+          log('reason-log', `instanceof DOMException: ${sig.reason instanceof DOMException}`, 'system');
+          log('reason-log', `Is TimeoutError: ${sig.reason?.name === 'TimeoutError'}`, 'info');
+        }, 10);
+      } else {
+        log('reason-log', 'AbortSignal.timeout() not supported', 'error');
+      }
+      break;
+    case 'default':
+      ac.abort();
+      log('reason-log', `reason: ${ac.signal.reason}`, 'data');
+      log('reason-log', `name: ${ac.signal.reason?.name}`, 'system');
+      log('reason-log', 'Default reason is DOMException with name "AbortError"', 'info');
+      break;
+    case 'object':
+      ac.abort({ code: 'RATE_LIMIT', retryAfter: 30 });
+      log('reason-log', `reason: ${JSON.stringify(ac.signal.reason)}`, 'data');
+      log('reason-log', `typeof: ${typeof ac.signal.reason}`, 'system');
+      log('reason-log', `code: ${ac.signal.reason.code}`, 'data');
+      log('reason-log', `retryAfter: ${ac.signal.reason.retryAfter}`, 'data');
+      break;
+  }
+}
+async function reasonHandling() {
+  clearLog('reason-handling-log');
+
+  const scenarios = [
+    { label: 'User cancel', abort: (ac) => ac.abort('user_cancel') },
+    { label: 'Timeout', abort: (ac) => ac.abort(new DOMException('Timed out', 'TimeoutError')) },
+    { label: 'Rate limit', abort: (ac) => ac.abort({ code: 'RATE_LIMIT' }) },
+  ];
+
+  for (const s of scenarios) {
+    const ac = new AbortController();
+    s.abort(ac);
+
+    const reason = ac.signal.reason;
+    log('reason-handling-log', `--- ${s.label} ---`, 'info');
+
+    if (reason instanceof DOMException && reason.name === 'TimeoutError') {
+      log('reason-handling-log', 'Action: retry with exponential backoff', 'warn');
+    } else if (typeof reason === 'string' && reason === 'user_cancel') {
+      log('reason-handling-log', 'Action: clean up resources, show cancel message', 'data');
+    } else if (reason?.code === 'RATE_LIMIT') {
+      log('reason-handling-log', 'Action: wait and retry after limit expires', 'warn');
+    } else {
+      log('reason-handling-log', 'Action: generic error handling', 'system');
+    }
+  }
+}
+function throwIfAbortedDemo() {
+  clearLog('throw-log');
+  const ac = new AbortController();
+
+  log('throw-log', 'Before abort: calling throwIfAborted()...', 'info');
+  try {
+    ac.signal.throwIfAborted();
+    log('throw-log', 'No error (signal not aborted)', 'data');
+  } catch(e) {
+    log('throw-log', `Threw: ${e}`, 'error');
+  }
+
+  ac.abort('Custom reason');
+  log('throw-log', '', 'system');
+  log('throw-log', 'After abort: calling throwIfAborted()...', 'info');
+  try {
+    ac.signal.throwIfAborted();
+    log('throw-log', 'No error (unexpected!)', 'warn');
+  } catch(e) {
+    log('throw-log', `Threw: "${e}"`, 'error');
+    log('throw-log', 'Useful in long async functions to check abort at each step', 'system');
+  }
+}
+
+// --- Panel 8: Race Conditions ---
+async function raceWithoutAbort() {
+  clearLog('race-log');
+  log('race-log', '--- WITHOUT abort (race condition) ---', 'warn');
+  log('race-log', 'Simulating 3 searches fired rapidly...', 'info');
+
+  let currentResult = '';
+
+  const searches = [
+    { query: 'ab', delay: 500 },    // slow
+    { query: 'abc', delay: 100 },   // fast
+    { query: 'abcd', delay: 300 },  // medium
+  ];
+
+  const promises = searches.map(s => {
+    return new Promise(resolve => {
+      setTimeout(() => {
+        currentResult = `Results for "${s.query}"`;
+        log('race-log', `Response arrived: "${s.query}" (${s.delay}ms)`, 'data');
+        resolve();
+      }, s.delay);
+    });
+  });
+
+  await Promise.all(promises);
+  log('race-log', `Final displayed: ${currentResult}`, 'error');
+  log('race-log', 'BUG: "ab" arrived last (slowest) and overwrote "abcd"!', 'error');
+}
+async function raceWithAbort() {
+  clearLog('race-log');
+  log('race-log', '--- WITH abort (correct) ---', 'data');
+  log('race-log', 'Each new search cancels the previous...', 'info');
+
+  let currentController = null;
+  let currentResult = '';
+
+  const searches = [
+    { query: 'ab', delay: 500 },
+    { query: 'abc', delay: 100 },
+    { query: 'abcd', delay: 300 },
+  ];
+
+  for (const s of searches) {
+    if (currentController) {
+      currentController.abort();
+      log('race-log', `Cancelled search for "${searches[searches.indexOf(s)-1]?.query}"`, 'warn');
+    }
+    currentController = new AbortController();
+    const ac = currentController;
+
+    try {
+      await simulateAsync(s.delay, ac.signal);
+      if (!ac.signal.aborted) {
+        currentResult = `Results for "${s.query}"`;
+        log('race-log', `Response used: "${s.query}" (${s.delay}ms)`, 'data');
+      }
+    } catch(e) {
+      log('race-log', `"${s.query}" aborted (stale)`, 'system');
+    }
+  }
+
+  log('race-log', `Final displayed: ${currentResult}`, 'data');
+  log('race-log', 'Only the latest search result is shown!', 'info');
+}
+
+// Debounce + Abort
+let debounceTimer, debounceController;
+document.getElementById('debounce-input').addEventListener('input', (e) => {
+  clearTimeout(debounceTimer);
+  if (debounceController) debounceController.abort();
+
+  debounceTimer = setTimeout(async () => {
+    const query = e.target.value;
+    if (!query) return;
+
+    debounceController = new AbortController();
+    log('debounce-log', `Searching: "${query}"`, 'info');
+
+    try {
+      const delay = 200 + Math.random() * 800;
+      await simulateAsync(delay, debounceController.signal);
+      log('debounce-log', `Results for "${query}": ${Math.floor(Math.random() * 50)} hits`, 'data');
+    } catch(e) {
+      log('debounce-log', `"${query}" cancelled (superseded)`, 'system');
+    }
+  }, 300);
+});
+
+// Async iteration
+let iterController;
+async function asyncIterAbort() {
+  clearLog('iter-log');
+  iterController = new AbortController();
+
+  async function* dataStream(signal) {
+    let i = 0;
+    while (true) {
+      signal.throwIfAborted();
+      await new Promise((resolve, reject) => {
+        const t = setTimeout(resolve, 500);
+        signal.addEventListener('abort', () => { clearTimeout(t); reject(signal.reason); }, { once: true });
+      });
+      yield { id: ++i, time: Date.now() };
+    }
+  }
+
+  log('iter-log', 'Started async iterator (yields every 500ms)', 'info');
+
+  try {
+    for await (const item of dataStream(iterController.signal)) {
+      log('iter-log', `Item #${item.id}: ${new Date(item.time).toLocaleTimeString()}`, 'data');
+      if (item.id >= 20) {
+        log('iter-log', 'Reached 20 items, stopping', 'info');
+        break;
+      }
+    }
+  } catch(e) {
+    log('iter-log', `Iterator stopped: ${e}`, 'warn');
+  }
+}
+function stopAsyncIter() {
+  if (iterController) iterController.abort('User stopped iteration');
+}
+
+// Init
+createController();
+</script>
+</body>
+</html>

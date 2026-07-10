@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Port Generator</title>
+<meta name="description" content="Generate random TCP/UDP port numbers. Choose from well-known, registered, or dynamic port ranges. Includes IANA port category info.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh;display:flex;justify-content:center;padding:24px}
+.container{max-width:560px;width:100%}
+h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
+.desc{color:#888;font-size:0.9rem;margin-bottom:20px}
+.card{background:#161616;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:16px}
+label{display:block;color:#aaa;font-size:0.85rem;margin-bottom:4px;font-weight:600}
+select,input[type=number]{width:100%;padding:10px 14px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#fff;font-size:0.95rem;outline:none;margin-bottom:12px}
+select:focus,input:focus{border-color:#3b82f6}
+.port-box{background:#0d1520;border:1px solid #2a4a7a;border-radius:8px;padding:20px;text-align:center;margin-bottom:12px}
+.port-box .port{font-size:2.5rem;color:#4da6ff;font-weight:700;font-family:monospace}
+.port-box .cat{color:#888;font-size:0.85rem;margin-top:4px}
+button{padding:8px 20px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#e6e6e6;font-size:0.85rem;cursor:pointer;font-weight:600}
+button:hover{background:#252525;border-color:#3b82f6}
+button.primary{background:#3b82f6;color:#fff;border-color:#3b82f6}
+button.primary:hover{background:#2563eb}
+.flex-center{display:flex;justify-content:center;gap:8px;margin-bottom:12px}
+.row{display:flex;align-items:center;gap:10px}
+.row label{margin:0;min-width:140px}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Random Port Generator</h1>
+  <p class="desc">Generate random TCP/UDP port numbers with IANA category info</p>
+  <div class="card">
+    <div class="row">
+      <label>Port range</label>
+      <select id="range">
+        <option value="all">All (0–65535)</option>
+        <option value="well-known" selected>Well-known (0–1023)</option>
+        <option value="registered">Registered (1024–49151)</option>
+        <option value="dynamic">Dynamic/Private (49152–65535)</option>
+      </select>
+    </div>
+    <div class="row">
+      <label>Quantity</label>
+      <input type="number" id="quantity" value="1" min="1" max="20">
+    </div>
+    <div class="flex-center" style="margin-top:8px">
+      <button class="primary" id="generateBtn">Generate</button>
+      <button id="copyBtn">Copy</button>
+    </div>
+    <div id="portsList"></div>
+  </div>
+</div>
+<script>
+const ranges = {
+  'all': [0, 65535],
+  'well-known': [0, 1023],
+  'registered': [1024, 49151],
+  'dynamic': [49152, 65535],
+};
+
+function getCategory(port) {
+  if (port <= 1023) return 'Well-known';
+  if (port <= 49151) return 'Registered';
+  return 'Dynamic / Private';
+}
+
+function generate() {
+  const rangeKey = document.getElementById('range').value;
+  const qty = Math.min(parseInt(document.getElementById('quantity').value) || 1, 20);
+  const [min, max] = ranges[rangeKey];
+  const list = document.getElementById('portsList');
+
+  const ports = [];
+  while (ports.length < qty) {
+    const p = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (!ports.includes(p)) ports.push(p);
+  }
+
+  list.innerHTML = ports.map(p => `
+    <div class="port-box">
+      <div class="port">${p}</div>
+      <div class="cat">${getCategory(p)}</div>
+    </div>
+  `).join('');
+}
+
+document.getElementById('generateBtn').addEventListener('click', generate);
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const ports = Array.from(document.querySelectorAll('.port')).map(el => el.textContent).join(', ');
+  navigator.clipboard.writeText(ports);
+});
+
+generate();
+</script>
+</body>
+</html>

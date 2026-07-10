@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lorem Generator — Placeholder Text Generator</title>
+<meta name="description" content="Generate Lorem Ipsum placeholder text. Words, sentences, or paragraphs. HTML tags, copy instantly. Free.">
+<meta property="og:title" content="Lorem Generator — Placeholder Text Generator">
+<meta property="og:description" content="Generate Lorem Ipsum placeholder text. Words, sentences, paragraphs. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/lorem-gen/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/lorem-gen/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Lorem Generator", "description": "Generate Lorem Ipsum placeholder text. Words, sentences, or paragraphs. HTML tags, copy instantly. Free.", "url": "https://yurukusa.github.io/lorem-gen/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+.config{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:16px}
+.row{display:flex;gap:14px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.row:last-child{margin-bottom:0}
+.label{font-size:0.82rem;color:#888;font-weight:600;min-width:80px}
+input[type="number"]{width:80px;padding:8px 12px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-family:'Fira Code',monospace;font-size:0.85rem;outline:none;text-align:center}
+input[type="number"]:focus{border-color:#3b82f6}
+select{padding:8px 14px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.85rem;outline:none}
+select:focus{border-color:#3b82f6}
+.toggle-row{display:flex;gap:12px;flex-wrap:wrap}
+.toggle{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.82rem;color:#888}
+.toggle input{accent-color:#3b82f6}
+.btn-row{display:flex;gap:8px;justify-content:center;margin:16px 0;flex-wrap:wrap}
+.btn{padding:8px 18px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.82rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#555;color:#ccc}
+.btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.btn.primary:hover{background:#2563eb}
+.output{background:#0d0d0d;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:16px;max-height:500px;overflow-y:auto}
+.output p{margin-bottom:12px;line-height:1.7;color:#ccc;font-size:0.9rem}
+.output p:last-child{margin-bottom:0}
+.stats{text-align:center;font-size:0.78rem;color:#555;margin-bottom:16px}
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:600px){.row{flex-direction:column;align-items:stretch}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Lorem Generator</h1>
+<p class="subtitle">Generate placeholder text for your designs and mockups.</p>
+
+<div class="config">
+  <div class="row">
+    <span class="label">Amount</span>
+    <input type="number" id="amount" value="5" min="1" max="100" onchange="generate()">
+    <select id="unit" onchange="generate()">
+      <option value="paragraphs">Paragraphs</option>
+      <option value="sentences">Sentences</option>
+      <option value="words">Words</option>
+    </select>
+  </div>
+  <div class="row">
+    <span class="label">Options</span>
+    <div class="toggle-row">
+      <label class="toggle"><input type="checkbox" id="startLorem" checked onchange="generate()"> Start with "Lorem ipsum..."</label>
+      <label class="toggle"><input type="checkbox" id="wrapP" onchange="generate()"> Wrap in &lt;p&gt; tags</label>
+    </div>
+  </div>
+</div>
+
+<div class="btn-row">
+  <button class="btn primary" onclick="generate()">Generate</button>
+  <button class="btn" onclick="copyText()">Copy Text</button>
+  <button class="btn" onclick="copyHTML()">Copy HTML</button>
+</div>
+
+<div class="stats" id="stats"></div>
+<div class="output" id="output"></div>
+
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/lorem-gen">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+const WORDS='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam quia voluptas aspernatur aut odit fugit consequuntur magni dolores eos ratione sequi nesciunt neque porro quisquam dolorem adipisci numquam eius modi tempora incidunt magnam aliquam quaerat autem vel cum soluta nobis eligendi optio cumque nihil impedit quo minus quod maxime placeat facere possimus omnis assumenda repudiandae temporibus quibusdam officiis debitis rerum necessitatibus saepe eveniet voluptates repudiandae recusandae itaque earum hic tenetur sapiente delectus reiciendis voluptatibus maiores alias perferendis doloribus asperiores repellat'.split(' ');
+
+const FIRST='Lorem ipsum dolor sit amet, consectetur adipiscing elit.';
+
+function randInt(min,max){return Math.floor(Math.random()*(max-min+1))+min}
+function pick(arr){return arr[randInt(0,arr.length-1)]}
+function capitalize(s){return s.charAt(0).toUpperCase()+s.slice(1)}
+
+function genWords(n){
+  const result=[];
+  for(let i=0;i<n;i++)result.push(pick(WORDS));
+  return result.join(' ');
+}
+
+function genSentence(){
+  const len=randInt(6,16);
+  let s=genWords(len);
+  s=capitalize(s);
+  // Add comma sometimes
+  if(len>10&&Math.random()>0.5){
+    const pos=randInt(3,len-3);
+    const words=s.split(' ');
+    words[pos]+=',';
+    s=words.join(' ');
+  }
+  return s+'.';
+}
+
+function genParagraph(){
+  const sentences=randInt(3,7);
+  const result=[];
+  for(let i=0;i<sentences;i++)result.push(genSentence());
+  return result.join(' ');
+}
+
+let lastText='';
+
+function generate(){
+  const amount=Math.max(1,Math.min(100,+document.getElementById('amount').value));
+  const unit=document.getElementById('unit').value;
+  const startLorem=document.getElementById('startLorem').checked;
+  const wrapP=document.getElementById('wrapP').checked;
+
+  let paragraphs=[];
+
+  if(unit==='words'){
+    let text=genWords(amount);
+    text=capitalize(text)+'.';
+    if(startLorem&&amount>=5){
+      text=FIRST+' '+text;
+    }
+    paragraphs=[text];
+  }else if(unit==='sentences'){
+    const sentences=[];
+    for(let i=0;i<amount;i++)sentences.push(genSentence());
+    if(startLorem)sentences[0]=FIRST;
+    // Group into paragraphs of 3-6 sentences
+    let current=[];
+    sentences.forEach((s,i)=>{
+      current.push(s);
+      if(current.length>=randInt(3,6)||i===sentences.length-1){
+        paragraphs.push(current.join(' '));
+        current=[];
+      }
+    });
+  }else{
+    for(let i=0;i<amount;i++){
+      let p=genParagraph();
+      if(i===0&&startLorem)p=FIRST+' '+p;
+      paragraphs.push(p);
+    }
+  }
+
+  lastText=paragraphs.join('\n\n');
+
+  const outputEl=document.getElementById('output');
+  if(wrapP){
+    outputEl.innerHTML=paragraphs.map(p=>`<p>&lt;p&gt;${p}&lt;/p&gt;</p>`).join('');
+  }else{
+    outputEl.innerHTML=paragraphs.map(p=>`<p>${p}</p>`).join('');
+  }
+
+  // Stats
+  const words=lastText.split(/\s+/).length;
+  const chars=lastText.length;
+  const sents=(lastText.match(/\./g)||[]).length;
+  document.getElementById('stats').textContent=`${words} words · ${chars} characters · ${sents} sentences · ${paragraphs.length} paragraph${paragraphs.length>1?'s':''}`;
+}
+
+function copyText(){
+  const wrapP=document.getElementById('wrapP').checked;
+  const text=wrapP?lastText.split('\n\n').map(p=>`<p>${p}</p>`).join('\n\n'):lastText;
+  navigator.clipboard.writeText(text);
+  showCopied('Copied!');
+}
+
+function copyHTML(){
+  const html=lastText.split('\n\n').map(p=>`<p>${p}</p>`).join('\n');
+  navigator.clipboard.writeText(html);
+  showCopied('HTML Copied!');
+}
+
+function showCopied(msg){
+  const el=document.createElement('div');
+  el.className='copied';el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+generate();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
+<a href="https://yurukusa.github.io/md-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">MD Preview</a>
+<a href="https://yurukusa.github.io/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
+<a href="https://yurukusa.github.io/char-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Char Count</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

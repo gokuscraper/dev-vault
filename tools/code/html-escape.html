@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>HTML Escape — Encode & Decode HTML Entities</title>
+<meta name="description" content="Escape and unescape HTML entities. Named entities reference. Encode special characters for safe HTML. Free.">
+<meta property="og:title" content="HTML Escape — Encode & Decode HTML Entities">
+<meta property="og:description" content="Escape/unescape HTML entities. Named entity reference. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/html-escape/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/html-escape/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "HTML Escape", "description": "Escape and unescape HTML entities. Named entities reference. Encode special characters for safe HTML. Free.", "url": "https://yurukusa.github.io/html-escape/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:24px;font-size:0.95rem}
+
+.tabs{display:flex;gap:4px;justify-content:center;margin-bottom:20px}
+.tab{padding:8px 20px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.82rem;cursor:pointer;font-weight:600}
+.tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+
+.editor{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.pane{display:flex;flex-direction:column}
+.pane h3{font-size:0.78rem;color:#888;margin-bottom:6px;display:flex;justify-content:space-between;align-items:center}
+.pane textarea{flex:1;min-height:200px;padding:12px;border-radius:10px;border:1px solid #222;background:#0d0d0d;color:#10b981;font-family:'Fira Code',monospace;font-size:0.8rem;outline:none;resize:none}
+.pane textarea:focus{border-color:#3b82f6}
+.copy-btn{padding:2px 10px;border-radius:4px;border:1px solid #333;background:none;color:#555;font-size:0.68rem;cursor:pointer}
+.copy-btn:hover{border-color:#3b82f6;color:#4da6ff}
+
+.stats{display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap}
+.stat{background:#161616;border:1px solid #222;border-radius:8px;padding:8px 14px;text-align:center}
+.stat .num{font-family:'Fira Code',monospace;font-size:1rem;color:#4da6ff}
+.stat .lbl{font-size:0.68rem;color:#555;margin-top:2px}
+
+.ref-section{margin-top:24px}
+.ref-section h2{font-size:1rem;color:#ccc;margin-bottom:12px;text-align:center}
+.search-row{max-width:400px;margin:0 auto 16px}
+.search-row input{width:100%;padding:10px 16px;border-radius:8px;border:1px solid #333;background:#161616;color:#fff;font-size:0.88rem;outline:none}
+.search-row input:focus{border-color:#3b82f6}
+
+.ref-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:20px}
+.ref-card{background:#161616;border:1px solid #222;border-radius:8px;padding:10px;display:grid;grid-template-columns:40px 1fr;gap:8px;align-items:center;cursor:pointer;transition:border-color 0.2s}
+.ref-card:hover{border-color:#3b82f6}
+.ref-char{font-size:1.4rem;text-align:center}
+.ref-info{font-size:0.72rem}
+.ref-info .name{color:#4da6ff;font-family:'Fira Code',monospace}
+.ref-info .code{color:#555;font-family:'Fira Code',monospace}
+
+.cat-filters{display:flex;gap:6px;justify-content:center;margin-bottom:14px;flex-wrap:wrap}
+.cat-btn{padding:4px 10px;border-radius:6px;border:1px solid #222;background:#0d0d0d;color:#555;font-size:0.72rem;cursor:pointer}
+.cat-btn.active{border-color:#3b82f6;color:#4da6ff}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:700px){.editor{grid-template-columns:1fr}.ref-grid{grid-template-columns:repeat(auto-fill,minmax(160px,1fr))}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>HTML Escape</h1>
+<p class="subtitle">Encode & decode HTML entities. Named entity reference.</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="setMode('escape')">Escape</button>
+  <button class="tab" onclick="setMode('unescape')">Unescape</button>
+</div>
+
+<div class="editor">
+  <div class="pane">
+    <h3><span id="inputLabel">Raw HTML</span><button class="copy-btn" onclick="copyText('input')">Copy</button></h3>
+    <textarea id="input" oninput="convert()" spellcheck="false" placeholder="Paste HTML here..."></textarea>
+  </div>
+  <div class="pane">
+    <h3><span id="outputLabel">Escaped</span><button class="copy-btn" onclick="copyText('output')">Copy</button></h3>
+    <textarea id="output" readonly spellcheck="false"></textarea>
+  </div>
+</div>
+
+<div class="stats" id="stats"></div>
+
+<div class="ref-section">
+  <h2>HTML Entity Reference</h2>
+  <div class="search-row">
+    <input type="text" id="refSearch" placeholder="Search entities..." oninput="filterRef()">
+  </div>
+  <div class="cat-filters" id="catFilters"></div>
+  <div class="ref-grid" id="refGrid"></div>
+</div>
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/html-escape">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+let mode='escape';
+
+const ENTITIES=[
+  {char:'&',name:'&amp;',code:'&#38;',desc:'Ampersand',cat:'basic'},
+  {char:'<',name:'&lt;',code:'&#60;',desc:'Less than',cat:'basic'},
+  {char:'>',name:'&gt;',code:'&#62;',desc:'Greater than',cat:'basic'},
+  {char:'"',name:'&quot;',code:'&#34;',desc:'Double quote',cat:'basic'},
+  {char:"'",name:'&apos;',code:'&#39;',desc:'Apostrophe',cat:'basic'},
+  {char:' ',name:'&nbsp;',code:'&#160;',desc:'Non-breaking space',cat:'space'},
+  {char:'–',name:'&ndash;',code:'&#8211;',desc:'En dash',cat:'punct'},
+  {char:'—',name:'&mdash;',code:'&#8212;',desc:'Em dash',cat:'punct'},
+  {char:'…',name:'&hellip;',code:'&#8230;',desc:'Ellipsis',cat:'punct'},
+  {char:'•',name:'&bull;',code:'&#8226;',desc:'Bullet',cat:'punct'},
+  {char:'·',name:'&middot;',code:'&#183;',desc:'Middle dot',cat:'punct'},
+  {char:'†',name:'&dagger;',code:'&#8224;',desc:'Dagger',cat:'punct'},
+  {char:'‡',name:'&Dagger;',code:'&#8225;',desc:'Double dagger',cat:'punct'},
+  {char:'©',name:'&copy;',code:'&#169;',desc:'Copyright',cat:'symbol'},
+  {char:'®',name:'&reg;',code:'&#174;',desc:'Registered',cat:'symbol'},
+  {char:'™',name:'&trade;',code:'&#8482;',desc:'Trademark',cat:'symbol'},
+  {char:'§',name:'&sect;',code:'&#167;',desc:'Section',cat:'symbol'},
+  {char:'¶',name:'&para;',code:'&#182;',desc:'Paragraph',cat:'symbol'},
+  {char:'°',name:'&deg;',code:'&#176;',desc:'Degree',cat:'symbol'},
+  {char:'±',name:'&plusmn;',code:'&#177;',desc:'Plus-minus',cat:'math'},
+  {char:'×',name:'&times;',code:'&#215;',desc:'Multiply',cat:'math'},
+  {char:'÷',name:'&divide;',code:'&#247;',desc:'Divide',cat:'math'},
+  {char:'≠',name:'&ne;',code:'&#8800;',desc:'Not equal',cat:'math'},
+  {char:'≤',name:'&le;',code:'&#8804;',desc:'Less or equal',cat:'math'},
+  {char:'≥',name:'&ge;',code:'&#8805;',desc:'Greater or equal',cat:'math'},
+  {char:'∞',name:'&infin;',code:'&#8734;',desc:'Infinity',cat:'math'},
+  {char:'∑',name:'&sum;',code:'&#8721;',desc:'Sum',cat:'math'},
+  {char:'√',name:'&radic;',code:'&#8730;',desc:'Square root',cat:'math'},
+  {char:'π',name:'&pi;',code:'&#960;',desc:'Pi',cat:'math'},
+  {char:'←',name:'&larr;',code:'&#8592;',desc:'Left arrow',cat:'arrow'},
+  {char:'→',name:'&rarr;',code:'&#8594;',desc:'Right arrow',cat:'arrow'},
+  {char:'↑',name:'&uarr;',code:'&#8593;',desc:'Up arrow',cat:'arrow'},
+  {char:'↓',name:'&darr;',code:'&#8595;',desc:'Down arrow',cat:'arrow'},
+  {char:'↔',name:'&harr;',code:'&#8596;',desc:'Left-right arrow',cat:'arrow'},
+  {char:'⇐',name:'&lArr;',code:'&#8656;',desc:'Double left arrow',cat:'arrow'},
+  {char:'⇒',name:'&rArr;',code:'&#8658;',desc:'Double right arrow',cat:'arrow'},
+  {char:'¢',name:'&cent;',code:'&#162;',desc:'Cent',cat:'currency'},
+  {char:'£',name:'&pound;',code:'&#163;',desc:'Pound',cat:'currency'},
+  {char:'¥',name:'&yen;',code:'&#165;',desc:'Yen',cat:'currency'},
+  {char:'€',name:'&euro;',code:'&#8364;',desc:'Euro',cat:'currency'},
+  {char:'¡',name:'&iexcl;',code:'&#161;',desc:'Inverted exclamation',cat:'punct'},
+  {char:'¿',name:'&iquest;',code:'&#191;',desc:'Inverted question',cat:'punct'},
+  {char:'«',name:'&laquo;',code:'&#171;',desc:'Left guillemet',cat:'punct'},
+  {char:'»',name:'&raquo;',code:'&#187;',desc:'Right guillemet',cat:'punct'},
+  {char:''',name:'&lsquo;',code:'&#8216;',desc:'Left single quote',cat:'punct'},
+  {char:''',name:'&rsquo;',code:'&#8217;',desc:'Right single quote',cat:'punct'},
+  {char:'"',name:'&ldquo;',code:'&#8220;',desc:'Left double quote',cat:'punct'},
+  {char:'"',name:'&rdquo;',code:'&#8221;',desc:'Right double quote',cat:'punct'},
+  {char:'♠',name:'&spades;',code:'&#9824;',desc:'Spades',cat:'symbol'},
+  {char:'♣',name:'&clubs;',code:'&#9827;',desc:'Clubs',cat:'symbol'},
+  {char:'♥',name:'&hearts;',code:'&#9829;',desc:'Hearts',cat:'symbol'},
+  {char:'♦',name:'&diams;',code:'&#9830;',desc:'Diamonds',cat:'symbol'},
+  {char:'✓',name:'&#10003;',code:'&#10003;',desc:'Check mark',cat:'symbol'},
+  {char:'✗',name:'&#10007;',code:'&#10007;',desc:'Ballot X',cat:'symbol'},
+  {char:'★',name:'&#9733;',code:'&#9733;',desc:'Star filled',cat:'symbol'},
+  {char:'☆',name:'&#9734;',code:'&#9734;',desc:'Star outline',cat:'symbol'},
+];
+
+const CATS=[
+  {id:'all',label:'All'},
+  {id:'basic',label:'Basic'},
+  {id:'punct',label:'Punctuation'},
+  {id:'symbol',label:'Symbols'},
+  {id:'math',label:'Math'},
+  {id:'arrow',label:'Arrows'},
+  {id:'currency',label:'Currency'},
+];
+let activeCat='all';
+
+function setMode(m){
+  mode=m;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab')[m==='escape'?0:1].classList.add('active');
+  document.getElementById('inputLabel').textContent=m==='escape'?'Raw HTML':'Escaped HTML';
+  document.getElementById('outputLabel').textContent=m==='escape'?'Escaped':'Unescaped';
+  convert();
+}
+
+function escapeHTML(s){
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;').replace(/'/g,'&#39;');
+}
+
+function unescapeHTML(s){
+  const el=document.createElement('textarea');
+  el.innerHTML=s;
+  return el.value;
+}
+
+function convert(){
+  const input=document.getElementById('input').value;
+  const output=mode==='escape'?escapeHTML(input):unescapeHTML(input);
+  document.getElementById('output').value=output;
+
+  const inputLen=input.length;
+  const outputLen=output.length;
+  const diff=outputLen-inputLen;
+  document.getElementById('stats').innerHTML=[
+    {num:inputLen,lbl:'Input chars'},
+    {num:outputLen,lbl:'Output chars'},
+    {num:(diff>=0?'+':'')+diff,lbl:'Difference'},
+  ].map(s=>`<div class="stat"><div class="num">${s.num}</div><div class="lbl">${s.lbl}</div></div>`).join('');
+}
+
+function copyText(id){
+  navigator.clipboard.writeText(document.getElementById(id).value);
+  const el=document.createElement('div');
+  el.className='copied';el.textContent='Copied!';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+function renderCatFilters(){
+  document.getElementById('catFilters').innerHTML=CATS.map(c=>
+    `<button class="cat-btn ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')">${c.label}</button>`
+  ).join('');
+}
+
+function setCat(id){activeCat=id;renderCatFilters();filterRef()}
+
+function filterRef(){
+  const q=document.getElementById('refSearch').value.toLowerCase();
+  const filtered=ENTITIES.filter(e=>{
+    const matchCat=activeCat==='all'||e.cat===activeCat;
+    const matchQ=!q||e.desc.toLowerCase().includes(q)||e.name.toLowerCase().includes(q)||e.char.includes(q);
+    return matchCat&&matchQ;
+  });
+  document.getElementById('refGrid').innerHTML=filtered.map(e=>
+    `<div class="ref-card" onclick="copyEntity('${e.name.replace(/'/g,"\\'")}')">
+      <div class="ref-char">${e.char}</div>
+      <div class="ref-info">
+        <div class="name">${e.name}</div>
+        <div class="code">${e.code} · ${e.desc}</div>
+      </div>
+    </div>`
+  ).join('')||'<div style="color:#555;grid-column:1/-1;text-align:center;padding:20px">No matches</div>';
+}
+
+function copyEntity(name){
+  navigator.clipboard.writeText(name);
+  const el=document.createElement('div');
+  el.className='copied';el.textContent=name+' copied!';
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+renderCatFilters();
+filterRef();
+convert();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
+<a href="https://yurukusa.github.io/html-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Minifier</a>
+<a href="https://yurukusa.github.io/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
+<a href="https://yurukusa.github.io/markdown-table/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Markdown Table</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

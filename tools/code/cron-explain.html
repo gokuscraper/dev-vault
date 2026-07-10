@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cron Explain — Human-Readable Cron Expressions</title>
+<meta name="description" content="Paste a cron expression and get a plain English explanation. See next 10 run times. Build cron expressions visually. Free, instant.">
+<meta property="og:title" content="Cron Explain — Human-Readable Cron Expressions">
+<meta property="og:description" content="Understand any cron expression instantly. See next run times.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/cron-explain/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/cron-explain/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Cron Explain", "description": "Paste a cron expression and get a plain English explanation. See next 10 run times. Build cron expressions visually. Free, instant.", "url": "https://yurukusa.github.io/cron-explain/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+.input-section{background:#161616;border:1px solid #222;border-radius:14px;padding:24px;margin-bottom:24px}
+.cron-input{display:flex;gap:10px;margin-bottom:16px}
+.cron-input input{flex:1;padding:14px 18px;border-radius:10px;border:1px solid #333;background:#0a0a0a;color:#fff;font-family:'Fira Code',monospace;font-size:1.1rem;text-align:center;outline:none;letter-spacing:2px}
+.cron-input input:focus{border-color:#3b82f6}
+.field-labels{display:flex;gap:0;margin-bottom:16px;text-align:center}
+.field-label{flex:1;font-size:0.7rem;color:#555;text-transform:uppercase}
+.presets{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.preset{padding:6px 12px;border-radius:6px;border:1px solid #333;background:#0a0a0a;color:#888;font-size:0.75rem;cursor:pointer;font-family:'Fira Code',monospace}
+.preset:hover{border-color:#555;color:#ccc}
+
+#output{display:none}
+.explanation{background:#0d1b2a;border:1px solid #1b3a5c;border-radius:12px;padding:20px;margin-bottom:20px;text-align:center}
+.explanation .text{font-size:1.15rem;color:#4da6ff;font-weight:600;line-height:1.5}
+.explanation .human{font-size:0.88rem;color:#a0c4e8;margin-top:8px}
+
+.breakdown{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin-bottom:20px}
+.field-card{background:#161616;border:1px solid #222;border-radius:10px;padding:12px;text-align:center}
+.field-card .name{font-size:0.7rem;color:#555;text-transform:uppercase;margin-bottom:4px}
+.field-card .value{font-size:1.1rem;font-family:'Fira Code',monospace;color:#fff;margin-bottom:4px}
+.field-card .meaning{font-size:0.75rem;color:#888}
+
+.section{margin-bottom:24px}
+.section h2{font-size:1.1rem;color:#ccc;margin-bottom:12px;border-bottom:1px solid #222;padding-bottom:8px}
+.run-list{list-style:none;padding:0}
+.run-list li{padding:8px 14px;font-size:0.88rem;color:#aaa;border-bottom:1px solid #1a1a1a;font-family:'Fira Code',monospace;display:flex;justify-content:space-between}
+.run-list li:last-child{border:none}
+.run-list .relative{color:#555;font-size:0.78rem}
+
+.error{color:#ef4444;text-align:center;font-size:0.9rem;padding:12px}
+
+.share-btn{display:inline-block;margin-top:12px;padding:10px 20px;background:#1a1a1a;border:1px solid #333;border-radius:8px;color:#888;font-size:0.82rem;cursor:pointer;text-decoration:none}
+.share-btn:hover{border-color:#555;color:#ccc}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:600px){.breakdown{grid-template-columns:repeat(5,1fr)}.field-card .value{font-size:0.9rem}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Cron Explain</h1>
+<p class="subtitle">Paste a cron expression. Get plain English + next run times.</p>
+
+<div class="input-section">
+  <div class="cron-input">
+    <input type="text" id="cronInput" value="0 9 * * 1-5" placeholder="* * * * *" autocomplete="off">
+  </div>
+  <div class="field-labels">
+    <div class="field-label">Minute</div>
+    <div class="field-label">Hour</div>
+    <div class="field-label">Day</div>
+    <div class="field-label">Month</div>
+    <div class="field-label">Weekday</div>
+  </div>
+  <div class="presets">
+    <button class="preset" onclick="setExpr('* * * * *')">every minute</button>
+    <button class="preset" onclick="setExpr('0 * * * *')">every hour</button>
+    <button class="preset" onclick="setExpr('0 0 * * *')">midnight</button>
+    <button class="preset" onclick="setExpr('0 9 * * 1-5')">9am weekdays</button>
+    <button class="preset" onclick="setExpr('*/5 * * * *')">every 5 min</button>
+    <button class="preset" onclick="setExpr('0 0 1 * *')">monthly</button>
+    <button class="preset" onclick="setExpr('0 12 * * 0')">noon Sunday</button>
+    <button class="preset" onclick="setExpr('30 2 * * *')">2:30am daily</button>
+    <button class="preset" onclick="setExpr('0 0 * * 0')">weekly Sun</button>
+    <button class="preset" onclick="setExpr('0 0 1 1 *')">yearly Jan 1</button>
+  </div>
+</div>
+
+<div id="output"></div>
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/cron-explain">GitHub</a> ·
+  Also: <a href="https://yurukusa.github.io/gh-stats/">gh-stats</a> ·
+  <a href="https://yurukusa.github.io/npm-health/">npm Health</a> ·
+  <a href="https://yurukusa.github.io/css-shadow/">CSS Shadow</a>
+</footer>
+
+<script>
+const $=id=>document.getElementById(id);
+const MONTHS=['','January','February','March','April','May','June','July','August','September','October','November','December'];
+const DAYS=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const SHORT_DAYS=['Sun','Mon','Tue','Wed','Thu','Fri','Sat'];
+
+$('cronInput').addEventListener('input',()=>explain());
+function setExpr(e){$('cronInput').value=e;explain()}
+
+function parseCronField(field,min,max){
+  const parts=field.split(',');
+  const values=new Set();
+  for(const part of parts){
+    if(part==='*'){for(let i=min;i<=max;i++)values.add(i);continue}
+    const stepMatch=part.match(/^(\*|(\d+)-(\d+))\/(\d+)$/);
+    if(stepMatch){
+      const start=stepMatch[2]?parseInt(stepMatch[2]):min;
+      const end=stepMatch[3]?parseInt(stepMatch[3]):max;
+      const step=parseInt(stepMatch[4]);
+      for(let i=start;i<=end;i+=step)values.add(i);
+      continue;
+    }
+    const rangeMatch=part.match(/^(\d+)-(\d+)$/);
+    if(rangeMatch){
+      const s=parseInt(rangeMatch[1]),e=parseInt(rangeMatch[2]);
+      for(let i=s;i<=e;i++)values.add(i);
+      continue;
+    }
+    const num=parseInt(part);
+    if(!isNaN(num))values.add(num);
+  }
+  return[...values].sort((a,b)=>a-b);
+}
+
+function explainField(field,type){
+  if(field==='*')return'every '+type;
+  if(field.startsWith('*/'))return`every ${field.slice(2)} ${type}s`;
+  if(field.includes(',')&&!field.includes('-'))return field.split(',').map(v=>formatVal(v,type)).join(', ');
+  if(field.includes('-')&&!field.includes(',')){
+    const[a,b]=field.split('-');
+    return`${formatVal(a,type)} through ${formatVal(b,type)}`;
+  }
+  return formatVal(field,type);
+}
+
+function formatVal(v,type){
+  const n=parseInt(v);
+  if(type==='month'&&n>=1&&n<=12)return MONTHS[n];
+  if(type==='weekday'&&n>=0&&n<=6)return DAYS[n];
+  if(type==='hour')return`${n}:00`;
+  return v;
+}
+
+function buildHumanReadable(parts){
+  const[min,hour,dom,month,dow]=parts;
+  let text='';
+
+  // Frequency
+  if(min==='*'&&hour==='*')text='Every minute';
+  else if(min.startsWith('*/')&&hour==='*')text=`Every ${min.slice(2)} minutes`;
+  else if(hour.startsWith('*/')&&min==='0')text=`Every ${hour.slice(2)} hours`;
+  else if(min==='0'&&hour==='*')text='Every hour, on the hour';
+  else{
+    const h=hour==='*'?'every hour':explainField(hour,'hour');
+    const m=min==='0'?'':min==='*'?'every minute':`:${min.padStart(2,'0')}`;
+    if(hour!=='*'&&min!=='*'){
+      // Specific time
+      const hours=parseCronField(hour,0,23);
+      const mins=parseCronField(min,0,59);
+      if(hours.length===1&&mins.length===1){
+        text=`At ${hours[0]}:${String(mins[0]).padStart(2,'0')}`;
+      }else{
+        text=`At minute ${min} past ${h}`;
+      }
+    }else{
+      text=`At ${h}${m}`;
+    }
+  }
+
+  // Day restrictions
+  if(dow!=='*'&&dom==='*'){
+    text+=` on ${explainField(dow,'weekday')}`;
+  }else if(dom!=='*'&&dow==='*'){
+    text+=` on day ${dom} of the month`;
+  }else if(dom!=='*'&&dow!=='*'){
+    text+=` on day ${dom} and on ${explainField(dow,'weekday')}`;
+  }
+
+  // Month
+  if(month!=='*'){
+    text+=` in ${explainField(month,'month')}`;
+  }
+
+  return text;
+}
+
+function getNextRuns(parts,count=10){
+  const[minF,hourF,domF,monthF,dowF]=parts;
+  const mins=parseCronField(minF,0,59);
+  const hours=parseCronField(hourF,0,23);
+  const doms=parseCronField(domF,1,31);
+  const months=parseCronField(monthF,1,12);
+  const dows=parseCronField(dowF,0,6);
+
+  const runs=[];
+  const now=new Date();
+  const check=new Date(now.getFullYear(),now.getMonth(),now.getDate(),now.getHours(),now.getMinutes()+1,0);
+
+  // Limit search to prevent infinite loops
+  const maxIter=525960; // ~1 year in minutes
+  for(let i=0;i<maxIter&&runs.length<count;i++){
+    const d=new Date(check.getTime()+i*60000);
+    if(!months.includes(d.getMonth()+1))continue;
+    if(domF!=='*'&&!doms.includes(d.getDate()))continue;
+    if(dowF!=='*'&&!dows.includes(d.getDay()))continue;
+    if(!hours.includes(d.getHours()))continue;
+    if(!mins.includes(d.getMinutes()))continue;
+    runs.push(d);
+  }
+  return runs;
+}
+
+function relativeTime(date){
+  const diff=date-new Date();
+  const mins=Math.floor(diff/60000);
+  if(mins<60)return`in ${mins} min`;
+  const hrs=Math.floor(mins/60);
+  if(hrs<24)return`in ${hrs}h ${mins%60}m`;
+  const days=Math.floor(hrs/24);
+  if(days<30)return`in ${days}d ${hrs%24}h`;
+  return`in ${days} days`;
+}
+
+function explain(){
+  const expr=$('cronInput').value.trim();
+  if(!expr){$('output').style.display='none';return}
+
+  const parts=expr.split(/\s+/);
+  if(parts.length<5||parts.length>5){
+    $('output').style.display='block';
+    $('output').innerHTML=`<div class="error">Expected 5 fields: minute hour day month weekday</div>`;
+    return;
+  }
+
+  try{
+    const human=buildHumanReadable(parts);
+    const runs=getNextRuns(parts);
+
+    const fieldNames=['Minute','Hour','Day of Month','Month','Day of Week'];
+    const fieldRanges=['0-59','0-23','1-31','1-12','0-6'];
+
+    $('output').style.display='block';
+    $('output').innerHTML=`
+      <div class="explanation">
+        <div class="text">${human}</div>
+        <div class="human">${expr}</div>
+      </div>
+
+      <div class="breakdown">
+        ${parts.map((p,i)=>`
+          <div class="field-card">
+            <div class="name">${fieldNames[i]}</div>
+            <div class="value">${p}</div>
+            <div class="meaning">${explainField(p,['minute','hour','day','month','weekday'][i])}</div>
+          </div>
+        `).join('')}
+      </div>
+
+      <div class="section">
+        <h2>Next ${runs.length} Runs</h2>
+        <ul class="run-list">
+          ${runs.map(r=>`
+            <li>
+              <span>${r.toLocaleString('en',{weekday:'short',month:'short',day:'numeric',hour:'2-digit',minute:'2-digit',hour12:false})}</span>
+              <span class="relative">${relativeTime(r)}</span>
+            </li>
+          `).join('')}
+        </ul>
+      </div>
+
+      <div style="text-align:center">
+        <a class="share-btn" href="https://x.com/intent/tweet?text=${encodeURIComponent(`Cron: ${expr} → "${human}"`)}&url=${encodeURIComponent('https://yurukusa.github.io/cron-explain/')}" target="_blank">Share on X</a>
+      </div>
+    `;
+  }catch(e){
+    $('output').style.display='block';
+    $('output').innerHTML=`<div class="error">Invalid cron expression: ${e.message}</div>`;
+  }
+}
+
+// Init
+explain();
+
+// URL param
+const params=new URLSearchParams(location.search);
+if(params.get('expr')){$('cronInput').value=params.get('expr');explain()}
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/timestamp-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Timestamp Tool</a>
+<a href="https://yurukusa.github.io/regex-test/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Test</a>
+<a href="https://yurukusa.github.io/chmod-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Chmod Calc</a>
+<a href="https://yurukusa.github.io/http-status/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Http Status</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

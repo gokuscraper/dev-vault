@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IP Info — IP Address Lookup & Geolocation</title>
+<meta name="description" content="Look up any IP address. Geolocation, ISP, timezone, currency. Auto-detect your IP. Free.">
+<meta property="og:title" content="IP Info — IP Address Lookup & Geolocation">
+<meta property="og:description" content="IP address lookup with geolocation, ISP, timezone. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/ip-info/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/ip-info/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "IP Info", "description": "Look up any IP address. Geolocation, ISP, timezone, currency. Auto-detect your IP. Free.", "url": "https://yurukusa.github.io/ip-info/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+
+.search-row{display:flex;gap:10px;max-width:500px;margin:0 auto 24px}
+.search-row input{flex:1;padding:12px 18px;border-radius:10px;border:1px solid #333;background:#161616;color:#fff;font-size:1rem;outline:none;font-family:'Fira Code',monospace}
+.search-row input:focus{border-color:#3b82f6}
+.btn{padding:10px 20px;border-radius:10px;border:1px solid #333;background:#161616;color:#888;font-size:0.85rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#555;color:#ccc}
+.btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.btn.primary:hover{background:#2563eb}
+
+.your-ip{text-align:center;margin-bottom:20px}
+.your-ip .ip{font-family:'Fira Code',monospace;font-size:1.6rem;color:#10b981;cursor:pointer}
+.your-ip .ip:hover{text-decoration:underline}
+.your-ip .lbl{font-size:0.78rem;color:#555;margin-top:4px}
+
+.results{display:none}
+.info-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin-bottom:20px}
+.info-card{background:#161616;border:1px solid #222;border-radius:10px;padding:16px}
+.info-card .lbl{font-size:0.72rem;color:#555;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:6px}
+.info-card .val{font-family:'Fira Code',monospace;font-size:0.95rem;color:#ddd;word-break:break-all}
+.info-card .val.highlight{color:#10b981;font-size:1.1rem}
+
+.map-section{background:#161616;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:20px;text-align:center}
+.map-section h3{font-size:0.9rem;color:#ccc;margin-bottom:12px}
+.map-link{color:#3b82f6;text-decoration:none;font-size:0.85rem}
+.map-link:hover{text-decoration:underline}
+.coords{font-family:'Fira Code',monospace;font-size:0.9rem;color:#4da6ff;margin-bottom:8px}
+
+.raw-json{background:#0d0d0d;border:1px solid #222;border-radius:10px;padding:14px;margin-top:16px;cursor:pointer}
+.raw-json:hover{border-color:#3b82f6}
+.raw-json pre{font-family:'Fira Code',monospace;font-size:0.75rem;color:#888;white-space:pre-wrap;max-height:300px;overflow:auto}
+.raw-json .hint{font-size:0.72rem;color:#555;margin-top:6px}
+
+.loading{text-align:center;color:#555;padding:40px;font-size:0.9rem}
+.error-msg{text-align:center;color:#ef4444;padding:20px;background:#1a0a0a;border:1px solid #3a1a1a;border-radius:10px;margin-bottom:20px}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:600px){.info-grid{grid-template-columns:1fr}.search-row{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>IP Info</h1>
+<p class="subtitle">Look up any IP address. Geolocation, ISP, timezone, and more.</p>
+
+<div class="your-ip">
+  <div class="ip" id="yourIp" onclick="copyIp()" title="Click to copy">detecting...</div>
+  <div class="lbl">Your IP address (click to copy)</div>
+</div>
+
+<div class="search-row">
+  <input type="text" id="ipInput" placeholder="Enter IP address (e.g., 8.8.8.8)" onkeydown="if(event.key==='Enter')lookup()">
+  <button class="btn primary" onclick="lookup()">Lookup</button>
+</div>
+
+<div id="loading" class="loading" style="display:none">Looking up...</div>
+<div id="error" class="error-msg" style="display:none"></div>
+
+<div class="results" id="results">
+  <div class="info-grid" id="infoGrid"></div>
+
+  <div class="map-section" id="mapSection">
+    <h3>Location</h3>
+    <div class="coords" id="coords"></div>
+    <a class="map-link" id="mapLink" href="#" target="_blank">Open in Google Maps →</a>
+  </div>
+
+  <div class="raw-json" onclick="copyJson()">
+    <pre id="rawJson"></pre>
+    <div class="hint">Click to copy raw JSON</div>
+  </div>
+</div>
+
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/ip-info">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+let lastData=null;
+
+async function detectIp(){
+  try{
+    const r=await fetch('https://ipapi.co/json/');
+    const d=await r.json();
+    document.getElementById('yourIp').textContent=d.ip;
+    lastData=d;
+    showResults(d);
+  }catch(e){
+    document.getElementById('yourIp').textContent='unable to detect';
+  }
+}
+
+async function lookup(){
+  const ip=document.getElementById('ipInput').value.trim();
+  if(!ip)return;
+  document.getElementById('loading').style.display='block';
+  document.getElementById('error').style.display='none';
+  document.getElementById('results').style.display='none';
+  try{
+    const r=await fetch(`https://ipapi.co/${ip}/json/`);
+    const d=await r.json();
+    if(d.error){
+      document.getElementById('error').textContent=d.reason||'Invalid IP address';
+      document.getElementById('error').style.display='block';
+    }else{
+      lastData=d;
+      showResults(d);
+    }
+  }catch(e){
+    document.getElementById('error').textContent='Lookup failed. Check the IP and try again.';
+    document.getElementById('error').style.display='block';
+  }
+  document.getElementById('loading').style.display='none';
+}
+
+function showResults(d){
+  const fields=[
+    {lbl:'IP Address',val:d.ip,hl:true},
+    {lbl:'Version',val:d.version||'IPv4'},
+    {lbl:'City',val:d.city||'—'},
+    {lbl:'Region',val:d.region||'—'},
+    {lbl:'Country',val:`${d.country_name||'—'} ${d.country_code?'('+d.country_code+')':''}`},
+    {lbl:'Continent',val:d.continent_code||'—'},
+    {lbl:'Postal Code',val:d.postal||'—'},
+    {lbl:'Timezone',val:d.timezone||'—'},
+    {lbl:'UTC Offset',val:d.utc_offset||'—'},
+    {lbl:'ISP / Org',val:d.org||'—'},
+    {lbl:'ASN',val:d.asn||'—'},
+    {lbl:'Currency',val:d.currency_name?`${d.currency_name} (${d.currency})`:(d.currency||'—')},
+    {lbl:'Calling Code',val:d.country_calling_code||'—'},
+    {lbl:'Languages',val:d.languages||'—'},
+  ];
+
+  document.getElementById('infoGrid').innerHTML=fields.map(f=>`
+    <div class="info-card">
+      <div class="lbl">${f.lbl}</div>
+      <div class="val${f.hl?' highlight':''}">${f.val}</div>
+    </div>
+  `).join('');
+
+  if(d.latitude&&d.longitude){
+    document.getElementById('coords').textContent=`${d.latitude}, ${d.longitude}`;
+    document.getElementById('mapLink').href=`https://www.google.com/maps?q=${d.latitude},${d.longitude}`;
+    document.getElementById('mapSection').style.display='block';
+  }else{
+    document.getElementById('mapSection').style.display='none';
+  }
+
+  document.getElementById('rawJson').textContent=JSON.stringify(d,null,2);
+  document.getElementById('results').style.display='block';
+}
+
+function copyIp(){
+  const ip=document.getElementById('yourIp').textContent;
+  if(ip&&ip!=='detecting...'&&ip!=='unable to detect'){
+    navigator.clipboard.writeText(ip);
+    toast('IP Copied!');
+  }
+}
+
+function copyJson(){
+  if(lastData){
+    navigator.clipboard.writeText(JSON.stringify(lastData,null,2));
+    toast('JSON Copied!');
+  }
+}
+
+function toast(msg){
+  const el=document.createElement('div');
+  el.className='copied';el.textContent=msg;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+detectIp();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/dns-lookup/" style="color:#4da6ff;text-decoration:none;margin:0 8px">DNS Lookup</a>
+<a href="https://yurukusa.github.io/ssl-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SSL Check</a>
+<a href="https://yurukusa.github.io/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
+<a href="https://yurukusa.github.io/subnet-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Subnet Calc</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

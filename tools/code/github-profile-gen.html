@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GitHub Profile README Generator — Build Your Profile Visually</title>
+<meta name="description" content="Generate GitHub profile README.md visually. Badges, stats, skills, social links. 6 layout templates. Markdown output. No signup.">
+<link rel="canonical" href="https://yurukusa.github.io/github-profile-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"GitHub Profile README Generator","description":"Build GitHub profile README visually with badges, stats, skills, and social links.","url":"https://yurukusa.github.io/github-profile-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+label{display:block;font-size:0.8rem;color:#aaa;margin-bottom:4px;font-weight:600}
+input,select,textarea{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #333;background:#161616;color:#fff;font-size:0.85rem;outline:none}
+input:focus,select:focus,textarea:focus{border-color:#3b82f6}
+textarea{min-height:60px;resize:vertical;font-family:'Fira Code',monospace}
+.row{display:flex;gap:12px;margin-bottom:10px;flex-wrap:wrap}
+.col{flex:1;min-width:140px}
+.check-row{display:flex;align-items:center;gap:8px;margin-bottom:6px}
+.check-row input[type=checkbox]{width:16px;height:16px;accent-color:#3b82f6}
+.check-row label{margin:0;font-size:0.85rem;color:#ccc;font-weight:normal}
+.skill-grid{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:10px}
+.skill-tag{padding:5px 10px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.78rem;cursor:pointer;font-weight:600}
+.skill-tag.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.output{position:relative;background:#0d1117;border:1px solid #333;border-radius:8px;padding:14px;margin-top:12px;min-height:200px}
+.output pre{white-space:pre-wrap;font-family:'Fira Code',monospace;font-size:0.82rem;color:#c9d1d9;line-height:1.6;word-break:break-all}
+.copy-btn{position:absolute;top:8px;right:8px;padding:5px 12px;font-size:0.75rem;border-radius:4px;border:1px solid #444;background:#21262d;color:#aaa;cursor:pointer}
+.copy-btn:hover{color:#fff;border-color:#3b82f6}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>GitHub Profile README Gen</h1>
+<p class="sub">Build your GitHub profile README visually</p>
+
+<div class="section">
+<h3>About</h3>
+<div class="row">
+<div class="col"><label>Display Name</label><input id="name" value="Your Name" oninput="gen()"></div>
+<div class="col"><label>GitHub Username</label><input id="username" value="username" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>Tagline</label><input id="tagline" value="Full Stack Developer | Open Source Enthusiast" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>Bio (short paragraph)</label><textarea id="bio" rows="2" oninput="gen()">I build things with code. Passionate about open source, developer tools, and clean architecture.</textarea></div>
+</div>
+<div class="row">
+<div class="col"><label>Currently Working On</label><input id="workingOn" value="an awesome project" oninput="gen()"></div>
+<div class="col"><label>Currently Learning</label><input id="learning" value="Rust, WebAssembly" oninput="gen()"></div>
+</div>
+<div class="row">
+<div class="col"><label>Fun Fact</label><input id="funFact" value="" oninput="gen()" placeholder="I love coffee and mechanical keyboards"></div>
+</div>
+</div>
+
+<div class="section">
+<h3>Skills & Technologies</h3>
+<p style="font-size:0.78rem;color:#666;margin-bottom:8px">Click to toggle</p>
+<div class="skill-grid" id="skillGrid"></div>
+</div>
+
+<div class="section">
+<h3>Social Links</h3>
+<div class="row">
+<div class="col"><label>Twitter/X</label><input id="twitter" value="" oninput="gen()" placeholder="username"></div>
+<div class="col"><label>LinkedIn</label><input id="linkedin" value="" oninput="gen()" placeholder="username"></div>
+</div>
+<div class="row">
+<div class="col"><label>Website/Blog</label><input id="website" value="" oninput="gen()" placeholder="https://example.com"></div>
+<div class="col"><label>Email</label><input id="email" value="" oninput="gen()" placeholder="you@example.com"></div>
+</div>
+<div class="row">
+<div class="col"><label>Dev.to</label><input id="devto" value="" oninput="gen()" placeholder="username"></div>
+<div class="col"><label>Medium</label><input id="medium" value="" oninput="gen()" placeholder="@username"></div>
+</div>
+</div>
+
+<div class="section">
+<h3>Widgets</h3>
+<div class="check-row"><input type="checkbox" id="ghStats" checked onchange="gen()"><label for="ghStats">GitHub Stats Card</label></div>
+<div class="check-row"><input type="checkbox" id="topLangs" checked onchange="gen()"><label for="topLangs">Top Languages Card</label></div>
+<div class="check-row"><input type="checkbox" id="streak" onchange="gen()"><label for="streak">Streak Stats</label></div>
+<div class="check-row"><input type="checkbox" id="trophies" onchange="gen()"><label for="trophies">GitHub Trophies</label></div>
+<div class="check-row"><input type="checkbox" id="visitors" onchange="gen()"><label for="visitors">Visitor Count Badge</label></div>
+<div class="row" style="margin-top:8px">
+<div class="col"><label>Stats Theme</label><select id="statsTheme" onchange="gen()">
+<option value="dark">Dark</option>
+<option value="radical">Radical</option>
+<option value="tokyonight">Tokyo Night</option>
+<option value="dracula">Dracula</option>
+<option value="gruvbox">Gruvbox</option>
+<option value="catppuccin_mocha">Catppuccin Mocha</option>
+</select></div>
+</div>
+</div>
+
+<div class="output">
+<button class="copy-btn" onclick="copyOut()">Copy</button>
+<pre id="out"></pre>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/gh-card/">GH Card</a> | <a href="https://yurukusa.github.io/readme-gen/">README Gen</a> | <a href="https://yurukusa.github.io/meta-tags/">Meta Tags</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const SKILLS=[
+  'JavaScript','TypeScript','Python','Go','Rust','Java','C++','C#','PHP','Ruby','Swift','Kotlin',
+  'React','Vue.js','Angular','Next.js','Svelte','Node.js','Express','Django','Flask','FastAPI','Spring',
+  'HTML5','CSS3','Tailwind CSS','Bootstrap','Sass',
+  'PostgreSQL','MySQL','MongoDB','Redis','SQLite',
+  'Docker','Kubernetes','AWS','GCP','Azure','Linux','Nginx','Terraform',
+  'Git','GitHub Actions','VS Code','Figma','Postman'
+];
+
+let selectedSkills=new Set(['JavaScript','TypeScript','React','Node.js','Docker','Git']);
+
+function initSkills(){
+  const c=document.getElementById('skillGrid');
+  SKILLS.forEach(s=>{
+    const b=document.createElement('div');b.className='skill-tag'+(selectedSkills.has(s)?' active':'');b.textContent=s;
+    b.onclick=()=>{
+      if(selectedSkills.has(s)) selectedSkills.delete(s); else selectedSkills.add(s);
+      b.classList.toggle('active');
+      gen();
+    };
+    c.appendChild(b);
+  });
+}
+
+function badgeUrl(name){
+  const slug=name.toLowerCase().replace(/[^a-z0-9]+/g,'').replace(/\s/g,'');
+  const colors={javascript:'F7DF1E',typescript:'3178C6',python:'3776AB',go:'00ADD8',rust:'000000',java:'ED8B00',
+    'c++':'00599C','c#':'239120',php:'777BB4',ruby:'CC342D',swift:'FA7343',kotlin:'7F52FF',
+    react:'61DAFB','vue.js':'4FC08D',angular:'DD0031','next.js':'000000',svelte:'FF3E00','node.js':'339933',
+    express:'000000',django:'092E20',flask:'000000',fastapi:'009688',spring:'6DB33F',
+    html5:'E34F26',css3:'1572B6','tailwindcss':'06B6D4',bootstrap:'7952B3',sass:'CC6699',
+    postgresql:'4169E1',mysql:'4479A1',mongodb:'47A248',redis:'DC382D',sqlite:'003B57',
+    docker:'2496ED',kubernetes:'326CE5',aws:'232F3E',gcp:'4285F4',azure:'0078D4',linux:'FCC624',
+    nginx:'009639',terraform:'7B42BC',git:'F05032','githubactions':'2088FF','vscode':'007ACC',
+    figma:'F24E1E',postman:'FF6C37'};
+  const color=colors[slug]||'333333';
+  const logoMap={'vue.js':'vuedotjs','node.js':'nodedotjs','c++':'cplusplus','c#':'csharp',
+    'next.js':'nextdotjs','tailwind css':'tailwindcss','github actions':'githubactions','vs code':'visualstudiocode'};
+  const logo=logoMap[name.toLowerCase()]||slug;
+  return `![${name}](https://img.shields.io/badge/${encodeURIComponent(name)}-${color}?style=for-the-badge&logo=${logo}&logoColor=white)`;
+}
+
+function gen(){
+  const name=document.getElementById('name').value;
+  const username=document.getElementById('username').value;
+  const tagline=document.getElementById('tagline').value;
+  const bio=document.getElementById('bio').value;
+  const workingOn=document.getElementById('workingOn').value;
+  const learning=document.getElementById('learning').value;
+  const funFact=document.getElementById('funFact').value;
+  const theme=document.getElementById('statsTheme').value;
+
+  let md='';
+
+  // Header
+  md+=`# Hi there, I'm ${name} 👋\n\n`;
+  if(tagline) md+=`### ${tagline}\n\n`;
+  if(bio) md+=`${bio}\n\n`;
+
+  // About section
+  const about=[];
+  if(workingOn) about.push(`🔭 I'm currently working on **${workingOn}**`);
+  if(learning) about.push(`🌱 I'm currently learning **${learning}**`);
+  if(funFact) about.push(`⚡ Fun fact: ${funFact}`);
+  if(about.length){
+    md+=about.join('\n')+'\n\n';
+  }
+
+  // Social links
+  const socials=[];
+  const tw=document.getElementById('twitter').value;
+  const li=document.getElementById('linkedin').value;
+  const web=document.getElementById('website').value;
+  const em=document.getElementById('email').value;
+  const dt=document.getElementById('devto').value;
+  const med=document.getElementById('medium').value;
+
+  if(tw) socials.push(`[![Twitter](https://img.shields.io/badge/Twitter-1DA1F2?style=for-the-badge&logo=twitter&logoColor=white)](https://twitter.com/${tw})`);
+  if(li) socials.push(`[![LinkedIn](https://img.shields.io/badge/LinkedIn-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white)](https://linkedin.com/in/${li})`);
+  if(dt) socials.push(`[![Dev.to](https://img.shields.io/badge/dev.to-0A0A0A?style=for-the-badge&logo=devdotto&logoColor=white)](https://dev.to/${dt})`);
+  if(med) socials.push(`[![Medium](https://img.shields.io/badge/Medium-000000?style=for-the-badge&logo=medium&logoColor=white)](https://medium.com/${med})`);
+  if(web) socials.push(`[![Website](https://img.shields.io/badge/Website-4285F4?style=for-the-badge&logo=googlechrome&logoColor=white)](${web})`);
+  if(em) socials.push(`[![Email](https://img.shields.io/badge/Email-EA4335?style=for-the-badge&logo=gmail&logoColor=white)](mailto:${em})`);
+
+  if(socials.length){
+    md+=socials.join(' ')+'\n\n';
+  }
+
+  // Skills
+  if(selectedSkills.size>0){
+    md+=`## 🛠️ Tech Stack\n\n`;
+    const badges=[...selectedSkills].map(s=>badgeUrl(s));
+    md+=badges.join(' ')+'\n\n';
+  }
+
+  // Widgets
+  if(document.getElementById('ghStats').checked){
+    md+=`## 📊 GitHub Stats\n\n`;
+    md+=`![${name}'s GitHub Stats](https://github-readme-stats.vercel.app/api?username=${username}&show_icons=true&theme=${theme}&hide_border=true)\n\n`;
+  }
+  if(document.getElementById('topLangs').checked){
+    md+=`![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=${username}&layout=compact&theme=${theme}&hide_border=true)\n\n`;
+  }
+  if(document.getElementById('streak').checked){
+    md+=`![GitHub Streak](https://github-readme-streak-stats.herokuapp.com/?user=${username}&theme=${theme}&hide_border=true)\n\n`;
+  }
+  if(document.getElementById('trophies').checked){
+    md+=`![GitHub Trophies](https://github-profile-trophy.vercel.app/?username=${username}&theme=${theme}&no-frame=true&margin-w=4)\n\n`;
+  }
+  if(document.getElementById('visitors').checked){
+    md+=`![Visitors](https://komarev.com/ghpvc/?username=${username}&color=blue&style=for-the-badge)\n`;
+  }
+
+  md+=`\n---\n*Generated with [GitHub Profile README Gen](https://yurukusa.github.io/github-profile-gen/)*\n`;
+
+  document.getElementById('out').textContent=md;
+}
+
+function copyOut(){
+  navigator.clipboard.writeText(document.getElementById('out').textContent);
+  const t=document.getElementById('toast');t.style.display='block';
+  setTimeout(()=>t.style.display='none',1500);
+}
+
+initSkills();
+gen();
+</script>
+</body>
+</html>

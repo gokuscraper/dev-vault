@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Structured Clone Playground</title>
+<meta name="description" content="Interactive structuredClone() playground. Test what survives deep cloning. Visual diff of original vs clone. Functions, DOM, symbols, getters — see what's lost.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:1000px;margin:0 auto;padding:20px 16px}
+h1{font-size:1.6rem;margin-bottom:4px;background:linear-gradient(135deg,#a78bfa,#60a5fa);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{color:#888;font-size:.85rem;margin-bottom:20px}
+.subtitle a{color:#60a5fa;text-decoration:none}
+.card{background:#111;border:1px solid #222;border-radius:12px;padding:16px;margin-bottom:12px}
+.card h3{font-size:.95rem;margin-bottom:10px}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.tabs{display:flex;gap:4px;margin-bottom:16px;flex-wrap:wrap}
+.tab{padding:8px 16px;background:#1a1a2e;border:1px solid #333;border-radius:8px;cursor:pointer;font-size:.82rem;color:#aaa;transition:.2s}
+.tab:hover{border-color:#555}
+.tab.active{background:#1e293b;border-color:#60a5fa;color:#60a5fa}
+.panel{display:none}
+.panel.active{display:block}
+button{padding:8px 16px;background:#1e293b;border:1px solid #444;border-radius:8px;color:#e6e6e6;cursor:pointer;font-size:.82rem;transition:.2s}
+button:hover{border-color:#60a5fa;background:#1a1a3e}
+button.primary{background:#2563eb;border-color:#2563eb;color:#fff}
+button.primary:hover{background:#1d4ed8}
+textarea{background:#0d1117;border:1px solid #222;border-radius:8px;padding:12px;font-family:'Fira Code',monospace;font-size:.8rem;color:#c9d1d9;width:100%;resize:vertical;min-height:180px}
+textarea:focus{outline:none;border-color:#60a5fa}
+.code-block{background:#0d1117;border:1px solid #222;border-radius:8px;padding:12px;font-family:'Fira Code',monospace;font-size:.78rem;white-space:pre-wrap;overflow-x:auto;color:#c9d1d9;position:relative;max-height:300px;overflow-y:auto}
+.copy-btn{position:absolute;top:6px;right:6px;padding:4px 10px;font-size:.72rem;background:#1e293b;border:1px solid #333;border-radius:4px;color:#aaa;cursor:pointer}
+.copy-btn:hover{border-color:#60a5fa;color:#60a5fa}
+.result-grid{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:start}
+.result-col h4{font-size:.82rem;color:#888;margin-bottom:6px}
+.arrow-col{display:flex;align-items:center;padding-top:24px;font-size:1.5rem;color:#444}
+.diff-line{padding:4px 8px;font-family:monospace;font-size:.78rem;border-radius:4px;margin-bottom:2px}
+.diff-ok{background:#0d2818;color:#4ade80}
+.diff-lost{background:#2d0a0a;color:#f87171}
+.diff-changed{background:#2d1f0a;color:#fbbf24}
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:8px;margin-bottom:12px}
+.test-card{background:#1a1a2e;border:1px solid #333;border-radius:8px;padding:10px;cursor:pointer;transition:.2s}
+.test-card:hover{border-color:#60a5fa}
+.test-card .name{font-weight:600;font-size:.82rem}
+.test-card .desc{font-size:.72rem;color:#888;margin-top:2px}
+.badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:.72rem;font-weight:600}
+.badge-pass{background:#0d2818;color:#4ade80}
+.badge-fail{background:#2d0a0a;color:#f87171}
+.badge-partial{background:#2d1f0a;color:#fbbf24}
+.stat-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:12px}
+.stat{background:#1a1a2e;border-radius:8px;padding:10px;text-align:center}
+.stat .value{font-size:1.3rem;font-weight:700}
+.stat .label{font-size:.72rem;color:#888;margin-top:2px}
+.compat-table{width:100%;border-collapse:collapse;font-size:.8rem}
+.compat-table th{text-align:left;padding:8px;border-bottom:1px solid #333;color:#888;font-weight:500}
+.compat-table td{padding:6px 8px;border-bottom:1px solid #1a1a2e}
+.footer{text-align:center;padding:20px;color:#555;font-size:.75rem;margin-top:20px}
+.footer a{color:#60a5fa;text-decoration:none}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.result-grid{grid-template-columns:1fr}.arrow-col{display:none}.stat-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Structured Clone Playground</h1>
+<p class="subtitle">Test what survives <code>structuredClone()</code> &mdash; <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></p>
+
+<div class="tabs">
+<div class="tab active" data-tab="test">Quick Tests</div>
+<div class="tab" data-tab="custom">Custom Input</div>
+<div class="tab" data-tab="compat">Compatibility Table</div>
+<div class="tab" data-tab="code">Code</div>
+</div>
+
+<!-- Quick Tests Panel -->
+<div class="panel active" id="panel-test">
+<div class="card">
+<h3>What Survives structuredClone()?</h3>
+<p style="font-size:.78rem;color:#888;margin-bottom:12px">Click any test to run it. Green = survives, Red = lost/throws, Yellow = partially preserved.</p>
+<div style="margin-bottom:12px">
+<button class="primary" onclick="runAllTests()">Run All Tests</button>
+</div>
+<div class="stat-grid" id="test-stats">
+<div class="stat"><div class="value" style="color:#4ade80" id="stat-pass">-</div><div class="label">Survives</div></div>
+<div class="stat"><div class="value" style="color:#f87171" id="stat-fail">-</div><div class="label">Lost/Error</div></div>
+<div class="stat"><div class="value" style="color:#fbbf24" id="stat-partial">-</div><div class="label">Partial</div></div>
+</div>
+</div>
+
+<div id="test-results"></div>
+</div>
+
+<!-- Custom Input Panel -->
+<div class="panel" id="panel-custom">
+<div class="card">
+<h3>Custom Object Test</h3>
+<p style="font-size:.78rem;color:#888;margin-bottom:8px">Enter a JS expression that returns an object. It will be cloned and compared.</p>
+<textarea id="custom-input">({
+  name: "test",
+  count: 42,
+  nested: { deep: true },
+  arr: [1, 2, 3],
+  date: new Date(),
+  regex: /hello/gi,
+  map: new Map([["key", "value"]]),
+  set: new Set([1, 2, 3]),
+  fn: () => "I will be lost",
+  sym: Symbol("also lost"),
+  undef: undefined
+})</textarea>
+<div style="margin-top:8px">
+<button class="primary" onclick="runCustomTest()">Clone & Compare</button>
+</div>
+</div>
+<div id="custom-result"></div>
+</div>
+
+<!-- Compatibility Table Panel -->
+<div class="panel" id="panel-compat">
+<div class="card">
+<h3>structuredClone Compatibility Reference</h3>
+<table class="compat-table">
+<thead><tr><th>Type</th><th>Cloneable?</th><th>Notes</th></tr></thead>
+<tbody id="compat-body"></tbody>
+</table>
+</div>
+</div>
+
+<!-- Code Panel -->
+<div class="panel" id="panel-code">
+<div class="card">
+<h3>Basic Usage</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Deep clone any structured-cloneable value
+const original = {
+  name: "test",
+  nested: { deep: { value: 42 } },
+  date: new Date(),
+  map: new Map([["key", "value"]]),
+  set: new Set([1, 2, 3]),
+  regex: /pattern/gi,
+  buffer: new ArrayBuffer(8)
+};
+
+const clone = structuredClone(original);
+
+// Verify deep clone (not same reference)
+console.log(clone.nested === original.nested); // false
+console.log(clone.nested.deep.value === 42);   // true
+console.log(clone.date instanceof Date);        // true
+console.log(clone.map.get("key"));             // "value"</div>
+</div>
+
+<div class="card">
+<h3>Transfer (Move, Not Copy)</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Transfer ownership of ArrayBuffer (zero-copy)
+const buffer = new ArrayBuffer(1024);
+console.log(buffer.byteLength); // 1024
+
+const clone = structuredClone(buffer, { transfer: [buffer] });
+console.log(clone.byteLength);  // 1024
+console.log(buffer.byteLength); // 0 — original is neutered!
+
+// Useful for Web Workers:
+// worker.postMessage(data, [data.buffer]);</div>
+</div>
+
+<div class="card">
+<h3>What Throws</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// These all throw DataCloneError:
+
+structuredClone(() => {});           // Function
+structuredClone(Symbol("x"));        // Symbol
+structuredClone(document.body);      // DOM Node
+structuredClone({ get x() { return 1; } }); // Getter → value preserved, getter lost
+structuredClone(new WeakMap());      // WeakMap
+structuredClone(new WeakRef({}));    // WeakRef
+structuredClone(new Proxy({}, {}));  // Proxy
+
+// Workaround: strip non-cloneable properties first
+function safeClone(obj) {
+  try {
+    return structuredClone(obj);
+  } catch {
+    return JSON.parse(JSON.stringify(obj)); // fallback (lossy)
+  }
+}</div>
+</div>
+
+<div class="card">
+<h3>vs JSON.parse(JSON.stringify())</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const obj = {
+  date: new Date(),
+  map: new Map([["a", 1]]),
+  set: new Set([1, 2]),
+  regex: /test/g,
+  undef: undefined,
+  nan: NaN,
+  inf: Infinity,
+  buffer: new ArrayBuffer(8)
+};
+
+// JSON round-trip: LOSES types
+const jsonClone = JSON.parse(JSON.stringify(obj));
+// date → string, map → {}, set → {}, regex → {}
+// undefined → missing, NaN → null, Infinity → null
+// buffer → {}
+
+// structuredClone: PRESERVES types
+const scClone = structuredClone(obj);
+// date → Date, map → Map, set → Set, regex → RegExp
+// undefined → undefined, NaN → NaN, Infinity → Infinity
+// buffer → ArrayBuffer</div>
+</div>
+</div>
+
+<div class="footer">
+Structured Clone Playground &mdash; <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a> &mdash;
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/structuredClone">MDN Docs</a>
+</div>
+</div>
+
+<script>
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// Test definitions
+const tests = [
+  { name: 'Primitives', desc: 'string, number, boolean, null', fn: () => ({ str: "hello", num: 42, bool: true, nil: null }), expect: 'pass' },
+  { name: 'undefined', desc: 'undefined value', fn: () => ({ val: undefined }), expect: 'pass' },
+  { name: 'NaN / Infinity', desc: 'Special numbers', fn: () => ({ nan: NaN, inf: Infinity, ninf: -Infinity }), expect: 'pass' },
+  { name: 'BigInt', desc: '123n', fn: () => ({ big: 123n }), expect: 'pass' },
+  { name: 'Date', desc: 'new Date()', fn: () => ({ d: new Date() }), expect: 'pass' },
+  { name: 'RegExp', desc: '/pattern/gi', fn: () => ({ r: /pattern/gi }), expect: 'pass' },
+  { name: 'Map', desc: 'Map with entries', fn: () => ({ m: new Map([['a',1],['b',2]]) }), expect: 'pass' },
+  { name: 'Set', desc: 'Set with values', fn: () => ({ s: new Set([1,2,3]) }), expect: 'pass' },
+  { name: 'ArrayBuffer', desc: 'Binary buffer', fn: () => ({ buf: new ArrayBuffer(16) }), expect: 'pass' },
+  { name: 'TypedArray', desc: 'Uint8Array', fn: () => ({ ta: new Uint8Array([1,2,3,4]) }), expect: 'pass' },
+  { name: 'DataView', desc: 'DataView on buffer', fn: () => ({ dv: new DataView(new ArrayBuffer(8)) }), expect: 'pass' },
+  { name: 'Blob', desc: 'Binary blob', fn: () => ({ b: new Blob(['hello'], {type:'text/plain'}) }), expect: 'pass' },
+  { name: 'File', desc: 'File object', fn: () => ({ f: new File(['content'], 'test.txt', {type:'text/plain'}) }), expect: 'pass' },
+  { name: 'ImageData', desc: '2x2 pixel data', fn: () => ({ img: new ImageData(2, 2) }), expect: 'pass' },
+  { name: 'Error', desc: 'Error object', fn: () => ({ e: new Error('test') }), expect: 'pass' },
+  { name: 'Nested Object', desc: 'Deep nesting', fn: () => ({ a: { b: { c: { d: 42 }}} }), expect: 'pass' },
+  { name: 'Circular Ref', desc: 'Self-referencing', fn: () => { const o = {a:1}; o.self = o; return o; }, expect: 'pass' },
+  { name: 'Array (sparse)', desc: 'Sparse array', fn: () => { const a = []; a[0]=1; a[5]=5; return {a}; }, expect: 'pass' },
+  { name: 'Function', desc: '() => {}', fn: () => ({ fn: () => {} }), expect: 'fail' },
+  { name: 'Symbol', desc: 'Symbol("x")', fn: () => ({ sym: Symbol('x') }), expect: 'fail' },
+  { name: 'DOM Node', desc: 'document.createElement', fn: () => ({ node: document.createElement('div') }), expect: 'fail' },
+  { name: 'WeakMap', desc: 'WeakMap()', fn: () => ({ wm: new WeakMap() }), expect: 'fail' },
+  { name: 'WeakSet', desc: 'WeakSet()', fn: () => ({ ws: new WeakSet() }), expect: 'fail' },
+  { name: 'WeakRef', desc: 'WeakRef({})', fn: () => ({ wr: new WeakRef({}) }), expect: 'fail' },
+  { name: 'Getter', desc: 'get x() { return 1 }', fn: () => {
+    const obj = {};
+    Object.defineProperty(obj, 'x', { get: () => 1, enumerable: true });
+    return { obj };
+  }, expect: 'partial', note: 'Value preserved, getter becomes plain property' },
+  { name: 'Prototype', desc: 'Custom class instance', fn: () => {
+    class Foo { constructor() { this.x = 1; } bar() {} }
+    return { inst: new Foo() };
+  }, expect: 'partial', note: 'Properties preserved, prototype/methods lost' },
+  { name: 'Symbol keys', desc: '{[Symbol()]: "val"}', fn: () => ({ [Symbol('key')]: 'value', normal: 1 }), expect: 'partial', note: 'Symbol-keyed properties are silently dropped' },
+  { name: 'Non-enum props', desc: 'Object.defineProperty enumerable:false', fn: () => {
+    const o = { visible: 1 };
+    Object.defineProperty(o, 'hidden', { value: 2, enumerable: false });
+    return o;
+  }, expect: 'partial', note: 'Non-enumerable properties are dropped' },
+];
+
+function runTest(test) {
+  try {
+    const original = test.fn();
+    const clone = structuredClone(original);
+    return { status: test.expect === 'fail' ? 'unexpected-pass' : test.expect, original, clone, error: null };
+  } catch (e) {
+    return { status: test.expect === 'fail' ? 'fail' : 'unexpected-fail', original: null, clone: null, error: e.message };
+  }
+}
+
+function runAllTests() {
+  let pass = 0, fail = 0, partial = 0;
+  let html = '';
+
+  tests.forEach(test => {
+    const result = runTest(test);
+    let badge, badgeClass;
+
+    if (result.status === 'pass') { badge = 'Survives'; badgeClass = 'badge-pass'; pass++; }
+    else if (result.status === 'fail') { badge = 'Throws'; badgeClass = 'badge-fail'; fail++; }
+    else if (result.status === 'partial') { badge = 'Partial'; badgeClass = 'badge-partial'; partial++; }
+    else if (result.status === 'unexpected-pass') { badge = 'Survives!'; badgeClass = 'badge-pass'; pass++; }
+    else { badge = 'Error'; badgeClass = 'badge-fail'; fail++; }
+
+    const note = test.note ? `<div style="font-size:.72rem;color:#888;margin-top:4px">${test.note}</div>` : '';
+    const error = result.error ? `<div style="font-size:.72rem;color:#f87171;margin-top:4px">Error: ${esc(result.error)}</div>` : '';
+
+    html += `<div class="card" style="padding:10px">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div><strong>${esc(test.name)}</strong> <span style="color:#888;font-size:.78rem">${esc(test.desc)}</span></div>
+        <span class="badge ${badgeClass}">${badge}</span>
+      </div>
+      ${note}${error}
+    </div>`;
+  });
+
+  document.getElementById('stat-pass').textContent = pass;
+  document.getElementById('stat-fail').textContent = fail;
+  document.getElementById('stat-partial').textContent = partial;
+  document.getElementById('test-results').innerHTML = html;
+}
+
+function runCustomTest() {
+  const input = document.getElementById('custom-input').value;
+  const el = document.getElementById('custom-result');
+
+  try {
+    const original = eval(input);
+    let clone, error = null;
+    try {
+      clone = structuredClone(original);
+    } catch (e) {
+      error = e.message;
+    }
+
+    if (error) {
+      el.innerHTML = `<div class="card"><h3>Result: <span class="badge badge-fail">DataCloneError</span></h3>
+        <div style="color:#f87171;font-family:monospace;font-size:.82rem;margin-top:8px">${esc(error)}</div></div>`;
+      return;
+    }
+
+    // Compare
+    const origStr = inspect(original, 0);
+    const cloneStr = inspect(clone, 0);
+
+    el.innerHTML = `<div class="card"><h3>Result: <span class="badge badge-pass">Cloned Successfully</span></h3>
+      <div class="grid" style="margin-top:12px">
+        <div><h4 style="font-size:.82rem;color:#888;margin-bottom:6px">Original</h4>
+          <div class="code-block">${origStr}</div></div>
+        <div><h4 style="font-size:.82rem;color:#888;margin-bottom:6px">Clone</h4>
+          <div class="code-block">${cloneStr}</div></div>
+      </div>
+      <div style="margin-top:8px;font-size:.78rem;color:#888">Deep equal: ${deepEqual(original, clone) ? '<span style="color:#4ade80">Yes</span>' : '<span style="color:#fbbf24">Differences detected</span>'}</div>
+    </div>`;
+  } catch (e) {
+    el.innerHTML = `<div class="card"><h3>Eval Error</h3><div style="color:#f87171">${esc(e.message)}</div></div>`;
+  }
+}
+
+function inspect(val, depth) {
+  if (depth > 5) return '...';
+  if (val === null) return '<span style="color:#f97316">null</span>';
+  if (val === undefined) return '<span style="color:#888">undefined</span>';
+  if (typeof val === 'string') return `<span style="color:#a5d6ff">"${esc(val)}"</span>`;
+  if (typeof val === 'number') return `<span style="color:#79c0ff">${val}</span>`;
+  if (typeof val === 'bigint') return `<span style="color:#79c0ff">${val}n</span>`;
+  if (typeof val === 'boolean') return `<span style="color:#ff7b72">${val}</span>`;
+  if (typeof val === 'symbol') return `<span style="color:#d2a8ff">${val.toString()}</span>`;
+  if (typeof val === 'function') return `<span style="color:#d2a8ff">[Function]</span>`;
+  if (val instanceof Date) return `<span style="color:#79c0ff">Date(${val.toISOString()})</span>`;
+  if (val instanceof RegExp) return `<span style="color:#a5d6ff">${val.toString()}</span>`;
+  if (val instanceof Map) {
+    const entries = [...val.entries()].map(([k,v]) => `${inspect(k,depth+1)} => ${inspect(v,depth+1)}`).join(', ');
+    return `Map(${val.size}) { ${entries} }`;
+  }
+  if (val instanceof Set) {
+    const entries = [...val].map(v => inspect(v,depth+1)).join(', ');
+    return `Set(${val.size}) { ${entries} }`;
+  }
+  if (val instanceof Error) return `<span style="color:#f87171">${val.constructor.name}: ${esc(val.message)}</span>`;
+  if (val instanceof ArrayBuffer) return `ArrayBuffer(${val.byteLength})`;
+  if (ArrayBuffer.isView(val)) return `${val.constructor.name}[${[...val].join(', ')}]`;
+  if (val instanceof Blob) return `Blob(${val.size}, ${val.type})`;
+  if (Array.isArray(val)) {
+    const items = val.map(v => inspect(v, depth+1)).join(', ');
+    return `[${items}]`;
+  }
+  if (typeof val === 'object') {
+    const keys = Object.keys(val);
+    if (keys.length === 0) return '{}';
+    const entries = keys.map(k => `${esc(k)}: ${inspect(val[k], depth+1)}`).join(',\n  ');
+    return `{\n  ${entries}\n}`;
+  }
+  return String(val);
+}
+
+function deepEqual(a, b) {
+  if (a === b) return true;
+  if (a instanceof Date && b instanceof Date) return a.getTime() === b.getTime();
+  if (a instanceof RegExp && b instanceof RegExp) return a.toString() === b.toString();
+  if (a instanceof Map && b instanceof Map) {
+    if (a.size !== b.size) return false;
+    for (const [k,v] of a) { if (!b.has(k) || !deepEqual(v, b.get(k))) return false; }
+    return true;
+  }
+  if (a instanceof Set && b instanceof Set) {
+    if (a.size !== b.size) return false;
+    for (const v of a) { if (!b.has(v)) return false; }
+    return true;
+  }
+  if (typeof a !== 'object' || typeof b !== 'object' || a === null || b === null) return false;
+  const keysA = Object.keys(a), keysB = Object.keys(b);
+  if (keysA.length !== keysB.length) return false;
+  return keysA.every(k => deepEqual(a[k], b[k]));
+}
+
+// Compat table
+const compatData = [
+  ['Primitives (string, number, boolean, null)', 'Yes', 'Fully preserved'],
+  ['undefined', 'Yes', 'Preserved (unlike JSON)'],
+  ['NaN, Infinity, -Infinity', 'Yes', 'Preserved (JSON converts to null)'],
+  ['BigInt', 'Yes', 'Since Chrome 98'],
+  ['Date', 'Yes', 'Instance preserved (JSON → string)'],
+  ['RegExp', 'Yes', 'Flags preserved (JSON → {})'],
+  ['Map', 'Yes', 'Entries preserved (JSON → {})'],
+  ['Set', 'Yes', 'Values preserved (JSON → {})'],
+  ['ArrayBuffer / SharedArrayBuffer', 'Yes', 'Can also be transferred'],
+  ['TypedArrays (Uint8Array, etc.)', 'Yes', 'Views on cloned buffer'],
+  ['DataView', 'Yes', ''],
+  ['Blob', 'Yes', ''],
+  ['File', 'Yes', 'name, lastModified, type preserved'],
+  ['FileList', 'Yes', ''],
+  ['ImageBitmap', 'Yes', 'Can be transferred'],
+  ['ImageData', 'Yes', ''],
+  ['Error (and subclasses)', 'Yes', 'message, name, cause preserved'],
+  ['Circular references', 'Yes', 'Handled correctly (JSON throws)'],
+  ['Nested objects / arrays', 'Yes', 'Deep clone, new references'],
+  ['Sparse arrays', 'Yes', 'Holes preserved'],
+  ['Object (plain)', 'Yes', 'Own enumerable properties only'],
+  ['Getters / Setters', 'Partial', 'Evaluated and stored as plain value'],
+  ['Non-enumerable properties', 'No', 'Silently dropped'],
+  ['Symbol-keyed properties', 'No', 'Silently dropped'],
+  ['Prototype chain', 'No', 'Result is plain Object'],
+  ['Class methods', 'No', 'Only own data properties survive'],
+  ['Property descriptors', 'No', 'All become writable, enumerable, configurable'],
+  ['Function', 'No', 'Throws DataCloneError'],
+  ['Symbol (as value)', 'No', 'Throws DataCloneError'],
+  ['DOM Node', 'No', 'Throws DataCloneError'],
+  ['WeakMap / WeakSet', 'No', 'Throws DataCloneError'],
+  ['WeakRef', 'No', 'Throws DataCloneError'],
+  ['Proxy', 'No', 'Throws DataCloneError'],
+  ['Promise', 'No', 'Throws DataCloneError'],
+  ['Generator', 'No', 'Throws DataCloneError'],
+];
+
+function initCompat() {
+  document.getElementById('compat-body').innerHTML = compatData.map(([type, cloneable, notes]) => {
+    let badge;
+    if (cloneable === 'Yes') badge = '<span class="badge badge-pass">Yes</span>';
+    else if (cloneable === 'Partial') badge = '<span class="badge badge-partial">Partial</span>';
+    else badge = '<span class="badge badge-fail">No</span>';
+    return `<tr><td>${esc(type)}</td><td>${badge}</td><td style="color:#888">${esc(notes)}</td></tr>`;
+  }).join('');
+}
+
+function copyCode(btn) {
+  const block = btn.parentElement;
+  const code = block.textContent.replace('Copy', '').trim();
+  navigator.clipboard.writeText(code).then(() => {
+    btn.textContent = 'Copied!';
+    setTimeout(() => btn.textContent = 'Copy', 1500);
+  });
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+initCompat();
+// Auto-run tests
+runAllTests();
+</script>
+</body>
+</html>

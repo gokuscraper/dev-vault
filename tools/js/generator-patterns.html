@@ -1,0 +1,689 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Generator & Async Generator Patterns</title>
+<meta name="description" content="Interactive JavaScript generator playground — yield, next, return, throw, lazy evaluation, infinite sequences, async generators, pipelines, and cancellation patterns">
+<style>
+:root{--bg:#0a0a0a;--bg-el:#111;--bg-panel:#1a1a2e;--border:#222;--border-h:#555;--text:#e0e0e0;--muted:#888;--dim:#555;--accent:#00d4ff;--accent-bg:#00d4ff22;--green:#4caf50;--green-bg:#4caf5015;--red:#ff5370;--red-bg:#ff537015;--yellow:#ffcb6b;--purple:#c792ea;--orange:#f78c6c;--blue:#82aaff;--string:#c3e88d;--radius:6px;--mono:'Fira Code','Cascadia Code',monospace}
+*{margin:0;padding:0;box-sizing:border-box}body{font-family:system-ui,-apple-system,sans-serif;background:var(--bg);color:var(--text);min-height:100vh}
+header{background:linear-gradient(135deg,#1a1a2e,#16213e);padding:1.2rem 2rem;border-bottom:1px solid var(--border)}header h1{font-size:1.4rem;color:var(--accent)}header p{font-size:.85rem;color:var(--muted);margin-top:.3rem}
+.container{display:grid;grid-template-columns:220px 1fr;height:calc(100vh - 80px)}.sidebar{background:var(--bg-el);border-right:1px solid var(--border);padding:1rem;overflow-y:auto}
+.sidebar h3{font-size:.8rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem;margin-top:1rem}.sidebar h3:first-child{margin-top:0}
+.nav-item{padding:.5rem .7rem;border-radius:var(--radius);cursor:pointer;margin-bottom:.3rem;font-size:.82rem;transition:background .2s;border:1px solid transparent}.nav-item:hover{background:var(--bg-panel)}.nav-item.active{background:#1a1a3e;border-color:var(--accent);color:var(--accent)}
+.main{overflow-y:auto;padding:1.5rem}.section{display:none}.section.active{display:block}
+.section-title{font-size:1.1rem;color:var(--accent);margin-bottom:.5rem}
+.section-desc{font-size:.85rem;color:var(--muted);margin-bottom:1.2rem;line-height:1.5;background:var(--bg-panel);border-left:3px solid var(--accent);padding:.8rem 1rem;border-radius:0 var(--radius) var(--radius) 0}
+.panel{background:var(--bg-el);border:1px solid var(--border);border-radius:8px;overflow:hidden;margin-bottom:1rem}
+.panel-header{background:var(--bg-panel);padding:.5rem .8rem;font-size:.82rem;color:var(--accent);font-weight:bold;border-bottom:1px solid var(--border);display:flex;justify-content:space-between;align-items:center}
+.panel-body{padding:1rem}.split{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.btn{padding:.45rem .9rem;border-radius:var(--radius);border:1px solid var(--border);background:var(--bg-panel);color:var(--text);cursor:pointer;font-size:.8rem;transition:all .2s}.btn:hover{background:#2a2a3e;border-color:var(--border-h)}
+.btn.primary{background:var(--accent-bg);border-color:var(--accent);color:var(--accent)}.btn.run{background:var(--green-bg);border-color:var(--green);color:var(--green)}.btn.danger{background:var(--red-bg);border-color:var(--red);color:var(--red)}
+.btn-group{display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem}
+.log{font-family:var(--mono);font-size:.78rem;line-height:1.7;max-height:350px;overflow-y:auto;padding:.5rem}
+.log-entry{padding:.25rem .5rem;border-radius:4px;margin-bottom:.25rem;border-left:3px solid var(--border)}
+.log-entry.success{background:var(--green-bg);border-left-color:var(--green)}.log-entry.info{background:#2196f315;border-left-color:#2196f3}.log-entry.warn{background:#ff980015;border-left-color:#ff9800}.log-entry.error{background:var(--red-bg);border-left-color:var(--red)}.log-entry.yield{background:#c792ea15;border-left-color:var(--purple)}
+.code{font-family:var(--mono);font-size:.78rem;background:#0d0d1a;padding:1rem;border-radius:var(--radius);line-height:1.6;white-space:pre-wrap;overflow-x:auto}
+code{background:var(--bg-panel);padding:.1rem .4rem;border-radius:3px;font-size:.78rem;color:var(--yellow)}
+input{background:var(--bg);border:1px solid var(--border);color:var(--text);padding:.4rem .6rem;border-radius:var(--radius);font-size:.82rem;font-family:var(--mono)}input:focus{outline:none;border-color:var(--accent)}
+.input-row{display:flex;gap:.5rem;align-items:center;margin-bottom:.5rem}.input-row label{font-size:.8rem;color:var(--muted);min-width:70px}
+.yield-vis{display:flex;flex-wrap:wrap;gap:.4rem;margin:.5rem 0}
+.yield-item{background:var(--bg-panel);border:1px solid var(--border);border-radius:20px;padding:.3rem .7rem;font-size:.78rem;font-family:var(--mono);color:var(--purple);transition:all .3s}
+.yield-item.new{animation:yieldPop .3s ease-out}
+@keyframes yieldPop{0%{transform:scale(0);opacity:0}100%{transform:scale(1);opacity:1}}
+.state-badge{display:inline-block;padding:.2rem .5rem;border-radius:3px;font-size:.72rem;font-weight:bold;font-family:var(--mono)}
+.state-suspended{background:#ff980022;color:#ff9800}.state-done{background:var(--green-bg);color:var(--green)}.state-error{background:var(--red-bg);color:var(--red)}
+footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-top:1px solid var(--border);background:var(--bg)}footer a{color:var(--accent);text-decoration:none}
+@media(max-width:768px){.container{grid-template-columns:1fr;height:auto}.sidebar{display:flex;overflow-x:auto;border-right:none;border-bottom:1px solid var(--border);padding:.5rem;gap:.3rem}.sidebar h3{display:none}.nav-item{white-space:nowrap}.split{grid-template-columns:1fr}.main{padding:1rem}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Generator & Async Generator Patterns</h1>
+  <p>Interactive playground for yield, lazy evaluation, infinite sequences, async iteration, pipelines, and cancellation</p>
+</header>
+<div class="container">
+  <div class="sidebar">
+    <h3>Basics</h3>
+    <div class="nav-item active" data-section="basics">Yield & Next</div>
+    <div class="nav-item" data-section="twoway">Two-way Communication</div>
+    <h3>Patterns</h3>
+    <div class="nav-item" data-section="lazy">Lazy Evaluation</div>
+    <div class="nav-item" data-section="infinite">Infinite Sequences</div>
+    <div class="nav-item" data-section="pipeline">Generator Pipeline</div>
+    <h3>Async</h3>
+    <div class="nav-item" data-section="async">Async Generators</div>
+    <div class="nav-item" data-section="iterator">AsyncIterator Protocol</div>
+    <div class="nav-item" data-section="cancel">Cancellation</div>
+  </div>
+  <div class="main">
+
+    <!-- Basics -->
+    <div class="section active" id="basics">
+      <h2 class="section-title">Generator Basics: yield, next, return, throw</h2>
+      <div class="section-desc">A generator function (declared with <code>function*</code>) returns a Generator object that conforms to the iterator protocol. Each <code>yield</code> pauses execution and <code>next()</code> resumes it.</div>
+      <div class="split">
+        <div class="panel">
+          <div class="panel-header">Interactive Generator</div>
+          <div class="panel-body">
+            <div class="code" style="margin-bottom:.8rem">function* counter() {
+  yield 1;
+  yield 2;
+  yield 3;
+}</div>
+            <div class="btn-group">
+              <button class="btn primary" onclick="basicCreate()">Create Generator</button>
+              <button class="btn run" onclick="basicNext()">next()</button>
+              <button class="btn danger" onclick="basicReturn()">return("end")</button>
+              <button class="btn danger" onclick="basicThrow()">throw(Error)</button>
+            </div>
+            <div style="margin-top:.5rem">
+              <span>State: </span><span id="basic-state" class="state-badge state-suspended">not created</span>
+            </div>
+          </div>
+        </div>
+        <div class="panel">
+          <div class="panel-header">Yielded Values</div>
+          <div class="panel-body">
+            <div id="basic-values" class="yield-vis"></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Log</span>
+          <button class="btn" onclick="clearLog('basic-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="basic-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Two-way Communication -->
+    <div class="section" id="twoway">
+      <h2 class="section-title">Two-way Communication</h2>
+      <div class="section-desc">The value passed to <code>next(value)</code> becomes the result of the <code>yield</code> expression inside the generator. This enables bidirectional data flow.</div>
+      <div class="panel">
+        <div class="panel-header">Accumulator Generator</div>
+        <div class="panel-body">
+          <div class="code" style="margin-bottom:.8rem">function* accumulator() {
+  let total = 0;
+  while (true) {
+    const input = yield total;
+    total += input ?? 0;
+  }
+}</div>
+          <div class="btn-group">
+            <button class="btn primary" onclick="twoWayCreate()">Create</button>
+            <button class="btn run" onclick="twoWaySend(5)">next(5)</button>
+            <button class="btn run" onclick="twoWaySend(10)">next(10)</button>
+            <button class="btn run" onclick="twoWaySend(-3)">next(-3)</button>
+          </div>
+          <div class="input-row">
+            <label>Custom:</label>
+            <input id="twoway-val" type="number" value="7" style="width:80px">
+            <button class="btn run" onclick="twoWaySend(Number(document.getElementById('twoway-val').value))">Send</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Values</span>
+          <button class="btn" onclick="clearLog('twoway-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="twoway-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Lazy Evaluation -->
+    <div class="section" id="lazy">
+      <h2 class="section-title">Lazy Evaluation</h2>
+      <div class="section-desc">Generators compute values on demand, not all at once. This is memory-efficient for large or expensive computations — values are only produced when requested.</div>
+      <div class="panel">
+        <div class="panel-header">Lazy vs Eager Comparison</div>
+        <div class="panel-body">
+          <div class="btn-group">
+            <button class="btn run" onclick="lazyDemo('compare')">Compare Lazy vs Eager</button>
+            <button class="btn run" onclick="lazyDemo('filter')">Lazy Filter + Map</button>
+            <button class="btn run" onclick="lazyDemo('take')">Take First N</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Output</span>
+          <button class="btn" onclick="clearLog('lazy-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="lazy-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Infinite Sequences -->
+    <div class="section" id="infinite">
+      <h2 class="section-title">Infinite Sequences</h2>
+      <div class="section-desc">Generators can represent infinite sequences since values are computed lazily. Only the requested values are ever computed.</div>
+      <div class="panel">
+        <div class="panel-header">Sequences</div>
+        <div class="panel-body">
+          <div class="btn-group">
+            <button class="btn run" onclick="infDemo('naturals')">Natural Numbers</button>
+            <button class="btn run" onclick="infDemo('fibonacci')">Fibonacci</button>
+            <button class="btn run" onclick="infDemo('primes')">Primes (Sieve)</button>
+            <button class="btn run" onclick="infDemo('powers')">Powers of 2</button>
+            <button class="btn run" onclick="infDemo('collatz')">Collatz (start: 27)</button>
+          </div>
+          <div class="input-row">
+            <label>Take first:</label>
+            <input id="inf-count" type="number" value="15" style="width:80px">
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">Generated Values</div>
+        <div class="panel-body">
+          <div id="inf-values" class="yield-vis"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Log</span>
+          <button class="btn" onclick="clearLog('inf-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="inf-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Pipeline -->
+    <div class="section" id="pipeline">
+      <h2 class="section-title">Generator Pipeline</h2>
+      <div class="section-desc">Chain generators together to create data processing pipelines. Each stage pulls values lazily from the previous stage — like Unix pipes.</div>
+      <div class="panel">
+        <div class="panel-header">Pipeline Demo</div>
+        <div class="panel-body">
+          <div class="code" style="margin-bottom:.8rem">// Source → Filter → Map → Take
+function* range(start, end) { for (let i=start; i<=end; i++) yield i; }
+function* filter(gen, fn) { for (const v of gen) if (fn(v)) yield v; }
+function* map(gen, fn) { for (const v of gen) yield fn(v); }
+function* take(gen, n) { let i=0; for (const v of gen) { if (i++>=n) return; yield v; } }</div>
+          <div class="btn-group">
+            <button class="btn run" onclick="pipeDemo('even-squares')">Even Numbers → Square → Take 5</button>
+            <button class="btn run" onclick="pipeDemo('fizzbuzz')">FizzBuzz Pipeline</button>
+            <button class="btn run" onclick="pipeDemo('transform')">Text Transform Pipeline</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">Pipeline Output</div>
+        <div class="panel-body">
+          <div id="pipe-values" class="yield-vis"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Step-by-step</span>
+          <button class="btn" onclick="clearLog('pipe-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="pipe-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Async Generators -->
+    <div class="section" id="async">
+      <h2 class="section-title">Async Generators</h2>
+      <div class="section-desc"><code>async function*</code> combines generators with async/await. Each <code>yield</code> can be preceded by <code>await</code>, and consumers use <code>for await...of</code> to iterate.</div>
+      <div class="panel">
+        <div class="panel-header">Async Generator Demos</div>
+        <div class="panel-body">
+          <div class="btn-group">
+            <button class="btn run" onclick="asyncDemo('timer')">Async Timer (5 ticks)</button>
+            <button class="btn run" onclick="asyncDemo('fetch')">Simulated Fetch Stream</button>
+            <button class="btn run" onclick="asyncDemo('retry')">Retry with Backoff</button>
+          </div>
+          <div id="async-state" style="font-size:.82rem;color:var(--muted);margin-top:.5rem"></div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Async Output</span>
+          <button class="btn" onclick="clearLog('async-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="async-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- AsyncIterator Protocol -->
+    <div class="section" id="iterator">
+      <h2 class="section-title">AsyncIterator Protocol</h2>
+      <div class="section-desc">An object is an async iterable if it has a <code>[Symbol.asyncIterator]()</code> method that returns an async iterator (an object with an async <code>next()</code> method).</div>
+      <div class="panel">
+        <div class="panel-header">Protocol Demo</div>
+        <div class="panel-body">
+          <div class="code" style="margin-bottom:.8rem">// Custom async iterable
+const asyncRange = {
+  from: 1, to: 5,
+  [Symbol.asyncIterator]() {
+    let current = this.from;
+    const last = this.to;
+    return {
+      async next() {
+        await new Promise(r => setTimeout(r, 200));
+        if (current <= last) {
+          return { value: current++, done: false };
+        }
+        return { done: true };
+      }
+    };
+  }
+};</div>
+          <div class="btn-group">
+            <button class="btn run" onclick="iteratorDemo('custom')">Run Custom AsyncIterable</button>
+            <button class="btn run" onclick="iteratorDemo('manual')">Manual next() Calls</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Output</span>
+          <button class="btn" onclick="clearLog('iter-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="iter-log" class="log"></div>
+      </div>
+    </div>
+
+    <!-- Cancellation -->
+    <div class="section" id="cancel">
+      <h2 class="section-title">Cancellation Patterns</h2>
+      <div class="section-desc">Generators support cancellation via <code>return()</code> and <code>throw()</code>. For async generators, <code>AbortController</code> is the idiomatic cancellation mechanism.</div>
+      <div class="panel">
+        <div class="panel-header">Cancellation Demos</div>
+        <div class="panel-body">
+          <div class="btn-group">
+            <button class="btn run" onclick="cancelDemo('return')">Cancel with return()</button>
+            <button class="btn run" onclick="cancelDemo('throw')">Cancel with throw()</button>
+            <button class="btn run" id="cancel-abort-btn" onclick="cancelDemo('abort')">Start AbortController Demo</button>
+            <button class="btn danger" id="cancel-abort-stop" onclick="abortCancel()" style="display:none">Abort!</button>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-header">
+          <span>Log</span>
+          <button class="btn" onclick="clearLog('cancel-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+        </div>
+        <div id="cancel-log" class="log"></div>
+      </div>
+    </div>
+
+  </div>
+</div>
+<footer>Generator & Async Generator Patterns &mdash; <a href="https://yurukusa.github.io/dev-toolkit/">dev-toolkit</a></footer>
+
+<script>
+// --- Nav ---
+document.querySelectorAll('.nav-item').forEach(item => {
+  item.addEventListener('click', () => {
+    document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    item.classList.add('active');
+    document.getElementById(item.dataset.section).classList.add('active');
+  });
+});
+function log(id, msg, type='info') { const el=document.getElementById(id);const d=document.createElement('div');d.className='log-entry '+type;d.textContent=msg;el.appendChild(d);el.scrollTop=el.scrollHeight; }
+function clearLog(id) { document.getElementById(id).innerHTML=''; }
+function showValues(containerId, values) {
+  const el = document.getElementById(containerId);
+  el.innerHTML = values.map(v => `<span class="yield-item new">${v}</span>`).join('');
+}
+
+// --- Basics ---
+let basicGen = null;
+let basicDone = false;
+let basicValues = [];
+function* counter() { yield 1; yield 2; yield 3; }
+function basicCreate() {
+  basicGen = counter();
+  basicDone = false;
+  basicValues = [];
+  document.getElementById('basic-state').className = 'state-badge state-suspended';
+  document.getElementById('basic-state').textContent = 'suspended';
+  document.getElementById('basic-values').innerHTML = '';
+  log('basic-log', 'Generator created — suspended at start', 'info');
+}
+function basicNext() {
+  if (!basicGen) { log('basic-log', 'Create a generator first', 'warn'); return; }
+  const result = basicGen.next();
+  log('basic-log', `next() → { value: ${result.value}, done: ${result.done} }`, result.done ? 'warn' : 'yield');
+  if (!result.done) {
+    basicValues.push(result.value);
+    showValues('basic-values', basicValues);
+  } else {
+    basicDone = true;
+    document.getElementById('basic-state').className = 'state-badge state-done';
+    document.getElementById('basic-state').textContent = 'done';
+  }
+}
+function basicReturn() {
+  if (!basicGen) { log('basic-log', 'Create a generator first', 'warn'); return; }
+  const result = basicGen.return('end');
+  log('basic-log', `return("end") → { value: "${result.value}", done: ${result.done} }`, 'warn');
+  basicDone = true;
+  document.getElementById('basic-state').className = 'state-badge state-done';
+  document.getElementById('basic-state').textContent = 'done (returned)';
+}
+function basicThrow() {
+  if (!basicGen) { log('basic-log', 'Create a generator first', 'warn'); return; }
+  try { basicGen.throw(new Error('Manual error')); }
+  catch(e) { log('basic-log', `throw(Error) → uncaught: ${e.message}`, 'error'); }
+  basicDone = true;
+  document.getElementById('basic-state').className = 'state-badge state-error';
+  document.getElementById('basic-state').textContent = 'done (error)';
+}
+
+// --- Two-way ---
+let twoWayGen = null;
+function* accumulator() { let total = 0; while (true) { const input = yield total; total += input ?? 0; } }
+function twoWayCreate() {
+  twoWayGen = accumulator();
+  const first = twoWayGen.next(); // prime
+  log('twoway-log', `Created — initial next() → { value: ${first.value} } (priming call)`, 'info');
+}
+function twoWaySend(val) {
+  if (!twoWayGen) { twoWayCreate(); }
+  const result = twoWayGen.next(val);
+  log('twoway-log', `next(${val}) → total: ${result.value}`, 'yield');
+}
+
+// --- Lazy Evaluation ---
+function lazyDemo(type) {
+  switch(type) {
+    case 'compare': {
+      // Eager
+      const t1 = performance.now();
+      const eager = Array.from({length:100000}, (_,i) => i*i).filter(x => x % 2 === 0).slice(0, 5);
+      const eagerTime = performance.now() - t1;
+      // Lazy
+      const t2 = performance.now();
+      function* squares() { for (let i=0;;i++) yield i*i; }
+      function* filterEven(gen) { for (const v of gen) if (v%2===0) yield v; }
+      function* take(gen, n) { let i=0; for (const v of gen) { if (i++>=n) return; yield v; } }
+      const lazy = [...take(filterEven(squares()), 5)];
+      const lazyTime = performance.now() - t2;
+      log('lazy-log', `Eager: computed 100K squares, filtered, sliced → [${eager.join(', ')}] (${eagerTime.toFixed(2)}ms)`, 'warn');
+      log('lazy-log', `Lazy: computed only what was needed → [${lazy.join(', ')}] (${lazyTime.toFixed(2)}ms)`, 'success');
+      log('lazy-log', `Lazy computed ~5 values vs Eager computed 100,000`, 'info');
+      break;
+    }
+    case 'filter': {
+      function* range(n) { for (let i=1; i<=n; i++) { log('lazy-log', `  range yields ${i}`, 'yield'); yield i; } }
+      function* filterOdd(gen) { for (const v of gen) { if (v%2!==0) { log('lazy-log', `  filter passes ${v}`, 'success'); yield v; } else { log('lazy-log', `  filter skips ${v}`, 'warn'); } } }
+      function* double(gen) { for (const v of gen) { log('lazy-log', `  map: ${v} → ${v*2}`, 'info'); yield v*2; } }
+      log('lazy-log', 'Pipeline: range(6) → filterOdd → double', 'info');
+      const result = [...double(filterOdd(range(6)))];
+      log('lazy-log', `Result: [${result.join(', ')}]`, 'success');
+      break;
+    }
+    case 'take': {
+      function* naturals() { let n=1; while(true) yield n++; }
+      function* take(g, n) { let i=0; for (const v of g) { if (i++>=n) return; yield v; } }
+      const first10 = [...take(naturals(), 10)];
+      log('lazy-log', `take(naturals(), 10) → [${first10.join(', ')}]`, 'success');
+      log('lazy-log', 'Infinite generator + take() = safe finite iteration', 'info');
+      break;
+    }
+  }
+}
+
+// --- Infinite Sequences ---
+function infDemo(type) {
+  const n = parseInt(document.getElementById('inf-count').value) || 15;
+  let values = [];
+  switch(type) {
+    case 'naturals': {
+      function* naturals() { let i=1; while(true) yield i++; }
+      const gen = naturals();
+      for (let i=0; i<n; i++) values.push(gen.next().value);
+      log('inf-log', `Natural numbers (first ${n}): ${values.join(', ')}`, 'success');
+      break;
+    }
+    case 'fibonacci': {
+      function* fib() { let [a,b]=[0,1]; while(true) { yield a; [a,b]=[b,a+b]; } }
+      const gen = fib();
+      for (let i=0; i<n; i++) values.push(gen.next().value);
+      log('inf-log', `Fibonacci (first ${n}): ${values.join(', ')}`, 'success');
+      break;
+    }
+    case 'primes': {
+      function* primes() {
+        yield 2;
+        for (let n=3;;n+=2) {
+          let isPrime = true;
+          for (let d=3; d*d<=n; d+=2) { if (n%d===0) { isPrime=false; break; } }
+          if (isPrime) yield n;
+        }
+      }
+      const gen = primes();
+      for (let i=0; i<n; i++) values.push(gen.next().value);
+      log('inf-log', `Primes (first ${n}): ${values.join(', ')}`, 'success');
+      break;
+    }
+    case 'powers': {
+      function* powersOf2() { let p=1; while(true) { yield p; p*=2; } }
+      const gen = powersOf2();
+      for (let i=0; i<n; i++) values.push(gen.next().value);
+      log('inf-log', `Powers of 2 (first ${n}): ${values.join(', ')}`, 'success');
+      break;
+    }
+    case 'collatz': {
+      function* collatz(start) { let n=start; while(n!==1) { yield n; n=n%2===0?n/2:3*n+1; } yield 1; }
+      const gen = collatz(27);
+      let r; while(!(r=gen.next()).done) values.push(r.value);
+      log('inf-log', `Collatz(27): ${values.length} steps`, 'success');
+      log('inf-log', `Sequence: ${values.join(' → ')}`, 'info');
+      break;
+    }
+  }
+  showValues('inf-values', values);
+}
+
+// --- Pipeline ---
+function* range(start, end) { for (let i=start; i<=end; i++) yield i; }
+function* filter(gen, fn) { for (const v of gen) if (fn(v)) yield v; }
+function* map(gen, fn) { for (const v of gen) yield fn(v); }
+function* take(gen, n) { let i=0; for (const v of gen) { if (i++>=n) return; yield v; } }
+
+function pipeDemo(type) {
+  let values = [];
+  switch(type) {
+    case 'even-squares': {
+      const pipeline = take(map(filter(range(1, 100), n => n%2===0), n => n*n), 5);
+      for (const v of pipeline) { values.push(v); log('pipe-log', `yield ${v}`, 'yield'); }
+      log('pipe-log', `range(1,100) → filter(even) → map(square) → take(5) = [${values.join(', ')}]`, 'success');
+      break;
+    }
+    case 'fizzbuzz': {
+      function* fizzBuzz(gen) {
+        for (const n of gen) {
+          if (n%15===0) yield 'FizzBuzz';
+          else if (n%3===0) yield 'Fizz';
+          else if (n%5===0) yield 'Buzz';
+          else yield String(n);
+        }
+      }
+      const pipeline = fizzBuzz(range(1, 20));
+      for (const v of pipeline) { values.push(v); }
+      log('pipe-log', `FizzBuzz(1..20): ${values.join(', ')}`, 'success');
+      break;
+    }
+    case 'transform': {
+      function* words() { yield 'hello'; yield 'world'; yield 'generator'; yield 'pipeline'; yield 'pattern'; }
+      const pipeline = map(map(filter(words(), w => w.length > 4), w => w.toUpperCase()), w => `[${w}]`);
+      for (const v of pipeline) { values.push(v); log('pipe-log', `yield ${v}`, 'yield'); }
+      log('pipe-log', `words → filter(len>4) → upper → bracket = [${values.join(', ')}]`, 'success');
+      break;
+    }
+  }
+  showValues('pipe-values', values);
+}
+
+// --- Async Generators ---
+async function asyncDemo(type) {
+  const state = document.getElementById('async-state');
+  switch(type) {
+    case 'timer': {
+      async function* timer(n, delay) {
+        for (let i=1; i<=n; i++) {
+          await new Promise(r => setTimeout(r, delay));
+          yield { tick: i, time: Date.now() };
+        }
+      }
+      state.textContent = 'Running timer...';
+      for await (const { tick } of timer(5, 300)) {
+        log('async-log', `Tick ${tick}`, 'yield');
+      }
+      state.textContent = 'Done';
+      log('async-log', 'Timer complete', 'success');
+      break;
+    }
+    case 'fetch': {
+      async function* fetchPages() {
+        const pages = ['users', 'posts', 'comments'];
+        for (const page of pages) {
+          await new Promise(r => setTimeout(r, 400));
+          yield { page, data: Array.from({length:3}, (_,i) => `${page}_${i+1}`) };
+        }
+      }
+      state.textContent = 'Fetching pages...';
+      for await (const { page, data } of fetchPages()) {
+        log('async-log', `Page "${page}": [${data.join(', ')}]`, 'yield');
+      }
+      state.textContent = 'All pages fetched';
+      log('async-log', 'Stream complete', 'success');
+      break;
+    }
+    case 'retry': {
+      async function* retryWithBackoff(attempts) {
+        for (let i=1; i<=attempts; i++) {
+          const delay = Math.min(100 * 2**i, 2000);
+          await new Promise(r => setTimeout(r, delay));
+          const success = Math.random() > 0.6;
+          yield { attempt: i, delay, success };
+          if (success) return;
+        }
+      }
+      state.textContent = 'Retrying with backoff...';
+      for await (const { attempt, delay, success } of retryWithBackoff(5)) {
+        log('async-log', `Attempt ${attempt} (${delay}ms delay): ${success ? 'SUCCESS' : 'FAILED'}`, success ? 'success' : 'warn');
+        if (success) { state.textContent = `Succeeded on attempt ${attempt}`; return; }
+      }
+      state.textContent = 'All attempts failed';
+      log('async-log', 'All attempts exhausted', 'error');
+      break;
+    }
+  }
+}
+
+// --- AsyncIterator Protocol ---
+async function iteratorDemo(type) {
+  switch(type) {
+    case 'custom': {
+      const asyncRange = {
+        from: 1, to: 5,
+        [Symbol.asyncIterator]() {
+          let current = this.from;
+          const last = this.to;
+          return {
+            async next() {
+              await new Promise(r => setTimeout(r, 200));
+              if (current <= last) return { value: current++, done: false };
+              return { done: true };
+            }
+          };
+        }
+      };
+      log('iter-log', 'Iterating custom async iterable...', 'info');
+      for await (const val of asyncRange) {
+        log('iter-log', `for await: ${val}`, 'yield');
+      }
+      log('iter-log', 'Iteration complete', 'success');
+      break;
+    }
+    case 'manual': {
+      async function* nums() { yield 10; yield 20; yield 30; }
+      const iter = nums();
+      log('iter-log', 'Manual next() calls on async generator:', 'info');
+      let r;
+      r = await iter.next(); log('iter-log', `await next() → { value: ${r.value}, done: ${r.done} }`, 'yield');
+      r = await iter.next(); log('iter-log', `await next() → { value: ${r.value}, done: ${r.done} }`, 'yield');
+      r = await iter.next(); log('iter-log', `await next() → { value: ${r.value}, done: ${r.done} }`, 'yield');
+      r = await iter.next(); log('iter-log', `await next() → { value: ${r.value}, done: ${r.done} }`, 'warn');
+      break;
+    }
+  }
+}
+
+// --- Cancellation ---
+let abortController = null;
+function cancelDemo(type) {
+  switch(type) {
+    case 'return': {
+      function* counting() {
+        try { let i=1; while(true) { yield i++; } }
+        finally { log('cancel-log', 'finally block executed (cleanup)', 'warn'); }
+      }
+      const gen = counting();
+      log('cancel-log', `next() → ${gen.next().value}`, 'yield');
+      log('cancel-log', `next() → ${gen.next().value}`, 'yield');
+      log('cancel-log', `next() → ${gen.next().value}`, 'yield');
+      const ret = gen.return('cancelled');
+      log('cancel-log', `return("cancelled") → { value: "${ret.value}", done: ${ret.done} }`, 'error');
+      const after = gen.next();
+      log('cancel-log', `next() after return → { value: ${after.value}, done: ${after.done} }`, 'info');
+      break;
+    }
+    case 'throw': {
+      function* safe() {
+        try { yield 1; yield 2; yield 3; }
+        catch(e) { log('cancel-log', `Caught inside generator: ${e.message}`, 'error'); yield 'recovered'; }
+        finally { log('cancel-log', 'finally block executed', 'warn'); }
+      }
+      const gen = safe();
+      log('cancel-log', `next() → ${JSON.stringify(gen.next())}`, 'yield');
+      log('cancel-log', `throw(Error) → ${JSON.stringify(gen.throw(new Error('cancel!')))}`, 'error');
+      log('cancel-log', `next() → ${JSON.stringify(gen.next())}`, 'info');
+      break;
+    }
+    case 'abort': {
+      abortController = new AbortController();
+      document.getElementById('cancel-abort-btn').style.display = 'none';
+      document.getElementById('cancel-abort-stop').style.display = '';
+      async function* pollWithAbort(signal) {
+        let i = 0;
+        while (!signal.aborted) {
+          await new Promise(r => setTimeout(r, 500));
+          if (signal.aborted) { log('cancel-log', 'Aborted during await', 'error'); return; }
+          yield ++i;
+        }
+      }
+      (async () => {
+        log('cancel-log', 'Started polling — click "Abort!" to cancel', 'info');
+        for await (const val of pollWithAbort(abortController.signal)) {
+          log('cancel-log', `Poll #${val}`, 'yield');
+          if (abortController.signal.aborted) break;
+        }
+        log('cancel-log', 'Polling stopped', 'warn');
+        document.getElementById('cancel-abort-btn').style.display = '';
+        document.getElementById('cancel-abort-stop').style.display = 'none';
+      })();
+      break;
+    }
+  }
+}
+function abortCancel() {
+  if (abortController) {
+    abortController.abort();
+    log('cancel-log', 'AbortController.abort() called!', 'error');
+  }
+}
+</script>
+</body>
+</html>

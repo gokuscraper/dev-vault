@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Device Information</title>
+<meta name="description" content="View detailed information about your device and browser: screen size, user agent, hardware concurrency, memory, battery, and more.">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh;display:flex;justify-content:center;padding:24px}
+.container{max-width:640px;width:100%}
+h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
+.desc{color:#888;font-size:0.9rem;margin-bottom:20px}
+.card{background:#161616;border:1px solid #222;border-radius:10px;padding:20px;margin-bottom:16px}
+h2{font-size:0.95rem;color:#fff;margin:14px 0 8px;padding-bottom:4px;border-bottom:1px solid #222}
+h2:first-child{margin-top:0}
+table{width:100%;border-collapse:collapse;font-size:0.85rem}
+td{padding:5px 8px;border-bottom:1px solid #1a1a1a}
+td:first-child{color:#888;width:45%}
+td:last-child{color:#e6e6e6;font-family:monospace;word-break:break-all}
+tr:hover td{background:#0d1520}
+button{padding:8px 20px;border-radius:8px;border:1px solid #333;background:#1a1a1a;color:#e6e6e6;font-size:0.85rem;cursor:pointer;font-weight:600}
+button:hover{background:#252525;border-color:#3b82f6}
+.flex-center{display:flex;justify-content:center;gap:8px;margin:10px 0}
+</style>
+</head>
+<body>
+<div class="container">
+  <h1>Device Information</h1>
+  <p class="desc">Detailed information about your browser and device</p>
+  <div class="card">
+    <div class="flex-center">
+      <button id="refreshBtn">Refresh</button>
+      <button id="copyBtn">Copy All</button>
+    </div>
+    <div id="info"></div>
+  </div>
+</div>
+<script>
+function row(label, value) {
+  return `<tr><td>${label}</td><td>${value ?? '<span style="color:#555">N/A</span>'}</td></tr>`;
+}
+
+function getInfo() {
+  const n = navigator;
+  const s = screen;
+  const d = document;
+  const w = window;
+  const l = location;
+  const sections = [];
+
+  sections.push('<h2>Browser</h2><table>');
+  sections.push(row('User Agent', n.userAgent));
+  sections.push(row('Platform', n.platform));
+  sections.push(row('Language', n.language));
+  sections.push(row('Languages', n.languages?.join(', ')));
+  sections.push(row('Vendor', n.vendor));
+  sections.push(row('Product', n.product));
+  sections.push(row('Cookie Enabled', n.cookieEnabled));
+  sections.push(row('Do Not Track', n.doNotTrack));
+  sections.push(row('On Line', n.onLine));
+  sections.push(row('Hardware Concurrency', n.hardwareConcurrency));
+  sections.push(row('Device Memory (GB)', n.deviceMemory));
+  sections.push(row('Max Touch Points', n.maxTouchPoints));
+  sections.push('</table>');
+
+  sections.push('<h2>Screen</h2><table>');
+  sections.push(row('Width', s.width + 'px'));
+  sections.push(row('Height', s.height + 'px'));
+  sections.push(row('Avail Width', s.availWidth + 'px'));
+  sections.push(row('Avail Height', s.availHeight + 'px'));
+  sections.push(row('Color Depth', s.colorDepth + '-bit'));
+  sections.push(row('Pixel Depth', s.pixelDepth + '-bit'));
+  sections.push(row('Device Pixel Ratio', w.devicePixelRatio));
+  sections.push(row('Orientation', s.orientation?.type));
+  sections.push('</table>');
+
+  sections.push('<h2>Window</h2><table>');
+  sections.push(row('Inner Width', w.innerWidth + 'px'));
+  sections.push(row('Inner Height', w.innerHeight + 'px'));
+  sections.push(row('Outer Width', w.outerWidth + 'px'));
+  sections.push(row('Outer Height', w.outerHeight + 'px'));
+  sections.push(row('Scroll X', w.scrollX));
+  sections.push(row('Scroll Y', w.scrollY));
+  sections.push(row('Page X Offset', w.pageXOffset));
+  sections.push(row('Page Y Offset', w.pageYOffset));
+  sections.push('</table>');
+
+  sections.push('<h2>Location</h2><table>');
+  sections.push(row('HREF', l.href));
+  sections.push(row('Protocol', l.protocol));
+  sections.push(row('Host', l.host));
+  sections.push(row('Hostname', l.hostname));
+  sections.push(row('Port', l.port));
+  sections.push(row('Pathname', l.pathname));
+  sections.push(row('Search', l.search));
+  sections.push(row('Hash', l.hash));
+  sections.push(row('Origin', l.origin));
+  sections.push('</table>');
+
+  sections.push('<h2>Timing</h2><table>');
+  const t = performance?.timing;
+  if (t) {
+    sections.push(row('DOM Interactive', new Date(t.domInteractive).toISOString()));
+    sections.push(row('DOM Complete', new Date(t.domComplete).toISOString()));
+    sections.push(row('Load Event End', new Date(t.loadEventEnd).toISOString()));
+    sections.push(row('Navigation Start', new Date(t.navigationStart).toISOString()));
+  }
+  sections.push('</table>');
+
+  sections.push('<h2>Navigator Features</h2><table>');
+  sections.push(row('Service Worker', 'serviceWorker' in n));
+  sections.push(row('Geolocation', 'geolocation' in n));
+  sections.push(row('Web Bluetooth', 'bluetooth' in n));
+  sections.push(row('Web USB', 'usb' in n));
+  sections.push(row('Web NFC', 'nfc' in n));
+  sections.push(row('Web Serial', 'serial' in n));
+  sections.push(row('Web Share', 'share' in n));
+  sections.push(row('Web Locks', 'locks' in n));
+  sections.push(row('Credentials', 'credentials' in n));
+  sections.push(row('MediaDevices', 'mediaDevices' in n?.mediaDevices));
+  sections.push(row('Clipboard', 'clipboard' in n));
+  sections.push(row('Storage', 'storage' in n));
+  sections.push(row('Connection', 'connection' in n));
+  sections.push(row('Battery', 'getBattery' in n));
+  sections.push(row('Virtual Keyboard', 'virtualKeyboard' in n));
+  sections.push('</table>');
+
+  return sections.join('');
+}
+
+function refresh() {
+  document.getElementById('info').innerHTML = getInfo();
+}
+
+document.getElementById('refreshBtn').addEventListener('click', refresh);
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const text = Array.from(document.querySelectorAll('#info tr')).map(tr => {
+    const cells = tr.querySelectorAll('td');
+    return cells.length === 2 ? cells[0].textContent + ': ' + cells[1].textContent : '';
+  }).filter(Boolean).join('\n');
+  navigator.clipboard.writeText(text);
+});
+refresh();
+</script>
+</body>
+</html>

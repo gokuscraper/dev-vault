@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aspect Ratio — Calculator &amp; Resizer</title>
+<meta name="description" content="Calculate aspect ratios, resize dimensions proportionally. Common presets for video, social media, print. Free.">
+<meta property="og:title" content="Aspect Ratio — Calculator & Resizer">
+<meta property="og:description" content="Calculate aspect ratios, resize proportionally. Video, social, print presets. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/aspect-ratio/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/aspect-ratio/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "Aspect Ratio", "description": "Calculate aspect ratios, resize dimensions proportionally. Common presets for video, social media, print. Free.", "url": "https://yurukusa.github.io/aspect-ratio/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:28px;font-size:0.95rem}
+
+.calc{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:20px}
+.calc h2{font-size:1rem;color:#fff;margin-bottom:14px}
+.dim-row{display:flex;gap:12px;align-items:center;margin-bottom:14px;flex-wrap:wrap}
+.dim-row label{font-size:0.82rem;color:#888;font-weight:600;min-width:50px}
+.dim-row input{width:100px;padding:8px 12px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-family:'Fira Code',monospace;font-size:0.9rem;outline:none;text-align:center}
+.dim-row input:focus{border-color:#3b82f6}
+.dim-row .x{color:#555;font-size:1.2rem}
+.lock{display:flex;align-items:center;gap:6px;cursor:pointer;font-size:0.82rem;color:#888}
+.lock input{accent-color:#3b82f6}
+
+.result-bar{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:16px 0;padding:16px;background:#0d0d0d;border-radius:10px}
+.result-item{text-align:center}
+.result-item .val{font-family:'Fira Code',monospace;font-size:1.4rem;color:#10b981}
+.result-item .lbl{font-size:0.72rem;color:#888;margin-top:2px}
+
+.preview-box{display:flex;justify-content:center;margin:16px 0}
+.preview-rect{border:2px solid #3b82f6;background:#0d1b2a;display:flex;align-items:center;justify-content:center;font-family:'Fira Code',monospace;font-size:0.82rem;color:#4da6ff;max-width:100%;transition:all 0.3s}
+
+.presets{margin-bottom:20px}
+.presets h3{font-size:0.9rem;color:#ccc;margin-bottom:10px}
+.preset-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px}
+.preset{background:#161616;border:1px solid #222;border-radius:8px;padding:10px 14px;cursor:pointer;transition:border-color 0.2s;display:flex;justify-content:space-between;align-items:center}
+.preset:hover{border-color:#3b82f6}
+.preset .name{font-size:0.82rem;color:#ccc}
+.preset .ratio{font-family:'Fira Code',monospace;font-size:0.78rem;color:#10b981}
+
+.resize{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:20px}
+.resize h2{font-size:1rem;color:#fff;margin-bottom:14px}
+
+.btn{padding:8px 18px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.82rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#555;color:#ccc}
+.btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.btn-row{display:flex;gap:8px;justify-content:center;margin:12px 0}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+@media(max-width:600px){.dim-row{justify-content:center}.preset-grid{grid-template-columns:1fr 1fr}}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Aspect Ratio</h1>
+<p class="subtitle">Calculate aspect ratios and resize dimensions proportionally.</p>
+
+<div class="calc">
+  <h2>Calculate Ratio</h2>
+  <div class="dim-row">
+    <label>Width</label>
+    <input type="number" id="w" value="1920" min="1" oninput="calc()">
+    <span class="x">×</span>
+    <label>Height</label>
+    <input type="number" id="h" value="1080" min="1" oninput="calc()">
+  </div>
+  <div class="result-bar">
+    <div class="result-item"><div class="val" id="ratioSimple">16:9</div><div class="lbl">Ratio</div></div>
+    <div class="result-item"><div class="val" id="ratioDecimal">1.778</div><div class="lbl">Decimal</div></div>
+    <div class="result-item"><div class="val" id="totalPx">2,073,600</div><div class="lbl">Total Pixels</div></div>
+    <div class="result-item"><div class="val" id="orientation">Landscape</div><div class="lbl">Orientation</div></div>
+  </div>
+  <div class="preview-box"><div class="preview-rect" id="previewRect">16:9</div></div>
+</div>
+
+<div class="resize">
+  <h2>Resize (Lock Ratio)</h2>
+  <div class="dim-row">
+    <label>New W</label>
+    <input type="number" id="newW" value="1280" min="1" oninput="resizeW()">
+    <span class="x">→</span>
+    <label>New H</label>
+    <input type="number" id="newH" value="720" min="1" oninput="resizeH()">
+  </div>
+  <div class="btn-row">
+    <button class="btn" onclick="copyDim()">Copy dimensions</button>
+    <button class="btn" onclick="swapDim()">Swap W↔H</button>
+  </div>
+</div>
+
+<div class="presets">
+  <h3>Common Ratios</h3>
+  <div class="preset-grid" id="presetGrid"></div>
+</div>
+
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/aspect-ratio">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+const PRESETS=[
+  {name:'HD (720p)',w:1280,h:720},
+  {name:'Full HD',w:1920,h:1080},
+  {name:'4K UHD',w:3840,h:2160},
+  {name:'Instagram Post',w:1080,h:1080},
+  {name:'Instagram Story',w:1080,h:1920},
+  {name:'Twitter Post',w:1200,h:675},
+  {name:'Facebook Cover',w:820,h:312},
+  {name:'YouTube Thumb',w:1280,h:720},
+  {name:'OG Image',w:1200,h:630},
+  {name:'A4 Paper',w:2480,h:3508},
+  {name:'US Letter',w:2550,h:3300},
+  {name:'iPhone 15',w:1179,h:2556},
+  {name:'Ultrawide',w:3440,h:1440},
+  {name:'Classic Film',w:1800,h:1350},
+  {name:'Cinemascope',w:2390,h:1000},
+  {name:'Square',w:1000,h:1000},
+];
+
+function gcd(a,b){return b?gcd(b,a%b):a}
+
+function calc(){
+  const w=Math.max(1,+document.getElementById('w').value||1);
+  const h=Math.max(1,+document.getElementById('h').value||1);
+  const g=gcd(w,h);
+  const rw=w/g,rh=h/g;
+
+  document.getElementById('ratioSimple').textContent=rw+':'+rh;
+  document.getElementById('ratioDecimal').textContent=(w/h).toFixed(3);
+  document.getElementById('totalPx').textContent=(w*h).toLocaleString();
+  document.getElementById('orientation').textContent=w>h?'Landscape':w<h?'Portrait':'Square';
+
+  // Preview
+  const maxW=300,maxH=200;
+  let pw,ph;
+  if(w/h>maxW/maxH){pw=maxW;ph=Math.round(maxW*h/w)}
+  else{ph=maxH;pw=Math.round(maxH*w/h)}
+  const rect=document.getElementById('previewRect');
+  rect.style.width=pw+'px';
+  rect.style.height=ph+'px';
+  rect.textContent=rw+':'+rh;
+
+  // Update resize
+  const newW=+document.getElementById('newW').value;
+  document.getElementById('newH').value=Math.round(newW*h/w);
+}
+
+function resizeW(){
+  const w=+document.getElementById('w').value;
+  const h=+document.getElementById('h').value;
+  const newW=+document.getElementById('newW').value;
+  document.getElementById('newH').value=Math.round(newW*h/w);
+}
+
+function resizeH(){
+  const w=+document.getElementById('w').value;
+  const h=+document.getElementById('h').value;
+  const newH=+document.getElementById('newH').value;
+  document.getElementById('newW').value=Math.round(newH*w/h);
+}
+
+function swapDim(){
+  const w=document.getElementById('w');
+  const h=document.getElementById('h');
+  const tmp=w.value;w.value=h.value;h.value=tmp;
+  calc();
+}
+
+function copyDim(){
+  const w=document.getElementById('newW').value;
+  const h=document.getElementById('newH').value;
+  navigator.clipboard.writeText(w+'×'+h);
+  const el=document.createElement('div');
+  el.className='copied';el.textContent='Copied '+w+'×'+h;
+  document.body.appendChild(el);
+  setTimeout(()=>el.remove(),1600);
+}
+
+function applyPreset(p){
+  document.getElementById('w').value=p.w;
+  document.getElementById('h').value=p.h;
+  document.getElementById('newW').value=p.w;
+  calc();
+}
+
+document.getElementById('presetGrid').innerHTML=PRESETS.map((p,i)=>{
+  const g=gcd(p.w,p.h);
+  return`<div class="preset" onclick="applyPreset(PRESETS[${i}])">
+    <span class="name">${p.name}</span>
+    <span class="ratio">${p.w/g}:${p.h/g}</span>
+  </div>`;
+}).join('');
+
+calc();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/image-resize/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Image Resize</a>
+<a href="https://yurukusa.github.io/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
+<a href="https://yurukusa.github.io/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
+<a href="https://yurukusa.github.io/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

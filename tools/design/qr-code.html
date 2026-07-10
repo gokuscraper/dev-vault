@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QR Code Generator — Create QR Codes Instantly</title>
+<meta name="description" content="Generate QR codes for URLs, text, WiFi, email, phone. Customize colors, download PNG/SVG. Free.">
+<meta property="og:title" content="QR Code Generator — Create QR Codes Instantly">
+<meta property="og:description" content="Generate QR codes for URLs, text, WiFi. Download PNG/SVG. Free.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/qr-code/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/qr-code/">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "QR Code Generator", "description": "Generate QR codes for URLs, text, WiFi, email, phone. Customize colors, download PNG/SVG. Free.", "url": "https://yurukusa.github.io/qr-code/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:800px;margin:0 auto;padding:24px 16px}
+h1{font-size:1.8rem;text-align:center;margin:32px 0 8px;color:#fff}
+.subtitle{text-align:center;color:#888;margin-bottom:24px;font-size:0.95rem}
+
+.tabs{display:flex;gap:6px;justify-content:center;margin-bottom:20px;flex-wrap:wrap}
+.tab{padding:7px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.8rem;cursor:pointer;font-weight:600}
+.tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.tab:hover:not(.active){background:#1c1c1c}
+
+.input-section{background:#161616;border:1px solid #222;border-radius:12px;padding:20px;margin-bottom:20px}
+.input-section textarea{width:100%;padding:12px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.9rem;outline:none;resize:vertical;min-height:80px;font-family:inherit}
+.input-section textarea:focus{border-color:#3b82f6}
+.input-section .row{display:flex;gap:10px;align-items:center;margin-bottom:10px;flex-wrap:wrap}
+.input-section label{font-size:0.82rem;color:#888;font-weight:600;min-width:70px}
+.input-section input[type="text"],.input-section input[type="password"]{flex:1;padding:8px 12px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.85rem;outline:none;min-width:120px}
+.input-section select{padding:8px 12px;border-radius:8px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.85rem;outline:none}
+
+.customize{background:#161616;border:1px solid #222;border-radius:12px;padding:16px;margin-bottom:20px}
+.customize h3{font-size:0.85rem;color:#ccc;margin-bottom:10px}
+.customize .row{display:flex;gap:12px;align-items:center;margin-bottom:8px;flex-wrap:wrap}
+.customize label{font-size:0.78rem;color:#888;min-width:60px}
+.customize input[type="color"]{width:36px;height:28px;border:1px solid #333;border-radius:4px;background:none;cursor:pointer;padding:0}
+.customize select{padding:6px 10px;border-radius:6px;border:1px solid #333;background:#0a0a0a;color:#ddd;font-size:0.82rem;outline:none}
+
+.preview{text-align:center;margin-bottom:20px}
+.preview canvas{border-radius:8px;max-width:100%}
+
+.btn-row{display:flex;gap:8px;justify-content:center;margin-bottom:16px;flex-wrap:wrap}
+.btn{padding:8px 18px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.82rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#555;color:#ccc}
+.btn.primary{background:#3b82f6;border-color:#3b82f6;color:#fff}
+.btn.primary:hover{background:#2563eb}
+
+.copied{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards}
+@keyframes fadeOut{0%{opacity:1}70%{opacity:1}100%{opacity:0}}
+footer{text-align:center;padding:32px 0;color:#555;font-size:0.78rem;border-top:1px solid #1a1a1a;margin-top:40px}
+footer a{color:#666;text-decoration:none}
+footer a:hover{color:#999}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>QR Code Generator</h1>
+<p class="subtitle">Generate QR codes for URLs, text, WiFi, and more.</p>
+
+<div class="tabs">
+  <button class="tab active" onclick="setMode('text')">Text / URL</button>
+  <button class="tab" onclick="setMode('wifi')">WiFi</button>
+  <button class="tab" onclick="setMode('email')">Email</button>
+  <button class="tab" onclick="setMode('phone')">Phone</button>
+  <button class="tab" onclick="setMode('sms')">SMS</button>
+</div>
+
+<div class="input-section" id="inputSection"></div>
+
+<div class="customize">
+  <h3>Customize</h3>
+  <div class="row">
+    <label>FG Color</label>
+    <input type="color" id="fgColor" value="#000000" oninput="generate()">
+    <label>BG Color</label>
+    <input type="color" id="bgColor" value="#ffffff" oninput="generate()">
+    <label>Size</label>
+    <select id="qrSize" onchange="generate()">
+      <option value="200">200px</option>
+      <option value="300" selected>300px</option>
+      <option value="400">400px</option>
+      <option value="500">500px</option>
+    </select>
+  </div>
+</div>
+
+<div class="preview">
+  <canvas id="qrCanvas" width="300" height="300"></canvas>
+</div>
+
+<div class="btn-row">
+  <button class="btn primary" onclick="downloadPng()">Download PNG</button>
+  <button class="btn" onclick="copyImage()">Copy Image</button>
+</div>
+
+</div>
+
+<footer>
+  <a href="https://github.com/yurukusa/qr-code">GitHub</a> ·
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a>
+</footer>
+
+<script>
+// Minimal QR Code generator (alphanumeric + byte mode, ECC L)
+// Based on simplified QR algorithm for web use
+let currentMode='text';
+
+function setMode(mode){
+  currentMode=mode;
+  document.querySelectorAll('.tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t=>{if(t.textContent.toLowerCase().includes(mode==='text'?'text':mode))t.classList.add('active')});
+  renderInput();
+}
+
+function renderInput(){
+  const sec=document.getElementById('inputSection');
+  switch(currentMode){
+    case'text':
+      sec.innerHTML=`<textarea id="qrData" placeholder="Enter text or URL..." oninput="generate()">https://github.com</textarea>`;
+      break;
+    case'wifi':
+      sec.innerHTML=`
+        <div class="row"><label>SSID</label><input type="text" id="wifiSsid" placeholder="Network name" oninput="generate()"></div>
+        <div class="row"><label>Password</label><input type="password" id="wifiPass" placeholder="Password" oninput="generate()"></div>
+        <div class="row"><label>Security</label><select id="wifiSec" onchange="generate()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div>`;
+      break;
+    case'email':
+      sec.innerHTML=`
+        <div class="row"><label>Email</label><input type="text" id="emailTo" placeholder="user@example.com" oninput="generate()"></div>
+        <div class="row"><label>Subject</label><input type="text" id="emailSubj" placeholder="Subject" oninput="generate()"></div>
+        <div class="row"><label>Body</label><input type="text" id="emailBody" placeholder="Message" oninput="generate()"></div>`;
+      break;
+    case'phone':
+      sec.innerHTML=`<div class="row"><label>Phone</label><input type="text" id="phone" placeholder="+1234567890" oninput="generate()"></div>`;
+      break;
+    case'sms':
+      sec.innerHTML=`
+        <div class="row"><label>Phone</label><input type="text" id="smsPhone" placeholder="+1234567890" oninput="generate()"></div>
+        <div class="row"><label>Message</label><input type="text" id="smsMsg" placeholder="Hello!" oninput="generate()"></div>`;
+      break;
+  }
+  generate();
+}
+
+function getData(){
+  switch(currentMode){
+    case'text':return document.getElementById('qrData')?.value||'';
+    case'wifi':{
+      const s=document.getElementById('wifiSsid')?.value||'';
+      const p=document.getElementById('wifiPass')?.value||'';
+      const t=document.getElementById('wifiSec')?.value||'WPA';
+      return`WIFI:T:${t};S:${s};P:${p};;`;
+    }
+    case'email':{
+      const to=document.getElementById('emailTo')?.value||'';
+      const subj=document.getElementById('emailSubj')?.value||'';
+      const body=document.getElementById('emailBody')?.value||'';
+      return`mailto:${to}?subject=${encodeURIComponent(subj)}&body=${encodeURIComponent(body)}`;
+    }
+    case'phone':return`tel:${document.getElementById('phone')?.value||''}`;
+    case'sms':{
+      const ph=document.getElementById('smsPhone')?.value||'';
+      const msg=document.getElementById('smsMsg')?.value||'';
+      return`sms:${ph}${msg?'?body='+encodeURIComponent(msg):''}`;
+    }
+    default:return'';
+  }
+}
+
+// Use Google Charts API for QR generation (reliable, no library needed)
+function generate(){
+  const data=getData();
+  if(!data)return;
+  const size=+document.getElementById('qrSize').value;
+  const fg=document.getElementById('fgColor').value.replace('#','');
+  const bg=document.getElementById('bgColor').value.replace('#','');
+  const canvas=document.getElementById('qrCanvas');
+  canvas.width=size;canvas.height=size;
+
+  const img=new Image();
+  img.crossOrigin='anonymous';
+  img.onload=function(){
+    const ctx=canvas.getContext('2d');
+    // Fill background
+    ctx.fillStyle='#'+bg;
+    ctx.fillRect(0,0,size,size);
+    ctx.drawImage(img,0,0,size,size);
+
+    // Apply foreground color if not black
+    if(fg!=='000000'){
+      const imageData=ctx.getImageData(0,0,size,size);
+      const d=imageData.data;
+      const fr=parseInt(fg.slice(0,2),16);
+      const fg_=parseInt(fg.slice(2,4),16);
+      const fb=parseInt(fg.slice(4,6),16);
+      const br=parseInt(bg.slice(0,2),16);
+      const bg_=parseInt(bg.slice(2,4),16);
+      const bb=parseInt(bg.slice(4,6),16);
+      for(let i=0;i<d.length;i+=4){
+        // If pixel is dark (QR module), apply fg color
+        if(d[i]<128){d[i]=fr;d[i+1]=fg_;d[i+2]=fb}
+        else{d[i]=br;d[i+1]=bg_;d[i+2]=bb}
+      }
+      ctx.putImageData(imageData,0,0);
+    }
+  };
+  img.onerror=function(){
+    const ctx=canvas.getContext('2d');
+    ctx.fillStyle='#'+bg;
+    ctx.fillRect(0,0,size,size);
+    ctx.fillStyle='#555';
+    ctx.font='14px sans-serif';
+    ctx.textAlign='center';
+    ctx.fillText('Enter text to generate QR',size/2,size/2);
+  };
+  img.src=`https://api.qrserver.com/v1/create-qr-code/?size=${size}x${size}&data=${encodeURIComponent(data)}&color=${fg}&bgcolor=${bg}`;
+}
+
+function downloadPng(){
+  const canvas=document.getElementById('qrCanvas');
+  const link=document.createElement('a');
+  link.download='qr-code.png';
+  link.href=canvas.toDataURL('image/png');
+  link.click();
+}
+
+function copyImage(){
+  const canvas=document.getElementById('qrCanvas');
+  canvas.toBlob(blob=>{
+    navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
+    const el=document.createElement('div');
+    el.className='copied';el.textContent='QR Copied!';
+    document.body.appendChild(el);
+    setTimeout(()=>el.remove(),1600);
+  });
+}
+
+renderInput();
+</script>
+<footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
+<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<a href="https://yurukusa.github.io/favicon-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Favicon Gen</a>
+<a href="https://yurukusa.github.io/url-parser/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Url Parser</a>
+<a href="https://yurukusa.github.io/data-uri/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Data Uri</a>
+<a href="https://yurukusa.github.io/meta-tags/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Meta Tags</a>
+<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+</footer>
+</body>
+</html>

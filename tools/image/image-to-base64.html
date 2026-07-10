@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image to Base64 — Convert Images to Data URIs</title>
+<meta name="description" content="Convert images to Base64 data URIs. Get CSS background-image, HTML img tag, raw Base64. Preview and copy. No upload to server.">
+<link rel="canonical" href="https://yurukusa.github.io/image-to-base64/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Image to Base64","description":"Convert images to Base64 data URIs. CSS, HTML, raw formats. No server upload.","url":"https://yurukusa.github.io/image-to-base64/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:900px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.drop-zone{border:2px dashed #333;border-radius:10px;padding:40px;text-align:center;cursor:pointer;margin-bottom:14px;transition:border-color 0.2s}
+.drop-zone:hover,.drop-zone.drag{border-color:#3b82f6}
+.drop-zone p{color:#888;font-size:0.9rem}
+.drop-zone input{display:none}
+.results{display:none}
+.preview{display:flex;gap:14px;align-items:flex-start;margin-bottom:14px;flex-wrap:wrap}
+.preview img{max-width:200px;max-height:200px;border-radius:8px;border:1px solid #333;background:#161616}
+.meta{flex:1;min-width:200px}
+.meta-row{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px solid #1a1a1a;font-size:0.82rem}
+.meta-row .label{color:#888}
+.meta-row .value{color:#4da6ff;font-family:'Fira Code',monospace}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center}
+.output-area{width:100%;min-height:80px;max-height:200px;background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:10px;color:#e6e6e6;font-family:'Fira Code',monospace;font-size:0.75rem;overflow:auto;word-break:break-all;white-space:pre-wrap}
+.btn{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#ccc;font-size:0.8rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#3b82f6;color:#4da6ff}
+.btn-primary{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.btn-primary:hover{background:#234080}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;justify-content:center}
+.info{font-size:0.78rem;color:#666;text-align:center;margin-top:8px}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+.tabs{display:flex;gap:6px;margin-bottom:12px}
+.tab{padding:6px 14px;border-radius:8px;border:1px solid #333;background:#161616;color:#888;font-size:0.78rem;cursor:pointer;font-weight:600}
+.tab:hover{border-color:#3b82f6;color:#4da6ff}
+.tab.active{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Image to Base64</h1>
+<p class="sub">Convert images to data URIs — nothing uploaded to any server</p>
+
+<div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
+<p>Drop an image here or click to select</p>
+<input type="file" id="fileInput" accept="image/*">
+</div>
+
+<div class="results" id="results">
+<div class="preview">
+<img id="previewImg" alt="Preview">
+<div class="meta">
+<div class="meta-row"><span class="label">File name</span><span class="value" id="metaName">-</span></div>
+<div class="meta-row"><span class="label">Type</span><span class="value" id="metaType">-</span></div>
+<div class="meta-row"><span class="label">Dimensions</span><span class="value" id="metaDim">-</span></div>
+<div class="meta-row"><span class="label">Original size</span><span class="value" id="metaOrig">-</span></div>
+<div class="meta-row"><span class="label">Base64 size</span><span class="value" id="metaB64">-</span></div>
+<div class="meta-row"><span class="label">Size increase</span><span class="value" id="metaInc">-</span></div>
+</div>
+</div>
+
+<div class="section">
+<h3>Output Format</h3>
+<div class="tabs" id="formatTabs">
+<div class="tab active" data-fmt="datauri">Data URI</div>
+<div class="tab" data-fmt="css">CSS</div>
+<div class="tab" data-fmt="html">HTML img</div>
+<div class="tab" data-fmt="markdown">Markdown</div>
+<div class="tab" data-fmt="raw">Raw Base64</div>
+</div>
+<div class="output-area" id="output"></div>
+<div style="margin-top:8px;text-align:right">
+<button class="btn btn-primary" onclick="copyOutput()">Copy</button>
+</div>
+</div>
+
+<div class="actions">
+<button class="btn" onclick="resetAll()">New Image</button>
+</div>
+<div class="info">All processing happens locally in your browser. Images are never sent to any server.</div>
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/base64/">Base64 Encoder</a> | <a href="https://yurukusa.github.io/image-resize/">Image Resize</a> | <a href="https://yurukusa.github.io/favicon-gen/">Favicon Gen</a></div>
+</div>
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+let dataUri='';
+let fileName='';
+let mimeType='';
+let rawB64='';
+let currentFmt='datauri';
+
+const dropZone=document.getElementById('dropZone');
+const fileInput=document.getElementById('fileInput');
+dropZone.addEventListener('dragover',e=>{e.preventDefault();dropZone.classList.add('drag')});
+dropZone.addEventListener('dragleave',()=>dropZone.classList.remove('drag'));
+dropZone.addEventListener('drop',e=>{
+  e.preventDefault();dropZone.classList.remove('drag');
+  if(e.dataTransfer.files.length)processFile(e.dataTransfer.files[0]);
+});
+fileInput.addEventListener('change',e=>{if(e.target.files.length)processFile(e.target.files[0])});
+
+function processFile(file){
+  fileName=file.name;
+  mimeType=file.type||'image/png';
+  const origSize=file.size;
+
+  const reader=new FileReader();
+  reader.onload=e=>{
+    dataUri=e.target.result;
+    rawB64=dataUri.split(',')[1]||'';
+    const b64Size=rawB64.length;
+
+    // Get image dimensions
+    const img=new Image();
+    img.onload=()=>{
+      document.getElementById('previewImg').src=dataUri;
+      document.getElementById('metaName').textContent=fileName;
+      document.getElementById('metaType').textContent=mimeType;
+      document.getElementById('metaDim').textContent=img.width+'×'+img.height;
+      document.getElementById('metaOrig').textContent=formatSize(origSize);
+      document.getElementById('metaB64').textContent=formatSize(b64Size);
+      document.getElementById('metaInc').textContent='+'+((b64Size/origSize-1)*100).toFixed(1)+'%';
+
+      document.getElementById('results').style.display='block';
+      dropZone.style.display='none';
+      updateOutput();
+    };
+    img.src=dataUri;
+  };
+  reader.readAsDataURL(file);
+}
+
+function formatSize(bytes){
+  if(bytes<1024)return bytes+' B';
+  if(bytes<1048576)return(bytes/1024).toFixed(1)+' KB';
+  return(bytes/1048576).toFixed(1)+' MB';
+}
+
+// Format tabs
+document.querySelectorAll('#formatTabs .tab').forEach(tab=>{
+  tab.onclick=()=>{
+    currentFmt=tab.dataset.fmt;
+    document.querySelectorAll('#formatTabs .tab').forEach(t=>t.classList.remove('active'));
+    tab.classList.add('active');
+    updateOutput();
+  };
+});
+
+function updateOutput(){
+  let out='';
+  switch(currentFmt){
+    case 'datauri':out=dataUri;break;
+    case 'css':out=`background-image: url('${dataUri}');`;break;
+    case 'html':out=`<img src="${dataUri}" alt="${fileName}" />`;break;
+    case 'markdown':out=`![${fileName}](${dataUri})`;break;
+    case 'raw':out=rawB64;break;
+  }
+  document.getElementById('output').textContent=out;
+}
+
+function copyOutput(){
+  const text=document.getElementById('output').textContent;
+  navigator.clipboard.writeText(text).then(()=>{
+    const t=document.getElementById('toast');t.style.display='block';
+    setTimeout(()=>t.style.display='none',1500);
+  });
+}
+
+function resetAll(){
+  document.getElementById('results').style.display='none';
+  dropZone.style.display='block';
+  fileInput.value='';
+  dataUri='';rawB64='';
+}
+</script>
+</body>
+</html>

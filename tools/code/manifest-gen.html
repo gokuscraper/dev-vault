@@ -1,0 +1,517 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web App Manifest Generator — Create manifest.json for PWAs</title>
+<meta name="description" content="Generate manifest.json for Progressive Web Apps. Icons, display mode, theme colors, shortcuts. Download or copy JSON. No signup.">
+<meta property="og:title" content="Web App Manifest Generator — Create manifest.json for PWAs">
+<meta property="og:description" content="Generate manifest.json for Progressive Web Apps. Icons, display mode, theme colors, shortcuts. Download or copy JSON. No signup.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://yurukusa.github.io/manifest-gen/">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="canonical" href="https://yurukusa.github.io/manifest-gen/">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebApplication","name":"Web App Manifest Generator","description":"Generate manifest.json for Progressive Web Apps. Icons, display mode, theme colors, shortcuts. Download or copy JSON. No signup.","url":"https://yurukusa.github.io/manifest-gen/","applicationCategory":"DeveloperApplication","operatingSystem":"Any","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"author":{"@type":"Organization","name":"yurukusa","url":"https://github.com/yurukusa"}}
+</script>
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;background:#0a0a0a;color:#e6e6e6;min-height:100vh}
+.container{max-width:960px;margin:0 auto;padding:20px 16px}
+h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
+.sub{text-align:center;color:#888;font-size:0.85rem;margin-bottom:16px}
+.layout{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+@media(max-width:700px){.layout{grid-template-columns:1fr}}
+.section{background:#161616;border:1px solid #222;border-radius:10px;padding:16px;margin-bottom:14px}
+.section h3{font-size:0.9rem;color:#4da6ff;margin-bottom:10px}
+.field{margin-bottom:10px}
+.field label{display:block;font-size:0.78rem;color:#888;margin-bottom:4px;font-weight:600}
+.field input,.field select,.field textarea{width:100%;background:#0d0d0d;border:1px solid #333;border-radius:6px;padding:6px 10px;color:#e6e6e6;font-size:0.82rem}
+.field input[type="color"]{width:60px;height:32px;padding:2px;cursor:pointer}
+.field textarea{resize:vertical;min-height:40px;font-family:inherit}
+.field-row{display:flex;gap:10px}
+.field-row .field{flex:1}
+.presets{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px}
+.preset{padding:5px 12px;border-radius:6px;border:1px solid #333;background:#161616;color:#888;font-size:0.75rem;cursor:pointer;font-weight:600}
+.preset:hover{border-color:#3b82f6;color:#4da6ff}
+.preset.active{border-color:#4da6ff;color:#4da6ff;background:#1a2744}
+.output-area{width:100%;min-height:300px;max-height:500px;background:#0d0d0d;border:1px solid #333;border-radius:8px;padding:10px;color:#e6e6e6;font-family:'Fira Code',monospace;font-size:0.72rem;overflow:auto;white-space:pre}
+.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.btn{padding:6px 14px;border-radius:6px;border:1px solid #333;background:#161616;color:#ccc;font-size:0.8rem;cursor:pointer;font-weight:600}
+.btn:hover{border-color:#3b82f6;color:#4da6ff}
+.btn-primary{background:#1a2744;color:#4da6ff;border-color:#2a4a7a}
+.add-btn{padding:4px 10px;border-radius:4px;border:1px solid #333;background:#161616;color:#4da6ff;cursor:pointer;font-size:0.75rem;font-weight:600}
+.add-btn:hover{border-color:#4da6ff}
+.remove-btn{padding:2px 8px;border-radius:4px;border:1px solid #442;background:#1a1616;color:#f66;cursor:pointer;font-size:0.7rem;font-weight:600}
+.remove-btn:hover{border-color:#f66}
+.item-card{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:6px;padding:10px;margin-bottom:8px}
+.item-header{display:flex;justify-content:space-between;align-items:center;margin-bottom:8px}
+.item-header span{font-size:0.75rem;color:#666}
+.toast{position:fixed;bottom:20px;right:20px;background:#238636;color:#fff;padding:10px 20px;border-radius:8px;font-size:0.85rem;display:none;z-index:99}
+.footer{text-align:center;margin-top:24px;padding:16px 0;border-top:1px solid #222}
+.footer a{color:#4da6ff;text-decoration:none;font-size:0.8rem}
+.related{margin-top:20px;text-align:center;font-size:0.8rem;color:#666}
+.related a{color:#4da6ff;text-decoration:none;margin:0 8px}
+.sticky{position:sticky;top:20px}
+</style>
+</head>
+<body>
+<div class="container">
+<h1>Web App Manifest Generator</h1>
+<p class="sub">Create manifest.json / manifest.webmanifest for Progressive Web Apps</p>
+
+<div class="presets">
+  <button class="preset" onclick="applyPreset('simple')">Simple PWA</button>
+  <button class="preset" onclick="applyPreset('full')">Full PWA</button>
+  <button class="preset" onclick="applyPreset('game')">Game</button>
+  <button class="preset" onclick="applyPreset('news')">News App</button>
+</div>
+
+<div class="layout">
+<div class="config-col">
+
+  <div class="section">
+    <h3>App Info</h3>
+    <div class="field"><label>Name</label><input type="text" id="f-name" oninput="generate()" placeholder="My App"></div>
+    <div class="field-row">
+      <div class="field"><label>Short Name</label><input type="text" id="f-short_name" oninput="generate()" placeholder="App"></div>
+      <div class="field"><label>ID (optional)</label><input type="text" id="f-id" oninput="generate()" placeholder="/"></div>
+    </div>
+    <div class="field"><label>Description</label><textarea id="f-description" oninput="generate()" placeholder="A progressive web app" rows="2"></textarea></div>
+    <div class="field-row">
+      <div class="field"><label>Start URL</label><input type="text" id="f-start_url" value="/" oninput="generate()"></div>
+      <div class="field"><label>Scope</label><input type="text" id="f-scope" value="/" oninput="generate()"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Display</h3>
+    <div class="field-row">
+      <div class="field"><label>Display</label>
+        <select id="f-display" onchange="generate()">
+          <option value="standalone" selected>standalone</option>
+          <option value="fullscreen">fullscreen</option>
+          <option value="minimal-ui">minimal-ui</option>
+          <option value="browser">browser</option>
+        </select>
+      </div>
+      <div class="field"><label>Orientation</label>
+        <select id="f-orientation" onchange="generate()">
+          <option value="any" selected>any</option>
+          <option value="portrait">portrait</option>
+          <option value="landscape">landscape</option>
+          <option value="portrait-primary">portrait-primary</option>
+          <option value="landscape-primary">landscape-primary</option>
+        </select>
+      </div>
+    </div>
+    <div class="field-row">
+      <div class="field"><label>Direction</label>
+        <select id="f-dir" onchange="generate()">
+          <option value="ltr" selected>ltr</option>
+          <option value="rtl">rtl</option>
+          <option value="auto">auto</option>
+        </select>
+      </div>
+      <div class="field"><label>Language</label><input type="text" id="f-lang" value="en" oninput="generate()"></div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Theme</h3>
+    <div class="field-row">
+      <div class="field"><label>Theme Color</label>
+        <div class="field-row"><input type="color" id="f-theme_color" value="#4da6ff" oninput="syncColor('theme_color')"><input type="text" id="f-theme_color_text" value="#4da6ff" oninput="syncColorText('theme_color')"></div>
+      </div>
+      <div class="field"><label>Background Color</label>
+        <div class="field-row"><input type="color" id="f-background_color" value="#ffffff" oninput="syncColor('background_color')"><input type="text" id="f-background_color_text" value="#ffffff" oninput="syncColorText('background_color')"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3>Icons</h3>
+    <div id="icons-list"></div>
+    <button class="add-btn" onclick="addIcon()">+ Add Icon</button>
+  </div>
+
+  <div class="section">
+    <h3>Categories</h3>
+    <div class="field"><label>Comma-separated</label><input type="text" id="f-categories" oninput="generate()" placeholder="business, productivity, utilities"></div>
+  </div>
+
+  <div class="section">
+    <h3>Screenshots (optional)</h3>
+    <div id="screenshots-list"></div>
+    <button class="add-btn" onclick="addScreenshot()">+ Add Screenshot</button>
+  </div>
+
+  <div class="section">
+    <h3>Shortcuts (optional)</h3>
+    <div id="shortcuts-list"></div>
+    <button class="add-btn" onclick="addShortcut()">+ Add Shortcut</button>
+  </div>
+
+  <div class="section">
+    <h3>Related Applications (optional)</h3>
+    <div id="related-apps-list"></div>
+    <button class="add-btn" onclick="addRelatedApp()">+ Add Related App</button>
+  </div>
+
+</div>
+
+<div class="output-col">
+  <div class="sticky">
+    <div class="section">
+      <h3>manifest.json</h3>
+      <div id="output" class="output-area"></div>
+      <div class="actions">
+        <button class="btn btn-primary" onclick="copyJSON()">Copy JSON</button>
+        <button class="btn" onclick="downloadJSON('manifest.json')">Download .json</button>
+        <button class="btn" onclick="downloadJSON('manifest.webmanifest')">Download .webmanifest</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+<div class="footer"><a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a></div>
+<div class="related">Related: <a href="https://yurukusa.github.io/favicon-gen/">Favicon Gen</a> | <a href="https://yurukusa.github.io/meta-tag-gen/">Meta Tags</a> | <a href="https://yurukusa.github.io/json-format/">JSON Format</a></div>
+</div>
+
+<div class="toast" id="toast">Copied!</div>
+
+<script>
+const ICON_SIZES = ['48x48','72x72','96x96','128x128','144x144','192x192','256x256','384x384','512x512'];
+
+let icons = [
+  {src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'},
+  {src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any'}
+];
+let screenshots = [];
+let shortcuts = [];
+let relatedApps = [];
+
+function val(id) { return document.getElementById(id).value.trim(); }
+function setVal(id, v) { document.getElementById(id).value = v; }
+
+function syncColor(field) {
+  const c = document.getElementById('f-' + field).value;
+  document.getElementById('f-' + field + '_text').value = c;
+  generate();
+}
+function syncColorText(field) {
+  const t = document.getElementById('f-' + field + '_text').value;
+  if (/^#[0-9a-fA-F]{6}$/.test(t)) {
+    document.getElementById('f-' + field).value = t;
+  }
+  generate();
+}
+
+function renderIcons() {
+  const el = document.getElementById('icons-list');
+  el.innerHTML = icons.map((ic, i) => `
+    <div class="item-card">
+      <div class="item-header"><span>Icon ${i + 1}</span><button class="remove-btn" onclick="icons.splice(${i},1);renderIcons();generate()">Remove</button></div>
+      <div class="field-row">
+        <div class="field"><label>Source URL</label><input type="text" value="${esc(ic.src)}" oninput="icons[${i}].src=this.value;generate()"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Sizes</label>
+          <select onchange="icons[${i}].sizes=this.value;generate()">
+            ${ICON_SIZES.map(s => `<option${s === ic.sizes ? ' selected' : ''}>${s}</option>`).join('')}
+          </select>
+        </div>
+        <div class="field"><label>Type</label><input type="text" value="${esc(ic.type)}" oninput="icons[${i}].type=this.value;generate()"></div>
+        <div class="field"><label>Purpose</label>
+          <select onchange="icons[${i}].purpose=this.value;generate()">
+            <option${ic.purpose==='any'?' selected':''}>any</option>
+            <option${ic.purpose==='maskable'?' selected':''}>maskable</option>
+            <option${ic.purpose==='monochrome'?' selected':''}>monochrome</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addIcon() {
+  icons.push({src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'});
+  renderIcons(); generate();
+}
+
+function renderScreenshots() {
+  const el = document.getElementById('screenshots-list');
+  el.innerHTML = screenshots.map((s, i) => `
+    <div class="item-card">
+      <div class="item-header"><span>Screenshot ${i + 1}</span><button class="remove-btn" onclick="screenshots.splice(${i},1);renderScreenshots();generate()">Remove</button></div>
+      <div class="field-row">
+        <div class="field"><label>Source URL</label><input type="text" value="${esc(s.src)}" oninput="screenshots[${i}].src=this.value;generate()"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>Sizes</label><input type="text" value="${esc(s.sizes)}" oninput="screenshots[${i}].sizes=this.value;generate()" placeholder="1280x720"></div>
+        <div class="field"><label>Type</label><input type="text" value="${esc(s.type)}" oninput="screenshots[${i}].type=this.value;generate()" placeholder="image/png"></div>
+        <div class="field"><label>Form Factor</label>
+          <select onchange="screenshots[${i}].form_factor=this.value;generate()">
+            <option value=""${!s.form_factor?' selected':''}>—</option>
+            <option${s.form_factor==='wide'?' selected':''}>wide</option>
+            <option${s.form_factor==='narrow'?' selected':''}>narrow</option>
+          </select>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addScreenshot() {
+  screenshots.push({src: '/screenshots/screen1.png', sizes: '1280x720', type: 'image/png', form_factor: ''});
+  renderScreenshots(); generate();
+}
+
+function renderShortcuts() {
+  const el = document.getElementById('shortcuts-list');
+  el.innerHTML = shortcuts.map((s, i) => `
+    <div class="item-card">
+      <div class="item-header"><span>Shortcut ${i + 1}</span><button class="remove-btn" onclick="shortcuts.splice(${i},1);renderShortcuts();generate()">Remove</button></div>
+      <div class="field-row">
+        <div class="field"><label>Name</label><input type="text" value="${esc(s.name)}" oninput="shortcuts[${i}].name=this.value;generate()"></div>
+        <div class="field"><label>Short Name</label><input type="text" value="${esc(s.short_name)}" oninput="shortcuts[${i}].short_name=this.value;generate()"></div>
+      </div>
+      <div class="field-row">
+        <div class="field"><label>URL</label><input type="text" value="${esc(s.url)}" oninput="shortcuts[${i}].url=this.value;generate()"></div>
+        <div class="field"><label>Icon URL</label><input type="text" value="${esc(s.icon)}" oninput="shortcuts[${i}].icon=this.value;generate()"></div>
+      </div>
+      <div class="field"><label>Description</label><input type="text" value="${esc(s.description)}" oninput="shortcuts[${i}].description=this.value;generate()"></div>
+    </div>
+  `).join('');
+}
+
+function addShortcut() {
+  shortcuts.push({name: 'New Shortcut', short_name: '', description: '', url: '/shortcut', icon: ''});
+  renderShortcuts(); generate();
+}
+
+function renderRelatedApps() {
+  const el = document.getElementById('related-apps-list');
+  el.innerHTML = relatedApps.map((a, i) => `
+    <div class="item-card">
+      <div class="item-header"><span>App ${i + 1}</span><button class="remove-btn" onclick="relatedApps.splice(${i},1);renderRelatedApps();generate()">Remove</button></div>
+      <div class="field-row">
+        <div class="field"><label>Platform</label>
+          <select onchange="relatedApps[${i}].platform=this.value;generate()">
+            <option${a.platform==='play'?' selected':''}>play</option>
+            <option${a.platform==='itunes'?' selected':''}>itunes</option>
+            <option${a.platform==='windows'?' selected':''}>windows</option>
+            <option${a.platform==='webapp'?' selected':''}>webapp</option>
+          </select>
+        </div>
+        <div class="field"><label>URL</label><input type="text" value="${esc(a.url)}" oninput="relatedApps[${i}].url=this.value;generate()"></div>
+        <div class="field"><label>ID</label><input type="text" value="${esc(a.id)}" oninput="relatedApps[${i}].id=this.value;generate()"></div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function addRelatedApp() {
+  relatedApps.push({platform: 'play', url: '', id: ''});
+  renderRelatedApps(); generate();
+}
+
+function esc(s) { return (s || '').replace(/"/g, '&quot;').replace(/</g, '&lt;'); }
+
+function generate() {
+  const manifest = {};
+
+  const name = val('f-name');
+  const short_name = val('f-short_name');
+  const description = val('f-description');
+  const start_url = val('f-start_url');
+  const scope = val('f-scope');
+  const id = val('f-id');
+  const display = val('f-display');
+  const orientation = val('f-orientation');
+  const dir = val('f-dir');
+  const lang = val('f-lang');
+  const theme_color = val('f-theme_color_text');
+  const background_color = val('f-background_color_text');
+  const categories = val('f-categories');
+
+  if (name) manifest.name = name;
+  if (short_name) manifest.short_name = short_name;
+  if (description) manifest.description = description;
+  if (id) manifest.id = id;
+  if (start_url) manifest.start_url = start_url;
+  if (scope) manifest.scope = scope;
+  manifest.display = display;
+  if (orientation !== 'any') manifest.orientation = orientation;
+  if (dir !== 'ltr') manifest.dir = dir;
+  if (lang) manifest.lang = lang;
+  if (theme_color) manifest.theme_color = theme_color;
+  if (background_color) manifest.background_color = background_color;
+
+  if (icons.length) {
+    manifest.icons = icons.map(ic => {
+      const obj = {src: ic.src, sizes: ic.sizes, type: ic.type};
+      if (ic.purpose && ic.purpose !== 'any') obj.purpose = ic.purpose;
+      return obj;
+    });
+  }
+
+  if (categories) {
+    manifest.categories = categories.split(',').map(c => c.trim().toLowerCase()).filter(Boolean);
+  }
+
+  if (screenshots.length) {
+    manifest.screenshots = screenshots.map(s => {
+      const obj = {src: s.src, sizes: s.sizes, type: s.type};
+      if (s.form_factor) obj.form_factor = s.form_factor;
+      return obj;
+    });
+  }
+
+  if (shortcuts.length) {
+    manifest.shortcuts = shortcuts.map(s => {
+      const obj = {name: s.name, url: s.url};
+      if (s.short_name) obj.short_name = s.short_name;
+      if (s.description) obj.description = s.description;
+      if (s.icon) obj.icons = [{src: s.icon, sizes: '192x192'}];
+      return obj;
+    });
+  }
+
+  if (relatedApps.length) {
+    manifest.prefer_related_applications = true;
+    manifest.related_applications = relatedApps.map(a => {
+      const obj = {platform: a.platform};
+      if (a.url) obj.url = a.url;
+      if (a.id) obj.id = a.id;
+      return obj;
+    });
+  }
+
+  const json = JSON.stringify(manifest, null, 2);
+  document.getElementById('output').textContent = json;
+  return json;
+}
+
+function copyJSON() {
+  const json = generate();
+  navigator.clipboard.writeText(json).then(() => showToast('Copied!'));
+}
+
+function downloadJSON(filename) {
+  const json = generate();
+  const blob = new Blob([json], {type: 'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = filename;
+  a.click();
+  URL.revokeObjectURL(a.href);
+  showToast('Downloaded ' + filename);
+}
+
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.style.display = 'block';
+  setTimeout(() => t.style.display = 'none', 1500);
+}
+
+const PRESETS = {
+  simple: {
+    name: 'My App', short_name: 'App', description: 'A simple progressive web app',
+    start_url: '/', scope: '/', id: '', display: 'standalone', orientation: 'any',
+    dir: 'ltr', lang: 'en', theme_color: '#4da6ff', background_color: '#ffffff',
+    categories: '', icons: [
+      {src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any'}
+    ], screenshots: [], shortcuts: [], relatedApps: []
+  },
+  full: {
+    name: 'My Full PWA', short_name: 'FullPWA', description: 'A fully-featured progressive web app with shortcuts and screenshots',
+    start_url: '/', scope: '/', id: '/', display: 'standalone', orientation: 'any',
+    dir: 'ltr', lang: 'en', theme_color: '#1a1a2e', background_color: '#ffffff',
+    categories: 'productivity, utilities', icons: [
+      {src: '/icons/icon-48x48.png', sizes: '48x48', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-72x72.png', sizes: '72x72', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-96x96.png', sizes: '96x96', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-144x144.png', sizes: '144x144', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-maskable-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable'},
+      {src: '/icons/icon-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable'}
+    ], screenshots: [
+      {src: '/screenshots/desktop.png', sizes: '1280x720', type: 'image/png', form_factor: 'wide'},
+      {src: '/screenshots/mobile.png', sizes: '750x1334', type: 'image/png', form_factor: 'narrow'}
+    ], shortcuts: [
+      {name: 'New Document', short_name: 'New', description: 'Create a new document', url: '/new', icon: '/icons/shortcut-new.png'},
+      {name: 'Settings', short_name: 'Settings', description: 'App settings', url: '/settings', icon: '/icons/shortcut-settings.png'}
+    ], relatedApps: []
+  },
+  game: {
+    name: 'My Game', short_name: 'Game', description: 'A web-based game',
+    start_url: '/', scope: '/', id: '', display: 'fullscreen', orientation: 'landscape',
+    dir: 'ltr', lang: 'en', theme_color: '#000000', background_color: '#000000',
+    categories: 'games, entertainment', icons: [
+      {src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-maskable-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable'}
+    ], screenshots: [
+      {src: '/screenshots/gameplay.png', sizes: '1920x1080', type: 'image/png', form_factor: 'wide'}
+    ], shortcuts: [], relatedApps: []
+  },
+  news: {
+    name: 'News Reader', short_name: 'News', description: 'Stay updated with the latest news',
+    start_url: '/', scope: '/', id: '', display: 'standalone', orientation: 'portrait',
+    dir: 'ltr', lang: 'en', theme_color: '#d32f2f', background_color: '#ffffff',
+    categories: 'news, magazines', icons: [
+      {src: '/icons/icon-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-512x512.png', sizes: '512x512', type: 'image/png', purpose: 'any'},
+      {src: '/icons/icon-maskable-192x192.png', sizes: '192x192', type: 'image/png', purpose: 'maskable'}
+    ], screenshots: [], shortcuts: [
+      {name: 'Breaking News', short_name: 'Breaking', description: 'View breaking news', url: '/breaking', icon: '/icons/shortcut-breaking.png'},
+      {name: 'Saved Articles', short_name: 'Saved', description: 'View saved articles', url: '/saved', icon: '/icons/shortcut-saved.png'}
+    ], relatedApps: []
+  }
+};
+
+function applyPreset(key) {
+  const p = PRESETS[key];
+  setVal('f-name', p.name);
+  setVal('f-short_name', p.short_name);
+  setVal('f-description', p.description);
+  setVal('f-start_url', p.start_url);
+  setVal('f-scope', p.scope);
+  setVal('f-id', p.id);
+  setVal('f-display', p.display);
+  setVal('f-orientation', p.orientation);
+  setVal('f-dir', p.dir);
+  setVal('f-lang', p.lang);
+  setVal('f-theme_color', p.theme_color);
+  setVal('f-theme_color_text', p.theme_color);
+  setVal('f-background_color', p.background_color);
+  setVal('f-background_color_text', p.background_color);
+  setVal('f-categories', p.categories);
+
+  icons = JSON.parse(JSON.stringify(p.icons));
+  screenshots = JSON.parse(JSON.stringify(p.screenshots));
+  shortcuts = JSON.parse(JSON.stringify(p.shortcuts));
+  relatedApps = JSON.parse(JSON.stringify(p.relatedApps));
+
+  document.querySelectorAll('.preset').forEach(b => b.classList.remove('active'));
+  event.target.classList.add('active');
+
+  renderIcons(); renderScreenshots(); renderShortcuts(); renderRelatedApps();
+  generate();
+}
+
+// Init
+renderIcons();
+renderScreenshots();
+renderShortcuts();
+renderRelatedApps();
+generate();
+</script>
+</body>
+</html>

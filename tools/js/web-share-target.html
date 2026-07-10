@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Web Share Target Playground — Dev Toolkit</title>
+<meta name="description" content="Interactive Web Share Target API playground. Build share_target manifest configurations, explore POST/GET methods, file handling, and service worker code generation.">
+<meta property="og:title" content="Web Share Target Playground — Dev Toolkit">
+<meta property="og:description" content="Build share_target manifest configurations, explore POST/GET methods, file handling, and service worker code generation.">
+<meta property="og:type" content="website">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg: #0a0a0a;
+  --bg-elevated: #141414;
+  --bg-surface: #1a1a1a;
+  --bg-input: #222222;
+  --border: #2a2a2a;
+  --border-hover: #3a3a3a;
+  --text: #e6e6e6;
+  --text-secondary: #999;
+  --text-dim: #666;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-glow: rgba(59, 130, 246, 0.15);
+  --green: #22c55e;
+  --orange: #f59e0b;
+  --red: #ef4444;
+  --purple: #a855f7;
+  --radius: 8px;
+  --radius-lg: 12px;
+  --font: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'JetBrains Mono', 'Fira Code', monospace;
+}
+
+html { font-size: 14px; }
+body { font-family: var(--font); background: var(--bg); color: var(--text); min-height: 100vh; overflow-x: hidden; }
+
+.header {
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 24px; border-bottom: 1px solid var(--border); background: var(--bg-elevated);
+}
+.header h1 { font-size: 1.15rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+.header h1 .icon { width: 28px; height: 28px; background: var(--accent); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+.header .links { display: flex; gap: 12px; }
+.header .links a { color: var(--text-secondary); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+.header .links a:hover { color: var(--text); }
+
+.tabs {
+  display: flex; gap: 0; border-bottom: 1px solid var(--border);
+  background: var(--bg-elevated); overflow-x: auto;
+}
+.tab {
+  padding: 12px 20px; background: none; border: none; color: var(--text-secondary);
+  cursor: pointer; font-family: var(--font); font-size: 0.85rem; font-weight: 500;
+  border-bottom: 2px solid transparent; white-space: nowrap; transition: all 0.2s;
+}
+.tab:hover { color: var(--text); background: rgba(255,255,255,0.03); }
+.tab.active { color: var(--accent); border-bottom-color: var(--accent); }
+
+.container { max-width: 1200px; margin: 0 auto; padding: 24px; }
+
+.panel { display: none; animation: fadeIn 0.3s ease; }
+.panel.active { display: block; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+
+.card { background: var(--bg-surface); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px; margin-bottom: 16px; }
+.card h2 { font-size: 1.05rem; font-weight: 600; margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+.card h3 { font-size: 0.9rem; font-weight: 600; margin: 16px 0 8px; color: var(--text-secondary); }
+.card p, .card li { color: var(--text-secondary); line-height: 1.6; font-size: 0.9rem; }
+
+.grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 768px) { .grid-2 { grid-template-columns: 1fr; } }
+
+label { display: block; font-size: 0.8rem; color: var(--text-secondary); margin-bottom: 4px; font-weight: 500; }
+input[type="text"], input[type="url"], select, textarea {
+  width: 100%; padding: 10px 12px; background: var(--bg-input); border: 1px solid var(--border);
+  border-radius: var(--radius); color: var(--text); font-family: var(--font); font-size: 0.85rem;
+  outline: none; transition: border-color 0.2s;
+}
+input:focus, select:focus, textarea:focus { border-color: var(--accent); }
+textarea { font-family: var(--mono); resize: vertical; min-height: 80px; }
+.form-group { margin-bottom: 12px; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px;
+  background: var(--accent); color: #fff; border: none; border-radius: var(--radius);
+  font-family: var(--font); font-size: 0.85rem; font-weight: 500; cursor: pointer; transition: background 0.2s;
+}
+.btn:hover { background: var(--accent-hover); }
+.btn.secondary { background: var(--bg-input); color: var(--text); border: 1px solid var(--border); }
+.btn.secondary:hover { border-color: var(--border-hover); }
+.btn.success { background: var(--green); }
+.btn.danger { background: var(--red); }
+.btn-group { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 12px; }
+
+code { font-family: var(--mono); font-size: 0.82rem; background: var(--bg-input); padding: 2px 6px; border-radius: 4px; color: var(--accent); }
+pre {
+  background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius);
+  padding: 14px; overflow-x: auto; font-family: var(--mono); font-size: 0.8rem;
+  line-height: 1.6; color: var(--text-secondary); margin: 8px 0; position: relative;
+}
+.copy-btn {
+  position: absolute; top: 8px; right: 8px; padding: 4px 10px; background: var(--bg-surface);
+  border: 1px solid var(--border); border-radius: 4px; color: var(--text-secondary); cursor: pointer;
+  font-size: 0.75rem; font-family: var(--font);
+}
+.copy-btn:hover { color: var(--text); border-color: var(--border-hover); }
+
+.method-card {
+  background: var(--bg-input); border: 2px solid var(--border); border-radius: var(--radius);
+  padding: 16px; cursor: pointer; transition: all 0.2s;
+}
+.method-card:hover { border-color: var(--border-hover); }
+.method-card.selected { border-color: var(--accent); background: var(--accent-glow); }
+.method-card .m-title { font-weight: 600; margin-bottom: 6px; font-size: 0.9rem; }
+.method-card .m-desc { font-size: 0.8rem; color: var(--text-secondary); line-height: 1.5; }
+
+.file-type-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(180px, 1fr)); gap: 8px; margin-top: 8px; }
+.file-type-item {
+  display: flex; align-items: center; gap: 8px; padding: 8px 12px;
+  background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius);
+  cursor: pointer; transition: all 0.2s; font-size: 0.82rem;
+}
+.file-type-item:hover { border-color: var(--border-hover); }
+.file-type-item.selected { border-color: var(--green); background: rgba(34,197,94,0.1); }
+.file-type-item input[type="checkbox"] { accent-color: var(--green); }
+
+.state-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 12px; margin-top: 12px; }
+.state-item { background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius); padding: 12px; text-align: center; }
+.state-item .state-label { font-size: 0.75rem; color: var(--text-dim); margin-bottom: 4px; }
+.state-item .state-value { font-size: 1rem; font-weight: 600; }
+
+.info-box {
+  padding: 14px; border-radius: var(--radius); margin: 8px 0; font-size: 0.85rem; line-height: 1.5;
+}
+.info-box.info { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.2); color: var(--accent); }
+.info-box.warn { background: rgba(245,158,11,0.08); border: 1px solid rgba(245,158,11,0.2); color: var(--orange); }
+.info-box.success { background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.2); color: var(--green); }
+
+.footer { text-align: center; padding: 24px; color: var(--text-dim); font-size: 0.8rem; border-top: 1px solid var(--border); margin-top: 40px; }
+.footer a { color: var(--accent); text-decoration: none; }
+.footer a:hover { text-decoration: underline; }
+
+.param-row {
+  display: grid; grid-template-columns: 120px 1fr 1fr; gap: 8px; align-items: center;
+  padding: 8px 0; border-bottom: 1px solid var(--border);
+}
+.param-row:last-child { border-bottom: none; }
+@media (max-width: 600px) { .param-row { grid-template-columns: 1fr; } }
+
+.routing-diagram {
+  display: flex; flex-direction: column; gap: 16px; padding: 16px;
+}
+.route-path {
+  display: flex; align-items: center; gap: 12px; padding: 12px; background: var(--bg-input);
+  border: 1px solid var(--border); border-radius: var(--radius); font-size: 0.85rem;
+}
+.route-path .route-method {
+  padding: 4px 10px; border-radius: 4px; font-weight: 600; font-size: 0.75rem; font-family: var(--mono);
+}
+.route-path .route-method.get { background: rgba(34,197,94,0.2); color: var(--green); }
+.route-path .route-method.post { background: rgba(59,130,246,0.2); color: var(--accent); }
+.route-path .route-url { font-family: var(--mono); color: var(--text-secondary); }
+.route-path .route-desc { color: var(--text-dim); margin-left: auto; }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <h1><span class="icon">📤</span> Web Share Target Playground</h1>
+  <div class="links">
+    <a href="https://yurukusa.github.io/dev-toolkit/" target="_blank">Dev Toolkit</a>
+    <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest/share_target" target="_blank">MDN Docs</a>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab active" data-tab="builder">Manifest Builder</button>
+  <button class="tab" data-tab="methods">POST vs GET</button>
+  <button class="tab" data-tab="enctype">Encoding Types</button>
+  <button class="tab" data-tab="files">File Receiving</button>
+  <button class="tab" data-tab="routing">Action URL Routing</button>
+  <button class="tab" data-tab="params">Params Mapping</button>
+  <button class="tab" data-tab="sw">Service Worker Generator</button>
+</nav>
+
+<main class="container">
+
+  <!-- Manifest Builder Panel -->
+  <div class="panel active" id="panel-builder">
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h2>🎯 share_target Configuration</h2>
+          <div class="form-group">
+            <label>Action URL</label>
+            <input type="text" id="stAction" value="/share-receiver" placeholder="/share-handler">
+          </div>
+          <div class="form-group">
+            <label>Method</label>
+            <select id="stMethod">
+              <option value="GET">GET</option>
+              <option value="POST">POST</option>
+            </select>
+          </div>
+          <div class="form-group" id="enctypeGroup" style="display:none;">
+            <label>Encoding Type</label>
+            <select id="stEnctype">
+              <option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
+              <option value="multipart/form-data">multipart/form-data</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>📝 Params</h2>
+          <div class="form-group">
+            <label>Title parameter name</label>
+            <input type="text" id="paramTitle" value="title" placeholder="title">
+          </div>
+          <div class="form-group">
+            <label>Text parameter name</label>
+            <input type="text" id="paramText" value="text" placeholder="text">
+          </div>
+          <div class="form-group">
+            <label>URL parameter name</label>
+            <input type="text" id="paramUrl" value="url" placeholder="url">
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>📎 Files (optional)</h2>
+          <div id="fileEntries"></div>
+          <div class="btn-group">
+            <button class="btn secondary" onclick="addFileEntry()">+ Add File Type</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>📱 App Metadata</h2>
+          <div class="form-group">
+            <label>App Name</label>
+            <input type="text" id="appName" value="My Share Target App" placeholder="App Name">
+          </div>
+          <div class="form-group">
+            <label>Short Name</label>
+            <input type="text" id="appShortName" value="ShareApp" placeholder="Short Name">
+          </div>
+          <div class="form-group">
+            <label>Start URL</label>
+            <input type="text" id="appStartUrl" value="/" placeholder="/">
+          </div>
+          <div class="form-group">
+            <label>Display</label>
+            <select id="appDisplay">
+              <option value="standalone">standalone</option>
+              <option value="minimal-ui">minimal-ui</option>
+              <option value="fullscreen">fullscreen</option>
+              <option value="browser">browser</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="position:sticky; top:16px;">
+          <h2>📋 Generated manifest.json</h2>
+          <div style="position:relative;">
+            <pre id="manifestOutput" style="max-height:500px; overflow-y:auto;"></pre>
+            <button class="copy-btn" onclick="copyManifest()">Copy</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn" onclick="downloadManifest()">Download manifest.json</button>
+            <button class="btn secondary" onclick="resetBuilder()">Reset</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- POST vs GET Panel -->
+  <div class="panel" id="panel-methods">
+    <div class="card">
+      <h2>🔄 POST vs GET Method Handling</h2>
+      <p>The <code>method</code> field in share_target determines how shared data is sent to your action URL.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="method-card selected" id="getMethodCard" onclick="selectMethod('GET')">
+        <div class="m-title" style="color:var(--green);">GET Method</div>
+        <div class="m-desc">
+          <p>Data is appended as URL query parameters. Simple but limited — no file sharing support.</p>
+          <ul style="margin-top:8px; padding-left:16px;">
+            <li>Data visible in URL</li>
+            <li>URL length limitations</li>
+            <li>No file uploads</li>
+            <li>Easy to implement</li>
+            <li>Works without service worker</li>
+          </ul>
+        </div>
+      </div>
+      <div class="method-card" id="postMethodCard" onclick="selectMethod('POST')">
+        <div class="m-title" style="color:var(--accent);">POST Method</div>
+        <div class="m-desc">
+          <p>Data is sent in the request body. Supports files and larger payloads.</p>
+          <ul style="margin-top:8px; padding-left:16px;">
+            <li>Data in request body</li>
+            <li>No URL length limits</li>
+            <li>File upload support</li>
+            <li>Requires service worker</li>
+            <li>More secure for sensitive data</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card" style="margin-top:16px;">
+      <h2>📝 Example Manifest</h2>
+      <pre id="methodExample"></pre>
+      <h3>Handler Code</h3>
+      <pre id="methodHandler"></pre>
+    </div>
+  </div>
+
+  <!-- Encoding Types Panel -->
+  <div class="panel" id="panel-enctype">
+    <div class="card">
+      <h2>📦 Encoding Types</h2>
+      <p>When using <code>method: "POST"</code>, the <code>enctype</code> field determines how the shared data is encoded in the request body.</p>
+    </div>
+
+    <div class="grid-2">
+      <div class="card">
+        <h2 style="color:var(--orange);">application/x-www-form-urlencoded</h2>
+        <p>Default encoding. Data is sent as key=value pairs, URL-encoded. Cannot handle file uploads.</p>
+        <pre>// Request body format:
+title=Hello%20World&text=Check%20this&url=https%3A%2F%2F...
+
+// manifest.json
+"share_target": {
+  "action": "/share",
+  "method": "POST",
+  "enctype": "application/x-www-form-urlencoded",
+  "params": {
+    "title": "title",
+    "text": "text",
+    "url": "url"
+  }
+}</pre>
+        <h3>Service Worker Handling</h3>
+        <pre>self.addEventListener('fetch', (event) => {
+  if (event.request.url.includes('/share')) {
+    event.respondWith((async () => {
+      const formData = await event.request.formData();
+      const title = formData.get('title');
+      const text = formData.get('text');
+      const url = formData.get('url');
+
+      // Process shared data...
+      return Response.redirect('/shared?success=true', 303);
+    })());
+  }
+});</pre>
+      </div>
+
+      <div class="card">
+        <h2 style="color:var(--purple);">multipart/form-data</h2>
+        <p>Required for file uploads. Data is sent as multipart boundaries. Use this when accepting shared images, documents, etc.</p>
+        <pre>// Request body format:
+------WebKitFormBoundary
+Content-Disposition: form-data; name="title"
+
+Hello World
+------WebKitFormBoundary
+Content-Disposition: form-data; name="image";
+  filename="photo.jpg"
+Content-Type: image/jpeg
+
+[binary data]
+------WebKitFormBoundary--
+
+// manifest.json
+"share_target": {
+  "action": "/share",
+  "method": "POST",
+  "enctype": "multipart/form-data",
+  "params": {
+    "title": "title",
+    "text": "text",
+    "url": "url",
+    "files": [{
+      "name": "image",
+      "accept": ["image/*"]
+    }]
+  }
+}</pre>
+        <h3>Service Worker Handling</h3>
+        <pre>self.addEventListener('fetch', (event) => {
+  if (event.request.url.includes('/share')) {
+    event.respondWith((async () => {
+      const formData = await event.request.formData();
+      const image = formData.get('image');
+
+      if (image &amp;&amp; image.size > 0) {
+        // Store in Cache API or IndexedDB
+        const cache = await caches.open('shared-files');
+        await cache.put('/shared-image',
+          new Response(image));
+      }
+
+      return Response.redirect('/viewer', 303);
+    })());
+  }
+});</pre>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>⚖️ Comparison</h2>
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
+          <thead>
+            <tr style="border-bottom:1px solid var(--border);">
+              <th style="text-align:left; padding:10px; color:var(--text-secondary);">Feature</th>
+              <th style="text-align:center; padding:10px; color:var(--orange);">x-www-form-urlencoded</th>
+              <th style="text-align:center; padding:10px; color:var(--purple);">multipart/form-data</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">File support</td><td style="padding:10px; text-align:center;">No</td><td style="padding:10px; text-align:center;">Yes</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Binary data</td><td style="padding:10px; text-align:center;">No (URL-encoded)</td><td style="padding:10px; text-align:center;">Yes (raw binary)</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Data size</td><td style="padding:10px; text-align:center;">Limited</td><td style="padding:10px; text-align:center;">Unlimited</td></tr>
+            <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Overhead</td><td style="padding:10px; text-align:center;">Low</td><td style="padding:10px; text-align:center;">Higher (boundaries)</td></tr>
+            <tr><td style="padding:10px;">Use case</td><td style="padding:10px; text-align:center;">Text-only shares</td><td style="padding:10px; text-align:center;">Files + text shares</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- File Receiving Panel -->
+  <div class="panel" id="panel-files">
+    <div class="card">
+      <h2>📂 File Receiving Configuration</h2>
+      <p>Web Share Target can receive shared files (images, text, PDFs, etc.) when configured with <code>method: "POST"</code> and <code>enctype: "multipart/form-data"</code>.</p>
+    </div>
+
+    <div class="card">
+      <h2>🎨 Common File Type Presets</h2>
+      <p>Select the file types your app should accept:</p>
+      <div class="file-type-grid" id="fileTypeGrid"></div>
+    </div>
+
+    <div class="card">
+      <h2>📋 Generated Files Configuration</h2>
+      <pre id="filesConfig"></pre>
+    </div>
+
+    <div class="card">
+      <h2>🔧 Service Worker File Handler</h2>
+      <pre id="fileHandlerCode"></pre>
+    </div>
+
+    <div class="card">
+      <h2>💡 Best Practices</h2>
+      <div class="info-box info">Files shared to your PWA are received by the service worker. Store them in Cache API or IndexedDB, then redirect to a page that reads the stored file.</div>
+      <div class="info-box warn">Always validate file types and sizes in your service worker. The <code>accept</code> field in the manifest is only a hint to the OS — it does not enforce validation.</div>
+      <div class="info-box success">Use <code>image/*</code> for broad image support, or list specific MIME types like <code>image/png</code>, <code>image/jpeg</code> for strict filtering.</div>
+    </div>
+  </div>
+
+  <!-- Action URL Routing Panel -->
+  <div class="panel" id="panel-routing">
+    <div class="card">
+      <h2>🛣️ Action URL Routing</h2>
+      <p>The <code>action</code> field defines where shared data is sent. This URL must be within your PWA's scope.</p>
+    </div>
+
+    <div class="card">
+      <h2>📍 Route Configuration</h2>
+      <div class="form-group">
+        <label>PWA Scope</label>
+        <input type="text" id="pwaScope" value="/" placeholder="/">
+      </div>
+      <div class="form-group">
+        <label>Action URL</label>
+        <input type="text" id="routeAction" value="/share-handler" placeholder="/share-handler">
+      </div>
+      <div class="form-group">
+        <label>Start URL</label>
+        <input type="text" id="routeStart" value="/" placeholder="/">
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🗺️ Route Map</h2>
+      <div class="routing-diagram" id="routeMap"></div>
+    </div>
+
+    <div class="card">
+      <h2>📝 Route Handler Examples</h2>
+      <h3>Client-side (for GET method)</h3>
+      <pre>// In your share-handler page's JavaScript:
+const params = new URLSearchParams(window.location.search);
+const sharedData = {
+  title: params.get('title'),
+  text: params.get('text'),
+  url: params.get('url')
+};
+
+// Process the shared data
+document.getElementById('shared-title').textContent = sharedData.title;
+document.getElementById('shared-text').textContent = sharedData.text;
+document.getElementById('shared-url').href = sharedData.url;</pre>
+
+      <h3>Service Worker (for POST method)</h3>
+      <pre>self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  // Match the share target action URL
+  if (url.pathname === '/share-handler'
+      &amp;&amp; event.request.method === 'POST') {
+    event.respondWith(handleShare(event.request));
+  }
+});
+
+async function handleShare(request) {
+  const formData = await request.formData();
+
+  // Store shared data for the client page
+  const cache = await caches.open('share-data');
+  const sharePayload = JSON.stringify({
+    title: formData.get('title'),
+    text: formData.get('text'),
+    url: formData.get('url'),
+    timestamp: Date.now()
+  });
+
+  await cache.put('/latest-share',
+    new Response(sharePayload, {
+      headers: { 'Content-Type': 'application/json' }
+    })
+  );
+
+  // Redirect to the app page that reads the cache
+  return Response.redirect('/?shared=true', 303);
+}</pre>
+    </div>
+  </div>
+
+  <!-- Params Mapping Panel -->
+  <div class="panel" id="panel-params">
+    <div class="card">
+      <h2>🗺️ Params Mapping</h2>
+      <p>The <code>params</code> object maps standard share fields (title, text, url, files) to your app's parameter names.</p>
+    </div>
+
+    <div class="card">
+      <h2>🎯 Standard Share Fields</h2>
+      <div class="param-row" style="font-weight:600; color:var(--text-secondary); font-size:0.8rem;">
+        <span>Share Field</span>
+        <span>Your Param Name</span>
+        <span>Description</span>
+      </div>
+      <div class="param-row">
+        <span><code>title</code></span>
+        <input type="text" id="mapTitle" value="title" style="max-width:200px;">
+        <span style="color:var(--text-secondary); font-size:0.82rem;">Title of shared content</span>
+      </div>
+      <div class="param-row">
+        <span><code>text</code></span>
+        <input type="text" id="mapText" value="text" style="max-width:200px;">
+        <span style="color:var(--text-secondary); font-size:0.82rem;">Body text or description</span>
+      </div>
+      <div class="param-row">
+        <span><code>url</code></span>
+        <input type="text" id="mapUrl" value="url" style="max-width:200px;">
+        <span style="color:var(--text-secondary); font-size:0.82rem;">URL being shared</span>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>🧪 Simulate Share</h2>
+      <p>Enter sample shared data to see how it maps to your parameters:</p>
+      <div class="grid-2" style="margin-top:12px;">
+        <div>
+          <div class="form-group">
+            <label>Shared Title</label>
+            <input type="text" id="simTitle" value="Interesting Article" placeholder="Title">
+          </div>
+          <div class="form-group">
+            <label>Shared Text</label>
+            <input type="text" id="simText" value="Check out this great article about Web APIs!" placeholder="Text">
+          </div>
+          <div class="form-group">
+            <label>Shared URL</label>
+            <input type="text" id="simUrl" value="https://example.com/article" placeholder="URL">
+          </div>
+          <button class="btn" onclick="simulateShare()">Simulate Share</button>
+        </div>
+        <div>
+          <h3>GET Result URL</h3>
+          <pre id="simGetResult" style="word-break:break-all;"></pre>
+          <h3>POST Result Body</h3>
+          <pre id="simPostResult"></pre>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>📋 Mapped Manifest</h2>
+      <pre id="paramsManifest"></pre>
+    </div>
+  </div>
+
+  <!-- Service Worker Generator Panel -->
+  <div class="panel" id="panel-sw">
+    <div class="card">
+      <h2>⚙️ Service Worker Share Handler Generator</h2>
+      <p>Generate a service worker that handles incoming share data. Configure options below and copy the generated code.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="card">
+          <h2>Configuration</h2>
+          <div class="form-group">
+            <label>Action URL path</label>
+            <input type="text" id="swAction" value="/share-handler" placeholder="/share-handler">
+          </div>
+          <div class="form-group">
+            <label>Storage Strategy</label>
+            <select id="swStorage">
+              <option value="cache">Cache API</option>
+              <option value="indexeddb">IndexedDB</option>
+              <option value="clients">Client postMessage</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Handle Files</label>
+            <select id="swFiles">
+              <option value="no">No file handling</option>
+              <option value="images">Images only</option>
+              <option value="all">All file types</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Redirect After Share</label>
+            <input type="text" id="swRedirect" value="/" placeholder="/">
+          </div>
+          <div class="form-group">
+            <label>Cache Name</label>
+            <input type="text" id="swCacheName" value="shared-data" placeholder="shared-data">
+          </div>
+          <div class="btn-group">
+            <button class="btn" onclick="generateSW()">Generate Service Worker</button>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="card" style="position:sticky; top:16px;">
+          <h2>📝 Generated sw.js</h2>
+          <div style="position:relative;">
+            <pre id="swOutput" style="max-height:500px; overflow-y:auto;"></pre>
+            <button class="copy-btn" onclick="copySW()">Copy</button>
+          </div>
+          <div class="btn-group">
+            <button class="btn secondary" onclick="downloadSW()">Download sw.js</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</main>
+
+<footer class="footer">
+  Part of <a href="https://yurukusa.github.io/dev-toolkit/">Dev Toolkit</a> — Free browser-based developer tools
+</footer>
+
+<script>
+// === Tab Navigation ===
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    document.getElementById('panel-' + tab.dataset.tab).classList.add('active');
+  });
+});
+
+// === Manifest Builder ===
+const builderInputs = ['stAction', 'stMethod', 'stEnctype', 'paramTitle', 'paramText', 'paramUrl', 'appName', 'appShortName', 'appStartUrl', 'appDisplay'];
+builderInputs.forEach(id => {
+  document.getElementById(id).addEventListener('input', updateManifest);
+  document.getElementById(id).addEventListener('change', updateManifest);
+});
+
+document.getElementById('stMethod').addEventListener('change', function() {
+  document.getElementById('enctypeGroup').style.display = this.value === 'POST' ? 'block' : 'none';
+  updateManifest();
+});
+
+let fileEntries = [];
+
+function addFileEntry() {
+  const id = Date.now();
+  fileEntries.push({ id, name: 'media', accept: 'image/*' });
+  renderFileEntries();
+  updateManifest();
+}
+
+function removeFileEntry(id) {
+  fileEntries = fileEntries.filter(f => f.id !== id);
+  renderFileEntries();
+  updateManifest();
+}
+
+function renderFileEntries() {
+  const container = document.getElementById('fileEntries');
+  container.innerHTML = fileEntries.map(f => `
+    <div style="display:flex; gap:8px; margin-bottom:8px; align-items:end;">
+      <div style="flex:1;">
+        <label>Field name</label>
+        <input type="text" value="${f.name}" onchange="updateFileEntry(${f.id}, 'name', this.value)" placeholder="media">
+      </div>
+      <div style="flex:2;">
+        <label>Accept (comma-separated)</label>
+        <input type="text" value="${f.accept}" onchange="updateFileEntry(${f.id}, 'accept', this.value)" placeholder="image/*, .png, .jpg">
+      </div>
+      <button class="btn danger" onclick="removeFileEntry(${f.id})" style="padding:10px; margin-bottom:0;">✕</button>
+    </div>
+  `).join('');
+}
+
+function updateFileEntry(id, field, value) {
+  const entry = fileEntries.find(f => f.id === id);
+  if (entry) entry[field] = value;
+  updateManifest();
+}
+
+function updateManifest() {
+  const method = document.getElementById('stMethod').value;
+  const manifest = {
+    name: document.getElementById('appName').value,
+    short_name: document.getElementById('appShortName').value,
+    start_url: document.getElementById('appStartUrl').value,
+    display: document.getElementById('appDisplay').value,
+    background_color: "#0a0a0a",
+    theme_color: "#3b82f6",
+    share_target: {
+      action: document.getElementById('stAction').value,
+      method: method,
+      params: {
+        title: document.getElementById('paramTitle').value || undefined,
+        text: document.getElementById('paramText').value || undefined,
+        url: document.getElementById('paramUrl').value || undefined
+      }
+    }
+  };
+
+  if (method === 'POST') {
+    manifest.share_target.enctype = document.getElementById('stEnctype').value;
+  }
+
+  if (fileEntries.length > 0 && method === 'POST') {
+    manifest.share_target.params.files = fileEntries.map(f => ({
+      name: f.name,
+      accept: f.accept.split(',').map(s => s.trim())
+    }));
+  }
+
+  // Clean undefined
+  Object.keys(manifest.share_target.params).forEach(k => {
+    if (!manifest.share_target.params[k]) delete manifest.share_target.params[k];
+  });
+
+  document.getElementById('manifestOutput').textContent = JSON.stringify(manifest, null, 2);
+}
+
+function copyManifest() {
+  navigator.clipboard.writeText(document.getElementById('manifestOutput').textContent);
+  document.querySelector('#panel-builder .copy-btn').textContent = 'Copied!';
+  setTimeout(() => document.querySelector('#panel-builder .copy-btn').textContent = 'Copy', 1500);
+}
+
+function downloadManifest() {
+  const blob = new Blob([document.getElementById('manifestOutput').textContent], { type: 'application/json' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'manifest.json';
+  a.click();
+}
+
+function resetBuilder() {
+  document.getElementById('stAction').value = '/share-receiver';
+  document.getElementById('stMethod').value = 'GET';
+  document.getElementById('stEnctype').value = 'application/x-www-form-urlencoded';
+  document.getElementById('paramTitle').value = 'title';
+  document.getElementById('paramText').value = 'text';
+  document.getElementById('paramUrl').value = 'url';
+  document.getElementById('appName').value = 'My Share Target App';
+  document.getElementById('appShortName').value = 'ShareApp';
+  document.getElementById('appStartUrl').value = '/';
+  document.getElementById('appDisplay').value = 'standalone';
+  document.getElementById('enctypeGroup').style.display = 'none';
+  fileEntries = [];
+  renderFileEntries();
+  updateManifest();
+}
+
+// === POST vs GET ===
+let selectedMethodView = 'GET';
+
+function selectMethod(method) {
+  selectedMethodView = method;
+  document.getElementById('getMethodCard').classList.toggle('selected', method === 'GET');
+  document.getElementById('postMethodCard').classList.toggle('selected', method === 'POST');
+  updateMethodExamples();
+}
+
+function updateMethodExamples() {
+  if (selectedMethodView === 'GET') {
+    document.getElementById('methodExample').textContent = `{
+  "share_target": {
+    "action": "/share-handler",
+    "method": "GET",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url"
+    }
+  }
+}
+
+// User shares → browser navigates to:
+// /share-handler?title=Hello&text=World&url=https://example.com`;
+
+    document.getElementById('methodHandler').textContent = `// share-handler.html — client-side JavaScript
+const params = new URLSearchParams(window.location.search);
+
+const title = params.get('title');
+const text = params.get('text');
+const url = params.get('url');
+
+console.log('Received share:', { title, text, url });
+
+// No service worker needed for GET!`;
+  } else {
+    document.getElementById('methodExample').textContent = `{
+  "share_target": {
+    "action": "/share-handler",
+    "method": "POST",
+    "enctype": "multipart/form-data",
+    "params": {
+      "title": "title",
+      "text": "text",
+      "url": "url",
+      "files": [{
+        "name": "media",
+        "accept": ["image/*", "video/*"]
+      }]
+    }
+  }
+}`;
+
+    document.getElementById('methodHandler').textContent = `// sw.js — Service Worker
+self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  if (url.pathname === '/share-handler'
+      && event.request.method === 'POST') {
+    event.respondWith((async () => {
+      const formData = await event.request.formData();
+
+      const title = formData.get('title') || '';
+      const text = formData.get('text') || '';
+      const sharedUrl = formData.get('url') || '';
+      const file = formData.get('media');
+
+      // Store in Cache API
+      const cache = await caches.open('shared-data');
+      const payload = { title, text, url: sharedUrl };
+
+      if (file && file.size > 0) {
+        payload.fileName = file.name;
+        payload.fileType = file.type;
+        await cache.put('/shared-file', new Response(file));
+      }
+
+      await cache.put('/shared-meta',
+        new Response(JSON.stringify(payload)));
+
+      return Response.redirect('/?shared=true', 303);
+    })());
+  }
+});`;
+  }
+}
+
+// === File Types ===
+const fileTypes = [
+  { label: 'Images (all)', accept: 'image/*', icon: '🖼️' },
+  { label: 'PNG', accept: 'image/png', icon: '🏞️' },
+  { label: 'JPEG', accept: 'image/jpeg', icon: '📷' },
+  { label: 'WebP', accept: 'image/webp', icon: '🌐' },
+  { label: 'SVG', accept: 'image/svg+xml', icon: '🔷' },
+  { label: 'GIF', accept: 'image/gif', icon: '🎞️' },
+  { label: 'Videos (all)', accept: 'video/*', icon: '🎬' },
+  { label: 'MP4', accept: 'video/mp4', icon: '📹' },
+  { label: 'Audio (all)', accept: 'audio/*', icon: '🎵' },
+  { label: 'MP3', accept: 'audio/mpeg', icon: '🎶' },
+  { label: 'Text (all)', accept: 'text/*', icon: '📄' },
+  { label: 'Plain Text', accept: 'text/plain', icon: '📝' },
+  { label: 'HTML', accept: 'text/html', icon: '🌍' },
+  { label: 'CSV', accept: 'text/csv', icon: '📊' },
+  { label: 'PDF', accept: 'application/pdf', icon: '📕' },
+  { label: 'JSON', accept: 'application/json', icon: '{}' },
+  { label: 'ZIP', accept: 'application/zip', icon: '📦' }
+];
+
+let selectedFileTypes = new Set(['image/*']);
+
+function buildFileTypeGrid() {
+  document.getElementById('fileTypeGrid').innerHTML = fileTypes.map(ft => `
+    <div class="file-type-item ${selectedFileTypes.has(ft.accept) ? 'selected' : ''}" onclick="toggleFileType('${ft.accept}')">
+      <input type="checkbox" ${selectedFileTypes.has(ft.accept) ? 'checked' : ''} onclick="event.stopPropagation();">
+      <span>${ft.icon}</span>
+      <span>${ft.label}</span>
+    </div>
+  `).join('');
+  updateFileConfig();
+}
+
+function toggleFileType(accept) {
+  if (selectedFileTypes.has(accept)) {
+    selectedFileTypes.delete(accept);
+  } else {
+    selectedFileTypes.add(accept);
+  }
+  buildFileTypeGrid();
+}
+
+function updateFileConfig() {
+  const accepts = Array.from(selectedFileTypes);
+  if (accepts.length === 0) {
+    document.getElementById('filesConfig').textContent = '// Select file types above';
+    document.getElementById('fileHandlerCode').textContent = '// No files configured';
+    return;
+  }
+
+  const config = {
+    share_target: {
+      action: "/share-handler",
+      method: "POST",
+      enctype: "multipart/form-data",
+      params: {
+        title: "title",
+        text: "text",
+        url: "url",
+        files: [{
+          name: "media",
+          accept: accepts
+        }]
+      }
+    }
+  };
+
+  document.getElementById('filesConfig').textContent = JSON.stringify(config, null, 2);
+
+  document.getElementById('fileHandlerCode').textContent = `// Service Worker — file share handler
+self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  if (url.pathname === '/share-handler'
+      && event.request.method === 'POST') {
+    event.respondWith(handleFileShare(event.request));
+  }
+});
+
+async function handleFileShare(request) {
+  const formData = await request.formData();
+  const file = formData.get('media');
+
+  if (file && file.size > 0) {
+    // Validate file type
+    const allowedTypes = ${JSON.stringify(accepts)};
+    const isAllowed = allowedTypes.some(type => {
+      if (type.endsWith('/*')) {
+        return file.type.startsWith(type.replace('/*', '/'));
+      }
+      return file.type === type;
+    });
+
+    if (!isAllowed) {
+      return new Response('File type not accepted', { status: 415 });
+    }
+
+    // Store file in Cache API
+    const cache = await caches.open('shared-files');
+    await cache.put(
+      '/shared-file-' + Date.now(),
+      new Response(file, {
+        headers: {
+          'Content-Type': file.type,
+          'X-File-Name': file.name
+        }
+      })
+    );
+  }
+
+  return Response.redirect('/?shared=file', 303);
+}`;
+}
+
+// === Routing ===
+function updateRouteMap() {
+  const scope = document.getElementById('pwaScope').value || '/';
+  const action = document.getElementById('routeAction').value || '/share-handler';
+  const start = document.getElementById('routeStart').value || '/';
+
+  document.getElementById('routeMap').innerHTML = `
+    <div class="route-path">
+      <span class="route-method get">SCOPE</span>
+      <span class="route-url">${scope}</span>
+      <span class="route-desc">PWA scope boundary</span>
+    </div>
+    <div class="route-path">
+      <span class="route-method get">GET</span>
+      <span class="route-url">${start}</span>
+      <span class="route-desc">Start URL (app entry point)</span>
+    </div>
+    <div class="route-path">
+      <span class="route-method post">POST</span>
+      <span class="route-url">${action}</span>
+      <span class="route-desc">Share target action URL</span>
+    </div>
+    <div class="route-path">
+      <span class="route-method get">GET</span>
+      <span class="route-url">${action}?title=...&text=...&url=...</span>
+      <span class="route-desc">GET share (query params)</span>
+    </div>
+    <div style="padding:12px; font-size:0.82rem; color:var(--text-secondary);">
+      ${action.startsWith(scope) || scope === '/' ? `<span style="color:var(--green);">✓</span> Action URL is within scope` : `<span style="color:var(--red);">✗</span> Warning: Action URL may be outside scope`}
+    </div>
+  `;
+}
+
+['pwaScope', 'routeAction', 'routeStart'].forEach(id => {
+  document.getElementById(id).addEventListener('input', updateRouteMap);
+});
+
+// === Params Simulation ===
+function simulateShare() {
+  const title = document.getElementById('simTitle').value;
+  const text = document.getElementById('simText').value;
+  const url = document.getElementById('simUrl').value;
+  const pTitle = document.getElementById('mapTitle').value || 'title';
+  const pText = document.getElementById('mapText').value || 'text';
+  const pUrl = document.getElementById('mapUrl').value || 'url';
+
+  const params = new URLSearchParams();
+  if (title) params.set(pTitle, title);
+  if (text) params.set(pText, text);
+  if (url) params.set(pUrl, url);
+
+  document.getElementById('simGetResult').textContent = `/share-handler?${params.toString()}`;
+  document.getElementById('simPostResult').textContent = `Content-Type: application/x-www-form-urlencoded\n\n${params.toString().replace(/&/g, '\n&')}`;
+
+  updateParamsManifest();
+}
+
+function updateParamsManifest() {
+  const pTitle = document.getElementById('mapTitle').value || 'title';
+  const pText = document.getElementById('mapText').value || 'text';
+  const pUrl = document.getElementById('mapUrl').value || 'url';
+
+  document.getElementById('paramsManifest').textContent = JSON.stringify({
+    share_target: {
+      action: "/share-handler",
+      method: "GET",
+      params: { title: pTitle, text: pText, url: pUrl }
+    }
+  }, null, 2);
+}
+
+// === Service Worker Generator ===
+function generateSW() {
+  const action = document.getElementById('swAction').value;
+  const storage = document.getElementById('swStorage').value;
+  const files = document.getElementById('swFiles').value;
+  const redirect = document.getElementById('swRedirect').value;
+  const cacheName = document.getElementById('swCacheName').value;
+
+  let code = `// Service Worker — Share Target Handler
+// Generated by Web Share Target Playground
+
+`;
+
+  if (storage === 'indexeddb') {
+    code += `// IndexedDB helper
+function openDB() {
+  return new Promise((resolve, reject) => {
+    const request = indexedDB.open('share-store', 1);
+    request.onupgradeneeded = (e) => {
+      const db = e.target.result;
+      if (!db.objectStoreNames.contains('shares')) {
+        db.createObjectStore('shares', { keyPath: 'id', autoIncrement: true });
+      }
+    };
+    request.onsuccess = () => resolve(request.result);
+    request.onerror = () => reject(request.error);
+  });
+}
+
+async function storeShare(data) {
+  const db = await openDB();
+  return new Promise((resolve, reject) => {
+    const tx = db.transaction('shares', 'readwrite');
+    const store = tx.objectStore('shares');
+    store.add({ ...data, timestamp: Date.now() });
+    tx.oncomplete = resolve;
+    tx.onerror = () => reject(tx.error);
+  });
+}
+
+`;
+  }
+
+  code += `self.addEventListener('fetch', (event) => {
+  const url = new URL(event.request.url);
+
+  if (url.pathname === '${action}' && event.request.method === 'POST') {
+    event.respondWith(handleShare(event.request));
+  }
+});
+
+async function handleShare(request) {
+  try {
+    const formData = await request.formData();
+
+    const shareData = {
+      title: formData.get('title') || '',
+      text: formData.get('text') || '',
+      url: formData.get('url') || ''
+    };
+`;
+
+  if (files !== 'no') {
+    code += `
+    // Handle shared files
+    const file = formData.get('media');
+    if (file && file.size > 0) {
+`;
+    if (files === 'images') {
+      code += `      // Validate image type
+      if (!file.type.startsWith('image/')) {
+        return new Response('Only images are accepted', { status: 415 });
+      }
+`;
+    }
+
+    if (storage === 'cache') {
+      code += `      const cache = await caches.open('${cacheName}-files');
+      await cache.put(
+        '/shared-file-' + Date.now(),
+        new Response(file, {
+          headers: {
+            'Content-Type': file.type,
+            'X-File-Name': file.name,
+            'X-File-Size': String(file.size)
+          }
+        })
+      );
+      shareData.hasFile = true;
+      shareData.fileName = file.name;
+`;
+    } else if (storage === 'indexeddb') {
+      code += `      const buffer = await file.arrayBuffer();
+      shareData.file = {
+        name: file.name,
+        type: file.type,
+        size: file.size,
+        data: buffer
+      };
+`;
+    }
+
+    code += `    }
+`;
+  }
+
+  if (storage === 'cache') {
+    code += `
+    // Store share metadata
+    const cache = await caches.open('${cacheName}');
+    await cache.put('/latest-share', new Response(
+      JSON.stringify(shareData),
+      { headers: { 'Content-Type': 'application/json' } }
+    ));
+`;
+  } else if (storage === 'indexeddb') {
+    code += `
+    // Store in IndexedDB
+    await storeShare(shareData);
+`;
+  } else if (storage === 'clients') {
+    code += `
+    // Notify all clients
+    const allClients = await self.clients.matchAll({
+      includeUncontrolled: true,
+      type: 'window'
+    });
+    for (const client of allClients) {
+      client.postMessage({
+        type: 'share-received',
+        data: shareData
+      });
+    }
+`;
+  }
+
+  code += `
+    return Response.redirect('${redirect}?shared=true', 303);
+  } catch (error) {
+    console.error('Share handler error:', error);
+    return Response.redirect('${redirect}?error=share-failed', 303);
+  }
+}`;
+
+  document.getElementById('swOutput').textContent = code;
+}
+
+function copySW() {
+  navigator.clipboard.writeText(document.getElementById('swOutput').textContent);
+  document.querySelector('#panel-sw .copy-btn').textContent = 'Copied!';
+  setTimeout(() => document.querySelector('#panel-sw .copy-btn').textContent = 'Copy', 1500);
+}
+
+function downloadSW() {
+  const blob = new Blob([document.getElementById('swOutput').textContent], { type: 'application/javascript' });
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'sw.js';
+  a.click();
+}
+
+// === Initialize ===
+updateManifest();
+updateMethodExamples();
+buildFileTypeGrid();
+updateRouteMap();
+simulateShare();
+generateSW();
+</script>
+</body>
+</html>
