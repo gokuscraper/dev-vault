@@ -1,76 +1,21 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/tools-487-blue?style=flat-square" alt="487 tools">
-  <img src="https://img.shields.io/badge/tests-487%2F487-green?style=flat-square" alt="All tests passing">
-  <img src="https://img.shields.io/badge/license-MIT-white?style=flat-square" alt="MIT">
-  <img src="https://img.shields.io/badge/dependencies-0-orange?style=flat-square" alt="Zero dependencies">
+  <img src="https://img.shields.io/badge/工具-487-blue?style=flat-square" alt="487 个工具">
+  <img src="https://img.shields.io/badge/测试-487%2F487-green?style=flat-square" alt="全部测试通过">
+  <img src="https://img.shields.io/badge/许可证-MIT-white?style=flat-square" alt="MIT">
+  <img src="https://img.shields.io/badge/依赖-0-orange?style=flat-square" alt="零依赖">
 </p>
 
-# 🧰 Dev Vault
+<h1 align="center">🧰 Dev Vault</h1>
 
-> 487 browser-based developer tools. All offline. Zero dependencies. One HTML file each.
+<p align="center">487 个浏览器端开发工具 · 全离线 · 零依赖 · 每个工具一个 HTML 文件</p>
 
-**[English](#english) · [中文](#chinese)**
-
----
-
-<a id="english"></a>
-
-## 🇬🇧 English
-
-**Dev Vault** is a collection of **487 standalone HTML tools** covering CSS, JavaScript, security, networking, design, data, DevOps, and more.
-
-Every tool is a single HTML file — open it in a browser and it just works. No build step, no npm install, no signup, no tracking.
-
-- 🌐 **Open the portal** — open `index.html` to browse all tools by category
-- 📁 **Browse files** — `tools/<category>/<name>.html`
-- 🧪 **Run tests** — `node tests/run.mjs`
-
-### Categories
-
-| Category | Count | Examples |
-|----------|-------|---------|
-| CSS | 57 | Layout, animation, painting, responsive, scroll-snap, container queries |
-| JavaScript | 91 | Web APIs, patterns, visualizers, engine internals |
-| Code | 63 | JSON, regex, JWT, hash, cron, env, docker, git |
-| Design | 42 | Color, typography, SVG, icon, image, CSS generators |
-| Security | 19 | CSP, CORS, JWT, SRI, sanitizer, cookie inspector |
-| Network / Net | 17 | DNS, MAC, IPv4/6, HTTP, TLS, WebSocket |
-| Data | 18 | npm, GitHub, pypi, crate, license, SSL |
-| AI | 5 | LLM pricing, prompt cost, model picker |
-| DevOps | 10 | Docker, K8s, Terraform, Grafana, GitHub Actions |
-| Converter | 14 | JSON↔TOML↔YAML↔XML, temperature, IBAN, phone |
-| More... | 151 | Math, crypto, audio, image, writing, device APIs |
-
-[→ Browse all 487 tools](https://gokuscraper.github.io/dev-vault/)
-
-### Quick Start
-
-```bash
-# Clone
-git clone https://github.com/gokuscraper/dev-vault.git
-
-# Open the portal (or open any tool file directly)
-open index.html
-
-# Run tests (requires Node.js + Playwright)
-npm install
-node tests/run.mjs
-```
-
-### Philosophy
-
-- **Single HTML file** — view source, inspect, learn
-- **Fully offline** — after first load, everything is local
-- **Zero telemetry** — no analytics, no tracking, no ads
-- **Dark theme** — defaults to dark mode
+<p align="center"><a href="README.en.md">🌐 English</a></p>
 
 ---
 
-<a id="chinese"></a>
+## 📖 简介
 
-## 🇨🇳 中文
-
-**Dev Vault** 是一个包含 **487 个独立 HTML 工具**的开发工具库，涵盖 CSS、JavaScript、安全、网络、设计、数据处理、DevOps 等领域。
+**Dev Vault** 是一个包含 **487 个独立 HTML 工具**的开发工具合集，涵盖 CSS、JavaScript、安全、网络、设计、数据处理、DevOps 等领域。
 
 每个工具都是一个独立的 HTML 文件——在浏览器打开就能用。不需要构建步骤、不需要 npm 安装、无需注册、无任何追踪。
 
@@ -78,7 +23,7 @@ node tests/run.mjs
 - 📁 **直接打开** — `tools/<分类>/<工具名>.html`
 - 🧪 **运行测试** — `node tests/run.mjs`
 
-### 分类概览
+## 📂 分类概览
 
 | 分类 | 数量 | 示例 |
 |------|------|------|
@@ -96,7 +41,7 @@ node tests/run.mjs
 
 [→ 浏览全部 487 个工具](https://gokuscraper.github.io/dev-vault/)
 
-### 快速开始
+## 🚀 快速开始
 
 ```bash
 # 克隆仓库
@@ -110,7 +55,7 @@ npm install
 node tests/run.mjs
 ```
 
-### 设计理念
+## 💡 设计理念
 
 - **单个 HTML 文件** — 查看源码，学习原理
 - **完全离线** — 首次加载后，一切都在本地
@@ -119,4 +64,4 @@ node tests/run.mjs
 
 ---
 
-<p align="center">MIT License · Built with ❤️</p>
+<p align="center">MIT 许可证 · 用 ❤️ 打造</p>
