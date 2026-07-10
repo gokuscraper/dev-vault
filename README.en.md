@@ -64,4 +64,13 @@ node tests/run.mjs
 
 ---
 
+## 🙏 Acknowledgments
+
+This project is inspired by and references:
+
+- [it-tools](https://github.com/yurukusa/it-tools) — A wealth of high-quality single-file dev tools
+- [dev-toolkit](https://github.com/yurukusa/dev-toolkit) — The upstream source of this project
+
+---
+
 <p align="center">MIT License · Built with ❤️</p>

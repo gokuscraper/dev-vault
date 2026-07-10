@@ -64,4 +64,13 @@ node tests/run.mjs
 
 ---
 
+## 🙏 致谢
+
+本项目感谢以下开源项目的启发与参考：
+
+- [it-tools](https://github.com/yurukusa/it-tools) — 提供大量高质量的单文件开发工具
+- [dev-toolkit](https://github.com/yurukusa/dev-toolkit) — 本项目的上游来源
+
+---
+
 <p align="center">MIT 许可证 · 用 ❤️ 打造</p>
