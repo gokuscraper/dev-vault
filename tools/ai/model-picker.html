@@ -10,20 +10,20 @@
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta property="og:url" content="https://yurukusa.github.io/model-picker/">
+<meta property="og:url" content="https://gokuscraper.github.io/dev-vault/model-picker/">
 <meta property="og:type" content="website">
-<link rel="canonical" href="https://yurukusa.github.io/model-picker/">
+<link rel="canonical" href="https://gokuscraper.github.io/dev-vault/model-picker/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Model Picker",
   "description": "Answer 4 questions, get a personalized AI model recommendation. Compare Claude, GPT, Gemini, DeepSeek, and more.",
-  "url": "https://yurukusa.github.io/model-picker/",
+  "url": "https://gokuscraper.github.io/dev-vault/model-picker/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
   "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"},
-  "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}
+  "author": {"@type": "Organization", "name": "gokuscraper", "url": "https://github.com/gokuscraper"}
 }
 </script>
 <style>
@@ -100,12 +100,11 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   <div class="note">Quality scores from Chatbot Arena Elo, SWE-bench Verified, and GPQA Diamond. Prices as of March 2026.</div>
 </div>
 <div class="footer">
-  Built by <a href="https://github.com/yurukusa" target="_blank">yurukusa</a> ·
-  <a href="https://github.com/yurukusa/model-picker" target="_blank">GitHub</a> ·
-  <a href="https://yurukusa.github.io/llm-price/" target="_blank">LLM Price</a> (monthly costs) ·
-  <a href="https://yurukusa.github.io/prompt-price/" target="_blank">Prompt Price</a> (per-call costs) ·
-  <a href="https://yurukusa.github.io/ai-roi-calc/" target="_blank">AI ROI</a> (vs human cost) ·
-  <a href="https://yurukusa.github.io/cc-toolkit/" target="_blank">cc-toolkit</a>
+  Built by <a href="https://github.com/gokuscraper" target="_blank">gokuscraper</a> ·
+  <a href="https://github.com/gokuscraper/model-picker" target="_blank">GitHub</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/llm-price/" target="_blank">LLM Price</a> (monthly costs) ·
+  <a href="https://gokuscraper.github.io/dev-vault/prompt-price/" target="_blank">Prompt Price</a> (per-call costs) ·
+  <a href="https://gokuscraper.github.io/dev-vault/ai-roi-calc/" target="_blank">AI ROI</a> (vs human cost) ·
 </div>
 
 <script>
@@ -319,8 +318,8 @@ function showResults() {
         </div>
         <div class="reason">${getReason(m, i)}</div>
         <div class="links">
-          <a class="link-btn" href="https://yurukusa.github.io/llm-price/" target="_blank">See monthly cost</a>
-          <a class="link-btn" href="https://yurukusa.github.io/prompt-price/" target="_blank">See per-call cost</a>
+          <a class="link-btn" href="https://gokuscraper.github.io/dev-vault/llm-price/" target="_blank">See monthly cost</a>
+          <a class="link-btn" href="https://gokuscraper.github.io/dev-vault/prompt-price/" target="_blank">See per-call cost</a>
         </div>
       </div>
     `;
@@ -330,7 +329,7 @@ function showResults() {
     <div style="font-size:.75rem;color:var(--dim);margin-top:8px">*Monthly estimate at 10M input + 2M output tokens</div>
     <div class="share-box">
       <div style="font-size:.85rem;color:var(--dim)">Share your result:</div>
-      <div class="share-text" onclick="navigator.clipboard.writeText(this.textContent)">${ucLabel} use case → ${top3[0].name} is my best match (score: ${top3[0].score}) via yurukusa.github.io/model-picker</div>
+      <div class="share-text" onclick="navigator.clipboard.writeText(this.textContent)">${ucLabel} use case → ${top3[0].name} is my best match (score: ${top3[0].score}) via gokuscraper.github.io/dev-vault/model-picker</div>
       <div style="font-size:.72rem;color:var(--dim);margin-top:6px">Click to copy</div>
     </div>
     <div class="restart"><button class="btn" onclick="restart()">Start Over</button></div>

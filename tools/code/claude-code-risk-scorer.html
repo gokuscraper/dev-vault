@@ -8,16 +8,16 @@
 <meta property="og:title" content="Claude Code Risk Scorer">
 <meta property="og:description" content="Paste your CLAUDE.md and get a safety score from 0-100. Find guardrail gaps before they become incidents.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://yurukusa.github.io/claude-code-risk-scorer/">
+<meta property="og:url" content="https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/">
 <meta name="twitter:card" content="summary">
-<link rel="canonical" href="https://yurukusa.github.io/claude-code-risk-scorer/">
+<link rel="canonical" href="https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "WebApplication",
   "name": "Claude Code Risk Scorer",
   "description": "Scan your CLAUDE.md for safety gaps. 10-category risk assessment for AI agent configurations.",
-  "url": "https://yurukusa.github.io/claude-code-risk-scorer/",
+  "url": "https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/",
   "applicationCategory": "DeveloperApplication",
   "operatingSystem": "Any",
   "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" }
@@ -429,7 +429,7 @@ English and Japanese supported."></textarea>
     <div class="cta-box" id="ctaBox" style="display:none">
       <h3>Want a production-ready template?</h3>
       <p id="ctaMsg"></p>
-      <a class="cta-link" href="https://yurukusa.github.io/cc-ops-kit-landing/" target="_blank" rel="noopener">Get the Ops Kit ($19) →</a>
+      <a class="cta-link" href="https://gokuscraper.github.io/dev-vault/cc-ops-kit-landing/" target="_blank" rel="noopener">Get the Ops Kit ($19) →</a>
     </div>
 
     <div style="text-align:center; margin-top: 1rem;">
@@ -438,13 +438,13 @@ English and Japanese supported."></textarea>
   </div>
 
   <footer>
-    <p>Built by <a href="https://github.com/yurukusa" target="_blank" rel="noopener">yurukusa</a> × Claude Code</p>
+    <p>Built by <a href="https://github.com/gokuscraper" target="_blank" rel="noopener">gokuscraper</a> × Claude Code</p>
     <p style="margin-top:0.3rem;">
-      <a href="https://github.com/yurukusa/claude-code-risk-scorer" target="_blank" rel="noopener">Source on GitHub</a>
+      <a href="https://github.com/gokuscraper/claude-code-risk-scorer" target="_blank" rel="noopener">Source on GitHub</a>
       ·
-      <a href="https://yurukusa.github.io/risk-score-web/" target="_blank" rel="noopener">Danger Scanner</a>
+      <a href="https://gokuscraper.github.io/dev-vault/risk-score-web/" target="_blank" rel="noopener">Danger Scanner</a>
       ·
-      <a href="https://yurukusa.github.io/dev-toolkit/" target="_blank" rel="noopener">300+ Dev Tools</a>
+      <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">300+ Dev Tools</a>
     </p>
   </footer>
 </div>
@@ -771,7 +771,7 @@ function runScore() {
   // Share
   const shareRow = document.getElementById('shareRow');
   const shareText = `My Claude Code safety score: ${total}/100 (${verdict.label}). Check yours:`;
-  const shareUrl = 'https://yurukusa.github.io/claude-code-risk-scorer/';
+  const shareUrl = 'https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/';
   shareRow.innerHTML = `
     <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener">Share on X</a>
     <button class="share-btn" onclick="copyScore(${total}, '${verdict.label}')">Copy Result</button>
@@ -783,7 +783,7 @@ function runScore() {
 }
 
 function copyScore(score, label) {
-  const text = `Claude Code Risk Score: ${score}/100 (${label})\nhttps://yurukusa.github.io/claude-code-risk-scorer/`;
+  const text = `Claude Code Risk Score: ${score}/100 (${label})\nhttps://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = event.target;
     btn.textContent = 'Copied!';

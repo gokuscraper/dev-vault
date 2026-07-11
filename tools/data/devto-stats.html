@@ -8,11 +8,11 @@
 <meta property="og:title" content="dev.to Stats — Your Article Performance Dashboard">
 <meta property="og:description" content="Paste your dev.to username. See your article performance in seconds.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://yurukusa.github.io/devto-stats/">
+<meta property="og:url" content="https://gokuscraper.github.io/dev-vault/devto-stats/">
 <meta name="twitter:card" content="summary_large_image">
-<link rel="canonical" href="https://yurukusa.github.io/devto-stats/">
+<link rel="canonical" href="https://gokuscraper.github.io/dev-vault/devto-stats/">
 <script type="application/ld+json">
-{"@context": "https://schema.org", "@type": "WebApplication", "name": "dev.to Stats", "description": "Analyze your dev.to article performance. See total views, engagement rate, best tags, posting patterns, and top articles. Free, no login required.", "url": "https://yurukusa.github.io/devto-stats/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "yurukusa", "url": "https://github.com/yurukusa"}}
+{"@context": "https://schema.org", "@type": "WebApplication", "name": "dev.to Stats", "description": "Analyze your dev.to article performance. See total views, engagement rate, best tags, posting patterns, and top articles. Free, no login required.", "url": "https://gokuscraper.github.io/dev-vault/devto-stats/", "applicationCategory": "DeveloperApplication", "operatingSystem": "Any", "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "author": {"@type": "Organization", "name": "gokuscraper", "url": "https://github.com/gokuscraper"}}
 </script>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -108,7 +108,6 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/yurukusa/devto-stats">GitHub</a> · Built by <a href="https://dev.to/yurukusa">yurukusa</a> · 106 free tools for Claude Code users at <a href="https://yurukusa.github.io/cc-toolkit/">cc-toolkit</a>
 </footer>
 
 <script>
@@ -263,7 +262,7 @@ function render(user,articles){
 
   // Share button
   const shareText=`My dev.to stats: ${articles.length} articles, ${totalReactions} reactions, ${totalComments} comments. Top tag: #${tags.length?tags[0][0]:''}`;
-  $('shareBtn').href=`https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://yurukusa.github.io/devto-stats/')}`;
+  $('shareBtn').href=`https://x.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent('https://gokuscraper.github.io/dev-vault/devto-stats/')}`;
 }
 
 function fmt(n){return n>=1000?(n/1000).toFixed(1)+'K':n.toString()}
@@ -275,11 +274,11 @@ if(params.get('user')){$('username').value=params.get('user');analyze()}
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
-<a href="https://yurukusa.github.io/gh-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Stats</a>
-<a href="https://yurukusa.github.io/gh-card/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Card</a>
-<a href="https://yurukusa.github.io/repo-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Repo Compare</a>
-<a href="https://yurukusa.github.io/title-score/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Title Score</a>
-<div style="margin-top:12px"><a href="https://yurukusa.github.io/dev-toolkit/" style="color:#666;text-decoration:none">Dev Toolkit — 101 free tools</a></div>
+<a href="https://gokuscraper.github.io/dev-vault/gh-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Stats</a>
+<a href="https://gokuscraper.github.io/dev-vault/gh-card/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Card</a>
+<a href="https://gokuscraper.github.io/dev-vault/repo-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Repo Compare</a>
+<a href="https://gokuscraper.github.io/dev-vault/title-score/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Title Score</a>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
 </body>
 </html>
