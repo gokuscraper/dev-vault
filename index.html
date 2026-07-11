@@ -1192,7 +1192,7 @@ let activeFilter='all';
 
 function renderFilters(){
   document.getElementById('filters').innerHTML=CATEGORIES.map(c=>{
-    const count=c.id==='all'?TOOLS.length:TOOLS.filter(t=>t.cat===c.id).length;
+    const count=c.id==='all'?getTools().length:getTools().filter(t=>t.cat===c.id).length;
     return`<button class="filter-btn ${c.id===activeFilter?'active':''}" onclick="setFilter('${c.id}')">${getCatLabel(c)} (${count})</button>`;
   }).join('');
 }
@@ -1233,7 +1233,7 @@ function filterTools(){
   }
 
   const all=query?filtered:rest;
-  document.getElementById('toolGrid').innerHTML=all.map(renderCard).join('')||'<div style="text-align:center;color:#555;grid-column:1/-1;padding:40px">No tools match your search.</div>';
+  document.getElementById('toolGrid').innerHTML=all.map(renderCard).join('')||t('noResults');
 }
 
 // Init language

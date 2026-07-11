@@ -214,10 +214,12 @@ cat_pos = after_tools.index("const CATEGORIES=[")
 before_cat = after_tools[:cat_pos]
 after_cat = after_tools[cat_pos:]
 
-after_cat = after_cat.replace(
-    "CATEGORIES.map(c=>{const count=c.id==='all'?TOOLS.length:TOOLS.filter(t=>t.cat===c.id).length;return`<button class=\"filter-btn\"",
-    "CATEGORIES.map(c=>{const count=c.id==='all'?getTools().length:getTools().filter(t=>t.cat===c.id).length;return`<button class=\"filter-btn\""
-)
+# Use simple str.replace for the CATEGORIES.map TOOLS references
+# (the complex multi-line pattern failed due to internal whitespace)
+after_cat = after_cat.replace("TOOLS.length", "getTools().length")
+after_cat = after_cat.replace("TOOLS.filter(", "getTools().filter(")
+
+# Keep the working replacements
 after_cat = after_cat.replace("c.label}", "getCatLabel(c)}")
 after_cat = after_cat.replace(
     "const filtered=TOOLS.filter(t=>{",
@@ -227,9 +229,11 @@ after_cat = after_cat.replace(
     "const picks=filtered.filter(t=>t.featured);",
     "var tools=getTools();const picks=filtered.filter(t=>t.featured);"
 )
+
+# Replace the No tools match fallback string
 after_cat = after_cat.replace(
-    "'No tools match your search.'",
-    "t('noResults')"
+    "||'<div style=\"text-align:center;color:#555;grid-column:1/-1;padding:40px\">No tools match your search.</div>'",
+    "||t('noResults')"
 )
 
 old_bottom = "renderFilters();\r\nfilterTools();"
