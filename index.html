@@ -84,7 +84,7 @@ footer a:hover{color:#999}
 </div>
 
 <div class="search-row">
-  <input type="text" id="search" placeholder="Search 499 tools...  ( / to focus)" oninput="filterTools()">
+  <input type="text" id="search" placeholder="Search 500 tools...  ( / to focus)" oninput="filterTools()">
 </div>
 
 <div class="filters" id="filters"></div>
@@ -268,7 +268,6 @@ const TOOLS=[
 {name:'License Chooser',desc:'Compare 11 open source licenses side-by-side. Permissions, conditions, limitations. Generate LICENSE file.',url:'tools/code/license-gen.html',cat:'code',icon:'Li'},
 {name:'README Gen',desc:'Scaffold README.md visually. Badges, install, usage, API, contributing sections. 6 project templates.',url:'tools/code/readme-gen.html',cat:'code',icon:'Rm'},
 {name:'Commit Message Gen',desc:'Build conventional commit messages. Type, scope, body, breaking changes, co-authors. Gitmoji support.',url:'tools/code/commit-gen.html',cat:'code',icon:'Cm'},
-{name:'Semver Calculator',desc:'Check semver range satisfaction, bump versions, compare versions, explain ranges. ^, ~, x-ranges, || support.',url:'tools/data/semver-calc.html',cat:'code',icon:'Sv'},
 {name:'Dependabot Config Gen',desc:'Build .github/dependabot.yml visually. 14 ecosystems, schedule, groups, ignore rules. 6 project presets.',url:'tools/code/dependabot-gen.html',cat:'code',icon:'Db'},
 {name:'Cron Builder',desc:'Build cron expressions visually. 12 presets, quick-set dropdowns, next 5 run times, human-readable explanation.',url:'tools/code/cron-builder.html',cat:'code',icon:'Cr'},
 {name:'JSON Schema Gen',desc:'Infer JSON Schema from sample data. Auto-detect types, formats, required fields. Draft 2020-12. 5 sample templates.',url:'tools/code/json-schema-gen.html',cat:'code',icon:'Js'},
@@ -572,12 +571,7 @@ const TOOLS=[
 {name:'Markdown Diff',desc:'Compare two Markdown documents side by side. Code view and rendered HTML preview mode.',url:'tools/code/markdown-diff.html',cat:'code',icon:'md'},
 {name:'Icon Generator',desc:'Generate app icons in multiple sizes from one image. PWA, Android, iOS presets. Download as ZIP.',url:'tools/design/icon-generator.html',cat:'design',icon:'ico'},
 {name:'HAR Sanitizer',desc:'Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params.',url:'tools/network/har-sanitizer.html',cat:'network',icon:'har'},
-{name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'x509'}
-,
-  {name:'CSV ??JSON',desc:'Convert CSV to JSON and back. Auto-detect headers, custom delimiters, table preview.',url:'tools/code/csv-json.html',cat:'code',icon:''},
-{name:'YAML ??JSON',desc:'Convert YAML to JSON and back. Docker Compose sample. Live validation.',url:'tools/code/yaml-json.html',cat:'code',icon:'yml'},
-{name:'TOML ??JSON',desc:'Convert TOML to JSON and back. Cargo.toml, pyproject.toml presets.',url:'tools/code/toml-json.html',cat:'code',icon:'toml'},
-{name:'JSON ??TypeScript',desc:'Generate TypeScript interfaces from JSON. Smart type inference, nested objects.',url:'tools/code/json-to-ts.html',cat:'code',icon:'TS'},
+{name:'X.509 Cert Gen',desc:'Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. SAN support, PEM download.',url:'tools/crypto/x509-certificate-generator.html',cat:'crypto',icon:'x509'},
 {name:'Roman Numeral',desc:'Convert between Roman numerals and Arabic numbers. Supports standard values up to 3999.',url:'tools/converter/roman-numeral.html',cat:'converter',icon:'IV'},
 {name:'Temperature Converter',desc:'Convert between Celsius, Fahrenheit, Kelvin, Rankine, Réaumur, and Delisle.',url:'tools/converter/temperature.html',cat:'converter',icon:'°C'},
 {name:'Percentage Calculator',desc:'Calculate percentages: what is X% of Y, what percent is X of Y, percentage change.',url:'tools/converter/percentage-calc.html',cat:'converter',icon:'%'},
@@ -625,7 +619,13 @@ const TOOLS=[
 {name:'Text to Unicode',desc:'View Unicode code points for any text. Decimal, hex, binary, HTML entities, and JS escapes.',url:'tools/text/text-to-unicode.html',cat:'text',icon:'U+'},
 {name:'TOML to YAML',desc:'Convert TOML to YAML format and back. Supports tables, nested objects, arrays, and inline tables.',url:'tools/converter/toml-to-yaml.html',cat:'converter',icon:'T→Y'},
 {name:'XML to JSON',desc:'Convert XML to JSON format and back. Preserves attributes, text content, and array structures.',url:'tools/converter/xml-to-json.html',cat:'converter',icon:'X→J'},
-{name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'}
+{name:'YAML to TOML',desc:'Convert YAML to TOML format and back. Supports nested objects, arrays, booleans, and numbers.',url:'tools/converter/yaml-to-toml.html',cat:'converter',icon:'Y→T'},
+{name:'Animation Timing Playground',desc:'Interactive playground for CSS animation timing functions (cubic-bezier, steps, linear multi-point, comparison mode).',url:'tools/css/animation-timing-playground.html',cat:'css',icon:'⏱'},
+{name:'CSS Scroll Snap Builder',desc:'Visual CSS Scroll Snap builder. Configure snap-type, snap-align, scroll-padding, scroll-margin, snap-stop with live preview and CSS export.',url:'tools/css/scroll-snap-playground.html',cat:'css',icon:'Ss'},
+{name:'Proxy & Reflect Patterns',desc:'Interactive Proxy and Reflect patterns playground — observable objects, validation proxies, negative indexing, revocable proxies, all 13 handler traps.',url:'tools/js/proxy-reflect-patterns.html',cat:'js',icon:'Proxy'},
+{name:'Web Animations API Playground',desc:'Interactive playground for the Web Animations API — keyframe effects, animation controls, timeline scrubbing, easing presets, composite modes, WAAPI vs CSS.',url:'tools/js/web-animations-api.html',cat:'js',icon:'WAAPI'},
+{name:'Web Speech API Playground',desc:'Interactive playground for Web Speech API — SpeechRecognition and SpeechSynthesis in one page. Test voices, rate, pitch, and recognition.',url:'tools/js/web-speech-api.html',cat:'js',icon:'🗣️'},
+{name:'YAML Viewer',desc:'View and explore YAML files with collapsible tree view, syntax highlighting, and search. Parse and validate YAML content.',url:'tools/converter/yaml-viewer.html',cat:'converter',icon:'YML'}
 ];
 
 const CATEGORIES=[
