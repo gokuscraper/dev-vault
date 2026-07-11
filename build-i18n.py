@@ -10,9 +10,13 @@ with open(INDEX_FILE, "rb") as f:
     raw = f.read()
 if raw[:2] == b"\xff\xfe":
     raw = raw[2:]
-if len(raw) % 2 != 0:
-    raw = raw[:-1]
-html = raw.decode("utf-16-le")
+    if len(raw) % 2 != 0:
+        raw = raw[:-1]
+    html = raw.decode("utf-16-le")
+elif raw[:3] == b"\xef\xbb\xbf":
+    html = raw[3:].decode("utf-8")
+else:
+    html = raw.decode("utf-8")
 
 print(f"HTML length: {len(html)}")
 
@@ -59,7 +63,7 @@ if inner.startswith("const TOOLS=["):
     inner = inner[len("const TOOLS=["):]
 if inner.endswith("];"):
     inner = inner[:-2]
-normalized = inner.replace("},\r\n{", "}||{").replace("},{", "}||{")
+normalized = inner.replace("},\r\n{", "}||{").replace("},\n{", "}||{").replace("},{", "}||{")
 parts = normalized.split("||")
 for part in parts:
     part = part.strip()
@@ -191,7 +195,7 @@ function applyLang() {{
   var mt = document.querySelector('.meta');
   if (mt) mt.textContent = t('metaLine');
   var sp = document.getElementById('search');
-  if (sp) sp.placeholder = t('search').replace('{{n}}', TOOLS.length);
+  if (sp) sp.placeholder = t('search').replace('{{n}}', getTools().length);
   var pk = document.querySelector('.picks h2');
   if (pk) pk.textContent = t('picks');
   var pr = document.querySelectorAll('.principle');
@@ -236,9 +240,10 @@ after_cat = after_cat.replace(
     "||t('noResults')"
 )
 
-old_bottom = "renderFilters();\r\nfilterTools();"
-new_bottom = "// Init language\r\nlang = (navigator.language || '').startsWith('zh') ? 'zh' : 'en';\r\nif (localStorage.getItem('lang')) lang = localStorage.getItem('lang');\r\napplyLang();"
-after_cat = after_cat.replace(old_bottom, new_bottom)
+old_bottom_crlf = "renderFilters();\r\nfilterTools();"
+old_bottom_lf = "renderFilters();\nfilterTools();"
+new_bottom = "// Init language\nlang = (navigator.language || '').startsWith('zh') ? 'zh' : 'en';\nif (localStorage.getItem('lang')) lang = localStorage.getItem('lang');\napplyLang();"
+after_cat = after_cat.replace(old_bottom_crlf, new_bottom).replace(old_bottom_lf, new_bottom)
 
 toggle_html = (
     '<div style="position:absolute;top:16px;right:16px;display:flex;gap:6px;z-index:10">'
