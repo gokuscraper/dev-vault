@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/tools-487-blue?style=flat-square" alt="487 tools">
-  <img src="https://img.shields.io/badge/tests-487%2F487-green?style=flat-square" alt="All tests passing">
+  <img src="https://img.shields.io/badge/tools-500-blue?style=flat-square" alt="500 tools">
+  <img src="https://img.shields.io/badge/tests-500%2F500-green?style=flat-square" alt="All tests passing">
   <img src="https://img.shields.io/badge/license-MIT-white?style=flat-square" alt="MIT">
   <img src="https://img.shields.io/badge/dependencies-0-orange?style=flat-square" alt="Zero dependencies">
 </p>
 
 <h1 align="center">🧰 Dev Vault</h1>
 
-<p align="center">487 browser-based developer tools · All offline · Zero dependencies · One HTML file each</p>
+<p align="center">500 browser-based developer tools · All offline · Zero dependencies · One HTML file each</p>
 
 <p align="center"><a href="README.md">🌐 中文</a></p>
 
@@ -15,7 +15,7 @@
 
 ## 📖 About
 
-**Dev Vault** is a collection of **487 standalone HTML tools** covering CSS, JavaScript, security, networking, design, data, DevOps, and more.
+**Dev Vault** is a collection of **500 standalone HTML tools** covering CSS, JavaScript, security, networking, design, data, DevOps, and more.
 
 Every tool is a single HTML file — open it in a browser and it just works. No build step, no npm install, no signup, no tracking.
 
@@ -27,19 +27,24 @@ Every tool is a single HTML file — open it in a browser and it just works. No 
 
 | Category | Count | Examples |
 |----------|-------|---------|
-| CSS | 57 | Layout, animation, painting, responsive, scroll-snap, container queries |
-| JavaScript | 91 | Web APIs, patterns, visualizers, engine internals |
-| Code | 63 | JSON, regex, JWT, hash, cron, env, docker, git |
-| Design | 42 | Color, typography, SVG, icon, image, CSS generators |
-| Security | 19 | CSP, CORS, JWT, SRI, sanitizer, cookie inspector |
-| Network / Net | 17 | DNS, MAC, IPv4/6, HTTP, TLS, WebSocket |
-| Data | 18 | npm, GitHub, pypi, crate, license, SSL |
+| JavaScript | 132 | Web APIs, patterns, visualizers, engine internals |
+| Code | 109 | JSON, regex, JWT, hash, cron, docker, git |
+| CSS | 63 | Layout, animation, painting, responsive, container queries |
+| Design | 52 | Color, typography, SVG, icon, image, CSS generators |
+| Data | 26 | npm, GitHub, pypi, crate, SSL, license |
+| Converter | 20 | JSON↔TOML↔YAML↔XML, temperature, IBAN, date |
+| Network | 18 | DNS, IPv4/6, HTTP, TLS, WebSocket, MAC |
+| Security | 17 | CSP, CORS, JWT, SRI, cookie inspector |
+| Crypto | 10 | Hash, HMAC, RSA, Bcrypt, BIP39, OTP |
+| Text | 8 | Case convert, slugify, NATO, binary, Unicode |
+| Image | 7 | Crop, filter, watermark, Base64, sprite sheet |
+| DevOps | 6 | Docker, K8s, Terraform, Grafana |
+| Writing | 9 | Markdown, word count, reading time, title score |
 | AI | 5 | LLM pricing, prompt cost, model picker |
-| DevOps | 10 | Docker, K8s, Terraform, Grafana, GitHub Actions |
-| Converter | 14 | JSON↔TOML↔YAML↔XML, temperature, IBAN, phone |
-| More... | 151 | Math, crypto, audio, image, writing, device APIs |
+| Math | 4 | Evaluator, benchmark, geo distance, ETA |
+| More... | 14 | Color, API, device, media, SEO, perf, reference |
 
-[→ Browse all 487 tools](https://gokuscraper.github.io/dev-vault/)
+[→ Browse all 500 tools](https://gokuscraper.github.io/dev-vault/)
 
 ## 🚀 Quick Start
 

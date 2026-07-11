@@ -1,13 +1,13 @@
 <p align="center">
-  <img src="https://img.shields.io/badge/工具-487-blue?style=flat-square" alt="487 个工具">
-  <img src="https://img.shields.io/badge/测试-487%2F487-green?style=flat-square" alt="全部测试通过">
+  <img src="https://img.shields.io/badge/工具-500-blue?style=flat-square" alt="500 个工具">
+  <img src="https://img.shields.io/badge/测试-500%2F500-green?style=flat-square" alt="全部测试通过">
   <img src="https://img.shields.io/badge/许可证-MIT-white?style=flat-square" alt="MIT">
   <img src="https://img.shields.io/badge/依赖-0-orange?style=flat-square" alt="零依赖">
 </p>
 
 <h1 align="center">🧰 Dev Vault</h1>
 
-<p align="center">487 个浏览器端开发工具 · 全离线 · 零依赖 · 每个工具一个 HTML 文件</p>
+<p align="center">500 个浏览器端开发工具 · 全离线 · 零依赖 · 每个工具一个 HTML 文件</p>
 
 <p align="center"><a href="README.en.md">🌐 English</a></p>
 
@@ -15,7 +15,7 @@
 
 ## 📖 简介
 
-**Dev Vault** 是一个包含 **487 个独立 HTML 工具**的开发工具合集，涵盖 CSS、JavaScript、安全、网络、设计、数据处理、DevOps 等领域。
+**Dev Vault** 是一个包含 **500 个独立 HTML 工具**的开发工具合集，涵盖 CSS、JavaScript、安全、网络、设计、数据处理、DevOps 等领域。
 
 每个工具都是一个独立的 HTML 文件——在浏览器打开就能用。不需要构建步骤、不需要 npm 安装、无需注册、无任何追踪。
 
@@ -27,19 +27,24 @@
 
 | 分类 | 数量 | 示例 |
 |------|------|------|
-| CSS | 57 | 布局、动画、绘制、响应式、滚动吸附、容器查询 |
-| JavaScript | 91 | Web API、设计模式、可视化工具、引擎内部 |
-| 编码 | 63 | JSON、正则、JWT、哈希、Cron、环境变量、Docker、Git |
-| 设计 | 42 | 颜色、字体、SVG、图标、图片、CSS 生成器 |
-| 安全 | 19 | CSP、CORS、JWT、SRI、清理器、Cookie 检查 |
-| 网络 | 17 | DNS、MAC、IPv4/6、HTTP、TLS、WebSocket |
-| 数据 | 18 | npm、GitHub、PyPI、crate、许可证、SSL |
+| JavaScript | 132 | Web API、设计模式、可视化工具、引擎内部 |
+| 编码 | 109 | JSON、正则、JWT、哈希、Cron、Docker、Git |
+| CSS | 63 | 布局、动画、绘制、响应式、容器查询、滚动 |
+| 设计 | 52 | 颜色、字体、SVG、图标、图片、CSS 生成器 |
+| 数据 | 26 | npm、GitHub、PyPI、crate、证书、SSL |
+| 转换工具 | 20 | JSON↔TOML↔YAML↔XML、温度、IBAN、日期 |
+| 网络 | 18 | DNS、IPv4/6、HTTP、TLS、WebSocket、MAC |
+| 安全 | 17 | CSP、CORS、JWT、SRI、Cookie 检查 |
+| 加密 | 10 | 哈希、HMAC、RSA、Bcrypt、BIP39、OTP |
+| 文本 | 8 | 大小写转换、slugify、NATO、二进制、Unicode |
+| 图片 | 7 | 裁剪、滤镜、水印、Base64、雪碧图 |
+| DevOps | 6 | Docker、K8s、Terraform、Grafana |
+| 写作 | 9 | Markdown、字数统计、阅读时间、标题评分 |
 | AI | 5 | LLM 价格、提示词成本、模型选择 |
-| DevOps | 10 | Docker、K8s、Terraform、Grafana、GitHub Actions |
-| 转换工具 | 14 | JSON↔TOML↔YAML↔XML、温度、IBAN、电话 |
-| 更多... | 151 | 数学、加密、音频、图片、写作、设备 API |
+| 数学 | 4 | 计算器、基准测试、地理距离、ETA |
+| 更多... | 14 | 颜色、API、设备、媒体、SEO、性能、参考 |
 
-[→ 浏览全部 487 个工具](https://gokuscraper.github.io/dev-vault/)
+[→ 浏览全部 500 个工具](https://gokuscraper.github.io/dev-vault/)
 
 ## 🚀 快速开始
 
