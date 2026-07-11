@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_format_beautify_vali" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,27 +67,29 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JSON Format</h1>
-<p class="subtitle">Beautify, validate, and minify JSON. Paste and go.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_json_format">JSON Format</h1>
+<p class="subtitle" ti="subtitle_beautify_validate_and_min">Beautify, validate, and minify JSON. Paste and go.</p>
 
 <div class="toolbar">
-  <button class="btn primary" onclick="format()">Beautify</button>
-  <button class="btn" onclick="minify()">Minify</button>
-  <button class="btn" onclick="sortKeys()">Sort Keys</button>
-  <button class="btn" onclick="toggleTree()">Tree View</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="downloadJSON()">Download</button>
-  <button class="btn danger" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="format()" ti="btn_beautify">Beautify</button>
+  <button class="btn" onclick="minify()" ti="btn_minify">Minify</button>
+  <button class="btn" onclick="sortKeys()" ti="btn_sort_keys">Sort Keys</button>
+  <button class="btn" onclick="toggleTree()" ti="btn_tree_view">Tree View</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadJSON()" ti="btn_download">Download</button>
+  <button class="btn danger" onclick="clearAll()" ti="btn_clear">Clear</button>
 </div>
 
-<div id="status" class="status-empty">Paste JSON to begin</div>
+<div id="status" class="status-empty" ti="statuspaste_json_to_begin">Paste JSON to begin</div>
 <div class="stats" id="stats"></div>
 
 <div class="layout">
   <div class="panel">
     <div class="panel-header">
-      <span class="label">Input</span>
+      <span class="label" ti="label_input">Input</span>
       <span class="info" id="inputInfo"></span>
     </div>
     <textarea id="inputArea" placeholder='Paste JSON here...
@@ -97,7 +99,7 @@ Example:
   </div>
   <div class="panel">
     <div class="panel-header">
-      <span class="label">Output</span>
+      <span class="label" ti="label_output">Output</span>
       <span class="info" id="outputInfo"></span>
     </div>
     <textarea id="outputArea" readonly></textarea>
@@ -105,16 +107,16 @@ Example:
 </div>
 
 <div class="tree-section" id="treeSection">
-  <h2>Tree View</h2>
+  <h2 ti="h2_tree_view">Tree View</h2>
   <div class="tree" id="treeView"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/json-format">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/regex-test/">Regex Test</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/cron-explain/">Cron Explain</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a>
+  <a href="https://github.com/gokuscraper/json-format" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/regex-test/" ti="link_regex_test">Regex Test</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/cron-explain/" ti="link_cron_explain">Cron Explain</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats">gh-stats</a>
 </footer>
 
 <script>
@@ -126,7 +128,7 @@ function validate(){
   const raw=$('inputArea').value.trim();
   if(!raw){
     $('status').className='status-empty';
-    $('status').textContent='Paste JSON to begin';
+    $('status').textContent=T("jstc_paste_json_to_begin");
     $('outputArea').value='';
     $('stats').innerHTML='';
     return null;
@@ -134,12 +136,12 @@ function validate(){
   try{
     const obj=JSON.parse(raw);
     $('status').className='status-valid';
-    $('status').textContent='Valid JSON';
+    $('status').textContent=T("jstc_valid_json");
     updateStats(raw,obj);
     return obj;
   }catch(e){
     $('status').className='status-invalid';
-    $('status').textContent='Invalid: '+e.message;
+    $('status').textContent=T("jstc_invalid")+e.message;
     $('outputArea').value='';
     $('stats').innerHTML='';
     return null;
@@ -187,7 +189,7 @@ function sortKeys(){
   const sorted=deepSort(obj);
   const formatted=JSON.stringify(sorted,null,2);
   $('outputArea').value=formatted;
-  $('outputInfo').textContent='sorted';
+  $('outputInfo').textContent=T("jstc_sorted");
 }
 
 function deepSort(obj){
@@ -242,7 +244,7 @@ function copyOutput(){
   navigator.clipboard.writeText(text);
   const el=document.createElement('div');
   el.style.cssText='position:fixed;top:20px;left:50%;transform:translateX(-50%);background:#10b981;color:#fff;padding:8px 20px;border-radius:8px;font-size:0.85rem;font-weight:600;z-index:100;animation:fadeOut 1.5s forwards';
-  el.textContent='Copied!';
+  el.textContent=T("jstc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -265,7 +267,7 @@ function clearAll(){
   $('outputInfo').textContent='';
   $('treeSection').style.display='none';
   $('status').className='status-empty';
-  $('status').textContent='Paste JSON to begin';
+  $('status').textContent=T("jstc_paste_json_to_begin");
 }
 
 function getDepth(obj,d=0){
@@ -289,13 +291,35 @@ function fmtBytes(b){if(b<1024)return b+'B';if(b<1048576)return(b/1024).toFixed(
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-diff/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Diff</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-viewer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Viewer</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-schema/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Schema</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-to-ts/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON → TS</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tool">Dev Vault — 101 free tools</a></div>
 </footer>
+<script>var _LANG={'title_json_format_beautify_vali':["JSON Format — Beautify, Validate & Minify JSON", "JSON 格式化 — 美化、验证和压缩 JSON"],'metadesc_paste_json_and_instantly':["Paste JSON and instantly format, validate, or minify it. See structure as a tree. Copy or download. Free, no signup.", "粘贴 JSON 即可格式化、验证或压缩。树形查看结构。免费，无需注册。"],'h1_json_format':["JSON Format", "JSON 格式化"],'h2_tree_view':["Tree View", "树形视图"],'subtitle_beautify_validate_and_min':["Beautify, validate, and minify JSON. Paste and go.", "美化、验证和压缩 JSON。粘贴即用。"],'btn_beautify':["Beautify", "美化"],'btn_minify':["Minify", "压缩"],'btn_sort_keys':["Sort Keys", "排序键"],'btn_tree_view':["Tree View", "树形视图"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear':["Clear", "清空"],'label_input':["Input", "输入"],'label_output':["Output", "输出"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tool':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_regex_test':["Regex Test", "正则测试"],'link_cron_explain':["Cron Explain", "Cron 解释"],'link_gh_stats':["gh-stats", "gh-stats"],'statuspaste_json_to_begin':["Paste JSON to begin", "粘贴 JSON 开始"],'jstc_paste_json_to_begin':["Paste JSON to begin", "粘贴 JSON 开始"],'jstc_valid_json':["Valid JSON", "有效 JSON"],'jstc_invalid':["Invalid: ", "无效："],'jstc_sorted':["sorted", "已排序"],'jstc_copied':["Copied!", "已复制！"],'jtlword_size':["size", "大小"],'jtlword_keys':["keys", "键数"],'jtlword_depth':["depth", "深度"],'jtlword_objects':["objects", "对象数"],'jtlword_arrays':["arrays", "数组数"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
 </body>
 </html>
