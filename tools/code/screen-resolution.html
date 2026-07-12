@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_screen_resolution_device" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,35 +42,59 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>Screen Resolution — Device & Viewport Info</h1>
-<p class="sub">Live-updating display information. Resize your browser to see changes.</p>
-<button class="btn" id="copyBtn" onclick="copyAll()">Copy All Info</button>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_screen_resolution_device" ti="h1_screen_resolution_device" ti="title_screen_resolution_device" ti="h1_screen_resolution_device">Screen Resolution — Device & Viewport Info</h1>
+<p class="sub" ti="subtitle_live_updating_display_inf" ti="subtitle_live_updating_display_inf">Live-updating display information. Resize your browser to see changes.</p>
+<button class="btn" id="copyBtn" onclick="copyAll()" ti="btn_copy_all_info" ti="btn_copy_all_info">Copy All Info</button>
 
 <div class="section">
-<h2>Device Info</h2>
+<h2 ti="h2_device_info" ti="h2_device_info">Device Info</h2>
 <div class="grid" id="cards"></div>
 </div>
 
 <div class="section">
-<h2>CSS Breakpoints</h2>
+<h2 ti="h2_css_breakpoints" ti="h2_css_breakpoints">CSS Breakpoints</h2>
 <div class="bp-row" id="bps"></div>
 </div>
 
 <div class="section">
-<h2>Device Comparison</h2>
+<h2 ti="h2_device_comparison" ti="h2_device_comparison">Device Comparison</h2>
 <table class="compare" id="compare"></table>
 </div>
 
 <div class="section">
-<h2>Code Snippets</h2>
+<h2 ti="h2_code_snippets" ti="h2_code_snippets">Code Snippets</h2>
 <div id="snippets"></div>
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> ·
-<a href="https://gokuscraper.github.io/dev-vault/responsive-breakpoints/">responsive-breakpoints</a>
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> ·
+<a href="https://gokuscraper.github.io/dev-vault/responsive-breakpoints/" ti="link_responsive_breakpoints" ti="link_responsive_breakpoints">responsive-breakpoints</a>
 </footer>
 
+
+
+<script>var _LANG={'title_screen_resolution_device':["Screen Resolution — Device & Viewport Info", "屏幕分辨率 — 设备和视口信息"],'metadesc_live_display_of_screen_re':["Live display of screen resolution, viewport size, device pixel ratio, orientation, and media query breakpoints. No dependencies.", "实时显示屏幕分辨率、视口大小、设备像素比、方向和媒体查询断点。无任何依赖项。"],'h1_screen_resolution_device':["Screen Resolution — Device & Viewport Info", "屏幕分辨率 — 设备和视口信息"],'h2_device_info':["Device Info", "设备信息"],'h2_css_breakpoints':["CSS Breakpoints", "CSS断点"],'h2_device_comparison':["Device Comparison", "设备对比"],'h2_code_snippets':["Code Snippets", "代码片段"],'subtitle_live_updating_display_inf':["Live-updating display information. Resize your browser to see changes.", "实时更新的显示信息。调整浏览器窗口大小即可查看更改。"],'btn_copy_all_info':["Copy All Info", "复制所有信息"],'th_device':["Device", "设备"],'th_viewport':["Viewport", "视口"],'th_dpr':["DPR", "DPR"],'th_physical':["Physical", "身体的"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_responsive_breakpoints':["responsive-breakpoints", "响应式断点"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_all_info':["Copy All Info", "复制所有信息"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_screen_resolution_device':["Screen Resolution — Device & Viewport Info", "屏幕分辨率 — 设备和视口信息"],'metadesc_live_display_of_screen_re':["Live display of screen resolution, viewport size, device pixel ratio, orientation, and media query breakpoints. No dependencies.", "实时显示屏幕分辨率、视口大小、设备像素比、方向和媒体查询断点。无任何依赖项。"],'h1_screen_resolution_device':["Screen Resolution — Device & Viewport Info", "屏幕分辨率 — 设备和视口信息"],'h2_device_info':["Device Info", "设备信息"],'h2_css_breakpoints':["CSS Breakpoints", "CSS断点"],'h2_device_comparison':["Device Comparison", "设备对比"],'h2_code_snippets':["Code Snippets", "代码片段"],'subtitle_live_updating_display_inf':["Live-updating display information. Resize your browser to see changes.", "实时更新的显示信息。调整浏览器窗口大小即可查看更改。"],'btn_copy_all_info':["Copy All Info", "复制所有信息"],'th_device':["Device", "设备"],'th_viewport':["Viewport", "视口"],'th_dpr':["DPR", "DPR"],'th_physical':["Physical", "身体的"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_responsive_breakpoints':["responsive-breakpoints", "响应式断点"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_all_info':["Copy All Info", "复制所有信息"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const breakpoints = [
   {name:'xs', min:0, max:575, label:'<576px'},
@@ -160,7 +184,7 @@ function renderComparison() {
   const rows = [{name:'Your Device', w:vw, h:vh, dpr, you:true}, ...devices];
   rows.sort((a,b) => (a.w*a.h) - (b.w*b.h));
   document.getElementById('compare').innerHTML =
-    '<tr><th>Device</th><th>Viewport</th><th>DPR</th><th>Physical</th></tr>' +
+    '<tr><th ti="th_device" ti="th_device">Device</th><th ti="th_viewport" ti="th_viewport">Viewport</th><th ti="th_dpr" ti="th_dpr">DPR</th><th ti="th_physical" ti="th_physical">Physical</th></tr>' +
     rows.map(r =>
       `<tr class="${r.you?'you':''}"><td>${r.name}</td><td>${r.w} × ${r.h}</td><td>${r.dpr}x</td><td>${r.w*r.dpr} × ${r.h*r.dpr}</td></tr>`
     ).join('');
@@ -179,8 +203,8 @@ function copyAll() {
   const txt = d.map(c => `${c.label}: ${c.value}${c.detail?' ('+c.detail+')':''}`).join('\n');
   navigator.clipboard.writeText(txt).then(() => {
     const b = document.getElementById('copyBtn');
-    b.textContent = 'Copied!'; b.classList.add('copied');
-    setTimeout(() => { b.textContent = 'Copy All Info'; b.classList.remove('copied'); }, 1500);
+    b.textContent=T("jtc_copied"); b.classList.add('copied');
+    setTimeout(() => { b.textContent=T("jtc_copy_all_info"); b.classList.remove('copied'); }, 1500);
   });
 }
 
@@ -188,6 +212,42 @@ update();
 renderSnippets();
 window.addEventListener('resize', update);
 if (screen.orientation) screen.orientation.addEventListener('change', update);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

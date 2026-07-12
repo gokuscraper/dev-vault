@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_editcontext_api_playgroun" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -533,6 +533,8 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>EditContext</span> API Playground</h1>
@@ -547,22 +549,22 @@ footer a:hover { text-decoration: underline; }
 
 <nav>
   <ul>
-    <li><a href="#basic">Basic</a></li>
+    <li><a href="#basic" ti="link_basic">Basic</a></li>
     <li><a href="#canvas">Canvas Editor</a></li>
-    <li><a href="#ime">IME / Composition</a></li>
-    <li><a href="#selection">Selection</a></li>
-    <li><a href="#formatting">Formatting</a></li>
-    <li><a href="#explorer">API Explorer</a></li>
-    <li><a href="#comparison">Comparison</a></li>
-    <li><a href="#codegen">Code Generator</a></li>
-    <li><a href="#support">Browser Support</a></li>
+    <li><a href="#ime" ti="link_ime_composition">IME / Composition</a></li>
+    <li><a href="#selection" ti="link_selection">Selection</a></li>
+    <li><a href="#formatting" ti="link_formatting">Formatting</a></li>
+    <li><a href="#explorer" ti="link_api_explorer">API Explorer</a></li>
+    <li><a href="#comparison" ti="link_comparison">Comparison</a></li>
+    <li><a href="#codegen" ti="link_code_generator">Code Generator</a></li>
+    <li><a href="#support" ti="link_browser_support">Browser Support</a></li>
   </ul>
 </nav>
 
 <main>
 
 <div class="unsupported-banner" id="unsupportedBanner">
-  <h3>EditContext API Not Supported</h3>
+  <h3 ti="h3_editcontext_api_not_suppo">EditContext API Not Supported</h3>
   <p>Your browser does not support the EditContext API. The demos below will show simulated output. Use Chrome 133+ or Edge 133+ for full interactivity.</p>
 </div>
 
@@ -572,7 +574,7 @@ footer a:hover { text-decoration: underline; }
   <p class="section-desc">Attach an EditContext to a DOM element to receive text input without contenteditable. The element becomes an input surface while you control rendering.</p>
 
   <div class="card">
-    <h3>Minimal Example</h3>
+    <h3 ti="h3_minimal_example">Minimal Example</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:0.75rem;">Click the editor below and type. The EditContext handles text input; we render it manually.</p>
     <div class="demo-area">
       <div id="basicEditor" class="ec-editor" tabindex="0">Click here and start typing...</div>
@@ -597,7 +599,7 @@ editContext.<span class="fn">addEventListener</span>(<span class="str">'textupda
 
 <span class="kw">function</span> <span class="fn">renderText</span>() {
   editor.textContent = editContext.text;
-}</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+}</code><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6">Copy</button></pre>
   </div>
 </section>
 
@@ -607,7 +609,7 @@ editContext.<span class="fn">addEventListener</span>(<span class="str">'textupda
   <p class="section-desc">EditContext enables text input on a &lt;canvas&gt; element — impossible with contenteditable. You render glyphs, cursor, and selection manually.</p>
 
   <div class="card">
-    <h3>Canvas Text Editor</h3>
+    <h3 ti="h3_canvas_text_editor">Canvas Text Editor</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:0.75rem;">Click the canvas and type. Text is rendered via Canvas 2D API. Arrow keys and backspace work.</p>
     <div class="canvas-container">
       <canvas id="canvasEditor" width="1000" height="250" tabindex="0"></canvas>
@@ -647,7 +649,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textupdate'</span
   <p class="section-desc">Handle CJK input method editors (IME) properly. EditContext provides compositionstart, compositionend, and textformatupdate events for rendering composition UI.</p>
 
   <div class="card">
-    <h3>Composition Demo</h3>
+    <h3 ti="h3_composition_demo">Composition Demo</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:0.75rem;">Switch to a CJK IME (Japanese, Chinese, Korean) and type. Composition text appears underlined in orange. On non-IME keyboards, type normally to see textupdate events.</p>
     <div class="demo-area">
       <div id="imeEditor" class="ec-editor" tabindex="0">IME入力をお試しください...</div>
@@ -688,7 +690,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   <p class="section-desc">EditContext manages selection state. Use updateSelection() to set cursor position, and respond to selectionStart/selectionEnd in textupdate events.</p>
 
   <div class="card">
-    <h3>Selection Tracker</h3>
+    <h3 ti="h3_selection_tracker">Selection Tracker</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:0.75rem;">Type text, then use Shift+Arrow keys to select. The stats below update in real time.</p>
     <div class="demo-area">
       <div id="selEditor" class="ec-editor" tabindex="0">Select some text with Shift+Arrow keys</div>
@@ -702,10 +704,10 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
     </div>
 
     <div class="btn-group">
-      <button class="btn" onclick="selAction('start')">Move to Start</button>
-      <button class="btn" onclick="selAction('end')">Move to End</button>
-      <button class="btn" onclick="selAction('all')">Select All</button>
-      <button class="btn" onclick="selAction('word')">Select First Word</button>
+      <button class="btn" onclick="selAction('start')" ti="btn_move_to_start">Move to Start</button>
+      <button class="btn" onclick="selAction('end')" ti="btn_move_to_end">Move to End</button>
+      <button class="btn" onclick="selAction('all')" ti="btn_select_all">Select All</button>
+      <button class="btn" onclick="selAction('word')" ti="btn_select_first_word">Select First Word</button>
     </div>
 
     <div class="log-output" id="selLog"></div>
@@ -718,7 +720,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   <p class="section-desc">EditContext does not provide built-in formatting — you control rendering entirely. Apply bold, italic, or any style to selection ranges with custom rendering logic.</p>
 
   <div class="card">
-    <h3>Rich Text Editor</h3>
+    <h3 ti="h3_rich_text_editor">Rich Text Editor</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);margin-bottom:0.75rem;">Type text, select a range with Shift+Arrow, then click a formatting button. Formatting is tracked as character-level metadata.</p>
     <div class="format-bar">
       <button class="format-btn" onclick="applyFormat('bold')" title="Bold"><b>B</b></button>
@@ -768,16 +770,16 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
 
   <div class="card">
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchTab(this,'props')">Properties</button>
-      <button class="tab-btn" onclick="switchTab(this,'methods')">Methods</button>
-      <button class="tab-btn" onclick="switchTab(this,'events')">Events</button>
+      <button class="tab-btn active" onclick="switchTab(this,'props')" ti="btn_properties">Properties</button>
+      <button class="tab-btn" onclick="switchTab(this,'methods')" ti="btn_methods">Methods</button>
+      <button class="tab-btn" onclick="switchTab(this,'events')" ti="btn_events">Events</button>
     </div>
 
     <div class="tab-panel active" id="tab-props">
       <div class="api-item">
         <div class="api-sig">editContext.text <span style="color:var(--text-dim)">: string (read-only)</span></div>
         <div class="api-desc">The current text content managed by the EditContext. Updated via textupdate events or updateText().</div>
-        <div class="api-try"><button class="btn" onclick="showProp('text')">Read Value</button> <span id="propText" style="font-family:var(--font-mono);font-size:0.85rem;color:var(--green);margin-left:0.5rem;"></span></div>
+        <div class="api-try"><button class="btn" onclick="showProp('text')" ti="btn_read_value" ti="btn_read_value_2" ti="btn_read_value_3">Read Value</button> <span id="propText" style="font-family:var(--font-mono);font-size:0.85rem;color:var(--green);margin-left:0.5rem;"></span></div>
       </div>
       <div class="api-item">
         <div class="api-sig">editContext.selectionStart <span style="color:var(--text-dim)">: number (read-only)</span></div>
@@ -804,14 +806,14 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
         <div class="api-sig">editContext.<span class="fn">updateText</span>(rangeStart, rangeEnd, newText)</div>
         <div class="api-desc">Programmatically replace text in [rangeStart, rangeEnd) with newText. Use this for undo/redo or programmatic edits.</div>
         <div class="api-try">
-          <button class="btn" onclick="tryUpdateText()">Insert "Hello" at position 0</button>
+          <button class="btn" onclick="tryUpdateText()" ti="btn_insert_hello_at_position">Insert "Hello" at position 0</button>
         </div>
       </div>
       <div class="api-item">
         <div class="api-sig">editContext.<span class="fn">updateSelection</span>(start, end)</div>
         <div class="api-desc">Set the selection range. If start === end, positions the cursor. Call this after programmatic text changes.</div>
         <div class="api-try">
-          <button class="btn" onclick="tryUpdateSelection()">Select first 5 chars</button>
+          <button class="btn" onclick="tryUpdateSelection()" ti="btn_select_first_5_chars">Select first 5 chars</button>
         </div>
       </div>
       <div class="api-item">
@@ -830,7 +832,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
         <div class="api-sig">editContext.<span class="fn">attachedElements</span>()</div>
         <div class="api-desc">Returns an array of elements this EditContext is attached to.</div>
         <div class="api-try">
-          <button class="btn" onclick="tryAttachedElements()">Get Attached Elements</button>
+          <button class="btn" onclick="tryAttachedElements()" ti="btn_get_attached_elements">Get Attached Elements</button>
           <span id="attachedResult" style="font-family:var(--font-mono);font-size:0.85rem;color:var(--green);margin-left:0.5rem;"></span>
         </div>
       </div>
@@ -874,10 +876,10 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
     <table class="compare-table">
       <thead>
         <tr>
-          <th>Feature</th>
+          <th ti="th_feature">Feature</th>
           <th>&lt;textarea&gt;</th>
-          <th>contenteditable</th>
-          <th>EditContext</th>
+          <th ti="th_contenteditable">contenteditable</th>
+          <th ti="th_editcontext">EditContext</th>
         </tr>
       </thead>
       <tbody>
@@ -958,7 +960,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   </div>
 
   <div class="card">
-    <h3>When to Use EditContext</h3>
+    <h3 ti="h3_when_to_use_editcontext">When to Use EditContext</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-top:0.75rem;">
       <div>
         <h4 style="color:var(--green);font-size:0.9rem;margin-bottom:0.4rem;">Good Fit</h4>
@@ -991,12 +993,12 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   <p class="section-desc">Copy-paste ready boilerplate for common EditContext patterns.</p>
 
   <div class="card">
-    <h3>Choose a Template</h3>
+    <h3 ti="h3_choose_a_template">Choose a Template</h3>
     <div class="btn-group">
-      <button class="btn btn-primary" onclick="genCode('minimal')">Minimal Editor</button>
-      <button class="btn" onclick="genCode('canvas')">Canvas Editor</button>
-      <button class="btn" onclick="genCode('ime')">IME-Aware Editor</button>
-      <button class="btn" onclick="genCode('rich')">Rich Text Editor</button>
+      <button class="btn btn-primary" onclick="genCode('minimal')" ti="btn_minimal_editor">Minimal Editor</button>
+      <button class="btn" onclick="genCode('canvas')" ti="btn_canvas_editor" ti="link_canvas_editor">Canvas Editor</button>
+      <button class="btn" onclick="genCode('ime')" ti="btn_ime_aware_editor">IME-Aware Editor</button>
+      <button class="btn" onclick="genCode('rich')" ti="btn_rich_text_editor">Rich Text Editor</button>
     </div>
     <pre id="codegenOutput"><code id="codegenCode"><span class="cm">// Select a template above to generate code</span></code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
   </div>
@@ -1008,10 +1010,10 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   <p class="section-desc">The EditContext API is available in Chromium-based browsers starting from version 133.</p>
 
   <div class="card">
-    <h3>Compatibility Matrix</h3>
+    <h3 ti="h3_compatibility_matrix">Compatibility Matrix</h3>
     <table class="compare-table">
       <thead>
-        <tr><th>Browser</th><th>Status</th><th>Since</th><th>Notes</th></tr>
+        <tr><th ti="th_browser">Browser</th><th ti="th_status">Status</th><th ti="th_since">Since</th><th ti="th_notes">Notes</th></tr>
       </thead>
       <tbody>
         <tr><td>Chrome</td><td class="yes-mark">Supported</td><td>133 (Feb 2025)</td><td>Full support</td></tr>
@@ -1025,7 +1027,7 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   </div>
 
   <div class="card">
-    <h3>Feature Detection</h3>
+    <h3 ti="h3_feature_detection">Feature Detection</h3>
     <pre><code><span class="kw">if</span> (<span class="str">'EditContext'</span> <span class="kw">in</span> window) {
   <span class="cm">// EditContext API is available</span>
   <span class="kw">const</span> ec = <span class="kw">new</span> <span class="fn">EditContext</span>();
@@ -1035,12 +1037,12 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
   element.contentEditable = <span class="str">'true'</span>;
 }</code><button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
 
-    <h3 style="margin-top:1rem;">Your Browser</h3>
+    <h3 style="margin-top:1rem;" ti="h3_your_browser">Your Browser</h3>
     <div style="margin-top:0.5rem;" id="browserDetect"></div>
   </div>
 
   <div class="card">
-    <h3>Polyfill / Fallback Strategy</h3>
+    <h3 ti="h3_polyfill_fallback_strateg">Polyfill / Fallback Strategy</h3>
     <p style="font-size:0.88rem;color:var(--text-dim);line-height:1.7;">
       There is no polyfill for EditContext — it requires deep integration with the OS input pipeline.
       The recommended approach is progressive enhancement: use EditContext when available,
@@ -1059,6 +1061,16 @@ ec.<span class="fn">addEventListener</span>(<span class="str">'textformatupdate'
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_editcontext_api_playgroun':["EditContext API Playground", "EditContext API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the EditContext API — build custom text editors bypassing contenteditable. Live demos, canvas editor, IME composition, and code generator.", "EditContext API 的交互式演示环境——绕过 contenteditable 构建自定义文本编辑器。包含实时演示、画布编辑器、输入法编辑器和代码生成器。"],'h3_editcontext_api_not_suppo':["EditContext API Not Supported", "不支持 EditContext API。"],'h3_minimal_example':["Minimal Example", "最小示例"],'h3_canvas_text_editor':["Canvas Text Editor", "画布文本编辑器"],'h3_composition_demo':["Composition Demo", "作曲演示"],'h3_selection_tracker':["Selection Tracker", "选择跟踪器"],'h3_rich_text_editor':["Rich Text Editor", "富文本编辑器"],'h3_when_to_use_editcontext':["When to Use EditContext", "何时使用 EditContext"],'h3_choose_a_template':["Choose a Template", "选择模板"],'h3_compatibility_matrix':["Compatibility Matrix", "兼容性矩阵"],'h3_feature_detection':["Feature Detection", "特征检测"],'h3_your_browser':["Your Browser", "您的浏览器"],'h3_polyfill_fallback_strateg':["Polyfill / Fallback Strategy", "Polyfill / 备用策略"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_move_to_start':["Move to Start", "移至起点"],'btn_move_to_end':["Move to End", "移至结尾"],'btn_select_all':["Select All", "全选"],'btn_select_first_word':["Select First Word", "选择第一个词"],'btn_copy_4':["Copy", "复制"],'btn_properties':["Properties", "特性"],'btn_methods':["Methods", "方法"],'btn_events':["Events", "活动"],'btn_read_value':["Read Value", "读取值"],'btn_read_value_2':["Read Value", "读取值"],'btn_read_value_3':["Read Value", "读取值"],'btn_insert_hello_at_position':["Insert \"Hello\" at position 0", "在位置 0 处插入“Hello”。"],'btn_select_first_5_chars':["Select first 5 chars", "选择前 5 个字符"],'btn_get_attached_elements':["Get Attached Elements", "获取附加元素"],'btn_minimal_editor':["Minimal Editor", "极简编辑器"],'btn_canvas_editor':["Canvas Editor", "画布编辑器"],'btn_ime_aware_editor':["IME-Aware Editor", "支持输入法编辑器"],'btn_rich_text_editor':["Rich Text Editor", "富文本编辑器"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_clear':["Clear", "清除"],'th_feature':["Feature", "特征"],'th_contenteditable':["contenteditable", "内容可编辑"],'th_editcontext':["EditContext", "编辑上下文"],'th_browser':["Browser", "浏览器"],'th_status':["Status", "地位"],'th_since':["Since", "自从"],'th_notes':["Notes", "笔记"],'link_basic':["Basic", "基本的"],'link_canvas_editor':["Canvas Editor", "画布编辑器"],'link_ime_composition':["IME / Composition", "IME / 组成"],'link_selection':["Selection", "选拔"],'link_formatting':["Formatting", "格式化"],'link_api_explorer':["API Explorer", "API Explorer"],'link_comparison':["Comparison", "比较"],'link_code_generator':["Code Generator", "代码生成器"],'link_browser_support':["Browser Support", "浏览器支持"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_firefox_no':["Firefox (No)", "火狐（否）"],'jtc_chrome_133':["Chrome 133+", "Chrome 133+"],'jtc_edge_133':["Edge 133+", "Edge 133+"],'jtc_safari_no':["Safari (No)", "野生动物园（无）"],'jtc_chrome':["Chrome ✓", "铬 ✓"],'jtc_edge':["Edge ✓", "边缘 ✓"],'jtc_focused':["Focused", "专注"],'jtc_ready':["Ready", "准备好"],'jtc_focused_fallback':["Focused (fallback)", "专注（备用）"],'jtc_ready_2':["Ready", "准备好"],'jtc_yes':["Yes", "是的"],'jtc_no':["No", "不"],'jtc_fallback_contenteditable':["Fallback: contenteditable mode", "备用方案：内容可编辑模式"],'jtc_composing':["Composing...", "构成..."],'jtc_composition_committed':["Composition committed", "已提交的组成"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ===== Utilities =====
 const HAS_EC = 'EditContext' in window;
@@ -1087,8 +1099,8 @@ function copyCode(btn) {
   const code = pre.querySelector('code');
   const text = code.textContent;
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1113,15 +1125,15 @@ function escHtml(s) {
   // Detect specific browser
   const ua = navigator.userAgent;
   if (ua.includes('Firefox')) {
-    ff.className = 'compat-badge no'; ff.textContent = 'Firefox (No)';
-    chrome.className = 'compat-badge partial'; chrome.textContent = 'Chrome 133+';
-    edge.className = 'compat-badge partial'; edge.textContent = 'Edge 133+';
+    ff.className = 'compat-badge no'; ff.textContent=T("jtc_firefox_no");
+    chrome.className = 'compat-badge partial'; chrome.textContent=T("jtc_chrome_133");
+    edge.className = 'compat-badge partial'; edge.textContent=T("jtc_edge_133");
   } else if (ua.includes('Safari') && !ua.includes('Chrome')) {
-    safari.className = 'compat-badge no'; safari.textContent = 'Safari (No)';
+    safari.className = 'compat-badge no'; safari.textContent=T("jtc_safari_no");
   } else {
     if (HAS_EC) {
-      chrome.className = 'compat-badge yes'; chrome.textContent = 'Chrome ✓';
-      edge.className = 'compat-badge yes'; edge.textContent = 'Edge ✓';
+      chrome.className = 'compat-badge yes'; chrome.textContent=T("jtc_chrome");
+      edge.className = 'compat-badge yes'; edge.textContent=T("jtc_edge");
     }
   }
   ff.className = ff.className || 'compat-badge no'; ff.textContent = ff.textContent || 'Firefox (No)';
@@ -1544,7 +1556,7 @@ const basicEd = createEditor('basicEditor', 'basicLog');
     });
 
     canvas.addEventListener('focus', () => {
-      statusEl.textContent = 'Focused';
+      statusEl.textContent=T("jtc_focused");
       statusEl.className = 'status status-ok';
       const rect = canvas.getBoundingClientRect();
       ec.updateControlBounds(rect);
@@ -1553,7 +1565,7 @@ const basicEd = createEditor('basicEditor', 'basicLog');
     });
 
     canvas.addEventListener('blur', () => {
-      statusEl.textContent = 'Ready';
+      statusEl.textContent=T("jtc_ready");
       stopBlink();
       draw();
     });
@@ -1573,8 +1585,8 @@ const basicEd = createEditor('basicEditor', 'basicLog');
       } else if (e.key === 'ArrowLeft') { selStart = selEnd = Math.max(0, selStart - 1); draw(); e.preventDefault(); }
       else if (e.key === 'ArrowRight') { selStart = selEnd = Math.min(text.length, selStart + 1); draw(); e.preventDefault(); }
     });
-    canvas.addEventListener('focus', () => { statusEl.textContent = 'Focused (fallback)'; startBlink(); draw(); });
-    canvas.addEventListener('blur', () => { statusEl.textContent = 'Ready'; stopBlink(); draw(); });
+    canvas.addEventListener('focus', () => { statusEl.textContent=T("jtc_focused_fallback"); startBlink(); draw(); });
+    canvas.addEventListener('blur', () => { statusEl.textContent=T("jtc_ready"); stopBlink(); draw(); });
   }
 
   function startBlink() {
@@ -1591,11 +1603,11 @@ const basicEd = createEditor('basicEditor', 'basicLog');
 // ===== 3. IME Editor =====
 const imeEd = createEditor('imeEditor', 'imeLog', {
   onCompositionStart() {
-    $('imeComposing').textContent = 'Yes';
+    $('imeComposing').textContent=T("jtc_yes");
     $('imeComposing').style.color = 'var(--orange)';
   },
   onCompositionEnd() {
-    $('imeComposing').textContent = 'No';
+    $('imeComposing').textContent=T("jtc_no");
     $('imeComposing').style.color = 'var(--green)';
     $('imeCompText').textContent = '—';
   },
@@ -1791,7 +1803,7 @@ editContext.addEventListener('textupdate', (e) => {
 // Feature detection
 if (!('EditContext' in window)) {
   editor.contentEditable = 'true';
-  editor.textContent = 'Fallback: contenteditable mode';
+  editor.textContent=T("jtc_fallback_contenteditable");
 }
 <\/script>
 </body>
@@ -1895,13 +1907,13 @@ ec.addEventListener('textupdate', render);
 
 ec.addEventListener('compositionstart', () => {
   isComposing = true;
-  status.textContent = 'Composing...';
+  status.textContent=T("jtc_composing");
 });
 
 ec.addEventListener('compositionend', () => {
   isComposing = false;
   compositionFormats = [];
-  status.textContent = 'Composition committed';
+  status.textContent=T("jtc_composition_committed");
   render();
 });
 
@@ -1974,7 +1986,7 @@ render();
     <button onclick="fmt('italic')" style="font-style:italic">I</button>
     <button onclick="fmt('underline')" style="text-decoration:underline">U</button>
     <button onclick="fmt('highlight')">H</button>
-    <button onclick="fmt('clear')">Clear</button>
+    <button onclick="fmt('clear')" ti="btn_clear">Clear</button>
   </div>
   <div id="editor" tabindex="0" style="
     min-height:200px;padding:16px;
@@ -2073,6 +2085,24 @@ function genCode(key) {
   toast(`Generated: ${key} template`);
 }
 
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

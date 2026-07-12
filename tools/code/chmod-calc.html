@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_chmod_calculator_unix_fil" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -517,10 +517,12 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <h1><span>chmod</span> Calculator</h1>
-  <p class="subtitle">Interactive Unix file permissions calculator</p>
+  <p class="subtitle" ti="subtitle_interactive_unix_file_per">Interactive Unix file permissions calculator</p>
 
   <!-- Permission Grid -->
   <div class="card">
@@ -564,12 +566,12 @@ footer a:hover { text-decoration: underline; }
     <div class="card-title"><span class="icon">&#9000;</span> Input</div>
     <div class="input-row">
       <div class="input-group">
-        <label>Numeric (octal)</label>
-        <input type="text" id="numericInput" maxlength="4" placeholder="755" autocomplete="off" spellcheck="false">
+        <label ti="label_numeric_octal">Numeric (octal)</label>
+        <input type="text" id="numericInput" maxlength="4" tp="placeholder_755" placeholder="755" autocomplete="off" spellcheck="false">
       </div>
       <div class="input-group">
-        <label>Symbolic</label>
-        <input type="text" id="symbolicInput" maxlength="9" placeholder="rwxr-xr-x" autocomplete="off" spellcheck="false">
+        <label ti="label_symbolic">Symbolic</label>
+        <input type="text" id="symbolicInput" maxlength="9" tp="placeholder_rwxr_xr_x" placeholder="rwxr-xr-x" autocomplete="off" spellcheck="false">
       </div>
     </div>
   </div>
@@ -579,7 +581,7 @@ footer a:hover { text-decoration: underline; }
     <div class="card-title"><span class="icon">&#62;</span> Command Output</div>
     <div class="cmd-output">
       <div><span class="prompt">$ </span><code id="cmdNumeric">chmod 000 filename</code></div>
-      <button class="copy-btn" onclick="copyCmd('cmdNumeric', this)">Copy</button>
+      <button class="copy-btn" onclick="copyCmd('cmdNumeric', this)" ti="btn_copy" ti="btn_copy_2">Copy</button>
     </div>
     <div class="cmd-output">
       <div><span class="prompt">$ </span><code id="cmdSymbolic">chmod u=,g=,o= filename</code></div>
@@ -685,8 +687,8 @@ footer a:hover { text-decoration: underline; }
     <div class="card-title"><span class="icon">&#127917;</span> Umask Calculator</div>
     <div class="umask-row">
       <div class="input-group">
-        <label>Umask value</label>
-        <input type="text" id="umaskInput" maxlength="4" placeholder="022" autocomplete="off" spellcheck="false">
+        <label ti="label_umask_value">Umask value</label>
+        <input type="text" id="umaskInput" maxlength="4" tp="placeholder_022" placeholder="022" autocomplete="off" spellcheck="false">
       </div>
       <div class="umask-result">
         <div class="ur-label">Files (666 - umask)</div>
@@ -709,6 +711,16 @@ footer a:hover { text-decoration: underline; }
   <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">dev-toolkit</a>
 </footer>
 
+
+<script>var _LANG={'title_chmod_calculator_unix_fil':["chmod Calculator — Unix File Permissions", "chmod Calculator — Unix 文件权限"],'metadesc_interactive_chmod_calcula':["Interactive chmod calculator. Convert between symbolic and numeric Unix file permissions. Includes special permissions, umask calculator, and plain English explanations.", "交互式 chmod 计算器。可在符号和数字 Unix 文件权限之间进行转换。包含特殊权限、umask 计算器和通俗易懂的英文解释。"],'subtitle_interactive_unix_file_per':["Interactive Unix file permissions calculator", "交互式 Unix 文件权限计算器"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'placeholder_755':["755", "755"],'placeholder_rwxr_xr_x':["rwxr-xr-x", "rwxr-xr-x"],'placeholder_022':["022", "022"],'label_numeric_octal':["Numeric (octal)", "数值（八进制）"],'label_symbolic':["Symbolic", "象征性的"],'label_umask_value':["Umask value", "Umask 值"],'jtc_chmod':["chmod", "chmod"],'jtc_chmod_2':["chmod", "chmod"],'jtc_chmod_3':["chmod", "chmod"],'jtc_chmod_4':["chmod", "chmod"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtcpre_chmod':["chmod ", "chmod"],'jtcpre_chmod_2':["chmod ", "chmod"],'jtcpre_chmod_3':["chmod ", "chmod"],'jtcpre_chmod_4':["chmod ", "chmod"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -762,8 +774,8 @@ footer a:hover { text-decoration: underline; }
     symInput.classList.remove('invalid');
 
     // Command output
-    document.getElementById('cmdNumeric').textContent = 'chmod ' + numStr + ' filename';
-    document.getElementById('cmdSymbolic').textContent = 'chmod ' + buildSymbolicCmd() + ' filename';
+    document.getElementById('cmdNumeric').textContent=T("jtcpre_chmod")+ numStr + ' filename';
+    document.getElementById('cmdSymbolic').textContent=T("jtcpre_chmod")+ buildSymbolicCmd() + ' filename';
 
     // File preview
     updateFilePreview(symStr);
@@ -986,8 +998,8 @@ footer a:hover { text-decoration: underline; }
       symInput.classList.remove('invalid');
     }
 
-    document.getElementById('cmdNumeric').textContent = 'chmod ' + numStr + ' filename';
-    document.getElementById('cmdSymbolic').textContent = 'chmod ' + buildSymbolicCmd() + ' filename';
+    document.getElementById('cmdNumeric').textContent=T("jtcpre_chmod")+ numStr + ' filename';
+    document.getElementById('cmdSymbolic').textContent=T("jtcpre_chmod")+ buildSymbolicCmd() + ' filename';
     updateFilePreview(symStr);
     updateExplanation();
 
@@ -1016,10 +1028,10 @@ footer a:hover { text-decoration: underline; }
   window.copyCmd = function(id, btn) {
     const text = document.getElementById(id).textContent;
     navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = 'Copy';
+        btn.textContent=T("jtc_copy");
         btn.classList.remove('copied');
       }, 1500);
     });
@@ -1083,5 +1095,23 @@ footer a:hover { text-decoration: underline; }
 })();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

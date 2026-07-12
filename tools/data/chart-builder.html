@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_chart_builder_create_char" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,12 +52,14 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Chart Builder</h1>
-<p class="sub">Create charts from data — download as PNG — nothing uploaded</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_chart_builder">Chart Builder</h1>
+<p class="sub" ti="subtitle_create_charts_from_data_d">Create charts from data — download as PNG — nothing uploaded</p>
 
 <div class="section">
-<h3>Chart Type</h3>
+<h3 ti="h3_chart_type">Chart Type</h3>
 <div class="chart-types" id="chartTypes">
 <div class="chart-type active" data-type="bar">Bar</div>
 <div class="chart-type" data-type="line">Line</div>
@@ -71,7 +73,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Data</h3>
+<h3 ti="h3_data">Data</h3>
 <div class="presets">
 <div class="preset" onclick="loadSample('sales')">Sales</div>
 <div class="preset" onclick="loadSample('traffic')">Traffic</div>
@@ -84,17 +86,17 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Options</h3>
-<div class="field"><label>Title</label><input id="chartTitle" value="" placeholder="Chart title" oninput="renderChart()"></div>
+<h3 ti="h3_options">Options</h3>
+<div class="field"><label ti="label_title">Title</label><input id="chartTitle" value="" tp="placeholder_chart_title" placeholder="Chart title" oninput="renderChart()"></div>
 <div class="field-row">
-<div class="field"><label>Width</label><input id="chartW" type="number" value="600" min="200" max="2000" oninput="renderChart()"></div>
-<div class="field"><label>Height</label><input id="chartH" type="number" value="400" min="200" max="2000" oninput="renderChart()"></div>
+<div class="field"><label ti="label_width">Width</label><input id="chartW" type="number" value="600" min="200" max="2000" oninput="renderChart()"></div>
+<div class="field"><label ti="label_height">Height</label><input id="chartH" type="number" value="400" min="200" max="2000" oninput="renderChart()"></div>
 </div>
 <div class="field-row">
-<div class="field"><label>Background</label><select id="chartBg" onchange="renderChart()"><option value="#0a0a0a">Dark</option><option value="#ffffff">White</option><option value="transparent">Transparent</option></select></div>
-<div class="field"><label>Show Values</label><select id="showValues" onchange="renderChart()"><option value="yes">Yes</option><option value="no">No</option></select></div>
+<div class="field"><label ti="label_background">Background</label><select id="chartBg" onchange="renderChart()"><option value="#0a0a0a">Dark</option><option value="#ffffff">White</option><option value="transparent">Transparent</option></select></div>
+<div class="field"><label ti="label_show_values">Show Values</label><select id="showValues" onchange="renderChart()"><option value="yes">Yes</option><option value="no">No</option></select></div>
 </div>
-<div class="field"><label>Color Palette</label></div>
+<div class="field"><label ti="label_color_palette">Color Palette</label></div>
 <div class="color-row" id="paletteSelector"></div>
 </div>
 </div>
@@ -104,17 +106,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <canvas id="chart"></canvas>
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="downloadPNG()">Download PNG</button>
-<button class="btn" onclick="downloadSVG()">Copy SVG</button>
+<button class="btn btn-primary" onclick="downloadPNG()" ti="btn_download_png">Download PNG</button>
+<button class="btn" onclick="downloadSVG()" ti="btn_copy_svg">Copy SVG</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-picker-image/">Image Color Picker</a> | <a href="https://gokuscraper.github.io/dev-vault/csv-json/">CSV ↔ JSON</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-picker-image/" ti="link_image_color_picker">Image Color Picker</a> | <a href="https://gokuscraper.github.io/dev-vault/csv-json/" ti="link_csv_json">CSV ↔ JSON</a></div>
 </div>
 <div class="toast" id="toast">Downloaded!</div>
 
+
+<script>var _LANG={'title_chart_builder_create_char':["Chart Builder — Create Charts from Data in Your Browser", "图表生成器 — 在浏览器中使用数据创建图表"],'metadesc_create_bar_line_pie_dough':["Create bar, line, pie, doughnut, and area charts from your data. No library needed. Download as PNG. All processing in your browser.", "根据您的数据创建条形图、折线图、饼图、环形图和面积图。无需任何库。下载为 PNG 格式。所有处理均在浏览器中完成。"],'h1_chart_builder':["Chart Builder", "图表生成器"],'h3_chart_type':["Chart Type", "图表类型"],'h3_data':["Data", "数据"],'h3_options':["Options", "选项"],'subtitle_create_charts_from_data_d':["Create charts from data — download as PNG — nothing uploaded", "根据数据创建图表——下载为PNG格式——未上传任何内容"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_svg':["Copy SVG", "复制 SVG"],'placeholder_label_value_january_120_f':["Label, Value\nJanuary, 120\nFebruary, 180\nMarch, 95\n...\n\nOr paste CSV/TSV data", "标签，值 一月，120 二月，180 三月，95 ... 或粘贴 CSV/TSV 数据"],'placeholder_chart_title':["Chart title", "图表标题"],'label_title':["Title", "标题"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'label_background':["Background", "背景"],'label_show_values':["Show Values", "显示数值"],'label_color_palette':["Color Palette", "调色板"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_color_picker':["Image Color Picker", "图像颜色选择器"],'link_csv_json':["CSV ↔ JSON", "CSV ↔ JSON"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const canvas=document.getElementById('chart');
 const ctx=canvas.getContext('2d');
@@ -410,6 +422,24 @@ function showToast(msg){
 
 // Init with sample
 loadSample('sales');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

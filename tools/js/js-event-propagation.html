@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_event_propagation_simu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -98,25 +98,27 @@ header p{color:#888;font-size:0.85rem}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>JS Event Propagation Simulator</h1>
+<h1 ti="title_js_event_propagation_simu" ti="h1_js_event_propagation_simu">JS Event Propagation Simulator</h1>
 <p>Watch events capture, target, and bubble through the DOM — interactive step-through</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" data-tab="simulator">Simulator</button>
-<button class="tab" data-tab="presets">Presets</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="simulator" ti="btn_simulator">Simulator</button>
+<button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+<button class="tab" data-tab="reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="simulator">
 <div class="controls">
-<button class="btn success" id="simulateBtn">▶ Simulate Click</button>
-<button class="btn" id="stepBtn">⏭ Step</button>
-<button class="btn danger" id="resetBtn">↺ Reset</button>
+<button class="btn success" id="simulateBtn" ti="btn_simulate_click">▶ Simulate Click</button>
+<button class="btn" id="stepBtn" ti="btn_step">⏭ Step</button>
+<button class="btn danger" id="resetBtn" ti="btn_reset">↺ Reset</button>
 <div class="speed-control">
-<label>Speed:</label>
+<label ti="label_speed">Speed:</label>
 <input type="range" id="speed" min="100" max="2000" value="600" step="100">
 <span id="speedLabel">600ms</span>
 </div>
@@ -126,12 +128,12 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="split">
 <div class="tree-panel">
-<h3>DOM Tree</h3>
+<h3 ti="h3_dom_tree">DOM Tree</h3>
 <div id="domTree"></div>
 <div class="flow-diagram" id="flowDiagram"></div>
 </div>
 <div class="info-panel">
-<h3>Event Log</h3>
+<h3 ti="h3_event_log">Event Log</h3>
 <div class="legend">
 <div class="legend-item"><div class="legend-dot cap"></div>Capturing</div>
 <div class="legend-item"><div class="legend-dot tgt"></div>Target</div>
@@ -144,9 +146,9 @@ header p{color:#888;font-size:0.85rem}
 </div>
 
 <div class="listener-editor">
-<h3>Event Listeners</h3>
+<h3 ti="h3_event_listeners">Event Listeners</h3>
 <div id="listenerList"></div>
-<button class="btn add-listener" id="addListenerBtn">+ Add Listener</button>
+<button class="btn add-listener" id="addListenerBtn" ti="btn_add_listener">+ Add Listener</button>
 </div>
 </div>
 
@@ -156,28 +158,28 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>Event Propagation Phases</h3>
-<p>When an event occurs on a DOM element, it doesn't just fire on that element. It goes through <strong>three phases</strong>:</p>
+<h3 ti="h3_event_propagation_phases">Event Propagation Phases</h3>
+<p>When an event occurs on a DOM element, it doesn't just fire on that element. It goes through <strong ti="strong_three_phases">three phases</strong>:</p>
 <ul>
-<li><strong>Capturing Phase (1)</strong>: Event travels from <code>window</code> → <code>document</code> → ... → parent of target. Listeners with <code>capture: true</code> fire here.</li>
-<li><strong>Target Phase (2)</strong>: Event reaches the actual target element. Both capturing and bubbling listeners fire in registration order.</li>
-<li><strong>Bubbling Phase (3)</strong>: Event travels back up: parent → ... → <code>document</code> → <code>window</code>. Most listeners fire here (default).</li>
+<li><strong ti="strong_capturing_phase_1">Capturing Phase (1)</strong>: Event travels from <code>window</code> → <code>document</code> → ... → parent of target. Listeners with <code>capture: true</code> fire here.</li>
+<li><strong ti="strong_target_phase_2">Target Phase (2)</strong>: Event reaches the actual target element. Both capturing and bubbling listeners fire in registration order.</li>
+<li><strong ti="strong_bubbling_phase_3">Bubbling Phase (3)</strong>: Event travels back up: parent → ... → <code>document</code> → <code>window</code>. Most listeners fire here (default).</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>stopPropagation()</h3>
+<h3 ti="h3_stoppropagation">stopPropagation()</h3>
 <p>Prevents the event from continuing to the next element in the propagation path. Other listeners <em>on the same element</em> still fire.</p>
 </div>
 <div class="ref-section">
-<h3>stopImmediatePropagation()</h3>
+<h3 ti="h3_stopimmediatepropagation">stopImmediatePropagation()</h3>
 <p>Prevents the event from continuing AND prevents other listeners on the <em>same element</em> from firing.</p>
 </div>
 <div class="ref-section">
-<h3>Event Delegation</h3>
+<h3 ti="h3_event_delegation">Event Delegation</h3>
 <p>Instead of attaching listeners to every child, attach one listener to a parent and use <code>event.target</code> to identify which child was clicked. Reduces memory and works for dynamically added elements.</p>
 </div>
 <div class="ref-section">
-<h3>Key Properties</h3>
+<h3 ti="h3_key_properties">Key Properties</h3>
 <ul>
 <li><code>event.target</code> — the element that was actually clicked (doesn't change)</li>
 <li><code>event.currentTarget</code> — the element whose listener is currently firing (changes during propagation)</li>
@@ -188,6 +190,16 @@ header p{color:#888;font-size:0.85rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_js_event_propagation_simu':["JS Event Propagation Simulator", "JS 事件传播模拟器"],'metadesc_interactive_event_propaga':["Interactive event propagation visualizer. Watch capturing, target, and bubbling phases animate through the DOM. Build custom DOM trees, attach listeners, test stopPropagation and preventDefault.", "交互式事件传播可视化工具。观察捕获、目标定位和冒泡阶段在 DOM 中的动画效果。构建自定义 DOM 树，附加监听器，测试 stopPropagation 和 preventDefault。"],'h1_js_event_propagation_simu':["JS Event Propagation Simulator", "JS 事件传播模拟器"],'h3_dom_tree':["DOM Tree", "DOM树"],'h3_event_log':["Event Log", "事件日志"],'h3_event_listeners':["Event Listeners", "事件监听器"],'h3_event_propagation_phases':["Event Propagation Phases", "事件传播阶段"],'h3_stoppropagation':["stopPropagation()", "停止传播()"],'h3_stopimmediatepropagation':["stopImmediatePropagation()", "stopImmediatePropagation()"],'h3_event_delegation':["Event Delegation", "活动委托"],'h3_key_properties':["Key Properties", "主要特性"],'btn_simulator':["Simulator", "模拟器"],'btn_presets':["Presets", "预设"],'btn_reference':["Reference", "参考"],'btn_simulate_click':["▶ Simulate Click", "▶ 模拟点击"],'btn_step':["⏭ Step", "⏭ 步骤"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_add_listener':["+ Add Listener", "+ 添加监听器"],'strong_three_phases':["three phases", "三个阶段"],'strong_capturing_phase_1':["Capturing Phase (1)", "捕获阶段（1）"],'strong_target_phase_2':["Target Phase (2)", "目标阶段（2）"],'strong_bubbling_phase_3':["Bubbling Phase (3)", "起泡阶段（3）"],'label_speed':["Speed:", "速度："],'jtc_propagation_complete':["✓ Propagation complete", "✓ 繁殖完成"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -542,7 +554,7 @@ function runStep() {
     const log = document.getElementById('eventLog');
     const done = document.createElement('div');
     done.style.cssText = 'color:#4da6ff;padding:6px;text-align:center;font-weight:600;margin-top:4px';
-    done.textContent = '✓ Propagation complete';
+    done.textContent=T("jtc_propagation_complete");
     log.appendChild(done);
     return;
   }
@@ -629,6 +641,24 @@ PRESETS.forEach((p, i) => {
 
 // Load first preset
 loadPreset(PRESETS[0]);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

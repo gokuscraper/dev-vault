@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_color_functions_playg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -166,28 +166,30 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>CSS Color Functions Playground</h1>
+  <h1 ti="title_css_color_functions_playg" ti="h1_css_color_functions_playg">CSS Color Functions Playground</h1>
   <p>Explore color-mix(), oklch(), oklab(), wide gamut colors, gamut mapping, and gradient interpolation</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab-btn active" data-tab="colormix">color-mix()</button>
-    <button class="tab-btn" data-tab="oklch">oklch()</button>
-    <button class="tab-btn" data-tab="oklab">oklab()</button>
-    <button class="tab-btn" data-tab="widegamut">Wide Gamut</button>
-    <button class="tab-btn" data-tab="gamutmap">Gamut Map</button>
-    <button class="tab-btn" data-tab="spaces">Color Spaces</button>
-    <button class="tab-btn" data-tab="gradients">Gradients</button>
+    <button class="tab-btn active" data-tab="colormix" ti="btn_color_mix">color-mix()</button>
+    <button class="tab-btn" data-tab="oklch" ti="btn_oklch">oklch()</button>
+    <button class="tab-btn" data-tab="oklab" ti="btn_oklab">oklab()</button>
+    <button class="tab-btn" data-tab="widegamut" ti="btn_wide_gamut">Wide Gamut</button>
+    <button class="tab-btn" data-tab="gamutmap" ti="btn_gamut_map">Gamut Map</button>
+    <button class="tab-btn" data-tab="spaces" ti="btn_color_spaces">Color Spaces</button>
+    <button class="tab-btn" data-tab="gradients" ti="btn_gradients">Gradients</button>
   </div>
 
   <!-- color-mix() -->
   <div class="panel active" id="panel-colormix">
     <div class="card">
       <div class="card-header">
-        <h3>color-mix() Interactive Mixer</h3>
+        <h3 ti="h3_color_mix_interactive_mix">color-mix() Interactive Mixer</h3>
         <span class="badge">CSS Color 5</span>
       </div>
       <div class="card-body">
@@ -197,15 +199,15 @@
           <div>
             <div class="flex-row" style="margin-bottom: 0.75rem;">
               <div>
-                <span class="label-text">Color 1</span>
+                <span class="label-text" ti="label_color_1" ti="label_color_1_2">Color 1</span>
                 <input type="color" id="mix1" value="#ff0000">
               </div>
               <div>
-                <span class="label-text">Color 2</span>
+                <span class="label-text" ti="label_color_2" ti="label_color_2_2">Color 2</span>
                 <input type="color" id="mix2" value="#0000ff">
               </div>
               <div style="flex:1;">
-                <span class="label-text">Color Space</span>
+                <span class="label-text" ti="label_color_space">Color Space</span>
                 <select class="styled" id="mixSpace">
                   <option value="srgb">sRGB</option>
                   <option value="srgb-linear">sRGB-linear</option>
@@ -226,13 +228,13 @@
             </div>
           </div>
           <div>
-            <span class="label-text">Result</span>
+            <span class="label-text" ti="label_result">Result</span>
             <div class="color-swatch color-swatch-lg" id="mixResult"></div>
             <div class="code-output" id="mixCode"></div>
           </div>
         </div>
 
-        <span class="label-text" style="margin-top: 1rem;">Mix spectrum (0% to 100%)</span>
+        <span class="label-text" style="margin-top: 1rem;" ti="label_mix_spectrum_0_to_100">Mix spectrum (0% to 100%)</span>
         <div class="color-grid" id="mixSpectrum" style="grid-template-columns: repeat(20, 1fr);"></div>
       </div>
     </div>
@@ -242,7 +244,7 @@
   <div class="panel" id="panel-oklch">
     <div class="card">
       <div class="card-header">
-        <h3>oklch() Color Picker</h3>
+        <h3 ti="h3_oklch_color_picker">oklch() Color Picker</h3>
         <span class="badge">Perceptually Uniform</span>
       </div>
       <div class="card-body">
@@ -266,18 +268,18 @@
             <div class="code-output" id="oklchCode"></div>
           </div>
           <div>
-            <span class="label-text">Color Preview</span>
+            <span class="label-text" ti="label_color_preview" ti="label_color_preview_2">Color Preview</span>
             <div class="color-swatch color-swatch-lg" id="oklchPreview"></div>
 
-            <span class="label-text" style="margin-top: 0.75rem;">Hue Wheel at current L/C</span>
+            <span class="label-text" style="margin-top: 0.75rem;" ti="label_hue_wheel_at_current_l_c">Hue Wheel at current L/C</span>
             <div class="color-grid" id="oklchHueWheel" style="grid-template-columns: repeat(12, 1fr);"></div>
 
-            <span class="label-text" style="margin-top: 0.75rem;">Chroma Ramp at current L/H</span>
+            <span class="label-text" style="margin-top: 0.75rem;" ti="label_chroma_ramp_at_current_l">Chroma Ramp at current L/H</span>
             <div class="color-grid" id="oklchChromaRamp" style="grid-template-columns: repeat(10, 1fr);"></div>
           </div>
         </div>
 
-        <span class="label-text" style="margin-top: 1rem;">Perceptual Uniformity: Same L across hues</span>
+        <span class="label-text" style="margin-top: 1rem;" ti="label_perceptual_uniformity_sam">Perceptual Uniformity: Same L across hues</span>
         <div class="color-grid" id="oklchUniformity" style="grid-template-columns: repeat(12, 1fr); margin-bottom: 0.5rem;"></div>
         <div class="desc" style="margin-bottom:0;">All swatches above have the same lightness (0.7) and chroma (0.15) but different hues. In oklch, they should appear equally bright.</div>
       </div>
@@ -288,7 +290,7 @@
   <div class="panel" id="panel-oklab">
     <div class="card">
       <div class="card-header">
-        <h3>oklab() Color Space Explorer</h3>
+        <h3 ti="h3_oklab_color_space_explore">oklab() Color Space Explorer</h3>
       </div>
       <div class="card-body">
         <p class="desc"><code>oklab(L a b)</code> — Lightness (0-1), a-axis green-red (-0.4 to 0.4), b-axis blue-yellow (-0.4 to 0.4). The Cartesian counterpart of oklch.</p>
@@ -313,7 +315,7 @@
             <span class="label-text">Color Preview</span>
             <div class="color-swatch color-swatch-lg" id="oklabPreview"></div>
 
-            <span class="label-text" style="margin-top: 0.75rem;">a-b plane at current L</span>
+            <span class="label-text" style="margin-top: 0.75rem;" ti="label_a_b_plane_at_current_l">a-b plane at current L</span>
             <div id="oklabPlane" style="display:grid; grid-template-columns: repeat(11, 1fr); gap: 2px;"></div>
           </div>
         </div>
@@ -325,73 +327,73 @@
   <div class="panel" id="panel-widegamut">
     <div class="card">
       <div class="card-header">
-        <h3>Wide Gamut Colors</h3>
+        <h3 ti="h3_wide_gamut_colors">Wide Gamut Colors</h3>
       </div>
       <div class="card-body">
         <p class="desc">The <code>color()</code> function allows specifying colors in wide gamut color spaces like <code>display-p3</code> and <code>rec2020</code>. These spaces contain colors that sRGB cannot represent.</p>
 
         <div class="grid-3">
           <div>
-            <span class="label-text">sRGB Red</span>
+            <span class="label-text" ti="label_srgb_red">sRGB Red</span>
             <div class="color-swatch" style="background: color(srgb 1 0 0);">
-              <span class="label-overlay">color(srgb 1 0 0)</span>
+              <span class="label-overlay" ti="label_color_srgb_1_0_0">color(srgb 1 0 0)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">Display P3 Red</span>
+            <span class="label-text" ti="label_display_p3_red">Display P3 Red</span>
             <div class="color-swatch" style="background: color(display-p3 1 0 0);">
-              <span class="label-overlay">color(display-p3 1 0 0)</span>
+              <span class="label-overlay" ti="label_color_display_p3_1_0_0">color(display-p3 1 0 0)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">Rec2020 Red</span>
+            <span class="label-text" ti="label_rec2020_red">Rec2020 Red</span>
             <div class="color-swatch" style="background: color(rec2020 1 0 0);">
-              <span class="label-overlay">color(rec2020 1 0 0)</span>
+              <span class="label-overlay" ti="label_color_rec2020_1_0_0">color(rec2020 1 0 0)</span>
             </div>
           </div>
 
           <div>
-            <span class="label-text">sRGB Green</span>
+            <span class="label-text" ti="label_srgb_green">sRGB Green</span>
             <div class="color-swatch" style="background: color(srgb 0 1 0);">
-              <span class="label-overlay">color(srgb 0 1 0)</span>
+              <span class="label-overlay" ti="label_color_srgb_0_1_0">color(srgb 0 1 0)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">P3 Green</span>
+            <span class="label-text" ti="label_p3_green">P3 Green</span>
             <div class="color-swatch" style="background: color(display-p3 0 1 0);">
-              <span class="label-overlay">color(display-p3 0 1 0)</span>
+              <span class="label-overlay" ti="label_color_display_p3_0_1_0">color(display-p3 0 1 0)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">Rec2020 Green</span>
+            <span class="label-text" ti="label_rec2020_green">Rec2020 Green</span>
             <div class="color-swatch" style="background: color(rec2020 0 1 0);">
-              <span class="label-overlay">color(rec2020 0 1 0)</span>
+              <span class="label-overlay" ti="label_color_rec2020_0_1_0">color(rec2020 0 1 0)</span>
             </div>
           </div>
 
           <div>
-            <span class="label-text">sRGB Cyan</span>
+            <span class="label-text" ti="label_srgb_cyan">sRGB Cyan</span>
             <div class="color-swatch" style="background: color(srgb 0 1 1);">
-              <span class="label-overlay">color(srgb 0 1 1)</span>
+              <span class="label-overlay" ti="label_color_srgb_0_1_1">color(srgb 0 1 1)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">P3 Cyan</span>
+            <span class="label-text" ti="label_p3_cyan">P3 Cyan</span>
             <div class="color-swatch" style="background: color(display-p3 0 1 1);">
-              <span class="label-overlay">color(display-p3 0 1 1)</span>
+              <span class="label-overlay" ti="label_color_display_p3_0_1_1">color(display-p3 0 1 1)</span>
             </div>
           </div>
           <div>
-            <span class="label-text">Rec2020 Cyan</span>
+            <span class="label-text" ti="label_rec2020_cyan">Rec2020 Cyan</span>
             <div class="color-swatch" style="background: color(rec2020 0 1 1);">
-              <span class="label-overlay">color(rec2020 0 1 1)</span>
+              <span class="label-overlay" ti="label_color_rec2020_0_1_1">color(rec2020 0 1 1)</span>
             </div>
           </div>
         </div>
 
         <div style="margin-top: 1rem; padding: 0.75rem; background: var(--surface-2); border-radius: var(--radius); font-size: 0.85rem;">
           <span class="gamut-indicator" style="background: var(--success);"></span>
-          <strong>P3 gamut check:</strong>
+          <strong ti="strong_p3_gamut_check">P3 gamut check:</strong>
           <span id="p3Check">Checking...</span>
         </div>
 
@@ -412,18 +414,18 @@
   <!-- Gamut Mapping -->
   <div class="panel" id="panel-gamutmap">
     <div class="card">
-      <div class="card-header"><h3>Gamut Mapping Visualization</h3></div>
+      <div class="card-header"><h3 ti="h3_gamut_mapping_visualizati">Gamut Mapping Visualization</h3></div>
       <div class="card-body">
-        <p class="desc">When a color is outside a display's gamut, the browser must map it to the closest representable color. This process is called gamut mapping. Different strategies produce different results.</p>
+        <p class="desc" ti="subtitle_when_a_color_is_outside_a">When a color is outside a display's gamut, the browser must map it to the closest representable color. This process is called gamut mapping. Different strategies produce different results.</p>
 
-        <span class="label-text">Out-of-gamut P3 colors mapped to sRGB</span>
+        <span class="label-text" ti="label_out_of_gamut_p3_colors_ma">Out-of-gamut P3 colors mapped to sRGB</span>
         <div class="grid-2">
           <div>
-            <span class="label-text">Original (P3)</span>
+            <span class="label-text" ti="label_original_p3">Original (P3)</span>
             <div class="color-grid" id="gamutOriginal" style="grid-template-columns: repeat(8, 1fr);"></div>
           </div>
           <div>
-            <span class="label-text">Mapped to sRGB (browser handles)</span>
+            <span class="label-text" ti="label_mapped_to_srgb_browser_ha">Mapped to sRGB (browser handles)</span>
             <div class="color-grid" id="gamutMapped" style="grid-template-columns: repeat(8, 1fr);"></div>
           </div>
         </div>
@@ -444,11 +446,11 @@
   <!-- Color Spaces -->
   <div class="panel" id="panel-spaces">
     <div class="card">
-      <div class="card-header"><h3>Color Space Comparison</h3></div>
+      <div class="card-header"><h3 ti="h3_color_space_comparison">Color Space Comparison</h3></div>
       <div class="card-body">
-        <p class="desc">Different color spaces have different gamuts (ranges of representable colors). Here's how they compare.</p>
+        <p class="desc" ti="subtitle_different_color_spaces_ha">Different color spaces have different gamuts (ranges of representable colors). Here's how they compare.</p>
 
-        <span class="label-text">Gamut Size Comparison</span>
+        <span class="label-text" ti="label_gamut_size_comparison">Gamut Size Comparison</span>
         <div style="margin-bottom: 1rem;">
           <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:6px;">
             <div style="width:120px; font-size:0.85rem;">sRGB</div>
@@ -467,7 +469,7 @@
           </div>
         </div>
 
-        <span class="label-text">Red interpolation: sRGB vs oklch</span>
+        <span class="label-text" ti="label_red_interpolation_srgb_vs">Red interpolation: sRGB vs oklch</span>
         <div style="margin-bottom: 0.5rem;">
           <div style="font-size:0.75rem; color:var(--text-dim); margin-bottom:2px;">sRGB interpolation (muddy middle)</div>
           <div class="gradient-bar" style="background: linear-gradient(in srgb, red, blue);"></div>
@@ -491,7 +493,7 @@
   <!-- Gradients -->
   <div class="panel" id="panel-gradients">
     <div class="card">
-      <div class="card-header"><h3>Gradient Interpolation</h3></div>
+      <div class="card-header"><h3 ti="h3_gradient_interpolation">Gradient Interpolation</h3></div>
       <div class="card-body">
         <p class="desc">CSS gradients can interpolate in different color spaces using <code>in &lt;color-space&gt;</code>. This dramatically affects the visual result, especially for complementary colors.</p>
 
@@ -513,7 +515,7 @@
     </div>
 
     <div class="card">
-      <div class="card-header"><h3>Hue Interpolation Methods</h3></div>
+      <div class="card-header"><h3 ti="h3_hue_interpolation_methods">Hue Interpolation Methods</h3></div>
       <div class="card-body">
         <p class="desc">For polar color spaces (oklch, hsl, hwb, lch), you can control the hue interpolation direction: <code>shorter</code>, <code>longer</code>, <code>increasing</code>, <code>decreasing</code>.</p>
 
@@ -534,6 +536,16 @@ background: linear-gradient(in oklch decreasing hue, red, blue);</div>
   <p style="margin-top: 0.5rem;"><a href="https://github.com/gokuscraper/css-color-functions" target="_blank">Source</a></p>
 </footer>
 
+
+<script>var _LANG={'title_css_color_functions_playg':["CSS Color Functions Playground", "CSS颜色函数演示"],'h1_css_color_functions_playg':["CSS Color Functions Playground", "CSS颜色函数演示"],'h3_color_mix_interactive_mix':["color-mix() Interactive Mixer", "颜色混合()交互式混合器"],'h3_oklch_color_picker':["oklch() Color Picker", "oklch() 颜色选择器"],'h3_oklab_color_space_explore':["oklab() Color Space Explorer", "oklab() 色彩空间浏览器"],'h3_wide_gamut_colors':["Wide Gamut Colors", "广色域色彩"],'h3_gamut_mapping_visualizati':["Gamut Mapping Visualization", "色域映射可视化"],'h3_color_space_comparison':["Color Space Comparison", "色彩空间比较"],'h3_gradient_interpolation':["Gradient Interpolation", "梯度插值"],'h3_hue_interpolation_methods':["Hue Interpolation Methods", "色调插值方法"],'subtitle_when_a_color_is_outside_a':["When a color is outside a display's gamut, the browser must map it to the closest representable color. This process is called gamut mapping. Different strategies produce different results.", "当颜色超出显示器的色域时，浏览器必须将其映射到最接近的可表示颜色。这个过程称为色域映射。不同的映射策略会产生不同的结果。"],'subtitle_different_color_spaces_ha':["Different color spaces have different gamuts (ranges of representable colors). Here's how they compare.", "不同的色彩空间具有不同的色域（可表示颜色的范围）。以下是它们的比较。"],'btn_color_mix':["color-mix()", "颜色混合()"],'btn_oklch':["oklch()", "oklch()"],'btn_oklab':["oklab()", "oklab()"],'btn_wide_gamut':["Wide Gamut", "广色域"],'btn_gamut_map':["Gamut Map", "色域图"],'btn_color_spaces':["Color Spaces", "色彩空间"],'btn_gradients':["Gradients", "梯度"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_color_space':["Color Space", "色彩空间"],'label_result':["Result", "结果"],'label_mix_spectrum_0_to_100':["Mix spectrum (0% to 100%)", "混合光谱（0%至100%）"],'label_color_preview':["Color Preview", "颜色预览"],'label_hue_wheel_at_current_l_c':["Hue Wheel at current L/C", "当前信用等级的色轮"],'label_chroma_ramp_at_current_l':["Chroma Ramp at current L/H", "当前 L/H 的色度斜坡"],'label_perceptual_uniformity_sam':["Perceptual Uniformity: Same L across hues", "感知均匀性：色调间 L 值相同"],'label_color_preview_2':["Color Preview", "颜色预览"],'label_a_b_plane_at_current_l':["a-b plane at current L", "当前 L 处的 ab 平面"],'label_srgb_red':["sRGB Red", "sRGB 红色"],'label_color_srgb_1_0_0':["color(srgb 1 0 0)", "颜色(srgb 1 0 0)"],'label_display_p3_red':["Display P3 Red", "显示屏 P3 红色"],'label_color_display_p3_1_0_0':["color(display-p3 1 0 0)", "color(display-p3 1 0 0)"],'label_rec2020_red':["Rec2020 Red", "Rec2020 红色"],'label_color_rec2020_1_0_0':["color(rec2020 1 0 0)", "color(rec2020 1 0 0)"],'label_srgb_green':["sRGB Green", "sRGB 绿色"],'label_color_srgb_0_1_0':["color(srgb 0 1 0)", "颜色(srgb 0 1 0)"],'label_p3_green':["P3 Green", "P3 绿色"],'label_color_display_p3_0_1_0':["color(display-p3 0 1 0)", "color(display-p3 0 1 0)"],'label_rec2020_green':["Rec2020 Green", "Rec2020 绿色"],'label_color_rec2020_0_1_0':["color(rec2020 0 1 0)", "color(rec2020 0 1 0)"],'label_srgb_cyan':["sRGB Cyan", "sRGB 青色"],'label_color_srgb_0_1_1':["color(srgb 0 1 1)", "颜色(srgb 0 1 1)"],'label_p3_cyan':["P3 Cyan", "P3 青色"],'label_color_display_p3_0_1_1':["color(display-p3 0 1 1)", "color(display-p3 0 1 1)"],'label_rec2020_cyan':["Rec2020 Cyan", "Rec2020 青色"],'label_color_rec2020_0_1_1':["color(rec2020 0 1 1)", "color(rec2020 0 1 1)"],'label_out_of_gamut_p3_colors_ma':["Out-of-gamut P3 colors mapped to sRGB", "将超出色域的 P3 颜色映射到 sRGB"],'label_original_p3':["Original (P3)", "原版 (P3)"],'label_mapped_to_srgb_browser_ha':["Mapped to sRGB (browser handles)", "映射到 sRGB（浏览器句柄）"],'label_gamut_size_comparison':["Gamut Size Comparison", "色域尺寸比较"],'label_red_interpolation_srgb_vs':["Red interpolation: sRGB vs oklch", "红色插值：sRGB 与 oklch"],'label_color_1_2':["Color 1", "颜色 1"],'label_color_2_2':["Color 2", "颜色 2"],'strong_p3_gamut_check':["P3 gamut check:", "P3色域检查："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -735,6 +747,24 @@ background: linear-gradient(in oklch decreasing hue, red, blue);</div>
       <div class="gradient-bar" style="background: linear-gradient(in oklch ${method}, oklch(0.7 0.25 0), oklch(0.7 0.25 240));"></div>
     </div>
   `).join('');
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

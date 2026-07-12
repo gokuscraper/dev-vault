@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scroll_timeline_playg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -97,25 +97,27 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span class="icon">&#8595;</span> CSS Scroll Timeline <span class="accent">Playground</span></h1>
-  <span class="badge">Baseline: <strong>Chrome 115+</strong>, <strong>Edge 115+</strong> | Firefox/Safari: flags</span>
+  <span class="badge">Baseline: <strong ti="strong_chrome_115" ti="strong_chrome_115_2">Chrome 115+</strong>, <strong ti="strong_edge_115" ti="strong_edge_115_2">Edge 115+</strong> | Firefox/Safari: flags</span>
 </header>
 
 <nav id="nav">
-  <button class="active" data-section="progress">Progress Bar</button>
-  <button data-section="parallax">Parallax</button>
-  <button data-section="reveal">Element Reveal</button>
-  <button data-section="axis">Scroll Axis</button>
-  <button data-section="inset">View Inset</button>
-  <button data-section="range">Animation Range</button>
-  <button data-section="generator">Code Generator</button>
+  <button class="active" data-section="progress" ti="btn_progress_bar">Progress Bar</button>
+  <button data-section="parallax" ti="btn_parallax">Parallax</button>
+  <button data-section="reveal" ti="btn_element_reveal">Element Reveal</button>
+  <button data-section="axis" ti="btn_scroll_axis">Scroll Axis</button>
+  <button data-section="inset" ti="btn_view_inset">View Inset</button>
+  <button data-section="range" ti="btn_animation_range" ti="label_animation_range">Animation Range</button>
+  <button data-section="generator" ti="btn_code_generator">Code Generator</button>
 </nav>
 
 <!-- Section 1: Scroll Progress Bar -->
 <section class="section active" id="sec-progress">
-  <h2>Scroll Progress Bar</h2>
+  <h2 ti="h2_scroll_progress_bar">Scroll Progress Bar</h2>
   <p class="desc">A pure CSS reading progress indicator using <code>scroll-timeline</code>. No JavaScript needed. The bar scales from 0 to 100% as you scroll the container.</p>
   <div class="two-col">
     <div class="demo-card">
@@ -137,7 +139,7 @@ footer a:hover{text-decoration:underline}
           </div>
         </div>
       </div>
-      <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>.container {
+      <div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10">Copy</button>.container {
   overflow-y: auto;
   scroll-timeline: --main-scroll y;
 }
@@ -158,13 +160,13 @@ footer a:hover{text-decoration:underline}
 }</div>
     </div>
     <div class="demo-card">
-      <h3>How It Works</h3>
+      <h3 ti="h3_how_it_works">How It Works</h3>
       <div style="font-size:13px;line-height:1.8;color:var(--text-dim)">
-        <p style="margin-bottom:12px"><strong style="color:var(--text)">1. Create a scroll timeline</strong><br>Apply <code style="color:var(--cyan)">scroll-timeline: --name axis</code> to a scrollable container. This registers a named timeline scoped to that element's scroll range.</p>
-        <p style="margin-bottom:12px"><strong style="color:var(--text)">2. Link an animation</strong><br>On the element you want to animate, use <code style="color:var(--cyan)">animation-timeline: --name</code> to bind a @keyframes animation to the scroll progress instead of time.</p>
-        <p style="margin-bottom:12px"><strong style="color:var(--text)">3. Define keyframes</strong><br>Write standard @keyframes. The browser maps 0% to scroll-start and 100% to scroll-end. Use <code style="color:var(--cyan)">linear</code> easing for direct 1:1 mapping.</p>
-        <p style="margin-bottom:12px"><strong style="color:var(--text)">4. Compositor-driven</strong><br>These animations run on the compositor thread, making them buttery smooth with zero main-thread overhead. No JavaScript. No jank.</p>
-        <p><strong style="color:var(--text)">Key Properties:</strong></p>
+        <p style="margin-bottom:12px"><strong style="color:var(--text)" ti="strong_1_create_a_scroll_timelin">1. Create a scroll timeline</strong><br>Apply <code style="color:var(--cyan)">scroll-timeline: --name axis</code> to a scrollable container. This registers a named timeline scoped to that element's scroll range.</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--text)" ti="strong_2_link_an_animation">2. Link an animation</strong><br>On the element you want to animate, use <code style="color:var(--cyan)">animation-timeline: --name</code> to bind a @keyframes animation to the scroll progress instead of time.</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--text)" ti="strong_3_define_keyframes">3. Define keyframes</strong><br>Write standard @keyframes. The browser maps 0% to scroll-start and 100% to scroll-end. Use <code style="color:var(--cyan)">linear</code> easing for direct 1:1 mapping.</p>
+        <p style="margin-bottom:12px"><strong style="color:var(--text)" ti="strong_4_compositor_driven">4. Compositor-driven</strong><br>These animations run on the compositor thread, making them buttery smooth with zero main-thread overhead. No JavaScript. No jank.</p>
+        <p><strong style="color:var(--text)" ti="strong_key_properties">Key Properties:</strong></p>
         <ul style="padding-left:20px;margin-top:8px">
           <li><code style="color:var(--cyan)">scroll-timeline-name</code> — names the timeline</li>
           <li><code style="color:var(--cyan)">scroll-timeline-axis</code> — y (default), x, block, inline</li>
@@ -178,33 +180,33 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 2: Parallax Effects -->
 <section class="section" id="sec-parallax">
-  <h2>Parallax Effects</h2>
-  <p class="desc">Create depth and motion with scroll-driven parallax layers. Different elements move at different speeds, creating an immersive scrolling experience — all in CSS.</p>
+  <h2 ti="h2_parallax_effects">Parallax Effects</h2>
+  <p class="desc" ti="subtitle_create_depth_and_motion_w">Create depth and motion with scroll-driven parallax layers. Different elements move at different speeds, creating an immersive scrolling experience — all in CSS.</p>
   <div class="demo-card">
     <h3>Multi-Layer Parallax <span class="tag">scroll-timeline</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Background Speed</label>
+        <label ti="label_background_speed">Background Speed</label>
         <input type="range" id="parallaxSpeed" min="50" max="300" value="100">
       </div>
       <div class="ctrl-group">
-        <label>Card Animation</label>
+        <label ti="label_card_animation">Card Animation</label>
         <select id="parallaxAnim">
           <option value="fadeSlide">Fade + Slide</option>
           <option value="scaleRotate">Scale + Rotate</option>
           <option value="clipReveal">Clip Reveal</option>
         </select>
       </div>
-      <button class="btn" onclick="resetParallax()">Reset Scroll</button>
+      <button class="btn" onclick="resetParallax()" ti="btn_reset_scroll">Reset Scroll</button>
     </div>
     <div class="demo-viewport">
       <div class="parallax-container" id="parallaxDemo">
         <div class="parallax-bg" id="parallaxBg"></div>
         <div class="parallax-content">
-          <div class="parallax-card" style="animation-range:0% 30%"><h3 style="margin-bottom:8px;color:var(--accent)">Layer 1: Background</h3><p style="color:var(--text-dim);font-size:13px">The gradient background moves at a different rate than the content, creating a parallax depth effect. This uses a separate @keyframes with translateY bound to the same scroll-timeline.</p></div>
-          <div class="parallax-card" style="animation-range:20% 50%"><h3 style="margin-bottom:8px;color:var(--purple)">Layer 2: Content Cards</h3><p style="color:var(--text-dim);font-size:13px">Each card fades in and out as it enters and exits the viewport. The animation-range property controls exactly when each card's animation begins and ends within the scroll range.</p></div>
-          <div class="parallax-card" style="animation-range:40% 70%"><h3 style="margin-bottom:8px;color:var(--green)">Layer 3: Staggered Timing</h3><p style="color:var(--text-dim);font-size:13px">By adjusting animation-range values on each card, we create a staggered reveal effect. Earlier cards animate first, later cards animate as you continue scrolling.</p></div>
-          <div class="parallax-card" style="animation-range:60% 90%"><h3 style="margin-bottom:8px;color:var(--yellow)">Layer 4: Composited</h3><p style="color:var(--text-dim);font-size:13px">All these animations are GPU-accelerated and composited. No layout thrashing, no JavaScript scroll handlers, no requestAnimationFrame. Pure CSS scroll-driven animations.</p></div>
+          <div class="parallax-card" style="animation-range:0% 30%"><h3 style="margin-bottom:8px;color:var(--accent)" ti="h3_layer_1_background">Layer 1: Background</h3><p style="color:var(--text-dim);font-size:13px">The gradient background moves at a different rate than the content, creating a parallax depth effect. This uses a separate @keyframes with translateY bound to the same scroll-timeline.</p></div>
+          <div class="parallax-card" style="animation-range:20% 50%"><h3 style="margin-bottom:8px;color:var(--purple)" ti="h3_layer_2_content_cards">Layer 2: Content Cards</h3><p style="color:var(--text-dim);font-size:13px">Each card fades in and out as it enters and exits the viewport. The animation-range property controls exactly when each card's animation begins and ends within the scroll range.</p></div>
+          <div class="parallax-card" style="animation-range:40% 70%"><h3 style="margin-bottom:8px;color:var(--green)" ti="h3_layer_3_staggered_timing">Layer 3: Staggered Timing</h3><p style="color:var(--text-dim);font-size:13px">By adjusting animation-range values on each card, we create a staggered reveal effect. Earlier cards animate first, later cards animate as you continue scrolling.</p></div>
+          <div class="parallax-card" style="animation-range:60% 90%"><h3 style="margin-bottom:8px;color:var(--yellow)" ti="h3_layer_4_composited">Layer 4: Composited</h3><p style="color:var(--text-dim);font-size:13px">All these animations are GPU-accelerated and composited. No layout thrashing, no JavaScript scroll handlers, no requestAnimationFrame. Pure CSS scroll-driven animations.</p></div>
         </div>
       </div>
     </div>
@@ -234,13 +236,13 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 3: Element Reveal -->
 <section class="section" id="sec-reveal">
-  <h2>Element Reveal on Scroll</h2>
+  <h2 ti="h2_element_reveal_on_scroll">Element Reveal on Scroll</h2>
   <p class="desc">Use <code>view()</code> — the anonymous view timeline — to animate elements as they enter the viewport. No Intersection Observer needed.</p>
   <div class="demo-card">
     <h3>View Timeline Reveal <span class="tag">animation-timeline: view()</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Animation</label>
+        <label ti="label_animation" ti="label_animation_2">Animation</label>
         <select id="revealType" onchange="updateReveal()">
           <option value="slideLeft">Slide from Left</option>
           <option value="slideRight">Slide from Right</option>
@@ -251,7 +253,7 @@ footer a:hover{text-decoration:underline}
         </select>
       </div>
       <div class="ctrl-group">
-        <label>Range</label>
+        <label ti="label_range">Range</label>
         <select id="revealRange" onchange="updateReveal()">
           <option value="entry">entry 0% entry 100%</option>
           <option value="contain">contain 0% contain 100%</option>
@@ -287,7 +289,7 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 4: Scroll Timeline Axis -->
 <section class="section" id="sec-axis">
-  <h2>Scroll Timeline Axis</h2>
+  <h2 ti="h2_scroll_timeline_axis">Scroll Timeline Axis</h2>
   <p class="desc">Control which scroll axis drives the animation. Use <code>y</code>, <code>x</code>, <code>block</code>, or <code>inline</code> to bind animations to vertical or horizontal scrolling.</p>
   <div class="two-col">
     <div class="demo-card">
@@ -335,7 +337,7 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 5: View Timeline Inset -->
 <section class="section" id="sec-inset">
-  <h2>View Timeline Inset</h2>
+  <h2 ti="h2_view_timeline_inset">View Timeline Inset</h2>
   <p class="desc">Use <code>view-timeline-inset</code> to adjust when view-driven animations trigger. Inset values shrink or expand the view range, controlling the "trigger zone" for animations.</p>
   <div class="demo-card">
     <h3>Inset Control <span class="tag">view-timeline-inset</span></h3>
@@ -377,13 +379,13 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 6: Animation Range -->
 <section class="section" id="sec-range">
-  <h2>Animation Range</h2>
+  <h2 ti="h2_animation_range">Animation Range</h2>
   <p class="desc"><code>animation-range</code> controls which portion of the scroll/view timeline maps to the animation. Combine range names (<code>entry</code>, <code>exit</code>, <code>contain</code>, <code>cover</code>) with percentages.</p>
   <div class="demo-card">
     <h3>Range Explorer <span class="tag">animation-range</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Range Start</label>
+        <label ti="label_range_start">Range Start</label>
         <select id="rangeStart" onchange="updateRange()">
           <option value="entry 0%">entry 0%</option>
           <option value="entry 25%">entry 25%</option>
@@ -393,7 +395,7 @@ footer a:hover{text-decoration:underline}
         </select>
       </div>
       <div class="ctrl-group">
-        <label>Range End</label>
+        <label ti="label_range_end">Range End</label>
         <select id="rangeEnd" onchange="updateRange()">
           <option value="entry 100%">entry 100%</option>
           <option value="cover 50%">cover 50%</option>
@@ -427,19 +429,19 @@ footer a:hover{text-decoration:underline}
 */</div>
     <div style="margin-top:16px;display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
-        <strong style="color:var(--accent);font-size:12px">entry</strong>
+        <strong style="color:var(--accent);font-size:12px" ti="strong_entry">entry</strong>
         <p style="color:var(--text-dim);font-size:11px;margin-top:4px">First pixel visible to fully entered</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
-        <strong style="color:var(--green);font-size:12px">contain</strong>
+        <strong style="color:var(--green);font-size:12px" ti="strong_contain">contain</strong>
         <p style="color:var(--text-dim);font-size:11px;margin-top:4px">Fully visible to starts leaving</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
-        <strong style="color:var(--purple);font-size:12px">exit</strong>
+        <strong style="color:var(--purple);font-size:12px" ti="strong_exit">exit</strong>
         <p style="color:var(--text-dim);font-size:11px;margin-top:4px">Starts leaving to fully gone</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
-        <strong style="color:var(--yellow);font-size:12px">cover</strong>
+        <strong style="color:var(--yellow);font-size:12px" ti="strong_cover">cover</strong>
         <p style="color:var(--text-dim);font-size:11px;margin-top:4px">First pixel visible to fully gone</p>
       </div>
     </div>
@@ -448,21 +450,21 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 7: Code Generator -->
 <section class="section" id="sec-generator">
-  <h2>Code Generator</h2>
-  <p class="desc">Configure your scroll-driven animation and get production-ready CSS. Adjust properties and see the result live.</p>
+  <h2 ti="h2_code_generator">Code Generator</h2>
+  <p class="desc" ti="subtitle_configure_your_scroll_dri">Configure your scroll-driven animation and get production-ready CSS. Adjust properties and see the result live.</p>
   <div class="two-col">
     <div class="demo-card">
-      <h3>Configuration</h3>
+      <h3 ti="h3_configuration">Configuration</h3>
       <div style="display:grid;gap:16px">
         <div class="ctrl-group">
-          <label>Timeline Type</label>
+          <label ti="label_timeline_type">Timeline Type</label>
           <select id="genType" onchange="generateCode()">
             <option value="scroll">scroll() — container scroll</option>
             <option value="view">view() — element visibility</option>
           </select>
         </div>
         <div class="ctrl-group">
-          <label>Axis</label>
+          <label ti="label_axis">Axis</label>
           <select id="genAxis" onchange="generateCode()">
             <option value="y">y (vertical)</option>
             <option value="x">x (horizontal)</option>
@@ -494,7 +496,7 @@ footer a:hover{text-decoration:underline}
           </select>
         </div>
         <div class="ctrl-group">
-          <label>Bar Color (progress only)</label>
+          <label ti="label_bar_color_progress_only">Bar Color (progress only)</label>
           <input type="color" id="genColor" value="#3b82f6" onchange="generateCode()">
         </div>
         <div class="ctrl-group">
@@ -502,7 +504,7 @@ footer a:hover{text-decoration:underline}
           <input type="range" id="genHeight" min="2" max="12" value="4" oninput="document.getElementById('genHeightVal').textContent=this.value;generateCode()">
         </div>
         <div class="ctrl-group">
-          <label>Easing</label>
+          <label ti="label_easing">Easing</label>
           <select id="genEasing" onchange="generateCode()">
             <option value="linear">linear</option>
             <option value="ease">ease</option>
@@ -511,11 +513,11 @@ footer a:hover{text-decoration:underline}
             <option value="ease-in-out">ease-in-out</option>
           </select>
         </div>
-        <button class="btn primary" onclick="copyGenerated()">Copy Generated CSS</button>
+        <button class="btn primary" onclick="copyGenerated()" ti="btn_copy_generated_css">Copy Generated CSS</button>
       </div>
     </div>
     <div class="demo-card">
-      <h3>Preview</h3>
+      <h3 ti="h3_preview">Preview</h3>
       <div class="gen-preview" id="genPreview">
         <div class="gen-progress" id="genProgressBar"></div>
         <div style="padding:20px">
@@ -528,7 +530,7 @@ footer a:hover{text-decoration:underline}
           <div style="height:200px"></div>
         </div>
       </div>
-      <h3 style="margin-top:16px">Generated CSS</h3>
+      <h3 style="margin-top:16px" ti="h3_generated_css">Generated CSS</h3>
       <textarea class="code-output" id="genOutput" readonly></textarea>
     </div>
   </div>
@@ -537,14 +539,14 @@ footer a:hover{text-decoration:underline}
 <!-- Reference Section -->
 <section style="padding:24px;max-width:1200px;margin:0 auto">
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px">
-    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px">Complete Property Reference</h3>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px" ti="h3_complete_property_referen">Complete Property Reference</h3>
     <div style="overflow-x:auto">
       <table style="width:100%;border-collapse:collapse;font-size:12px">
         <thead>
           <tr style="border-bottom:2px solid var(--border)">
-            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Property</th>
-            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Values</th>
-            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Description</th>
+            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase" ti="th_property">Property</th>
+            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase" ti="th_values">Values</th>
+            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase" ti="th_description">Description</th>
           </tr>
         </thead>
         <tbody>
@@ -598,7 +600,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px">
-    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px">Anonymous Timeline Functions</h3>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px" ti="h3_anonymous_timeline_functi">Anonymous Timeline Functions</h3>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
       <div style="padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
         <h4 style="font-size:13px;color:var(--accent);margin-bottom:8px">scroll()</h4>
@@ -625,7 +627,7 @@ footer a:hover{text-decoration:underline}
     </div>
   </div>
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px">
-    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px">Browser Support</h3>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px" ti="h3_browser_support">Browser Support</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px">
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:24px;margin-bottom:4px">&#127760;</div>
@@ -639,12 +641,12 @@ footer a:hover{text-decoration:underline}
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:24px;margin-bottom:4px">&#128038;</div>
-        <strong style="color:var(--yellow);font-size:13px">Firefox</strong>
+        <strong style="color:var(--yellow);font-size:13px" ti="strong_firefox">Firefox</strong>
         <p style="font-size:11px;color:var(--text-dim);margin-top:4px">Partial support. scroll-timeline behind flag.</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:24px;margin-bottom:4px">&#127823;</div>
-        <strong style="color:var(--red);font-size:13px">Safari</strong>
+        <strong style="color:var(--red);font-size:13px" ti="strong_safari">Safari</strong>
         <p style="font-size:11px;color:var(--text-dim);margin-top:4px">No support yet. Use @supports for detection.</p>
       </div>
     </div>
@@ -656,11 +658,21 @@ footer a:hover{text-decoration:underline}
 </section>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — CSS Scroll Timeline Playground
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — CSS Scroll Timeline Playground
 </footer>
 
 <div class="toast" id="toast">Copied to clipboard!</div>
 
+
+<script>var _LANG={'title_css_scroll_timeline_playg':["CSS Scroll Timeline Playground — Dev Vault", "CSS滚动时间轴练习场 — 开发者宝库"],'metadesc_interactive_playground_fo':["Interactive playground for CSS scroll-timeline and view-timeline properties. Build scroll-linked animations without JavaScript.", "交互式 CSS scroll-timeline 和 view-timeline 属性示例。无需 JavaScript 即可构建滚动联动动画。"],'h2_scroll_progress_bar':["Scroll Progress Bar", "滚动进度条"],'h2_parallax_effects':["Parallax Effects", "视差效果"],'h2_element_reveal_on_scroll':["Element Reveal on Scroll", "滚动时显示元素"],'h2_scroll_timeline_axis':["Scroll Timeline Axis", "滚动时间轴"],'h2_view_timeline_inset':["View Timeline Inset", "查看时间线插图"],'h2_animation_range':["Animation Range", "动画范围"],'h2_code_generator':["Code Generator", "代码生成器"],'h3_how_it_works':["How It Works", "工作原理"],'h3_layer_1_background':["Layer 1: Background", "第一层：背景"],'h3_layer_2_content_cards':["Layer 2: Content Cards", "第二层：内容卡片"],'h3_layer_3_staggered_timing':["Layer 3: Staggered Timing", "第三层：交错时间"],'h3_layer_4_composited':["Layer 4: Composited", "第四层：合成层"],'h3_configuration':["Configuration", "配置"],'h3_preview':["Preview", "预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_complete_property_referen':["Complete Property Reference", "完整房产参考"],'h3_anonymous_timeline_functi':["Anonymous Timeline Functions", "匿名时间线功能"],'h3_browser_support':["Browser Support", "浏览器支持"],'subtitle_create_depth_and_motion_w':["Create depth and motion with scroll-driven parallax layers. Different elements move at different speeds, creating an immersive scrolling experience — all in CSS.", "利用滚动驱动的视差图层创建深度和动感。不同的元素以不同的速度移动，从而营造出沉浸式的滚动体验——这一切都通过 CSS 实现。"],'subtitle_configure_your_scroll_dri':["Configure your scroll-driven animation and get production-ready CSS. Adjust properties and see the result live.", "配置滚动动画并获取可用于生产环境的 CSS。调整属性并实时查看效果。"],'btn_progress_bar':["Progress Bar", "进度条"],'btn_parallax':["Parallax", "视差"],'btn_element_reveal':["Element Reveal", "元素揭示"],'btn_scroll_axis':["Scroll Axis", "滚动轴"],'btn_view_inset':["View Inset", "视图插图"],'btn_animation_range':["Animation Range", "动画范围"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_copy':["Copy", "复制"],'btn_reset_scroll':["Reset Scroll", "重置滚动"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_generated_css':["Copy Generated CSS", "复制生成的 CSS"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'strong_chrome_115':["Chrome 115+", "Chrome 115+"],'strong_edge_115':["Edge 115+", "Edge 115+"],'strong_1_create_a_scroll_timelin':["1. Create a scroll timeline", "1. 创建滚动时间轴"],'strong_2_link_an_animation':["2. Link an animation", "2. 链接动画"],'strong_3_define_keyframes':["3. Define keyframes", "3. 定义关键帧"],'strong_4_compositor_driven':["4. Compositor-driven", "4. 合成器驱动"],'strong_key_properties':["Key Properties:", "主要特性："],'strong_entry':["entry", "入口"],'strong_contain':["contain", "包含"],'strong_exit':["exit", "出口"],'strong_cover':["cover", "覆盖"],'strong_chrome_115_2':["Chrome 115+", "Chrome 115+"],'strong_edge_115_2':["Edge 115+", "Edge 115+"],'strong_firefox':["Firefox", "火狐浏览器"],'strong_safari':["Safari", "狩猎之旅"],'th_property':["Property", "财产"],'th_values':["Values", "价值观"],'th_description':["Description", "描述"],'label_background_speed':["Background Speed", "背景速度"],'label_card_animation':["Card Animation", "卡片动画"],'label_animation':["Animation", "动画片"],'label_range':["Range", "范围"],'label_range_start':["Range Start", "靶场起步"],'label_range_end':["Range End", "范围末端"],'label_timeline_type':["Timeline Type", "时间线类型"],'label_axis':["Axis", "轴"],'label_animation_2':["Animation", "动画片"],'label_animation_range':["Animation Range", "动画范围"],'label_bar_color_progress_only':["Bar Color (progress only)", "条形颜色（仅进度）"],'label_easing':["Easing", "缓解"],'footer_css_scroll_timeline_playg':["CSS Scroll Timeline Playground — Dev Vault", "CSS滚动时间轴练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* Navigation */
 const nav = document.getElementById('nav');
@@ -842,6 +854,24 @@ function copyGenerated() {
 
 /* Init */
 generateCode();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

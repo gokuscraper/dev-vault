@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_editorconfig_generator_e" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,50 +45,62 @@ input,select{width:100%;padding:8px 10px;border-radius:6px;border:1px solid #333
 </style>
 </head>
 <body>
-<div class="container">
-<h1>.editorconfig Generator</h1>
-<p class="sub">Consistent coding style across editors and IDEs</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_editorconfig_generator">.editorconfig Generator</h1>
+<p class="sub" ti="subtitle_consistent_coding_style_a">Consistent coding style across editors and IDEs</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Root Setting</h3>
-<div class="check-row"><input type="checkbox" id="isRoot" checked onchange="gen()"><label for="isRoot">root = true (stop searching parent directories)</label></div>
+<h3 ti="h3_root_setting">Root Setting</h3>
+<div class="check-row"><input type="checkbox" id="isRoot" checked onchange="gen()"><label for="isRoot" ti="label_root_true_stop_searching">root = true (stop searching parent directories)</label></div>
 </div>
 
 <div class="section">
-<h3>Global Defaults [*]</h3>
+<h3 ti="h3_global_defaults">Global Defaults [*]</h3>
 <div class="row">
-<div class="col"><label>Indent Style</label><select id="gIndent" onchange="gen()"><option selected>space</option><option>tab</option></select></div>
-<div class="col"><label>Indent Size</label><input type="number" id="gSize" value="2" min="1" max="8" oninput="gen()"></div>
-<div class="col"><label>End of Line</label><select id="gEol" onchange="gen()"><option selected>lf</option><option>crlf</option><option>cr</option></select></div>
+<div class="col"><label ti="label_indent_style">Indent Style</label><select id="gIndent" onchange="gen()"><option selected>space</option><option>tab</option></select></div>
+<div class="col"><label ti="label_indent_size">Indent Size</label><input type="number" id="gSize" value="2" min="1" max="8" oninput="gen()"></div>
+<div class="col"><label ti="label_end_of_line">End of Line</label><select id="gEol" onchange="gen()"><option selected>lf</option><option>crlf</option><option>cr</option></select></div>
 </div>
 <div class="row">
-<div class="col"><label>Charset</label><select id="gCharset" onchange="gen()"><option selected>utf-8</option><option>utf-8-bom</option><option>latin1</option></select></div>
-<div class="col"><label>Trim Trailing Whitespace</label><select id="gTrim" onchange="gen()"><option selected>true</option><option>false</option></select></div>
-<div class="col"><label>Insert Final Newline</label><select id="gNewline" onchange="gen()"><option selected>true</option><option>false</option></select></div>
+<div class="col"><label ti="label_charset">Charset</label><select id="gCharset" onchange="gen()"><option selected>utf-8</option><option>utf-8-bom</option><option>latin1</option></select></div>
+<div class="col"><label ti="label_trim_trailing_whitespace">Trim Trailing Whitespace</label><select id="gTrim" onchange="gen()"><option selected>true</option><option>false</option></select></div>
+<div class="col"><label ti="label_insert_final_newline">Insert Final Newline</label><select id="gNewline" onchange="gen()"><option selected>true</option><option>false</option></select></div>
 </div>
 <div class="row">
-<div class="col"><label>Max Line Length (optional)</label><input type="number" id="gMaxLine" value="" min="0" placeholder="off" oninput="gen()"></div>
+<div class="col"><label ti="label_max_line_length_optional">Max Line Length (optional)</label><input type="number" id="gMaxLine" value="" min="0" tp="placeholder_off" tp="placeholder_off_2" placeholder="off" oninput="gen()"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>File-Specific Overrides</h3>
+<h3 ti="h3_file_specific_overrides">File-Specific Overrides</h3>
 <div id="rulesList"></div>
-<button class="add-btn" onclick="addRule()">+ Add Override</button>
+<button class="add-btn" onclick="addRule()" ti="btn_add_override">+ Add Override</button>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/prettier-config-gen/">Prettier Config</a> | <a href="https://gokuscraper.github.io/dev-vault/eslint-config-gen/">ESLint Config</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">.gitignore Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/prettier-config-gen/" ti="link_prettier_config">Prettier Config</a> | <a href="https://gokuscraper.github.io/dev-vault/eslint-config-gen/" ti="link_eslint_config">ESLint Config</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen">.gitignore Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_editorconfig_generator_e':[".editorconfig Generator — Editor Config Builder", ".editorconfig 生成器 — 编辑器配置构建器"],'metadesc_generate_editorconfig_vis':["Generate .editorconfig visually. Set indent style, charset, EOL per file type. 6 presets. No signup.", "以可视化方式生成 .editorconfig 文件。可针对每种文件类型设置缩进样式、字符集和行尾符。提供 6 种预设样式。无需注册。"],'h1_editorconfig_generator':[".editorconfig Generator", ".editorconfig 生成器"],'h3_root_setting':["Root Setting", "根设置"],'h3_global_defaults':["Global Defaults [*]", "全局默认值 [*]"],'h3_file_specific_overrides':["File-Specific Overrides", "文件特定覆盖"],'subtitle_consistent_coding_style_a':["Consistent coding style across editors and IDEs", "在所有编辑器和集成开发环境 (IDE) 中保持一致的编码风格"],'btn_add_override':["+ Add Override", "+ 添加覆盖"],'btn_copy':["Copy", "复制"],'placeholder_off':["off", "离开"],'placeholder_py':["*.py", "*.py"],'placeholder_off_2':["off", "离开"],'label_root_true_stop_searching':["root = true (stop searching parent directories)", "root = true（停止搜索父目录）"],'label_indent_style':["Indent Style", "缩进样式"],'label_indent_size':["Indent Size", "压痕尺寸"],'label_end_of_line':["End of Line", "行尾"],'label_charset':["Charset", "字符集"],'label_trim_trailing_whitespace':["Trim Trailing Whitespace", "删除尾随空白"],'label_insert_final_newline':["Insert Final Newline", "插入最后一个换行符"],'label_max_line_length_optional':["Max Line Length (optional)", "最大线长（可选）"],'label_glob_pattern':["Glob Pattern", "球状模式"],'label_indent':["Indent", "缩进"],'label_size':["Size", "尺寸"],'label_trim_ws':["Trim WS", "修剪 WS"],'label_max_line':["Max Line", "最大线"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_prettier_config':["Prettier Config", "Prettier 配置"],'link_eslint_config':["ESLint Config", "ESLint 配置"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'jtlword_indent':["Indent", "缩进"],'jtlword_space':["space", "空间"],'jtlword_tab':["tab", "标签页"],'jtlword_size':["Size", "尺寸"],'jtlword_true':["true", "真的"],'jtlword_false':["false", "错误的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = {
   'Standard': {root:true,indent:'space',size:2,eol:'lf',charset:'utf-8',trim:'true',newline:'true',maxLine:'',
@@ -140,11 +152,11 @@ function renderRules(){
     const d=document.createElement('div');d.className='rule-item';
     d.innerHTML=`<span class="remove" onclick="removeRule(${i})">✕</span>
     <div class="row">
-      <div class="col"><label>Glob Pattern</label><input value="${esc(r.glob)}" onchange="rules[${i}].glob=this.value;gen()" placeholder="*.py"></div>
-      <div class="col"><label>Indent</label><select onchange="rules[${i}].indent=this.value;gen()"><option${r.indent==='space'?' selected':''}>space</option><option${r.indent==='tab'?' selected':''}>tab</option></select></div>
-      <div class="col" style="max-width:80px"><label>Size</label><input type="number" value="${r.size}" min="1" max="8" onchange="rules[${i}].size=+this.value;gen()"></div>
-      <div class="col"><label>Trim WS</label><select onchange="rules[${i}].trim=this.value;gen()"><option${r.trim==='true'?' selected':''}>true</option><option${r.trim==='false'?' selected':''}>false</option></select></div>
-      <div class="col" style="max-width:80px"><label>Max Line</label><input type="number" value="${r.maxLine||''}" placeholder="off" onchange="rules[${i}].maxLine=this.value;gen()"></div>
+      <div class="col"><label ti="label_glob_pattern">Glob Pattern</label><input value="${esc(r.glob)}" onchange="rules[${i}].glob=this.value;gen()" tp="placeholder_py" placeholder="*.py"></div>
+      <div class="col"><label ti="label_indent">Indent</label><select onchange="rules[${i}].indent=this.value;gen()"><option${r.indent==='space'?' selected':''}>space</option><option${r.indent==='tab'?' selected':''}>tab</option></select></div>
+      <div class="col" style="max-width:80px"><label ti="label_size">Size</label><input type="number" value="${r.size}" min="1" max="8" onchange="rules[${i}].size=+this.value;gen()"></div>
+      <div class="col"><label ti="label_trim_ws">Trim WS</label><select onchange="rules[${i}].trim=this.value;gen()"><option${r.trim==='true'?' selected':''}>true</option><option${r.trim==='false'?' selected':''}>false</option></select></div>
+      <div class="col" style="max-width:80px"><label ti="label_max_line">Max Line</label><input type="number" value="${r.maxLine||''}" placeholder="off" onchange="rules[${i}].maxLine=this.value;gen()"></div>
     </div>`;
     c.appendChild(d);
   });
@@ -192,6 +204,24 @@ function copyOut(){
 
 initPresets();
 loadPreset('Standard');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

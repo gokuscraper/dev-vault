@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_shape_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -535,6 +535,8 @@ footer {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>CSS <code>shape()</code> Playground</h1>
@@ -546,11 +548,11 @@ footer {
 </div>
 
 <nav class="tabs" id="tabs">
-  <button class="active" data-tab="builder">Shape Builder</button>
-  <button data-tab="reference">Command Reference</button>
-  <button data-tab="presets">Presets</button>
-  <button data-tab="comparison">Comparison</button>
-  <button data-tab="offset">Offset-path Demo</button>
+  <button class="active" data-tab="builder" ti="btn_shape_builder">Shape Builder</button>
+  <button data-tab="reference" ti="btn_command_reference">Command Reference</button>
+  <button data-tab="presets" ti="btn_presets">Presets</button>
+  <button data-tab="comparison" ti="btn_comparison">Comparison</button>
+  <button data-tab="offset" ti="btn_offset_path_demo">Offset-path Demo</button>
 </nav>
 
 <!-- Builder Tab -->
@@ -558,25 +560,25 @@ footer {
   <div class="builder-layout">
     <div>
       <div class="panel">
-        <h3>Preview</h3>
+        <h3 ti="h3_preview">Preview</h3>
         <div class="preview-container" id="preview-container">
           <div class="preview-shape" id="preview-shape"></div>
           <svg class="preview-svg" id="preview-svg" viewBox="0 0 100 100"></svg>
         </div>
         <div class="fill-select-row" style="margin-top:0.8rem">
-          <label>Fill rule:</label>
+          <label ti="label_fill_rule">Fill rule:</label>
           <select id="fill-rule">
             <option value="nonzero">nonzero</option>
             <option value="evenodd">evenodd</option>
           </select>
-          <label style="margin-left:10px">from:</label>
+          <label style="margin-left:10px" ti="label_from">from:</label>
           <input type="number" id="from-x" value="0" min="0" max="100" step="1" style="width:55px"> %
           <input type="number" id="from-y" value="0" min="0" max="100" step="1" style="width:55px"> %
         </div>
       </div>
 
       <div class="code-output" id="code-output">
-        <button class="btn-secondary btn-small copy-btn" onclick="copyCode()">Copy</button>
+        <button class="btn-secondary btn-small copy-btn" onclick="copyCode()" ti="btn_copy" ti="btn_copy_2">Copy</button>
         <span id="code-text">clip-path: shape(nonzero from 0% 0%);</span>
       </div>
       <div style="display:flex;gap:8px;margin-top:8px">
@@ -589,22 +591,22 @@ footer {
 
     <div>
       <div class="panel">
-        <h3>Commands</h3>
+        <h3 ti="h3_commands">Commands</h3>
         <div class="command-list" id="command-list"></div>
         <div class="add-command-bar">
-          <button class="btn-primary btn-small" onclick="addCommand('line')">+ Line</button>
-          <button class="btn-primary btn-small" onclick="addCommand('hline')">+ HLine</button>
-          <button class="btn-primary btn-small" onclick="addCommand('vline')">+ VLine</button>
-          <button class="btn-primary btn-small" onclick="addCommand('arc')">+ Arc</button>
-          <button class="btn-primary btn-small" onclick="addCommand('curve')">+ Curve</button>
-          <button class="btn-primary btn-small" onclick="addCommand('smooth')">+ Smooth</button>
-          <button class="btn-primary btn-small" onclick="addCommand('close')">+ Close</button>
-          <button class="btn-danger btn-small" onclick="clearCommands()" style="margin-left:auto">Clear All</button>
+          <button class="btn-primary btn-small" onclick="addCommand('line')" ti="btn_line">+ Line</button>
+          <button class="btn-primary btn-small" onclick="addCommand('hline')" ti="btn_hline">+ HLine</button>
+          <button class="btn-primary btn-small" onclick="addCommand('vline')" ti="btn_vline">+ VLine</button>
+          <button class="btn-primary btn-small" onclick="addCommand('arc')" ti="btn_arc">+ Arc</button>
+          <button class="btn-primary btn-small" onclick="addCommand('curve')" ti="btn_curve">+ Curve</button>
+          <button class="btn-primary btn-small" onclick="addCommand('smooth')" ti="btn_smooth">+ Smooth</button>
+          <button class="btn-primary btn-small" onclick="addCommand('close')" ti="btn_close">+ Close</button>
+          <button class="btn-danger btn-small" onclick="clearCommands()" style="margin-left:auto" ti="btn_clear_all">Clear All</button>
         </div>
       </div>
 
       <div class="panel" style="margin-top:1rem">
-        <h3>Edit Selected Command</h3>
+        <h3 ti="h3_edit_selected_command">Edit Selected Command</h3>
         <div id="edit-panel">
           <p style="color:var(--text-dim);font-size:0.82rem">Click a command above to edit its parameters.</p>
         </div>
@@ -615,7 +617,7 @@ footer {
 
 <!-- Reference Tab -->
 <div class="tab-content" id="tab-reference">
-  <h2 style="margin-bottom:1rem;font-size:1.2rem">shape() Command Reference</h2>
+  <h2 style="margin-bottom:1rem;font-size:1.2rem" ti="h2_shape_command_reference">shape() Command Reference</h2>
   <p style="color:var(--text-dim);margin-bottom:1.5rem;font-size:0.9rem">
     The <code>shape()</code> function uses readable commands instead of single-letter SVG path syntax.
     Syntax: <code>shape(&lt;fill-rule&gt;? from &lt;x&gt; &lt;y&gt;, &lt;commands&gt;)</code>
@@ -625,14 +627,14 @@ footer {
 
 <!-- Presets Tab -->
 <div class="tab-content" id="tab-presets">
-  <h2 style="margin-bottom:1rem;font-size:1.2rem">Shape Presets</h2>
+  <h2 style="margin-bottom:1rem;font-size:1.2rem" ti="h2_shape_presets">Shape Presets</h2>
   <p style="color:var(--text-dim);margin-bottom:1.5rem;font-size:0.9rem">Click a preset to load it into the builder.</p>
   <div class="presets-grid" id="presets-grid"></div>
 </div>
 
 <!-- Comparison Tab -->
 <div class="tab-content" id="tab-comparison">
-  <h2 style="margin-bottom:1rem;font-size:1.2rem">shape() vs polygon() vs path()</h2>
+  <h2 style="margin-bottom:1rem;font-size:1.2rem" ti="h2_shape_vs_polygon_vs_path">shape() vs polygon() vs path()</h2>
   <p style="color:var(--text-dim);margin-bottom:1.5rem;font-size:0.9rem">
     <code>shape()</code> improves on existing CSS path methods with human-readable syntax and CSS unit support.
   </p>
@@ -640,10 +642,10 @@ footer {
   <table class="comparison-table">
     <thead>
       <tr>
-        <th>Feature</th>
+        <th ti="th_feature">Feature</th>
         <th>polygon()</th>
         <th>path()</th>
-        <th>shape()</th>
+        <th ti="th_shape">shape()</th>
       </tr>
     </thead>
     <tbody>
@@ -657,37 +659,37 @@ footer {
         <td>Readability</td>
         <td>Good for simple shapes</td>
         <td>Cryptic SVG letters</td>
-        <td><strong>Best — named commands</strong></td>
+        <td><strong ti="strong_best_named_commands">Best — named commands</strong></td>
       </tr>
       <tr>
         <td>CSS Units</td>
         <td>Yes (%, px, etc.)</td>
         <td>No (unitless px only)</td>
-        <td><strong>Yes (%, px, em, etc.)</strong></td>
+        <td><strong ti="strong_yes_px_em_etc">Yes (%, px, em, etc.)</strong></td>
       </tr>
       <tr>
         <td>Curves</td>
         <td>No</td>
         <td>Yes</td>
-        <td><strong>Yes (arc, curve, smooth)</strong></td>
+        <td><strong ti="strong_yes_arc_curve_smooth">Yes (arc, curve, smooth)</strong></td>
       </tr>
       <tr>
         <td>Responsive</td>
         <td>With %</td>
         <td>No (fixed px)</td>
-        <td><strong>Yes (any CSS unit)</strong></td>
+        <td><strong ti="strong_yes_any_css_unit">Yes (any CSS unit)</strong></td>
       </tr>
       <tr>
         <td>Arcs</td>
         <td>No</td>
         <td>Yes (A command)</td>
-        <td><strong>Yes (arc to)</strong></td>
+        <td><strong ti="strong_yes_arc_to">Yes (arc to)</strong></td>
       </tr>
       <tr>
         <td>Interpolation</td>
         <td>Same # points</td>
         <td>Same # segments</td>
-        <td><strong>Same # commands</strong></td>
+        <td><strong ti="strong_same_commands">Same # commands</strong></td>
       </tr>
       <tr>
         <td>Browser Support</td>
@@ -698,13 +700,13 @@ footer {
     </tbody>
   </table>
 
-  <h3 style="margin-bottom:1rem;font-size:1rem">Same Shape, Three Syntaxes</h3>
+  <h3 style="margin-bottom:1rem;font-size:1rem" ti="h3_same_shape_three_syntaxes">Same Shape, Three Syntaxes</h3>
   <div class="comparison-examples" id="comparison-examples"></div>
 </div>
 
 <!-- Offset-path Tab -->
 <div class="tab-content" id="tab-offset">
-  <h2 style="margin-bottom:1rem;font-size:1.2rem">offset-path: shape() Demo</h2>
+  <h2 style="margin-bottom:1rem;font-size:1.2rem" ti="h2_offset_path_shape_demo">offset-path: shape() Demo</h2>
   <p style="color:var(--text-dim);margin-bottom:1.5rem;font-size:0.9rem">
     Animate elements along a <code>shape()</code> path using <code>offset-path</code> and <code>offset-distance</code>.
   </p>
@@ -717,7 +719,7 @@ footer {
   </div>
 
   <div class="offset-controls">
-    <button class="btn-primary" id="offset-play-btn" onclick="toggleOffsetAnim()">Play</button>
+    <button class="btn-primary" id="offset-play-btn" onclick="toggleOffsetAnim()" ti="btn_play">Play</button>
     <label style="font-size:0.85rem;color:var(--text-dim);display:flex;align-items:center;gap:6px">
       Duration:
       <input type="number" id="offset-duration" value="3" min="0.5" max="20" step="0.5" style="width:60px"> s
@@ -736,6 +738,16 @@ footer {
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_css_shape_playground':["CSS shape() Playground", "CSS shape() 游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for the CSS shape() function — build complex clip-path and offset-path shapes visually with drag-and-drop controls, presets, and code export. Interop 2026.", "CSS shape() 函数的交互式演示环境——通过拖放控件、预设和代码导出功能，以可视化的方式构建复杂的裁剪路径和偏移路径形状。Interop 2026。"],'h2_shape_command_reference':["shape() Command Reference", "shape() 命令参考"],'h2_shape_presets':["Shape Presets", "形状预设"],'h2_shape_vs_polygon_vs_path':["shape() vs polygon() vs path()", "shape() vs polygon() vs path()"],'h2_offset_path_shape_demo':["offset-path: shape() Demo", "偏移路径：形状() 演示"],'h3_preview':["Preview", "预览"],'h3_commands':["Commands", "命令"],'h3_edit_selected_command':["Edit Selected Command", "编辑选定命令"],'h3_same_shape_three_syntaxes':["Same Shape, Three Syntaxes", "相同的形状，三种语法"],'btn_shape_builder':["Shape Builder", "形状生成器"],'btn_command_reference':["Command Reference", "命令参考"],'btn_presets':["Presets", "预设"],'btn_comparison':["Comparison", "比较"],'btn_offset_path_demo':["Offset-path Demo", "偏移路径演示"],'btn_copy':["Copy", "复制"],'btn_line':["+ Line", "+ 线"],'btn_hline':["+ HLine", "+ HLine"],'btn_vline':["+ VLine", "+ VLine"],'btn_arc':["+ Arc", "+弧"],'btn_curve':["+ Curve", "+曲线"],'btn_smooth':["+ Smooth", "+ 平滑"],'btn_close':["+ Close", "+ 关闭"],'btn_clear_all':["Clear All", "全部清除"],'btn_play':["Play", "玩"],'btn_copy_2':["Copy", "复制"],'btn_name':["${name}", "${name}"],'strong_best_named_commands':["Best — named commands", "最佳——命名命令"],'strong_yes_px_em_etc':["Yes (%, px, em, etc.)", "是的（%，px，em 等）"],'strong_yes_arc_curve_smooth':["Yes (arc, curve, smooth)", "是的（弧线、曲线、平滑）"],'strong_yes_any_css_unit':["Yes (any CSS unit)", "是的（任何 CSS 单元）"],'strong_yes_arc_to':["Yes (arc to)", "是的（弧线到）"],'strong_same_commands':["Same # commands", "相同的命令"],'th_feature':["Feature", "特征"],'th_polygon':["polygon()", "多边形()"],'th_path':["path()", "小路（）"],'th_shape':["shape()", "形状（）"],'label_fill_rule':["Fill rule:", "填充规则："],'label_from':["from:", "从："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 let commands = [];
@@ -1335,9 +1347,9 @@ function buildComparison() {
     <div class="comp-card">
       <h4>${ex.name}</h4>
       <div class="comp-demo" style="clip-path: ${ex.shape}"></div>
-      <p style="color:var(--text-dim);font-size:0.78rem;margin:0.5rem 0 0.3rem">polygon()</p>
+      <p style="color:var(--text-dim);font-size:0.78rem;margin:0.5rem 0 0.3rem" ti="th_polygon">polygon()</p>
       <pre>${ex.polygon}</pre>
-      <p style="color:var(--text-dim);font-size:0.78rem;margin:0.5rem 0 0.3rem">path()</p>
+      <p style="color:var(--text-dim);font-size:0.78rem;margin:0.5rem 0 0.3rem" ti="th_path">path()</p>
       <pre>${ex.path}</pre>
       <p style="color:var(--accent);font-size:0.78rem;margin:0.5rem 0 0.3rem">shape() ✓</p>
       <pre style="border:1px solid var(--accent)">${ex.shape}</pre>
@@ -1360,7 +1372,7 @@ let offsetAnimating = false;
 function buildOffsetPresets() {
   const container = document.getElementById('offset-presets');
   container.innerHTML = Object.entries(offsetPresets).map(([name, shape], i) =>
-    `<button class="btn-secondary btn-small ${i===0?'active':''}" onclick="selectOffsetPreset(this,'${name}')">${name}</button>`
+    `<button class="btn-secondary btn-small ${i===0?'active':''}" onclick="selectOffsetPreset(this,'${name}')" ti="btn_name">${name}</button>`
   ).join('');
 }
 
@@ -1476,6 +1488,24 @@ buildComparison();
 buildOffsetPresets();
 renderOffsetDemo();
 renderAll();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_benchmark_builder" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,28 +38,42 @@ button.success:hover{background:#15803d}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Benchmark Builder</h1>
-  <p class="desc">Compare performance of JavaScript code snippets</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_benchmark_builder" ti="h1_benchmark_builder" ti="title_benchmark_builder" ti="h1_benchmark_builder">Benchmark Builder</h1>
+  <p class="desc" ti="subtitle_compare_performance_of_ja" ti="subtitle_compare_performance_of_ja">Compare performance of JavaScript code snippets</p>
   <div class="card">
     <div class="row">
-      <label>Iterations</label>
+      <label ti="label_iterations" ti="label_iterations">Iterations</label>
       <select id="iterations">
         <option value="1000">1,000</option>
         <option value="10000" selected>10,000</option>
         <option value="100000">100,000</option>
         <option value="1000000">1,000,000</option>
       </select>
-      <button id="addCaseBtn">+ Add Case</button>
+      <button id="addCaseBtn" ti="btn_add_case" ti="btn_add_case">+ Add Case</button>
     </div>
     <div id="cases"></div>
     <div class="flex-center">
-      <button class="primary" id="runBtn">Run Benchmark</button>
-      <button id="clearBtn">Clear Results</button>
+      <button class="primary" id="runBtn" ti="btn_run_benchmark" ti="btn_run_benchmark">Run Benchmark</button>
+      <button id="clearBtn" ti="btn_clear_results" ti="btn_clear_results">Clear Results</button>
     </div>
     <div id="results"></div>
   </div>
 </div>
+
+<script>var _LANG={'title_benchmark_builder':["Benchmark Builder", "基准测试构建器"],'metadesc_run_and_compare_javascrip':["Run and compare JavaScript code snippets. Measure execution time, identify performance bottlenecks, and benchmark implementations side-by-side.", "运行并比较 JavaScript 代码片段。测量执行时间、识别性能瓶颈并排比较实现。"],'h1_benchmark_builder':["Benchmark Builder", "基准测试构建器"],'subtitle_compare_performance_of_ja':["Compare performance of JavaScript code snippets", "比较 JavaScript 代码片段的性能"],'btn_add_case':["+ Add Case", "+ 添加用例"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'btn_clear_results':["Clear Results", "清除结果"],'th_case':["Case", "用例"],'th_time_ms':["Time (ms)", "时间（毫秒）"],'th_ops_s':["Ops/s", "操作数/秒"],'th_vs_fastest':["vs Fastest", "对比最快"],'label_iterations':["Iterations", "迭代次数"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let caseCount = 0;
 const container = document.getElementById('cases');
@@ -123,7 +137,7 @@ function runBenchmark() {
   const minTime = Math.min(...timings.filter(t => t.elapsed >= 0).map(t => t.elapsed));
   const maxTime = Math.max(...timings.filter(t => t.elapsed >= 0).map(t => t.elapsed));
 
-  let html = '<table class="results-table"><thead><tr><th>Case</th><th>Time (ms)</th><th>Ops/s</th><th>vs Fastest</th></tr></thead><tbody>';
+  let html = '<table class="results-table"><thead><tr><th ti="th_case" ti="th_case">Case</th><th ti="th_time_ms" ti="th_time_ms">Time (ms)</th><th ti="th_ops_s" ti="th_ops_s">Ops/s</th><th ti="th_vs_fastest" ti="th_vs_fastest">vs Fastest</th></tr></thead><tbody>';
   timings.forEach((t, i) => {
     if (t.error) {
       html += `<tr><td>Case ${i + 1}</td><td colspan="3" style="color:#ef4444">Error: ${t.error}</td></tr>`;
@@ -136,6 +150,46 @@ function runBenchmark() {
   html += '</tbody></table>';
   resultsDiv.innerHTML = html;
 }
+</script>
+<script>var _LANG={'title_benchmark_builder':["Benchmark Builder", "基准测试构建器"],'metadesc_run_and_compare_javascrip':["Run and compare JavaScript code snippets. Measure execution time, identify performance bottlenecks, and benchmark implementations side-by-side.", "运行并比较 JavaScript 代码片段。测量执行时间、识别性能瓶颈并排比较实现。"],'h1_benchmark_builder':["Benchmark Builder", "基准测试构建器"],'subtitle_compare_performance_of_ja':["Compare performance of JavaScript code snippets", "比较 JavaScript 代码片段的性能"],'btn_add_case':["+ Add Case", "+ 添加用例"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'btn_clear_results':["Clear Results", "清除结果"],'th_case':["Case", "用例"],'th_time_ms':["Time (ms)", "时间（毫秒）"],'th_ops_s':["Ops/s", "操作数/秒"],'th_vs_fastest':["vs Fastest", "对比最快"],'label_iterations':["Iterations", "迭代次数"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

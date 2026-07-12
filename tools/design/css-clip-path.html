@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_clip_path_clip_path_v" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -60,20 +60,22 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>CSS <span>Clip-Path</span></h1>
-<p class="subtitle">Visual clip-path generator — drag points, pick presets, copy CSS</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+<h1>CSS <span>Clip-Path</span></h1>
+<p class="subtitle" ti="subtitle_visual_clip_path_generato">Visual clip-path generator — drag points, pick presets, copy CSS</p>
+
+<div class="container" style="position:relative">
   <div class="row">
     <div class="col">
       <div class="panel">
-        <h2>Editor</h2>
+        <h2 ti="h2_editor">Editor</h2>
         <div class="canvas-wrap" id="canvas">
           <svg id="svg" viewBox="0 0 300 300"></svg>
         </div>
         <p class="hint">Click to add points · Right-click to remove · Drag to reposition</p>
         <div class="controls">
-          <label>Points:</label>
+          <label ti="label_points">Points:</label>
           <input type="range" id="pointCount" min="3" max="20" value="4">
           <span class="val" id="pointCountVal">4</span>
         </div>
@@ -81,19 +83,19 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="col">
       <div class="panel">
-        <h2>Presets</h2>
+        <h2 ti="h2_presets">Presets</h2>
         <div class="presets" id="presets"></div>
       </div>
       <div class="panel" style="margin-top:1.25rem">
-        <h2>CSS Output</h2>
+        <h2 ti="h2_css_output">CSS Output</h2>
         <div class="output-box" id="output"></div>
         <div class="actions">
-          <button class="btn btn-accent" id="copyBtn">Copy CSS</button>
-          <button class="btn btn-red" id="resetBtn">Reset</button>
+          <button class="btn btn-accent" id="copyBtn" ti="btn_copy_css">Copy CSS</button>
+          <button class="btn btn-red" id="resetBtn" ti="btn_reset">Reset</button>
         </div>
       </div>
       <div class="panel" style="margin-top:1.25rem">
-        <h2>Preview</h2>
+        <h2 ti="h2_preview">Preview</h2>
         <div class="preview-box" id="preview"></div>
       </div>
     </div>
@@ -103,9 +105,19 @@ footer a:hover{text-decoration:underline}
 <div class="toast" id="toast">Copied!</div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 64+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 64+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_css_clip_path_clip_path_v':["CSS Clip-Path — clip-path Visual Generator", "CSS Clip-Path — clip-path 可视化生成器"],'metadesc_visual_css_clip_path_gene':["Visual CSS clip-path generator. Drag points, use presets, get CSS code.", "可视化 CSS 裁剪路径生成器。拖动点，使用预设，生成 CSS 代码。"],'h2_editor':["Editor", "编辑"],'h2_presets':["Presets", "预设"],'h2_css_output':["CSS Output", "CSS 输出"],'h2_preview':["Preview", "预览"],'subtitle_visual_clip_path_generato':["Visual clip-path generator — drag points, pick presets, copy CSS", "可视化裁剪路径生成器——拖动点、选择预设、复制 CSS"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_reset':["Reset", "重置"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'label_points':["Points:", "积分："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
 const SIZE = 300;
@@ -418,12 +430,12 @@ render();
 })();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/svg-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SVG Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/border-radius/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Border Radius</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -433,5 +445,23 @@ render();
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

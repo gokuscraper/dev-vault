@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_transition_behavior_a" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -359,12 +359,14 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <div class="container">
+  <div class="container" style="position:relative">
     <div>
       <h1><code>transition-behavior: allow-discrete</code></h1>
-      <p class="subtitle">Animate display, visibility, and other discrete CSS properties</p>
+      <p class="subtitle" ti="subtitle_animate_display_visibilit">Animate display, visibility, and other discrete CSS properties</p>
     </div>
     <div class="browser-support">
       <span>Baseline 2025</span>
@@ -387,21 +389,21 @@ footer a:hover { text-decoration: underline; }
     <div class="card">
       <div class="card-header">
         <h3>Toggle display: none &harr; block</h3>
-        <button class="btn btn-accent" id="btn-compare-toggle">Toggle Both</button>
+        <button class="btn btn-accent" id="btn-compare-toggle" ti="btn_toggle_both" ti="btn_toggle_both_2">Toggle Both</button>
       </div>
       <div class="card-body">
         <div class="demo-split">
           <div class="demo-panel">
-            <span class="demo-panel-label">without allow-discrete</span>
+            <span class="demo-panel-label" ti="label_without_allow_discrete">without allow-discrete</span>
             <div class="demo-box box-without" id="box-without">Instant</div>
           </div>
           <div class="demo-panel">
-            <span class="demo-panel-label">with allow-discrete</span>
+            <span class="demo-panel-label" ti="label_with_allow_discrete">with allow-discrete</span>
             <div class="demo-box box-with" id="box-with">Smooth</div>
           </div>
         </div>
         <div class="code-output mt-16" id="code-compare">
-          <button class="copy-btn" onclick="copyCode('code-compare')">Copy</button>
+          <button class="copy-btn" onclick="copyCode('code-compare')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
           <pre></pre>
         </div>
       </div>
@@ -417,8 +419,8 @@ footer a:hover { text-decoration: underline; }
     </p>
     <div class="card">
       <div class="card-header">
-        <h3>Show / Hide with entry bounce</h3>
-        <button class="btn btn-accent" id="btn-entry-toggle">Toggle</button>
+        <h3 ti="h3_show_hide_with_entry_boun">Show / Hide with entry bounce</h3>
+        <button class="btn btn-accent" id="btn-entry-toggle" ti="btn_toggle">Toggle</button>
       </div>
       <div class="card-body text-center">
         <div class="entry-box" id="entry-box">Entry</div>
@@ -438,15 +440,15 @@ footer a:hover { text-decoration: underline; }
     </p>
     <div class="card">
       <div class="card-header">
-        <h3>Choose exit style</h3>
-        <button class="btn btn-sm" id="btn-exit-reset">Reset</button>
+        <h3 ti="h3_choose_exit_style">Choose exit style</h3>
+        <button class="btn btn-sm" id="btn-exit-reset" ti="btn_reset">Reset</button>
       </div>
       <div class="card-body text-center">
         <div class="exit-box" id="exit-box">Exit Me</div>
         <div class="exit-controls">
-          <button class="btn btn-sm" onclick="exitAnimate('exit-fade')">Fade + Slide</button>
-          <button class="btn btn-sm" onclick="exitAnimate('exit-shrink')">Shrink</button>
-          <button class="btn btn-sm" onclick="exitAnimate('exit-slide')">Drop Down</button>
+          <button class="btn btn-sm" onclick="exitAnimate('exit-fade')" ti="btn_fade_slide">Fade + Slide</button>
+          <button class="btn btn-sm" onclick="exitAnimate('exit-shrink')" ti="btn_shrink">Shrink</button>
+          <button class="btn btn-sm" onclick="exitAnimate('exit-slide')" ti="btn_drop_down">Drop Down</button>
         </div>
         <div class="code-output mt-16" id="code-exit">
           <button class="copy-btn" onclick="copyCode('code-exit')">Copy</button>
@@ -464,7 +466,7 @@ footer a:hover { text-decoration: underline; }
     </p>
     <div class="card">
       <div class="card-header">
-        <h3>Compare behavior</h3>
+        <h3 ti="h3_compare_behavior">Compare behavior</h3>
         <button class="btn btn-accent" id="btn-vis-disp-toggle">Toggle Both</button>
       </div>
       <div class="card-body">
@@ -485,7 +487,7 @@ footer a:hover { text-decoration: underline; }
           </div>
         </div>
         <div class="note-box mt-16">
-          <strong>Key difference:</strong> When <code>visibility</code> transitions, the element fades but its space remains.
+          <strong ti="strong_key_difference">Key difference:</strong> When <code>visibility</code> transitions, the element fades but its space remains.
           When <code>display</code> transitions, the element is fully removed from layout after the transition ends.
         </div>
         <div class="code-output mt-16" id="code-vis-disp">
@@ -505,14 +507,14 @@ footer a:hover { text-decoration: underline; }
     </p>
     <div class="card">
       <div class="card-header">
-        <h3>Watch the flip point</h3>
+        <h3 ti="h3_watch_the_flip_point">Watch the flip point</h3>
         <div class="flex-center gap-8">
           <select id="timeline-duration" style="background:var(--bg-primary);border:1px solid var(--border);border-radius:4px;color:var(--text-primary);padding:4px 8px;font-size:0.8rem;">
             <option value="1000">1000ms</option>
             <option value="2000" selected>2000ms</option>
             <option value="3000">3000ms</option>
           </select>
-          <button class="btn btn-accent btn-sm" id="btn-timeline-play">Play</button>
+          <button class="btn btn-accent btn-sm" id="btn-timeline-play" ti="btn_play">Play</button>
         </div>
       </div>
       <div class="card-body">
@@ -525,7 +527,7 @@ footer a:hover { text-decoration: underline; }
             <div class="timeline-bar" id="timeline-bar">
               <div class="timeline-fill-opacity" id="timeline-fill"></div>
               <div class="timeline-midpoint"></div>
-              <span class="timeline-midpoint-label">50% — discrete flip</span>
+              <span class="timeline-midpoint-label" ti="label_50_discrete_flip">50% — discrete flip</span>
               <div class="timeline-flip-marker" id="timeline-flip"></div>
             </div>
           </div>
@@ -558,7 +560,7 @@ footer a:hover { text-decoration: underline; }
     </p>
     <div class="card">
       <div class="card-header">
-        <h3>Presets</h3>
+        <h3 ti="h3_presets">Presets</h3>
       </div>
       <div class="card-body">
         <div class="presets-grid" id="presets-grid"></div>
@@ -569,7 +571,7 @@ footer a:hover { text-decoration: underline; }
             <input type="range" id="ctrl-duration" min="100" max="2000" step="50" value="400">
           </div>
           <div class="control-group">
-            <label>Easing</label>
+            <label ti="label_easing">Easing</label>
             <select id="ctrl-easing">
               <option value="ease">ease</option>
               <option value="ease-in">ease-in</option>
@@ -581,14 +583,14 @@ footer a:hover { text-decoration: underline; }
             </select>
           </div>
           <div class="control-group">
-            <label>Property</label>
+            <label ti="label_property">Property</label>
             <select id="ctrl-property">
               <option value="display">display (none &harr; block)</option>
               <option value="visibility">visibility (hidden &harr; visible)</option>
             </select>
           </div>
           <div class="control-group">
-            <label>Exit Transform</label>
+            <label ti="label_exit_transform">Exit Transform</label>
             <select id="ctrl-transform">
               <option value="translateY(-20px)">Slide up</option>
               <option value="translateY(40px)">Slide down</option>
@@ -603,7 +605,7 @@ footer a:hover { text-decoration: underline; }
         </div>
 
         <div class="text-center">
-          <button class="btn btn-accent" id="btn-custom-toggle">Toggle Element</button>
+          <button class="btn btn-accent" id="btn-custom-toggle" ti="btn_toggle_element">Toggle Element</button>
         </div>
         <div class="text-center mt-16">
           <div class="custom-target" id="custom-target">Custom</div>
@@ -625,6 +627,16 @@ footer a:hover { text-decoration: underline; }
   </div>
 </footer>
 
+
+<script>var _LANG={'title_css_transition_behavior_a':["CSS transition-behavior: allow-discrete — Interactive Playground", "CSS transition-behavior: allow-discrete — 交互式游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS transition-behavior: allow-discrete. Explore display, visibility, and overlay transitions with live demos, timeline visualization, and copyable code.", "CSS transition-havior: allow-discrete 的交互式演示环境。通过实时演示、时间轴可视化和可复制的代码，探索显示、可见性和叠加过渡效果。"],'h3_toggle_display_none_block':["Toggle display: none ↔ block", "切换显示：无 ↔ 阻塞"],'h3_show_hide_with_entry_boun':["Show / Hide with entry bounce", "显示/隐藏并带有入口弹跳"],'h3_choose_exit_style':["Choose exit style", "选择退出方式"],'h3_compare_behavior':["Compare behavior", "比较行为"],'h3_watch_the_flip_point':["Watch the flip point", "注意翻转点"],'h3_presets':["Presets", "预设"],'subtitle_animate_display_visibilit':["Animate display, visibility, and other discrete CSS properties", "动画显示、可见性和其他离散 CSS 属性"],'btn_toggle_both':["Toggle Both", "切换两者"],'btn_copy':["Copy", "复制"],'btn_toggle':["Toggle", "切换"],'btn_copy_2':["Copy", "复制"],'btn_reset':["Reset", "重置"],'btn_fade_slide':["Fade + Slide", "淡入淡出 + 滑动"],'btn_shrink':["Shrink", "收缩"],'btn_drop_down':["Drop Down", "下拉菜单"],'btn_copy_3':["Copy", "复制"],'btn_toggle_both_2':["Toggle Both", "切换两者"],'btn_copy_4':["Copy", "复制"],'btn_play':["Play", "玩"],'btn_toggle_element':["Toggle Element", "切换元素"],'btn_copy_5':["Copy", "复制"],'label_without_allow_discrete':["without allow-discrete", "不允许离散"],'label_with_allow_discrete':["with allow-discrete", "允许离散"],'label_50_discrete_flip':["50% — discrete flip", "50% — 离散翻转"],'strong_key_difference':["Key difference:", "主要区别："],'label_easing':["Easing", "缓解"],'label_property':["Property", "财产"],'label_exit_transform':["Exit Transform", "退出变换"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_none':["none", "没有任何"],'jtc_0':["0%", "0%"],'jtc_block':["block", "堵塞"],'jtlword_transition':["transition", "过渡"],'jtlword_display':["display", "展示"],'jtlword_none':["none", "没有任何"],'jtlword_transition_2':["transition", "过渡"],'jtlword_opacity':["opacity", "不透明度"],'jtlword_transform':["transform", "转换"],'jtlword_opacity_2':["opacity", "不透明度"],'jtlword_transform_2':["transform", "转换"],'jtlword_display_2':["display", "展示"],'jtlword_none_2':["none", "没有任何"],'jtlword_opacity_3':["opacity", "不透明度"],'jtlword_transform_3':["transform", "转换"],'jtlword_transition_3':["transition", "过渡"],'jtlword_opacity_4':["opacity", "不透明度"],'jtlword_transform_4':["transform", "转换"],'jtlword_opacity_5':["opacity", "不透明度"],'jtlword_transform_5':["transform", "转换"],'jtlword_display_3':["display", "展示"],'jtlword_none_3':["none", "没有任何"],'jtlword_transition_4':["transition", "过渡"],'jtlword_opacity_6':["opacity", "不透明度"],'jtlword_transform_6':["transform", "转换"],'jtlword_display_4':["display", "展示"],'jtlword_none_4':["none", "没有任何"],'jtlword_opacity_7':["opacity", "不透明度"],'jtlword_transform_7':["transform", "转换"],'jtlword_display_5':["display", "展示"],'jtlword_none_5':["none", "没有任何"],'jtlword_opacity_8':["opacity", "不透明度"],'jtlword_transform_8':["transform", "转换"],'jtlword_display_6':["display", "展示"],'jtlword_none_6':["none", "没有任何"],'jtlword_transition_5':["transition", "过渡"],'jtlword_opacity_9':["opacity", "不透明度"],'jtlword_visibility':["visibility", "能见度"],'jtlword_hidden':["hidden", "隐"],'jtlword_transition_6':["transition", "过渡"],'jtlword_opacity_10':["opacity", "不透明度"],'jtlword_opacity_11':["opacity", "不透明度"],'jtlword_display_7':["display", "展示"],'jtlword_none_7':["none", "没有任何"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Utilities ──
 function $(sel) { return document.querySelector(sel); }
@@ -636,9 +648,9 @@ function copyCode(containerId) {
   const btn = container.querySelector('.copy-btn');
   const text = pre.textContent;
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+    setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1500);
   });
 }
 
@@ -871,7 +883,7 @@ $('#btn-timeline-play').addEventListener('click', () => {
     // Discrete display flips at 50%
     if (progress >= 0.5 && !flipped) {
       flipped = true;
-      valDisplay.textContent = 'none';
+      valDisplay.textContent=T("jtc_none");
       dotDisplay.style.background = 'var(--red)';
       flipMarker.style.display = 'block';
       flipMarker.style.left = '50%';
@@ -884,11 +896,11 @@ $('#btn-timeline-play').addEventListener('click', () => {
       // Reset after a pause
       setTimeout(() => {
         fill.style.width = '0%';
-        pctLabel.textContent = '0%';
+        pctLabel.textContent=T("jtc_0");
         demoBox.style.opacity = '1';
         demoBox.style.display = 'flex';
         valOpacity.textContent = '1';
-        valDisplay.textContent = 'block';
+        valDisplay.textContent=T("jtc_block");
         dotDisplay.style.background = 'var(--green)';
         flipMarker.style.display = 'none';
       }, 1200);
@@ -1017,6 +1029,24 @@ updateCustomTarget();
 // Apply first preset on load
 applyPreset(presets[0]);
 $$('.preset-card')[0].classList.add('active');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

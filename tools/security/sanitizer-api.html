@@ -1,10 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html tk="title_html_sanitizer_api_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>HTML Sanitizer API Playground</title>
-<meta name="description" content="Interactive playground for the HTML Sanitizer API — browser-native XSS prevention. Try sanitization, build configs, compare approaches.">
+<meta name="description" content="Interactive playground for the HTML Sanitizer API 鈥?browser-native XSS prevention. Try sanitization, build configs, compare approaches.">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -601,11 +601,13 @@ code {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- Hero -->
 <header class="hero">
-  <h1>HTML Sanitizer API Playground</h1>
-  <p class="subtitle">Browser-native HTML sanitization for XSS prevention. Experiment with configs, test payloads, and generate production-ready code.</p>
+  <h1 ti="title_html_sanitizer_api_playgr" ti="h1_html_sanitizer_api_playgr">HTML Sanitizer API Playground</h1>
+  <p class="subtitle" ti="subtitle_browser_native_html_sanit">Browser-native HTML sanitization for XSS prevention. Experiment with configs, test payloads, and generate production-ready code.</p>
   <div id="apiStatus" class="api-status unsupported">
     <span class="dot"></span>
     <span id="apiStatusText">Checking...</span>
@@ -616,19 +618,19 @@ code {
 <nav id="mainNav">
   <ul>
     <li><a href="#basic" class="active">Basic</a></li>
-    <li><a href="#xss">XSS Demo</a></li>
-    <li><a href="#config">Config Builder</a></li>
-    <li><a href="#sethtml">setHTML()</a></li>
-    <li><a href="#comparison">Comparison</a></li>
-    <li><a href="#custom-elements">Custom Elements</a></li>
-    <li><a href="#svg-mathml">SVG/MathML</a></li>
-    <li><a href="#codegen">Code Generator</a></li>
-    <li><a href="#compat">Browser Support</a></li>
+    <li><a href="#xss" ti="link_xss_demo">XSS Demo</a></li>
+    <li><a href="#config" ti="link_config_builder">Config Builder</a></li>
+    <li><a href="#sethtml" ti="link_sethtml">setHTML()</a></li>
+    <li><a href="#comparison" ti="link_comparison">Comparison</a></li>
+    <li><a href="#custom-elements" ti="link_custom_elements">Custom Elements</a></li>
+    <li><a href="#svg-mathml" ti="link_svg_mathml">SVG/MathML</a></li>
+    <li><a href="#codegen" ti="link_code_generator">Code Generator</a></li>
+    <li><a href="#compat" ti="link_browser_support">Browser Support</a></li>
   </ul>
 </nav>
 
 <div id="fallbackNotice" class="fallback-notice" style="display:none; max-width:1200px; margin:1rem auto; padding:1rem 1.5rem;">
-  Your browser does not support the Sanitizer API natively. This playground uses a <strong>faithful polyfill</strong> to simulate the API behavior. All sanitization results are accurate representations of what the native API would produce. To try the native API, use Chrome/Edge 105+ with <code>chrome://flags/#enable-experimental-web-platform-features</code> enabled.
+  Your browser does not support the Sanitizer API natively. This playground uses a <strong ti="strong_faithful_polyfill">faithful polyfill</strong> to simulate the API behavior. All sanitization results are accurate representations of what the native API would produce. To try the native API, use Chrome/Edge 105+ with <code>chrome://flags/#enable-experimental-web-platform-features</code> enabled.
 </div>
 
 <main>
@@ -641,24 +643,24 @@ code {
   <div class="card">
     <div class="split">
       <div>
-        <label for="basicInput">Input HTML</label>
+        <label for="basicInput" ti="label_input_html">Input HTML</label>
         <textarea id="basicInput" rows="8" spellcheck="false"><div class="content">
-  <h1>Hello World</h1>
-  <p>This is <strong>safe</strong> content.</p>
+  <h1 ti="h1_hello_world">Hello World</h1>
+  <p>This is <strong ti="strong_safe">safe</strong> content.</p>
   <img src="photo.jpg" alt="Photo" onerror="alert('xss')">
   <a href="javascript:alert('xss')">Click me</a>
-  <script>alert('XSS!')</script>
+  <script>T("jalert_xss")</script>
   <style>body { display: none; }</style>
 </div></textarea>
         <div class="btn-group">
-          <button class="btn btn-primary" onclick="runBasicSanitize()">Sanitize</button>
-          <button class="btn" onclick="document.getElementById('basicInput').value=''; clearBasicOutput()">Clear</button>
+          <button class="btn btn-primary" onclick="runBasicSanitize()" ti="btn_sanitize">Sanitize</button>
+          <button class="btn" onclick="document.getElementById('basicInput').value=''; clearBasicOutput()" ti="btn_clear" ti="btn_clear_2">Clear</button>
         </div>
       </div>
       <div>
-        <label>Sanitized Output (HTML source)</label>
+        <label ti="label_sanitized_output_html_sou">Sanitized Output (HTML source)</label>
         <div id="basicOutputSrc" class="output" style="margin-bottom:0.75rem;"></div>
-        <label>Rendered Result</label>
+        <label ti="label_rendered_result">Rendered Result</label>
         <div id="basicOutputRendered" class="output rendered"></div>
       </div>
     </div>
@@ -673,18 +675,18 @@ code {
   <div class="card">
     <div class="split">
       <div>
-        <label>Attack Payloads</label>
+        <label ti="label_attack_payloads">Attack Payloads</label>
         <div id="xssList" class="xss-list"></div>
       </div>
       <div>
-        <label>Selected Payload</label>
+        <label ti="label_selected_payload">Selected Payload</label>
         <div id="xssPayload" class="output" style="margin-bottom:0.75rem; min-height:60px;"></div>
         <div class="status-row">
           <span class="tag tag-blocked" id="xssStatus">Select a payload</span>
         </div>
-        <label style="margin-top:0.75rem;">After Sanitization</label>
+        <label style="margin-top:0.75rem;" ti="label_after_sanitization">After Sanitization</label>
         <div id="xssResult" class="output" style="margin-bottom:0.75rem;"></div>
-        <label>What Was Removed</label>
+        <label ti="label_what_was_removed">What Was Removed</label>
         <div id="xssRemoved" class="output" style="color:var(--red);"></div>
       </div>
     </div>
@@ -701,43 +703,43 @@ code {
       <div>
         <label>allowElements <span class="tag tag-allowed">whitelist</span></label>
         <div class="chip-input" id="allowElements" data-config="allowElements">
-          <input type="text" placeholder="e.g. div, p, span..." data-config="allowElements">
+          <input type="text" tp="placeholder_e_g_div_p_span" placeholder="e.g. div, p, span..." data-config="allowElements">
         </div>
       </div>
       <div>
         <label>blockElements <span class="tag tag-warn">remove tag, keep content</span></label>
         <div class="chip-input" id="blockElements" data-config="blockElements">
-          <input type="text" placeholder="e.g. style, font..." data-config="blockElements">
+          <input type="text" tp="placeholder_e_g_style_font" placeholder="e.g. style, font..." data-config="blockElements">
         </div>
       </div>
       <div>
         <label>dropElements <span class="tag tag-blocked">remove tag + content</span></label>
         <div class="chip-input" id="dropElements" data-config="dropElements">
-          <input type="text" placeholder="e.g. script, iframe..." data-config="dropElements">
+          <input type="text" tp="placeholder_e_g_script_iframe" placeholder="e.g. script, iframe..." data-config="dropElements">
         </div>
       </div>
     </div>
 
-    <label style="margin-bottom:0.5rem;">allowAttributes</label>
+    <label style="margin-bottom:0.5rem;" ti="label_allowattributes">allowAttributes</label>
     <div id="attrRows"></div>
-    <button class="btn btn-sm" onclick="addAttrRow()" style="margin-bottom:1rem;">+ Add Attribute Rule</button>
+    <button class="btn btn-sm" onclick="addAttrRow()" style="margin-bottom:1rem;" ti="btn_add_attribute_rule">+ Add Attribute Rule</button>
 
     <div class="split">
       <div>
-        <label>Generated Config (JSON)</label>
+        <label ti="label_generated_config_json">Generated Config (JSON)</label>
         <div id="configOutput" class="output" style="min-height:100px;"></div>
         <div class="btn-group">
-          <button class="btn btn-sm" onclick="copyText(document.getElementById('configOutput').textContent)">Copy Config</button>
+          <button class="btn btn-sm" onclick="copyText(document.getElementById('configOutput').textContent)" ti="btn_copy_config">Copy Config</button>
         </div>
       </div>
       <div>
-        <label for="configTestInput">Test HTML</label>
+        <label for="configTestInput" ti="label_test_html" ti="label_test_html_2">Test HTML</label>
         <textarea id="configTestInput" rows="4" spellcheck="false"><div class="box"><b>Bold</b> <i>Italic</i> <script>alert(1)</script> <a href="#" onclick="x()">Link</a></div></textarea>
-        <label style="margin-top:0.5rem;">Result</label>
+        <label style="margin-top:0.5rem;" ti="label_result">Result</label>
         <div id="configTestOutput" class="output"></div>
         <div class="btn-group">
-          <button class="btn btn-primary" onclick="runConfigTest()">Test Config</button>
-          <button class="btn" onclick="resetConfig()">Reset</button>
+          <button class="btn btn-primary" onclick="runConfigTest()" ti="btn_test_config">Test Config</button>
+          <button class="btn" onclick="resetConfig()" ti="btn_reset">Reset</button>
         </div>
       </div>
     </div>
@@ -747,29 +749,29 @@ code {
 <!-- Section 4: setHTML() Demo -->
 <section id="sethtml">
   <h2><span class="icon">&#x1F4E5;</span> setHTML() Demo</h2>
-  <p class="section-desc"><code>Element.setHTML()</code> sanitizes and inserts HTML in one step — safer than <code>innerHTML</code>.</p>
+  <p class="section-desc"><code>Element.setHTML()</code> sanitizes and inserts HTML in one step 鈥?safer than <code>innerHTML</code>.</p>
 
   <div class="card">
     <div class="split">
       <div>
-        <label for="sethtmlInput">HTML to Insert</label>
-        <textarea id="sethtmlInput" rows="6" spellcheck="false"><h2>User Comment</h2>
+        <label for="sethtmlInput" ti="label_html_to_insert">HTML to Insert</label>
+        <textarea id="sethtmlInput" rows="6" spellcheck="false"><h2 ti="h2_user_comment">User Comment</h2>
 <p>Great article! <img src=x onerror=alert(1)></p>
 <a href="javascript:void(0)" onclick="steal()">See more</a>
 <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:red;z-index:9999;">DEFACED</div></textarea>
 
         <div class="tabs" style="margin-top:1rem;">
-          <button class="tab-btn active" onclick="switchSethtmlTab('innerhtml')">innerHTML (Unsafe)</button>
-          <button class="tab-btn" onclick="switchSethtmlTab('sethtml')">setHTML() (Safe)</button>
+          <button class="tab-btn active" onclick="switchSethtmlTab('innerhtml')" ti="btn_innerhtml_unsafe">innerHTML (Unsafe)</button>
+          <button class="tab-btn" onclick="switchSethtmlTab('sethtml')" ti="btn_sethtml_safe">setHTML() (Safe)</button>
         </div>
       </div>
       <div>
-        <label>Live Render Target</label>
+        <label ti="label_live_render_target">Live Render Target</label>
         <div id="sethtmlRender" class="render-target"></div>
-        <label style="margin-top:0.75rem;">Resulting HTML Source</label>
+        <label style="margin-top:0.75rem;" ti="label_resulting_html_source">Resulting HTML Source</label>
         <div id="sethtmlSource" class="output"></div>
         <div class="btn-group">
-          <button class="btn btn-primary" onclick="runSethtml()">Insert HTML</button>
+          <button class="btn btn-primary" onclick="runSethtml()" ti="btn_insert_html">Insert HTML</button>
           <button class="btn" onclick="clearSethtml()">Clear</button>
         </div>
       </div>
@@ -784,18 +786,18 @@ code {
 
   <div class="card">
     <label for="compareInput">Test HTML</label>
-    <textarea id="compareInput" rows="4" spellcheck="false"><p>Hello <b>world</b></p><img src=x onerror="alert('xss')"><script>document.cookie</script><a href="javascript:alert(1)">link</a></textarea>
-    <button class="btn btn-primary" onclick="runComparison()" style="margin-top:0.75rem; margin-bottom:1rem;">Compare All Methods</button>
+    <textarea id="compareInput" rows="4" spellcheck="false"><p>Hello <b>world</b></p><img src=x onerror="alert('xss')"><script>document.cookie</script><a href="javascript:alert(1)" ti="link_link">link</a></textarea>
+    <button class="btn btn-primary" onclick="runComparison()" style="margin-top:0.75rem; margin-bottom:1rem;" ti="btn_compare_all_methods">Compare All Methods</button>
 
     <div style="overflow-x:auto;">
       <table class="compare-table">
         <thead>
           <tr>
-            <th>Method</th>
-            <th>Output</th>
-            <th>Script Removed?</th>
-            <th>Event Handlers?</th>
-            <th>JS URLs?</th>
+            <th ti="th_method">Method</th>
+            <th ti="th_output">Output</th>
+            <th ti="th_script_removed">Script Removed?</th>
+            <th ti="th_event_handlers">Event Handlers?</th>
+            <th ti="th_js_urls">JS URLs?</th>
           </tr>
         </thead>
         <tbody id="compareBody">
@@ -814,9 +816,9 @@ code {
   <div class="card">
     <div class="split">
       <div>
-        <label for="customElInput">HTML with Custom Elements</label>
+        <label for="customElInput" ti="label_html_with_custom_elements">HTML with Custom Elements</label>
         <textarea id="customElInput" rows="6" spellcheck="false"><my-card>
-  <h3>Card Title</h3>
+  <h3 ti="h3_card_title">Card Title</h3>
   <p>Card content</p>
 </my-card>
 <user-avatar name="Alice" role="admin"></user-avatar>
@@ -826,25 +828,25 @@ code {
 </x-tabs></textarea>
       </div>
       <div>
-        <label>Default Sanitization (custom elements removed)</label>
+        <label ti="label_default_sanitization_cust">Default Sanitization (custom elements removed)</label>
         <div id="customElDefault" class="output" style="margin-bottom:0.75rem;"></div>
-        <label>With Custom Elements Allowed</label>
+        <label ti="label_with_custom_elements_allo">With Custom Elements Allowed</label>
         <div id="customElAllowed" class="output"></div>
       </div>
     </div>
     <div class="btn-group">
-      <button class="btn btn-primary" onclick="runCustomElDemo()">Run Demo</button>
+      <button class="btn btn-primary" onclick="runCustomElDemo()" ti="btn_run_demo">Run Demo</button>
     </div>
 
     <div style="margin-top:1.5rem;">
-      <h3>Shadow DOM Behavior</h3>
+      <h3 ti="h3_shadow_dom_behavior">Shadow DOM Behavior</h3>
       <p style="font-size:0.9rem; color:var(--text-muted); margin-top:0.5rem;">
         The Sanitizer API processes <code>&lt;template shadowrootmode="open"&gt;</code> declarative shadow roots.
         Content inside shadow roots is sanitized recursively with the same config. Scripts and event handlers
         inside shadow DOM are removed just like in the light DOM.
       </p>
       <div class="code-block" style="margin-top:0.75rem;">
-        <button class="btn btn-sm copy-btn" onclick="copyText(this.parentElement.querySelector('pre').textContent)">Copy</button>
+        <button class="btn btn-sm copy-btn" onclick="copyText(this.parentElement.querySelector('pre').textContent)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>
         <pre>// Shadow DOM content is also sanitized:
 const input = `&lt;div&gt;
   &lt;template shadowrootmode="open"&gt;
@@ -869,14 +871,14 @@ const input = `&lt;div&gt;
 
   <div class="card">
     <div class="tabs">
-      <button class="tab-btn active" onclick="switchSvgTab('svg')">SVG</button>
-      <button class="tab-btn" onclick="switchSvgTab('mathml')">MathML</button>
+      <button class="tab-btn active" onclick="switchSvgTab('svg')" ti="btn_svg">SVG</button>
+      <button class="tab-btn" onclick="switchSvgTab('mathml')" ti="btn_mathml">MathML</button>
     </div>
 
     <div id="svgTab" class="tab-content active">
       <div class="split">
         <div>
-          <label for="svgInput">SVG Input</label>
+          <label for="svgInput" ti="label_svg_input">SVG Input</label>
           <textarea id="svgInput" rows="8" spellcheck="false"><svg width="200" height="100" xmlns="http://www.w3.org/2000/svg">
   <rect width="200" height="100" fill="#4f7cff" rx="10"/>
   <text x="100" y="55" text-anchor="middle" fill="white" font-size="16">Safe SVG</text>
@@ -887,21 +889,21 @@ const input = `&lt;div&gt;
 </svg></textarea>
         </div>
         <div>
-          <label>Sanitized SVG Source</label>
+          <label ti="label_sanitized_svg_source">Sanitized SVG Source</label>
           <div id="svgOutput" class="output" style="margin-bottom:0.75rem;"></div>
-          <label>Rendered (if safe)</label>
+          <label ti="label_rendered_if_safe">Rendered (if safe)</label>
           <div id="svgRendered" class="render-target"></div>
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="runSvgDemo()">Sanitize SVG</button>
+        <button class="btn btn-primary" onclick="runSvgDemo()" ti="btn_sanitize_svg">Sanitize SVG</button>
       </div>
     </div>
 
     <div id="mathmlTab" class="tab-content">
       <div class="split">
         <div>
-          <label for="mathmlInput">MathML Input</label>
+          <label for="mathmlInput" ti="label_mathml_input">MathML Input</label>
           <textarea id="mathmlInput" rows="8" spellcheck="false"><math xmlns="http://www.w3.org/1998/Math/MathML">
   <mrow>
     <mi>x</mi>
@@ -922,14 +924,14 @@ const input = `&lt;div&gt;
 </math></textarea>
         </div>
         <div>
-          <label>Sanitized MathML Source</label>
+          <label ti="label_sanitized_mathml_source">Sanitized MathML Source</label>
           <div id="mathmlOutput" class="output" style="margin-bottom:0.75rem;"></div>
-          <label>Rendered (if supported)</label>
+          <label ti="label_rendered_if_supported">Rendered (if supported)</label>
           <div id="mathmlRendered" class="render-target"></div>
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="runMathmlDemo()">Sanitize MathML</button>
+        <button class="btn btn-primary" onclick="runMathmlDemo()" ti="btn_sanitize_mathml">Sanitize MathML</button>
       </div>
     </div>
   </div>
@@ -959,14 +961,14 @@ const input = `&lt;div&gt;
   <p class="section-desc">The Sanitizer API is an evolving standard. Current support and polyfill options.</p>
 
   <div class="card">
-    <h3 style="margin-bottom:1rem;">Browser Compatibility</h3>
+    <h3 style="margin-bottom:1rem;" ti="h3_browser_compatibility">Browser Compatibility</h3>
     <div class="compat-grid" id="compatGrid"></div>
 
-    <h3 style="margin-top:1.5rem; margin-bottom:0.75rem;">API Surface</h3>
+    <h3 style="margin-top:1.5rem; margin-bottom:0.75rem;" ti="h3_api_surface">API Surface</h3>
     <div style="overflow-x:auto;">
       <table class="compare-table">
         <thead>
-          <tr><th>API</th><th>Status</th><th>Notes</th></tr>
+          <tr><th ti="th_api">API</th><th ti="th_status">Status</th><th ti="th_notes">Notes</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -1009,7 +1011,17 @@ const input = `&lt;div&gt;
             <td><span class="tag tag-blocked">Config</span></td>
             <td>Attribute blocklist per element or <code>"*"</code></td>
           </tr>
-          <tr>
+          <t
+<script>var _LANG={'title_html_sanitizer_api_playgr':["HTML Sanitizer API Playground", "HTML Sanitizer API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the HTML Sanitizer API — browser-native XSS prevention. Try sanitization, build configs, compare approaches.", "HTML Sanitizer API 的交互式演示环境——浏览器原生 XSS 防护。尝试清理功能、构建配置、比较不同方案。"],'h1_html_sanitizer_api_playgr':["HTML Sanitizer API Playground", "HTML Sanitizer API 演示"],'h1_hello_world':["Hello World", "你好世界"],'h2_user_comment':["User Comment", "用户评论"],'h3_card_title':["Card Title", "卡牌标题"],'h3_shadow_dom_behavior':["Shadow DOM Behavior", "Shadow DOM 行为"],'h3_browser_compatibility':["Browser Compatibility", "浏览器兼容性"],'h3_api_surface':["API Surface", "API 表面"],'h3_polyfill_options':["Polyfill Options", "聚酯填充选项"],'subtitle_browser_native_html_sanit':["Browser-native HTML sanitization for XSS prevention. Experiment with configs, test payloads, and generate production-ready code.", "浏览器原生 HTML 清理功能，用于防止 XSS 攻击。可尝试不同的配置、测试有效载荷并生成可用于生产环境的代码。"],'btn_sanitize':["Sanitize", "消毒"],'btn_clear':["Clear", "清除"],'btn_add_attribute_rule':["+ Add Attribute Rule", "+ 添加属性规则"],'btn_copy_config':["Copy Config", "复制配置"],'btn_test_config':["Test Config", "测试配置"],'btn_reset':["Reset", "重置"],'btn_innerhtml_unsafe':["innerHTML (Unsafe)", "innerHTML（不安全）"],'btn_sethtml_safe':["setHTML() (Safe)", "setHTML()（安全）"],'btn_insert_html':["Insert HTML", "插入 HTML"],'btn_clear_2':["Clear", "清除"],'btn_compare_all_methods':["Compare All Methods", "比较所有方法"],'btn_run_demo':["Run Demo", "运行演示"],'btn_copy':["Copy", "复制"],'btn_svg':["SVG", "SVG"],'btn_mathml':["MathML", "MathML"],'btn_sanitize_svg':["Sanitize SVG", "对 SVG 进行消毒"],'btn_sanitize_mathml':["Sanitize MathML", "对 MathML 进行清理"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_remove':["Remove", "消除"],'placeholder_e_g_div_p_span':["e.g. div, p, span...", "例如 div、p、span……"],'placeholder_e_g_style_font':["e.g. style, font...", "例如样式、字体……"],'placeholder_e_g_script_iframe':["e.g. script, iframe...", "例如脚本、iframe……"],'placeholder_e_g_class_href':["e.g. class, href", "例如 class、href"],'placeholder_e_g_or_div_a':["e.g. * or div,a", "例如 * 或 div,a"],'strong_faithful_polyfill':["faithful polyfill", "忠实的聚酯纤维填充物"],'strong_safe':["safe", "安全的"],'strong_m_name':["${m.name}", "${m.name}"],'th_method':["Method", "方法"],'th_output':["Output", "输出"],'th_script_removed':["Script Removed?", "脚本已移除？"],'th_event_handlers':["Event Handlers?", "事件处理程序？"],'th_js_urls':["JS URLs?", "JS URL？"],'th_api':["API", "API"],'th_status':["Status", "地位"],'th_notes':["Notes", "笔记"],'label_input_html':["Input HTML", "输入 HTML"],'label_sanitized_output_html_sou':["Sanitized Output (HTML source)", "已清理的输出（HTML 源代码）"],'label_rendered_result':["Rendered Result", "渲染结果"],'label_attack_payloads':["Attack Payloads", "攻击载荷"],'label_selected_payload':["Selected Payload", "选定有效载荷"],'label_after_sanitization':["After Sanitization", "消毒后"],'label_what_was_removed':["What Was Removed", "移除的内容"],'label_allowattributes':["allowAttributes", "允许属性"],'label_generated_config_json':["Generated Config (JSON)", "生成的配置（JSON）"],'label_test_html':["Test HTML", "测试 HTML"],'label_result':["Result", "结果"],'label_html_to_insert':["HTML to Insert", "要插入的 HTML"],'label_live_render_target':["Live Render Target", "实时渲染目标"],'label_resulting_html_source':["Resulting HTML Source", "生成的 HTML 源代码"],'label_test_html_2':["Test HTML", "测试 HTML"],'label_html_with_custom_elements':["HTML with Custom Elements", "带有自定义元素的 HTML"],'label_default_sanitization_cust':["Default Sanitization (custom elements removed)", "默认清理（已移除自定义元素）"],'label_with_custom_elements_allo':["With Custom Elements Allowed", "允许自定义元素"],'label_svg_input':["SVG Input", "SVG 输入"],'label_sanitized_svg_source':["Sanitized SVG Source", "已清理的 SVG 源文件"],'label_rendered_if_safe':["Rendered (if safe)", "渲染（如果安全）"],'label_mathml_input':["MathML Input", "MathML 输入"],'label_sanitized_mathml_source':["Sanitized MathML Source", "已清理的 MathML 源代码"],'label_rendered_if_supported':["Rendered (if supported)", "渲染（如果支持）"],'label_attribute_name':["Attribute Name", "属性名称"],'label_allowed_on_elements_or_fo':["Allowed On (elements, or * for all)", "允许在（元素，或 * 表示所有元素）上启用"],'link_xss_demo':["XSS Demo", "XSS 演示"],'link_config_builder':["Config Builder", "配置生成器"],'link_sethtml':["setHTML()", "setHTML()"],'link_comparison':["Comparison", "比较"],'link_custom_elements':["Custom Elements", "自定义元素"],'link_svg_mathml':["SVG/MathML", "SVG/MathML"],'link_code_generator':["Code Generator", "代码生成器"],'link_browser_support':["Browser Support", "浏览器支持"],'link_link':["link", "关联"],'jalert_xss':["XSS!", "XSS！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+r>
             <td><code>allowCustomElements</code></td>
             <td><span class="tag tag-info">Config</span></td>
             <td>When true, permits custom elements</td>
@@ -1023,7 +1035,7 @@ const input = `&lt;div&gt;
       </table>
     </div>
 
-    <h3 style="margin-top:1.5rem; margin-bottom:0.75rem;">Polyfill Options</h3>
+    <h3 style="margin-top:1.5rem; margin-bottom:0.75rem;" ti="h3_polyfill_options">Polyfill Options</h3>
     <div class="split">
       <div class="code-block">
         <button class="btn btn-sm copy-btn" onclick="copyText(this.parentElement.querySelector('pre').textContent)">Copy</button>
@@ -1353,7 +1365,7 @@ function selectXSS(idx) {
   document.getElementById('xssPayload').textContent = p.payload;
 
   const sanitized = sanitizeHTML(p.payload);
-  document.getElementById('xssResult').textContent = sanitized || '(empty — completely removed)';
+  document.getElementById('xssResult').textContent = sanitized || '(empty 鈥?completely removed)';
 
   // Determine what was removed
   const removed = [];
@@ -1373,13 +1385,13 @@ function selectXSS(idx) {
 
   const statusEl = document.getElementById('xssStatus');
   if (!sanitized || sanitized.trim() === '') {
-    statusEl.textContent = 'BLOCKED — Completely removed';
+    statusEl.textContent = 'BLOCKED 鈥?Completely removed';
     statusEl.className = 'tag tag-blocked';
   } else if (sanitized.length < p.payload.length) {
-    statusEl.textContent = 'NEUTRALIZED — Dangerous parts stripped';
+    statusEl.textContent = 'NEUTRALIZED 鈥?Dangerous parts stripped';
     statusEl.className = 'tag tag-warn';
   } else {
-    statusEl.textContent = 'PASSED — Content is safe';
+    statusEl.textContent = 'PASSED 鈥?Content is safe';
     statusEl.className = 'tag tag-allowed';
   }
 }
@@ -1446,14 +1458,14 @@ function addAttrRow() {
   row.className = 'attr-row';
   row.innerHTML = `
     <div>
-      <label>Attribute Name</label>
-      <input type="text" placeholder="e.g. class, href" class="attr-name" onchange="updateConfigOutput()">
+      <label ti="label_attribute_name">Attribute Name</label>
+      <input type="text" tp="placeholder_e_g_class_href" placeholder="e.g. class, href" class="attr-name" onchange="updateConfigOutput()">
     </div>
     <div>
-      <label>Allowed On (elements, or * for all)</label>
-      <input type="text" placeholder="e.g. * or div,a" class="attr-elements" onchange="updateConfigOutput()">
+      <label ti="label_allowed_on_elements_or_fo">Allowed On (elements, or * for all)</label>
+      <input type="text" tp="placeholder_e_g_or_div_a" placeholder="e.g. * or div,a" class="attr-elements" onchange="updateConfigOutput()">
     </div>
-    <button class="btn btn-sm" onclick="this.parentElement.remove(); updateConfigOutput();" style="margin-bottom:0;">Remove</button>
+    <button class="btn btn-sm" onclick="this.parentElement.remove(); updateConfigOutput();" style="margin-bottom:0;" ti="btn_remove">Remove</button>
   `;
   container.appendChild(row);
 }
@@ -1590,7 +1602,7 @@ function runComparison() {
     const hasEvents = /\bon\w+\s*=/i.test(m.result);
     const hasJsUrl = /javascript\s*:/i.test(m.result);
     return `<tr>
-      <td><strong>${m.name}</strong></td>
+      <td><strong ti="strong_m_name">${m.name}</strong></td>
       <td style="font-family:var(--font-mono); font-size:0.78rem; max-width:350px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">${escapeHTML(m.result).substring(0, 200)}</td>
       <td>${hasScript ? '<span class="tag tag-blocked">No</span>' : '<span class="tag tag-allowed">Yes</span>'}</td>
       <td>${hasEvents ? '<span class="tag tag-blocked">Present</span>' : '<span class="tag tag-allowed">Removed</span>'}</td>
@@ -1607,7 +1619,7 @@ function runCustomElDemo() {
 
   // Default: custom elements removed
   const defaultResult = sanitizeHTML(input);
-  document.getElementById('customElDefault').textContent = defaultResult || '(custom elements unwrapped — only children remain)';
+  document.getElementById('customElDefault').textContent = defaultResult || '(custom elements unwrapped 鈥?only children remain)';
 
   // With allowCustomElements
   const allowedResult = sanitizeHTML(input, { allowCustomElements: true });
@@ -1933,6 +1945,24 @@ document.addEventListener('DOMContentLoaded', () => {
   // Auto-run demos on load
   runBasicSanitize();
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

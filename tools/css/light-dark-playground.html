@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_light_dark_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -199,6 +199,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">LD</span>
@@ -206,28 +208,28 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">CSS 2024</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="layout">
   <div class="sidebar">
-    <h2>Color Scheme</h2>
+    <h2 ti="h2_color_scheme">Color Scheme</h2>
     <div class="toggle-wrap">
       <span class="toggle-emoji" id="toggleEmoji">&#x2600;&#xFE0F;</span>
       <div class="toggle-switch dark" id="themeToggle"><div class="thumb"></div></div>
-      <span class="toggle-label" id="toggleLabel">Dark</span>
+      <span class="toggle-label" id="toggleLabel" ti="label_dark" ti="label_dark_2">Dark</span>
     </div>
 
-    <h2>Design Tokens</h2>
+    <h2 ti="h2_design_tokens">Design Tokens</h2>
     <div style="display:grid;grid-template-columns:90px 1fr 1fr;gap:4px;margin-bottom:8px;">
       <span></span>
-      <span class="scheme-label">Light</span>
+      <span class="scheme-label" ti="label_light">Light</span>
       <span class="scheme-label">Dark</span>
     </div>
     <div class="token-list" id="tokenList"></div>
 
-    <h2>Browser Support</h2>
+    <h2 ti="h2_browser_support">Browser Support</h2>
     <div style="padding:10px;border:1px solid var(--border);border-radius:var(--radius);font-size:0.8rem;">
       <span class="tag tag-green">Baseline 2024</span>
       <p style="color:var(--text-dim);margin-top:8px;font-size:0.75rem;">
@@ -238,25 +240,25 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   <div class="center-panel">
     <div class="panel-header">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <span class="badge" id="modeLabel">Dark Mode</span>
     </div>
     <div class="preview-frame">
       <div class="demo-area dark-mode" id="demoArea">
         <div class="demo-nav">
-          <button class="demo-nav-item active">Dashboard</button>
-          <button class="demo-nav-item">Settings</button>
-          <button class="demo-nav-item">Profile</button>
+          <button class="demo-nav-item active" ti="btn_dashboard">Dashboard</button>
+          <button class="demo-nav-item" ti="btn_settings">Settings</button>
+          <button class="demo-nav-item" ti="btn_profile">Profile</button>
         </div>
         <div class="demo-card">
           <span class="demo-badge">Active</span>
           <h4>Project Alpha</h4>
           <p>All design tokens below are defined with a single light-dark() call. No media queries, no duplicate rules.</p>
-          <button class="demo-btn">View Details</button>
+          <button class="demo-btn" ti="btn_view_details">View Details</button>
         </div>
         <div class="demo-card">
           <h4>Search</h4>
-          <input class="demo-input" placeholder="Type to search..." type="text">
+          <input class="demo-input" tp="placeholder_type_to_search" placeholder="Type to search..." type="text">
         </div>
         <div class="demo-card">
           <h4>How it works</h4>
@@ -271,13 +273,23 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   <div class="code-panel">
     <div class="panel-header">
-      <h3>Generated CSS</h3>
-      <button class="btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
+      <button class="btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output"><pre id="codeContent"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_light_dark_playground':["CSS light-dark() Playground — Dev Vault", "CSS light-dark() 示例 — 开发者仓库"],'metadesc_interactive_css_light_dar':["Interactive CSS light-dark() playground. Toggle color schemes, build theme tokens, preview components. No prefers-color-scheme media queries needed.", "交互式 CSS light-dark() 示例。切换配色方案、构建主题令牌、预览组件。无需使用 prefers-color-scheme 媒体查询。"],'h2_color_scheme':["Color Scheme", "配色方案"],'h2_design_tokens':["Design Tokens", "设计代币"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_live_preview':["Live Preview", "实时预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'btn_dashboard':["Dashboard", "仪表板"],'btn_settings':["Settings", "设置"],'btn_profile':["Profile", "轮廓"],'btn_view_details':["View Details", "查看详情"],'btn_copy':["Copy", "复制"],'label_dark':["Dark", "黑暗的"],'label_light':["Light", "光"],'label_dark_2':["Dark", "黑暗的"],'placeholder_type_to_search':["Type to search...", "输入搜索内容..."],'label_t_name':["${t.name}", "${t.name}"],'footer_css_light_dark_playground':["CSS light-dark() Playground — Dev Vault", "CSS light-dark() 示例 — 开发者仓库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const tokens = [
@@ -307,7 +319,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   function renderTokens() {
     tokenList.innerHTML = tokens.map((t, i) => `
       <div class="token-row">
-        <label>${t.name}</label>
+        <label ti="label_t_name">${t.name}</label>
         <div class="color-input-wrap">
           <input type="color" value="${t.light}" data-idx="${i}" data-mode="light">
           <input type="text" value="${t.light}" data-idx="${i}" data-mode="light">
@@ -421,9 +433,9 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(getPlainCSS()).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 2000);
     });
   });
 
@@ -431,6 +443,24 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   renderTokens();
   updatePreview();
   renderCode();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_prompt_price_how_much_doe" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -79,6 +79,8 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="hero">
   <h1>Prompt <span>Price</span></h1>
   <p>Paste your prompt. See what it costs across 28 AI models. No signup, no API key.</p>
@@ -88,9 +90,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
     <textarea class="text-area" id="promptText" placeholder="Paste your prompt here...&#10;&#10;Example: Analyze the following code and suggest improvements for performance and readability..."></textarea>
     <div class="controls">
       <div class="ratio-group">
-        <label>Output multiplier:</label>
+        <label ti="label_output_multiplier">Output multiplier:</label>
         <input type="number" class="ratio-input" id="outputRatio" value="2" min="0.1" max="20" step="0.1" title="Expected output tokens as a multiple of input tokens">
-        <label>x input</label>
+        <label ti="label_x_input">x input</label>
       </div>
     </div>
     <div class="stats-bar" id="statsBar">
@@ -124,6 +126,16 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   <a href="https://gokuscraper.github.io/dev-vault/ai-roi-calc/" target="_blank">AI ROI</a> (vs human cost) ·
 </div>
 
+
+<script>var _LANG={'title_prompt_price_how_much_doe':["Prompt Price — How Much Does This API Call Cost?", "即时价格 — 此 API 调用需要多少费用？"],'metadesc_paste_your_prompt_text_se':["Paste your prompt text, see the estimated cost across 28 AI models instantly. Compare Claude, GPT, Gemini, DeepSeek, and more.", "粘贴您的提示文本，即可立即查看 28 种 AI 模型的预估成本。比较 Claude、GPT、Gemini、DeepSeek 等模型。"],'placeholder_paste_your_prompt_here_ex':["Paste your prompt here...\n\nExample: Analyze the following code and suggest improvements for performance and readability...", "请在此处粘贴您的提示……例如：分析以下代码，并提出提高性能和可读性的改进建议……"],'label_output_multiplier':["Output multiplier:", "输出倍数："],'label_x_input':["x input", "x 输入"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const MODELS = [
   {name:'Claude Opus 4.6',provider:'Anthropic',input:5,output:25,ctx:'200K',quality:91},
@@ -277,6 +289,24 @@ document.getElementById('promptText').oninput = calculate;
 document.getElementById('outputRatio').oninput = calculate;
 
 calculate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

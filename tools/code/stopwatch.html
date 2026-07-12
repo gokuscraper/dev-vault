@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_stopwatch_timer_with_laps" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,18 +48,30 @@ footer a{color:#4da6ff;text-decoration:none}footer a:hover{text-decoration:under
 </style>
 </head>
 <body>
-<h1>Stopwatch</h1>
-<p class="subtitle">Precision timer with laps</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="h1_stopwatch">Stopwatch</h1>
+<p class="subtitle" ti="subtitle_precision_timer_with_laps">Precision timer with laps</p>
 <div class="controls-bar">
-  <button onclick="addTimer()" id="addBtn">+ Add Timer</button>
-  <button onclick="toggleTick()" id="tickBtn">Tick Sound: Off</button>
+  <button onclick="addTimer()" id="addBtn" ti="btn_add_timer">+ Add Timer</button>
+  <button onclick="toggleTick()" id="tickBtn" ti="btn_tick_sound_off">Tick Sound: Off</button>
 </div>
 <div id="timers"></div>
 <p class="shortcuts"><kbd>Space</kbd> Start/Stop &nbsp; <kbd>L</kbd> Lap &nbsp; <kbd>R</kbd> Reset &nbsp; <kbd>1-3</kbd> Focus timer</p>
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a>
   &nbsp;|&nbsp; Related: Pomodoro &middot; Countdown Timer
 </footer>
+
+<script>var _LANG={'title_stopwatch_timer_with_laps':["Stopwatch — Timer with Laps", "秒表——带圈数计时器"],'metadesc_precision_stopwatch_with':["Precision stopwatch with lap tracking, multiple parallel timers, keyboard shortcuts, and CSV export. Free browser-based tool.", "精准秒表，具备圈速追踪、多计时器并行运行、键盘快捷键和CSV导出功能。免费的浏览器工具。"],'h1_stopwatch':["Stopwatch", "跑表"],'subtitle_precision_timer_with_laps':["Precision timer with laps", "带圈数的精确计时器"],'btn_add_timer':["+ Add Timer", "+ 添加定时器"],'btn_tick_sound_off':["Tick Sound: Off", "滴答声：关闭"],'btn_copy_text':["Copy Text", "复制文本"],'btn_copy_csv':["Copy CSV", "复制 CSV"],'btn_u26f6':["\\u26f6", "☎"],'btn_u2715':["\\u2715", "☎"],'btn_t_running_stop_start':["${t.running ? 'Stop' : 'Start'}", "${t.running ? &#39;停止&#39; : &#39;开始&#39;}"],'btn_lap':["Lap", "圈速"],'btn_reset':["Reset", "重置"],'th_lap':["Lap", "圈速"],'th_total':["Total", "全部的"],'th_u0394':["\\u0394", "☎"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const timers = [];
 let focusedTimer = 0;
@@ -178,7 +190,7 @@ function renderLaps(t) {
   if (t.laps.length > 1) {
     t.laps.forEach((l, i) => { if (l.lap < fastest) { fastest = l.lap; fi = i; } if (l.lap > slowest) { slowest = l.lap; si = i; } });
   }
-  let html = '<div class="lap-scroll"><table class="lap-table"><tr><th>#</th><th>Lap</th><th>Total</th><th>\u0394</th></tr>';
+  let html = '<div class="lap-scroll"><table class="lap-table"><tr><th>#</th><th>Lap</th><th ti="th_total">Total</th><th ti="th_u0394">\u0394</th></tr>';
   for (let i = t.laps.length - 1; i >= 0; i--) {
     const l = t.laps[i];
     const delta = i > 0 ? l.lap - t.laps[i-1].lap : 0;
@@ -187,7 +199,7 @@ function renderLaps(t) {
     html += `<tr class="${cls}"><td>${l.num}</td><td>${fmt(l.lap)}</td><td>${fmt(l.total)}</td><td>${i > 0 && delta < 0 ? '-' : ''}${ds}</td></tr>`;
   }
   html += '</table></div>';
-  html += `<div class="export-row"><button onclick="exportLaps(${t.id},'text')">Copy Text</button><button onclick="exportLaps(${t.id},'csv')">Copy CSV</button></div>`;
+  html += `<div class="export-row"><button onclick="exportLaps(${t.id},'text')" ti="btn_copy_text">Copy Text</button><button onclick="exportLaps(${t.id},'csv')" ti="btn_copy_csv">Copy CSV</button></div>`;
   container.innerHTML = html;
 }
 
@@ -207,7 +219,7 @@ function exportLaps(id, format) {
     }).join('\n');
   }
   navigator.clipboard.writeText(out).then(() => {
-    const btn = event.target; const orig = btn.textContent; btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = orig, 1200);
+    const btn = event.target; const orig = btn.textContent; btn.textContent=T("jtc_copied"); setTimeout(() => btn.textContent = orig, 1200);
   });
 }
 
@@ -236,15 +248,15 @@ function renderTimers() {
       <div class="timer-label">
         <span>Timer ${t.id + 1}${t.id === focusedTimer ? ' (focused)' : ''}</span>
         <span style="display:flex;gap:6px">
-          <button class="btn-fs" onclick="toggleFullscreen(${t.id})" title="Fullscreen">\u26f6</button>
-          ${timers.length > 1 ? `<button class="btn-fs" onclick="removeTimer(${t.id})" title="Remove">\u2715</button>` : ''}
+          <button class="btn-fs" onclick="toggleFullscreen(${t.id})" title="Fullscreen" ti="btn_u26f6">\u26f6</button>
+          ${timers.length > 1 ? `<button class="btn-fs" onclick="removeTimer(${t.id})" title="Remove" ti="btn_u2715">\u2715</button>` : ''}
         </span>
       </div>
       <div class="time-display" id="display-${t.id}">${fmt(getElapsed(t))}</div>
       <div class="btn-row">
-        <button class="btn ${t.running ? 'btn-start running' : 'btn-start'}" id="startBtn-${t.id}" onclick="toggleTimer(${t.id})">${t.running ? 'Stop' : 'Start'}</button>
-        <button class="btn btn-lap" onclick="lapTimer(${t.id})">Lap</button>
-        <button class="btn btn-reset" onclick="resetTimer(${t.id})">Reset</button>
+        <button class="btn ${t.running ? 'btn-start running' : 'btn-start'}" id="startBtn-${t.id}" onclick="toggleTimer(${t.id})" ti="btn_t_running_stop_start">${t.running ? 'Stop' : 'Start'}</button>
+        <button class="btn btn-lap" onclick="lapTimer(${t.id})" ti="btn_lap" ti="th_lap">Lap</button>
+        <button class="btn btn-reset" onclick="resetTimer(${t.id})" ti="btn_reset">Reset</button>
       </div>
       <div id="laps-${t.id}"></div>`;
     container.appendChild(card);
@@ -265,6 +277,24 @@ document.addEventListener('keydown', e => {
 });
 
 addTimer();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_flex_interactive_flex" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,51 +64,53 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Flex</h1>
-<p class="subtitle">Interactive flexbox playground. Adjust properties, see layout live.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_flex">CSS Flex</h1>
+<p class="subtitle" ti="subtitle_interactive_flexbox_playg">Interactive flexbox playground. Adjust properties, see layout live.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="preset('row','flex-start','stretch','nowrap',3)">Default</button>
-  <button class="preset-btn" onclick="preset('row','center','center','nowrap',3)">Centered</button>
-  <button class="preset-btn" onclick="preset('row','space-between','center','nowrap',4)">Nav Bar</button>
-  <button class="preset-btn" onclick="preset('column','flex-start','stretch','nowrap',5)">Sidebar</button>
-  <button class="preset-btn" onclick="preset('row','flex-start','stretch','wrap',8)">Grid-like</button>
-  <button class="preset-btn" onclick="preset('row','center','flex-end','nowrap',3)">Footer</button>
+  <button class="preset-btn" onclick="preset('row','flex-start','stretch','nowrap',3)" ti="btn_default">Default</button>
+  <button class="preset-btn" onclick="preset('row','center','center','nowrap',3)" ti="btn_centered">Centered</button>
+  <button class="preset-btn" onclick="preset('row','space-between','center','nowrap',4)" ti="btn_nav_bar">Nav Bar</button>
+  <button class="preset-btn" onclick="preset('column','flex-start','stretch','nowrap',5)" ti="btn_sidebar">Sidebar</button>
+  <button class="preset-btn" onclick="preset('row','flex-start','stretch','wrap',8)" ti="btn_grid_like">Grid-like</button>
+  <button class="preset-btn" onclick="preset('row','center','flex-end','nowrap',3)" ti="btn_footer">Footer</button>
 </div>
 
 <div class="layout">
   <div class="controls">
     <div class="ctrl-group">
-      <h3>Container</h3>
-      <div class="ctrl-row"><label>direction</label><select id="flexDir" onchange="update()"><option>row</option><option>row-reverse</option><option>column</option><option>column-reverse</option></select></div>
-      <div class="ctrl-row"><label>justify</label><select id="justCont" onchange="update()"><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></div>
-      <div class="ctrl-row"><label>align-items</label><select id="alignItems" onchange="update()"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>baseline</option></select></div>
-      <div class="ctrl-row"><label>flex-wrap</label><select id="flexWrap" onchange="update()"><option>nowrap</option><option>wrap</option><option>wrap-reverse</option></select></div>
-      <div class="ctrl-row"><label>align-content</label><select id="alignCont" onchange="update()"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option></select></div>
-      <div class="ctrl-row"><label>gap</label><input type="number" id="gap" value="8" min="0" max="40" onchange="update()"><span style="font-size:0.68rem;color:#555">px</span></div>
+      <h3 ti="h3_container">Container</h3>
+      <div class="ctrl-row"><label ti="label_direction">direction</label><select id="flexDir" onchange="update()"><option>row</option><option>row-reverse</option><option>column</option><option>column-reverse</option></select></div>
+      <div class="ctrl-row"><label ti="label_justify">justify</label><select id="justCont" onchange="update()"><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option><option>space-evenly</option></select></div>
+      <div class="ctrl-row"><label ti="label_align_items">align-items</label><select id="alignItems" onchange="update()"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>baseline</option></select></div>
+      <div class="ctrl-row"><label ti="label_flex_wrap">flex-wrap</label><select id="flexWrap" onchange="update()"><option>nowrap</option><option>wrap</option><option>wrap-reverse</option></select></div>
+      <div class="ctrl-row"><label ti="label_align_content">align-content</label><select id="alignCont" onchange="update()"><option>stretch</option><option>flex-start</option><option>flex-end</option><option>center</option><option>space-between</option><option>space-around</option></select></div>
+      <div class="ctrl-row"><label ti="label_gap">gap</label><input type="number" id="gap" value="8" min="0" max="40" onchange="update()"><span style="font-size:0.68rem;color:#555">px</span></div>
     </div>
     <div class="ctrl-group">
       <h3>Items (<span id="itemCount">3</span>)</h3>
       <div class="btn-row">
-        <button class="btn" onclick="addItem()">+ Add</button>
-        <button class="btn" onclick="removeItem()">- Remove</button>
+        <button class="btn" onclick="addItem()" ti="btn_add">+ Add</button>
+        <button class="btn" onclick="removeItem()" ti="btn_remove">- Remove</button>
       </div>
     </div>
     <div class="ctrl-group" id="itemControls">
       <h3>Selected Item: <span id="selLabel">1</span></h3>
-      <div class="ctrl-row"><label>flex-grow</label><input type="number" id="itemGrow" value="0" min="0" max="10" onchange="updateItem()"></div>
-      <div class="ctrl-row"><label>flex-shrink</label><input type="number" id="itemShrink" value="1" min="0" max="10" onchange="updateItem()"></div>
-      <div class="ctrl-row"><label>flex-basis</label><select id="itemBasis" onchange="updateItem()"><option value="auto">auto</option><option value="0">0</option><option value="50px">50px</option><option value="100px">100px</option><option value="150px">150px</option><option value="200px">200px</option><option value="25%">25%</option><option value="33%">33%</option><option value="50%">50%</option></select></div>
-      <div class="ctrl-row"><label>align-self</label><select id="itemAlign" onchange="updateItem()"><option value="auto">auto</option><option>flex-start</option><option>flex-end</option><option>center</option><option>stretch</option><option>baseline</option></select></div>
-      <div class="ctrl-row"><label>order</label><input type="number" id="itemOrder" value="0" min="-5" max="10" onchange="updateItem()"></div>
-      <div class="ctrl-row"><label>width</label><input type="number" id="itemW" value="80" min="20" max="300" onchange="updateItem()"><span style="font-size:0.68rem;color:#555">px</span></div>
-      <div class="ctrl-row"><label>height</label><input type="number" id="itemH" value="60" min="20" max="300" onchange="updateItem()"><span style="font-size:0.68rem;color:#555">px</span></div>
+      <div class="ctrl-row"><label ti="label_flex_grow">flex-grow</label><input type="number" id="itemGrow" value="0" min="0" max="10" onchange="updateItem()"></div>
+      <div class="ctrl-row"><label ti="label_flex_shrink">flex-shrink</label><input type="number" id="itemShrink" value="1" min="0" max="10" onchange="updateItem()"></div>
+      <div class="ctrl-row"><label ti="label_flex_basis">flex-basis</label><select id="itemBasis" onchange="updateItem()"><option value="auto">auto</option><option value="0">0</option><option value="50px">50px</option><option value="100px">100px</option><option value="150px">150px</option><option value="200px">200px</option><option value="25%">25%</option><option value="33%">33%</option><option value="50%">50%</option></select></div>
+      <div class="ctrl-row"><label ti="label_align_self">align-self</label><select id="itemAlign" onchange="updateItem()"><option value="auto">auto</option><option>flex-start</option><option>flex-end</option><option>center</option><option>stretch</option><option>baseline</option></select></div>
+      <div class="ctrl-row"><label ti="label_order">order</label><input type="number" id="itemOrder" value="0" min="-5" max="10" onchange="updateItem()"></div>
+      <div class="ctrl-row"><label ti="label_width">width</label><input type="number" id="itemW" value="80" min="20" max="300" onchange="updateItem()"><span style="font-size:0.68rem;color:#555">px</span></div>
+      <div class="ctrl-row"><label ti="label_height">height</label><input type="number" id="itemH" value="60" min="20" max="300" onchange="updateItem()"><span style="font-size:0.68rem;color:#555">px</span></div>
     </div>
   </div>
 
   <div class="preview-area">
-    <h3>Preview</h3>
+    <h3 ti="h3_preview">Preview</h3>
     <div class="flex-container" id="flexBox"></div>
   </div>
 </div>
@@ -120,10 +122,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/css-flex">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/css-flex" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_css_flex_interactive_flex':["CSS Flex — Interactive Flexbox Playground", "CSS Flex — 交互式 Flexbox 演示区"],'metadesc_visual_flexbox_playground':["Visual flexbox playground. Adjust flex properties, see layout changes live. Copy CSS. Free.", "可视化 Flexbox 布局演示。调整 Flex 属性，实时查看布局变化。复制 CSS 代码。免费。"],'h1_css_flex':["CSS Flex", "CSS Flex"],'h3_container':["Container", "容器"],'h3_preview':["Preview", "预览"],'subtitle_interactive_flexbox_playg':["Interactive flexbox playground. Adjust properties, see layout live.", "交互式 Flexbox 布局演示。调整属性，实时查看布局。"],'btn_default':["Default", "默认"],'btn_centered':["Centered", "居中"],'btn_nav_bar':["Nav Bar", "导航栏"],'btn_sidebar':["Sidebar", "侧边栏"],'btn_grid_like':["Grid-like", "网格状"],'btn_footer':["Footer", "页脚"],'btn_add':["+ Add", "+ 添加"],'btn_remove':["- Remove", "- 消除"],'strong_related_tools':["Related Tools", "相关工具"],'label_direction':["direction", "方向"],'label_justify':["justify", "证明合法"],'label_align_items':["align-items", "对齐项目"],'label_flex_wrap':["flex-wrap", "柔性包裹"],'label_align_content':["align-content", "对齐内容"],'label_gap':["gap", "差距"],'label_flex_grow':["flex-grow", "弹性生长"],'label_flex_shrink':["flex-shrink", "弹性收缩"],'label_flex_basis':["flex-basis", "弹性基础"],'label_align_self':["align-self", "对齐自身"],'label_order':["order", "命令"],'label_width':["width", "宽度"],'label_height':["height", "高度"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COLORS=['#3b82f6','#10b981','#f59e0b','#ef4444','#8b5cf6','#ec4899','#06b6d4','#84cc16'];
 let items=[
@@ -256,7 +268,7 @@ function update(){
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='CSS Copied!';
+  el.className='copied';el.textContent=T("jtc_css_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -264,12 +276,30 @@ function copyCSS(){
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
 <a href="https://gokuscraper.github.io/dev-vault/box-model/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Box Model</a>
 <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Spacing Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

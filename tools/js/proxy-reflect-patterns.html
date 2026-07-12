@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_proxy_reflect_patterns" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,16 +39,18 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Proxy & Reflect Patterns</h1>
+  <h1 ti="title_proxy_reflect_patterns" ti="h1_proxy_reflect_patterns">Proxy & Reflect Patterns</h1>
   <p>Interactive patterns: observable objects, validation, negative indexing, revocable proxies, and all 13 traps</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
   <div class="sidebar">
-    <h3>Reference</h3>
+    <h3 ti="h3_reference">Reference</h3>
     <div class="nav-item active" data-section="traps">Handler Traps</div>
     <div class="nav-item" data-section="reflect">Reflect API</div>
-    <h3>Patterns</h3>
+    <h3 ti="h3_patterns">Patterns</h3>
     <div class="nav-item" data-section="observable">Observable Objects</div>
     <div class="nav-item" data-section="validation">Validation Proxy</div>
     <div class="nav-item" data-section="logging">Logging Proxy</div>
@@ -60,7 +62,7 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Handler Traps -->
     <div class="section active" id="traps">
-      <h2 class="section-title">Handler Traps Reference</h2>
+      <h2 class="section-title" ti="h2_handler_traps_reference">Handler Traps Reference</h2>
       <div class="section-desc">A Proxy wraps an object and intercepts operations via handler traps. Each trap corresponds to an internal method. Click a trap to see its signature and try it live.</div>
       <div class="panel">
         <div class="panel-header">All 13 Traps — Click to Fire</div>
@@ -71,7 +73,7 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
       <div class="panel">
         <div class="panel-header">
           <span>Trap Fire Log</span>
-          <button class="btn" onclick="clearLog('trap-log');resetTrapCounts()" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+          <button class="btn" onclick="clearLog('trap-log');resetTrapCounts()" style="padding:.2rem .5rem;font-size:.72rem" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8">Clear</button>
         </div>
         <div id="trap-log" class="log"></div>
       </div>
@@ -85,20 +87,20 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Reflect API -->
     <div class="section" id="reflect">
-      <h2 class="section-title">Reflect API</h2>
+      <h2 class="section-title" ti="h2_reflect_api">Reflect API</h2>
       <div class="section-desc">Reflect provides static methods matching each Proxy trap. They provide a clean way to forward operations in trap handlers and replace some older <code>Object</code> methods.</div>
       <div class="panel">
         <div class="panel-header">Reflect Methods</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="reflectDemo('get')">Reflect.get</button>
-            <button class="btn run" onclick="reflectDemo('set')">Reflect.set</button>
-            <button class="btn run" onclick="reflectDemo('has')">Reflect.has</button>
-            <button class="btn run" onclick="reflectDemo('deleteProperty')">Reflect.deleteProperty</button>
-            <button class="btn run" onclick="reflectDemo('ownKeys')">Reflect.ownKeys</button>
-            <button class="btn run" onclick="reflectDemo('apply')">Reflect.apply</button>
-            <button class="btn run" onclick="reflectDemo('construct')">Reflect.construct</button>
-            <button class="btn run" onclick="reflectDemo('defineProperty')">Reflect.defineProperty</button>
+            <button class="btn run" onclick="reflectDemo('get')" ti="btn_reflect_get">Reflect.get</button>
+            <button class="btn run" onclick="reflectDemo('set')" ti="btn_reflect_set">Reflect.set</button>
+            <button class="btn run" onclick="reflectDemo('has')" ti="btn_reflect_has">Reflect.has</button>
+            <button class="btn run" onclick="reflectDemo('deleteProperty')" ti="btn_reflect_deleteproperty">Reflect.deleteProperty</button>
+            <button class="btn run" onclick="reflectDemo('ownKeys')" ti="btn_reflect_ownkeys">Reflect.ownKeys</button>
+            <button class="btn run" onclick="reflectDemo('apply')" ti="btn_reflect_apply">Reflect.apply</button>
+            <button class="btn run" onclick="reflectDemo('construct')" ti="btn_reflect_construct">Reflect.construct</button>
+            <button class="btn run" onclick="reflectDemo('defineProperty')" ti="btn_reflect_defineproperty">Reflect.defineProperty</button>
           </div>
         </div>
       </div>
@@ -113,18 +115,18 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Observable -->
     <div class="section" id="observable">
-      <h2 class="section-title">Observable Objects</h2>
+      <h2 class="section-title" ti="h2_observable_objects">Observable Objects</h2>
       <div class="section-desc">Use Proxy <code>set</code> trap to detect property changes and notify watchers — a fundamental pattern for reactive frameworks.</div>
       <div class="split">
         <div class="panel">
           <div class="panel-header">Controls</div>
           <div class="panel-body">
-            <div class="input-row"><label>Property:</label><input id="obs-prop" value="name" style="flex:1"></div>
-            <div class="input-row"><label>Value:</label><input id="obs-val" value="Alice" style="flex:1"></div>
+            <div class="input-row"><label ti="label_property" ti="label_property_2">Property:</label><input id="obs-prop" value="name" style="flex:1"></div>
+            <div class="input-row"><label ti="label_value" ti="label_value_2">Value:</label><input id="obs-val" value="Alice" style="flex:1"></div>
             <div class="btn-group">
-              <button class="btn run" onclick="obsSet()">Set Property</button>
-              <button class="btn primary" onclick="obsGet()">Get Property</button>
-              <button class="btn danger" onclick="obsDel()">Delete Property</button>
+              <button class="btn run" onclick="obsSet()" ti="btn_set_property">Set Property</button>
+              <button class="btn primary" onclick="obsGet()" ti="btn_get_property">Get Property</button>
+              <button class="btn danger" onclick="obsDel()" ti="btn_delete_property">Delete Property</button>
             </div>
           </div>
         </div>
@@ -161,7 +163,7 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Validation -->
     <div class="section" id="validation">
-      <h2 class="section-title">Validation Proxy</h2>
+      <h2 class="section-title" ti="h2_validation_proxy">Validation Proxy</h2>
       <div class="section-desc">Enforce type constraints and value ranges at the proxy level. Invalid assignments are rejected before they reach the target object.</div>
       <div class="panel">
         <div class="panel-header">Schema: User { name: string, age: number(0-150), email: string(contains @) }</div>
@@ -171,8 +173,8 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
           </div>
           <div class="input-row"><label>Value:</label><input id="val-val" value="Alice" style="flex:1"></div>
           <div class="btn-group">
-            <button class="btn run" onclick="valSet()">Set (Validated)</button>
-            <button class="btn primary" onclick="valGet()">Get Current</button>
+            <button class="btn run" onclick="valSet()" ti="btn_set_validated">Set (Validated)</button>
+            <button class="btn primary" onclick="valGet()" ti="btn_get_current">Get Current</button>
           </div>
         </div>
       </div>
@@ -187,18 +189,18 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Logging -->
     <div class="section" id="logging">
-      <h2 class="section-title">Logging / Debugging Proxy</h2>
+      <h2 class="section-title" ti="h2_logging_debugging_proxy">Logging / Debugging Proxy</h2>
       <div class="section-desc">Wrap any object to log every interaction. Useful for debugging complex data flow without modifying the original code.</div>
       <div class="panel">
         <div class="panel-header">Interactive Object</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="logOp('get')">Get .name</button>
-            <button class="btn run" onclick="logOp('set')">Set .count = 42</button>
-            <button class="btn run" onclick="logOp('has')">Check 'name' in obj</button>
-            <button class="btn run" onclick="logOp('delete')">Delete .temp</button>
-            <button class="btn run" onclick="logOp('keys')">Object.keys()</button>
-            <button class="btn run" onclick="logOp('call')">Call .greet()</button>
+            <button class="btn run" onclick="logOp('get')" ti="btn_get_name">Get .name</button>
+            <button class="btn run" onclick="logOp('set')" ti="btn_set_count_42">Set .count = 42</button>
+            <button class="btn run" onclick="logOp('has')" ti="btn_check_name_in_obj">Check 'name' in obj</button>
+            <button class="btn run" onclick="logOp('delete')" ti="btn_delete_temp">Delete .temp</button>
+            <button class="btn run" onclick="logOp('keys')" ti="btn_object_keys">Object.keys()</button>
+            <button class="btn run" onclick="logOp('call')" ti="btn_call_greet">Call .greet()</button>
           </div>
         </div>
       </div>
@@ -213,15 +215,15 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Default Values -->
     <div class="section" id="defaults">
-      <h2 class="section-title">Default Values Proxy</h2>
+      <h2 class="section-title" ti="h2_default_values_proxy">Default Values Proxy</h2>
       <div class="section-desc">Return default values for missing properties instead of <code>undefined</code>. Useful for configuration objects with fallbacks.</div>
       <div class="panel">
         <div class="panel-header">Demo</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="defaultsDemo('basic')">Basic Defaults</button>
-            <button class="btn run" onclick="defaultsDemo('typed')">Typed Defaults</button>
-            <button class="btn run" onclick="defaultsDemo('nested')">Nested Defaults</button>
+            <button class="btn run" onclick="defaultsDemo('basic')" ti="btn_basic_defaults">Basic Defaults</button>
+            <button class="btn run" onclick="defaultsDemo('typed')" ti="btn_typed_defaults">Typed Defaults</button>
+            <button class="btn run" onclick="defaultsDemo('nested')" ti="btn_nested_defaults">Nested Defaults</button>
           </div>
         </div>
       </div>
@@ -236,21 +238,21 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- Negative Index -->
     <div class="section" id="negative">
-      <h2 class="section-title">Negative Array Index</h2>
+      <h2 class="section-title" ti="h2_negative_array_index">Negative Array Index</h2>
       <div class="section-desc">Python-style negative indexing for arrays: <code>arr[-1]</code> returns the last element, <code>arr[-2]</code> the second-to-last, etc.</div>
       <div class="panel">
         <div class="panel-header">Interactive Array: ["a", "b", "c", "d", "e"]</div>
         <div class="panel-body">
-          <div class="input-row"><label>Index:</label><input id="neg-idx" type="number" value="-1" style="width:80px">
-            <button class="btn run" onclick="negAccess()">Access</button>
+          <div class="input-row"><label ti="label_index">Index:</label><input id="neg-idx" type="number" value="-1" style="width:80px">
+            <button class="btn run" onclick="negAccess()" ti="btn_access">Access</button>
           </div>
           <div class="btn-group" style="margin-top:.5rem">
-            <button class="btn" onclick="negAccess(-1)">arr[-1]</button>
-            <button class="btn" onclick="negAccess(-2)">arr[-2]</button>
-            <button class="btn" onclick="negAccess(-5)">arr[-5]</button>
-            <button class="btn" onclick="negAccess(0)">arr[0]</button>
-            <button class="btn" onclick="negAccess(2)">arr[2]</button>
-            <button class="btn danger" onclick="negAccess(-6)">arr[-6] (OOB)</button>
+            <button class="btn" onclick="negAccess(-1)" ti="btn_arr_1">arr[-1]</button>
+            <button class="btn" onclick="negAccess(-2)" ti="btn_arr_2">arr[-2]</button>
+            <button class="btn" onclick="negAccess(-5)" ti="btn_arr_5">arr[-5]</button>
+            <button class="btn" onclick="negAccess(0)" ti="btn_arr_0">arr[0]</button>
+            <button class="btn" onclick="negAccess(2)" ti="btn_arr_2_2">arr[2]</button>
+            <button class="btn danger" onclick="negAccess(-6)" ti="btn_arr_6_oob">arr[-6] (OOB)</button>
           </div>
         </div>
       </div>
@@ -285,16 +287,16 @@ arr[-2]  // "d"</div>
 
     <!-- Revocable -->
     <div class="section" id="revocable">
-      <h2 class="section-title">Revocable Proxy</h2>
+      <h2 class="section-title" ti="h2_revocable_proxy">Revocable Proxy</h2>
       <div class="section-desc"><code>Proxy.revocable()</code> returns <code>{ proxy, revoke }</code>. After calling <code>revoke()</code>, any operation on the proxy throws a <code>TypeError</code>. Useful for access control and cleanup.</div>
       <div class="panel">
         <div class="panel-header">Interactive Demo</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="revCreate()">1. Create Revocable Proxy</button>
-            <button class="btn primary" onclick="revUse()">2. Use Proxy</button>
-            <button class="btn danger" onclick="revRevoke()">3. Revoke!</button>
-            <button class="btn" onclick="revUse()">4. Try Using Again</button>
+            <button class="btn run" onclick="revCreate()" ti="btn_1_create_revocable_proxy">1. Create Revocable Proxy</button>
+            <button class="btn primary" onclick="revUse()" ti="btn_2_use_proxy">2. Use Proxy</button>
+            <button class="btn danger" onclick="revRevoke()" ti="btn_3_revoke">3. Revoke!</button>
+            <button class="btn" onclick="revUse()" ti="btn_4_try_using_again">4. Try Using Again</button>
           </div>
           <div id="rev-state" style="margin-top:.8rem;font-family:var(--mono);font-size:.82rem"></div>
         </div>
@@ -310,8 +312,18 @@ arr[-2]  // "d"</div>
 
   </div>
 </div>
-<footer>Proxy & Reflect Patterns &mdash; <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a></footer>
+<footer>Proxy & Reflect Patterns &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a></footer>
 
+
+<script>var _LANG={'title_proxy_reflect_patterns':["Proxy & Reflect Patterns", "代理与反射模式"],'metadesc_interactive_proxy_and_ref':["Interactive Proxy and Reflect patterns playground — observable objects, validation proxies, negative indexing, revocable proxies, logging, and all 13 handler traps", "交互式代理和反射模式演示——可观察对象、验证代理、负索引、可撤销代理、日志记录以及所有 13 个处理程序陷阱"],'h1_proxy_reflect_patterns':["Proxy & Reflect Patterns", "代理与反射模式"],'h2_handler_traps_reference':["Handler Traps Reference", "处理程序陷阱参考"],'h2_reflect_api':["Reflect API", "反射 API"],'h2_observable_objects':["Observable Objects", "可观察对象"],'h2_validation_proxy':["Validation Proxy", "验证代理"],'h2_logging_debugging_proxy':["Logging / Debugging Proxy", "日志记录/调试代理"],'h2_default_values_proxy':["Default Values Proxy", "默认值代理"],'h2_negative_array_index':["Negative Array Index", "负数组索引"],'h2_revocable_proxy':["Revocable Proxy", "可撤销代理"],'h3_reference':["Reference", "参考"],'h3_patterns':["Patterns", "模式"],'btn_clear':["Clear", "清除"],'btn_reflect_get':["Reflect.get", "反思.获取"],'btn_reflect_set':["Reflect.set", "反射集"],'btn_reflect_has':["Reflect.has", "反思。有"],'btn_reflect_deleteproperty':["Reflect.deleteProperty", "反射.删除属性"],'btn_reflect_ownkeys':["Reflect.ownKeys", "反射.ownKeys"],'btn_reflect_apply':["Reflect.apply", "反思.应用"],'btn_reflect_construct':["Reflect.construct", "反思·构建"],'btn_reflect_defineproperty':["Reflect.defineProperty", "反射.定义属性"],'btn_clear_2':["Clear", "清除"],'btn_set_property':["Set Property", "设置属性"],'btn_get_property':["Get Property", "获取房产"],'btn_delete_property':["Delete Property", "删除属性"],'btn_clear_3':["Clear", "清除"],'btn_set_validated':["Set (Validated)", "设置（已验证）"],'btn_get_current':["Get Current", "获取最新信息"],'btn_clear_4':["Clear", "清除"],'btn_get_name':["Get .name", "获取 .name"],'btn_set_count_42':["Set .count = 42", "设置.count = 42"],'btn_check_name_in_obj':["Check 'name' in obj", "检查对象中的“名称”"],'btn_delete_temp':["Delete .temp", "删除 .temp 文件"],'btn_object_keys':["Object.keys()", "Object.keys()"],'btn_call_greet':["Call .greet()", "调用 .greet()"],'btn_clear_5':["Clear", "清除"],'btn_basic_defaults':["Basic Defaults", "基本默认值"],'btn_typed_defaults':["Typed Defaults", "类型化默认值"],'btn_nested_defaults':["Nested Defaults", "嵌套默认值"],'btn_clear_6':["Clear", "清除"],'btn_access':["Access", "使用权"],'btn_arr_1':["arr[-1]", "arr[-1]"],'btn_arr_2':["arr[-2]", "arr[-2]"],'btn_arr_5':["arr[-5]", "arr[-5]"],'btn_arr_0':["arr[0]", "arr[0]"],'btn_arr_2_2':["arr[2]", "arr[2]"],'btn_arr_6_oob':["arr[-6] (OOB)", "arr[-6] (OOB)"],'btn_clear_7':["Clear", "清除"],'btn_1_create_revocable_proxy':["1. Create Revocable Proxy", "1. 创建可撤销代理"],'btn_2_use_proxy':["2. Use Proxy", "2. 使用代理"],'btn_3_revoke':["3. Revoke!", "3.撤销！"],'btn_4_try_using_again':["4. Try Using Again", "4. 再次尝试使用"],'btn_clear_8':["Clear", "清除"],'label_property':["Property:", "财产："],'label_value':["Value:", "价值："],'label_property_2':["Property:", "财产："],'label_value_2':["Value:", "价值："],'label_index':["Index:", "指数："],'link_dev_toolkit':["dev-toolkit", "开发工具包"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Nav ---
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -565,6 +577,24 @@ function updateRevState() {
     <div>Status: <span style="color:${revState.revoked ? 'var(--red)' : 'var(--green)'}">${revState.revoked ? 'REVOKED' : revState.proxy ? 'active' : 'N/A'}</span></div>`;
 }
 updateRevState();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

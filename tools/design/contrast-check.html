@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_contrast_check_wcag_color" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,24 +63,32 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Contrast Check</h1>
-  <p class="subtitle">Check WCAG color contrast between any two colors.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_contrast_check" ti="h1_contrast_check" ti="h1_contrast_check" ti="h1_contrast_check">Contrast Check</h1>
+  <p class="subtitle" ti="subtitle_check_wcag_color_contrast" ti="subtitle_check_wcag_color_contrast" ti="subtitle_check_wcag_color_contrast" ti="subtitle_check_wcag_color_contrast">Check WCAG color contrast between any two colors.</p>
 
   <div class="presets">
-    <button onclick="setColors('#000000','#ffffff')">Black / White</button>
-    <button onclick="setColors('#1a1a2e','#e6e6fa')">Dark / Lavender</button>
-    <button onclick="setColors('#0d1117','#58a6ff')">GitHub Dark</button>
-    <button onclick="setColors('#ffffff','#0969da')">GitHub Light</button>
-    <button onclick="setColors('#1e293b','#94a3b8')">Slate</button>
-    <button onclick="setColors('#fef3c7','#92400e')">Amber</button>
-    <button onclick="setColors('#0f172a','#22d3ee')">Cyan Dark</button>
-    <button onclick="setColors('#ffffff','#dc2626')">White / Red</button>
+    <button onclick="setColors('#000000','#ffffff')" ti="btn_black_white" ti="btn_black_white" ti="btn_black_white" ti="btn_black_white">Black / White</button>
+    <button onclick="setColors('#1a1a2e','#e6e6fa')" ti="btn_dark_lavender" ti="btn_dark_lavender" ti="btn_dark_lavender" ti="btn_dark_lavender">Dark / Lavender</button>
+    <button onclick="setColors('#0d1117','#58a6ff')" ti="btn_github_dark" ti="btn_github_dark" ti="btn_github_dark" ti="btn_github_dark">GitHub Dark</button>
+    <button onclick="setColors('#ffffff','#0969da')" ti="btn_github_light" ti="btn_github_light" ti="btn_github_light" ti="btn_github_light">GitHub Light</button>
+    <button onclick="setColors('#1e293b','#94a3b8')" ti="btn_slate" ti="btn_slate" ti="btn_slate" ti="btn_slate">Slate</button>
+    <button onclick="setColors('#fef3c7','#92400e')" ti="btn_amber" ti="btn_amber" ti="btn_amber" ti="btn_amber">Amber</button>
+    <button onclick="setColors('#0f172a','#22d3ee')" ti="btn_cyan_dark" ti="btn_cyan_dark" ti="btn_cyan_dark" ti="btn_cyan_dark">Cyan Dark</button>
+    <button onclick="setColors('#ffffff','#dc2626')" ti="btn_white_red" ti="btn_white_red" ti="btn_white_red" ti="btn_white_red">White / Red</button>
   </div>
 
   <div class="color-inputs">
     <div class="color-group">
-      <h3>Foreground (Text)</h3>
+      <h3 ti="h3_foreground_text" ti="h3_foreground_text" ti="h3_foreground_text" ti="h3_foreground_text">Foreground (Text)</h3>
       <div class="color-row">
         <input type="color" id="fgColor" value="#e6edf3" oninput="syncFromPicker('fg')">
         <input type="text" id="fgHex" value="#e6edf3" oninput="syncFromHex('fg')">
@@ -88,7 +96,7 @@ footer a{color:var(--accent);text-decoration:none}
     </div>
     <button class="swap-btn" onclick="swapColors()" title="Swap colors">⇄</button>
     <div class="color-group">
-      <h3>Background</h3>
+      <h3 ti="h3_background" ti="h3_background" ti="h3_background" ti="h3_background">Background</h3>
       <div class="color-row">
         <input type="color" id="bgColor" value="#0d1117" oninput="syncFromPicker('bg')">
         <input type="text" id="bgHex" value="#0d1117" oninput="syncFromHex('bg')">
@@ -104,12 +112,12 @@ footer a{color:var(--accent);text-decoration:none}
   <div class="compliance" id="compliance"></div>
 
   <div class="suggestions" id="suggestions">
-    <h3>Suggested Alternatives (AA Compliant)</h3>
+    <h3 ti="h3_suggested_alternatives_aa" ti="h3_suggested_alternatives_aa" ti="h3_suggested_alternatives_aa" ti="h3_suggested_alternatives_aa">Suggested Alternatives (AA Compliant)</h3>
     <div class="sug-grid" id="sugGrid"></div>
   </div>
 
   <div class="preview-section">
-    <h3>Live Preview</h3>
+    <h3 ti="h3_live_preview" ti="h3_live_preview" ti="h3_live_preview" ti="h3_live_preview">Live Preview</h3>
     <div class="preview-box" id="previewBox">
       <div class="preview-large">Large Text (24px bold)</div>
       <div class="preview-normal">Normal body text at 16px. This is what most of your content looks like.</div>
@@ -123,9 +131,39 @@ footer a{color:var(--accent);text-decoration:none}
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 62+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a> — 62+ free browser-based developer tools
 </footer>
 
+
+
+
+<script>var _LANG={'title_contrast_check_wcag_color':["Contrast Check — WCAG Color Contrast Checker", "对比度检查 — WCAG 颜色对比度检查器"],'metadesc_check_wcag_color_contrast':["Check WCAG color contrast ratios. AA/AAA compliance for text and UI. Real-time preview.", "检查 WCAG 颜色对比度。文本和 UI 均符合 AA/AAA 标准。实时预览。"],'h1_contrast_check':["Contrast Check", "对比度检查"],'h3_foreground_text':["Foreground (Text)", "前景（文本）"],'h3_background':["Background", "背景"],'h3_suggested_alternatives_aa':["Suggested Alternatives (AA Compliant)", "建议替代方案（符合AA标准）"],'h3_live_preview':["Live Preview", "实时预览"],'subtitle_check_wcag_color_contrast':["Check WCAG color contrast between any two colors.", "检查任意两种颜色之间的 WCAG 颜色对比度。"],'btn_black_white':["Black / White", "黑白"],'btn_dark_lavender':["Dark / Lavender", "深色/薰衣草色"],'btn_github_dark':["GitHub Dark", "GitHub Dark"],'btn_github_light':["GitHub Light", "GitHub Light"],'btn_slate':["Slate", "石板"],'btn_amber':["Amber", "琥珀色"],'btn_cyan_dark':["Cyan Dark", "青色"],'btn_white_red':["White / Red", "白色/红色"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_contrast_check_wcag_color':["Contrast Check — WCAG Color Contrast Checker", "对比度检查 — WCAG 颜色对比度检查器"],'metadesc_check_wcag_color_contrast':["Check WCAG color contrast ratios. AA/AAA compliance for text and UI. Real-time preview.", "检查 WCAG 颜色对比度。文本和 UI 均符合 AA/AAA 标准。实时预览。"],'h1_contrast_check':["Contrast Check", "对比度检查"],'h3_foreground_text':["Foreground (Text)", "前景（文本）"],'h3_background':["Background", "背景"],'h3_suggested_alternatives_aa':["Suggested Alternatives (AA Compliant)", "建议替代方案（符合AA标准）"],'h3_live_preview':["Live Preview", "实时预览"],'subtitle_check_wcag_color_contrast':["Check WCAG color contrast between any two colors.", "检查任意两种颜色之间的 WCAG 颜色对比度。"],'btn_black_white':["Black / White", "黑白"],'btn_dark_lavender':["Dark / Lavender", "深色/薰衣草色"],'btn_github_dark':["GitHub Dark", "GitHub Dark"],'btn_github_light':["GitHub Light", "GitHub Light"],'btn_slate':["Slate", "石板"],'btn_amber':["Amber", "琥珀色"],'btn_cyan_dark':["Cyan Dark", "青色"],'btn_white_red':["White / Red", "白色/红色"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_contrast_check_wcag_color':["Contrast Check — WCAG Color Contrast Checker", "对比度检查 — WCAG 颜色对比度检查器"],'metadesc_check_wcag_color_contrast':["Check WCAG color contrast ratios. AA/AAA compliance for text and UI. Real-time preview.", "检查 WCAG 颜色对比度。文本和 UI 均符合 AA/AAA 标准。实时预览。"],'h1_contrast_check':["Contrast Check", "对比度检查"],'h3_foreground_text':["Foreground (Text)", "前景（文本）"],'h3_background':["Background", "背景"],'h3_suggested_alternatives_aa':["Suggested Alternatives (AA Compliant)", "建议替代方案（符合AA标准）"],'h3_live_preview':["Live Preview", "实时预览"],'subtitle_check_wcag_color_contrast':["Check WCAG color contrast between any two colors.", "检查任意两种颜色之间的 WCAG 颜色对比度。"],'btn_black_white':["Black / White", "黑白"],'btn_dark_lavender':["Dark / Lavender", "深色/薰衣草色"],'btn_github_dark':["GitHub Dark", "GitHub Dark"],'btn_github_light':["GitHub Light", "GitHub Light"],'btn_slate':["Slate", "石板"],'btn_amber':["Amber", "琥珀色"],'btn_cyan_dark':["Cyan Dark", "青色"],'btn_white_red':["White / Red", "白色/红色"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -283,12 +321,84 @@ if (p.get('fg') && p.get('bg')) {
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-blind-sim/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Blind Sim</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HSL Picker</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_word_count_text_analyzer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,11 +62,13 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Word Count</h1>
-<p class="subtitle">Paste your text. Get instant analysis — words, readability, keywords.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<textarea id="textInput" placeholder="Start typing or paste your text here..." autofocus></textarea>
+<div class="container" style="position:relative">
+<h1 ti="h1_word_count">Word Count</h1>
+<p class="subtitle" ti="subtitle_paste_your_text_get_insta">Paste your text. Get instant analysis — words, readability, keywords.</p>
+
+<textarea id="textInput" tp="placeholder_start_typing_or_paste_you" placeholder="Start typing or paste your text here..." autofocus></textarea>
 
 <div class="stats-grid" id="statsGrid">
   <div class="stat-card"><div class="num" id="sWords">0</div><div class="label">Words</div></div>
@@ -79,24 +81,34 @@ footer a:hover{color:#999}
 
 <div class="detail-grid">
   <div class="detail-section">
-    <h3>Readability</h3>
+    <h3 ti="h3_readability">Readability</h3>
     <div class="readability" id="readability"></div>
     <div class="length-info" id="lengthInfo"></div>
   </div>
   <div class="detail-section">
-    <h3>Top Keywords</h3>
+    <h3 ti="h3_top_keywords">Top Keywords</h3>
     <ul class="keyword-list" id="keywordList"></ul>
   </div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/word-count">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/regex-test/">Regex Test</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/title-score/">Title Score</a>
+  <a href="https://github.com/gokuscraper/word-count" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/regex-test/" ti="link_regex_test">Regex Test</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/title-score/" ti="link_title_score">Title Score</a>
 </footer>
 
+
+<script>var _LANG={'title_word_count_text_analyzer':["Word Count — Text Analyzer for Writers", "字数统计——面向写作者的文本分析工具"],'metadesc_count_words_characters_se':["Count words, characters, sentences, paragraphs. Reading time, readability score, keyword density. Free, instant, no signup.", "统计字数、字符数、句子数和段落数。阅读时间、可读性评分、关键词密度。免费、即时、无需注册。"],'h1_word_count':["Word Count", "字数统计"],'h3_readability':["Readability", "可读性"],'h3_top_keywords':["Top Keywords", "热门关键词"],'subtitle_paste_your_text_get_insta':["Paste your text. Get instant analysis — words, readability, keywords.", "粘贴文本，即可获得即时分析——字数、可读性、关键词。"],'placeholder_start_typing_or_paste_you':["Start typing or paste your text here...", "在这里开始输入或粘贴您的文本……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_json_format':["JSON Format", "JSON 格式"],'link_regex_test':["Regex Test", "正则表达式测试"],'link_title_score':["Title Score", "标题得分"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 
@@ -209,12 +221,30 @@ function fmt(n){return n>=1000?(n/1000).toFixed(1)+'K':n.toString()}
 analyze();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/char-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Char Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/title-score/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Title Score</a>
 <a href="https://gokuscraper.github.io/dev-vault/md-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">MD Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

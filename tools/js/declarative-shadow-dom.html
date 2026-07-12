@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_declarative_shadow_dom_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -389,6 +389,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>
@@ -406,9 +408,9 @@
       <span>Template shadowrootmode</span>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="showTab('tabOpen',this)">mode="open"</button>
-      <button class="tab-btn" onclick="showTab('tabClosed',this)">mode="closed"</button>
-      <button class="tab-btn" onclick="showTab('tabDiff',this)">Difference</button>
+      <button class="tab-btn active" onclick="showTab('tabOpen',this)" ti="btn_mode_open">mode="open"</button>
+      <button class="tab-btn" onclick="showTab('tabClosed',this)" ti="btn_mode_closed">mode="closed"</button>
+      <button class="tab-btn" onclick="showTab('tabDiff',this)" ti="btn_difference">Difference</button>
     </div>
     <div class="panel-body">
       <div class="tab-content active" id="tabOpen">
@@ -487,9 +489,9 @@ box.shadowRoot;  // null (not accessible!)
           <table style="width:100%;border-collapse:collapse;font-size:0.8rem">
             <thead>
               <tr>
-                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--text-dim)">Feature</th>
-                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--green)">open</th>
-                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--red)">closed</th>
+                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--text-dim)" ti="th_feature">Feature</th>
+                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--green)" ti="th_open">open</th>
+                <th style="text-align:left;padding:0.6rem;border-bottom:2px solid var(--border);color:var(--red)" ti="th_closed">closed</th>
               </tr>
             </thead>
             <tbody>
@@ -527,7 +529,7 @@ box.shadowRoot;  // null (not accessible!)
         <div class="ssr-step" id="ssr4">JS Hydrates</div>
       </div>
 
-      <button class="btn-small" onclick="animateSSR()">Animate Flow</button>
+      <button class="btn-small" onclick="animateSSR()" ti="btn_animate_flow">Animate Flow</button>
 
       <div style="margin-top:1rem">
         <div class="preview-label">Server Output</div>
@@ -695,10 +697,10 @@ sheet.replaceSync('button { background: #66bb6a; }');
         <div class="preview-label">Live Demo</div>
         <div class="preview-area" id="adoptedDemo"></div>
         <div class="btn-row" style="margin-top:0.5rem">
-          <button class="btn-small" onclick="changeAdoptedColor('#4fc3f7')">Blue Theme</button>
-          <button class="btn-small" onclick="changeAdoptedColor('#66bb6a')">Green Theme</button>
-          <button class="btn-small" onclick="changeAdoptedColor('#ffd54f')">Yellow Theme</button>
-          <button class="btn-small" onclick="changeAdoptedColor('#ef5350')">Red Theme</button>
+          <button class="btn-small" onclick="changeAdoptedColor('#4fc3f7')" ti="btn_blue_theme">Blue Theme</button>
+          <button class="btn-small" onclick="changeAdoptedColor('#66bb6a')" ti="btn_green_theme">Green Theme</button>
+          <button class="btn-small" onclick="changeAdoptedColor('#ffd54f')" ti="btn_yellow_theme">Yellow Theme</button>
+          <button class="btn-small" onclick="changeAdoptedColor('#ef5350')" ti="btn_red_theme">Red Theme</button>
         </div>
       </div>
     </div>
@@ -736,7 +738,7 @@ const html2 = element.getHTML({
 // &lt;/my-card&gt;</div>
 
       <div style="margin-top:1rem">
-        <button class="btn-small" onclick="demoGetHTML()">Try getHTML()</button>
+        <button class="btn-small" onclick="demoGetHTML()" ti="btn_try_gethtml">Try getHTML()</button>
         <div class="code-block" id="getHTMLOutput" style="margin-top:0.5rem;max-height:200px;overflow-y:auto">Click the button to see serialized output</div>
       </div>
     </div>
@@ -747,9 +749,9 @@ const html2 = element.getHTML({
     <div class="panel-header">
       <span>DOM Tree Inspector</span>
       <div class="btn-row">
-        <button class="btn-small btn-secondary" onclick="showTreeExample('basic')">Basic</button>
-        <button class="btn-small btn-secondary" onclick="showTreeExample('slots')">Named Slots</button>
-        <button class="btn-small btn-secondary" onclick="showTreeExample('nested')">Nested</button>
+        <button class="btn-small btn-secondary" onclick="showTreeExample('basic')" ti="btn_basic">Basic</button>
+        <button class="btn-small btn-secondary" onclick="showTreeExample('slots')" ti="btn_named_slots">Named Slots</button>
+        <button class="btn-small btn-secondary" onclick="showTreeExample('nested')" ti="btn_nested">Nested</button>
       </div>
     </div>
     <div class="panel-body">
@@ -854,13 +856,13 @@ const html2 = element.getHTML({
       </div>
 
       <div class="info-box">
-        <strong>Note:</strong> The <code>shadowrootmode</code> attribute (without "shadow" prefix on "root")
+        <strong ti="strong_note">Note:</strong> The <code>shadowrootmode</code> attribute (without "shadow" prefix on "root")
         replaced the older <code>shadowroot</code> attribute. Chrome 90-110 used the old attribute.
         All modern browsers now use <code>shadowrootmode</code>.
         <br><br>
-        <strong>getHTML():</strong> Chrome 125+, Edge 125+, Firefox 128+, Safari 18+.
+        <strong ti="strong_gethtml">getHTML():</strong> Chrome 125+, Edge 125+, Firefox 128+, Safari 18+.
         <br>
-        <strong>adoptedStyleSheets:</strong> Chrome 73+, Edge 79+, Firefox 101+, Safari 16.4+.
+        <strong ti="strong_adoptedstylesheets">adoptedStyleSheets:</strong> Chrome 73+, Edge 79+, Firefox 101+, Safari 16.4+.
       </div>
 
       <div style="margin-top:0.5rem">
@@ -872,6 +874,16 @@ const html2 = element.getHTML({
 
 </div>
 
+
+<script>var _LANG={'title_declarative_shadow_dom_pl':["Declarative Shadow DOM Playground", "声明式 Shadow DOM 游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for Declarative Shadow DOM. Explore template shadowrootmode, SSR hydration, slot projection, style encapsulation, and component patterns.", "声明式 Shadow DOM 的交互式演示环境。探索模板 shadowrootmode、SSR 水合、插槽投影、样式封装和组件模式。"],'h3_article_title':["Article Title", "文章标题"],'h3_i_m_styled_globally_red':["I'm styled globally (red)", "我的风格是全球通用的（红色）"],'h3_i_m_encapsulated_blue':["I'm encapsulated (blue)", "我被封装起来了（蓝色）"],'btn_mode_open':["mode=\"open\"", "模式=&quot;打开&quot;"],'btn_mode_closed':["mode=\"closed\"", "模式=&quot;关闭&quot;"],'btn_difference':["Difference", "不同之处"],'btn_animate_flow':["Animate Flow", "动画流程"],'btn_blue_theme':["Blue Theme", "蓝色主题"],'btn_green_theme':["Green Theme", "绿色主题"],'btn_yellow_theme':["Yellow Theme", "黄色主题"],'btn_red_theme':["Red Theme", "红色主题"],'btn_try_gethtml':["Try getHTML()", "尝试 getHTML()"],'btn_basic':["Basic", "基本的"],'btn_named_slots':["Named Slots", "命名槽位"],'btn_nested':["Nested", "嵌套"],'btn_button_i':["Button ${i}", "按钮 ${i}"],'label_shadow_root_open':["shadow-root (open)", "影子根（开放）"],'label_shadow_root_open_2':["shadow-root (open)", "影子根（开放）"],'label_shadow_root_open_3':["shadow-root (open)", "影子根（开放）"],'label_shadow_root_open_4':["shadow-root (open)", "影子根（开放）"],'label_shadow_root_closed':["shadow-root (closed)", "影子根（已关闭）"],'strong_note':["Note:", "笔记："],'strong_gethtml':["getHTML():", "getHTML():"],'strong_adoptedstylesheets':["adoptedStyleSheets:", "已采用的样式表："],'th_feature':["Feature", "特征"],'th_open':["open", "打开"],'th_closed':["closed", "关闭"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"],'jtlword_untitled':["Untitled", "无题"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Feature detection
   function init() {
@@ -879,10 +891,10 @@ const html2 = element.getHTML({
     const hasDSD = 'shadowRootMode' in HTMLTemplateElement.prototype ||
                    !!document.createElement('div').attachShadow;
     if (hasDSD) {
-      badge.textContent = 'Supported';
+      badge.textContent=T("jtc_supported");
       badge.className = 'api-badge badge-supported';
     } else {
-      badge.textContent = 'Not Supported';
+      badge.textContent=T("jtc_not_supported");
       badge.className = 'api-badge badge-unsupported';
     }
 
@@ -963,7 +975,7 @@ const html2 = element.getHTML({
       <div class="body"><slot>No content provided</slot></div>
       <footer><slot name="footer">No footer</slot></footer>
     `;
-    el.innerHTML = '<h3 slot="title">Article Title</h3><p>This goes into the default slot.</p><span slot="footer">Published today</span>';
+    el.innerHTML = '<h3 slot="title" ti="h3_article_title">Article Title</h3><p>This goes into the default slot.</p><span slot="footer">Published today</span>';
   }
 
   // Style encapsulation demos
@@ -972,7 +984,7 @@ const html2 = element.getHTML({
     const noShadow = document.getElementById('noShadowDemo');
     noShadow.innerHTML = `
       <div style="border:1px solid #555;padding:0.75rem;border-radius:8px;background:#1e1e1e">
-        <h3 style="color:#ef5350;font-size:1.2rem;margin:0">I'm styled globally (red)</h3>
+        <h3 style="color:#ef5350;font-size:1.2rem;margin:0" ti="h3_i_m_styled_globally_red">I'm styled globally (red)</h3>
         <p style="color:#888;margin:0.3rem 0 0;font-size:0.8rem">Any matching selector affects me</p>
       </div>
     `;
@@ -988,7 +1000,7 @@ const html2 = element.getHTML({
         .card-title { color: #4fc3f7; font-size: 1rem; margin: 0; }
         p { color: #888; margin: 0.3rem 0 0; font-size: 0.8rem; }
       </style>
-      <h3 class="card-title">I'm encapsulated (blue)</h3>
+      <h3 class="card-title" ti="h3_i_m_encapsulated_blue">I'm encapsulated (blue)</h3>
       <p>External styles cannot reach me</p>
     `;
   }
@@ -1013,7 +1025,7 @@ const html2 = element.getHTML({
         const el = document.createElement('adopted-btn-' + i);
         const shadow = el.attachShadow({ mode: 'open' });
         shadow.adoptedStyleSheets = [sharedSheet];
-        shadow.innerHTML = `<button>Button ${i}</button>`;
+        shadow.innerHTML = `<button ti="btn_button_i">Button ${i}</button>`;
         container.appendChild(el);
       }
     } catch (e) {
@@ -1075,7 +1087,7 @@ const html2 = element.getHTML({
     const tree = document.getElementById('domTree');
     const examples = {
       basic: `<span class="tree-tag">&lt;my-element&gt;</span>
-  <span class="shadow-label">shadow-root (open)</span>
+  <span class="shadow-label" ti="label_shadow_root_open" ti="label_shadow_root_open_2" ti="label_shadow_root_open_3" ti="label_shadow_root_open_4">shadow-root (open)</span>
   <div class="shadow-boundary">
     <span class="tree-tag">&lt;style&gt;</span>
     <div class="tree-node">
@@ -1151,7 +1163,7 @@ const html2 = element.getHTML({
     <span class="tree-tag">&lt;/main&gt;</span>
     <span class="tree-tag">&lt;app-footer&gt;</span>
     <div class="tree-node">
-      <span class="shadow-label">shadow-root (closed)</span>
+      <span class="shadow-label" ti="label_shadow_root_closed">shadow-root (closed)</span>
       <div class="shadow-boundary" style="border-left-color:var(--red)">
         <span class="tree-tag">&lt;footer&gt;</span>
         <div class="tree-node">
@@ -1183,6 +1195,24 @@ const html2 = element.getHTML({
   }
 
   init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

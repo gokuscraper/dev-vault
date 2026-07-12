@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_svg_placeholder_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,33 +26,45 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>SVG Placeholder Generator</h1>
-  <p class="desc">Generate custom SVG placeholders for prototyping</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_svg_placeholder_generator" ti="h1_svg_placeholder_generator">SVG Placeholder Generator</h1>
+  <p class="desc" ti="subtitle_generate_custom_svg_place">Generate custom SVG placeholders for prototyping</p>
   <div class="card">
     <div class="row">
-      <div><label>Width</label><input type="number" id="width" value="400" min="50" max="2000"></div>
-      <div><label>Height</label><input type="number" id="height" value="300" min="50" max="2000"></div>
+      <div><label ti="label_width">Width</label><input type="number" id="width" value="400" min="50" max="2000"></div>
+      <div><label ti="label_height">Height</label><input type="number" id="height" value="300" min="50" max="2000"></div>
     </div>
     <div class="row">
-      <div><label>Background</label><input type="text" id="bgColor" value="#3b82f6"></div>
-      <div><label>Text color</label><input type="text" id="textColor" value="#ffffff"></div>
+      <div><label ti="label_background">Background</label><input type="text" id="bgColor" value="#3b82f6"></div>
+      <div><label ti="label_text_color">Text color</label><input type="text" id="textColor" value="#ffffff"></div>
     </div>
-    <div><label>Text</label><input type="text" id="text" value="400 × 300"></div>
+    <div><label ti="label_text">Text</label><input type="text" id="text" value="400 × 300"></div>
     <div class="preview" id="preview"></div>
-    <label>SVG Code</label>
+    <label ti="label_svg_code">SVG Code</label>
     <div class="output-box" id="output"></div>
     <div>
-      <label>Data URI</label>
+      <label ti="label_data_uri">Data URI</label>
       <div class="output-box" id="dataUri"></div>
     </div>
     <div class="flex-center">
-      <button id="copySvg">Copy SVG</button>
-      <button id="copyUri">Copy Data URI</button>
-      <button id="downloadBtn">Download SVG</button>
+      <button id="copySvg" ti="btn_copy_svg">Copy SVG</button>
+      <button id="copyUri" ti="btn_copy_data_uri">Copy Data URI</button>
+      <button id="downloadBtn" ti="btn_download_svg">Download SVG</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_svg_placeholder_generator':["SVG Placeholder Generator", "SVG占位符生成器"],'metadesc_generate_custom_svg_place':["Generate custom SVG placeholder images with text, background color, and custom dimensions. Perfect for prototyping and wireframes.", "生成带有文本、背景颜色和自定义尺寸的自定义 SVG 占位符图像。非常适合用于原型设计和线框图绘制。"],'h1_svg_placeholder_generator':["SVG Placeholder Generator", "SVG占位符生成器"],'subtitle_generate_custom_svg_place':["Generate custom SVG placeholders for prototyping", "生成用于原型设计的自定义 SVG 占位符"],'btn_copy_svg':["Copy SVG", "复制 SVG"],'btn_copy_data_uri':["Copy Data URI", "复制数据 URI"],'btn_download_svg':["Download SVG", "下载 SVG"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'label_background':["Background", "背景"],'label_text_color':["Text color", "文本颜色"],'label_text':["Text", "文本"],'label_svg_code':["SVG Code", "SVG 代码"],'label_data_uri':["Data URI", "数据URI"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function generate() {
   const w = parseInt(document.getElementById('width').value) || 400;
@@ -97,6 +109,24 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 });
 
 generate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

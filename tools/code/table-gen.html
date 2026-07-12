@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_table_generator_create_ht" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -73,34 +73,40 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Table Generator</h1>
-<p class="sub">Create and export tables in multiple formats</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_table_generator" ti="h1_table_generator" ti="h1_table_generator">Table Generator</h1>
+<p class="sub" ti="subtitle_create_and_export_tables" ti="subtitle_create_and_export_tables" ti="subtitle_create_and_export_tables">Create and export tables in multiple formats</p>
 
 <div class="section">
-<h3>Sample Data</h3>
+<h3 ti="h3_sample_data" ti="h3_sample_data" ti="h3_sample_data">Sample Data</h3>
 <div class="presets">
-<button class="preset" onclick="loadPreset('users')">User List</button>
-<button class="preset" onclick="loadPreset('price')">Price Table</button>
-<button class="preset" onclick="loadPreset('schedule')">Schedule</button>
-<button class="preset" onclick="loadPreset('comparison')">Comparison</button>
+<button class="preset" onclick="loadPreset('users')" ti="btn_user_list" ti="btn_user_list" ti="btn_user_list">User List</button>
+<button class="preset" onclick="loadPreset('price')" ti="btn_price_table" ti="btn_price_table" ti="btn_price_table">Price Table</button>
+<button class="preset" onclick="loadPreset('schedule')" ti="btn_schedule" ti="btn_schedule" ti="btn_schedule">Schedule</button>
+<button class="preset" onclick="loadPreset('comparison')" ti="btn_comparison" ti="btn_comparison" ti="btn_comparison">Comparison</button>
 </div>
 </div>
 
 <div class="layout">
 <div class="left-col">
 <div class="section">
-<h3>Table Editor</h3>
+<h3 ti="h3_table_editor" ti="h3_table_editor" ti="h3_table_editor">Table Editor</h3>
 <div class="toolbar">
-<button class="add-btn" onclick="addRow()">+ Row</button>
-<button class="add-btn" onclick="addCol()">+ Column</button>
+<button class="add-btn" onclick="addRow()" ti="btn_row" ti="btn_row" ti="btn_row">+ Row</button>
+<button class="add-btn" onclick="addCol()" ti="btn_column" ti="btn_column" ti="btn_column">+ Column</button>
 <span style="color:#666;font-size:0.75rem;margin-left:auto" id="dims"></span>
 </div>
 <div class="table-wrap" id="editor-wrap"></div>
 </div>
 
 <div class="section">
-<h3>Style Options</h3>
+<h3 ti="h3_style_options" ti="h3_style_options" ti="h3_style_options">Style Options</h3>
 <div class="option-row">
 <label><input type="checkbox" id="opt-bordered" checked onchange="generate()"> Bordered</label>
 <label><input type="checkbox" id="opt-striped" onchange="generate()"> Striped</label>
@@ -123,47 +129,67 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section import-section">
-<h3>Import Data</h3>
+<h3 ti="h3_import_data" ti="h3_import_data" ti="h3_import_data">Import Data</h3>
 <div class="field">
-<label>Paste CSV, TSV, or JSON</label>
-<textarea id="import-data" placeholder="Paste CSV/TSV data or JSON array here..."></textarea>
+<label ti="label_paste_csv_tsv_or_json" ti="label_paste_csv_tsv_or_json" ti="label_paste_csv_tsv_or_json">Paste CSV, TSV, or JSON</label>
+<textarea id="import-data" tp="placeholder_paste_csv_tsv_data_or_jso" tp="placeholder_paste_csv_tsv_data_or_jso" tp="placeholder_paste_csv_tsv_data_or_jso" placeholder="Paste CSV/TSV data or JSON array here..."></textarea>
 </div>
-<button class="btn btn-sm" onclick="importData()">Import</button>
+<button class="btn btn-sm" onclick="importData()" ti="btn_import" ti="btn_import" ti="btn_import">Import</button>
 </div>
 </div>
 
 <div class="right-col">
 <div class="section">
-<h3>Preview</h3>
+<h3 ti="h3_preview" ti="h3_preview" ti="h3_preview">Preview</h3>
 <div id="preview"></div>
 </div>
 
 <div class="section">
-<h3>Output</h3>
+<h3 ti="h3_output" ti="h3_output" ti="h3_output">Output</h3>
 <div class="tabs" id="format-tabs">
-<button class="tab active" onclick="setFormat('html')">HTML</button>
-<button class="tab" onclick="setFormat('markdown')">Markdown</button>
-<button class="tab" onclick="setFormat('csv')">CSV</button>
-<button class="tab" onclick="setFormat('tsv')">TSV</button>
-<button class="tab" onclick="setFormat('json')">JSON</button>
-<button class="tab" onclick="setFormat('latex')">LaTeX</button>
-<button class="tab" onclick="setFormat('ascii')">ASCII</button>
+<button class="tab active" onclick="setFormat('html')" ti="btn_html" ti="btn_html" ti="btn_html">HTML</button>
+<button class="tab" onclick="setFormat('markdown')" ti="btn_markdown" ti="btn_markdown" ti="btn_markdown">Markdown</button>
+<button class="tab" onclick="setFormat('csv')" ti="btn_csv" ti="btn_csv" ti="btn_csv">CSV</button>
+<button class="tab" onclick="setFormat('tsv')" ti="btn_tsv" ti="btn_tsv" ti="btn_tsv">TSV</button>
+<button class="tab" onclick="setFormat('json')" ti="btn_json" ti="btn_json" ti="btn_json">JSON</button>
+<button class="tab" onclick="setFormat('latex')" ti="btn_latex" ti="btn_latex" ti="btn_latex">LaTeX</button>
+<button class="tab" onclick="setFormat('ascii')" ti="btn_ascii" ti="btn_ascii" ti="btn_ascii">ASCII</button>
 </div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyOutput()">Copy</button>
-<button class="btn" onclick="downloadOutput()">Download</button>
+<button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
+<button class="btn" onclick="downloadOutput()" ti="btn_download" ti="btn_download" ti="btn_download">Download</button>
 </div>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/markdown-table/">Markdown Table</a> | <a href="https://gokuscraper.github.io/dev-vault/csv-json/">CSV/JSON</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/markdown-table/" ti="link_markdown_table" ti="link_markdown_table" ti="link_markdown_table">Markdown Table</a> | <a href="https://gokuscraper.github.io/dev-vault/csv-json/" ti="link_csv_json" ti="link_csv_json" ti="link_csv_json">CSV/JSON</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format" ti="link_json_format" ti="link_json_format">JSON Format</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_table_generator_create_ht':["Table Generator — Create HTML, Markdown, CSV Tables", "表格生成器 — 创建 HTML、Markdown、CSV 表格"],'metadesc_generate_tables_in_html_m':["Generate tables in HTML, Markdown, CSV, JSON, LaTeX, ASCII. Interactive editor. Import CSV/JSON. Style options. Sort columns.", "生成 HTML、Markdown、CSV、JSON、LaTeX 和 ASCII 格式的表格。交互式编辑器。导入 CSV/JSON 文件。样式选项。列排序。"],'h1_table_generator':["Table Generator", "表格生成器"],'h3_sample_data':["Sample Data", "样本数据"],'h3_table_editor':["Table Editor", "表格编辑器"],'h3_style_options':["Style Options", "样式选项"],'h3_import_data':["Import Data", "导入数据"],'h3_preview':["Preview", "预览"],'h3_output':["Output", "输出"],'subtitle_create_and_export_tables':["Create and export tables in multiple formats", "创建和导出多种格式的表格"],'btn_user_list':["User List", "用户列表"],'btn_price_table':["Price Table", "价格表"],'btn_schedule':["Schedule", "日程"],'btn_comparison':["Comparison", "比较"],'btn_row':["+ Row", "+ 行"],'btn_column':["+ Column", "+ 列"],'btn_import':["Import", "进口"],'btn_html':["HTML", "HTML"],'btn_markdown':["Markdown", "Markdown"],'btn_csv':["CSV", "CSV"],'btn_tsv':["TSV", "TSV"],'btn_json':["JSON", "JSON"],'btn_latex':["LaTeX", "乳胶"],'btn_ascii':["ASCII", "ASCII"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'placeholder_paste_csv_tsv_data_or_jso':["Paste CSV/TSV data or JSON array here...", "请在此处粘贴 CSV/TSV 数据或 JSON 数组……"],'th_eschtml_data_0_c':["'+escHtml(data[0][c])+'", "&#39;+escHtml(data[0][c])+&#39;"],'th_eschtml_data_0_c_2':["'+escHtml(data[0][c])+'", "&#39;+escHtml(data[0][c])+&#39;"],'label_paste_csv_tsv_or_json':["Paste CSV, TSV, or JSON", "粘贴 CSV、TSV 或 JSON 文件"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_markdown_table':["Markdown Table", "Markdown 表格"],'link_csv_json':["CSV/JSON", "CSV/JSON"],'link_json_format':["JSON Format", "JSON 格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_table_generator_create_ht':["Table Generator — Create HTML, Markdown, CSV Tables", "表格生成器 — 创建 HTML、Markdown、CSV 表格"],'metadesc_generate_tables_in_html_m':["Generate tables in HTML, Markdown, CSV, JSON, LaTeX, ASCII. Interactive editor. Import CSV/JSON. Style options. Sort columns.", "生成 HTML、Markdown、CSV、JSON、LaTeX 和 ASCII 格式的表格。交互式编辑器。导入 CSV/JSON 文件。样式选项。列排序。"],'h1_table_generator':["Table Generator", "表格生成器"],'h3_sample_data':["Sample Data", "样本数据"],'h3_table_editor':["Table Editor", "表格编辑器"],'h3_style_options':["Style Options", "样式选项"],'h3_import_data':["Import Data", "导入数据"],'h3_preview':["Preview", "预览"],'h3_output':["Output", "输出"],'subtitle_create_and_export_tables':["Create and export tables in multiple formats", "创建和导出多种格式的表格"],'btn_user_list':["User List", "用户列表"],'btn_price_table':["Price Table", "价格表"],'btn_schedule':["Schedule", "日程"],'btn_comparison':["Comparison", "比较"],'btn_row':["+ Row", "+ 行"],'btn_column':["+ Column", "+ 列"],'btn_import':["Import", "进口"],'btn_html':["HTML", "HTML"],'btn_markdown':["Markdown", "Markdown"],'btn_csv':["CSV", "CSV"],'btn_tsv':["TSV", "TSV"],'btn_json':["JSON", "JSON"],'btn_latex':["LaTeX", "乳胶"],'btn_ascii':["ASCII", "ASCII"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'placeholder_paste_csv_tsv_data_or_jso':["Paste CSV/TSV data or JSON array here...", "请在此处粘贴 CSV/TSV 数据或 JSON 数组……"],'th_eschtml_data_0_c':["'+escHtml(data[0][c])+'", "&#39;+escHtml(data[0][c])+&#39;"],'th_eschtml_data_0_c_2':["'+escHtml(data[0][c])+'", "&#39;+escHtml(data[0][c])+&#39;"],'label_paste_csv_tsv_or_json':["Paste CSV, TSV, or JSON", "粘贴 CSV、TSV 或 JSON 文件"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_markdown_table':["Markdown Table", "Markdown 表格"],'link_csv_json':["CSV/JSON", "CSV/JSON"],'link_json_format':["JSON Format", "JSON 格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let rows=4,cols=4,data=[],aligns=[],hasHeader=true,currentFormat='html',sortCol=-1,sortAsc=true;
 
@@ -343,7 +369,7 @@ function renderPreview(){
     h+='<thead><tr>';
     for(let c=0;c<numCols;c++){
       const a=aligns[c]||'left';
-      h+='<th style="padding:'+p+';text-align:'+a+';background:'+o.headerBg+';color:#4da6ff;'+(o.bordered?'border:1px solid #333;':'border-bottom:2px solid #333;')+'">'+escHtml(data[0][c])+'</th>';
+      h+='<th style="padding:'+p+';text-align:'+a+';background:'+o.headerBg+';color:#4da6ff;'+(o.bordered?'border:1px solid #333;':'border-bottom:2px solid #333;')+'" ti="th_eschtml_data_0_c" ti="th_eschtml_data_0_c_2" ti="th_eschtml_data_0_c" ti="th_eschtml_data_0_c_2" ti="th_eschtml_data_0_c" ti="th_eschtml_data_0_c_2">'+escHtml(data[0][c])+'</th>';
     }
     h+='</tr></thead>';
   }
@@ -617,6 +643,60 @@ function loadPreset(name){
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_usb_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -129,50 +129,52 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Web USB API Playground</h1>
+  <h1 ti="title_web_usb_api_playground" ti="h1_web_usb_api_playground">Web USB API Playground</h1>
   <p>Request devices, explore interfaces, build transfers, and view device descriptors</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <div class="support-icon">🔍</div>
     <div class="support-text">
-      <h3>Checking Web USB API support...</h3>
+      <h3 ti="h3_checking_web_usb_api_supp">Checking Web USB API support...</h3>
       <p>Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="request">Request Device</button>
-    <button class="tab" data-tab="explorer">Interface Explorer</button>
-    <button class="tab" data-tab="transfers">Transfers</button>
-    <button class="tab" data-tab="hex">Data Viewer</button>
-    <button class="tab" data-tab="classes">Device Classes</button>
-    <button class="tab" data-tab="code">Code</button>
+    <button class="tab active" data-tab="request" ti="btn_request_device" ti="btn_request_device_2">Request Device</button>
+    <button class="tab" data-tab="explorer" ti="btn_interface_explorer">Interface Explorer</button>
+    <button class="tab" data-tab="transfers" ti="btn_transfers">Transfers</button>
+    <button class="tab" data-tab="hex" ti="btn_data_viewer">Data Viewer</button>
+    <button class="tab" data-tab="classes" ti="btn_device_classes">Device Classes</button>
+    <button class="tab" data-tab="code" ti="btn_code">Code</button>
   </div>
 
   <!-- Request Device -->
   <div id="tab-request" class="panel active">
-    <h2>Request USB Device</h2>
-    <p class="desc">Use navigator.usb.requestDevice() with optional filters to select a USB device.</p>
+    <h2 ti="h2_request_usb_device">Request USB Device</h2>
+    <p class="desc" ti="subtitle_use_navigator_usb_request">Use navigator.usb.requestDevice() with optional filters to select a USB device.</p>
 
     <div class="filter-builder">
-      <h3 style="font-size:0.95rem;margin-bottom:0.5rem;color:var(--accent-light)">Filter Builder</h3>
+      <h3 style="font-size:0.95rem;margin-bottom:0.5rem;color:var(--accent-light)" ti="h3_filter_builder">Filter Builder</h3>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.8rem;">Add filters to narrow device selection. Leave empty to show all devices.</p>
 
       <div class="filter-row">
         <div class="form-group">
-          <label>Vendor ID (hex)</label>
-          <input type="text" id="filterVendor" placeholder="e.g. 0x2341 (Arduino)">
+          <label ti="label_vendor_id_hex">Vendor ID (hex)</label>
+          <input type="text" id="filterVendor" tp="placeholder_e_g_0x2341_arduino" placeholder="e.g. 0x2341 (Arduino)">
         </div>
         <div class="form-group">
-          <label>Product ID (hex)</label>
-          <input type="text" id="filterProduct" placeholder="e.g. 0x8036">
+          <label ti="label_product_id_hex">Product ID (hex)</label>
+          <input type="text" id="filterProduct" tp="placeholder_e_g_0x8036" placeholder="e.g. 0x8036">
         </div>
         <div class="form-group">
-          <label>Class Code</label>
+          <label ti="label_class_code">Class Code</label>
           <select id="filterClass">
             <option value="">Any</option>
             <option value="0x02">0x02 - CDC (Communications)</option>
@@ -186,8 +188,8 @@ footer a:hover { text-decoration: underline; }
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn" id="addFilter">+ Add Filter</button>
-        <button class="btn" id="clearFilters">Clear All</button>
+        <button class="btn" id="addFilter" ti="btn_add_filter">+ Add Filter</button>
+        <button class="btn" id="clearFilters" ti="btn_clear_all">Clear All</button>
       </div>
 
       <div class="filter-list" id="filterList"></div>
@@ -195,11 +197,11 @@ footer a:hover { text-decoration: underline; }
 
     <div class="btn-group" style="margin-top:1rem">
       <button class="btn btn-primary" id="btnRequest">Request Device</button>
-      <button class="btn" id="btnGetDevices">Get Paired Devices</button>
+      <button class="btn" id="btnGetDevices" ti="btn_get_paired_devices">Get Paired Devices</button>
     </div>
 
     <div id="deviceResult" class="device-info" style="display:none">
-      <h3>Connected Device</h3>
+      <h3 ti="h3_connected_device">Connected Device</h3>
       <div class="info-grid" id="deviceGrid"></div>
     </div>
 
@@ -212,8 +214,8 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Interface Explorer -->
   <div id="tab-explorer" class="panel">
-    <h2>USB Interface & Endpoint Explorer</h2>
-    <p class="desc">View device configurations, interfaces, alternate settings, and endpoints.</p>
+    <h2 ti="h2_usb_interface_endpoint_ex">USB Interface & Endpoint Explorer</h2>
+    <p class="desc" ti="subtitle_view_device_configuration">View device configurations, interfaces, alternate settings, and endpoints.</p>
 
     <div id="noDeviceMsg" style="text-align:center;padding:2rem;color:var(--text-dim)">
       <p style="font-size:1.2rem;">🔌</p>
@@ -222,30 +224,30 @@ footer a:hover { text-decoration: underline; }
 
     <div id="explorerContent" style="display:none">
       <div class="device-info">
-        <h3 id="explorerDeviceName">Device</h3>
+        <h3 id="explorerDeviceName" ti="h3_device">Device</h3>
         <div class="info-grid" id="explorerGrid"></div>
       </div>
 
-      <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)">Configurations</h3>
+      <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)" ti="h3_configurations">Configurations</h3>
       <div id="configTree" class="interface-tree"></div>
     </div>
   </div>
 
   <!-- Transfers -->
   <div id="tab-transfers" class="panel">
-    <h2>USB Transfers</h2>
-    <p class="desc">Perform Control, Bulk, and Interrupt transfers. Requires an open device with claimed interfaces.</p>
+    <h2 ti="h2_usb_transfers">USB Transfers</h2>
+    <p class="desc" ti="subtitle_perform_control_bulk_and">Perform Control, Bulk, and Interrupt transfers. Requires an open device with claimed interfaces.</p>
 
     <div class="btn-group" style="margin-bottom:1rem">
-      <button class="btn btn-primary" id="btnOpenDevice" disabled>Open Device</button>
-      <button class="btn" id="btnCloseDevice" disabled>Close Device</button>
+      <button class="btn btn-primary" id="btnOpenDevice" disabled ti="btn_open_device">Open Device</button>
+      <button class="btn" id="btnCloseDevice" disabled ti="btn_close_device">Close Device</button>
     </div>
 
     <div class="transfer-panel">
-      <h3>Control Transfer</h3>
+      <h3 ti="h3_control_transfer">Control Transfer</h3>
       <div class="form-row">
         <div class="form-group">
-          <label>Request Type</label>
+          <label ti="label_request_type">Request Type</label>
           <select id="ctrlRequestType">
             <option value="standard">Standard</option>
             <option value="class">Class</option>
@@ -253,7 +255,7 @@ footer a:hover { text-decoration: underline; }
           </select>
         </div>
         <div class="form-group">
-          <label>Recipient</label>
+          <label ti="label_recipient">Recipient</label>
           <select id="ctrlRecipient">
             <option value="device" selected>Device</option>
             <option value="interface">Interface</option>
@@ -264,61 +266,61 @@ footer a:hover { text-decoration: underline; }
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Request (0x00-0xFF)</label>
-          <input type="text" id="ctrlRequest" value="0x01" placeholder="0x01">
+          <label ti="label_request_0x00_0xff">Request (0x00-0xFF)</label>
+          <input type="text" id="ctrlRequest" value="0x01" tp="placeholder_0x01" placeholder="0x01">
         </div>
         <div class="form-group">
-          <label>Value</label>
-          <input type="text" id="ctrlValue" value="0x0000" placeholder="0x0000">
+          <label ti="label_value">Value</label>
+          <input type="text" id="ctrlValue" value="0x0000" tp="placeholder_0x0000" tp="placeholder_0x0000_2" placeholder="0x0000">
         </div>
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Index</label>
+          <label ti="label_index">Index</label>
           <input type="text" id="ctrlIndex" value="0x0000" placeholder="0x0000">
         </div>
         <div class="form-group">
-          <label>Length (for IN transfers)</label>
+          <label ti="label_length_for_in_transfers">Length (for IN transfers)</label>
           <input type="number" id="ctrlLength" value="64" min="0" max="4096">
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" id="btnCtrlIn" disabled>Control Transfer IN</button>
-        <button class="btn" id="btnCtrlOut" disabled>Control Transfer OUT</button>
+        <button class="btn btn-primary" id="btnCtrlIn" disabled ti="btn_control_transfer_in">Control Transfer IN</button>
+        <button class="btn" id="btnCtrlOut" disabled ti="btn_control_transfer_out">Control Transfer OUT</button>
       </div>
     </div>
 
     <div class="transfer-panel">
-      <h3>Bulk / Interrupt Transfer</h3>
+      <h3 ti="h3_bulk_interrupt_transfer">Bulk / Interrupt Transfer</h3>
       <div class="form-row">
         <div class="form-group">
-          <label>Interface Number</label>
+          <label ti="label_interface_number">Interface Number</label>
           <input type="number" id="bulkInterface" value="0" min="0">
         </div>
         <div class="form-group">
-          <label>Endpoint Number</label>
+          <label ti="label_endpoint_number">Endpoint Number</label>
           <input type="number" id="bulkEndpoint" value="1" min="1">
         </div>
       </div>
       <div class="form-group">
-        <label>Data to Send (hex bytes, space-separated)</label>
-        <input type="text" id="bulkData" placeholder="e.g. 48 65 6C 6C 6F">
+        <label ti="label_data_to_send_hex_bytes_sp">Data to Send (hex bytes, space-separated)</label>
+        <input type="text" id="bulkData" tp="placeholder_e_g_48_65_6c_6c_6f" placeholder="e.g. 48 65 6C 6C 6F">
       </div>
       <div class="form-row">
         <div class="form-group">
-          <label>Read Length</label>
+          <label ti="label_read_length">Read Length</label>
           <input type="number" id="bulkLength" value="64" min="1" max="4096">
         </div>
         <div class="form-group" style="display:flex;align-items:end;">
           <div class="btn-group">
-            <button class="btn" id="btnClaimInterface" disabled>Claim Interface</button>
-            <button class="btn" id="btnReleaseInterface" disabled>Release</button>
+            <button class="btn" id="btnClaimInterface" disabled ti="btn_claim_interface">Claim Interface</button>
+            <button class="btn" id="btnReleaseInterface" disabled ti="btn_release">Release</button>
           </div>
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" id="btnBulkIn" disabled>Transfer IN</button>
-        <button class="btn" id="btnBulkOut" disabled>Transfer OUT</button>
+        <button class="btn btn-primary" id="btnBulkIn" disabled ti="btn_transfer_in">Transfer IN</button>
+        <button class="btn" id="btnBulkOut" disabled ti="btn_transfer_out">Transfer OUT</button>
       </div>
     </div>
 
@@ -329,14 +331,14 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Hex Data Viewer -->
   <div id="tab-hex" class="panel">
-    <h2>Data Transfer Viewer</h2>
-    <p class="desc">Hex dump viewer for USB transfer data. Data from transfers appears here automatically.</p>
+    <h2 ti="h2_data_transfer_viewer">Data Transfer Viewer</h2>
+    <p class="desc" ti="subtitle_hex_dump_viewer_for_usb_t">Hex dump viewer for USB transfer data. Data from transfers appears here automatically.</p>
 
     <div class="form-group">
-      <label>Paste hex data or type to preview</label>
-      <textarea id="hexInput" rows="3" placeholder="48 65 6C 6C 6F 20 57 6F 72 6C 64" style="font-family:var(--mono);font-size:0.85rem;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:0.6rem;width:100%;resize:vertical;"></textarea>
+      <label ti="label_paste_hex_data_or_type_to">Paste hex data or type to preview</label>
+      <textarea id="hexInput" rows="3" tp="placeholder_48_65_6c_6c_6f_20_57_6f_7" placeholder="48 65 6C 6C 6F 20 57 6F 72 6C 64" style="font-family:var(--mono);font-size:0.85rem;background:var(--surface-2);border:1px solid var(--border);border-radius:6px;color:var(--text);padding:0.6rem;width:100%;resize:vertical;"></textarea>
     </div>
-    <button class="btn btn-primary" id="btnParseHex">Parse Hex</button>
+    <button class="btn btn-primary" id="btnParseHex" ti="btn_parse_hex">Parse Hex</button>
 
     <div class="hex-viewer" id="hexViewer">
       <div style="color:var(--text-dim);text-align:center;padding:1rem;">No data to display. Perform a transfer or paste hex data above.</div>
@@ -345,21 +347,21 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Device Classes Reference -->
   <div id="tab-classes" class="panel">
-    <h2>Common USB Device Classes</h2>
-    <p class="desc">Reference for USB device class codes used in filters and interface descriptors.</p>
+    <h2 ti="h2_common_usb_device_classes">Common USB Device Classes</h2>
+    <p class="desc" ti="subtitle_reference_for_usb_device">Reference for USB device class codes used in filters and interface descriptors.</p>
 
     <div class="class-ref" id="classRef"></div>
   </div>
 
   <!-- Code -->
   <div id="tab-code" class="panel">
-    <h2>Generated Code</h2>
-    <p class="desc">Complete Web USB integration code based on your configuration.</p>
+    <h2 ti="h2_generated_code">Generated Code</h2>
+    <p class="desc" ti="subtitle_complete_web_usb_integrat">Complete Web USB integration code based on your configuration.</p>
 
     <div class="code-block" id="fullCode">// Configure filters and connect a device to generate code.</div>
 
     <div class="btn-group" style="margin-top:1rem">
-      <button class="btn btn-primary" id="copyCode">Copy to Clipboard</button>
+      <button class="btn btn-primary" id="copyCode" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
     </div>
   </div>
 </div>
@@ -370,6 +372,16 @@ footer a:hover { text-decoration: underline; }
   &bull; <a href="https://wicg.github.io/webusb/" target="_blank" rel="noopener">Spec</a>
 </footer>
 
+
+<script>var _LANG={'title_web_usb_api_playground':["Web USB API Playground", "Web USB API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Web USB API - request devices, explore interfaces and endpoints, build transfer demos, and view device descriptors.", "Web USB API 的交互式游乐场 - 请求设备、探索接口和端点、构建传输演示以及查看设备描述符。"],'h1_web_usb_api_playground':["Web USB API Playground", "Web USB API 演示区"],'h2_request_usb_device':["Request USB Device", "请求 USB 设备"],'h2_usb_interface_endpoint_ex':["USB Interface & Endpoint Explorer", "USB接口和端点浏览器"],'h2_usb_transfers':["USB Transfers", "USB传输"],'h2_data_transfer_viewer':["Data Transfer Viewer", "数据传输查看器"],'h2_common_usb_device_classes':["Common USB Device Classes", "常用USB设备类"],'h2_generated_code':["Generated Code", "生成的代码"],'h3_checking_web_usb_api_supp':["Checking Web USB API support...", "正在检查 Web USB API 支持情况……"],'h3_filter_builder':["Filter Builder", "筛选器生成器"],'h3_connected_device':["Connected Device", "已连接设备"],'h3_device':["Device", "设备"],'h3_configurations':["Configurations", "配置"],'h3_control_transfer':["Control Transfer", "控制权转移"],'h3_bulk_interrupt_transfer':["Bulk / Interrupt Transfer", "批量/中断传输"],'subtitle_use_navigator_usb_request':["Use navigator.usb.requestDevice() with optional filters to select a USB device.", "使用 navigator.usb.requestDevice() 和可选过滤器来选择 USB 设备。"],'subtitle_view_device_configuration':["View device configurations, interfaces, alternate settings, and endpoints.", "查看设备配置、接口、备用设置和端点。"],'subtitle_perform_control_bulk_and':["Perform Control, Bulk, and Interrupt transfers. Requires an open device with claimed interfaces.", "执行控制传输、批量传输和中断传输。需要具有已声明接口的开放设备。"],'subtitle_hex_dump_viewer_for_usb_t':["Hex dump viewer for USB transfer data. Data from transfers appears here automatically.", "用于查看 USB 传输数据的十六进制转储文件。传输的数据会自动显示在此处。"],'subtitle_reference_for_usb_device':["Reference for USB device class codes used in filters and interface descriptors.", "用于过滤器和接口描述符的 USB 设备类代码参考。"],'subtitle_complete_web_usb_integrat':["Complete Web USB integration code based on your configuration.", "根据您的配置，编写完整的 Web USB 集成代码。"],'btn_request_device':["Request Device", "请求设备"],'btn_interface_explorer':["Interface Explorer", "界面浏览器"],'btn_transfers':["Transfers", "转账"],'btn_data_viewer':["Data Viewer", "数据查看器"],'btn_device_classes':["Device Classes", "设备类别"],'btn_code':["Code", "代码"],'btn_add_filter':["+ Add Filter", "+ 添加筛选器"],'btn_clear_all':["Clear All", "全部清除"],'btn_request_device_2':["Request Device", "请求设备"],'btn_get_paired_devices':["Get Paired Devices", "获取已配对的设备"],'btn_open_device':["Open Device", "打开设备"],'btn_close_device':["Close Device", "关闭设备"],'btn_control_transfer_in':["Control Transfer IN", "控制权转移"],'btn_control_transfer_out':["Control Transfer OUT", "控制转移输出"],'btn_claim_interface':["Claim Interface", "索赔接口"],'btn_release':["Release", "发布"],'btn_transfer_in':["Transfer IN", "转账入"],'btn_transfer_out':["Transfer OUT", "转出"],'btn_parse_hex':["Parse Hex", "解析十六进制"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'placeholder_e_g_0x2341_arduino':["e.g. 0x2341 (Arduino)", "例如 0x2341（Arduino）"],'placeholder_e_g_0x8036':["e.g. 0x8036", "例如 0x8036"],'placeholder_0x01':["0x01", "0x01"],'placeholder_0x0000':["0x0000", "0x0000"],'placeholder_0x0000_2':["0x0000", "0x0000"],'placeholder_e_g_48_65_6c_6c_6f':["e.g. 48 65 6C 6C 6F", "例如 48 65 6C 6C 6F"],'placeholder_48_65_6c_6c_6f_20_57_6f_7':["48 65 6C 6C 6F 20 57 6F 72 6C 64", "48 65 6C 6C 6F 20 57 6F 72 6C 64"],'strong_interface_iface_interface':["Interface ${iface.interfaceNumber}", "接口 ${iface.interfaceNumber}"],'label_vendor_id_hex':["Vendor ID (hex)", "供应商 ID（十六进制）"],'label_product_id_hex':["Product ID (hex)", "产品 ID（十六进制）"],'label_class_code':["Class Code", "课程代码"],'label_request_type':["Request Type", "请求类型"],'label_recipient':["Recipient", "接受者"],'label_request_0x00_0xff':["Request (0x00-0xFF)", "请求（0x00-0xFF）"],'label_value':["Value", "价值"],'label_index':["Index", "指数"],'label_length_for_in_transfers':["Length (for IN transfers)", "长度（用于 IN 传输）"],'label_interface_number':["Interface Number", "接口编号"],'label_endpoint_number':["Endpoint Number", "端点编号"],'label_data_to_send_hex_bytes_sp':["Data to Send (hex bytes, space-separated)", "要发送的数据（十六进制字节，空格分隔）"],'label_read_length':["Read Length", "阅读长度"],'label_paste_hex_data_or_type_to':["Paste hex data or type to preview", "粘贴十六进制数据或键入内容进行预览"],'jtc_web_usb_api_is_supported':["Web USB API is supported", "支持 Web USB API"],'jtc_connect_usb_devices_from':["Connect USB devices from your browser. Requires HTTPS or localhost.", "通过浏览器连接 USB 设备。需要 HTTPS 或本地主机。"],'jtc_x':["⚠️", "⚠️"],'jtc_web_usb_api_is_not_suppor':["Web USB API is not supported", "不支持 Web USB API。"],'jtc_this_api_requires_chrome':["This API requires Chrome/Edge 61+ with HTTPS. Firefox and Safari do not support it.", "此 API 需要 Chrome/Edge 61 及以上版本，并启用 HTTPS。Firefox 和 Safari 不支持。"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -379,13 +391,13 @@ footer a:hover { text-decoration: underline; }
   if (supported) {
     banner.className = 'support-banner supported';
     banner.querySelector('.support-icon').textContent = '✅';
-    banner.querySelector('h3').textContent = 'Web USB API is supported';
-    banner.querySelector('p').textContent = 'Connect USB devices from your browser. Requires HTTPS or localhost.';
+    banner.querySelector('h3').textContent=T("jtc_web_usb_api_is_supported");
+    banner.querySelector('p').textContent=T("jtc_connect_usb_devices_from");
   } else {
     banner.className = 'support-banner unsupported';
-    banner.querySelector('.support-icon').textContent = '⚠️';
-    banner.querySelector('h3').textContent = 'Web USB API is not supported';
-    banner.querySelector('p').textContent = 'This API requires Chrome/Edge 61+ with HTTPS. Firefox and Safari do not support it.';
+    banner.querySelector('.support-icon').textContent=T("jtc_x");
+    banner.querySelector('h3').textContent=T("jtc_web_usb_api_is_not_suppor");
+    banner.querySelector('p').textContent=T("jtc_this_api_requires_chrome");
   }
 
   // Tabs
@@ -560,7 +572,7 @@ footer a:hover { text-decoration: underline; }
           iface.alternates.forEach(alt => {
             const ifaceDiv = document.createElement('div');
             ifaceDiv.style.cssText = 'padding:0.5rem;margin:0.3rem 0 0.3rem 1rem;background:var(--surface-3);border-radius:4px;';
-            ifaceDiv.innerHTML = `<strong>Interface ${iface.interfaceNumber}</strong> Alt ${alt.alternateSetting} — Class: 0x${alt.interfaceClass.toString(16).padStart(2,'0')}, Subclass: 0x${alt.interfaceSubclass.toString(16).padStart(2,'0')}, Protocol: 0x${alt.interfaceProtocol.toString(16).padStart(2,'0')}`;
+            ifaceDiv.innerHTML = `<strong ti="strong_interface_iface_interface">Interface ${iface.interfaceNumber}</strong> Alt ${alt.alternateSetting} — Class: 0x${alt.interfaceClass.toString(16).padStart(2,'0')}, Subclass: 0x${alt.interfaceSubclass.toString(16).padStart(2,'0')}, Protocol: 0x${alt.interfaceProtocol.toString(16).padStart(2,'0')}`;
 
             if (alt.endpoints && alt.endpoints.length > 0) {
               const epList = document.createElement('div');
@@ -833,8 +845,8 @@ footer a:hover { text-decoration: underline; }
   document.getElementById('copyCode').addEventListener('click', () => {
     navigator.clipboard.writeText(document.getElementById('fullCode').textContent).then(() => {
       const btn = document.getElementById('copyCode');
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy to Clipboard', 1500);
+      btn.textContent=T("jtc_copied");
+      setTimeout(() => btn.textContent=T("jtc_copy_to_clipboard"), 1500);
     });
   });
 
@@ -849,6 +861,24 @@ footer a:hover { text-decoration: underline; }
       }
     });
   }
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

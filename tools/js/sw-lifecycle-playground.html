@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_service_worker_lifecycle" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,9 +79,15 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Service Worker Lifecycle Playground</h1>
-<p class="subtitle">Interactive SW lifecycle visualizer &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_service_worker_lifecycle" ti="h1_service_worker_lifecycle" ti="title_service_worker_lifecycle" ti="h1_service_worker_lifecycle" ti="title_service_worker_lifecycle" ti="h1_service_worker_lifecycle">Service Worker Lifecycle Playground</h1>
+<p class="subtitle">Interactive SW lifecycle visualizer &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a></p>
 
 <div class="tabs">
 <div class="tab active" data-tab="sim">Simulator</div>
@@ -92,7 +98,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <!-- Simulator Panel -->
 <div class="panel active" id="panel-sim">
 <div class="card">
-<h3>Lifecycle Scenarios</h3>
+<h3 ti="h3_lifecycle_scenarios" ti="h3_lifecycle_scenarios" ti="h3_lifecycle_scenarios">Lifecycle Scenarios</h3>
 <div class="scenario-grid">
 <div class="scenario" onclick="runScenario('first')"><div class="name">First Install</div><div class="desc">Register → Install → Activate</div></div>
 <div class="scenario" onclick="runScenario('update')"><div class="name">Update Flow</div><div class="desc">New version → Install → Wait → Activate</div></div>
@@ -104,7 +110,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </div>
 
 <div class="card">
-<h3>State Diagram</h3>
+<h3 ti="h3_state_diagram" ti="h3_state_diagram" ti="h3_state_diagram">State Diagram</h3>
 <div class="diagram" id="diagram">
 <div class="state-node parsed" id="node-parsed">Parsed</div>
 <div class="state-node installing" id="node-installing">Installing</div>
@@ -123,7 +129,7 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </div>
 
 <div class="card">
-<h3>Phase Timeline</h3>
+<h3 ti="h3_phase_timeline" ti="h3_phase_timeline" ti="h3_phase_timeline">Phase Timeline</h3>
 <div class="phase-bar" id="phase-bar">
 <div class="phase-segment" style="width:0%;background:#3b82f6;color:#fff" id="phase-install">Install</div>
 <div class="phase-segment" style="width:0%;background:#22c55e;color:#fff" id="phase-wait">Wait</div>
@@ -133,8 +139,8 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </div>
 
 <div class="card">
-<h3>Event Log</h3>
-<div style="margin-bottom:8px"><button onclick="clearLog()">Clear Log</button></div>
+<h3 ti="h3_event_log" ti="h3_event_log" ti="h3_event_log">Event Log</h3>
+<div style="margin-bottom:8px"><button onclick="clearLog()" ti="btn_clear_log" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button></div>
 <div class="event-log" id="event-log">
 <div class="empty">Run a scenario to see lifecycle events</div>
 </div>
@@ -144,12 +150,12 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <!-- Live SW Panel -->
 <div class="panel" id="panel-live">
 <div class="card">
-<h3>Live Service Worker Status</h3>
+<h3 ti="h3_live_service_worker_statu" ti="h3_live_service_worker_statu" ti="h3_live_service_worker_statu">Live Service Worker Status</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:12px">Register a real Service Worker on this page and monitor its lifecycle.</p>
 <div class="sim-controls">
-<button class="primary" onclick="registerRealSW()">Register SW</button>
-<button onclick="updateRealSW()">Check for Update</button>
-<button class="danger" onclick="unregisterRealSW()">Unregister</button>
+<button class="primary" onclick="registerRealSW()" ti="btn_register_sw" ti="btn_register_sw" ti="btn_register_sw">Register SW</button>
+<button onclick="updateRealSW()" ti="btn_check_for_update" ti="btn_check_for_update" ti="btn_check_for_update">Check for Update</button>
+<button class="danger" onclick="unregisterRealSW()" ti="btn_unregister" ti="btn_unregister" ti="btn_unregister">Unregister</button>
 </div>
 <div class="stat-grid">
 <div class="stat"><div class="value" id="live-state">None</div><div class="label">Current State</div></div>
@@ -160,14 +166,14 @@ button:disabled{opacity:.4;cursor:not-allowed}
 </div>
 
 <div class="card">
-<h3>All Registrations</h3>
+<h3 ti="h3_all_registrations" ti="h3_all_registrations" ti="h3_all_registrations">All Registrations</h3>
 <div id="registrations-list">
 <div class="empty">No Service Worker registrations found</div>
 </div>
 </div>
 
 <div class="card">
-<h3>Live Event Log</h3>
+<h3 ti="h3_live_event_log" ti="h3_live_event_log" ti="h3_live_event_log">Live Event Log</h3>
 <div class="event-log" id="live-log">
 <div class="empty">Register a Service Worker to see events</div>
 </div>
@@ -177,8 +183,8 @@ button:disabled{opacity:.4;cursor:not-allowed}
 <!-- Code Panel -->
 <div class="panel" id="panel-code">
 <div class="card">
-<h3>Basic Registration</h3>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Register a Service Worker
+<h3 ti="h3_basic_registration" ti="h3_basic_registration" ti="h3_basic_registration">Basic Registration</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>// Register a Service Worker
 if ('serviceWorker' in navigator) {
   const registration = await navigator.serviceWorker.register('/sw.js', {
     scope: '/'
@@ -200,7 +206,7 @@ if ('serviceWorker' in navigator) {
 </div>
 
 <div class="card">
-<h3>Service Worker File (sw.js)</h3>
+<h3 ti="h3_service_worker_file_sw_js" ti="h3_service_worker_file_sw_js" ti="h3_service_worker_file_sw_js">Service Worker File (sw.js)</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const CACHE_NAME = 'v1';
 const ASSETS = ['/', '/index.html', '/style.css', '/app.js'];
 
@@ -235,7 +241,7 @@ self.addEventListener('fetch', (event) => {
 </div>
 
 <div class="card">
-<h3>Update Flow</h3>
+<h3 ti="h3_update_flow" ti="h3_update_flow" ti="h3_update_flow">Update Flow</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Force update check
 const registration = await navigator.serviceWorker.getRegistration();
 await registration.update();
@@ -259,7 +265,7 @@ self.addEventListener('activate', (event) => {
 </div>
 
 <div class="card">
-<h3>Communication (postMessage)</h3>
+<h3 ti="h3_communication_postmessage" ti="h3_communication_postmessage" ti="h3_communication_postmessage">Communication (postMessage)</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Page → Service Worker
 navigator.serviceWorker.controller.postMessage({
   type: 'CACHE_URLS',
@@ -285,10 +291,30 @@ navigator.serviceWorker.addEventListener('message', (event) => {
 
 <div class="footer">
 Service Worker Lifecycle Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash;
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers">MDN Guide</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API/Using_Service_Workers" ti="link_mdn_guide" ti="link_mdn_guide" ti="link_mdn_guide">MDN Guide</a>
 </div>
 </div>
 
+
+
+<script>var _LANG={'title_service_worker_lifecycle':["Service Worker Lifecycle Playground", "Service Worker 生命周期测试"],'metadesc_interactive_service_worke':["Interactive Service Worker lifecycle visualizer. See registration, installation, activation, and update flows in real-time. State diagram, event log, code examples.", "交互式 Service Worker 生命周期可视化工具。实时查看注册、安装、激活和更新流程。包含状态图、事件日志和代码示例。"],'h1_service_worker_lifecycle':["Service Worker Lifecycle Playground", "Service Worker 生命周期测试"],'h3_lifecycle_scenarios':["Lifecycle Scenarios", "生命周期场景"],'h3_state_diagram':["State Diagram", "状态图"],'h3_phase_timeline':["Phase Timeline", "阶段时间表"],'h3_event_log':["Event Log", "事件日志"],'h3_live_service_worker_statu':["Live Service Worker Status", "在线服务工作者状态"],'h3_all_registrations':["All Registrations", "所有注册"],'h3_live_event_log':["Live Event Log", "实时事件日志"],'h3_basic_registration':["Basic Registration", "基本注册"],'h3_service_worker_file_sw_js':["Service Worker File (sw.js)", "Service Worker 文件 (sw.js)"],'h3_update_flow':["Update Flow", "更新流程"],'h3_communication_postmessage':["Communication (postMessage)", "通信（postMessage）"],'btn_clear_log':["Clear Log", "清除日志"],'btn_register_sw':["Register SW", "注册软件"],'btn_check_for_update':["Check for Update", "检查更新"],'btn_unregister':["Unregister", "取消注册"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_guide':["MDN Guide", "MDN 指南"],'jtc_none':["None", "没有任何"],'jtc_no':["No", "不"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_service_worker_lifecycle':["Service Worker Lifecycle Playground", "Service Worker 生命周期测试"],'metadesc_interactive_service_worke':["Interactive Service Worker lifecycle visualizer. See registration, installation, activation, and update flows in real-time. State diagram, event log, code examples.", "交互式 Service Worker 生命周期可视化工具。实时查看注册、安装、激活和更新流程。包含状态图、事件日志和代码示例。"],'h1_service_worker_lifecycle':["Service Worker Lifecycle Playground", "Service Worker 生命周期测试"],'h3_lifecycle_scenarios':["Lifecycle Scenarios", "生命周期场景"],'h3_state_diagram':["State Diagram", "状态图"],'h3_phase_timeline':["Phase Timeline", "阶段时间表"],'h3_event_log':["Event Log", "事件日志"],'h3_live_service_worker_statu':["Live Service Worker Status", "在线服务工作者状态"],'h3_all_registrations':["All Registrations", "所有注册"],'h3_live_event_log':["Live Event Log", "实时事件日志"],'h3_basic_registration':["Basic Registration", "基本注册"],'h3_service_worker_file_sw_js':["Service Worker File (sw.js)", "Service Worker 文件 (sw.js)"],'h3_update_flow':["Update Flow", "更新流程"],'h3_communication_postmessage':["Communication (postMessage)", "通信（postMessage）"],'btn_clear_log':["Clear Log", "清除日志"],'btn_register_sw':["Register SW", "注册软件"],'btn_check_for_update':["Check for Update", "检查更新"],'btn_unregister':["Unregister", "取消注册"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_guide':["MDN Guide", "MDN 指南"],'jtc_none':["None", "没有任何"],'jtc_no':["No", "不"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(tab => {
@@ -622,9 +648,9 @@ async function unregisterRealSW() {
       await reg.unregister();
       liveLog('register', `Unregistered: ${reg.scope}`);
     }
-    document.getElementById('live-state').textContent = 'None';
+    document.getElementById('live-state').textContent=T("jtc_none");
     document.getElementById('live-scope').textContent = '-';
-    document.getElementById('live-controller').textContent = 'No';
+    document.getElementById('live-controller').textContent=T("jtc_no");
     refreshRegistrations();
   } catch (e) {
     liveLog('error', e.message);
@@ -658,8 +684,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const code = block.textContent.replace('Copy','').trim();
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -674,6 +700,60 @@ if ('serviceWorker' in navigator) {
     liveLog('activate', 'Controller changed — new SW controlling page');
   });
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

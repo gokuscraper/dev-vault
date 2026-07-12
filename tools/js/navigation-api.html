@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_navigation_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,6 +101,16 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>&#x1f9ed; Navigation <span>API</span> Playground</h1>
@@ -109,7 +119,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
 <div class="support-bar" id="supportBar"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="grid">
 
     <!-- Navigate Demo -->
@@ -120,15 +130,15 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
       <div class="card-body">
         <div class="info-box info">Navigate to URLs using the Navigation API. Intercepts are set up to handle navigations without full page loads.</div>
         <div class="field">
-          <label>URL / Path</label>
-          <input type="text" id="navUrl" value="/page/about" placeholder="/page/about">
+          <label ti="label_url_path" ti="label_url_path" ti="label_url_path" ti="label_url_path" ti="label_url_path">URL / Path</label>
+          <input type="text" id="navUrl" value="/page/about" tp="placeholder_page_about" tp="placeholder_page_about" tp="placeholder_page_about" tp="placeholder_page_about" tp="placeholder_page_about" placeholder="/page/about">
         </div>
         <div class="field">
-          <label>State (JSON)</label>
-          <input type="text" id="navState" value='{"source":"playground"}' placeholder='{"key":"value"}'>
+          <label ti="label_state_json" ti="label_state_json" ti="label_state_json" ti="label_state_json" ti="label_state_json">State (JSON)</label>
+          <input type="text" id="navState" value='{"source":"playground"}' tp="placeholder_key_value" tp="placeholder_key_value" tp="placeholder_key_value" tp="placeholder_key_value" tp="placeholder_key_value" placeholder='{"key":"value"}'>
         </div>
         <div class="field">
-          <label>History Handling</label>
+          <label ti="label_history_handling" ti="label_history_handling" ti="label_history_handling" ti="label_history_handling" ti="label_history_handling">History Handling</label>
           <select id="navHistory">
             <option value="auto">auto (default)</option>
             <option value="push">push</option>
@@ -136,9 +146,9 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
           </select>
         </div>
         <div class="btn-row">
-          <button class="primary" onclick="doNavigate()">Navigate</button>
-          <button onclick="doNavigate('hash')">Hash Navigate</button>
-          <button class="warn" onclick="doNavigate('replace')">Replace</button>
+          <button class="primary" onclick="doNavigate()" ti="btn_navigate" ti="btn_navigate" ti="btn_navigate" ti="btn_navigate" ti="btn_navigate">Navigate</button>
+          <button onclick="doNavigate('hash')" ti="btn_hash_navigate" ti="btn_hash_navigate" ti="btn_hash_navigate" ti="btn_hash_navigate" ti="btn_hash_navigate">Hash Navigate</button>
+          <button class="warn" onclick="doNavigate('replace')" ti="btn_replace" ti="btn_replace_2" ti="btn_replace" ti="btn_replace_2" ti="btn_replace" ti="btn_replace_2" ti="btn_replace" ti="btn_replace_2" ti="btn_replace" ti="btn_replace_2">Replace</button>
         </div>
         <div id="navResult" class="info-box success" style="display:none"></div>
       </div>
@@ -161,7 +171,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f4da;</span> History Entries &mdash; navigation.entries()</h2>
-        <button onclick="refreshEntries()">Refresh</button>
+        <button onclick="refreshEntries()" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh">Refresh</button>
       </div>
       <div class="card-body">
         <div class="info-box info">Visualize the session history entries. The current entry is highlighted. Click an entry to navigate to it with <code>navigation.traverseTo()</code>.</div>
@@ -187,10 +197,10 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
           <button id="btnForward" onclick="goForward()" disabled>&#x2192; Forward</button>
         </div>
         <div class="field" style="margin-top:12px">
-          <label>GoTo Entry Key</label>
+          <label ti="label_goto_entry_key" ti="label_goto_entry_key" ti="label_goto_entry_key" ti="label_goto_entry_key" ti="label_goto_entry_key">GoTo Entry Key</label>
           <div style="display:flex;gap:8px">
-            <input type="text" id="gotoKey" placeholder="entry key">
-            <button onclick="goToKey()">Go</button>
+            <input type="text" id="gotoKey" tp="placeholder_entry_key" tp="placeholder_entry_key" tp="placeholder_entry_key" tp="placeholder_entry_key" tp="placeholder_entry_key" placeholder="entry key">
+            <button onclick="goToKey()" ti="btn_go" ti="btn_go" ti="btn_go" ti="btn_go" ti="btn_go">Go</button>
           </div>
         </div>
         <div id="canGoStatus" style="margin-top:8px;font-size:.8rem;color:var(--text2)"></div>
@@ -212,10 +222,10 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
           <p>No transitions recorded yet.</p>
         </div>
         <div class="field" style="margin-top:12px">
-          <label>Simulate Slow Navigation (ms)</label>
+          <label ti="label_simulate_slow_navigation" ti="label_simulate_slow_navigation" ti="label_simulate_slow_navigation" ti="label_simulate_slow_navigation" ti="label_simulate_slow_navigation">Simulate Slow Navigation (ms)</label>
           <div style="display:flex;gap:8px">
             <input type="number" id="slowDelay" value="1500" min="100" max="10000">
-            <button onclick="doSlowNavigate()">Navigate Slowly</button>
+            <button onclick="doSlowNavigate()" ti="btn_navigate_slowly" ti="btn_navigate_slowly" ti="btn_navigate_slowly" ti="btn_navigate_slowly" ti="btn_navigate_slowly">Navigate Slowly</button>
           </div>
         </div>
       </div>
@@ -229,49 +239,49 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
       <div class="card-body">
         <div class="info-box info">Different navigation types: <code>push</code> adds a new entry, <code>replace</code> replaces the current entry, and <code>hash</code> changes only the fragment.</div>
         <div class="tab-bar" id="navTypeTabs">
-          <button class="active" onclick="showNavType('push')">Push</button>
+          <button class="active" onclick="showNavType('push')" ti="btn_push" ti="btn_push" ti="btn_push" ti="btn_push" ti="btn_push">Push</button>
           <button onclick="showNavType('replace')">Replace</button>
-          <button onclick="showNavType('hash')">Hash</button>
-          <button onclick="showNavType('reload')">Reload</button>
-          <button onclick="showNavType('traverse')">Traverse</button>
+          <button onclick="showNavType('hash')" ti="btn_hash" ti="btn_hash" ti="btn_hash" ti="btn_hash" ti="btn_hash">Hash</button>
+          <button onclick="showNavType('reload')" ti="btn_reload" ti="btn_reload" ti="btn_reload" ti="btn_reload" ti="btn_reload">Reload</button>
+          <button onclick="showNavType('traverse')" ti="btn_traverse" ti="btn_traverse" ti="btn_traverse" ti="btn_traverse" ti="btn_traverse">Traverse</button>
         </div>
         <div id="navTypeContent">
           <div id="navType-push">
-            <p style="font-size:.85rem;margin-bottom:8px"><strong>Push Navigation</strong> &mdash; Adds a new entry to the history stack.</p>
+            <p style="font-size:.85rem;margin-bottom:8px"><strong ti="strong_push_navigation" ti="strong_push_navigation" ti="strong_push_navigation" ti="strong_push_navigation" ti="strong_push_navigation">Push Navigation</strong> &mdash; Adds a new entry to the history stack.</p>
             <pre>navigation.navigate('/new-page', {
   history: 'push',
   state: { timestamp: Date.now() }
 });</pre>
-            <button class="primary" style="margin-top:8px" onclick="demoNavType('push')">Try Push</button>
+            <button class="primary" style="margin-top:8px" onclick="demoNavType('push')" ti="btn_try_push" ti="btn_try_push" ti="btn_try_push" ti="btn_try_push" ti="btn_try_push">Try Push</button>
           </div>
           <div id="navType-replace" style="display:none">
-            <p style="font-size:.85rem;margin-bottom:8px"><strong>Replace Navigation</strong> &mdash; Replaces the current entry without adding to the stack.</p>
+            <p style="font-size:.85rem;margin-bottom:8px"><strong ti="strong_replace_navigation" ti="strong_replace_navigation" ti="strong_replace_navigation" ti="strong_replace_navigation" ti="strong_replace_navigation">Replace Navigation</strong> &mdash; Replaces the current entry without adding to the stack.</p>
             <pre>navigation.navigate('/replaced', {
   history: 'replace',
   state: { replaced: true }
 });</pre>
-            <button class="warn" style="margin-top:8px" onclick="demoNavType('replace')">Try Replace</button>
+            <button class="warn" style="margin-top:8px" onclick="demoNavType('replace')" ti="btn_try_replace" ti="btn_try_replace" ti="btn_try_replace" ti="btn_try_replace" ti="btn_try_replace">Try Replace</button>
           </div>
           <div id="navType-hash" style="display:none">
-            <p style="font-size:.85rem;margin-bottom:8px"><strong>Hash Navigation</strong> &mdash; Changes only the URL fragment. Does not create a full navigation in some cases.</p>
+            <p style="font-size:.85rem;margin-bottom:8px"><strong ti="strong_hash_navigation" ti="strong_hash_navigation" ti="strong_hash_navigation" ti="strong_hash_navigation" ti="strong_hash_navigation">Hash Navigation</strong> &mdash; Changes only the URL fragment. Does not create a full navigation in some cases.</p>
             <pre>navigation.navigate('#section-' + Math.random().toString(36).slice(2, 8));</pre>
-            <button style="margin-top:8px" onclick="demoNavType('hash')">Try Hash</button>
+            <button style="margin-top:8px" onclick="demoNavType('hash')" ti="btn_try_hash" ti="btn_try_hash" ti="btn_try_hash" ti="btn_try_hash" ti="btn_try_hash">Try Hash</button>
           </div>
           <div id="navType-reload" style="display:none">
-            <p style="font-size:.85rem;margin-bottom:8px"><strong>Reload Navigation</strong> &mdash; Reloads the current entry. <code>navigationType</code> will be <code>"reload"</code>.</p>
+            <p style="font-size:.85rem;margin-bottom:8px"><strong ti="strong_reload_navigation" ti="strong_reload_navigation" ti="strong_reload_navigation" ti="strong_reload_navigation" ti="strong_reload_navigation">Reload Navigation</strong> &mdash; Reloads the current entry. <code>navigationType</code> will be <code>"reload"</code>.</p>
             <pre>navigation.reload({
   state: { reloadedAt: Date.now() }
 });</pre>
-            <button class="danger" style="margin-top:8px" onclick="demoNavType('reload')">Try Reload</button>
+            <button class="danger" style="margin-top:8px" onclick="demoNavType('reload')" ti="btn_try_reload" ti="btn_try_reload" ti="btn_try_reload" ti="btn_try_reload" ti="btn_try_reload">Try Reload</button>
           </div>
           <div id="navType-traverse" style="display:none">
-            <p style="font-size:.85rem;margin-bottom:8px"><strong>Traverse Navigation</strong> &mdash; Move to a specific history entry by key.</p>
+            <p style="font-size:.85rem;margin-bottom:8px"><strong ti="strong_traverse_navigation" ti="strong_traverse_navigation" ti="strong_traverse_navigation" ti="strong_traverse_navigation" ti="strong_traverse_navigation">Traverse Navigation</strong> &mdash; Move to a specific history entry by key.</p>
             <pre>// First navigate to create entries, then traverse back
 const entries = navigation.entries();
 if (entries.length > 1) {
   navigation.traverseTo(entries[0].key);
 }</pre>
-            <button class="success" style="margin-top:8px" onclick="demoNavType('traverse')">Traverse to First</button>
+            <button class="success" style="margin-top:8px" onclick="demoNavType('traverse')" ti="btn_traverse_to_first" ti="btn_traverse_to_first" ti="btn_traverse_to_first" ti="btn_traverse_to_first" ti="btn_traverse_to_first">Traverse to First</button>
           </div>
         </div>
       </div>
@@ -281,7 +291,7 @@ if (entries.length > 1) {
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f4dc;</span> Event Log</h2>
-        <button onclick="clearLog()">Clear</button>
+        <button onclick="clearLog()" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
       </div>
       <div class="card-body">
         <div class="log" id="eventLog">
@@ -294,18 +304,58 @@ if (entries.length > 1) {
 </div>
 
 <footer>
-  Navigation API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> project
+  Navigation API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> project
 </footer>
 
 <div id="unsupportedOverlay" class="unsupported-overlay" style="display:none">
   <div class="unsupported-box">
     <h2>&#x26a0;&#xfe0f; Navigation API Not Supported</h2>
-    <p>Your browser does not support the Navigation API. This playground requires <strong>Chrome 102+</strong> or <strong>Edge 102+</strong>.</p>
+    <p>Your browser does not support the Navigation API. This playground requires <strong ti="strong_chrome_102" ti="strong_chrome_102" ti="strong_chrome_102" ti="strong_chrome_102" ti="strong_chrome_102">Chrome 102+</strong> or <strong ti="strong_edge_102" ti="strong_edge_102" ti="strong_edge_102" ti="strong_edge_102" ti="strong_edge_102">Edge 102+</strong>.</p>
     <p style="font-size:.8rem">The Navigation API is available in Chromium-based browsers. Firefox and Safari do not yet support it.</p>
-    <button class="primary" onclick="document.getElementById('unsupportedOverlay').style.display='none'">View Anyway (Read-Only)</button>
+    <button class="primary" onclick="document.getElementById('unsupportedOverlay').style.display='none'" ti="btn_view_anyway_read_only" ti="btn_view_anyway_read_only" ti="btn_view_anyway_read_only" ti="btn_view_anyway_read_only" ti="btn_view_anyway_read_only">View Anyway (Read-Only)</button>
   </div>
 </div>
 
+
+
+
+
+<script>var _LANG={'title_navigation_api_playground':["Navigation API Playground", "导航 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Navigation API — navigate, intercept, inspect events, visualize history entries, and explore modern client-side routing.", "Navigation API 的交互式演示平台——导航、拦截、检查事件、可视化历史条目，并探索现代客户端路由。"],'h2_navigation_api_not_suppo':["⚠️ Navigation API Not Supported", "⚠️ 不支持导航 API"],'btn_navigate':["Navigate", "导航"],'btn_hash_navigate':["Hash Navigate", "哈希导航"],'btn_replace':["Replace", "代替"],'btn_refresh':["Refresh", "刷新"],'btn_back':["← Back", "← 返回"],'btn_forward':["→ Forward", "→ 前进"],'btn_go':["Go", "去"],'btn_navigate_slowly':["Navigate Slowly", "缓慢航行"],'btn_push':["Push", "推"],'btn_replace_2':["Replace", "代替"],'btn_hash':["Hash", "哈希"],'btn_reload':["Reload", "重新加载"],'btn_traverse':["Traverse", "横穿"],'btn_try_push':["Try Push", "尝试推送"],'btn_try_replace':["Try Replace", "尝试替换"],'btn_try_hash':["Try Hash", "尝试哈希"],'btn_try_reload':["Try Reload", "尝试重新加载"],'btn_traverse_to_first':["Traverse to First", "横穿至第一层"],'btn_clear':["Clear", "清除"],'btn_view_anyway_read_only':["View Anyway (Read-Only)", "仍然查看（只读）"],'placeholder_page_about':["/page/about", "关于页面"],'placeholder_key_value':["{\"key\":\"value\"}", "{&quot;key&quot;:&quot;value&quot;}"],'placeholder_entry_key':["entry key", "输入键"],'strong_push_navigation':["Push Navigation", "推送导航"],'strong_replace_navigation':["Replace Navigation", "替换导航"],'strong_hash_navigation':["Hash Navigation", "哈希导航"],'strong_reload_navigation':["Reload Navigation", "重新加载导航"],'strong_traverse_navigation':["Traverse Navigation", "横穿导航"],'strong_chrome_102':["Chrome 102+", "Chrome 102+"],'strong_edge_102':["Edge 102+", "Edge 102+"],'label_url_path':["URL / Path", "URL/路径"],'label_state_json':["State (JSON)", "状态（JSON）"],'label_history_handling':["History Handling", "历史处理"],'label_goto_entry_key':["GoTo Entry Key", "转到输入键"],'label_simulate_slow_navigation':["Simulate Slow Navigation (ms)", "模拟慢速导航（毫秒）"],'label_destination_getstate':["destination.getState()", "destination.getState()"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_navigationtype':["navigationType", "导航类型"],'jtlword_from':["from", "从"],'jtlword_finished':["finished", "完成的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_navigation_api_playground':["Navigation API Playground", "导航 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Navigation API — navigate, intercept, inspect events, visualize history entries, and explore modern client-side routing.", "Navigation API 的交互式演示平台——导航、拦截、检查事件、可视化历史条目，并探索现代客户端路由。"],'h2_navigation_api_not_suppo':["⚠️ Navigation API Not Supported", "⚠️ 不支持导航 API"],'btn_navigate':["Navigate", "导航"],'btn_hash_navigate':["Hash Navigate", "哈希导航"],'btn_replace':["Replace", "代替"],'btn_refresh':["Refresh", "刷新"],'btn_back':["← Back", "← 返回"],'btn_forward':["→ Forward", "→ 前进"],'btn_go':["Go", "去"],'btn_navigate_slowly':["Navigate Slowly", "缓慢航行"],'btn_push':["Push", "推"],'btn_replace_2':["Replace", "代替"],'btn_hash':["Hash", "哈希"],'btn_reload':["Reload", "重新加载"],'btn_traverse':["Traverse", "横穿"],'btn_try_push':["Try Push", "尝试推送"],'btn_try_replace':["Try Replace", "尝试替换"],'btn_try_hash':["Try Hash", "尝试哈希"],'btn_try_reload':["Try Reload", "尝试重新加载"],'btn_traverse_to_first':["Traverse to First", "横穿至第一层"],'btn_clear':["Clear", "清除"],'btn_view_anyway_read_only':["View Anyway (Read-Only)", "仍然查看（只读）"],'placeholder_page_about':["/page/about", "关于页面"],'placeholder_key_value':["{\"key\":\"value\"}", "{&quot;key&quot;:&quot;value&quot;}"],'placeholder_entry_key':["entry key", "输入键"],'strong_push_navigation':["Push Navigation", "推送导航"],'strong_replace_navigation':["Replace Navigation", "替换导航"],'strong_hash_navigation':["Hash Navigation", "哈希导航"],'strong_reload_navigation':["Reload Navigation", "重新加载导航"],'strong_traverse_navigation':["Traverse Navigation", "横穿导航"],'strong_chrome_102':["Chrome 102+", "Chrome 102+"],'strong_edge_102':["Edge 102+", "Edge 102+"],'label_url_path':["URL / Path", "URL/路径"],'label_state_json':["State (JSON)", "状态（JSON）"],'label_history_handling':["History Handling", "历史处理"],'label_goto_entry_key':["GoTo Entry Key", "转到输入键"],'label_simulate_slow_navigation':["Simulate Slow Navigation (ms)", "模拟慢速导航（毫秒）"],'label_destination_getstate':["destination.getState()", "destination.getState()"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_navigationtype':["navigationType", "导航类型"],'jtlword_from':["from", "从"],'jtlword_finished':["finished", "完成的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_navigation_api_playground':["Navigation API Playground", "导航 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Navigation API — navigate, intercept, inspect events, visualize history entries, and explore modern client-side routing.", "Navigation API 的交互式演示平台——导航、拦截、检查事件、可视化历史条目，并探索现代客户端路由。"],'h2_navigation_api_not_suppo':["⚠️ Navigation API Not Supported", "⚠️ 不支持导航 API"],'btn_navigate':["Navigate", "导航"],'btn_hash_navigate':["Hash Navigate", "哈希导航"],'btn_replace':["Replace", "代替"],'btn_refresh':["Refresh", "刷新"],'btn_back':["← Back", "← 返回"],'btn_forward':["→ Forward", "→ 前进"],'btn_go':["Go", "去"],'btn_navigate_slowly':["Navigate Slowly", "缓慢航行"],'btn_push':["Push", "推"],'btn_replace_2':["Replace", "代替"],'btn_hash':["Hash", "哈希"],'btn_reload':["Reload", "重新加载"],'btn_traverse':["Traverse", "横穿"],'btn_try_push':["Try Push", "尝试推送"],'btn_try_replace':["Try Replace", "尝试替换"],'btn_try_hash':["Try Hash", "尝试哈希"],'btn_try_reload':["Try Reload", "尝试重新加载"],'btn_traverse_to_first':["Traverse to First", "横穿至第一层"],'btn_clear':["Clear", "清除"],'btn_view_anyway_read_only':["View Anyway (Read-Only)", "仍然查看（只读）"],'placeholder_page_about':["/page/about", "关于页面"],'placeholder_key_value':["{\"key\":\"value\"}", "{&quot;key&quot;:&quot;value&quot;}"],'placeholder_entry_key':["entry key", "输入键"],'strong_push_navigation':["Push Navigation", "推送导航"],'strong_replace_navigation':["Replace Navigation", "替换导航"],'strong_hash_navigation':["Hash Navigation", "哈希导航"],'strong_reload_navigation':["Reload Navigation", "重新加载导航"],'strong_traverse_navigation':["Traverse Navigation", "横穿导航"],'strong_chrome_102':["Chrome 102+", "Chrome 102+"],'strong_edge_102':["Edge 102+", "Edge 102+"],'label_url_path':["URL / Path", "URL/路径"],'label_state_json':["State (JSON)", "状态（JSON）"],'label_history_handling':["History Handling", "历史处理"],'label_goto_entry_key':["GoTo Entry Key", "转到输入键"],'label_simulate_slow_navigation':["Simulate Slow Navigation (ms)", "模拟慢速导航（毫秒）"],'label_destination_getstate':["destination.getState()", "destination.getState()"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_navigationtype':["navigationType", "导航类型"],'jtlword_from':["from", "从"],'jtlword_finished':["finished", "完成的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_navigation_api_playground':["Navigation API Playground", "导航 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Navigation API — navigate, intercept, inspect events, visualize history entries, and explore modern client-side routing.", "Navigation API 的交互式演示平台——导航、拦截、检查事件、可视化历史条目，并探索现代客户端路由。"],'h2_navigation_api_not_suppo':["⚠️ Navigation API Not Supported", "⚠️ 不支持导航 API"],'btn_navigate':["Navigate", "导航"],'btn_hash_navigate':["Hash Navigate", "哈希导航"],'btn_replace':["Replace", "代替"],'btn_refresh':["Refresh", "刷新"],'btn_back':["← Back", "← 返回"],'btn_forward':["→ Forward", "→ 前进"],'btn_go':["Go", "去"],'btn_navigate_slowly':["Navigate Slowly", "缓慢航行"],'btn_push':["Push", "推"],'btn_replace_2':["Replace", "代替"],'btn_hash':["Hash", "哈希"],'btn_reload':["Reload", "重新加载"],'btn_traverse':["Traverse", "横穿"],'btn_try_push':["Try Push", "尝试推送"],'btn_try_replace':["Try Replace", "尝试替换"],'btn_try_hash':["Try Hash", "尝试哈希"],'btn_try_reload':["Try Reload", "尝试重新加载"],'btn_traverse_to_first':["Traverse to First", "横穿至第一层"],'btn_clear':["Clear", "清除"],'btn_view_anyway_read_only':["View Anyway (Read-Only)", "仍然查看（只读）"],'placeholder_page_about':["/page/about", "关于页面"],'placeholder_key_value':["{\"key\":\"value\"}", "{&quot;key&quot;:&quot;value&quot;}"],'placeholder_entry_key':["entry key", "输入键"],'strong_push_navigation':["Push Navigation", "推送导航"],'strong_replace_navigation':["Replace Navigation", "替换导航"],'strong_hash_navigation':["Hash Navigation", "哈希导航"],'strong_reload_navigation':["Reload Navigation", "重新加载导航"],'strong_traverse_navigation':["Traverse Navigation", "横穿导航"],'strong_chrome_102':["Chrome 102+", "Chrome 102+"],'strong_edge_102':["Edge 102+", "Edge 102+"],'label_url_path':["URL / Path", "URL/路径"],'label_state_json':["State (JSON)", "状态（JSON）"],'label_history_handling':["History Handling", "历史处理"],'label_goto_entry_key':["GoTo Entry Key", "转到输入键"],'label_simulate_slow_navigation':["Simulate Slow Navigation (ms)", "模拟慢速导航（毫秒）"],'label_destination_getstate':["destination.getState()", "destination.getState()"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_navigationtype':["navigationType", "导航类型"],'jtlword_from':["from", "从"],'jtlword_finished':["finished", "完成的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ── Feature Detection ── */
 const hasNavAPI = typeof window.navigation !== 'undefined';
@@ -496,7 +546,7 @@ function updateEventDetails(event) {
     html += `<tr style="border-bottom:1px solid var(--border)"><td style="padding:4px 8px;color:var(--text2)">${k}</td><td style="padding:4px 8px;color:${color};font-family:var(--mono)">${v}</td></tr>`;
   }
   html += '</table>';
-  html += `<div style="margin-top:8px"><label>destination.getState()</label><pre style="margin-top:4px">${escapeHtml(stateStr)}</pre></div>`;
+  html += `<div style="margin-top:8px"><label ti="label_destination_getstate" ti="label_destination_getstate" ti="label_destination_getstate" ti="label_destination_getstate" ti="label_destination_getstate">destination.getState()</label><pre style="margin-top:4px">${escapeHtml(stateStr)}</pre></div>`;
   html += '</div>';
   el.innerHTML = html;
 }
@@ -655,6 +705,96 @@ if (hasNavAPI) {
 } else {
   addLog('Navigation API NOT supported in this browser.', 'error');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

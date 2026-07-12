@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scroll_driven_animati" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -143,6 +143,10 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header class="app-header">
     <h1><span>CSS Scroll-Driven Animations</span> Playground</h1>
@@ -179,21 +183,21 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
     <div>
       <div class="section-title">Controls</div>
       <div class="control-group">
-        <label for="ctrl-timeline">animation-timeline</label>
+        <label for="ctrl-timeline" ti="label_animation_timeline" ti="label_animation_timeline">animation-timeline</label>
         <select id="ctrl-timeline">
           <option value="scroll">scroll()</option>
           <option value="view">view()</option>
         </select>
       </div>
       <div class="control-group" style="margin-top:8px">
-        <label for="ctrl-axis">scroll-axis</label>
+        <label for="ctrl-axis" ti="label_scroll_axis" ti="label_scroll_axis">scroll-axis</label>
         <select id="ctrl-axis">
           <option value="block">block</option>
           <option value="inline">inline</option>
         </select>
       </div>
       <div class="control-group" style="margin-top:8px">
-        <label for="ctrl-range">animation-range</label>
+        <label for="ctrl-range" ti="label_animation_range" ti="label_animation_range">animation-range</label>
         <select id="ctrl-range">
           <option value="entry">entry</option>
           <option value="exit">exit</option>
@@ -202,7 +206,7 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
         </select>
       </div>
       <div class="control-group" style="margin-top:8px">
-        <label for="ctrl-easing">easing</label>
+        <label for="ctrl-easing" ti="label_easing" ti="label_easing">easing</label>
         <select id="ctrl-easing">
           <option value="linear">linear</option>
           <option value="ease">ease</option>
@@ -214,7 +218,7 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
     </div>
 
     <div class="support-note">
-      <strong>Browser Support</strong><br>
+      <strong ti="strong_browser_support" ti="strong_browser_support">Browser Support</strong><br>
       Chrome 115+ &amp; Edge 115+: full support.<br>
       Firefox 110+: behind <code>layout.css.scroll-driven-animations.enabled</code> flag.<br>
       Safari: not yet supported.
@@ -224,7 +228,7 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
   <section class="main">
     <div class="demo-wrapper">
       <div class="demo-header">
-        <h2 id="demo-title">Progress Bar</h2>
+        <h2 id="demo-title" ti="h2_progress_bar" ti="h2_progress_bar">Progress Bar</h2>
         <span id="demo-axis-badge" class="badge" style="display:none">inline axis</span>
       </div>
       <div class="demo-scroll-container" id="demo-area">
@@ -233,12 +237,12 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
     </div>
     <div class="code-panel">
       <div class="code-header" id="code-toggle">
-        <h3>Generated CSS</h3>
-        <button class="code-toggle" id="code-toggle-btn">Show ▾</button>
+        <h3 ti="h3_generated_css" ti="h3_generated_css">Generated CSS</h3>
+        <button class="code-toggle" id="code-toggle-btn" ti="btn_show" ti="btn_show">Show ▾</button>
       </div>
       <div class="code-body" id="code-body">
         <div class="code-content">
-          <button class="copy-btn" id="copy-btn">Copy</button>
+          <button class="copy-btn" id="copy-btn" ti="btn_copy" ti="btn_copy">Copy</button>
           <pre class="css-output" id="css-output"></pre>
         </div>
       </div>
@@ -250,6 +254,26 @@ pre.css-output{background:var(--bg);border:1px solid var(--bg3);border-radius:va
   </footer>
 </div>
 
+
+
+<script>var _LANG={'title_css_scroll_driven_animati':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'metadesc_animate_on_scroll_with_pu':["Animate on scroll with pure CSS. No JavaScript. Interactive scroll-driven animation builder with presets.", "纯 CSS 实现滚动动画，无需 JavaScript。交互式滚动动画构建器，提供预设选项。"],'h2_progress_bar':["Progress Bar", "进度条"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_title':["${title}", "${title}"],'h3_title_2':["${title}", "${title}"],'h3_title_3':["${title}", "${title}"],'h3_title_4':["${title}", "${title}"],'btn_show':["Show ▾", "显示 ▾"],'btn_copy':["Copy", "复制"],'strong_browser_support':["Browser Support", "浏览器支持"],'label_animation_timeline':["animation-timeline", "动画时间线"],'label_scroll_axis':["scroll-axis", "滚动轴"],'label_animation_range':["animation-range", "动画范围"],'label_easing':["easing", "缓解"],'footer_css_scroll_driven_animati':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'footer_css_scroll_driven_animati_2':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_css_scroll_driven_animati':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'metadesc_animate_on_scroll_with_pu':["Animate on scroll with pure CSS. No JavaScript. Interactive scroll-driven animation builder with presets.", "纯 CSS 实现滚动动画，无需 JavaScript。交互式滚动动画构建器，提供预设选项。"],'h2_progress_bar':["Progress Bar", "进度条"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_title':["${title}", "${title}"],'h3_title_2':["${title}", "${title}"],'h3_title_3':["${title}", "${title}"],'h3_title_4':["${title}", "${title}"],'btn_show':["Show ▾", "显示 ▾"],'btn_copy':["Copy", "复制"],'strong_browser_support':["Browser Support", "浏览器支持"],'label_animation_timeline':["animation-timeline", "动画时间线"],'label_scroll_axis':["scroll-axis", "滚动轴"],'label_animation_range':["animation-range", "动画范围"],'label_easing':["easing", "缓解"],'footer_css_scroll_driven_animati':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'footer_css_scroll_driven_animati_2':["CSS Scroll-Driven Animations Playground — Dev Vault", "CSS滚动驱动动画实验场 — 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
@@ -314,7 +338,7 @@ function makeFadeHTML() {
     ['The Future of CSS', 'Scroll-driven animations replace JS scroll libraries.']
   ];
   for (const [title, desc] of items) {
-    h += `<div class="fade-item"><div class="fade-item-box"><h3>${title}</h3><p>${desc}</p></div></div>`;
+    h += `<div class="fade-item"><div class="fade-item-box"><h3 ti="h3_title" ti="h3_title_2" ti="h3_title_3" ti="h3_title_4" ti="h3_title" ti="h3_title_2" ti="h3_title_3" ti="h3_title_4">${title}</h3><p>${desc}</p></div></div>`;
   }
   h += '<div class="spacer"></div>';
   return h;
@@ -607,10 +631,10 @@ $('#code-toggle').addEventListener('click', () => {
 
 copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(cssOutput.textContent).then(() => {
-    copyBtn.textContent = 'Copied!';
+    copyBtn.textContent=T("jtc_copied");
     copyBtn.classList.add('copied');
     setTimeout(() => {
-      copyBtn.textContent = 'Copy';
+      copyBtn.textContent=T("jtc_copy");
       copyBtn.classList.remove('copied');
     }, 1500);
   });
@@ -618,6 +642,42 @@ copyBtn.addEventListener('click', () => {
 
 /* Initial render */
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

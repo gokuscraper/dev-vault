@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ieee_754_float_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,38 +65,40 @@ header h1{font-size:1.1rem;color:#ffd43b}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>IEEE 754 Float Visualizer</h1>
+<h1 ti="title_ieee_754_float_visualizer" ti="h1_ieee_754_float_visualizer">IEEE 754 Float Visualizer</h1>
 </header>
 <div class="main">
 <div class="vis-col">
 <div class="panel">
-<h3>Enter a Number</h3>
+<h3 ti="h3_enter_a_number">Enter a Number</h3>
 <div class="input-row">
-<input type="text" id="numInput" value="0.1" placeholder="Enter any number...">
-<button onclick="analyze()">Analyze</button>
+<input type="text" id="numInput" value="0.1" tp="placeholder_enter_any_number" placeholder="Enter any number...">
+<button onclick="analyze()" ti="btn_analyze">Analyze</button>
 </div>
 <div class="presets">
-<button onclick="setVal(0.1)">0.1</button>
-<button onclick="setVal(0.2)">0.2</button>
-<button onclick="setVal(0.3)">0.3</button>
-<button onclick="setExpr('0.1+0.2')">0.1+0.2</button>
+<button onclick="setVal(0.1)" ti="btn_0_1">0.1</button>
+<button onclick="setVal(0.2)" ti="btn_0_2">0.2</button>
+<button onclick="setVal(0.3)" ti="btn_0_3">0.3</button>
+<button onclick="setExpr('0.1+0.2')" ti="btn_0_1_0_2">0.1+0.2</button>
 <button onclick="setVal(1)">1</button>
-<button onclick="setVal(-1)">-1</button>
+<button onclick="setVal(-1)" ti="btn_1">-1</button>
 <button onclick="setVal(0)">0</button>
-<button onclick="setVal(-0)">-0</button>
-<button onclick="setVal(NaN)">NaN</button>
-<button onclick="setVal(Infinity)">Infinity</button>
-<button onclick="setVal(-Infinity)">-Infinity</button>
-<button onclick="setVal(Number.MAX_SAFE_INTEGER)">MAX_SAFE_INT</button>
-<button onclick="setVal(Number.MIN_VALUE)">MIN_VALUE</button>
-<button onclick="setVal(Number.EPSILON)">EPSILON</button>
+<button onclick="setVal(-0)" ti="btn_0">-0</button>
+<button onclick="setVal(NaN)" ti="btn_nan">NaN</button>
+<button onclick="setVal(Infinity)" ti="btn_infinity">Infinity</button>
+<button onclick="setVal(-Infinity)" ti="btn_infinity_2">-Infinity</button>
+<button onclick="setVal(Number.MAX_SAFE_INTEGER)" ti="btn_max_safe_int">MAX_SAFE_INT</button>
+<button onclick="setVal(Number.MIN_VALUE)" ti="btn_min_value">MIN_VALUE</button>
+<button onclick="setVal(Number.EPSILON)" ti="btn_epsilon">EPSILON</button>
 <button onclick="setVal(Math.PI)">π</button>
-<button onclick="setVal(9007199254740993)">2⁵³+1</button>
+<button onclick="setVal(9007199254740993)" ti="btn_2_1">2⁵³+1</button>
 </div>
 </div>
 <div class="panel">
-<h3>64-Bit Binary Representation</h3>
+<h3 ti="h3_64_bit_binary_representat">64-Bit Binary Representation</h3>
 <div class="bits-labels">
 <span style="width:22px;color:#ff6b6b">S</span>
 <span style="width:253px;color:#4dabf7">Exponent (11 bits)</span>
@@ -105,7 +107,7 @@ header h1{font-size:1.1rem;color:#ffd43b}
 <div class="bits-row" id="bitsRow"></div>
 </div>
 <div class="panel">
-<h3>Breakdown</h3>
+<h3 ti="h3_breakdown">Breakdown</h3>
 <div class="breakdown" id="breakdown"></div>
 <div class="formula" id="formula"></div>
 </div>
@@ -115,7 +117,7 @@ header h1{font-size:1.1rem;color:#ffd43b}
 <div class="info-card" id="specialInfo"></div>
 <div class="info-card"><h4>IEEE 754 Double (64-bit)</h4>
 <table class="ref-table">
-<tr><th>Part</th><th>Bits</th><th>Range</th></tr>
+<tr><th ti="th_part">Part</th><th ti="th_bits">Bits</th><th ti="th_range">Range</th></tr>
 <tr><td style="color:#ff6b6b">Sign</td><td>1 (bit 63)</td><td>0=+, 1=−</td></tr>
 <tr><td style="color:#4dabf7">Exponent</td><td>11 (bits 52-62)</td><td>0-2047 (biased by 1023)</td></tr>
 <tr><td style="color:#69db7c">Mantissa</td><td>52 (bits 0-51)</td><td>Implicit leading 1 for normals</td></tr>
@@ -144,6 +146,16 @@ header h1{font-size:1.1rem;color:#ffd43b}
 </div>
 </div>
 </div>
+
+<script>var _LANG={'title_ieee_754_float_visualizer':["IEEE 754 Float Visualizer", "IEEE 754 浮点数可视化工具"],'metadesc_interactive_ieee_754_doub':["Interactive IEEE 754 double-precision float visualizer. Bit-level representation, sign/exponent/mantissa breakdown, special values (NaN, Infinity, -0), precision limits, rounding errors.", "交互式 IEEE 754 双精度浮点数可视化工具。位级表示、符号/指数/尾数分解、特殊值（NaN、无穷大、-0）、精度限制、舍入误差。"],'h1_ieee_754_float_visualizer':["IEEE 754 Float Visualizer", "IEEE 754 浮点数可视化工具"],'h3_enter_a_number':["Enter a Number", "请输入数字"],'h3_64_bit_binary_representat':["64-Bit Binary Representation", "64 位二进制表示"],'h3_breakdown':["Breakdown", "分解"],'h3_precision':["Precision", "精确"],'h3_precision_analysis':["Precision Analysis", "精密分析"],'btn_analyze':["Analyze", "分析"],'btn_0_1':["0.1", "0.1"],'btn_0_2':["0.2", "0.2"],'btn_0_3':["0.3", "0.3"],'btn_0_1_0_2':["0.1+0.2", "0.1+0.2"],'btn_1':["-1", "-1"],'btn_0':["-0", "-0"],'btn_nan':["NaN", "钠"],'btn_infinity':["Infinity", "无限"],'btn_infinity_2':["-Infinity", "无穷大"],'btn_max_safe_int':["MAX_SAFE_INT", "MAX_SAFE_INT"],'btn_min_value':["MIN_VALUE", "最小值"],'btn_epsilon':["EPSILON", "艾普西隆"],'btn_2_1':["2⁵³+1", "2⁵³+1"],'label_value':["Value:", "价值："],'label_sign_bit':["Sign bit:", "符号位："],'label_exponent_bits':["Exponent bits:", "指数位："],'label_biased_exponent':["Biased exponent:", "有偏指数："],'label_mantissa_bits':["Mantissa bits:", "尾数位："],'label_mantissa_value':["Mantissa value:", "尾数："],'label_previous_float':["Previous float:", "上一次浮点数："],'label_this_value':["This value:", "此值："],'label_next_float':["Next float:", "下一个浮标："],'label_gap_ulp':["Gap (ULP):", "差距（ULP）："],'label_0_1_0_2':["0.1 + 0.2 =", "0.1 + 0.2 ="],'label_0_3':["0.3 =", "0.3 ="],'label_difference':["Difference:", "不同之处："],'label_num':["${num}:", "${num}:"],'label_num_1':["${num} + 1 =", "${num} + 1 ="],'placeholder_enter_any_number':["Enter any number...", "请输入任意数字……"],'th_part':["Part", "部分"],'th_bits':["Bits", "比特"],'th_range':["Range", "范围"],'jtlword_nan':["NaN", "钠"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function getFloat64Bits(num){
   const buf=new ArrayBuffer(8);
@@ -219,12 +231,12 @@ function renderBreakdown(num){
 
   const el=document.getElementById('breakdown');
   let html=`
-  <span class="label">Value:</span><span class="value" style="color:#ffd43b;font-size:1rem;font-weight:700">${Object.is(num,-0)?'-0':num}</span>
-  <span class="label">Sign bit:</span><span class="value sign-val">${sign} (${sign===0?'+':'−'})</span>
-  <span class="label">Exponent bits:</span><span class="value exp-val">${expBits} = ${expVal}</span>
-  <span class="label">Biased exponent:</span><span class="value exp-val">${expVal} − 1023 = ${biasedExp}</span>
-  <span class="label">Mantissa bits:</span><span class="value mant-val" style="font-size:.72rem">${mantBits}</span>
-  <span class="label">Mantissa value:</span><span class="value mant-val">${mantVal.toPrecision(16)}</span>`;
+  <span class="label" ti="label_value">Value:</span><span class="value" style="color:#ffd43b;font-size:1rem;font-weight:700">${Object.is(num,-0)?'-0':num}</span>
+  <span class="label" ti="label_sign_bit">Sign bit:</span><span class="value sign-val">${sign} (${sign===0?'+':'−'})</span>
+  <span class="label" ti="label_exponent_bits">Exponent bits:</span><span class="value exp-val">${expBits} = ${expVal}</span>
+  <span class="label" ti="label_biased_exponent">Biased exponent:</span><span class="value exp-val">${expVal} − 1023 = ${biasedExp}</span>
+  <span class="label" ti="label_mantissa_bits">Mantissa bits:</span><span class="value mant-val" style="font-size:.72rem">${mantBits}</span>
+  <span class="label" ti="label_mantissa_value">Mantissa value:</span><span class="value mant-val">${mantVal.toPrecision(16)}</span>`;
   el.innerHTML=html;
 
   // Formula
@@ -247,7 +259,7 @@ function renderBreakdown(num){
 function renderPrecision(num){
   const el=document.getElementById('precisionPanel');
   if(!isFinite(num)||isNaN(num)){
-    el.innerHTML='<h3>Precision</h3><p style="color:#888;font-size:.8rem">Not applicable for special values.</p>';
+    el.innerHTML='<h3 ti="h3_precision">Precision</h3><p style="color:#888;font-size:.8rem">Not applicable for special values.</p>';
     return;
   }
 
@@ -256,21 +268,21 @@ function renderPrecision(num){
   const gap=next-num;
   const relErr=num!==0?gap/Math.abs(num):0;
 
-  let html='<h3>Precision Analysis</h3>';
+  let html='<h3 ti="h3_precision_analysis">Precision Analysis</h3>';
 
   // Neighbors
-  html+=`<div class="compare-row"><span class="compare-label">Previous float:</span><span class="compare-val">${prev}</span></div>`;
-  html+=`<div class="compare-row"><span class="compare-label">This value:</span><span class="compare-val" style="color:#ffd43b">${Object.is(num,-0)?'-0':num}</span></div>`;
-  html+=`<div class="compare-row"><span class="compare-label">Next float:</span><span class="compare-val">${next}</span></div>`;
-  html+=`<div class="compare-row"><span class="compare-label">Gap (ULP):</span><span class="compare-val">${gap.toExponential(4)}</span></div>`;
+  html+=`<div class="compare-row"><span class="compare-label" ti="label_previous_float">Previous float:</span><span class="compare-val">${prev}</span></div>`;
+  html+=`<div class="compare-row"><span class="compare-label" ti="label_this_value">This value:</span><span class="compare-val" style="color:#ffd43b">${Object.is(num,-0)?'-0':num}</span></div>`;
+  html+=`<div class="compare-row"><span class="compare-label" ti="label_next_float">Next float:</span><span class="compare-val">${next}</span></div>`;
+  html+=`<div class="compare-row"><span class="compare-label" ti="label_gap_ulp">Gap (ULP):</span><span class="compare-val">${gap.toExponential(4)}</span></div>`;
 
   // 0.1 + 0.2 comparison
   if(document.getElementById('numInput').value.includes('0.1+0.2')||num===0.1+0.2){
     html+=`<div style="margin-top:12px;padding:8px;background:rgba(255,68,68,.08);border:1px solid rgba(255,68,68,.2);border-radius:6px;font-size:.78rem">`;
     html+=`<div style="color:#ff6b6b;font-weight:600;margin-bottom:4px">0.1 + 0.2 !== 0.3</div>`;
-    html+=`<div class="compare-row"><span class="compare-label">0.1 + 0.2 =</span><span class="compare-val">${(0.1+0.2).toPrecision(20)}</span></div>`;
-    html+=`<div class="compare-row"><span class="compare-label">0.3 =</span><span class="compare-val">${(0.3).toPrecision(20)}</span></div>`;
-    html+=`<div class="compare-row"><span class="compare-label">Difference:</span><span class="compare-diff">${((0.1+0.2)-0.3).toExponential(4)}</span></div>`;
+    html+=`<div class="compare-row"><span class="compare-label" ti="label_0_1_0_2">0.1 + 0.2 =</span><span class="compare-val">${(0.1+0.2).toPrecision(20)}</span></div>`;
+    html+=`<div class="compare-row"><span class="compare-label" ti="label_0_3">0.3 =</span><span class="compare-val">${(0.3).toPrecision(20)}</span></div>`;
+    html+=`<div class="compare-row"><span class="compare-label" ti="label_difference">Difference:</span><span class="compare-diff">${((0.1+0.2)-0.3).toExponential(4)}</span></div>`;
     html+=`<div style="color:#888;margin-top:4px;font-size:.7rem">Fix: Math.abs(a - b) < Number.EPSILON or use toFixed()</div>`;
     html+=`</div>`;
   }
@@ -279,8 +291,8 @@ function renderPrecision(num){
   if(Math.abs(num)>Number.MAX_SAFE_INTEGER*0.9&&Number.isFinite(num)){
     html+=`<div style="margin-top:12px;padding:8px;background:rgba(255,169,77,.08);border:1px solid rgba(255,169,77,.2);border-radius:6px;font-size:.78rem">`;
     html+=`<div style="color:#ffa94d;font-weight:600;margin-bottom:4px">Near Integer Precision Limit</div>`;
-    html+=`<div class="compare-row"><span class="compare-label">${num}:</span><span class="compare-val">${Number.isSafeInteger(num)?'Safe ✓':'UNSAFE ✗'}</span></div>`;
-    html+=`<div class="compare-row"><span class="compare-label">${num} + 1 =</span><span class="compare-val">${num+1}</span></div>`;
+    html+=`<div class="compare-row"><span class="compare-label" ti="label_num">${num}:</span><span class="compare-val">${Number.isSafeInteger(num)?'Safe ✓':'UNSAFE ✗'}</span></div>`;
+    html+=`<div class="compare-row"><span class="compare-label" ti="label_num_1">${num} + 1 =</span><span class="compare-val">${num+1}</span></div>`;
     if(num+1===num)html+=`<div class="compare-diff">Adding 1 has no effect! Use BigInt for exact large integers.</div>`;
     html+=`</div>`;
   }
@@ -324,6 +336,24 @@ function renderSpecial(num){
 
 // Initialize
 analyze();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

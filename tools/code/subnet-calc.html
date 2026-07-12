@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_subnet_calculator_cidr_bi" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,22 +145,24 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Subnet Calculator</h1>
+  <h1 ti="h1_subnet_calculator">Subnet Calculator</h1>
   <p>IPv4 CIDR · Binary Visualization · Subnet Splitter</p>
 </header>
 <main>
 
   <!-- Input -->
   <section>
-    <h2>Input</h2>
+    <h2 ti="h2_input">Input</h2>
     <div class="input-row">
       <div class="input-group">
-        <label>IP Address</label>
-        <input type="text" id="ip" value="192.168.1.0" spellcheck="false" autocomplete="off" placeholder="e.g. 10.0.0.0">
+        <label ti="label_ip_address">IP Address</label>
+        <input type="text" id="ip" value="192.168.1.0" spellcheck="false" autocomplete="off" tp="placeholder_e_g_10_0_0_0" placeholder="e.g. 10.0.0.0">
       </div>
       <div class="input-group">
-        <label>Prefix</label>
+        <label ti="label_prefix">Prefix</label>
         <select id="cidr-select"></select>
       </div>
       <div class="slider-wrap">
@@ -179,7 +181,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 
   <!-- 32-bit visual cells -->
   <section>
-    <h2>Visual Bit Map — 32 bits</h2>
+    <h2 ti="h2_visual_bit_map_32_bits">Visual Bit Map — 32 bits</h2>
     <div id="cells-output"></div>
     <div class="bit-legend">
       <span><span class="legend-dot net"></span> Network bits</span>
@@ -189,25 +191,25 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 
   <!-- Binary text representation -->
   <section>
-    <h2>Binary Representation</h2>
+    <h2 ti="h2_binary_representation">Binary Representation</h2>
     <div class="bin-rows" id="bin-output"></div>
   </section>
 
   <!-- Subnet mask ↔ CIDR converter -->
   <section>
-    <h2>Subnet Mask ↔ CIDR Converter</h2>
+    <h2 ti="h2_subnet_mask_cidr_converte">Subnet Mask ↔ CIDR Converter</h2>
     <div class="conv-row">
       <div class="input-group">
-        <label>Subnet Mask (dotted decimal)</label>
-        <input type="text" id="conv-mask" placeholder="255.255.255.0" spellcheck="false">
+        <label ti="label_subnet_mask_dotted_decima">Subnet Mask (dotted decimal)</label>
+        <input type="text" id="conv-mask" tp="placeholder_255_255_255_0" placeholder="255.255.255.0" spellcheck="false">
       </div>
       <div style="color:var(--text2);padding-bottom:.55rem;font-size:1.1rem">⇄</div>
       <div class="input-group">
-        <label>CIDR Prefix</label>
-        <input type="text" id="conv-cidr" placeholder="/24" spellcheck="false" style="width:90px">
+        <label ti="label_cidr_prefix">CIDR Prefix</label>
+        <input type="text" id="conv-cidr" tp="placeholder_24" placeholder="/24" spellcheck="false" style="width:90px">
       </div>
       <div class="input-group" style="flex:1">
-        <label>Result</label>
+        <label ti="label_result">Result</label>
         <div class="conv-result" id="conv-result">—</div>
       </div>
     </div>
@@ -215,35 +217,45 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 
   <!-- Subnet splitter -->
   <section>
-    <h2>Subnet Splitter</h2>
+    <h2 ti="h2_subnet_splitter">Subnet Splitter</h2>
     <div class="split-controls">
       <div class="input-group">
-        <label>Number of subnets (power of 2)</label>
+        <label ti="label_number_of_subnets_power_o">Number of subnets (power of 2)</label>
         <input type="number" id="split-n" value="4" min="1" max="256">
       </div>
-      <button class="split-btn" id="split-btn">Split Network</button>
+      <button class="split-btn" id="split-btn" ti="btn_split_network">Split Network</button>
     </div>
     <div id="split-output"><p class="split-empty">Enter a number above and click "Split Network".</p></div>
   </section>
 
   <!-- IP address class reference -->
   <section>
-    <h2>IPv4 Address Class Reference</h2>
+    <h2 ti="h2_ipv4_address_class_refere">IPv4 Address Class Reference</h2>
     <div class="class-grid" id="class-table"></div>
   </section>
 
   <!-- CIDR quick reference -->
   <section>
-    <h2>CIDR Quick Reference</h2>
+    <h2 ti="h2_cidr_quick_reference">CIDR Quick Reference</h2>
     <div class="cidr-grid" id="cidr-ref"></div>
   </section>
 
 </main>
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 80+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 80+ free browser-based developer tools
 </footer>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_subnet_calculator_cidr_bi':["Subnet Calculator — CIDR, Binary Viz, Subnet Splitter", "子网计算器 — CIDR、二进制可视化、子网分割器"],'metadesc_ipv4_subnet_calculator_wi':["IPv4 subnet calculator with CIDR notation, visual binary breakdown, subnet splitter, and network planning. Free, no dependencies.", "IPv4 子网计算器，支持 CIDR 表示法、可视化二进制分解、子网划分和网络规划。免费，无任何依赖。"],'h1_subnet_calculator':["Subnet Calculator", "子网计算器"],'h2_input':["Input", "输入"],'h2_visual_bit_map_32_bits':["Visual Bit Map — 32 bits", "可视化位图 — 32 位"],'h2_binary_representation':["Binary Representation", "二进制表示"],'h2_subnet_mask_cidr_converte':["Subnet Mask ↔ CIDR Converter", "子网掩码↔CIDR转换器"],'h2_subnet_splitter':["Subnet Splitter", "子网分割器"],'h2_ipv4_address_class_refere':["IPv4 Address Class Reference", "IPv4 地址类参考"],'h2_cidr_quick_reference':["CIDR Quick Reference", "CIDR快速参考"],'btn_split_network':["Split Network", "分离网络"],'label_label':["${label}", "${label}"],'placeholder_e_g_10_0_0_0':["e.g. 10.0.0.0", "例如 10.0.0.0"],'placeholder_255_255_255_0':["255.255.255.0", "255.255.255.0"],'placeholder_24':["/24", "/24"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'th_network':["Network", "网络"],'th_first_host':["First Host", "第一主持人"],'th_last_host':["Last Host", "最后一位主持人"],'th_broadcast':["Broadcast", "播送"],'th_hosts':["Hosts", "主持人"],'label_ip_address':["IP Address", "IP地址"],'label_prefix':["Prefix", "前缀"],'label_subnet_mask_dotted_decima':["Subnet Mask (dotted decimal)", "子网掩码（点分十进制）"],'label_cidr_prefix':["CIDR Prefix", "CIDR前缀"],'label_result':["Result", "结果"],'label_number_of_subnets_power_o':["Number of subnets (power of 2)", "子网数量（2 的幂）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["✓ Copied", "✓ 已复制"],'jtc_click_to_copy':["Click to copy", "点击复制"],'jtc_invalid_mask':["Invalid mask", "无效掩码"],'jtc_not_a_valid_mask':["Not a valid mask", "无效口罩"],'jtc_x':["→ /", "→ /"],'jtc_invalid_cidr':["Invalid CIDR", "无效的CIDR"],'jtc_x_2':["→", "→"],'jtcpre_x':["→ /", "→ /"],'jtcpre_x_2':["→ ", "→"],'jtlword_class':["Class", "班级"],'jtlword_range':["Range", "范围"],'jtlword_hosts':["Hosts", "主持人"],'jtlword_use':["Use", "使用"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Helpers ────────────────────────────────────────────────────────────────
 function parseIP(s){
@@ -336,9 +348,9 @@ function copyText(text,card){
   navigator.clipboard.writeText(text).then(()=>{
     card.classList.add('copied');
     const hint=card.querySelector('.copy-hint');
-    if(hint)hint.textContent='✓ Copied';
+    if(hint)hint.textContent=T("jtc_copied");
     showToast();
-    setTimeout(()=>{card.classList.remove('copied');if(hint)hint.textContent='Click to copy'},1600);
+    setTimeout(()=>{card.classList.remove('copied');if(hint)hint.textContent=T("jtc_click_to_copy")},1600);
   }).catch(()=>{
     // fallback
     const ta=document.createElement('textarea');
@@ -388,7 +400,7 @@ function colorizedBin(bin32,cidr){
 }
 function makeBinRow(label,bin32,cidr){
   const d=document.createElement('div');d.className='bin-row';
-  d.innerHTML=`<span class="blabel">${label}</span><span class="bval">${colorizedBin(bin32,cidr)}</span>`;
+  d.innerHTML=`<span class="blabel" ti="label_label">${label}</span><span class="bval">${colorizedBin(bin32,cidr)}</span>`;
   return d;
 }
 
@@ -463,23 +475,23 @@ function convFromMask(){
   const s=convMask.value.trim();
   if(!s){convResult.textContent='—';convCIDR.value='';return}
   const oct=parseIP(s);
-  if(!oct){convResult.textContent='Invalid mask';convResult.style.color='var(--red)';return}
+  if(!oct){convResult.textContent=T("jtc_invalid_mask");convResult.style.color='var(--red)';return}
   const n=ipToInt(oct);
   const c=cidrFromMask(n);
-  if(c===null){convResult.textContent='Not a valid mask';convResult.style.color='var(--red)';return}
+  if(c===null){convResult.textContent=T("jtc_not_a_valid_mask");convResult.style.color='var(--red)';return}
   convCIDR.value='/'+c;
   convResult.style.color='var(--accent)';
-  convResult.textContent='→ /'+c+' ('+s+')';
+  convResult.textContent=T("jtc_x")+c+' ('+s+')';
 }
 function convFromCIDR(){
   let s=convCIDR.value.trim().replace('/','');
   const c=parseInt(s,10);
-  if(isNaN(c)||c<0||c>32){convResult.textContent='Invalid CIDR';convResult.style.color='var(--red)';return}
+  if(isNaN(c)||c<0||c>32){convResult.textContent=T("jtc_invalid_cidr");convResult.style.color='var(--red)';return}
   const mask=maskFromCIDR(c);
   const maskStr=intToIP(mask);
   convMask.value=maskStr;
   convResult.style.color='var(--accent)';
-  convResult.textContent='→ '+maskStr+' (/'+c+')';
+  convResult.textContent=T("jtcpre_x_2")+maskStr+' (/'+c+')';
 }
 convMask.addEventListener('input',convFromMask);
 convCIDR.addEventListener('input',convFromCIDR);
@@ -504,7 +516,7 @@ function splitNetwork(){
   const subnetSize=Math.pow(2,32-newCIDR);
 
   let html=`<p style="font-size:.78rem;color:var(--text2);margin-bottom:.65rem">${actual} subnets of /${newCIDR} (${formatNum(subnetSize)} addresses each)</p>`;
-  html+='<table class="split-table"><thead><tr><th>#</th><th>Network</th><th>First Host</th><th>Last Host</th><th>Broadcast</th><th>Hosts</th></tr></thead><tbody>';
+  html+='<table class="split-table"><thead><tr><th>#</th><th ti="th_network">Network</th><th ti="th_first_host">First Host</th><th ti="th_last_host">Last Host</th><th ti="th_broadcast">Broadcast</th><th ti="th_hosts">Hosts</th></tr></thead><tbody>';
   for(let i=0;i<actual;i++){
     const net=(networkInt+i*subnetSize)>>>0;
     const bcast=(net+subnetSize-1)>>>0;
@@ -567,12 +579,12 @@ ipEl.addEventListener('input',calculate);
 calculate();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/ip-info/" style="color:#4da6ff;text-decoration:none;margin:0 8px">IP Info</a>
 <a href="https://gokuscraper.github.io/dev-vault/dns-lookup/" style="color:#4da6ff;text-decoration:none;margin:0 8px">DNS Lookup</a>
 <a href="https://gokuscraper.github.io/dev-vault/number-base/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Number Base</a>
 <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Chmod Calc</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -582,5 +594,23 @@ calculate();
 <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Chmod Calc</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

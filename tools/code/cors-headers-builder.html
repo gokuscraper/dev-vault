@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cors_headers_builder" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,12 +57,20 @@ button.primary:hover{background:#1d4ed8}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CORS Headers Builder</h1>
-<p class="subtitle">Configure CORS visually, generate server code &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_cors_headers_builder" ti="h1_cors_headers_builder" ti="title_cors_headers_builder" ti="h1_cors_headers_builder" ti="title_cors_headers_builder" ti="h1_cors_headers_builder" ti="title_cors_headers_builder" ti="h1_cors_headers_builder">CORS Headers Builder</h1>
+<p class="subtitle">Configure CORS visually, generate server code &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a></p>
 
 <div class="card">
-<h3>Presets</h3>
+<h3 ti="h3_presets" ti="h3_presets" ti="h3_presets" ti="h3_presets">Presets</h3>
 <div class="preset-grid">
 <div class="preset" onclick="applyPreset('open')"><div class="name">Wide Open</div><div class="desc">Allow all origins</div></div>
 <div class="preset" onclick="applyPreset('api')"><div class="name">REST API</div><div class="desc">Specific origins, JSON</div></div>
@@ -77,15 +85,15 @@ button.primary:hover{background:#1d4ed8}
 <div>
 <!-- Config Panel -->
 <div class="card">
-<h3>Origin</h3>
+<h3 ti="h3_origin" ti="h3_origin" ti="h3_origin" ti="h3_origin">Origin</h3>
 <div class="check-row">
 <input type="checkbox" id="allow-all-origins" onchange="toggleAllOrigins()">
-<label for="allow-all-origins">Allow all origins (*)</label>
+<label for="allow-all-origins" ti="label_allow_all_origins" ti="label_allow_all_origins" ti="label_allow_all_origins" ti="label_allow_all_origins">Allow all origins (*)</label>
 </div>
 <div id="origin-input-area">
 <div class="row">
-<div class="col"><input type="text" id="origin-input" placeholder="https://example.com" onkeydown="if(event.key==='Enter')addOrigin()"></div>
-<button onclick="addOrigin()">Add</button>
+<div class="col"><input type="text" id="origin-input" tp="placeholder_https_example_com" tp="placeholder_https_example_com" tp="placeholder_https_example_com" tp="placeholder_https_example_com" placeholder="https://example.com" onkeydown="if(event.key==='Enter')addOrigin()"></div>
+<button onclick="addOrigin()" ti="btn_add" ti="btn_add_2" ti="btn_add_3" ti="btn_add" ti="btn_add_2" ti="btn_add_3" ti="btn_add" ti="btn_add_2" ti="btn_add_3" ti="btn_add" ti="btn_add_2" ti="btn_add_3">Add</button>
 </div>
 <div class="tag-list" id="origin-tags"></div>
 </div>
@@ -93,52 +101,52 @@ button.primary:hover{background:#1d4ed8}
 </div>
 
 <div class="card">
-<h3>Methods</h3>
+<h3 ti="h3_methods" ti="h3_methods" ti="h3_methods" ti="h3_methods">Methods</h3>
 <div class="check-row" style="margin-bottom:6px">
 <input type="checkbox" id="allow-all-methods" onchange="toggleAllMethods()">
-<label for="allow-all-methods">Allow all methods (*)</label>
+<label for="allow-all-methods" ti="label_allow_all_methods" ti="label_allow_all_methods" ti="label_allow_all_methods" ti="label_allow_all_methods">Allow all methods (*)</label>
 </div>
 <div class="method-grid" id="method-grid"></div>
 </div>
 
 <div class="card">
-<h3>Headers</h3>
+<h3 ti="h3_headers" ti="h3_headers" ti="h3_headers" ti="h3_headers">Headers</h3>
 <h4>Allowed Request Headers</h4>
 <div class="check-row">
 <input type="checkbox" id="allow-all-headers" onchange="toggleAllHeaders()">
-<label for="allow-all-headers">Allow all headers (*)</label>
+<label for="allow-all-headers" ti="label_allow_all_headers" ti="label_allow_all_headers" ti="label_allow_all_headers" ti="label_allow_all_headers">Allow all headers (*)</label>
 </div>
 <div id="header-input-area">
 <div class="row">
-<div class="col"><input type="text" id="header-input" placeholder="Authorization" onkeydown="if(event.key==='Enter')addHeader()"></div>
+<div class="col"><input type="text" id="header-input" tp="placeholder_authorization" tp="placeholder_authorization" tp="placeholder_authorization" tp="placeholder_authorization" placeholder="Authorization" onkeydown="if(event.key==='Enter')addHeader()"></div>
 <button onclick="addHeader()">Add</button>
 </div>
 <div style="display:flex;gap:4px;flex-wrap:wrap;margin:4px 0">
-<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Authorization')">+Authorization</button>
-<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Content-Type')">+Content-Type</button>
-<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('X-Requested-With')">+X-Requested-With</button>
-<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Accept')">+Accept</button>
+<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Authorization')" ti="btn_authorization" ti="btn_authorization" ti="btn_authorization" ti="btn_authorization">+Authorization</button>
+<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Content-Type')" ti="btn_content_type" ti="btn_content_type" ti="btn_content_type" ti="btn_content_type">+Content-Type</button>
+<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('X-Requested-With')" ti="btn_x_requested_with" ti="btn_x_requested_with" ti="btn_x_requested_with" ti="btn_x_requested_with">+X-Requested-With</button>
+<button style="font-size:.7rem;padding:2px 6px" onclick="addQuickHeader('Accept')" ti="btn_accept" ti="btn_accept" ti="btn_accept" ti="btn_accept">+Accept</button>
 </div>
 <div class="tag-list" id="header-tags"></div>
 </div>
 
 <h4>Exposed Response Headers</h4>
 <div class="row">
-<div class="col"><input type="text" id="expose-input" placeholder="X-Total-Count" onkeydown="if(event.key==='Enter')addExpose()"></div>
+<div class="col"><input type="text" id="expose-input" tp="placeholder_x_total_count" tp="placeholder_x_total_count" tp="placeholder_x_total_count" tp="placeholder_x_total_count" placeholder="X-Total-Count" onkeydown="if(event.key==='Enter')addExpose()"></div>
 <button onclick="addExpose()">Add</button>
 </div>
 <div class="tag-list" id="expose-tags"></div>
 </div>
 
 <div class="card">
-<h3>Options</h3>
+<h3 ti="h3_options" ti="h3_options" ti="h3_options" ti="h3_options">Options</h3>
 <div class="check-row">
 <input type="checkbox" id="credentials" onchange="updateConfig()">
-<label for="credentials">Allow Credentials (cookies, auth headers)</label>
+<label for="credentials" ti="label_allow_credentials_cookies" ti="label_allow_credentials_cookies" ti="label_allow_credentials_cookies" ti="label_allow_credentials_cookies">Allow Credentials (cookies, auth headers)</label>
 </div>
 <div class="row" style="margin-top:8px">
 <div class="col">
-<label>Max Age (preflight cache, seconds)</label>
+<label ti="label_max_age_preflight_cache_s" ti="label_max_age_preflight_cache_s" ti="label_max_age_preflight_cache_s" ti="label_max_age_preflight_cache_s">Max Age (preflight cache, seconds)</label>
 <input type="number" id="max-age" value="86400" min="0" onchange="updateConfig()">
 </div>
 </div>
@@ -148,14 +156,14 @@ button.primary:hover{background:#1d4ed8}
 <div>
 <!-- Output Panel -->
 <div class="card">
-<h3>Response Headers Preview</h3>
+<h3 ti="h3_response_headers_preview" ti="h3_response_headers_preview" ti="h3_response_headers_preview" ti="h3_response_headers_preview">Response Headers Preview</h3>
 <div class="header-preview" id="header-preview"></div>
 </div>
 
 <div class="card">
-<h3>Server Code</h3>
+<h3 ti="h3_server_code" ti="h3_server_code" ti="h3_server_code" ti="h3_server_code">Server Code</h3>
 <div class="tabs" id="server-tabs"></div>
-<div class="code-block" id="server-code"><button class="copy-btn" onclick="copyCode()">Copy</button><span id="code-content"></span></div>
+<div class="code-block" id="server-code"><button class="copy-btn" onclick="copyCode()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button><span id="code-content"></span></div>
 </div>
 
 <div id="warnings"></div>
@@ -164,10 +172,40 @@ button.primary:hover{background:#1d4ed8}
 
 <div class="footer">
 CORS Headers Builder &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash;
-<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS">MDN CORS Guide</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/HTTP/CORS" ti="link_mdn_cors_guide" ti="link_mdn_cors_guide" ti="link_mdn_cors_guide" ti="link_mdn_cors_guide">MDN CORS Guide</a>
 </div>
 </div>
 
+
+
+
+<script>var _LANG={'title_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'metadesc_visual_cors_configuration':["Visual CORS configuration builder. Generate Access-Control headers and server config for Express, Fastify, Next.js, Flask, Django, Go, Rust, Nginx, Apache. Test live.", "可视化 CORS 配置生成器。为 Express、Fastify、Next.js、Flask、Django、Go、Rust、Nginx 和 Apache 生成访问控制标头和服务器配置。支持在线测试。"],'h1_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_origin':["Origin", "起源"],'h3_methods':["Methods", "方法"],'h3_headers':["Headers", "标题"],'h3_options':["Options", "选项"],'h3_response_headers_preview':["Response Headers Preview", "响应头预览"],'h3_server_code':["Server Code", "服务器代码"],'btn_add':["Add", "添加"],'btn_add_2':["Add", "添加"],'btn_authorization':["+Authorization", "+授权"],'btn_content_type':["+Content-Type", "+内容类型"],'btn_x_requested_with':["+X-Requested-With", "+X-Requested-With"],'btn_accept':["+Accept", "+接受"],'btn_add_3':["Add", "添加"],'btn_copy':["Copy", "复制"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_authorization':["Authorization", "授权"],'placeholder_x_total_count':["X-Total-Count", "X-总数"],'label_allow_all_origins':["Allow all origins (*)", "允许所有来源 (*)"],'label_allow_all_methods':["Allow all methods (*)", "允许所有方法（*）"],'label_allow_all_headers':["Allow all headers (*)", "允许所有标头 (*)"],'label_allow_credentials_cookies':["Allow Credentials (cookies, auth headers)", "允许凭据（cookie、身份验证标头）"],'label_max_age_preflight_cache_s':["Max Age (preflight cache, seconds)", "最大缓存时间（预检缓存，秒）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_cors_guide':["MDN CORS Guide", "MDN CORS 指南"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'metadesc_visual_cors_configuration':["Visual CORS configuration builder. Generate Access-Control headers and server config for Express, Fastify, Next.js, Flask, Django, Go, Rust, Nginx, Apache. Test live.", "可视化 CORS 配置生成器。为 Express、Fastify、Next.js、Flask、Django、Go、Rust、Nginx 和 Apache 生成访问控制标头和服务器配置。支持在线测试。"],'h1_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_origin':["Origin", "起源"],'h3_methods':["Methods", "方法"],'h3_headers':["Headers", "标题"],'h3_options':["Options", "选项"],'h3_response_headers_preview':["Response Headers Preview", "响应头预览"],'h3_server_code':["Server Code", "服务器代码"],'btn_add':["Add", "添加"],'btn_add_2':["Add", "添加"],'btn_authorization':["+Authorization", "+授权"],'btn_content_type':["+Content-Type", "+内容类型"],'btn_x_requested_with':["+X-Requested-With", "+X-Requested-With"],'btn_accept':["+Accept", "+接受"],'btn_add_3':["Add", "添加"],'btn_copy':["Copy", "复制"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_authorization':["Authorization", "授权"],'placeholder_x_total_count':["X-Total-Count", "X-总数"],'label_allow_all_origins':["Allow all origins (*)", "允许所有来源 (*)"],'label_allow_all_methods':["Allow all methods (*)", "允许所有方法（*）"],'label_allow_all_headers':["Allow all headers (*)", "允许所有标头 (*)"],'label_allow_credentials_cookies':["Allow Credentials (cookies, auth headers)", "允许凭据（cookie、身份验证标头）"],'label_max_age_preflight_cache_s':["Max Age (preflight cache, seconds)", "最大缓存时间（预检缓存，秒）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_cors_guide':["MDN CORS Guide", "MDN CORS 指南"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'metadesc_visual_cors_configuration':["Visual CORS configuration builder. Generate Access-Control headers and server config for Express, Fastify, Next.js, Flask, Django, Go, Rust, Nginx, Apache. Test live.", "可视化 CORS 配置生成器。为 Express、Fastify、Next.js、Flask、Django、Go、Rust、Nginx 和 Apache 生成访问控制标头和服务器配置。支持在线测试。"],'h1_cors_headers_builder':["CORS Headers Builder", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_origin':["Origin", "起源"],'h3_methods':["Methods", "方法"],'h3_headers':["Headers", "标题"],'h3_options':["Options", "选项"],'h3_response_headers_preview':["Response Headers Preview", "响应头预览"],'h3_server_code':["Server Code", "服务器代码"],'btn_add':["Add", "添加"],'btn_add_2':["Add", "添加"],'btn_authorization':["+Authorization", "+授权"],'btn_content_type':["+Content-Type", "+内容类型"],'btn_x_requested_with':["+X-Requested-With", "+X-Requested-With"],'btn_accept':["+Accept", "+接受"],'btn_add_3':["Add", "添加"],'btn_copy':["Copy", "复制"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_authorization':["Authorization", "授权"],'placeholder_x_total_count':["X-Total-Count", "X-总数"],'label_allow_all_origins':["Allow all origins (*)", "允许所有来源 (*)"],'label_allow_all_methods':["Allow all methods (*)", "允许所有方法（*）"],'label_allow_all_headers':["Allow all headers (*)", "允许所有标头 (*)"],'label_allow_credentials_cookies':["Allow Credentials (cookies, auth headers)", "允许凭据（cookie、身份验证标头）"],'label_max_age_preflight_cache_s':["Max Age (preflight cache, seconds)", "最大缓存时间（预检缓存，秒）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_cors_guide':["MDN CORS Guide", "MDN CORS 指南"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const METHODS = ['GET','POST','PUT','DELETE','PATCH','HEAD','OPTIONS'];
 const SERVERS = [
@@ -589,8 +627,8 @@ function copyCode() {
   const code = document.getElementById('code-content').textContent;
   navigator.clipboard.writeText(code).then(() => {
     const btn = document.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -599,6 +637,78 @@ function esc(s) {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

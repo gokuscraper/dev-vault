@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_sri_generator_subresource" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,6 +117,8 @@ pre .copy-btn {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>SRI</span> Generator</h1>
@@ -125,36 +127,36 @@ pre .copy-btn {
 
 <main>
   <div class="tabs" role="tablist">
-    <button class="tab active" data-panel="generator" role="tab">Hash Generator</button>
-    <button class="tab" data-panel="cdn" role="tab">CDN Libraries</button>
-    <button class="tab" data-panel="batch" role="tab">Batch Processing</button>
-    <button class="tab" data-panel="fallback" role="tab">Fallback Script</button>
-    <button class="tab" data-panel="reference" role="tab">Reference</button>
+    <button class="tab active" data-panel="generator" role="tab" ti="btn_hash_generator">Hash Generator</button>
+    <button class="tab" data-panel="cdn" role="tab" ti="btn_cdn_libraries">CDN Libraries</button>
+    <button class="tab" data-panel="batch" role="tab" ti="btn_batch_processing">Batch Processing</button>
+    <button class="tab" data-panel="fallback" role="tab" ti="btn_fallback_script">Fallback Script</button>
+    <button class="tab" data-panel="reference" role="tab" ti="btn_reference">Reference</button>
   </div>
 
   <!-- Hash Generator Panel -->
   <div class="panel active" id="generator">
     <div class="card">
-      <h2>Generate SRI Hash</h2>
+      <h2 ti="h2_generate_sri_hash">Generate SRI Hash</h2>
       <div class="info-box">
         Subresource Integrity (SRI) lets browsers verify that resources fetched from CDNs haven't been tampered with. Provide a URL or paste content directly to generate integrity hashes.
       </div>
 
       <div class="form-group">
-        <label for="sriUrl">Resource URL (fetched via CORS proxy for hashing)</label>
-        <input type="url" id="sriUrl" value="" placeholder="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js">
+        <label for="sriUrl" ti="label_resource_url_fetched_via">Resource URL (fetched via CORS proxy for hashing)</label>
+        <input type="url" id="sriUrl" value="" tp="placeholder_https_cdn_jsdelivr_net_np" placeholder="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js">
       </div>
 
       <p style="text-align:center;color:var(--text-dim);margin:0.5rem 0;">— or paste content directly —</p>
 
       <div class="form-group">
-        <label for="sriContent">Resource Content</label>
-        <textarea id="sriContent" placeholder="Paste the JavaScript or CSS content here..."></textarea>
+        <label for="sriContent" ti="label_resource_content">Resource Content</label>
+        <textarea id="sriContent" tp="placeholder_paste_the_javascript_or_c" placeholder="Paste the JavaScript or CSS content here..."></textarea>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="sriAlgo">Hash Algorithm</label>
+          <label for="sriAlgo" ti="label_hash_algorithm" ti="label_hash_algorithm_2">Hash Algorithm</label>
           <select id="sriAlgo">
             <option value="SHA-256">SHA-256</option>
             <option value="SHA-384" selected>SHA-384 (recommended)</option>
@@ -162,7 +164,7 @@ pre .copy-btn {
           </select>
         </div>
         <div class="form-group">
-          <label for="sriType">Resource Type</label>
+          <label for="sriType" ti="label_resource_type">Resource Type</label>
           <select id="sriType">
             <option value="script">Script (&lt;script&gt;)</option>
             <option value="style">Stylesheet (&lt;link&gt;)</option>
@@ -180,8 +182,8 @@ pre .copy-btn {
       </div>
 
       <div class="btn-row">
-        <button onclick="generateFromContent()">Generate from Content</button>
-        <button onclick="fetchAndGenerate()">Fetch URL & Generate</button>
+        <button onclick="generateFromContent()" ti="btn_generate_from_content">Generate from Content</button>
+        <button onclick="fetchAndGenerate()" ti="btn_fetch_url_generate">Fetch URL & Generate</button>
       </div>
 
       <div id="sriStatus"></div>
@@ -189,23 +191,23 @@ pre .copy-btn {
 
     <div id="sriResults" style="display:none;">
       <div class="card">
-        <h3>Integrity Hash</h3>
+        <h3 ti="h3_integrity_hash" ti="label_integrity_hash">Integrity Hash</h3>
         <div class="hash-display" id="hashValue"></div>
       </div>
 
       <div class="card">
-        <h3>HTML Tag (copy-ready)</h3>
-        <pre id="htmlTag"><button class="copy-btn" onclick="copyCode('htmlTag')">Copy</button></pre>
+        <h3 ti="h3_html_tag_copy_ready">HTML Tag (copy-ready)</h3>
+        <pre id="htmlTag"><button class="copy-btn" onclick="copyCode('htmlTag')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10" ti="btn_copy_11" ti="btn_copy_12">Copy</button></pre>
       </div>
 
       <div class="two-col">
         <div class="card">
-          <h3>Multiple Algorithms</h3>
+          <h3 ti="h3_multiple_algorithms">Multiple Algorithms</h3>
           <p style="font-size:0.82rem;color:var(--text-dim);margin-bottom:0.5rem;">You can specify multiple algorithms. The browser uses the strongest one it supports.</p>
           <pre id="multiAlgoTag"><button class="copy-btn" onclick="copyCode('multiAlgoTag')">Copy</button></pre>
         </div>
         <div class="card">
-          <h3>Hash Only</h3>
+          <h3 ti="h3_hash_only">Hash Only</h3>
           <pre id="hashOnly"><button class="copy-btn" onclick="copyCode('hashOnly')">Copy</button></pre>
         </div>
       </div>
@@ -215,7 +217,7 @@ pre .copy-btn {
   <!-- CDN Libraries Panel -->
   <div class="panel" id="cdn">
     <div class="card">
-      <h2>Popular CDN Libraries</h2>
+      <h2 ti="h2_popular_cdn_libraries">Popular CDN Libraries</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Click a library to auto-fill the URL and generate SRI hash. Note: fetching requires CORS support from the CDN.</p>
 
       <div class="cdn-grid" id="cdnGrid"></div>
@@ -225,12 +227,12 @@ pre .copy-btn {
   <!-- Batch Processing Panel -->
   <div class="panel" id="batch">
     <div class="card">
-      <h2>Batch Hash Generation</h2>
+      <h2 ti="h2_batch_hash_generation">Batch Hash Generation</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Enter multiple URLs (one per line) to generate SRI hashes for all of them.</p>
 
       <div class="form-group">
-        <label for="batchUrls">URLs (one per line)</label>
-        <textarea id="batchUrls" style="min-height:120px;" placeholder="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js
+        <label for="batchUrls" ti="label_urls_one_per_line">URLs (one per line)</label>
+        <textarea id="batchUrls" style="min-height:120px;" tp="placeholder_https_cdn_jsdelivr_net_np_2" placeholder="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js
 https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
       </div>
 
@@ -244,7 +246,7 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
           </select>
         </div>
         <div class="form-group">
-          <label for="batchType">Default Resource Type</label>
+          <label for="batchType" ti="label_default_resource_type">Default Resource Type</label>
           <select id="batchType">
             <option value="auto">Auto-detect (.js → script, .css → style)</option>
             <option value="script">Script</option>
@@ -253,12 +255,12 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
         </div>
       </div>
 
-      <button onclick="processBatch()">Process All URLs</button>
+      <button onclick="processBatch()" ti="btn_process_all_urls">Process All URLs</button>
 
       <div id="batchResults" style="margin-top:1rem;"></div>
 
       <div id="batchCombined" style="display:none;margin-top:1rem;">
-        <h3>Combined HTML Output</h3>
+        <h3 ti="h3_combined_html_output">Combined HTML Output</h3>
         <pre id="batchCombinedCode"><button class="copy-btn" onclick="copyCode('batchCombinedCode')">Copy</button></pre>
       </div>
     </div>
@@ -267,35 +269,35 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
   <!-- Fallback Script Panel -->
   <div class="panel" id="fallback">
     <div class="card">
-      <h2>Fallback Script Generator</h2>
+      <h2 ti="h2_fallback_script_generator">Fallback Script Generator</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">
         Generate fallback code that loads a local copy if the SRI check fails (CDN tampered with or unavailable).
       </p>
 
       <div class="form-group">
-        <label for="fbCdnUrl">CDN URL</label>
+        <label for="fbCdnUrl" ti="label_cdn_url">CDN URL</label>
         <input type="url" id="fbCdnUrl" value="https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js">
       </div>
       <div class="form-group">
-        <label for="fbLocalPath">Local Fallback Path</label>
+        <label for="fbLocalPath" ti="label_local_fallback_path">Local Fallback Path</label>
         <input type="text" id="fbLocalPath" value="/vendor/lodash.min.js">
       </div>
       <div class="form-group">
-        <label for="fbGlobalVar">Global Variable Check (for scripts)</label>
-        <input type="text" id="fbGlobalVar" value="_" placeholder="e.g., _, jQuery, React">
+        <label for="fbGlobalVar" ti="label_global_variable_check_for">Global Variable Check (for scripts)</label>
+        <input type="text" id="fbGlobalVar" value="_" tp="placeholder_e_g_jquery_react" placeholder="e.g., _, jQuery, React">
       </div>
       <div class="form-group">
         <label for="fbIntegrity">Integrity Hash</label>
-        <input type="text" id="fbIntegrity" value="" placeholder="sha384-...">
+        <input type="text" id="fbIntegrity" value="" tp="placeholder_sha384" placeholder="sha384-...">
       </div>
 
-      <button onclick="generateFallback()">Generate Fallback Code</button>
+      <button onclick="generateFallback()" ti="btn_generate_fallback_code">Generate Fallback Code</button>
 
       <pre id="fallbackCode" style="margin-top:0.75rem;"><button class="copy-btn" onclick="copyCode('fallbackCode')">Copy</button>Fill in the fields above and click Generate.</pre>
     </div>
 
     <div class="card">
-      <h3>CSS Fallback Pattern</h3>
+      <h3 ti="h3_css_fallback_pattern">CSS Fallback Pattern</h3>
       <pre><button class="copy-btn" onclick="copyCode('cssFallbackExample')">Copy</button><!-- Primary: CDN with SRI -->
 &lt;link rel="stylesheet"
       href="https://cdn.example.com/styles.css"
@@ -311,9 +313,9 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
   <!-- Reference Panel -->
   <div class="panel" id="reference">
     <div class="card">
-      <h2>SRI Reference</h2>
+      <h2 ti="h2_sri_reference">SRI Reference</h2>
 
-      <h3>How SRI Works</h3>
+      <h3 ti="h3_how_sri_works">How SRI Works</h3>
       <ol style="padding-left:1.5rem;font-size:0.85rem;color:var(--text-dim);margin-bottom:1rem;">
         <li>You generate a cryptographic hash of the resource content</li>
         <li>You add the hash as an <code>integrity</code> attribute on the script/link tag</li>
@@ -322,7 +324,7 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
         <li>This protects against CDN compromise, MITM attacks, and supply chain attacks</li>
       </ol>
 
-      <h3>Syntax</h3>
+      <h3 ti="h3_syntax">Syntax</h3>
       <pre>&lt;script src="https://cdn.example.com/lib.js"
         integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8w"
         crossorigin="anonymous"&gt;&lt;/script&gt;
@@ -332,13 +334,13 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
       integrity="sha384-oqVuAfXRKap7fdgcCY5uykM6+R9GqQ8K/uxy9rx7HNQlGYl1kPzQho1wx4JwY8w"
       crossorigin="anonymous"&gt;</pre>
 
-      <h3 style="margin-top:1rem;">Hash Algorithms</h3>
+      <h3 style="margin-top:1rem;" ti="h3_hash_algorithms">Hash Algorithms</h3>
       <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
         <tr style="border-bottom:1px solid var(--border);">
-          <th style="text-align:left;padding:0.5rem;">Algorithm</th>
-          <th style="text-align:left;padding:0.5rem;">Hash Length</th>
-          <th style="text-align:left;padding:0.5rem;">Security</th>
-          <th style="text-align:left;padding:0.5rem;">Recommendation</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_algorithm">Algorithm</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_hash_length">Hash Length</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_security">Security</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_recommendation">Recommendation</th>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:0.5rem;">SHA-256</td>
@@ -360,11 +362,11 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
         </tr>
       </table>
 
-      <h3 style="margin-top:1rem;">Crossorigin Attribute</h3>
+      <h3 style="margin-top:1rem;" ti="h3_crossorigin_attribute" ti="label_crossorigin_attribute">Crossorigin Attribute</h3>
       <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
         <tr style="border-bottom:1px solid var(--border);">
-          <th style="text-align:left;padding:0.5rem;">Value</th>
-          <th style="text-align:left;padding:0.5rem;">When to Use</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_value">Value</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_when_to_use">When to Use</th>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:0.5rem;"><code>anonymous</code></td>
@@ -380,12 +382,22 @@ https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"></textarea>
         </tr>
       </table>
 
-      <h3 style="margin-top:1rem;">Browser Support</h3>
+      <h3 style="margin-top:1rem;" ti="h3_browser_support">Browser Support</h3>
       <p style="font-size:0.85rem;color:var(--text-dim);">SRI is supported in all modern browsers: Chrome 45+, Firefox 43+, Safari 11+, Edge 17+. IE does not support SRI but safely ignores the integrity attribute.</p>
     </div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_sri_generator_subresource':["SRI Generator - Subresource Integrity Hash Tool", "SRI生成器 - 子资源完整性哈希工具"],'metadesc_generate_subresource_inte':["Generate Subresource Integrity (SRI) hashes for scripts and stylesheets. SHA-256/384/512 hash generation, CDN library lookup, batch processing, and fallback script generation.", "为脚本和样式表生成子资源完整性 (SRI) 哈希值。支持 SHA-256/384/512 哈希值生成、CDN 库查找、批量处理和备用脚本生成。"],'h2_generate_sri_hash':["Generate SRI Hash", "生成 SRI 哈希"],'h2_popular_cdn_libraries':["Popular CDN Libraries", "热门 CDN 库"],'h2_batch_hash_generation':["Batch Hash Generation", "批量哈希生成"],'h2_fallback_script_generator':["Fallback Script Generator", "备用脚本生成器"],'h2_sri_reference':["SRI Reference", "SRI参考"],'h3_integrity_hash':["Integrity Hash", "完整性哈希"],'h3_html_tag_copy_ready':["HTML Tag (copy-ready)", "HTML标签（可直接复制）"],'h3_multiple_algorithms':["Multiple Algorithms", "多种算法"],'h3_hash_only':["Hash Only", "仅哈希"],'h3_combined_html_output':["Combined HTML Output", "合并后的 HTML 输出"],'h3_css_fallback_pattern':["CSS Fallback Pattern", "CSS回退模式"],'h3_how_sri_works':["How SRI Works", "SRI 的运作原理"],'h3_syntax':["Syntax", "句法"],'h3_hash_algorithms':["Hash Algorithms", "哈希算法"],'h3_crossorigin_attribute':["Crossorigin Attribute", "跨域属性"],'h3_browser_support':["Browser Support", "浏览器支持"],'btn_hash_generator':["Hash Generator", "哈希生成器"],'btn_cdn_libraries':["CDN Libraries", "CDN库"],'btn_batch_processing':["Batch Processing", "批量处理"],'btn_fallback_script':["Fallback Script", "备用脚本"],'btn_reference':["Reference", "参考"],'btn_generate_from_content':["Generate from Content", "从内容生成"],'btn_fetch_url_generate':["Fetch URL & Generate", "获取 URL 并生成"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_process_all_urls':["Process All URLs", "处理所有URL"],'btn_copy_4':["Copy", "复制"],'btn_generate_fallback_code':["Generate Fallback Code", "生成备用代码"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'btn_copy_11':["Copy", "复制"],'btn_copy_12':["Copy", "复制"],'placeholder_https_cdn_jsdelivr_net_np':["https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js", "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js"],'placeholder_paste_the_javascript_or_c':["Paste the JavaScript or CSS content here...", "请在此处粘贴 JavaScript 或 CSS 内容……"],'placeholder_https_cdn_jsdelivr_net_np_2':["https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js\nhttps://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js", "https://cdn.jsdelivr.net/npm/lodash@4.17.21/lodash.min.js https://cdn.jsdelivr.net/npm/axios@1.6.0/dist/axios.min.js"],'placeholder_e_g_jquery_react':["e.g., _, jQuery, React", "例如，_，jQuery，React"],'placeholder_sha384':["sha384-...", "sha384-..."],'th_algorithm':["Algorithm", "算法"],'th_hash_length':["Hash Length", "哈希长度"],'th_security':["Security", "安全"],'th_recommendation':["Recommendation", "推荐"],'th_value':["Value", "价值"],'th_when_to_use':["When to Use", "何时使用"],'label_resource_url_fetched_via':["Resource URL (fetched via CORS proxy for hashing)", "资源 URL（通过 CORS 代理获取，用于哈希处理）"],'label_resource_content':["Resource Content", "资源内容"],'label_hash_algorithm':["Hash Algorithm", "哈希算法"],'label_resource_type':["Resource Type", "资源类型"],'label_crossorigin_attribute':["Crossorigin Attribute", "跨域属性"],'label_urls_one_per_line':["URLs (one per line)", "URL（每行一个）"],'label_hash_algorithm_2':["Hash Algorithm", "哈希算法"],'label_default_resource_type':["Default Resource Type", "默认资源类型"],'label_cdn_url':["CDN URL", "CDN URL"],'label_local_fallback_path':["Local Fallback Path", "本地回退路径"],'label_global_variable_check_for':["Global Variable Check (for scripts)", "全局变量检查（针对脚本）"],'label_integrity_hash':["Integrity Hash", "完整性哈希"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_paste_resource_content_fi':["Paste resource content first.", "请先粘贴资源内容。"],'jalert_enter_a_url_first':["Enter a URL first.", "请先输入网址。"],'jalert_enter_at_least_one_url':["Enter at least one URL.", "请至少输入一个网址。"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"],'jtlword_copy_4':["Copy", "复制"],'jtlword_copy_5':["Copy", "复制"],'jtlword_copy_6':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab Navigation ===
 document.querySelectorAll('.tab').forEach(tab => {
@@ -402,7 +414,7 @@ function copyCode(preId) {
   const text = pre.textContent.replace(/^Copy/, '').trim();
   navigator.clipboard.writeText(text).then(() => {
     const btn = pre.querySelector('.copy-btn');
-    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 1500); }
+    if (btn) { btn.textContent=T("jtc_copied"); setTimeout(() => btn.textContent=T("jtc_copy"), 1500); }
   });
 }
 
@@ -423,7 +435,7 @@ function getAlgoPrefix(algo) {
 
 async function generateFromContent() {
   const content = document.getElementById('sriContent').value;
-  if (!content) { alert('Paste resource content first.'); return; }
+  if (!content) { T("jalert_paste_resource_content_fi"); return; }
 
   const algo = document.getElementById('sriAlgo').value;
   const type = document.getElementById('sriType').value;
@@ -439,7 +451,7 @@ async function generateFromContent() {
 
 async function fetchAndGenerate() {
   const url = document.getElementById('sriUrl').value;
-  if (!url) { alert('Enter a URL first.'); return; }
+  if (!url) { T("jalert_enter_a_url_first"); return; }
 
   const statusEl = document.getElementById('sriStatus');
   statusEl.innerHTML = '<div class="status-msg status-loading">Fetching resource...</div>';
@@ -542,7 +554,7 @@ renderCDNGrid();
 // === Batch Processing ===
 async function processBatch() {
   const urls = document.getElementById('batchUrls').value.trim().split('\n').filter(u => u.trim());
-  if (urls.length === 0) { alert('Enter at least one URL.'); return; }
+  if (urls.length === 0) { T("jalert_enter_at_least_one_url"); return; }
 
   const algo = document.getElementById('batchAlgo').value;
   const defaultType = document.getElementById('batchType').value;
@@ -629,6 +641,24 @@ function generateFallback() {
 
   document.getElementById('fallbackCode').innerHTML = `<button class="copy-btn" onclick="copyCode('fallbackCode')">Copy</button>${escapeHtml(code)}`;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

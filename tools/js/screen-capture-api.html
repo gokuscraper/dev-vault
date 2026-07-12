@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_screen_capture_api_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -236,6 +236,10 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>Screen Capture API</span> Playground</h1>
@@ -268,7 +272,7 @@
     </div>
 
     <div class="info-box">
-      <strong>Note:</strong> The <code>displaySurface</code> constraint is a <em>preference</em>, not a requirement. The user always chooses the actual surface in the picker dialog. Setting <code>displaySurface</code> to <code>"browser"</code> will show browser tabs first in Chrome's picker.
+      <strong ti="strong_note" ti="strong_note">Note:</strong> The <code>displaySurface</code> constraint is a <em>preference</em>, not a requirement. The user always chooses the actual surface in the picker dialog. Setting <code>displaySurface</code> to <code>"browser"</code> will show browser tabs first in Chrome's picker.
     </div>
   </div>
 
@@ -279,10 +283,10 @@
       <p class="card-desc">Configure video and audio constraints for getDisplayMedia().</p>
 
       <div class="constraint-group">
-        <h3>Video Constraints</h3>
+        <h3 ti="h3_video_constraints" ti="h3_video_constraints">Video Constraints</h3>
 
         <div class="constraint-row">
-          <label>displaySurface</label>
+          <label ti="label_displaysurface" ti="label_displaysurface">displaySurface</label>
           <select id="cDisplaySurface" onchange="updateCode()">
             <option value="monitor">monitor</option>
             <option value="window">window</option>
@@ -291,22 +295,22 @@
         </div>
 
         <div class="constraint-row">
-          <label>width (ideal)</label>
+          <label ti="label_width_ideal" ti="label_width_ideal">width (ideal)</label>
           <input type="number" id="cWidth" value="1920" min="320" max="7680" onchange="updateCode()">
         </div>
 
         <div class="constraint-row">
-          <label>height (ideal)</label>
+          <label ti="label_height_ideal" ti="label_height_ideal">height (ideal)</label>
           <input type="number" id="cHeight" value="1080" min="240" max="4320" onchange="updateCode()">
         </div>
 
         <div class="constraint-row">
-          <label>frameRate (ideal)</label>
+          <label ti="label_framerate_ideal" ti="label_framerate_ideal">frameRate (ideal)</label>
           <input type="number" id="cFrameRate" value="30" min="1" max="120" onchange="updateCode()">
         </div>
 
         <div class="constraint-row">
-          <label>cursor</label>
+          <label ti="label_cursor" ti="label_cursor">cursor</label>
           <select id="cCursor" onchange="updateCode()">
             <option value="always">always</option>
             <option value="motion">motion</option>
@@ -315,7 +319,7 @@
         </div>
 
         <div class="constraint-row">
-          <label>selfBrowserSurface</label>
+          <label ti="label_selfbrowsersurface" ti="label_selfbrowsersurface">selfBrowserSurface</label>
           <select id="cSelfBrowser" onchange="updateCode()">
             <option value="exclude">exclude</option>
             <option value="include">include</option>
@@ -323,7 +327,7 @@
         </div>
 
         <div class="constraint-row">
-          <label>surfaceSwitching</label>
+          <label ti="label_surfaceswitching" ti="label_surfaceswitching">surfaceSwitching</label>
           <select id="cSurfaceSwitch" onchange="updateCode()">
             <option value="include">include</option>
             <option value="exclude">exclude</option>
@@ -332,10 +336,10 @@
       </div>
 
       <div class="constraint-group">
-        <h3>Audio Constraints</h3>
+        <h3 ti="h3_audio_constraints" ti="h3_audio_constraints">Audio Constraints</h3>
 
         <div class="constraint-row">
-          <label>System Audio</label>
+          <label ti="label_system_audio" ti="label_system_audio">System Audio</label>
           <label class="toggle">
             <input type="checkbox" id="cSystemAudio" onchange="updateCode()">
             <span class="slider"></span>
@@ -343,7 +347,7 @@
         </div>
 
         <div class="constraint-row">
-          <label>Tab Audio</label>
+          <label ti="label_tab_audio" ti="label_tab_audio">Tab Audio</label>
           <label class="toggle">
             <input type="checkbox" id="cTabAudio" checked onchange="updateCode()">
             <span class="slider"></span>
@@ -351,7 +355,7 @@
         </div>
 
         <div class="constraint-row">
-          <label>suppressLocalAudio</label>
+          <label ti="label_suppresslocalaudio" ti="label_suppresslocalaudio">suppressLocalAudio</label>
           <label class="toggle">
             <input type="checkbox" id="cSuppressLocal" onchange="updateCode()">
             <span class="slider"></span>
@@ -394,7 +398,7 @@
     <h2><span class="icon">&#128221;</span> Generated Code</h2>
     <p class="card-desc">JavaScript code using your configured constraints. Copy and use in your application.</p>
 
-    <div class="code-block" id="codeOutput"><button class="copy-btn" onclick="copyCode()">Copy</button>Loading...</div>
+    <div class="code-block" id="codeOutput"><button class="copy-btn" onclick="copyCode()" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2">Copy</button>Loading...</div>
   </div>
 
   <!-- Track Capabilities -->
@@ -409,14 +413,14 @@
     <div id="capsContent" style="display: none;">
       <div class="two-col">
         <div>
-          <h3 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--accent);">Track Settings</h3>
+          <h3 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--accent);" ti="h3_track_settings" ti="h3_track_settings">Track Settings</h3>
           <table class="caps-table" id="settingsTable">
-            <thead><tr><th>Property</th><th>Value</th></tr></thead>
+            <thead><tr><th ti="th_property" ti="th_property_2" ti="th_property" ti="th_property_2">Property</th><th ti="th_value" ti="th_value_2" ti="th_value" ti="th_value_2">Value</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
         <div>
-          <h3 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--accent);">Track Capabilities</h3>
+          <h3 style="font-size: 0.9rem; margin-bottom: 0.75rem; color: var(--accent);" ti="h3_track_capabilities" ti="h3_track_capabilities">Track Capabilities</h3>
           <table class="caps-table" id="capsTable">
             <thead><tr><th>Property</th><th>Value</th></tr></thead>
             <tbody></tbody>
@@ -490,6 +494,26 @@
   </div>
 </main>
 
+
+
+<script>var _LANG={'title_screen_capture_api_playgr':["Screen Capture API Playground", "屏幕捕获 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Screen Capture API - build getDisplayMedia constraints, preview streams, and inspect MediaTrack capabilities.", "屏幕捕获 API 的交互式演示环境 - 构建 getDisplayMedia 约束、预览流和检查 MediaTrack 功能。"],'h3_video_constraints':["Video Constraints", "视频限制"],'h3_audio_constraints':["Audio Constraints", "音频限制"],'h3_track_settings':["Track Settings", "赛道设置"],'h3_track_capabilities':["Track Capabilities", "轨道能力"],'btn_start_capture':["📸 Start Capture", "📸 开始拍摄"],'btn_stop':["■ Stop", "■ 停止"],'btn_screenshot':["📷 Screenshot", "📷 屏幕截图"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'strong_note':["Note:", "笔记："],'th_property':["Property", "财产"],'th_value':["Value", "价值"],'th_property_2':["Property", "财产"],'th_value_2':["Value", "价值"],'label_displaysurface':["displaySurface", "显示表面"],'label_width_ideal':["width (ideal)", "宽度（理想）"],'label_height_ideal':["height (ideal)", "身高（理想）"],'label_framerate_ideal':["frameRate (ideal)", "帧率（理想值）"],'label_cursor':["cursor", "光标"],'label_selfbrowsersurface':["selfBrowserSurface", "自浏览器表面"],'label_surfaceswitching':["surfaceSwitching", "表面切换"],'label_system_audio':["System Audio", "系统音频"],'label_tab_audio':["Tab Audio", "Tab Audio"],'label_suppresslocalaudio':["suppressLocalAudio", "抑制本地音频"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_screen_capture_api_is_not':["Screen Capture API is not supported in this browser.", "此浏览器不支持屏幕截图 API。"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_screen_capture_api_playgr':["Screen Capture API Playground", "屏幕捕获 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Screen Capture API - build getDisplayMedia constraints, preview streams, and inspect MediaTrack capabilities.", "屏幕捕获 API 的交互式演示环境 - 构建 getDisplayMedia 约束、预览流和检查 MediaTrack 功能。"],'h3_video_constraints':["Video Constraints", "视频限制"],'h3_audio_constraints':["Audio Constraints", "音频限制"],'h3_track_settings':["Track Settings", "赛道设置"],'h3_track_capabilities':["Track Capabilities", "轨道能力"],'btn_start_capture':["📸 Start Capture", "📸 开始拍摄"],'btn_stop':["■ Stop", "■ 停止"],'btn_screenshot':["📷 Screenshot", "📷 屏幕截图"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'strong_note':["Note:", "笔记："],'th_property':["Property", "财产"],'th_value':["Value", "价值"],'th_property_2':["Property", "财产"],'th_value_2':["Value", "价值"],'label_displaysurface':["displaySurface", "显示表面"],'label_width_ideal':["width (ideal)", "宽度（理想）"],'label_height_ideal':["height (ideal)", "身高（理想）"],'label_framerate_ideal':["frameRate (ideal)", "帧率（理想值）"],'label_cursor':["cursor", "光标"],'label_selfbrowsersurface':["selfBrowserSurface", "自浏览器表面"],'label_surfaceswitching':["surfaceSwitching", "表面切换"],'label_system_audio':["System Audio", "系统音频"],'label_tab_audio':["Tab Audio", "Tab Audio"],'label_suppresslocalaudio':["suppressLocalAudio", "抑制本地音频"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_screen_capture_api_is_not':["Screen Capture API is not supported in this browser.", "此浏览器不支持屏幕截图 API。"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Feature detection
   const isSupported = !!(navigator.mediaDevices && navigator.mediaDevices.getDisplayMedia);
@@ -596,7 +620,7 @@ ${extras}  });
 
   async function startCapture() {
     if (!isSupported) {
-      alert('Screen Capture API is not supported in this browser.');
+      T("jalert_screen_capture_api_is_not");
       return;
     }
 
@@ -714,8 +738,8 @@ ${extras}  });
     const code = document.getElementById('codeOutput').textContent;
     navigator.clipboard.writeText(code).then(() => {
       const btn = document.querySelector('#codeOutput .copy-btn');
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy', 1500);
+      btn.textContent=T("jtc_copied");
+      setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
     });
   }
 
@@ -723,5 +747,41 @@ ${extras}  });
   updateCode();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

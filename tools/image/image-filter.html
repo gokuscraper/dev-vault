@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_filter_tool_apply_f" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,9 +46,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Filter Tool</h1>
-<p class="sub">Apply filters in your browser — nothing uploaded to any server</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_filter_tool">Image Filter Tool</h1>
+<p class="sub" ti="subtitle_apply_filters_in_your_bro">Apply filters in your browser — nothing uploaded to any server</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
 <p>Drop an image here or click to select</p>
@@ -61,7 +63,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section" style="margin-top:14px">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets">
 <div class="preset" onclick="applyPreset('original')">Original</div>
 <div class="preset" onclick="applyPreset('grayscale')">Grayscale</div>
@@ -77,31 +79,41 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Adjustments</h3>
-<div class="slider-row"><label>Brightness</label><input type="range" id="brightness" min="0" max="200" value="100" oninput="applyFilters()"><span class="val" id="vBrightness">100%</span></div>
-<div class="slider-row"><label>Contrast</label><input type="range" id="contrast" min="0" max="200" value="100" oninput="applyFilters()"><span class="val" id="vContrast">100%</span></div>
-<div class="slider-row"><label>Saturate</label><input type="range" id="saturate" min="0" max="300" value="100" oninput="applyFilters()"><span class="val" id="vSaturate">100%</span></div>
-<div class="slider-row"><label>Hue Rotate</label><input type="range" id="hueRotate" min="0" max="360" value="0" oninput="applyFilters()"><span class="val" id="vHueRotate">0°</span></div>
-<div class="slider-row"><label>Blur</label><input type="range" id="blur" min="0" max="20" value="0" step="0.5" oninput="applyFilters()"><span class="val" id="vBlur">0px</span></div>
-<div class="slider-row"><label>Grayscale</label><input type="range" id="grayscale" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vGrayscale">0%</span></div>
-<div class="slider-row"><label>Sepia</label><input type="range" id="sepia" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vSepia">0%</span></div>
-<div class="slider-row"><label>Invert</label><input type="range" id="invert" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vInvert">0%</span></div>
-<div class="slider-row"><label>Opacity</label><input type="range" id="opacity" min="0" max="100" value="100" oninput="applyFilters()"><span class="val" id="vOpacity">100%</span></div>
+<h3 ti="h3_adjustments">Adjustments</h3>
+<div class="slider-row"><label ti="label_brightness">Brightness</label><input type="range" id="brightness" min="0" max="200" value="100" oninput="applyFilters()"><span class="val" id="vBrightness">100%</span></div>
+<div class="slider-row"><label ti="label_contrast">Contrast</label><input type="range" id="contrast" min="0" max="200" value="100" oninput="applyFilters()"><span class="val" id="vContrast">100%</span></div>
+<div class="slider-row"><label ti="label_saturate">Saturate</label><input type="range" id="saturate" min="0" max="300" value="100" oninput="applyFilters()"><span class="val" id="vSaturate">100%</span></div>
+<div class="slider-row"><label ti="label_hue_rotate">Hue Rotate</label><input type="range" id="hueRotate" min="0" max="360" value="0" oninput="applyFilters()"><span class="val" id="vHueRotate">0°</span></div>
+<div class="slider-row"><label ti="label_blur">Blur</label><input type="range" id="blur" min="0" max="20" value="0" step="0.5" oninput="applyFilters()"><span class="val" id="vBlur">0px</span></div>
+<div class="slider-row"><label ti="label_grayscale">Grayscale</label><input type="range" id="grayscale" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vGrayscale">0%</span></div>
+<div class="slider-row"><label ti="label_sepia">Sepia</label><input type="range" id="sepia" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vSepia">0%</span></div>
+<div class="slider-row"><label ti="label_invert">Invert</label><input type="range" id="invert" min="0" max="100" value="0" oninput="applyFilters()"><span class="val" id="vInvert">0%</span></div>
+<div class="slider-row"><label ti="label_opacity">Opacity</label><input type="range" id="opacity" min="0" max="100" value="100" oninput="applyFilters()"><span class="val" id="vOpacity">100%</span></div>
 </div>
 
 <div class="actions">
-<button class="btn" onclick="resetFilters()">Reset</button>
-<button class="btn btn-primary" onclick="downloadPNG()">Download PNG</button>
-<button class="btn" onclick="downloadJPG()">Download JPEG</button>
+<button class="btn" onclick="resetFilters()" ti="btn_reset">Reset</button>
+<button class="btn btn-primary" onclick="downloadPNG()" ti="btn_download_png">Download PNG</button>
+<button class="btn" onclick="downloadJPG()" ti="btn_download_jpeg">Download JPEG</button>
 </div>
 <div class="info">All processing happens locally in your browser. No data is sent anywhere.</div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/css-filter/">CSS Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/">Favicon Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/css-filter/" ti="link_css_filter">CSS Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" ti="link_favicon_gen">Favicon Gen</a></div>
 </div>
 <div class="toast" id="toast">Downloaded!</div>
 
+
+<script>var _LANG={'title_image_filter_tool_apply_f':["Image Filter Tool — Apply Filters in Your Browser", "图片滤镜工具 — 在浏览器中应用滤镜"],'metadesc_apply_image_filters_in_yo':["Apply image filters in your browser. Grayscale, sepia, invert, blur, brightness, contrast, saturate, hue-rotate. Download result. No upload to server.", "在浏览器中应用图像滤镜。灰度、棕褐色、反转、模糊、亮度、对比度、饱和度、色相旋转。下载结果。不上传到服务器。"],'h1_image_filter_tool':["Image Filter Tool", "图像滤镜工具"],'h3_presets':["Presets", "预设"],'h3_adjustments':["Adjustments", "调整"],'subtitle_apply_filters_in_your_bro':["Apply filters in your browser — nothing uploaded to any server", "在浏览器中应用过滤器——不会向任何服务器上传任何内容"],'btn_reset':["Reset", "重置"],'btn_download_png':["Download PNG", "下载PNG"],'btn_download_jpeg':["Download JPEG", "下载JPEG"],'label_brightness':["Brightness", "亮度"],'label_contrast':["Contrast", "对比"],'label_saturate':["Saturate", "饱和"],'label_hue_rotate':["Hue Rotate", "色调旋转"],'label_blur':["Blur", "模糊"],'label_grayscale':["Grayscale", "灰度"],'label_sepia':["Sepia", "棕褐色"],'label_invert':["Invert", "倒置"],'label_opacity':["Opacity", "不透明度"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_resize':["Image Resize", "图片调整大小"],'link_css_filter':["CSS Filter", "CSS过滤器"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const canvas=document.getElementById('canvas');
 const ctx=canvas.getContext('2d');
@@ -262,6 +274,24 @@ function showToast(){
   const t=document.getElementById('toast');t.style.display='block';
   setTimeout(()=>t.style.display='none',1500);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

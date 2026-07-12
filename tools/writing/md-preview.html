@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_markdown_preview_live_mar" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -70,9 +70,15 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <div class="header">
-  <h1>Markdown Preview</h1>
+  <h1 ti="h1_markdown_preview" ti="h1_markdown_preview" ti="h1_markdown_preview">Markdown Preview</h1>
   <p>Write Markdown on the left, see rendered preview on the right.</p>
 </div>
 
@@ -80,21 +86,21 @@ footer a:hover{color:#999}
   <button class="tb" onclick="insert('**','**')"><b>B</b></button>
   <button class="tb" onclick="insert('*','*')"><i>I</i></button>
   <button class="tb" onclick="insert('~~','~~')"><s>S</s></button>
-  <button class="tb" onclick="insert('`','`')">Code</button>
-  <button class="tb" onclick="insert('\n```\n','\n```\n')">Block</button>
-  <button class="tb" onclick="insert('[','](url)')">Link</button>
-  <button class="tb" onclick="insert('![alt](',')')">Image</button>
-  <button class="tb" onclick="insertLine('## ')">H2</button>
-  <button class="tb" onclick="insertLine('### ')">H3</button>
-  <button class="tb" onclick="insertLine('- ')">List</button>
-  <button class="tb" onclick="insertLine('1. ')">OL</button>
-  <button class="tb" onclick="insertLine('- [ ] ')">Task</button>
-  <button class="tb" onclick="insertLine('> ')">Quote</button>
-  <button class="tb" onclick="insertLine('---')">HR</button>
-  <button class="tb" onclick="insertTable()">Table</button>
-  <button class="tb primary" onclick="copyHTML()">Copy HTML</button>
-  <button class="tb" onclick="copyMD()">Copy MD</button>
-  <button class="tb" onclick="clearAll()">Clear</button>
+  <button class="tb" onclick="insert('`','`')" ti="btn_code" ti="btn_code" ti="btn_code">Code</button>
+  <button class="tb" onclick="insert('\n```\n','\n```\n')" ti="btn_block" ti="btn_block" ti="btn_block">Block</button>
+  <button class="tb" onclick="insert('[','](url)')" ti="btn_link" ti="btn_link" ti="btn_link">Link</button>
+  <button class="tb" onclick="insert('![alt](',')')" ti="btn_image" ti="btn_image" ti="btn_image">Image</button>
+  <button class="tb" onclick="insertLine('## ')" ti="btn_h2" ti="btn_h2" ti="btn_h2">H2</button>
+  <button class="tb" onclick="insertLine('### ')" ti="btn_h3" ti="btn_h3" ti="btn_h3">H3</button>
+  <button class="tb" onclick="insertLine('- ')" ti="btn_list" ti="btn_list" ti="btn_list">List</button>
+  <button class="tb" onclick="insertLine('1. ')" ti="btn_ol" ti="btn_ol" ti="btn_ol">OL</button>
+  <button class="tb" onclick="insertLine('- [ ] ')" ti="btn_task" ti="btn_task" ti="btn_task">Task</button>
+  <button class="tb" onclick="insertLine(' ti="btn_quote" ti="btn_quote" ti="btn_quote"> ')">Quote</button>
+  <button class="tb" onclick="insertLine('---')" ti="btn_hr" ti="btn_hr" ti="btn_hr">HR</button>
+  <button class="tb" onclick="insertTable()" ti="btn_table" ti="btn_table" ti="btn_table">Table</button>
+  <button class="tb primary" onclick="copyHTML()" ti="btn_copy_html" ti="btn_copy_html" ti="btn_copy_html">Copy HTML</button>
+  <button class="tb" onclick="copyMD()" ti="btn_copy_md" ti="btn_copy_md" ti="btn_copy_md">Copy MD</button>
+  <button class="tb" onclick="clearAll()" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
 </div>
 
 <div class="editor-wrap">
@@ -116,10 +122,30 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/md-preview">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> (22 free tools)
+  <a href="https://github.com/gokuscraper/md-preview" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a> (22 free tools)
 </footer>
 
+
+
+<script>var _LANG={'title_markdown_preview_live_mar':["Markdown Preview — Live Markdown Editor", "Markdown 预览 — 实时 Markdown 编辑器"],'metadesc_write_markdown_and_see_a':["Write Markdown and see a live preview. GitHub-flavored Markdown support. Tables, code blocks, task lists, headings. Free, instant.", "编写 Markdown 代码并实时预览。支持 GitHub 风格的 Markdown。支持表格、代码块、任务列表和标题。免费，即刻生效。"],'h1_markdown_preview':["Markdown Preview", "Markdown 预览"],'h1_1':["$1", "1美元"],'h2_1':["$1", "1美元"],'h3_1':["$1", "1美元"],'btn_code':["Code", "代码"],'btn_block':["Block", "堵塞"],'btn_link':["Link", "关联"],'btn_image':["Image", "图像"],'btn_h2':["H2", "H2"],'btn_h3':["H3", "H3"],'btn_list':["List", "列表"],'btn_ol':["OL", "OL"],'btn_task':["Task", "任务"],'btn_quote':["')\">Quote", "&#39;)&quot;&gt;引用"],'btn_hr':["HR", "人力资源"],'btn_table':["Table", "桌子"],'btn_copy_html':["Copy HTML", "复制 HTML"],'btn_copy_md':["Copy MD", "复制 MD"],'btn_clear':["Clear", "清除"],'strong_1':["$1", "1美元"],'strong_related_tools':["Related Tools", "相关工具"],'th_c_trim':["'+c.trim()+'", "&#39;+c.trim()+&#39;"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_22_free_tools':["(22 free tools)", "（22款免费工具）"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_markdown_preview_live_mar':["Markdown Preview — Live Markdown Editor", "Markdown 预览 — 实时 Markdown 编辑器"],'metadesc_write_markdown_and_see_a':["Write Markdown and see a live preview. GitHub-flavored Markdown support. Tables, code blocks, task lists, headings. Free, instant.", "编写 Markdown 代码并实时预览。支持 GitHub 风格的 Markdown。支持表格、代码块、任务列表和标题。免费，即刻生效。"],'h1_markdown_preview':["Markdown Preview", "Markdown 预览"],'h1_1':["$1", "1美元"],'h2_1':["$1", "1美元"],'h3_1':["$1", "1美元"],'btn_code':["Code", "代码"],'btn_block':["Block", "堵塞"],'btn_link':["Link", "关联"],'btn_image':["Image", "图像"],'btn_h2':["H2", "H2"],'btn_h3':["H3", "H3"],'btn_list':["List", "列表"],'btn_ol':["OL", "OL"],'btn_task':["Task", "任务"],'btn_quote':["')\">Quote", "&#39;)&quot;&gt;引用"],'btn_hr':["HR", "人力资源"],'btn_table':["Table", "桌子"],'btn_copy_html':["Copy HTML", "复制 HTML"],'btn_copy_md':["Copy MD", "复制 MD"],'btn_clear':["Clear", "清除"],'strong_1':["$1", "1美元"],'strong_related_tools':["Related Tools", "相关工具"],'th_c_trim':["'+c.trim()+'", "&#39;+c.trim()+&#39;"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_22_free_tools':["(22 free tools)", "（22款免费工具）"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const editor=document.getElementById('editor');
 const preview=document.getElementById('preview');
@@ -190,9 +216,9 @@ function parseMD(md){
 
   // Headers
   html=html.replace(/^#### (.+)$/gm,'<h4>$1</h4>');
-  html=html.replace(/^### (.+)$/gm,'<h3>$1</h3>');
-  html=html.replace(/^## (.+)$/gm,'<h2>$1</h2>');
-  html=html.replace(/^# (.+)$/gm,'<h1>$1</h1>');
+  html=html.replace(/^### (.+)$/gm,'<h3 ti="h3_1" ti="h3_1" ti="h3_1">$1</h3>');
+  html=html.replace(/^## (.+)$/gm,'<h2 ti="h2_1" ti="h2_1" ti="h2_1">$1</h2>');
+  html=html.replace(/^# (.+)$/gm,'<h1 ti="h1_1" ti="h1_1" ti="h1_1">$1</h1>');
 
   // HR
   html=html.replace(/^---+$/gm,'<hr>');
@@ -210,7 +236,7 @@ function parseMD(md){
 
   // Bold + Italic
   html=html.replace(/\*\*\*(.+?)\*\*\*/g,'<strong><em>$1</em></strong>');
-  html=html.replace(/\*\*(.+?)\*\*/g,'<strong>$1</strong>');
+  html=html.replace(/\*\*(.+?)\*\*/g,'<strong ti="strong_1" ti="strong_1" ti="strong_1">$1</strong>');
   html=html.replace(/\*(.+?)\*/g,'<em>$1</em>');
 
   // Strikethrough
@@ -218,7 +244,7 @@ function parseMD(md){
 
   // Tables
   html=html.replace(/^(\|.+\|)\n(\|[\s-:|]+\|)\n((?:\|.+\|\n?)*)/gm,(m,header,sep,body)=>{
-    const ths=header.split('|').filter(c=>c.trim()).map(c=>'<th>'+c.trim()+'</th>').join('');
+    const ths=header.split('|').filter(c=>c.trim()).map(c=>'<th ti="th_c_trim" ti="th_c_trim" ti="th_c_trim">'+c.trim()+'</th>').join('');
     const rows=body.trim().split('\n').map(row=>{
       const tds=row.split('|').filter(c=>c.trim()).map(c=>'<td>'+c.trim()+'</td>').join('');
       return'<tr>'+tds+'</tr>';
@@ -340,12 +366,66 @@ editor.addEventListener('keydown',e=>{
 render();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/markdown-table/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Markdown Table</a>
 <a href="https://gokuscraper.github.io/dev-vault/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
 <a href="https://gokuscraper.github.io/dev-vault/lorem-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Lorem Gen</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

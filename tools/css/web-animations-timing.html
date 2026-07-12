@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_animations_timing_fun" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,24 +103,26 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Web Animations Timing Functions Playground</h1>
+  <h1 ti="title_web_animations_timing_fun" ti="h1_web_animations_timing_fun">Web Animations Timing Functions Playground</h1>
   <p>Visualize easing curves, build custom timing functions, compare animations side-by-side</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- Preset Easings -->
   <div class="card">
-    <h2>Built-in Timing Functions</h2>
+    <h2 ti="h2_built_in_timing_functions">Built-in Timing Functions</h2>
     <div class="preset-grid" id="presetGrid"></div>
   </div>
 
   <!-- Tabs: cubic-bezier / steps / linear -->
   <div class="card">
     <div class="tab-bar">
-      <button class="active" onclick="switchTab('bezier',this)">cubic-bezier()</button>
-      <button onclick="switchTab('steps',this)">steps()</button>
-      <button onclick="switchTab('linear',this)">linear()</button>
+      <button class="active" onclick="switchTab('bezier',this)" ti="btn_cubic_bezier">cubic-bezier()</button>
+      <button onclick="switchTab('steps',this)" ti="btn_steps">steps()</button>
+      <button onclick="switchTab('linear',this)" ti="btn_linear">linear()</button>
     </div>
 
     <!-- cubic-bezier tab -->
@@ -131,27 +133,27 @@
         </div>
         <div class="controls-panel">
           <div class="control-group">
-            <label>Control Point 1 (x1, y1)</label>
+            <label ti="label_control_point_1_x1_y1">Control Point 1 (x1, y1)</label>
             <div class="control-row">
-              <label>x1</label>
+              <label ti="label_x1">x1</label>
               <input type="range" id="bx1" min="0" max="1" step="0.01" value="0.25" oninput="updateBezier()">
               <span id="bx1v" style="font-family:var(--mono);font-size:0.85rem;min-width:40px">0.25</span>
             </div>
             <div class="control-row">
-              <label>y1</label>
+              <label ti="label_y1">y1</label>
               <input type="range" id="by1" min="-0.5" max="1.5" step="0.01" value="0.1" oninput="updateBezier()">
               <span id="by1v" style="font-family:var(--mono);font-size:0.85rem;min-width:40px">0.10</span>
             </div>
           </div>
           <div class="control-group">
-            <label>Control Point 2 (x2, y2)</label>
+            <label ti="label_control_point_2_x2_y2">Control Point 2 (x2, y2)</label>
             <div class="control-row">
-              <label>x2</label>
+              <label ti="label_x2">x2</label>
               <input type="range" id="bx2" min="0" max="1" step="0.01" value="0.25" oninput="updateBezier()">
               <span id="bx2v" style="font-family:var(--mono);font-size:0.85rem;min-width:40px">0.25</span>
             </div>
             <div class="control-row">
-              <label>y2</label>
+              <label ti="label_y2">y2</label>
               <input type="range" id="by2" min="-0.5" max="1.5" step="0.01" value="1" oninput="updateBezier()">
               <span id="by2v" style="font-family:var(--mono);font-size:0.85rem;min-width:40px">1.00</span>
             </div>
@@ -159,7 +161,7 @@
           <div class="preview-area">
             <div class="preview-ball" id="bezierBall"></div>
           </div>
-          <button class="primary" onclick="playBezierPreview()">Play Animation</button>
+          <button class="primary" onclick="playBezierPreview()" ti="btn_play_animation" ti="btn_play_animation_2" ti="btn_play_animation_3">Play Animation</button>
           <div class="code-block" id="bezierCode">cubic-bezier(0.25, 0.10, 0.25, 1.00)</div>
         </div>
       </div>
@@ -176,14 +178,14 @@
         </div>
         <div class="controls-panel">
           <div class="control-group">
-            <label>Number of Steps</label>
+            <label ti="label_number_of_steps">Number of Steps</label>
             <div class="control-row">
               <input type="range" id="stepCount" min="1" max="20" value="4" oninput="updateSteps()">
               <span id="stepCountV" style="font-family:var(--mono)">4</span>
             </div>
           </div>
           <div class="control-group">
-            <label>Step Position</label>
+            <label ti="label_step_position">Step Position</label>
             <select id="stepPosition" onchange="updateSteps()">
               <option value="end" selected>end (jump-end)</option>
               <option value="start">start (jump-start)</option>
@@ -208,11 +210,11 @@
         </div>
         <div class="controls-panel">
           <div class="control-group">
-            <label>Control Points (value at percentage)</label>
+            <label ti="label_control_points_value_at_p">Control Points (value at percentage)</label>
             <div class="linear-points-list" id="linearPointsList"></div>
             <div class="control-row" style="margin-top:0.5rem">
-              <button onclick="addLinearPoint()">+ Add Point</button>
-              <button onclick="resetLinearPoints()">Reset</button>
+              <button onclick="addLinearPoint()" ti="btn_add_point">+ Add Point</button>
+              <button onclick="resetLinearPoints()" ti="btn_reset">Reset</button>
             </div>
           </div>
           <div class="preview-area">
@@ -227,41 +229,41 @@
 
   <!-- Side-by-side comparison -->
   <div class="card">
-    <h2>Side-by-Side Comparison</h2>
+    <h2 ti="h2_side_by_side_comparison">Side-by-Side Comparison</h2>
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem">
       <select id="cmp1"><option value="linear">linear</option></select>
       <select id="cmp2"><option value="ease">ease</option></select>
       <select id="cmp3"><option value="ease-in-out">ease-in-out</option></select>
       <select id="cmp4"><option value="cubic-bezier(0.68,-0.55,0.27,1.55)">bounce</option></select>
       <div class="control-row">
-        <label>Duration</label>
+        <label ti="label_duration">Duration</label>
         <input type="range" id="cmpDuration" min="200" max="3000" value="1000" step="100">
         <span id="cmpDurV" style="font-family:var(--mono);font-size:0.85rem">1000ms</span>
       </div>
-      <button class="primary" onclick="playComparison()">Play All</button>
+      <button class="primary" onclick="playComparison()" ti="btn_play_all">Play All</button>
     </div>
     <div class="comparison-grid" id="comparisonGrid"></div>
   </div>
 
   <!-- Animation Config -->
   <div class="card">
-    <h2>Animation Configuration</h2>
+    <h2 ti="h2_animation_configuration">Animation Configuration</h2>
     <div class="two-col">
       <div>
         <div class="control-group">
-          <label>Duration (ms)</label>
+          <label ti="label_duration_ms">Duration (ms)</label>
           <input type="number" id="cfgDuration" value="1000" min="100" max="10000" step="100">
         </div>
         <div class="control-group" style="margin-top:0.75rem">
-          <label>Delay (ms)</label>
+          <label ti="label_delay_ms">Delay (ms)</label>
           <input type="number" id="cfgDelay" value="0" min="0" max="5000" step="100">
         </div>
         <div class="control-group" style="margin-top:0.75rem">
-          <label>Iterations</label>
+          <label ti="label_iterations">Iterations</label>
           <input type="number" id="cfgIterations" value="1" min="1" max="100">
         </div>
         <div class="control-group" style="margin-top:0.75rem">
-          <label>Direction</label>
+          <label ti="label_direction">Direction</label>
           <select id="cfgDirection">
             <option value="normal">normal</option>
             <option value="reverse">reverse</option>
@@ -270,7 +272,7 @@
           </select>
         </div>
         <div class="control-group" style="margin-top:0.75rem">
-          <label>Fill Mode</label>
+          <label ti="label_fill_mode">Fill Mode</label>
           <select id="cfgFill">
             <option value="none">none</option>
             <option value="forwards" selected>forwards</option>
@@ -280,9 +282,9 @@
         </div>
       </div>
       <div>
-        <label>Generated Code</label>
+        <label ti="label_generated_code">Generated Code</label>
         <div class="code-block" id="configCode" style="margin-top:0.5rem;min-height:200px"></div>
-        <button style="margin-top:0.5rem" onclick="copyCode()">Copy Code</button>
+        <button style="margin-top:0.5rem" onclick="copyCode()" ti="btn_copy_code">Copy Code</button>
       </div>
     </div>
   </div>
@@ -290,6 +292,16 @@
 </div>
 <footer>Web Animations Timing Functions Playground &mdash; No external dependencies</footer>
 
+
+<script>var _LANG={'title_web_animations_timing_fun':["Web Animations Timing Functions Playground", "Web 动画计时函数游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS and Web Animations API timing functions. Visualize easing curves, build custom cubic-bezier, steps, and linear functions.", "用于 CSS 和 Web 动画 API 定时函数的交互式演示平台。可视化缓动曲线，构建自定义三次贝塞尔曲线、阶梯曲线和线性函数。"],'h1_web_animations_timing_fun':["Web Animations Timing Functions Playground", "Web 动画计时函数游乐场"],'h2_built_in_timing_functions':["Built-in Timing Functions", "内置计时功能"],'h2_side_by_side_comparison':["Side-by-Side Comparison", "并排比较"],'h2_animation_configuration':["Animation Configuration", "动画配置"],'btn_cubic_bezier':["cubic-bezier()", "三次贝塞尔曲线()"],'btn_steps':["steps()", "steps()"],'btn_linear':["linear()", "linear()"],'btn_play_animation':["Play Animation", "播放动画"],'btn_play_animation_2':["Play Animation", "播放动画"],'btn_add_point':["+ Add Point", "+ 添加积分"],'btn_reset':["Reset", "重置"],'btn_play_animation_3':["Play Animation", "播放动画"],'btn_play_all':["Play All", "全部播放"],'btn_copy_code':["Copy Code", "复制代码"],'label_sel_options_sel_selected':["${sel.options[sel.selectedIndex].text}", "${sel.options[sel.selectedIndex].text}"],'label_control_point_1_x1_y1':["Control Point 1 (x1, y1)", "控制点 1 (x1, y1)"],'label_x1':["x1", "x1"],'label_y1':["y1", "y1"],'label_control_point_2_x2_y2':["Control Point 2 (x2, y2)", "控制点 2 (x2, y2)"],'label_x2':["x2", "x2"],'label_y2':["y2", "y2"],'label_number_of_steps':["Number of Steps", "步骤数"],'label_step_position':["Step Position", "步位"],'label_control_points_value_at_p':["Control Points (value at percentage)", "控制点（百分比值）"],'label_duration':["Duration", "期间"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_delay_ms':["Delay (ms)", "延迟（毫秒）"],'label_iterations':["Iterations", "迭代"],'label_direction':["Direction", "方向"],'label_fill_mode':["Fill Mode", "填充模式"],'label_generated_code':["Generated Code", "生成的代码"],'label_i_1':["#${i+1}", "#${i+1}"],'label_val':["val", "瓦尔"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -609,8 +621,8 @@
     linearPoints.forEach((p, i) => {
       const row = document.createElement('div');
       row.className = 'point-row';
-      row.innerHTML = `<label style="min-width:20px;color:var(--text-dim)">#${i+1}</label>` +
-        `<label>val</label><input type="number" min="0" max="1" step="0.05" value="${p.value}" onchange="updateLinearPoint(${i},'value',this.value)">` +
+      row.innerHTML = `<label style="min-width:20px;color:var(--text-dim)" ti="label_i_1">#${i+1}</label>` +
+        `<label ti="label_val">val</label><input type="number" min="0" max="1" step="0.05" value="${p.value}" onchange="updateLinearPoint(${i},'value',this.value)">` +
         `<label>%</label><input type="number" min="0" max="100" step="5" value="${p.pct}" onchange="updateLinearPoint(${i},'pct',this.value)">` +
         (i > 0 && i < linearPoints.length-1 ? `<button onclick="removeLinearPoint(${i})" style="padding:0.2rem 0.5rem;font-size:0.7rem">&times;</button>` : '');
       list.appendChild(row);
@@ -745,7 +757,7 @@
       const sel = document.getElementById('cmp' + (i+1));
       const lane = document.createElement('div');
       lane.className = 'comparison-lane';
-      lane.innerHTML = `<span class="lane-label">${sel.options[sel.selectedIndex].text}</span>` +
+      lane.innerHTML = `<span class="lane-label" ti="label_sel_options_sel_selected">${sel.options[sel.selectedIndex].text}</span>` +
         `<div class="lane-track"><div class="lane-ball" id="cmpBall${i}" style="background:${COLORS[i]}"></div></div>`;
       grid.appendChild(lane);
     }
@@ -812,6 +824,24 @@ element.<span class="fn">animate</span>(keyframes, {
   renderLinearPoints();
   updateConfigCode();
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_text_to_binary_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,24 +24,50 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Text to Binary Converter</h1>
-  <p class="desc">Convert text to binary and binary back to text</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_text_to_binary_converter" ti="h1_text_to_binary_converter" ti="title_text_to_binary_converter" ti="h1_text_to_binary_converter" ti="title_text_to_binary_converter" ti="h1_text_to_binary_converter">Text to Binary Converter</h1>
+  <p class="desc" ti="subtitle_convert_text_to_binary_an" ti="subtitle_convert_text_to_binary_an" ti="subtitle_convert_text_to_binary_an">Convert text to binary and binary back to text</p>
   <div class="card">
     <div class="tabs">
-      <button class="active" data-dir="text2bin">Text → Binary</button>
-      <button data-dir="bin2text">Binary → Text</button>
+      <button class="active" data-dir="text2bin" ti="btn_text_binary" ti="btn_text_binary" ti="btn_text_binary">Text → Binary</button>
+      <button data-dir="bin2text" ti="btn_binary_text" ti="btn_binary_text" ti="btn_binary_text">Binary → Text</button>
     </div>
-    <label>Input</label>
+    <label ti="label_input" ti="label_input" ti="label_input">Input</label>
     <textarea id="input" rows="4" spellcheck="false">Hello World</textarea>
-    <label>Output</label>
+    <label ti="label_output" ti="label_output" ti="label_output">Output</label>
     <textarea id="output" rows="4" readonly></textarea>
     <div class="flex-center">
-      <button id="copyBtn">Copy Output</button>
-      <button id="swapBtn">Swap</button>
+      <button id="copyBtn" ti="btn_copy_output" ti="btn_copy_output" ti="btn_copy_output">Copy Output</button>
+      <button id="swapBtn" ti="btn_swap" ti="btn_swap" ti="btn_swap">Swap</button>
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_text_to_binary_converter':["Text to Binary Converter", "文本转二进制转换器"],'metadesc_convert_text_to_binary_bi':["Convert text to binary (bits) and binary back to text. Supports ASCII, UTF-8, and custom byte separators.", "将文本转换为二进制（比特），反之亦然。支持 ASCII、UTF-8 和自定义字节分隔符。"],'h1_text_to_binary_converter':["Text to Binary Converter", "文本转二进制转换器"],'subtitle_convert_text_to_binary_an':["Convert text to binary and binary back to text", "将文本转换为二进制，并将二进制转换回文本。"],'btn_text_binary':["Text → Binary", "文本 → 二进制"],'btn_binary_text':["Binary → Text", "二进制 → 文本"],'btn_copy_output':["Copy Output", "复制输出"],'btn_swap':["Swap", "交换"],'label_input':["Input", "输入"],'label_output':["Output", "输出"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_text_to_binary_converter':["Text to Binary Converter", "文本转二进制转换器"],'metadesc_convert_text_to_binary_bi':["Convert text to binary (bits) and binary back to text. Supports ASCII, UTF-8, and custom byte separators.", "将文本转换为二进制（比特），反之亦然。支持 ASCII、UTF-8 和自定义字节分隔符。"],'h1_text_to_binary_converter':["Text to Binary Converter", "文本转二进制转换器"],'subtitle_convert_text_to_binary_an':["Convert text to binary and binary back to text", "将文本转换为二进制，并将二进制转换回文本。"],'btn_text_binary':["Text → Binary", "文本 → 二进制"],'btn_binary_text':["Binary → Text", "二进制 → 文本"],'btn_copy_output':["Copy Output", "复制输出"],'btn_swap':["Swap", "交换"],'label_input':["Input", "输入"],'label_output':["Output", "输出"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let direction = 'text2bin';
 
@@ -88,6 +114,60 @@ document.getElementById('swapBtn').addEventListener('click', () => {
   convert();
 });
 convert();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

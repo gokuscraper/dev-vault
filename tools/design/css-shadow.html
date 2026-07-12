@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_shadow_visual_box_sha" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,18 +64,20 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Shadow</h1>
-<p class="subtitle">Visual box-shadow generator. Multiple layers, presets, live preview.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_shadow">CSS Shadow</h1>
+<p class="subtitle" ti="subtitle_visual_box_shadow_generat">Visual box-shadow generator. Multiple layers, presets, live preview.</p>
 
 <div class="presets" id="presets"></div>
 
 <div class="layout">
   <div class="preview-panel" id="previewPanel" style="background:#1a1a1a">
     <div class="bg-toggle">
-      <button class="bg-btn active" onclick="setBg('#1a1a1a')">Dark</button>
-      <button class="bg-btn" onclick="setBg('#f0f0f0')">Light</button>
-      <button class="bg-btn" onclick="setBg('#ffffff')">White</button>
+      <button class="bg-btn active" onclick="setBg('#1a1a1a')" ti="btn_dark">Dark</button>
+      <button class="bg-btn" onclick="setBg('#f0f0f0')" ti="btn_light">Light</button>
+      <button class="bg-btn" onclick="setBg('#ffffff')" ti="btn_white">White</button>
     </div>
     <div class="preview-box" id="previewBox" style="background:#ffffff"></div>
   </div>
@@ -89,14 +91,14 @@ footer a:hover{color:#999}
     <div class="control-group" id="layerControls"></div>
 
     <div class="control-group">
-      <h3>Box</h3>
+      <h3 ti="h3_box">Box</h3>
       <div class="control-row">
-        <label>Radius</label>
+        <label ti="label_radius">Radius</label>
         <input type="range" id="borderRadius" min="0" max="100" value="16" oninput="update()">
         <span class="val" id="borderRadiusVal">16</span>
       </div>
       <div class="control-row">
-        <label>Box Color</label>
+        <label ti="label_box_color">Box Color</label>
         <input type="color" id="boxColor" value="#ffffff" oninput="update()">
       </div>
     </div>
@@ -104,18 +106,28 @@ footer a:hover{color:#999}
 </div>
 
 <div class="output-section">
-  <h3>CSS Output (click to copy)</h3>
+  <h3 ti="h3_css_output_click_to_copy">CSS Output (click to copy)</h3>
   <div class="css-output" id="cssOutput" onclick="copyCSSOutput()"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/css-shadow">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/color-palette/">Color Palette</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/font-pair/">Font Pair</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a>
+  <a href="https://github.com/gokuscraper/css-shadow" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/color-palette/" ti="link_color_palette">Color Palette</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/font-pair/" ti="link_font_pair">Font Pair</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats">gh-stats</a>
 </footer>
 
+
+<script>var _LANG={'title_css_shadow_visual_box_sha':["CSS Shadow — Visual Box Shadow Generator", "CSS Shadow — 可视化盒阴影生成器"],'metadesc_generate_css_box_shadow_v':["Generate CSS box-shadow visually. Multiple layers, presets, live preview. Copy CSS. Free, instant, no signup.", "直观地生成 CSS 阴影效果。支持多图层、预设选项和实时预览。复制 CSS 代码。免费、即时生效、无需注册。"],'h1_css_shadow':["CSS Shadow", "CSS Shadow"],'h3_box':["Box", "盒子"],'h3_css_output_click_to_copy':["CSS Output (click to copy)", "CSS 输出（点击复制）"],'h3_layer_activelayer_1_setti':["Layer ${activeLayer+1} Settings", "图层 ${activeLayer+1} 设置"],'subtitle_visual_box_shadow_generat':["Visual box-shadow generator. Multiple layers, presets, live preview.", "可视化阴影生成器。支持多图层、预设模式和实时预览。"],'btn_dark':["Dark", "黑暗的"],'btn_light':["Light", "光"],'btn_white':["White", "白色的"],'btn_p_name':["${p.name}", "${p.name}"],'strong_related_tools':["Related Tools", "相关工具"],'label_radius':["Radius", "半径"],'label_box_color':["Box Color", "盒子颜色"],'label_x_offset':["X Offset", "X 偏移"],'label_y_offset':["Y Offset", "Y轴偏移"],'label_blur':["Blur", "模糊"],'label_spread':["Spread", "传播"],'label_color':["Color", "颜色"],'label_opacity':["Opacity", "不透明度"],'label_inset':["Inset", "插图"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_color_palette':["Color Palette", "调色板"],'link_font_pair':["Font Pair", "字体对"],'link_gh_stats':["gh-stats", "gh-stats"],'jtc_css_copied':["CSS copied!", "CSS 已复制！"],'jtlword_blur':["Blur", "模糊"],'jtlword_spread':["Spread", "传播"],'jtlword_color':["Color", "颜色"],'jtlword_opacity':["Opacity", "不透明度"],'jtlword_inset':["Inset", "插图"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 
@@ -139,7 +151,7 @@ const PRESETS=[
 
 function renderPresets(){
   $('presets').innerHTML=PRESETS.map((p,i)=>
-    `<button class="preset-btn" onclick="applyPreset(${i})">${p.name}</button>`
+    `<button class="preset-btn" onclick="applyPreset(${i})" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -178,36 +190,36 @@ function removeLayer(i){
 function renderControls(){
   const l=layers[activeLayer];
   $('layerControls').innerHTML=`
-    <h3>Layer ${activeLayer+1} Settings</h3>
+    <h3 ti="h3_layer_activelayer_1_setti">Layer ${activeLayer+1} Settings</h3>
     <div class="control-row">
-      <label>X Offset</label>
+      <label ti="label_x_offset">X Offset</label>
       <input type="range" min="-50" max="50" value="${l.x}" oninput="setLayer('x',this.value)">
       <span class="val">${l.x}px</span>
     </div>
     <div class="control-row">
-      <label>Y Offset</label>
+      <label ti="label_y_offset">Y Offset</label>
       <input type="range" min="-50" max="50" value="${l.y}" oninput="setLayer('y',this.value)">
       <span class="val">${l.y}px</span>
     </div>
     <div class="control-row">
-      <label>Blur</label>
+      <label ti="label_blur">Blur</label>
       <input type="range" min="0" max="100" value="${l.blur}" oninput="setLayer('blur',this.value)">
       <span class="val">${l.blur}px</span>
     </div>
     <div class="control-row">
-      <label>Spread</label>
+      <label ti="label_spread">Spread</label>
       <input type="range" min="-30" max="50" value="${l.spread}" oninput="setLayer('spread',this.value)">
       <span class="val">${l.spread}px</span>
     </div>
     <div class="control-row">
-      <label>Color</label>
+      <label ti="label_color">Color</label>
       <input type="color" value="${l.color}" oninput="setLayer('color',this.value)">
-      <label style="width:auto">Opacity</label>
+      <label style="width:auto" ti="label_opacity">Opacity</label>
       <input type="range" min="0" max="100" value="${l.opacity}" style="width:80px" oninput="setLayer('opacity',this.value)">
       <span class="val">${l.opacity}%</span>
     </div>
     <div class="control-row">
-      <label>Inset</label>
+      <label ti="label_inset">Inset</label>
       <input type="checkbox" ${l.inset?'checked':''} onchange="setLayer('inset',this.checked)">
     </div>
   `;
@@ -256,7 +268,7 @@ function copyCSSOutput(){
   navigator.clipboard.writeText($('cssOutput').textContent);
   const el=document.createElement('div');
   el.className='copied';
-  el.textContent='CSS copied!';
+  el.textContent=T("jtc_css_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -268,12 +280,30 @@ renderControls();
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-text-shadow/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Text Shadow</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-glass/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Glass</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-neumorphism/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Neumorphism</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

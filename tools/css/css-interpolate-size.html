@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_interpolate_size_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -522,6 +522,8 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>CSS <code>interpolate-size</code></h1>
@@ -532,19 +534,19 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   </div>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
 
 <nav class="toc">
-  <h3>Demos</h3>
+  <h3 ti="h3_demos">Demos</h3>
   <ul>
-    <li><a href="#accordion">Accordion</a></li>
-    <li><a href="#nav-expand">Nav Expand</a></li>
-    <li><a href="#details">Details / Summary</a></li>
-    <li><a href="#explorer">Property Explorer</a></li>
-    <li><a href="#calc-size">calc-size()</a></li>
-    <li><a href="#builder">Transition Builder</a></li>
-    <li><a href="#compare">Before / After</a></li>
-    <li><a href="#support">Browser Support</a></li>
+    <li><a href="#accordion" ti="link_accordion">Accordion</a></li>
+    <li><a href="#nav-expand" ti="link_nav_expand">Nav Expand</a></li>
+    <li><a href="#details" ti="link_details_summary">Details / Summary</a></li>
+    <li><a href="#explorer" ti="link_property_explorer">Property Explorer</a></li>
+    <li><a href="#calc-size" ti="link_calc_size">calc-size()</a></li>
+    <li><a href="#builder" ti="link_transition_builder">Transition Builder</a></li>
+    <li><a href="#compare" ti="link_before_after">Before / After</a></li>
+    <li><a href="#support" ti="link_browser_support">Browser Support</a></li>
   </ul>
 </nav>
 
@@ -559,7 +561,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   </div>
 
   <div class="demo-box">
-    <span class="demo-label">Live Demo</span>
+    <span class="demo-label" ti="label_live_demo" ti="label_live_demo_2">Live Demo</span>
     <div class="accordion-container" id="accordion-container">
       <div class="accordion-item">
         <button class="accordion-header" onclick="toggleAccordion(this)">
@@ -621,15 +623,15 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   </div>
 
   <div class="demo-box">
-    <span class="demo-label">Live Demo — Hover the nav</span>
+    <span class="demo-label" ti="label_live_demo_hover_the_nav">Live Demo — Hover the nav</span>
     <div class="nav-demo-wrap">
       <div class="nav-expand-container" id="nav-expand-container">
         <nav class="nav-expand">
-          <div class="nav-item"><span class="nav-icon">&#9751;</span><span class="nav-label">Dashboard</span></div>
-          <div class="nav-item"><span class="nav-icon">&#9881;</span><span class="nav-label">Settings</span></div>
-          <div class="nav-item"><span class="nav-icon">&#9733;</span><span class="nav-label">Favorites</span></div>
-          <div class="nav-item"><span class="nav-icon">&#9993;</span><span class="nav-label">Messages</span></div>
-          <div class="nav-item"><span class="nav-icon">&#9873;</span><span class="nav-label">Profile</span></div>
+          <div class="nav-item"><span class="nav-icon">&#9751;</span><span class="nav-label" ti="label_dashboard">Dashboard</span></div>
+          <div class="nav-item"><span class="nav-icon">&#9881;</span><span class="nav-label" ti="label_settings">Settings</span></div>
+          <div class="nav-item"><span class="nav-icon">&#9733;</span><span class="nav-label" ti="label_favorites">Favorites</span></div>
+          <div class="nav-item"><span class="nav-icon">&#9993;</span><span class="nav-label" ti="label_messages">Messages</span></div>
+          <div class="nav-item"><span class="nav-icon">&#9873;</span><span class="nav-label" ti="label_profile">Profile</span></div>
         </nav>
       </div>
       <div class="nav-desc">
@@ -716,7 +718,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   </div>
 
   <div class="demo-box">
-    <span class="demo-label">Click each card to animate</span>
+    <span class="demo-label" ti="label_click_each_card_to_animat">Click each card to animate</span>
     <div class="explorer-container" id="explorer-container">
       <div class="explorer-grid">
         <div class="explorer-card" onclick="toggleExplorer(this, 'height')">
@@ -754,13 +756,13 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   <p class="desc">Perform calculations with intrinsic size keywords. <code>calc-size(auto, size / 2)</code> gives you half the auto width.</p>
 
   <div class="demo-box">
-    <span class="demo-label">Click buttons to switch sizes</span>
+    <span class="demo-label" ti="label_click_buttons_to_switch_s">Click buttons to switch sizes</span>
     <div class="calc-demo-container" id="calc-demo-container">
       <div class="btn-row">
-        <button class="btn btn-sm" onclick="setCalcSize('full-auto')">auto</button>
-        <button class="btn btn-sm" onclick="setCalcSize('half-auto')">calc-size(auto, size / 2)</button>
-        <button class="btn btn-sm" onclick="setCalcSize('auto-plus')">calc-size(auto, size + 40px)</button>
-        <button class="btn btn-sm" onclick="setCalcSize('fit-half')">calc-size(fit-content, size * 0.75)</button>
+        <button class="btn btn-sm" onclick="setCalcSize('full-auto')" ti="btn_auto">auto</button>
+        <button class="btn btn-sm" onclick="setCalcSize('half-auto')" ti="btn_calc_size_auto_size_2">calc-size(auto, size / 2)</button>
+        <button class="btn btn-sm" onclick="setCalcSize('auto-plus')" ti="btn_calc_size_auto_size_40px">calc-size(auto, size + 40px)</button>
+        <button class="btn btn-sm" onclick="setCalcSize('fit-half')" ti="btn_calc_size_fit_content_siz">calc-size(fit-content, size * 0.75)</button>
       </div>
       <div class="calc-box full-auto" id="calc-target">
         Hello, calc-size()!
@@ -787,11 +789,11 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
 <!-- ===== 6. TRANSITION BUILDER ===== -->
 <section id="builder">
   <h2><span class="num">6</span> Transition Builder</h2>
-  <p class="desc">Customize the transition property, values, duration, and easing. See the live result and generated CSS.</p>
+  <p class="desc" ti="subtitle_customize_the_transition">Customize the transition property, values, duration, and easing. See the live result and generated CSS.</p>
 
   <div class="builder-controls">
     <div class="control-group">
-      <label>Property</label>
+      <label ti="label_property">Property</label>
       <select id="builder-prop" onchange="updateBuilder()">
         <option value="height">height</option>
         <option value="width">width</option>
@@ -802,7 +804,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
       </select>
     </div>
     <div class="control-group">
-      <label>From</label>
+      <label ti="label_from">From</label>
       <select id="builder-from" onchange="updateBuilder()">
         <option value="0">0</option>
         <option value="50px">50px</option>
@@ -812,7 +814,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
       </select>
     </div>
     <div class="control-group">
-      <label>To</label>
+      <label ti="label_to">To</label>
       <select id="builder-to" onchange="updateBuilder()">
         <option value="auto">auto</option>
         <option value="min-content">min-content</option>
@@ -826,7 +828,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
       <input type="range" id="builder-duration" min="0.1" max="2" step="0.1" value="0.4" oninput="updateBuilder()">
     </div>
     <div class="control-group">
-      <label>Easing</label>
+      <label ti="label_easing">Easing</label>
       <select id="builder-easing" onchange="updateBuilder()">
         <option value="ease">ease</option>
         <option value="ease-in">ease-in</option>
@@ -840,11 +842,11 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
 
   <div class="btn-row">
     <button class="btn btn-accent" id="builder-play" onclick="playBuilder()">&#9654; Play Transition</button>
-    <button class="btn" onclick="resetBuilder()">Reset</button>
+    <button class="btn" onclick="resetBuilder()" ti="btn_reset">Reset</button>
   </div>
 
   <div class="demo-box">
-    <span class="demo-label">Preview</span>
+    <span class="demo-label" ti="label_preview">Preview</span>
     <div class="builder-container">
       <div class="builder-preview-area">
         <div class="builder-target" id="builder-target">Transition Target</div>
@@ -870,7 +872,7 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
 <!-- ===== 7. BEFORE/AFTER ===== -->
 <section id="compare">
   <h2><span class="num">7</span> Before / After</h2>
-  <p class="desc">The old JavaScript approach vs. the new CSS-only solution.</p>
+  <p class="desc" ti="subtitle_the_old_javascript_approa">The old JavaScript approach vs. the new CSS-only solution.</p>
 
   <div class="compare-grid">
     <div class="compare-card">
@@ -968,6 +970,16 @@ footer .footer-links { margin-top: 8px; display: flex; gap: 16px; justify-conten
   </div>
 </footer>
 
+
+<script>var _LANG={'title_css_interpolate_size_play':["CSS interpolate-size Playground", "CSS 插值大小 Playground"],'metadesc_animate_height_auto_and_i':["Animate height: auto and intrinsic sizes with CSS interpolate-size. Interactive demos, accordion, nav, details, calc-size().", "动画高度：使用 CSS interpolate-size 实现自动和固有高度。交互式演示、手风琴、导航、详情、calc-size()。"],'h3_demos':["Demos", "演示"],'subtitle_customize_the_transition':["Customize the transition property, values, duration, and easing. See the live result and generated CSS.", "自定义过渡属性、值、持续时间和缓动效果。查看实时效果和生成的 CSS。"],'subtitle_the_old_javascript_approa':["The old JavaScript approach vs. the new CSS-only solution.", "传统的 JavaScript 方法与全新的纯 CSS 解决方案。"],'btn_auto':["auto", "汽车"],'btn_calc_size_auto_size_2':["calc-size(auto, size / 2)", "calc-size(auto, size / 2)"],'btn_calc_size_auto_size_40px':["calc-size(auto, size + 40px)", "calc-size(auto, size + 40px)"],'btn_calc_size_fit_content_siz':["calc-size(fit-content, size * 0.75)", "calc-size(fit-content, size * 0.75)"],'btn_play_transition':["▶ Play Transition", "▶ 播放过渡"],'btn_reset':["Reset", "重置"],'label_live_demo':["Live Demo", "在线演示"],'label_live_demo_hover_the_nav':["Live Demo — Hover the nav", "在线演示 — 将鼠标悬停在导航栏上"],'label_dashboard':["Dashboard", "仪表板"],'label_settings':["Settings", "设置"],'label_favorites':["Favorites", "收藏夹"],'label_messages':["Messages", "消息"],'label_profile':["Profile", "轮廓"],'label_live_demo_2':["Live Demo", "在线演示"],'label_click_each_card_to_animat':["Click each card to animate", "点击每张卡片即可播放动画。"],'label_click_buttons_to_switch_s':["Click buttons to switch sizes", "点击按钮切换尺寸"],'label_preview':["Preview", "预览"],'label_property':["Property", "财产"],'label_from':["From", "从"],'label_to':["To", "到"],'label_easing':["Easing", "缓解"],'link_accordion':["Accordion", "手风琴"],'link_nav_expand':["Nav Expand", "导航展开"],'link_details_summary':["Details / Summary", "详情/概要"],'link_property_explorer':["Property Explorer", "房产探索器"],'link_calc_size':["calc-size()", "计算大小()"],'link_transition_builder':["Transition Builder", "过渡构建者"],'link_before_after':["Before / After", "之前/之后"],'link_browser_support':["Browser Support", "浏览器支持"],'jtc_your_browser_supports_int':["Your browser supports interpolate-size! All demos are fully functional.", "您的浏览器支持插值缩放！所有演示功能均已全面实现。"],'jtc_your_browser_does_not_sup':["Your browser does not support interpolate-size. Demos will snap instead of animating.", "您的浏览器不支持插值缩放。演示动画将以贴合方式显示，而非动画效果。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Toggle interpolate-size ===
 function toggleInterpolate(btn, containerId) {
@@ -1125,16 +1137,34 @@ function checkSupport() {
   const supported = CSS.supports && CSS.supports('interpolate-size', 'allow-keywords');
   if (supported) {
     el.className = 'live-test supported';
-    el.textContent = 'Your browser supports interpolate-size! All demos are fully functional.';
+    el.textContent=T("jtc_your_browser_supports_int");
   } else {
     el.className = 'live-test unsupported';
-    el.textContent = 'Your browser does not support interpolate-size. Demos will snap instead of animating.';
+    el.textContent=T("jtc_your_browser_does_not_sup");
   }
 }
 
 // Init
 updateBuilder();
 checkSupport();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

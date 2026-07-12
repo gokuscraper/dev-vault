@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_file_handling_api_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -246,6 +246,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>File Handling API</span> Playground</h1>
@@ -262,10 +264,10 @@
     <div class="handler-list" id="handlerList"></div>
 
     <div style="margin-top: 1rem; display: flex; gap: 0.75rem;">
-      <button class="btn btn-primary" onclick="addHandler()">+ Add Handler</button>
-      <button class="btn" onclick="addPreset('image')">Preset: Image Editor</button>
-      <button class="btn" onclick="addPreset('text')">Preset: Text Editor</button>
-      <button class="btn" onclick="addPreset('csv')">Preset: CSV Viewer</button>
+      <button class="btn btn-primary" onclick="addHandler()" ti="btn_add_handler">+ Add Handler</button>
+      <button class="btn" onclick="addPreset('image')" ti="btn_preset_image_editor">Preset: Image Editor</button>
+      <button class="btn" onclick="addPreset('text')" ti="btn_preset_text_editor">Preset: Text Editor</button>
+      <button class="btn" onclick="addPreset('csv')" ti="btn_preset_csv_viewer">Preset: CSV Viewer</button>
     </div>
   </div>
 
@@ -278,7 +280,7 @@
       <div style="overflow-y: auto; max-height: 350px;">
         <table class="mime-table" id="mimeTable">
           <thead>
-            <tr><th>MIME Type</th><th>Extensions</th><th>Category</th></tr>
+            <tr><th ti="th_mime_type">MIME Type</th><th ti="th_extensions">Extensions</th><th ti="th_category">Category</th></tr>
           </thead>
           <tbody></tbody>
         </table>
@@ -291,9 +293,9 @@
       <p class="card-desc">Simulate how files arrive through the launchQueue when your PWA handles a file open request.</p>
 
       <div style="display: flex; gap: 0.75rem; margin-bottom: 1rem; flex-wrap: wrap;">
-        <button class="btn btn-primary" onclick="simulateFileOpen()">Simulate File Open</button>
-        <button class="btn" onclick="simulateMultiFileOpen()">Multi-File Open</button>
-        <button class="btn" onclick="clearLog()">Clear</button>
+        <button class="btn btn-primary" onclick="simulateFileOpen()" ti="btn_simulate_file_open">Simulate File Open</button>
+        <button class="btn" onclick="simulateMultiFileOpen()" ti="btn_multi_file_open">Multi-File Open</button>
+        <button class="btn" onclick="clearLog()" ti="btn_clear">Clear</button>
       </div>
 
       <div class="log-container" id="logContainer">
@@ -358,7 +360,7 @@
     </div>
 
     <div class="tab-panel active" id="tabManifest">
-      <div class="code-block" id="manifestOutput"><button class="copy-btn" onclick="copyCode('manifest')">Copy</button>Loading...</div>
+      <div class="code-block" id="manifestOutput"><button class="copy-btn" onclick="copyCode('manifest')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>Loading...</div>
     </div>
 
     <div class="tab-panel" id="tabConsumer">
@@ -433,11 +435,21 @@
       </div>
     </div>
     <div class="info-box" style="margin-top: 1rem;">
-      The File Handling API requires a <strong>PWA installed on the user's system</strong>. The browser registers the file type associations with the OS during PWA installation. The <code>file_handlers</code> manifest member defines which types your app handles, and the <code>launchQueue</code> API delivers the files to your code. Works alongside the Launch Handler API for controlling window behavior.
+      The File Handling API requires a <strong ti="strong_pwa_installed_on_the_user">PWA installed on the user's system</strong>. The browser registers the file type associations with the OS during PWA installation. The <code>file_handlers</code> manifest member defines which types your app handles, and the <code>launchQueue</code> API delivers the files to your code. Works alongside the Launch Handler API for controlling window behavior.
     </div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_file_handling_api_playgro':["File Handling API Playground", "文件处理 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the File Handling API - build file type associations, explore launchQueue consumers, and generate manifest configurations.", "文件处理 API 的交互式演示平台 - 构建文件类型关联、探索 launchQueue 使用者并生成清单配置。"],'btn_add_handler':["+ Add Handler", "+ 添加处理程序"],'btn_preset_image_editor':["Preset: Image Editor", "预设：图像编辑器"],'btn_preset_text_editor':["Preset: Text Editor", "预设：文本编辑器"],'btn_preset_csv_viewer':["Preset: CSV Viewer", "预设：CSV 查看器"],'btn_simulate_file_open':["Simulate File Open", "模拟文件打开"],'btn_multi_file_open':["Multi-File Open", "多文件打开"],'btn_clear':["Clear", "清除"],'btn_animate_flow':["▶ Animate Flow", "▶ 动画流程"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_remove':["Remove", "消除"],'btn_copy_4':["Copy", "复制"],'placeholder_open':["/open", "/打开"],'strong_pwa_installed_on_the_user':["PWA installed on the user's system", "安装在用户系统上的 PWA"],'th_mime_type':["MIME Type", "MIME 类型"],'th_extensions':["Extensions", "扩展"],'th_category':["Category", "类别"],'label_action':["action:", "行动："],'label_accept':["accept:", "接受："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_copy':["Copy", "复制"],'jtlword_info':["INFO", "信息"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Feature detection
   const hasLaunchQueue = 'launchQueue' in window;
@@ -551,15 +563,15 @@
         <div class="handler-entry slide-in">
           <div class="handler-header">
             <span class="handler-title">Handler #${h.id + 1}</span>
-            <button class="btn btn-danger" onclick="removeHandler(${h.id})" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;">Remove</button>
+            <button class="btn btn-danger" onclick="removeHandler(${h.id})" style="padding: 0.3rem 0.6rem; font-size: 0.75rem;" ti="btn_remove">Remove</button>
           </div>
           <div class="handler-fields">
             <div class="handler-row">
-              <label>action:</label>
-              <input type="text" value="${h.action}" onchange="updateHandlerAction(${h.id}, this.value)" placeholder="/open">
+              <label ti="label_action">action:</label>
+              <input type="text" value="${h.action}" onchange="updateHandlerAction(${h.id}, this.value)" tp="placeholder_open" placeholder="/open">
             </div>
             <div class="handler-row">
-              <label>accept:</label>
+              <label ti="label_accept">accept:</label>
               <div>
                 <div class="accept-list">${acceptTags || '<span style="color: var(--text-muted); font-size: 0.75rem;">Click MIME types below to add</span>'}</div>
               </div>
@@ -632,7 +644,7 @@
     navigator.clipboard.writeText(text).then(() => {
       const panels = { manifest: 'tabManifest', consumer: 'tabConsumer', registration: 'tabRegistration' };
       const btn = document.querySelector(`#${panels[type]} .copy-btn, #${type === 'consumer' ? 'consumerCode' : (type === 'registration' ? 'tabRegistration' : 'manifestOutput')} .copy-btn`);
-      if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 1500); }
+      if (btn) { btn.textContent=T("jtc_copied"); setTimeout(() => btn.textContent=T("jtc_copy"), 1500); }
     });
   }
 
@@ -712,5 +724,23 @@
   updateManifest();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_animation_keyframe_an" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,50 +57,58 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Animation</h1>
-<p class="subtitle">Visual keyframe animation generator. 12 presets, custom timing.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_animation" ti="h1_css_animation" ti="h1_css_animation" ti="h1_css_animation">CSS Animation</h1>
+<p class="subtitle" ti="subtitle_visual_keyframe_animation" ti="subtitle_visual_keyframe_animation" ti="subtitle_visual_keyframe_animation" ti="subtitle_visual_keyframe_animation">Visual keyframe animation generator. 12 presets, custom timing.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="loadPreset('bounce')">Bounce</button>
-  <button class="preset-btn" onclick="loadPreset('pulse')">Pulse</button>
-  <button class="preset-btn" onclick="loadPreset('shake')">Shake</button>
-  <button class="preset-btn" onclick="loadPreset('spin')">Spin</button>
-  <button class="preset-btn" onclick="loadPreset('fadeIn')">Fade In</button>
-  <button class="preset-btn" onclick="loadPreset('fadeOut')">Fade Out</button>
-  <button class="preset-btn" onclick="loadPreset('slideIn')">Slide In</button>
-  <button class="preset-btn" onclick="loadPreset('slideUp')">Slide Up</button>
-  <button class="preset-btn" onclick="loadPreset('flip')">Flip</button>
-  <button class="preset-btn" onclick="loadPreset('swing')">Swing</button>
-  <button class="preset-btn" onclick="loadPreset('rubber')">Rubber</button>
-  <button class="preset-btn" onclick="loadPreset('jello')">Jello</button>
+  <button class="preset-btn" onclick="loadPreset('bounce')" ti="btn_bounce" ti="btn_bounce" ti="btn_bounce" ti="btn_bounce">Bounce</button>
+  <button class="preset-btn" onclick="loadPreset('pulse')" ti="btn_pulse" ti="btn_pulse" ti="btn_pulse" ti="btn_pulse">Pulse</button>
+  <button class="preset-btn" onclick="loadPreset('shake')" ti="btn_shake" ti="btn_shake" ti="btn_shake" ti="btn_shake">Shake</button>
+  <button class="preset-btn" onclick="loadPreset('spin')" ti="btn_spin" ti="btn_spin" ti="btn_spin" ti="btn_spin">Spin</button>
+  <button class="preset-btn" onclick="loadPreset('fadeIn')" ti="btn_fade_in" ti="btn_fade_in" ti="btn_fade_in" ti="btn_fade_in">Fade In</button>
+  <button class="preset-btn" onclick="loadPreset('fadeOut')" ti="btn_fade_out" ti="btn_fade_out" ti="btn_fade_out" ti="btn_fade_out">Fade Out</button>
+  <button class="preset-btn" onclick="loadPreset('slideIn')" ti="btn_slide_in" ti="btn_slide_in" ti="btn_slide_in" ti="btn_slide_in">Slide In</button>
+  <button class="preset-btn" onclick="loadPreset('slideUp')" ti="btn_slide_up" ti="btn_slide_up" ti="btn_slide_up" ti="btn_slide_up">Slide Up</button>
+  <button class="preset-btn" onclick="loadPreset('flip')" ti="btn_flip" ti="btn_flip" ti="btn_flip" ti="btn_flip">Flip</button>
+  <button class="preset-btn" onclick="loadPreset('swing')" ti="btn_swing" ti="btn_swing" ti="btn_swing" ti="btn_swing">Swing</button>
+  <button class="preset-btn" onclick="loadPreset('rubber')" ti="btn_rubber" ti="btn_rubber" ti="btn_rubber" ti="btn_rubber">Rubber</button>
+  <button class="preset-btn" onclick="loadPreset('jello')" ti="btn_jello" ti="btn_jello" ti="btn_jello" ti="btn_jello">Jello</button>
 </div>
 
 <div class="layout">
   <div class="controls">
     <div class="ctrl-group">
-      <h3>Timing</h3>
-      <div class="ctrl-row"><label>duration</label><input type="range" id="duration" min="0.1" max="5" step="0.1" value="1" oninput="update()"><span class="range-val" id="durVal">1s</span></div>
-      <div class="ctrl-row"><label>delay</label><input type="range" id="delay" min="0" max="3" step="0.1" value="0" oninput="update()"><span class="range-val" id="delVal">0s</span></div>
-      <div class="ctrl-row"><label>easing</label><select id="easing" onchange="update()"><option>ease</option><option>ease-in</option><option>ease-out</option><option>ease-in-out</option><option>linear</option><option value="cubic-bezier(0.68,-0.55,0.27,1.55)">bounce-out</option><option value="cubic-bezier(0.34,1.56,0.64,1)">overshoot</option><option value="steps(5)">steps(5)</option><option value="steps(10)">steps(10)</option></select></div>
+      <h3 ti="h3_timing" ti="h3_timing" ti="h3_timing" ti="h3_timing">Timing</h3>
+      <div class="ctrl-row"><label ti="label_duration" ti="label_duration" ti="label_duration" ti="label_duration">duration</label><input type="range" id="duration" min="0.1" max="5" step="0.1" value="1" oninput="update()"><span class="range-val" id="durVal">1s</span></div>
+      <div class="ctrl-row"><label ti="label_delay" ti="label_delay" ti="label_delay" ti="label_delay">delay</label><input type="range" id="delay" min="0" max="3" step="0.1" value="0" oninput="update()"><span class="range-val" id="delVal">0s</span></div>
+      <div class="ctrl-row"><label ti="label_easing" ti="label_easing" ti="label_easing" ti="label_easing">easing</label><select id="easing" onchange="update()"><option>ease</option><option>ease-in</option><option>ease-out</option><option>ease-in-out</option><option>linear</option><option value="cubic-bezier(0.68,-0.55,0.27,1.55)">bounce-out</option><option value="cubic-bezier(0.34,1.56,0.64,1)">overshoot</option><option value="steps(5)">steps(5)</option><option value="steps(10)">steps(10)</option></select></div>
     </div>
     <div class="ctrl-group">
-      <h3>Behavior</h3>
-      <div class="ctrl-row"><label>iteration</label><select id="iteration" onchange="update()"><option>1</option><option>2</option><option>3</option><option>5</option><option>infinite</option></select></div>
-      <div class="ctrl-row"><label>direction</label><select id="direction" onchange="update()"><option>normal</option><option>reverse</option><option>alternate</option><option>alternate-reverse</option></select></div>
-      <div class="ctrl-row"><label>fill-mode</label><select id="fillMode" onchange="update()"><option>none</option><option>forwards</option><option>backwards</option><option>both</option></select></div>
+      <h3 ti="h3_behavior" ti="h3_behavior" ti="h3_behavior" ti="h3_behavior">Behavior</h3>
+      <div class="ctrl-row"><label ti="label_iteration" ti="label_iteration" ti="label_iteration" ti="label_iteration">iteration</label><select id="iteration" onchange="update()"><option>1</option><option>2</option><option>3</option><option>5</option><option>infinite</option></select></div>
+      <div class="ctrl-row"><label ti="label_direction" ti="label_direction" ti="label_direction" ti="label_direction">direction</label><select id="direction" onchange="update()"><option>normal</option><option>reverse</option><option>alternate</option><option>alternate-reverse</option></select></div>
+      <div class="ctrl-row"><label ti="label_fill_mode" ti="label_fill_mode" ti="label_fill_mode" ti="label_fill_mode">fill-mode</label><select id="fillMode" onchange="update()"><option>none</option><option>forwards</option><option>backwards</option><option>both</option></select></div>
     </div>
     <div class="ctrl-group">
-      <h3>Animation Name</h3>
-      <div class="ctrl-row"><label>name</label><input type="text" id="animName" value="myAnimation" oninput="update()" style="flex:1"></div>
+      <h3 ti="h3_animation_name" ti="h3_animation_name" ti="h3_animation_name" ti="h3_animation_name">Animation Name</h3>
+      <div class="ctrl-row"><label ti="label_name" ti="label_name" ti="label_name" ti="label_name">name</label><input type="text" id="animName" value="myAnimation" oninput="update()" style="flex:1"></div>
     </div>
   </div>
 
   <div class="preview-area">
     <div class="preview-box" id="previewBox">Box</div>
     <div class="preview-controls">
-      <button class="pbtn" onclick="replay()">▶ Replay</button>
-      <button class="pbtn" onclick="togglePause()">⏸ Pause</button>
+      <button class="pbtn" onclick="replay()" ti="btn_replay" ti="btn_replay" ti="btn_replay" ti="btn_replay">▶ Replay</button>
+      <button class="pbtn" onclick="togglePause()" ti="btn_pause" ti="btn_pause" ti="btn_pause" ti="btn_pause">⏸ Pause</button>
     </div>
   </div>
 </div>
@@ -112,10 +120,40 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/css-animation">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/css-animation" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+
+
+<script>var _LANG={'title_css_animation_keyframe_an':["CSS Animation — Keyframe Animation Generator", "CSS动画——关键帧动画生成器"],'metadesc_visual_css_keyframe_anima':["Visual CSS keyframe animation generator. 12 presets, custom keyframes, easing curves. Copy CSS. Free.", "可视化 CSS 关键帧动画生成器。12 种预设，自定义关键帧，缓动曲线。可复制 CSS 代码。免费。"],'h1_css_animation':["CSS Animation", "CSS动画"],'h3_timing':["Timing", "定时"],'h3_behavior':["Behavior", "行为"],'h3_animation_name':["Animation Name", "动画名称"],'subtitle_visual_keyframe_animation':["Visual keyframe animation generator. 12 presets, custom timing.", "可视化关键帧动画生成器。12 个预设，可自定义时间轴。"],'btn_bounce':["Bounce", "弹跳"],'btn_pulse':["Pulse", "脉冲"],'btn_shake':["Shake", "摇"],'btn_spin':["Spin", "旋转"],'btn_fade_in':["Fade In", "淡入"],'btn_fade_out':["Fade Out", "淡出"],'btn_slide_in':["Slide In", "滑入"],'btn_slide_up':["Slide Up", "向上滑动"],'btn_flip':["Flip", "翻动"],'btn_swing':["Swing", "摇摆"],'btn_rubber':["Rubber", "橡皮"],'btn_jello':["Jello", "果冻"],'btn_replay':["▶ Replay", "▶ 重播"],'btn_pause':["⏸ Pause", "⏸ 暂停"],'strong_related_tools':["Related Tools", "相关工具"],'label_duration':["duration", "期间"],'label_delay':["delay", "延迟"],'label_easing':["easing", "缓解"],'label_iteration':["iteration", "迭代"],'label_direction':["direction", "方向"],'label_fill_mode':["fill-mode", "填充模式"],'label_name':["name", "姓名"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_css_animation_keyframe_an':["CSS Animation — Keyframe Animation Generator", "CSS动画——关键帧动画生成器"],'metadesc_visual_css_keyframe_anima':["Visual CSS keyframe animation generator. 12 presets, custom keyframes, easing curves. Copy CSS. Free.", "可视化 CSS 关键帧动画生成器。12 种预设，自定义关键帧，缓动曲线。可复制 CSS 代码。免费。"],'h1_css_animation':["CSS Animation", "CSS动画"],'h3_timing':["Timing", "定时"],'h3_behavior':["Behavior", "行为"],'h3_animation_name':["Animation Name", "动画名称"],'subtitle_visual_keyframe_animation':["Visual keyframe animation generator. 12 presets, custom timing.", "可视化关键帧动画生成器。12 个预设，可自定义时间轴。"],'btn_bounce':["Bounce", "弹跳"],'btn_pulse':["Pulse", "脉冲"],'btn_shake':["Shake", "摇"],'btn_spin':["Spin", "旋转"],'btn_fade_in':["Fade In", "淡入"],'btn_fade_out':["Fade Out", "淡出"],'btn_slide_in':["Slide In", "滑入"],'btn_slide_up':["Slide Up", "向上滑动"],'btn_flip':["Flip", "翻动"],'btn_swing':["Swing", "摇摆"],'btn_rubber':["Rubber", "橡皮"],'btn_jello':["Jello", "果冻"],'btn_replay':["▶ Replay", "▶ 重播"],'btn_pause':["⏸ Pause", "⏸ 暂停"],'strong_related_tools':["Related Tools", "相关工具"],'label_duration':["duration", "期间"],'label_delay':["delay", "延迟"],'label_easing':["easing", "缓解"],'label_iteration':["iteration", "迭代"],'label_direction':["direction", "方向"],'label_fill_mode':["fill-mode", "填充模式"],'label_name':["name", "姓名"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_css_animation_keyframe_an':["CSS Animation — Keyframe Animation Generator", "CSS动画——关键帧动画生成器"],'metadesc_visual_css_keyframe_anima':["Visual CSS keyframe animation generator. 12 presets, custom keyframes, easing curves. Copy CSS. Free.", "可视化 CSS 关键帧动画生成器。12 种预设，自定义关键帧，缓动曲线。可复制 CSS 代码。免费。"],'h1_css_animation':["CSS Animation", "CSS动画"],'h3_timing':["Timing", "定时"],'h3_behavior':["Behavior", "行为"],'h3_animation_name':["Animation Name", "动画名称"],'subtitle_visual_keyframe_animation':["Visual keyframe animation generator. 12 presets, custom timing.", "可视化关键帧动画生成器。12 个预设，可自定义时间轴。"],'btn_bounce':["Bounce", "弹跳"],'btn_pulse':["Pulse", "脉冲"],'btn_shake':["Shake", "摇"],'btn_spin':["Spin", "旋转"],'btn_fade_in':["Fade In", "淡入"],'btn_fade_out':["Fade Out", "淡出"],'btn_slide_in':["Slide In", "滑入"],'btn_slide_up':["Slide Up", "向上滑动"],'btn_flip':["Flip", "翻动"],'btn_swing':["Swing", "摇摆"],'btn_rubber':["Rubber", "橡皮"],'btn_jello':["Jello", "果冻"],'btn_replay':["▶ Replay", "▶ 重播"],'btn_pause':["⏸ Pause", "⏸ 暂停"],'strong_related_tools':["Related Tools", "相关工具"],'label_duration':["duration", "期间"],'label_delay':["delay", "延迟"],'label_easing':["easing", "缓解"],'label_iteration':["iteration", "迭代"],'label_direction':["direction", "方向"],'label_fill_mode':["fill-mode", "填充模式"],'label_name':["name", "姓名"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
   bounce:{keyframes:{'0%,20%,50%,80%,100%':'transform: translateY(0)','40%':'transform: translateY(-30px)','60%':'transform: translateY(-15px)'},dur:1,ease:'ease',iter:'infinite',dir:'normal'},
@@ -204,7 +242,7 @@ function togglePause(){
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='CSS Copied!';
+  el.className='copied';el.textContent=T("jtc_css_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -212,12 +250,84 @@ function copyCSS(){
 loadPreset('bounce');
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-transition/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Transition</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-filter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Filter</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-shadow/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Shadow</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

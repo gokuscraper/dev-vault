@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_websocket_frame_inspector" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,21 +69,23 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>WebSocket Frame Inspector</h1>
-<p class="subtitle">Decode and generate RFC 6455 WebSocket frames</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_websocket_frame_inspector">WebSocket Frame Inspector</h1>
+<p class="subtitle" ti="subtitle_decode_and_generate_rfc_6">Decode and generate RFC 6455 WebSocket frames</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('decoder')">Decoder</button>
-<button class="tab" onclick="showTab('generator')">Generator</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('decoder')" ti="btn_decoder">Decoder</button>
+<button class="tab" onclick="showTab('generator')" ti="btn_generator">Generator</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-decoder" class="panel active">
 <div class="presets" id="presets"></div>
 <div style="margin-bottom:8px;font-size:0.75rem;color:#888">Paste hex bytes (space-separated or continuous):</div>
-<textarea class="hex-input" id="hex-input" placeholder="81 85 37 fa 21 3d 7f 9f 4d 51 58" oninput="decodeFrame()"></textarea>
-<button class="btn btn-primary btn-sm" style="margin-top:6px" onclick="decodeFrame()">Decode</button>
+<textarea class="hex-input" id="hex-input" tp="placeholder_81_85_37_fa_21_3d_7f_9f_4" placeholder="81 85 37 fa 21 3d 7f 9f 4d 51 58" oninput="decodeFrame()"></textarea>
+<button class="btn btn-primary btn-sm" style="margin-top:6px" onclick="decodeFrame()" ti="btn_decode">Decode</button>
 
 <div class="frame-diagram" id="frame-diagram"></div>
 <div class="fields" id="fields"></div>
@@ -91,9 +93,9 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </div>
 
 <div id="tab-generator" class="panel">
-<h3 style="color:#fff;margin-bottom:12px;font-size:0.95rem">Generate WebSocket Frame</h3>
+<h3 style="color:#fff;margin-bottom:12px;font-size:0.95rem" ti="h3_generate_websocket_frame">Generate WebSocket Frame</h3>
 <div class="gen-row">
-<label>Opcode:</label>
+<label ti="label_opcode">Opcode:</label>
 <select id="gen-opcode">
 <option value="1">0x1 — Text</option>
 <option value="2">0x2 — Binary</option>
@@ -103,27 +105,27 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </select>
 </div>
 <div class="gen-row">
-<label>FIN bit:</label>
+<label ti="label_fin_bit">FIN bit:</label>
 <select id="gen-fin"><option value="1">1 (final frame)</option><option value="0">0 (continuation)</option></select>
 </div>
 <div class="gen-row">
-<label>Masked:</label>
+<label ti="label_masked">Masked:</label>
 <select id="gen-mask"><option value="1">Yes (client→server)</option><option value="0">No (server→client)</option></select>
 </div>
 <div class="gen-row">
-<label>Payload:</label>
-<input type="text" id="gen-payload" value="Hello" placeholder="Text payload">
+<label ti="label_payload">Payload:</label>
+<input type="text" id="gen-payload" value="Hello" tp="placeholder_text_payload" placeholder="Text payload">
 </div>
-<button class="btn btn-primary" onclick="generateFrame()">Generate</button>
+<button class="btn btn-primary" onclick="generateFrame()" ti="btn_generate">Generate</button>
 <div class="gen-output" id="gen-output" style="margin-top:12px;display:none">
-<button class="copy-btn" onclick="copyGenerated()">Copy</button>
+<button class="copy-btn" onclick="copyGenerated()" ti="btn_copy">Copy</button>
 <div id="gen-hex"></div>
 </div>
 </div>
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>WebSocket Frame Format (RFC 6455)</h3>
+<h3 ti="h3_websocket_frame_format_rf">WebSocket Frame Format (RFC 6455)</h3>
 <pre style="font-family:'Cascadia Code',Consolas,monospace;font-size:0.72rem;color:#93c5fd;background:#0d0d1a;padding:12px;border-radius:8px;line-height:1.5;overflow-x:auto">
  0                   1                   2                   3
  0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1 2 3 4 5 6 7 8 9 0 1
@@ -143,7 +145,7 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 +---------------------------------------------------------------+</pre>
 </div>
 <div class="ref-section">
-<h3>Opcodes</h3>
+<h3 ti="h3_opcodes">Opcodes</h3>
 <ul>
 <li><span class="code">0x0</span> — Continuation frame</li>
 <li><span class="code">0x1</span> — Text frame (UTF-8)</li>
@@ -156,21 +158,31 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </ul>
 </div>
 <div class="ref-section">
-<h3>Masking Algorithm</h3>
+<h3 ti="h3_masking_algorithm">Masking Algorithm</h3>
 <p>Client→server frames MUST be masked. The masking key is 4 bytes. Each payload byte is XORed with the key:</p>
 <p style="margin-top:6px"><span class="code">decoded[i] = encoded[i] XOR maskKey[i % 4]</span></p>
 </div>
 <div class="ref-section">
-<h3>Payload Length Encoding</h3>
+<h3 ti="h3_payload_length_encoding">Payload Length Encoding</h3>
 <ul>
-<li><strong>0-125</strong>: Length in the 7-bit field directly</li>
-<li><strong>126</strong>: Next 2 bytes contain the actual length (16-bit)</li>
-<li><strong>127</strong>: Next 8 bytes contain the actual length (64-bit)</li>
+<li><strong ti="strong_0_125">0-125</strong>: Length in the 7-bit field directly</li>
+<li><strong ti="strong_126">126</strong>: Next 2 bytes contain the actual length (16-bit)</li>
+<li><strong ti="strong_127">127</strong>: Next 8 bytes contain the actual length (64-bit)</li>
 </ul>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_websocket_frame_inspector':["WebSocket Frame Inspector — RFC 6455 Frame Decoder", "WebSocket 帧检查器 — RFC 6455 帧解码器"],'metadesc_interactive_websocket_fra':["Interactive WebSocket frame decoder and generator. Parse hex to see FIN, opcode, mask, payload. Generate frames for testing. Visualize RFC 6455 wire format.", "交互式 WebSocket 帧解码器和生成器。解析十六进制以查看 FIN、操作码、掩码和有效载荷。生成用于测试的帧。可视化 RFC 6455 线格式。"],'h1_websocket_frame_inspector':["WebSocket Frame Inspector", "WebSocket 帧检查器"],'h3_generate_websocket_frame':["Generate WebSocket Frame", "生成 WebSocket 帧"],'h3_websocket_frame_format_rf':["WebSocket Frame Format (RFC 6455)", "WebSocket 帧格式（RFC 6455）"],'h3_opcodes':["Opcodes", "操作码"],'h3_masking_algorithm':["Masking Algorithm", "掩蔽算法"],'h3_payload_length_encoding':["Payload Length Encoding", "有效载荷长度编码"],'subtitle_decode_and_generate_rfc_6':["Decode and generate RFC 6455 WebSocket frames", "解码并生成 RFC 6455 WebSocket 帧"],'btn_decoder':["Decoder", "解码器"],'btn_generator':["Generator", "发电机"],'btn_reference':["Reference", "参考"],'btn_decode':["Decode", "解码"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_p_name':["${p.name}", "${p.name}"],'label_byte_0':["Byte 0:", "字节 0："],'label_byte_1':["Byte 1:", "字节 1："],'label_bytes_2':["Bytes 2+:", "字节 2+："],'placeholder_81_85_37_fa_21_3d_7f_9f_4':["81 85 37 fa 21 3d 7f 9f 4d 51 58", "81 85 37 FA 21 3d 7f 9f 4d 51 58"],'placeholder_text_payload':["Text payload", "文本有效载荷"],'strong_0_125':["0-125", "0-125"],'strong_126':["126", "126"],'strong_127':["127", "127"],'label_opcode':["Opcode:", "操作码："],'label_fin_bit':["FIN bit:", "FIN 部分："],'label_masked':["Masked:", "蒙面："],'label_payload':["Payload:", "有效载荷："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_fin':["FIN", "鳍"],'jtlword_opcode':["Opcode", "操作码"],'jtlword_masked':["Masked", "蒙面人"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const OPCODES = {0:'Continuation',1:'Text',2:'Binary',8:'Close',9:'Ping',10:'Pong'};
 
@@ -196,7 +208,7 @@ function showTab(id) {
 
 function renderPresets() {
   document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -292,7 +304,7 @@ function renderBitDiagram(bytes, fin, rsv1, rsv2, rsv3, opcode, masked, lenField
 
   // Byte 0
   const b0bits = bytes[0].toString(2).padStart(8, '0');
-  html += '<div class="bit-row"><span class="bit-label">Byte 0:</span>';
+  html += '<div class="bit-row"><span class="bit-label" ti="label_byte_0">Byte 0:</span>';
   html += `<div class="bit-cell fin" title="FIN">${b0bits[0]}</div>`;
   html += `<div class="bit-cell rsv" title="RSV1">${b0bits[1]}</div>`;
   html += `<div class="bit-cell rsv" title="RSV2">${b0bits[2]}</div>`;
@@ -303,7 +315,7 @@ function renderBitDiagram(bytes, fin, rsv1, rsv2, rsv3, opcode, masked, lenField
   // Byte 1
   if (bytes.length > 1) {
     const b1bits = bytes[1].toString(2).padStart(8, '0');
-    html += '<div class="bit-row"><span class="bit-label">Byte 1:</span>';
+    html += '<div class="bit-row"><span class="bit-label" ti="label_byte_1">Byte 1:</span>';
     html += `<div class="bit-cell mask-bit" title="MASK">${b1bits[0]}</div>`;
     for (let i = 1; i < 8; i++) html += `<div class="bit-cell length" title="Payload length">${b1bits[i]}</div>`;
     html += '<span style="font-size:0.6rem;color:#666;margin-left:8px">MASK|PayloadLen</span></div>';
@@ -311,7 +323,7 @@ function renderBitDiagram(bytes, fin, rsv1, rsv2, rsv3, opcode, masked, lenField
 
   // Remaining bytes as hex
   if (bytes.length > 2) {
-    html += '<div class="bit-row"><span class="bit-label">Bytes 2+:</span>';
+    html += '<div class="bit-row"><span class="bit-label" ti="label_bytes_2">Bytes 2+:</span>';
     let offset = 2;
     const rawLen = bytes[1] & 0x7f;
     if (rawLen === 126) {
@@ -387,13 +399,31 @@ function copyGenerated() {
   const text = document.getElementById('gen-hex').textContent;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelector('#gen-output .copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
 renderPresets();
 loadPreset(0);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

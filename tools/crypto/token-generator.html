@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_token_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -31,9 +31,15 @@ button.primary:hover{background:#2563eb}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Token Generator</h1>
-  <p class="desc">Generate cryptographically secure random tokens</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_token_generator" ti="h1_token_generator" ti="title_token_generator" ti="h1_token_generator" ti="title_token_generator" ti="h1_token_generator">Token Generator</h1>
+  <p class="desc" ti="subtitle_generate_cryptographicall" ti="subtitle_generate_cryptographicall" ti="subtitle_generate_cryptographicall">Generate cryptographically secure random tokens</p>
   <div class="card">
     <div class="switch-row">
       <label class="switch-item"><input type="checkbox" id="chkUpper" checked> Uppercase</label>
@@ -42,17 +48,37 @@ button.primary:hover{background:#2563eb}
       <label class="switch-item"><input type="checkbox" id="chkSymbols"> Symbols</label>
     </div>
     <div class="slider-row">
-      <label>Length</label>
+      <label ti="label_length" ti="label_length" ti="label_length">Length</label>
       <input type="range" id="lengthSlider" min="1" max="512" value="64">
       <span class="length-val" id="lengthVal">64</span>
     </div>
     <textarea id="tokenOutput" rows="3" readonly></textarea>
     <div class="flex-center">
-      <button class="primary" id="refreshBtn">Refresh</button>
-      <button id="copyBtn">Copy</button>
+      <button class="primary" id="refreshBtn" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh">Refresh</button>
+      <button id="copyBtn" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_token_generator':["Token Generator", "代币生成器"],'metadesc_generate_cryptographicall':["Generate cryptographically secure random tokens with configurable length, uppercase, lowercase, numbers, and symbols.", "生成具有可配置长度、大写字母、小写字母、数字和符号的加密安全随机令牌。"],'h1_token_generator':["Token Generator", "代币生成器"],'subtitle_generate_cryptographicall':["Generate cryptographically secure random tokens", "生成加密安全的随机令牌"],'btn_refresh':["Refresh", "刷新"],'btn_copy':["Copy", "复制"],'label_length':["Length", "长度"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_token_generator':["Token Generator", "代币生成器"],'metadesc_generate_cryptographicall':["Generate cryptographically secure random tokens with configurable length, uppercase, lowercase, numbers, and symbols.", "生成具有可配置长度、大写字母、小写字母、数字和符号的加密安全随机令牌。"],'h1_token_generator':["Token Generator", "代币生成器"],'subtitle_generate_cryptographicall':["Generate cryptographically secure random tokens", "生成加密安全的随机令牌"],'btn_refresh':["Refresh", "刷新"],'btn_copy':["Copy", "复制"],'label_length':["Length", "长度"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function shuffle(arr) {
   for (let i = arr.length - 1; i > 0; i--) {
@@ -97,6 +123,60 @@ document.getElementById('lengthSlider').addEventListener('input', () => {
   document.getElementById('lengthVal').textContent = document.getElementById('lengthSlider').value;
 });
 generateToken();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

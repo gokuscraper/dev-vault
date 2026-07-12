@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_contrast_color_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -460,6 +460,8 @@ footer {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>CSS <code>contrast-color()</code> Playground</h1>
@@ -470,14 +472,14 @@ footer {
 </header>
 
 <nav id="nav" class="container">
-  <button class="active" data-tab="picker">Color Picker</button>
-  <button data-tab="batch">Batch Tester</button>
-  <button data-tab="theme">Theme Builder</button>
-  <button data-tab="wcag">WCAG Comparison</button>
-  <button data-tab="examples">Real-World</button>
-  <button data-tab="codegen">Code Generator</button>
-  <button data-tab="fallback">Fallback Strategy</button>
-  <button data-tab="grid">Color Grid</button>
+  <button class="active" data-tab="picker" ti="btn_color_picker">Color Picker</button>
+  <button data-tab="batch" ti="btn_batch_tester">Batch Tester</button>
+  <button data-tab="theme" ti="btn_theme_builder">Theme Builder</button>
+  <button data-tab="wcag" ti="btn_wcag_comparison">WCAG Comparison</button>
+  <button data-tab="examples" ti="btn_real_world">Real-World</button>
+  <button data-tab="codegen" ti="btn_code_generator">Code Generator</button>
+  <button data-tab="fallback" ti="btn_fallback_strategy">Fallback Strategy</button>
+  <button data-tab="grid" ti="btn_color_grid">Color Grid</button>
 </nav>
 
 <main class="container">
@@ -485,18 +487,18 @@ footer {
   <!-- 1. Color Picker -->
   <div id="tab-picker" class="section active">
     <div class="card">
-      <h2>Color Picker</h2>
-      <p class="subtitle">Pick a background color and see contrast-color() choose the best text color.</p>
+      <h2 ti="h2_color_picker">Color Picker</h2>
+      <p class="subtitle" ti="subtitle_pick_a_background_color_a">Pick a background color and see contrast-color() choose the best text color.</p>
       <div class="flex-row">
         <div>
-          <label for="pickerColor">Background Color</label>
+          <label for="pickerColor" ti="label_background_color" ti="label_background_color_2">Background Color</label>
           <div style="display:flex;gap:12px;align-items:center">
             <input type="color" id="pickerColor" value="#6c8cff">
             <input type="text" id="pickerHex" value="#6c8cff" style="width:120px" maxlength="7">
           </div>
         </div>
         <div style="flex:2">
-          <label>Preview</label>
+          <label ti="label_preview">Preview</label>
           <div id="pickerPreview" class="preview-box">
             Sample Text
             <div class="label" id="pickerResult"></div>
@@ -510,11 +512,11 @@ footer {
   <!-- 2. Batch Tester -->
   <div id="tab-batch" class="section">
     <div class="card">
-      <h2>Batch Tester</h2>
-      <p class="subtitle">Input multiple colors to see auto-contrasting text for each.</p>
-      <label for="batchInput">Colors (comma or newline separated)</label>
+      <h2 ti="h2_batch_tester">Batch Tester</h2>
+      <p class="subtitle" ti="subtitle_input_multiple_colors_to">Input multiple colors to see auto-contrasting text for each.</p>
+      <label for="batchInput" ti="label_colors_comma_or_newline_s">Colors (comma or newline separated)</label>
       <textarea id="batchInput">#ff6b6b, #feca57, #48dbfb, #ff9ff3, #54a0ff, #5f27cd, #01a3a4, #f368e0, #ee5a24, #009432, #0652DD, #833471</textarea>
-      <button class="btn btn-primary" style="margin-top:12px" onclick="renderBatch()">Generate</button>
+      <button class="btn btn-primary" style="margin-top:12px" onclick="renderBatch()" ti="btn_generate">Generate</button>
       <div id="batchGrid" class="batch-grid"></div>
     </div>
   </div>
@@ -522,25 +524,25 @@ footer {
   <!-- 3. Theme Builder -->
   <div id="tab-theme" class="section">
     <div class="card">
-      <h2>Theme Builder</h2>
-      <p class="subtitle">Define primary, secondary, and accent colors. See auto-contrasted text applied to a mock UI.</p>
+      <h2 ti="h2_theme_builder">Theme Builder</h2>
+      <p class="subtitle" ti="subtitle_define_primary_secondary">Define primary, secondary, and accent colors. See auto-contrasted text applied to a mock UI.</p>
       <div class="flex-row">
         <div>
-          <label for="themePrimary">Primary</label>
+          <label for="themePrimary" ti="label_primary">Primary</label>
           <div style="display:flex;gap:8px;align-items:center">
             <input type="color" id="themePrimary" value="#6c8cff">
             <span id="themePrimaryHex" style="font-size:0.82rem;color:var(--text-dim)">#6c8cff</span>
           </div>
         </div>
         <div>
-          <label for="themeSecondary">Secondary</label>
+          <label for="themeSecondary" ti="label_secondary">Secondary</label>
           <div style="display:flex;gap:8px;align-items:center">
             <input type="color" id="themeSecondary" value="#1a2035">
             <span id="themeSecondaryHex" style="font-size:0.82rem;color:var(--text-dim)">#1a2035</span>
           </div>
         </div>
         <div>
-          <label for="themeAccent">Accent</label>
+          <label for="themeAccent" ti="label_accent">Accent</label>
           <div style="display:flex;gap:8px;align-items:center">
             <input type="color" id="themeAccent" value="#f59e0b">
             <span id="themeAccentHex" style="font-size:0.82rem;color:var(--text-dim)">#f59e0b</span>
@@ -554,11 +556,11 @@ footer {
   <!-- 4. WCAG Comparison -->
   <div id="tab-wcag" class="section">
     <div class="card">
-      <h2>WCAG Contrast Comparison</h2>
-      <p class="subtitle">See contrast ratios for your color against both black and white, with WCAG level indicators.</p>
+      <h2 ti="h2_wcag_contrast_comparison">WCAG Contrast Comparison</h2>
+      <p class="subtitle" ti="subtitle_see_contrast_ratios_for_y">See contrast ratios for your color against both black and white, with WCAG level indicators.</p>
       <div class="flex-row" style="align-items:center">
         <div>
-          <label for="wcagColor">Test Color</label>
+          <label for="wcagColor" ti="label_test_color">Test Color</label>
           <div style="display:flex;gap:12px;align-items:center">
             <input type="color" id="wcagColor" value="#6c8cff">
             <input type="text" id="wcagHex" value="#6c8cff" style="width:120px" maxlength="7">
@@ -573,12 +575,12 @@ footer {
   <!-- 5. Real-World Examples -->
   <div id="tab-examples" class="section">
     <div class="card">
-      <h2>Real-World Examples</h2>
-      <p class="subtitle">Buttons, cards, badges, and tags with dynamic backgrounds using contrast-color().</p>
+      <h2 ti="h2_real_world_examples">Real-World Examples</h2>
+      <p class="subtitle" ti="subtitle_buttons_cards_badges_and">Buttons, cards, badges, and tags with dynamic backgrounds using contrast-color().</p>
       <div style="margin-bottom:12px">
-        <label for="exampleBaseColor">Base Color</label>
+        <label for="exampleBaseColor" ti="label_base_color">Base Color</label>
         <input type="color" id="exampleBaseColor" value="#6c8cff" style="margin-right:8px">
-        <button class="btn" onclick="randomizeExamples()">Randomize</button>
+        <button class="btn" onclick="randomizeExamples()" ti="btn_randomize">Randomize</button>
       </div>
       <div id="examplesGrid" class="examples-grid"></div>
     </div>
@@ -587,25 +589,25 @@ footer {
   <!-- 6. Code Generator -->
   <div id="tab-codegen" class="section">
     <div class="card">
-      <h2>Code Generator</h2>
-      <p class="subtitle">Generate CSS using contrast-color() for your projects.</p>
+      <h2 ti="h2_code_generator">Code Generator</h2>
+      <p class="subtitle" ti="subtitle_generate_css_using_contra">Generate CSS using contrast-color() for your projects.</p>
       <div class="flex-row" style="margin-bottom:16px">
         <div>
           <label for="codegenColor">Background Color</label>
           <input type="color" id="codegenColor" value="#6c8cff">
         </div>
         <div>
-          <label for="codegenProp">CSS Property</label>
+          <label for="codegenProp" ti="label_css_property">CSS Property</label>
           <input type="text" id="codegenProp" value="color" style="width:180px">
         </div>
       </div>
-      <label>Native CSS (Safari 26+ / Firefox)</label>
-      <div class="code-block" id="codegenNative"><button class="copy-btn" onclick="copyCode('codegenNative')">Copy</button></div>
+      <label ti="label_native_css_safari_26_fire">Native CSS (Safari 26+ / Firefox)</label>
+      <div class="code-block" id="codegenNative"><button class="copy-btn" onclick="copyCode('codegenNative')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9">Copy</button></div>
       <div style="height:16px"></div>
-      <label>With Fallback (all browsers)</label>
+      <label ti="label_with_fallback_all_browser">With Fallback (all browsers)</label>
       <div class="code-block" id="codegenFallback"><button class="copy-btn" onclick="copyCode('codegenFallback')">Copy</button></div>
       <div style="height:16px"></div>
-      <label>CSS Custom Properties Pattern</label>
+      <label ti="label_css_custom_properties_pat">CSS Custom Properties Pattern</label>
       <div class="code-block" id="codegenVars"><button class="copy-btn" onclick="copyCode('codegenVars')">Copy</button></div>
     </div>
   </div>
@@ -613,24 +615,24 @@ footer {
   <!-- 7. Fallback Strategy -->
   <div id="tab-fallback" class="section">
     <div class="card">
-      <h2>Fallback Strategy</h2>
-      <p class="subtitle">How to use contrast-color() with fallbacks for unsupported browsers.</p>
+      <h2 ti="h2_fallback_strategy">Fallback Strategy</h2>
+      <p class="subtitle" ti="subtitle_how_to_use_contrast_color">How to use contrast-color() with fallbacks for unsupported browsers.</p>
       <div style="margin-bottom:20px">
-        <h3 style="font-size:1rem;margin-bottom:8px">Browser Support (as of 2026)</h3>
+        <h3 style="font-size:1rem;margin-bottom:8px" ti="h3_browser_support_as_of_202">Browser Support (as of 2026)</h3>
         <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:8px">
           <div style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);padding:10px 14px;border-radius:var(--radius-sm);font-size:0.85rem">
-            <strong style="color:#4ade80">Safari 26+</strong><br><span style="color:var(--text-dim)">Supported</span>
+            <strong style="color:#4ade80" ti="strong_safari_26">Safari 26+</strong><br><span style="color:var(--text-dim)">Supported</span>
           </div>
           <div style="background:rgba(34,197,94,0.1);border:1px solid rgba(34,197,94,0.3);padding:10px 14px;border-radius:var(--radius-sm);font-size:0.85rem">
-            <strong style="color:#4ade80">Firefox 136+</strong><br><span style="color:var(--text-dim)">Supported</span>
+            <strong style="color:#4ade80" ti="strong_firefox_136">Firefox 136+</strong><br><span style="color:var(--text-dim)">Supported</span>
           </div>
           <div style="background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.3);padding:10px 14px;border-radius:var(--radius-sm);font-size:0.85rem">
-            <strong style="color:#f87171">Chrome / Edge</strong><br><span style="color:var(--text-dim)">Not yet</span>
+            <strong style="color:#f87171" ti="strong_chrome_edge">Chrome / Edge</strong><br><span style="color:var(--text-dim)">Not yet</span>
           </div>
         </div>
       </div>
 
-      <h3 style="font-size:1rem;margin-bottom:8px">Strategy 1: @supports</h3>
+      <h3 style="font-size:1rem;margin-bottom:8px" ti="h3_strategy_1_supports">Strategy 1: @supports</h3>
       <div class="code-block"><button class="copy-btn" onclick="copyCode(this.parentElement)">Copy</button>/* Fallback: precomputed value */
 .button {
   background: #6c8cff;
@@ -645,7 +647,7 @@ footer {
 }</div>
       <div style="height:16px"></div>
 
-      <h3 style="font-size:1rem;margin-bottom:8px">Strategy 2: JavaScript Feature Detection + Polyfill</h3>
+      <h3 style="font-size:1rem;margin-bottom:8px" ti="h3_strategy_2_javascript_fea">Strategy 2: JavaScript Feature Detection + Polyfill</h3>
       <div class="code-block"><button class="copy-btn" onclick="copyCode(this.parentElement)">Copy</button>function supportsContrastColor() {
   if (typeof CSS === 'undefined' || !CSS.supports) return false;
   return CSS.supports('color', 'contrast-color(#000)');
@@ -674,7 +676,7 @@ const textColor = supportsContrastColor()
   : contrastColor(bg);</div>
       <div style="height:16px"></div>
 
-      <h3 style="font-size:1rem;margin-bottom:8px">Strategy 3: CSS Custom Properties + JS Sync</h3>
+      <h3 style="font-size:1rem;margin-bottom:8px" ti="h3_strategy_3_css_custom_pro">Strategy 3: CSS Custom Properties + JS Sync</h3>
       <div class="code-block"><button class="copy-btn" onclick="copyCode(this.parentElement)">Copy</button>:root {
   --bg-primary: #6c8cff;
   --text-primary: #ffffff; /* JS-computed fallback */
@@ -696,8 +698,8 @@ const textColor = supportsContrastColor()
   <!-- 8. Color Grid -->
   <div id="tab-grid" class="section">
     <div class="card">
-      <h2>Color Grid</h2>
-      <p class="subtitle">Rainbow grid showing contrast-color() results for every hue at various lightness levels.</p>
+      <h2 ti="h2_color_grid">Color Grid</h2>
+      <p class="subtitle" ti="subtitle_rainbow_grid_showing_cont">Rainbow grid showing contrast-color() results for every hue at various lightness levels.</p>
       <div style="display:flex;gap:12px;align-items:center;margin-bottom:8px;flex-wrap:wrap">
         <label style="margin-bottom:0">Saturation: <span id="gridSatVal">100</span>%</label>
         <input type="range" id="gridSat" min="0" max="100" value="100" style="flex:1;min-width:120px" oninput="document.getElementById('gridSatVal').textContent=this.value;renderGrid()">
@@ -714,6 +716,16 @@ const textColor = supportsContrastColor()
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_css_contrast_color_playgr':["CSS contrast-color() Playground", "CSS contrast-color() 游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS contrast-color(). Auto-contrast text, batch tester, theme builder, WCAG checker, code generator with fallback strategies.", "CSS contrast-color() 的交互式测试平台。包含自动对比度文本、批量测试、主题构建器、WCAG 检查器、带回退策略的代码生成器。"],'h2_color_picker':["Color Picker", "颜色选择器"],'h2_batch_tester':["Batch Tester", "批量测试员"],'h2_theme_builder':["Theme Builder", "主题生成器"],'h2_wcag_contrast_comparison':["WCAG Contrast Comparison", "WCAG 对比度比较"],'h2_real_world_examples':["Real-World Examples", "真实案例"],'h2_code_generator':["Code Generator", "代码生成器"],'h2_fallback_strategy':["Fallback Strategy", "备用策略"],'h2_color_grid':["Color Grid", "颜色网格"],'h3_browser_support_as_of_202':["Browser Support (as of 2026)", "浏览器支持（截至 2026 年）"],'h3_strategy_1_supports':["Strategy 1: @supports", "策略一：@supports"],'h3_strategy_2_javascript_fea':["Strategy 2: JavaScript Feature Detection + Polyfill", "策略二：JavaScript 特性检测 + Polyfill"],'h3_strategy_3_css_custom_pro':["Strategy 3: CSS Custom Properties + JS Sync", "策略三：CSS自定义属性+JS同步"],'h3_welcome_to_myapp':["Welcome to MyApp", "欢迎使用我的应用程序"],'subtitle_pick_a_background_color_a':["Pick a background color and see contrast-color() choose the best text color.", "选择背景颜色，然后使用 contrast-color() 选择最佳文本颜色。"],'subtitle_input_multiple_colors_to':["Input multiple colors to see auto-contrasting text for each.", "输入多种颜色，即可查看每种颜色对应的自动对比文本。"],'subtitle_define_primary_secondary':["Define primary, secondary, and accent colors. See auto-contrasted text applied to a mock UI.", "定义主色、辅助色和强调色。查看应用于模拟用户界面的自动对比度文本。"],'subtitle_see_contrast_ratios_for_y':["See contrast ratios for your color against both black and white, with WCAG level indicators.", "查看颜色与黑色和白色的对比度比率，以及 WCAG 级别指示器。"],'subtitle_buttons_cards_badges_and':["Buttons, cards, badges, and tags with dynamic backgrounds using contrast-color().", "使用 contrast-color() 为按钮、卡片、徽章和标签添加动态背景。"],'subtitle_generate_css_using_contra':["Generate CSS using contrast-color() for your projects.", "使用 contrast-color() 为您的项目生成 CSS。"],'subtitle_how_to_use_contrast_color':["How to use contrast-color() with fallbacks for unsupported browsers.", "如何使用 contrast-color() 并为不支持的浏览器设置回退方案。"],'subtitle_rainbow_grid_showing_cont':["Rainbow grid showing contrast-color() results for every hue at various lightness levels.", "彩虹网格显示了不同亮度级别下每种色调的 contrast-color() 结果。"],'btn_color_picker':["Color Picker", "颜色选择器"],'btn_batch_tester':["Batch Tester", "批量测试员"],'btn_theme_builder':["Theme Builder", "主题生成器"],'btn_wcag_comparison':["WCAG Comparison", "WCAG 对比"],'btn_real_world':["Real-World", "现实世界"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_fallback_strategy':["Fallback Strategy", "备用策略"],'btn_color_grid':["Color Grid", "颜色网格"],'btn_generate':["Generate", "产生"],'btn_randomize':["Randomize", "随机化"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_c':["${c}", "${c}"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'strong_safari_26':["Safari 26+", "Safari 26+"],'strong_firefox_136':["Firefox 136+", "Firefox 136+"],'strong_chrome_edge':["Chrome / Edge", "Chrome/Edge"],'strong_contrast_color_hex':["contrast-color(${hex})", "对比色(${hex})"],'strong_contrastcolorlabel_hex':["${contrastColorLabel(hex)}", "${contrastColorLabel(hex)}"],'label_background_color':["Background Color", "背景颜色"],'label_preview':["Preview", "预览"],'label_colors_comma_or_newline_s':["Colors (comma or newline separated)", "颜色（以逗号或换行符分隔）"],'label_primary':["Primary", "基本的"],'label_secondary':["Secondary", "次要"],'label_accent':["Accent", "口音"],'label_test_color':["Test Color", "测试颜色"],'label_base_color':["Base Color", "底色"],'label_background_color_2':["Background Color", "背景颜色"],'label_css_property':["CSS Property", "CSS属性"],'label_native_css_safari_26_fire':["Native CSS (Safari 26+ / Firefox)", "原生 CSS（Safari 26+ / Firefox）"],'label_with_fallback_all_browser':["With Fallback (all browsers)", "带备用方案（所有浏览器）"],'label_css_custom_properties_pat':["CSS Custom Properties Pattern", "CSS 自定义属性模式"],'jtlword_myapp':["MyApp", "我的应用"],'jtlword_home':["Home", "家"],'jtlword_about':["About", "关于"],'jtlword_contact':["Contact", "接触"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Utility functions ---
 
@@ -894,7 +906,7 @@ function updateTheme() {
       <span style="font-weight:400;font-size:0.85rem;opacity:0.85">Contact</span>
     </div>
     <div class="mock-hero" style="background:${s};color:${sc}">
-      <h3>Welcome to MyApp</h3>
+      <h3 ti="h3_welcome_to_myapp">Welcome to MyApp</h3>
       <p>A demo interface using contrast-color() for text.</p>
       <div class="mock-btn" style="background:${a};color:${ac}">Get Started</div>
     </div>
@@ -937,7 +949,7 @@ function updateWcag() {
   const chosen = contrastColor(hex);
 
   document.getElementById('wcagDetail').innerHTML = `
-    <strong>contrast-color(${hex})</strong> selects <strong>${contrastColorLabel(hex)}</strong>
+    <strong ti="strong_contrast_color_hex">contrast-color(${hex})</strong> selects <strong ti="strong_contrastcolorlabel_hex">${contrastColorLabel(hex)}</strong>
     (ratio ${chosen === '#000000' ? ratioBlack.toFixed(2) : ratioWhite.toFixed(2)}:1) because it provides
     ${ratioBlack > ratioWhite ? 'higher' : ratioBlack < ratioWhite ? 'higher' : 'equal'} contrast.
     <br>The luminance of ${hex} is ${bgL.toFixed(4)}.
@@ -964,7 +976,7 @@ function renderExamples() {
   // Buttons
   let html = `<div class="example-item"><h4>Buttons</h4><div class="example-buttons">`;
   colors.forEach(c => {
-    html += `<button class="demo-btn" style="background:${c};color:${contrastColor(c)}">${c}</button>`;
+    html += `<button class="demo-btn" style="background:${c};color:${contrastColor(c)}" ti="btn_c">${c}</button>`;
   });
   html += `</div></div>`;
 
@@ -1042,5 +1054,23 @@ function renderGrid() {
 renderGrid();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

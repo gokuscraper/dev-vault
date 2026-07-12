@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cors_header_generator_con" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,12 +45,20 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CORS Header Generator</h1>
-<p class="sub">Generate CORS configurations for your server</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_cors_header_generator" ti="h1_cors_header_generator" ti="h1_cors_header_generator" ti="h1_cors_header_generator">CORS Header Generator</h1>
+<p class="sub" ti="subtitle_generate_cors_configurati" ti="subtitle_generate_cors_configurati" ti="subtitle_generate_cors_configurati" ti="subtitle_generate_cors_configurati">Generate CORS configurations for your server</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets" ti="h3_presets" ti="h3_presets" ti="h3_presets">Presets</h3>
 <div class="presets">
 <div class="preset" onclick="loadPreset('open')">Open (allow all)</div>
 <div class="preset" onclick="loadPreset('specific')">Specific Origins</div>
@@ -62,35 +70,35 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Allowed Origins</h3>
-<div class="field"><label>Origins (one per line, or * for all)</label><input id="origins" value="*" oninput="gen()"></div>
+<h3 ti="h3_allowed_origins" ti="h3_allowed_origins" ti="h3_allowed_origins" ti="h3_allowed_origins">Allowed Origins</h3>
+<div class="field"><label ti="label_origins_one_per_line_or_f" ti="label_origins_one_per_line_or_f" ti="label_origins_one_per_line_or_f" ti="label_origins_one_per_line_or_f">Origins (one per line, or * for all)</label><input id="origins" value="*" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Allowed Methods</h3>
+<h3 ti="h3_allowed_methods" ti="h3_allowed_methods" ti="h3_allowed_methods" ti="h3_allowed_methods">Allowed Methods</h3>
 <div class="check-group">
-<div class="check-row"><input type="checkbox" id="mGET" checked onchange="gen()"><label for="mGET">GET</label></div>
-<div class="check-row"><input type="checkbox" id="mPOST" checked onchange="gen()"><label for="mPOST">POST</label></div>
-<div class="check-row"><input type="checkbox" id="mPUT" checked onchange="gen()"><label for="mPUT">PUT</label></div>
-<div class="check-row"><input type="checkbox" id="mDELETE" checked onchange="gen()"><label for="mDELETE">DELETE</label></div>
-<div class="check-row"><input type="checkbox" id="mPATCH" onchange="gen()"><label for="mPATCH">PATCH</label></div>
-<div class="check-row"><input type="checkbox" id="mOPTIONS" checked onchange="gen()"><label for="mOPTIONS">OPTIONS</label></div>
-<div class="check-row"><input type="checkbox" id="mHEAD" onchange="gen()"><label for="mHEAD">HEAD</label></div>
+<div class="check-row"><input type="checkbox" id="mGET" checked onchange="gen()"><label for="mGET" ti="label_get" ti="label_get" ti="label_get" ti="label_get">GET</label></div>
+<div class="check-row"><input type="checkbox" id="mPOST" checked onchange="gen()"><label for="mPOST" ti="label_post" ti="label_post" ti="label_post" ti="label_post">POST</label></div>
+<div class="check-row"><input type="checkbox" id="mPUT" checked onchange="gen()"><label for="mPUT" ti="label_put" ti="label_put" ti="label_put" ti="label_put">PUT</label></div>
+<div class="check-row"><input type="checkbox" id="mDELETE" checked onchange="gen()"><label for="mDELETE" ti="label_delete" ti="label_delete" ti="label_delete" ti="label_delete">DELETE</label></div>
+<div class="check-row"><input type="checkbox" id="mPATCH" onchange="gen()"><label for="mPATCH" ti="label_patch" ti="label_patch" ti="label_patch" ti="label_patch">PATCH</label></div>
+<div class="check-row"><input type="checkbox" id="mOPTIONS" checked onchange="gen()"><label for="mOPTIONS" ti="label_options" ti="label_options" ti="label_options" ti="label_options">OPTIONS</label></div>
+<div class="check-row"><input type="checkbox" id="mHEAD" onchange="gen()"><label for="mHEAD" ti="label_head" ti="label_head" ti="label_head" ti="label_head">HEAD</label></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Allowed Headers</h3>
-<div class="field"><label>Headers (comma-separated)</label><input id="headers" value="Content-Type, Authorization" oninput="gen()"></div>
-<div class="check-row"><input type="checkbox" id="credentials" onchange="gen()"><label for="credentials">Allow Credentials</label></div>
-<div class="field"><label>Max Age (seconds, preflight cache)</label><input id="maxAge" type="number" value="86400" oninput="gen()"></div>
-<div class="field"><label>Expose Headers</label><input id="exposeHeaders" value="" placeholder="X-Request-Id, X-Total-Count" oninput="gen()"></div>
+<h3 ti="h3_allowed_headers" ti="h3_allowed_headers" ti="h3_allowed_headers" ti="h3_allowed_headers">Allowed Headers</h3>
+<div class="field"><label ti="label_headers_comma_separated" ti="label_headers_comma_separated" ti="label_headers_comma_separated" ti="label_headers_comma_separated">Headers (comma-separated)</label><input id="headers" value="Content-Type, Authorization" oninput="gen()"></div>
+<div class="check-row"><input type="checkbox" id="credentials" onchange="gen()"><label for="credentials" ti="label_allow_credentials" ti="label_allow_credentials" ti="label_allow_credentials" ti="label_allow_credentials">Allow Credentials</label></div>
+<div class="field"><label ti="label_max_age_seconds_preflight" ti="label_max_age_seconds_preflight" ti="label_max_age_seconds_preflight" ti="label_max_age_seconds_preflight">Max Age (seconds, preflight cache)</label><input id="maxAge" type="number" value="86400" oninput="gen()"></div>
+<div class="field"><label ti="label_expose_headers" ti="label_expose_headers" ti="label_expose_headers" ti="label_expose_headers">Expose Headers</label><input id="exposeHeaders" value="" tp="placeholder_x_request_id_x_total_coun" tp="placeholder_x_request_id_x_total_coun" tp="placeholder_x_request_id_x_total_coun" tp="placeholder_x_request_id_x_total_coun" placeholder="X-Request-Id, X-Total-Count" oninput="gen()"></div>
 </div>
 </div>
 
 <div>
 <div class="section">
-<h3>Output Format</h3>
+<h3 ti="h3_output_format" ti="h3_output_format" ti="h3_output_format" ti="h3_output_format">Output Format</h3>
 <div class="tabs" id="formatTabs">
 <div class="tab active" data-fmt="headers">HTTP Headers</div>
 <div class="tab" data-fmt="nginx">Nginx</div>
@@ -103,16 +111,46 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyOutput()">Copy</button>
+<button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config</a> | <a href="https://gokuscraper.github.io/dev-vault/curl-builder/">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/">.htaccess</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config" ti="link_nginx_config" ti="link_nginx_config" ti="link_nginx_config">Nginx Config</a> | <a href="https://gokuscraper.github.io/dev-vault/curl-builder/" ti="link_curl_builder" ti="link_curl_builder" ti="link_curl_builder" ti="link_curl_builder">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/" ti="link_htaccess" ti="link_htaccess" ti="link_htaccess" ti="link_htaccess">.htaccess</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+
+<script>var _LANG={'title_cors_header_generator_con':["CORS Header Generator — Configure Cross-Origin Resource Sharing", "CORS 标头生成器 — 配置跨域资源共享"],'metadesc_generate_cors_headers_for':["Generate CORS headers for your server. Configure allowed origins, methods, headers. Get config for Nginx, Apache, Express, Flask, and more.", "为您的服务器生成 CORS 标头。配置允许的来源、方法和标头。获取 Nginx、Apache、Express、Flask 等的配置。"],'h1_cors_header_generator':["CORS Header Generator", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_allowed_origins':["Allowed Origins", "允许的来源"],'h3_allowed_methods':["Allowed Methods", "允许的方法"],'h3_allowed_headers':["Allowed Headers", "允许的标头"],'h3_output_format':["Output Format", "输出格式"],'subtitle_generate_cors_configurati':["Generate CORS configurations for your server", "为您的服务器生成 CORS 配置"],'btn_copy':["Copy", "复制"],'placeholder_x_request_id_x_total_coun':["X-Request-Id, X-Total-Count", "X-请求 ID，X-总数"],'label_origins_one_per_line_or_f':["Origins (one per line, or * for all)", "来源（每行一个，或用 * 表示全部）"],'label_get':["GET", "得到"],'label_post':["POST", "邮政"],'label_put':["PUT", "放"],'label_delete':["DELETE", "删除"],'label_patch':["PATCH", "修补"],'label_options':["OPTIONS", "选项"],'label_head':["HEAD", "头"],'label_headers_comma_separated':["Headers (comma-separated)", "标题（逗号分隔）"],'label_allow_credentials':["Allow Credentials", "允许凭据"],'label_max_age_seconds_preflight':["Max Age (seconds, preflight cache)", "最大缓存时间（秒，预检缓存）"],'label_expose_headers':["Expose Headers", "公开标头"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_nginx_config':["Nginx Config", "Nginx 配置"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_htaccess':[".htaccess", ".htaccess"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_header_generator_con':["CORS Header Generator — Configure Cross-Origin Resource Sharing", "CORS 标头生成器 — 配置跨域资源共享"],'metadesc_generate_cors_headers_for':["Generate CORS headers for your server. Configure allowed origins, methods, headers. Get config for Nginx, Apache, Express, Flask, and more.", "为您的服务器生成 CORS 标头。配置允许的来源、方法和标头。获取 Nginx、Apache、Express、Flask 等的配置。"],'h1_cors_header_generator':["CORS Header Generator", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_allowed_origins':["Allowed Origins", "允许的来源"],'h3_allowed_methods':["Allowed Methods", "允许的方法"],'h3_allowed_headers':["Allowed Headers", "允许的标头"],'h3_output_format':["Output Format", "输出格式"],'subtitle_generate_cors_configurati':["Generate CORS configurations for your server", "为您的服务器生成 CORS 配置"],'btn_copy':["Copy", "复制"],'placeholder_x_request_id_x_total_coun':["X-Request-Id, X-Total-Count", "X-请求 ID，X-总数"],'label_origins_one_per_line_or_f':["Origins (one per line, or * for all)", "来源（每行一个，或用 * 表示全部）"],'label_get':["GET", "得到"],'label_post':["POST", "邮政"],'label_put':["PUT", "放"],'label_delete':["DELETE", "删除"],'label_patch':["PATCH", "修补"],'label_options':["OPTIONS", "选项"],'label_head':["HEAD", "头"],'label_headers_comma_separated':["Headers (comma-separated)", "标题（逗号分隔）"],'label_allow_credentials':["Allow Credentials", "允许凭据"],'label_max_age_seconds_preflight':["Max Age (seconds, preflight cache)", "最大缓存时间（秒，预检缓存）"],'label_expose_headers':["Expose Headers", "公开标头"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_nginx_config':["Nginx Config", "Nginx 配置"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_htaccess':[".htaccess", ".htaccess"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_header_generator_con':["CORS Header Generator — Configure Cross-Origin Resource Sharing", "CORS 标头生成器 — 配置跨域资源共享"],'metadesc_generate_cors_headers_for':["Generate CORS headers for your server. Configure allowed origins, methods, headers. Get config for Nginx, Apache, Express, Flask, and more.", "为您的服务器生成 CORS 标头。配置允许的来源、方法和标头。获取 Nginx、Apache、Express、Flask 等的配置。"],'h1_cors_header_generator':["CORS Header Generator", "CORS 标头生成器"],'h3_presets':["Presets", "预设"],'h3_allowed_origins':["Allowed Origins", "允许的来源"],'h3_allowed_methods':["Allowed Methods", "允许的方法"],'h3_allowed_headers':["Allowed Headers", "允许的标头"],'h3_output_format':["Output Format", "输出格式"],'subtitle_generate_cors_configurati':["Generate CORS configurations for your server", "为您的服务器生成 CORS 配置"],'btn_copy':["Copy", "复制"],'placeholder_x_request_id_x_total_coun':["X-Request-Id, X-Total-Count", "X-请求 ID，X-总数"],'label_origins_one_per_line_or_f':["Origins (one per line, or * for all)", "来源（每行一个，或用 * 表示全部）"],'label_get':["GET", "得到"],'label_post':["POST", "邮政"],'label_put':["PUT", "放"],'label_delete':["DELETE", "删除"],'label_patch':["PATCH", "修补"],'label_options':["OPTIONS", "选项"],'label_head':["HEAD", "头"],'label_headers_comma_separated':["Headers (comma-separated)", "标题（逗号分隔）"],'label_allow_credentials':["Allow Credentials", "允许凭据"],'label_max_age_seconds_preflight':["Max Age (seconds, preflight cache)", "最大缓存时间（秒，预检缓存）"],'label_expose_headers':["Expose Headers", "公开标头"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_nginx_config':["Nginx Config", "Nginx 配置"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_htaccess':[".htaccess", ".htaccess"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentFmt='headers';
 
@@ -227,6 +265,78 @@ function showToast(msg){
 }
 
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_iban_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,9 +41,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>IBAN Generator</h1>
-<p class="subtitle">Generate valid IBAN numbers for testing and development.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_iban_generator" ti="h1_iban_generator">IBAN Generator</h1>
+<p class="subtitle" ti="subtitle_generate_valid_iban_numbe">Generate valid IBAN numbers for testing and development.</p>
 
 <div class="card">
   <div class="label">Country</div>
@@ -66,17 +68,27 @@ footer a:hover{color:#999}
   </div>
 
   <div class="btn-row">
-    <button class="btn primary" onclick="generateIban()">↻ Generate New</button>
-    <button class="btn" onclick="copyIban()">Copy IBAN</button>
+    <button class="btn primary" onclick="generateIban()" ti="btn_generate_new">↻ Generate New</button>
+    <button class="btn" onclick="copyIban()" ti="btn_copy_iban">Copy IBAN</button>
   </div>
   <div class="info">IBANs are generated locally. They are not linked to real bank accounts.</div>
 </div>
 
 <footer>
-  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_iban_generator':["IBAN Generator", "IBAN生成器"],'metadesc_generate_valid_iban_numbe':["Generate valid IBAN numbers for 70+ countries. Random or manual bank code and account number. Free browser tool.", "生成适用于 70 多个国家/地区的有效 IBAN 号码。可生成随机或手动输入的银行代码和账号。免费浏览器工具。"],'h1_iban_generator':["IBAN Generator", "IBAN生成器"],'subtitle_generate_valid_iban_numbe':["Generate valid IBAN numbers for testing and development.", "生成用于测试和开发的有效 IBAN 号码。"],'btn_generate_new':["↻ Generate New", "↻ 生成新"],'btn_copy_iban':["Copy IBAN", "复制 IBAN"],'link_github':["GitHub", "GitHub"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const countries = [
   { code: 'AL', name: 'Albania', bankCodeLength: 8, accountNumberLength: 16 },
@@ -164,13 +176,31 @@ function copyIban() {
   navigator.clipboard.writeText(text.replace(/ /g, '')).then(() => {
     const t = document.createElement('div');
     t.className = 'copy-toast';
-    t.textContent = 'Copied!';
+    t.textContent=T("jtc_copied");
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 1500);
   });
 }
 
 generateIban();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

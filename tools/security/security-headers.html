@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_security_headers_generato" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,15 +63,17 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Security Headers Generator</h1>
-<p class="sub">Configure HTTP security headers, check your grade, and export configs for Nginx, Apache, Express, and Caddy.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_security_headers_generato">Security Headers Generator</h1>
+<p class="sub" ti="subtitle_configure_http_security_h">Configure HTTP security headers, check your grade, and export configs for Nginx, Apache, Express, and Caddy.</p>
 
 <div class="presets">
-<button class="preset" onclick="applyPreset('recommended')">Recommended</button>
-<button class="preset" onclick="applyPreset('strict')">Strict</button>
-<button class="preset" onclick="applyPreset('minimal')">Minimal</button>
-<button class="preset" onclick="applyPreset('api')">API Server</button>
+<button class="preset" onclick="applyPreset('recommended')" ti="btn_recommended">Recommended</button>
+<button class="preset" onclick="applyPreset('strict')" ti="btn_strict">Strict</button>
+<button class="preset" onclick="applyPreset('minimal')" ti="btn_minimal">Minimal</button>
+<button class="preset" onclick="applyPreset('api')" ti="btn_api_server">API Server</button>
 </div>
 
 <div class="layout">
@@ -79,30 +81,30 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- HSTS -->
 <div class="section">
-<h3>Strict-Transport-Security (HSTS)</h3>
+<h3 ti="h3_strict_transport_security">Strict-Transport-Security (HSTS)</h3>
 <p class="hint">Forces browsers to use HTTPS. Protects against protocol downgrade attacks and cookie hijacking.</p>
 <div class="field">
-<label>max-age (seconds)</label>
+<label ti="label_max_age_seconds">max-age (seconds)</label>
 <input type="range" id="hsts-maxage" min="0" max="31536000" value="31536000" step="86400" oninput="updateHstsLabel();generate()">
 <div class="range-val" id="hsts-maxage-label">31536000 (1 year)</div>
 </div>
-<div class="check-row"><input type="checkbox" id="hsts-subdomains" checked onchange="generate()"><label for="hsts-subdomains">includeSubDomains</label></div>
-<div class="check-row"><input type="checkbox" id="hsts-preload" checked onchange="generate()"><label for="hsts-preload">preload</label></div>
+<div class="check-row"><input type="checkbox" id="hsts-subdomains" checked onchange="generate()"><label for="hsts-subdomains" ti="label_includesubdomains">includeSubDomains</label></div>
+<div class="check-row"><input type="checkbox" id="hsts-preload" checked onchange="generate()"><label for="hsts-preload" ti="label_preload">preload</label></div>
 </div>
 
 <!-- X-Content-Type-Options -->
 <div class="section">
-<h3>X-Content-Type-Options</h3>
+<h3 ti="h3_x_content_type_options">X-Content-Type-Options</h3>
 <p class="hint">Prevents MIME type sniffing. Blocks requests if the declared type doesn't match the expected type.</p>
-<div class="check-row"><input type="checkbox" id="xcto" checked onchange="generate()"><label for="xcto">nosniff</label></div>
+<div class="check-row"><input type="checkbox" id="xcto" checked onchange="generate()"><label for="xcto" ti="label_nosniff">nosniff</label></div>
 </div>
 
 <!-- X-Frame-Options -->
 <div class="section">
-<h3>X-Frame-Options</h3>
+<h3 ti="h3_x_frame_options">X-Frame-Options</h3>
 <p class="hint">Controls whether the page can be embedded in iframes. Prevents clickjacking attacks.</p>
 <div class="field">
-<label>Value</label>
+<label ti="label_value" ti="label_value_2" ti="label_value_3" ti="label_value_4" ti="label_value_5" ti="label_value_6">Value</label>
 <select id="xfo" onchange="generate()">
 <option value="DENY">DENY</option>
 <option value="SAMEORIGIN">SAMEORIGIN</option>
@@ -111,8 +113,8 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field" id="xfo-uri-field" style="display:none">
-<label>Allow-From URI</label>
-<input type="text" id="xfo-uri" placeholder="https://example.com" oninput="generate()">
+<label ti="label_allow_from_uri">Allow-From URI</label>
+<input type="text" id="xfo-uri" tp="placeholder_https_example_com" placeholder="https://example.com" oninput="generate()">
 </div>
 </div>
 
@@ -133,7 +135,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- Referrer-Policy -->
 <div class="section">
-<h3>Referrer-Policy</h3>
+<h3 ti="h3_referrer_policy">Referrer-Policy</h3>
 <p class="hint">Controls how much referrer information is sent with requests. Protects user privacy.</p>
 <div class="field">
 <label>Value</label>
@@ -153,14 +155,14 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- Permissions-Policy -->
 <div class="section">
-<h3>Permissions-Policy</h3>
+<h3 ti="h3_permissions_policy">Permissions-Policy</h3>
 <p class="hint">Controls which browser features and APIs can be used. Restricts access to sensitive device capabilities.</p>
 <div class="perm-grid" id="perm-grid"></div>
 </div>
 
 <!-- Cross-Origin-Opener-Policy -->
 <div class="section">
-<h3>Cross-Origin-Opener-Policy</h3>
+<h3 ti="h3_cross_origin_opener_polic">Cross-Origin-Opener-Policy</h3>
 <p class="hint">Isolates the browsing context. Required for SharedArrayBuffer and high-resolution timers.</p>
 <div class="field">
 <label>Value</label>
@@ -175,7 +177,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- Cross-Origin-Embedder-Policy -->
 <div class="section">
-<h3>Cross-Origin-Embedder-Policy</h3>
+<h3 ti="h3_cross_origin_embedder_pol">Cross-Origin-Embedder-Policy</h3>
 <p class="hint">Prevents loading cross-origin resources without explicit permission. Required for cross-origin isolation.</p>
 <div class="field">
 <label>Value</label>
@@ -190,7 +192,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- Cross-Origin-Resource-Policy -->
 <div class="section">
-<h3>Cross-Origin-Resource-Policy</h3>
+<h3 ti="h3_cross_origin_resource_pol">Cross-Origin-Resource-Policy</h3>
 <p class="hint">Restricts which origins can load this resource. Prevents speculative side-channel attacks like Spectre.</p>
 <div class="field">
 <label>Value</label>
@@ -213,17 +215,17 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="tabs" id="format-tabs">
-<button class="tab active" onclick="setFormat('headers')">HTTP Headers</button>
-<button class="tab" onclick="setFormat('nginx')">Nginx</button>
-<button class="tab" onclick="setFormat('apache')">Apache</button>
-<button class="tab" onclick="setFormat('express')">Express.js</button>
-<button class="tab" onclick="setFormat('caddy')">Caddy</button>
+<button class="tab active" onclick="setFormat('headers')" ti="btn_http_headers">HTTP Headers</button>
+<button class="tab" onclick="setFormat('nginx')" ti="btn_nginx">Nginx</button>
+<button class="tab" onclick="setFormat('apache')" ti="btn_apache">Apache</button>
+<button class="tab" onclick="setFormat('express')" ti="btn_express_js">Express.js</button>
+<button class="tab" onclick="setFormat('caddy')" ti="btn_caddy">Caddy</button>
 </div>
 
 <div class="output-area" id="output"></div>
 
 <div class="actions">
-<button class="btn btn-primary" onclick="copyOutput()">Copy to Clipboard</button>
+<button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
 </div>
 
 </div><!-- output-col -->
@@ -231,11 +233,21 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 </div><!-- container -->
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/cors-tester/">CORS Headers</a> | <a href="https://gokuscraper.github.io/dev-vault/csp-builder/">CSP Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/sri-gen/">SRI Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/cors-tester/" ti="link_cors_headers">CORS Headers</a> | <a href="https://gokuscraper.github.io/dev-vault/csp-builder/" ti="link_csp_builder">CSP Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/sri-gen/" ti="link_sri_gen">SRI Gen</a></div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_security_headers_generato':["Security Headers Generator — HTTP Security Configuration", "安全标头生成器 — HTTP 安全配置"],'metadesc_generate_http_security_he':["Generate HTTP security headers. HSTS, CSP, X-Frame-Options, Permissions-Policy. Nginx, Apache, Express configs. Security grade A-F.", "生成 HTTP 安全标头。HSTS、CSP、X-Frame-Options、Permissions-Policy。Nginx、Apache、Express 配置。安全等级 AF。"],'h1_security_headers_generato':["Security Headers Generator", "安全标头生成器"],'h3_strict_transport_security':["Strict-Transport-Security (HSTS)", "严格运输安全 (HSTS)"],'h3_x_content_type_options':["X-Content-Type-Options", "X-Content-Type-Options"],'h3_x_frame_options':["X-Frame-Options", "X-Frame-Options"],'h3_referrer_policy':["Referrer-Policy", "推荐人政策"],'h3_permissions_policy':["Permissions-Policy", "权限政策"],'h3_cross_origin_opener_polic':["Cross-Origin-Opener-Policy", "跨域开放策略"],'h3_cross_origin_embedder_pol':["Cross-Origin-Embedder-Policy", "跨域嵌入策略"],'h3_cross_origin_resource_pol':["Cross-Origin-Resource-Policy", "跨域资源策略"],'subtitle_configure_http_security_h':["Configure HTTP security headers, check your grade, and export configs for Nginx, Apache, Express, and Caddy.", "配置 HTTP 安全标头，检查您的成绩，并导出 Nginx、Apache、Express 和 Caddy 的配置。"],'btn_recommended':["Recommended", "受到推崇的"],'btn_strict':["Strict", "严格的"],'btn_minimal':["Minimal", "极简主义"],'btn_api_server':["API Server", "API 服务器"],'btn_http_headers':["HTTP Headers", "HTTP 标头"],'btn_nginx':["Nginx", "Nginx"],'btn_apache':["Apache", "阿帕奇"],'btn_express_js':["Express.js", "Express.js"],'btn_caddy':["Caddy", "球童"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'label_max_age_seconds':["max-age (seconds)", "最大年龄（秒）"],'label_includesubdomains':["includeSubDomains", "包含子域名"],'label_preload':["preload", "预加载"],'label_nosniff':["nosniff", "不嗅"],'label_value':["Value", "价值"],'label_allow_from_uri':["Allow-From URI", "允许来自 URI"],'label_value_2':["Value", "价值"],'label_value_3':["Value", "价值"],'label_value_4':["Value", "价值"],'label_value_5':["Value", "价值"],'label_value_6':["Value", "价值"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_cors_headers':["CORS Headers", "CORS 标头"],'link_csp_builder':["CSP Builder", "CSP 构建器"],'link_sri_gen':["SRI Gen", "SRI Gen"],'jtc_security_grade':["Security Grade (", "安全等级（"],'jtcpre_security_grade':["Security Grade (", "安全等级（"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PERMISSIONS = [
   {key:'camera', label:'Camera'},
@@ -532,7 +544,7 @@ function generate() {
   const gradeEl = document.getElementById('grade-letter');
   gradeEl.textContent = grade;
   gradeEl.className = 'grade-letter ' + cls;
-  document.getElementById('grade-label').textContent = 'Security Grade (' + score + '/100)';
+  document.getElementById('grade-label').textContent=T("jtc_security_grade") + score + '/100)';
 
   // Output
   let output = '';
@@ -651,6 +663,24 @@ function applyPreset(name) {
 // Init
 updateHstsLabel();
 generate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

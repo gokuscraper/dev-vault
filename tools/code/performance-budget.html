@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_performance_budget_calcul" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -76,21 +76,23 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Performance Budget Calculator</h1>
-<p class="sub">Estimate page load times from asset sizes</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_performance_budget_calcul">Performance Budget Calculator</h1>
+<p class="sub" ti="subtitle_estimate_page_load_times">Estimate page load times from asset sizes</p>
 
 <div class="presets">
-  <button class="preset" onclick="applyPreset('blog')">Minimal Blog</button>
-  <button class="preset" onclick="applyPreset('spa')">SPA</button>
-  <button class="preset" onclick="applyPreset('ecommerce')">E-commerce</button>
-  <button class="preset" onclick="applyPreset('portfolio')">Portfolio</button>
+  <button class="preset" onclick="applyPreset('blog')" ti="btn_minimal_blog">Minimal Blog</button>
+  <button class="preset" onclick="applyPreset('spa')" ti="btn_spa">SPA</button>
+  <button class="preset" onclick="applyPreset('ecommerce')" ti="btn_e_commerce">E-commerce</button>
+  <button class="preset" onclick="applyPreset('portfolio')" ti="btn_portfolio">Portfolio</button>
 </div>
 
 <div class="layout">
   <div>
     <div class="section">
-      <h3>Asset Sizes (KB)</h3>
+      <h3 ti="h3_asset_sizes_kb">Asset Sizes (KB)</h3>
       <div id="assets"></div>
       <div class="total-display">
         <div class="total-weight" id="totalWeight">0 KB</div>
@@ -100,45 +102,55 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
     </div>
 
     <div class="section">
-      <h3>Budget Threshold</h3>
+      <h3 ti="h3_budget_threshold">Budget Threshold</h3>
       <div class="budget-field">
-        <label>Target</label>
+        <label ti="label_target">Target</label>
         <input type="number" id="budgetInput" value="1500" min="0" step="100" oninput="recalc()">
         <span>KB</span>
       </div>
     </div>
 
     <div class="section">
-      <h3>Recommendations</h3>
+      <h3 ti="h3_recommendations">Recommendations</h3>
       <div id="recs"></div>
     </div>
   </div>
 
   <div>
     <div class="section">
-      <h3>Load Time Estimates</h3>
+      <h3 ti="h3_load_time_estimates">Load Time Estimates</h3>
       <div id="speeds"></div>
     </div>
 
     <div class="section">
-      <h3>Budget Breakdown</h3>
+      <h3 ti="h3_budget_breakdown">Budget Breakdown</h3>
       <div class="chart-wrap"><canvas id="pie" width="200" height="200"></canvas></div>
       <div class="legend" id="legend"></div>
     </div>
 
     <div class="section export-area">
-      <h3>Export Summary</h3>
-      <button class="btn btn-primary" onclick="copySummary()">Copy Summary</button>
+      <h3 ti="h3_export_summary">Export Summary</h3>
+      <button class="btn btn-primary" onclick="copySummary()" ti="btn_copy_summary">Copy Summary</button>
     </div>
   </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/js-minifier/">JS Minifier</a> | <a href="https://gokuscraper.github.io/dev-vault/css-minifier/">CSS Minifier</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/js-minifier/" ti="link_js_minifier">JS Minifier</a> | <a href="https://gokuscraper.github.io/dev-vault/css-minifier/" ti="link_css_minifier">CSS Minifier</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_performance_budget_calcul':["Performance Budget Calculator — Estimate Page Load Times", "性能预算计算器 — 估算页面加载时间"],'metadesc_calculate_page_performanc':["Calculate page performance budget. Asset sizes, load time estimates for 3G/4G/WiFi. Visual breakdown. Optimization recommendations.", "计算页面性能预算。资源大小、3G/4G/WiFi 加载时间预估。可视化细分。优化建议。"],'h1_performance_budget_calcul':["Performance Budget Calculator", "绩效预算计算器"],'h3_asset_sizes_kb':["Asset Sizes (KB)", "资产大小（KB）"],'h3_budget_threshold':["Budget Threshold", "预算门槛"],'h3_recommendations':["Recommendations", "建议"],'h3_load_time_estimates':["Load Time Estimates", "加载时间预估"],'h3_budget_breakdown':["Budget Breakdown", "预算明细"],'h3_export_summary':["Export Summary", "导出摘要"],'subtitle_estimate_page_load_times':["Estimate page load times from asset sizes", "根据资源大小估算页面加载时间"],'btn_minimal_blog':["Minimal Blog", "极简博客"],'btn_spa':["SPA", "温泉"],'btn_e_commerce':["E-commerce", "电子商务"],'btn_portfolio':["Portfolio", "文件夹"],'btn_copy_summary':["Copy Summary", "摘要"],'label_target':["Target", "目标"],'label_c_label':["${c.label}", "${c.label}"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_resize':["Image Resize", "图片调整大小"],'link_js_minifier':["JS Minifier", "JS压缩器"],'link_css_minifier':["CSS Minifier", "CSS 压缩器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const categories = [
   {id:'html',label:'HTML',default:50,color:'#4da6ff'},
@@ -169,7 +181,7 @@ function init(){
   categories.forEach(c=>{
     const row=document.createElement('div');
     row.className='asset-row';
-    row.innerHTML=`<label>${c.label}</label><input type="number" id="in_${c.id}" value="${c.default}" min="0" step="10" oninput="recalc()"><div class="asset-bar-wrap"><div class="asset-bar" id="bar_${c.id}" style="background:${c.color}"></div></div><span class="asset-kb" id="kb_${c.id}"></span>`;
+    row.innerHTML=`<label ti="label_c_label">${c.label}</label><input type="number" id="in_${c.id}" value="${c.default}" min="0" step="10" oninput="recalc()"><div class="asset-bar-wrap"><div class="asset-bar" id="bar_${c.id}" style="background:${c.color}"></div></div><span class="asset-kb" id="kb_${c.id}"></span>`;
     wrap.appendChild(row);
   });
   recalc();
@@ -316,6 +328,24 @@ function copySummary(){
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

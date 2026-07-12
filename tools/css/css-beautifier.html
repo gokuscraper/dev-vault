@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_beautifier_format_pre" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,9 +53,11 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
   <div class="header">
     <div class="header-left">
-      <a href="https://gokuscraper.github.io/dev-vault/" class="back-link">Dev Vault</a>
+      <a href="https://gokuscraper.github.io/dev-vault/" class="back-link" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
       <span class="title">CSS Beautifier</span>
     </div>
   </div>
@@ -72,11 +74,11 @@
       <div class="opt-group"><label><input type="checkbox" id="optSort"> Sort properties</label></div>
     </div>
     <div class="actions">
-      <button class="btn btn-primary" onclick="doFormat()">Format</button>
-      <button class="btn" onclick="doMinify()">Minify</button>
-      <button class="btn" onclick="doCopy()">Copy</button>
-      <button class="btn" onclick="doClear()">Clear</button>
-      <button class="btn" onclick="pasteSample()">Paste Sample</button>
+      <button class="btn btn-primary" onclick="doFormat()" ti="btn_format">Format</button>
+      <button class="btn" onclick="doMinify()" ti="btn_minify">Minify</button>
+      <button class="btn" onclick="doCopy()" ti="btn_copy">Copy</button>
+      <button class="btn" onclick="doClear()" ti="btn_clear">Clear</button>
+      <button class="btn" onclick="pasteSample()" ti="btn_paste_sample">Paste Sample</button>
       <div class="stats">
         <span id="statRules">Rules: 0</span>
         <span id="statProps">Properties: 0</span>
@@ -86,7 +88,7 @@
     <div class="panels">
       <div class="panel">
         <div class="panel-head">Input</div>
-        <textarea id="input" placeholder="Paste your CSS here..." spellcheck="false"></textarea>
+        <textarea id="input" tp="placeholder_paste_your_css_here" placeholder="Paste your CSS here..." spellcheck="false"></textarea>
       </div>
       <div class="panel">
         <div class="panel-head">Output</div>
@@ -96,8 +98,18 @@
   </div>
   <footer class="footer">
     <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — Free browser-based developer tools
-    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-minifier/">CSS Minifier</a> <a href="https://gokuscraper.github.io/dev-vault/css-gradient/">CSS Gradient</a> <a href="https://gokuscraper.github.io/dev-vault/css-animation/">CSS Animation</a></div>
+    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-minifier/" ti="link_css_minifier">CSS Minifier</a> <a href="https://gokuscraper.github.io/dev-vault/css-gradient/" ti="link_css_gradient">CSS Gradient</a> <a href="https://gokuscraper.github.io/dev-vault/css-animation/" ti="link_css_animation">CSS Animation</a></div>
   </footer>
+
+<script>var _LANG={'title_css_beautifier_format_pre':["CSS Beautifier — Format & Prettify CSS Code", "CSS 美化器 — 格式化和美化 CSS 代码"],'metadesc_format_and_beautify_css_c':["Format and beautify CSS code instantly in your browser. Configurable indentation, brace style, property sorting, and minification. No server upload required.", "在浏览器中即时格式化和美化 CSS 代码。可配置缩进、花括号样式、属性排序和代码压缩。无需上传到服务器。"],'btn_format':["Format", "格式"],'btn_minify':["Minify", "缩小"],'btn_copy':["Copy", "复制"],'btn_clear':["Clear", "清除"],'btn_paste_sample':["Paste Sample", "糊状样品"],'placeholder_paste_your_css_here':["Paste your CSS here...", "把你的CSS代码粘贴到这里……"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_css_minifier':["CSS Minifier", "CSS 压缩器"],'link_css_gradient':["CSS Gradient", "CSS渐变"],'link_css_animation':["CSS Animation", "CSS动画"],'jtc_copied':["Copied!", "已复制！"],'jtc_rules_0':["Rules: 0", "规则：0"],'jtc_properties_0':["Properties: 0", "属性：0"],'jtc_size_0_0':["Size: 0 → 0", "大小：0 → 0"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -381,7 +393,7 @@ function doCopy() {
   navigator.clipboard.writeText(lastOutput).then(() => {
     const btn = document.querySelectorAll('.btn')[2];
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1200);
   });
 }
@@ -390,9 +402,9 @@ function doClear() {
   $('input').value = '';
   $('output').innerHTML = '';
   lastOutput = '';
-  $('statRules').textContent = 'Rules: 0';
-  $('statProps').textContent = 'Properties: 0';
-  $('statSize').textContent = 'Size: 0 → 0';
+  $('statRules').textContent=T("jtc_rules_0");
+  $('statProps').textContent=T("jtc_properties_0");
+  $('statSize').textContent=T("jtc_size_0_0");
 }
 
 function updateStats(before, after, rules, props) {
@@ -445,6 +457,24 @@ body{margin:0;padding:0;font-family:'Inter',sans-serif;background:var(--bg);colo
 $('input').addEventListener('keydown', e => {
   if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) { e.preventDefault(); doFormat(); }
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

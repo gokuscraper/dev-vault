@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_name_finder_identif" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,21 +84,23 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Color Name Finder</h1>
-<p class="subtitle">Find the nearest CSS named color for any color code</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_color_name_finder">Color Name Finder</h1>
+<p class="subtitle" ti="subtitle_find_the_nearest_css_name">Find the nearest CSS named color for any color code</p>
 
 <div class="input-section">
   <div class="input-row">
     <div class="color-picker-wrap"><input type="color" id="picker" value="#ff6600"></div>
-    <input type="text" class="text-input" id="colorInput" value="#ff6600" placeholder="#hex, rgb(), or hsl()">
+    <input type="text" class="text-input" id="colorInput" value="#ff6600" tp="placeholder_hex_rgb_or_hsl" placeholder="#hex, rgb(), or hsl()">
   </div>
   <p class="input-hint">Enter hex (#ff6600), rgb(255,102,0), or hsl(24,100%,50%)</p>
 </div>
 
 <div class="result-section">
   <div class="result-card">
-    <h3>Nearest Named Color</h3>
+    <h3 ti="h3_nearest_named_color">Nearest Named Color</h3>
     <div class="comparison" id="comparison">
       <div class="half" id="compInput">Input</div>
       <div class="half" id="compMatch">Match</div>
@@ -110,38 +112,48 @@ footer a:hover{color:#999}
     </div>
   </div>
   <div class="result-card">
-    <h3>Top 5 Closest Matches</h3>
+    <h3 ti="h3_top_5_closest_matches">Top 5 Closest Matches</h3>
     <ul class="top5" id="top5"></ul>
   </div>
 </div>
 
-<h2>All 148 CSS Named Colors</h2>
+<h2 ti="h2_all_148_css_named_colors">All 148 CSS Named Colors</h2>
 <div class="filter-bar">
-  <input type="text" id="searchColors" placeholder="Search colors...">
-  <button class="family-btn active" data-family="all">All</button>
-  <button class="family-btn" data-family="reds">Reds</button>
-  <button class="family-btn" data-family="oranges">Oranges</button>
-  <button class="family-btn" data-family="yellows">Yellows</button>
-  <button class="family-btn" data-family="greens">Greens</button>
-  <button class="family-btn" data-family="blues">Blues</button>
-  <button class="family-btn" data-family="purples">Purples</button>
-  <button class="family-btn" data-family="browns">Browns</button>
-  <button class="family-btn" data-family="whites">Whites</button>
-  <button class="family-btn" data-family="grays">Grays</button>
-  <button class="family-btn" data-family="blacks">Blacks</button>
+  <input type="text" id="searchColors" tp="placeholder_search_colors" placeholder="Search colors...">
+  <button class="family-btn active" data-family="all" ti="btn_all">All</button>
+  <button class="family-btn" data-family="reds" ti="btn_reds">Reds</button>
+  <button class="family-btn" data-family="oranges" ti="btn_oranges">Oranges</button>
+  <button class="family-btn" data-family="yellows" ti="btn_yellows">Yellows</button>
+  <button class="family-btn" data-family="greens" ti="btn_greens">Greens</button>
+  <button class="family-btn" data-family="blues" ti="btn_blues">Blues</button>
+  <button class="family-btn" data-family="purples" ti="btn_purples">Purples</button>
+  <button class="family-btn" data-family="browns" ti="btn_browns">Browns</button>
+  <button class="family-btn" data-family="whites" ti="btn_whites">Whites</button>
+  <button class="family-btn" data-family="grays" ti="btn_grays">Grays</button>
+  <button class="family-btn" data-family="blacks" ti="btn_blacks">Blacks</button>
 </div>
 <div class="color-grid" id="colorGrid"></div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">← Dev Vault — 100+ Free Browser Tools</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault_100_free_brows">← Dev Vault — 100+ Free Browser Tools</a>
   <div class="related">
-    Related: <a href="https://gokuscraper.github.io/dev-vault/color-convert/">Color Convert</a>
-    <a href="https://gokuscraper.github.io/dev-vault/color-palette/">Color Palette</a>
-    <a href="https://gokuscraper.github.io/dev-vault/color-harmony/">Color Harmony</a>
+    Related: <a href="https://gokuscraper.github.io/dev-vault/color-convert/" ti="link_color_convert">Color Convert</a>
+    <a href="https://gokuscraper.github.io/dev-vault/color-palette/" ti="link_color_palette">Color Palette</a>
+    <a href="https://gokuscraper.github.io/dev-vault/color-harmony/" ti="link_color_harmony">Color Harmony</a>
   </div>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_color_name_finder_identif':["Color Name Finder — Identify Colors by Name", "颜色名称查找器 — 通过名称识别颜色"],'metadesc_find_the_nearest_css_name':["Find the nearest CSS named color for any hex, RGB, or HSL color code. Browse all 148 CSS named colors. Free online tool.", "查找与任何十六进制、RGB 或 HSL 颜色代码最接近的 CSS 颜色名称。浏览全部 148 种 CSS 颜色名称。免费在线工具。"],'h1_color_name_finder':["Color Name Finder", "颜色名称查找器"],'h2_all_148_css_named_colors':["All 148 CSS Named Colors", "全部 148 种 CSS 命名颜色"],'h3_nearest_named_color':["Nearest Named Color", "最接近的命名颜色"],'h3_top_5_closest_matches':["Top 5 Closest Matches", "最接近的 5 个匹配项"],'subtitle_find_the_nearest_css_name':["Find the nearest CSS named color for any color code", "找到与任意颜色代码最接近的 CSS 命名颜色"],'btn_all':["All", "全部"],'btn_reds':["Reds", "红队"],'btn_oranges':["Oranges", "橙子"],'btn_yellows':["Yellows", "黄色"],'btn_greens':["Greens", "青菜"],'btn_blues':["Blues", "蓝调"],'btn_purples':["Purples", "紫色"],'btn_browns':["Browns", "布朗队"],'btn_whites':["Whites", "白人"],'btn_grays':["Grays", "格雷斯"],'btn_blacks':["Blacks", "黑人"],'placeholder_hex_rgb_or_hsl':["#hex, rgb(), or hsl()", "#hex、rgb() 或 hsl()"],'placeholder_search_colors':["Search colors...", "搜索颜色..."],'link_dev_vault_100_free_brows':["← Dev Vault — 100+ Free Browser Tools", "← 开发者宝库 — 100 多个免费浏览器工具"],'link_color_convert':["Color Convert", "颜色转换"],'link_color_palette':["Color Palette", "调色板"],'link_color_harmony':["Color Harmony", "色彩和谐"],'jtc_input':["Input", "输入"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const CSS_COLORS = [
   ["aliceblue","#f0f8ff"],["antiquewhite","#faebd7"],["aqua","#00ffff"],["aquamarine","#7fffd4"],
@@ -304,7 +316,7 @@ function update() {
   const compMatch = document.getElementById('compMatch');
   compInput.style.background = hex;
   compInput.style.color = textColor(hex);
-  compInput.textContent = 'Input';
+  compInput.textContent=T("jtc_input");
   compMatch.style.background = best.hex;
   compMatch.style.color = textColor(best.hex);
   compMatch.textContent = best.name;
@@ -389,6 +401,24 @@ document.getElementById('searchColors').addEventListener('input', function() {
 // Init
 buildGrid('all', '');
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

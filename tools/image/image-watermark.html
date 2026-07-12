@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_watermark_add_text" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,9 +58,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Watermark</h1>
-<p class="sub">Add text or image watermarks — nothing uploaded to any server</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_watermark">Image Watermark</h1>
+<p class="sub" ti="subtitle_add_text_or_image_waterma">Add text or image watermarks — nothing uploaded to any server</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
 <p>Drop a base image here or click to select</p>
@@ -71,25 +73,25 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="canvas-wrap"><canvas id="canvas"></canvas></div>
 
 <div class="section">
-<h3>Watermark Type</h3>
+<h3 ti="h3_watermark_type">Watermark Type</h3>
 <div class="tabs">
 <div class="tab active" onclick="switchTab('text')">Text</div>
 <div class="tab" onclick="switchTab('image')">Image</div>
 </div>
 
 <div class="tab-content active" id="tabText">
-<div class="field"><label>Text</label><input id="wmText" value="© 2026" oninput="render()"></div>
+<div class="field"><label ti="label_text">Text</label><input id="wmText" value="© 2026" oninput="render()"></div>
 <div class="field-row">
-<div class="field"><label>Font</label><select id="wmFont" onchange="render()">
+<div class="field"><label ti="label_font">Font</label><select id="wmFont" onchange="render()">
 <option value="sans-serif">Sans-serif</option>
 <option value="serif">Serif</option>
 <option value="monospace">Monospace</option>
 <option value="Georgia">Georgia</option>
 <option value="Impact">Impact</option>
 </select></div>
-<div class="field"><label>Color</label><input type="color" id="wmColor" value="#ffffff" oninput="render()"></div>
+<div class="field"><label ti="label_color">Color</label><input type="color" id="wmColor" value="#ffffff" oninput="render()"></div>
 </div>
-<div class="field"><label>Shadow</label><select id="wmShadow" onchange="render()">
+<div class="field"><label ti="label_shadow">Shadow</label><select id="wmShadow" onchange="render()">
 <option value="none">None</option>
 <option value="dark">Dark shadow</option>
 <option value="light">Light shadow</option>
@@ -104,11 +106,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 
-<div class="slider-row"><label>Size</label><input type="range" id="wmSize" min="10" max="200" value="48" oninput="render()"><span class="val" id="vSize">48</span></div>
-<div class="slider-row"><label>Opacity</label><input type="range" id="wmOpacity" min="0" max="100" value="50" oninput="render()"><span class="val" id="vOpacity">50%</span></div>
-<div class="slider-row"><label>Rotation</label><input type="range" id="wmRotation" min="-180" max="180" value="0" oninput="render()"><span class="val" id="vRotation">0°</span></div>
+<div class="slider-row"><label ti="label_size">Size</label><input type="range" id="wmSize" min="10" max="200" value="48" oninput="render()"><span class="val" id="vSize">48</span></div>
+<div class="slider-row"><label ti="label_opacity">Opacity</label><input type="range" id="wmOpacity" min="0" max="100" value="50" oninput="render()"><span class="val" id="vOpacity">50%</span></div>
+<div class="slider-row"><label ti="label_rotation">Rotation</label><input type="range" id="wmRotation" min="-180" max="180" value="0" oninput="render()"><span class="val" id="vRotation">0°</span></div>
 
-<div class="field"><label>Position</label></div>
+<div class="field"><label ti="label_position">Position</label></div>
 <div class="pos-grid" id="posGrid">
 <div class="pos-btn" data-pos="tl">TL</div>
 <div class="pos-btn" data-pos="tc">TC</div>
@@ -127,18 +129,28 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="actions">
-<button class="btn btn-primary" onclick="downloadPNG()">Download PNG</button>
-<button class="btn" onclick="downloadJPG()">Download JPEG</button>
-<button class="btn" onclick="loadNew()">New Image</button>
+<button class="btn btn-primary" onclick="downloadPNG()" ti="btn_download_png">Download PNG</button>
+<button class="btn" onclick="downloadJPG()" ti="btn_download_jpeg">Download JPEG</button>
+<button class="btn" onclick="loadNew()" ti="btn_new_image">New Image</button>
 </div>
 <div class="info">All processing happens locally in your browser.</div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/">Image Crop</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/" ti="link_image_filter">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/" ti="link_image_crop">Image Crop</a></div>
 </div>
 <div class="toast" id="toast">Downloaded!</div>
 
+
+<script>var _LANG={'title_image_watermark_add_text':["Image Watermark — Add Text or Image Watermarks in Your Browser", "图片水印 — 在浏览器中添加文字或图片水印"],'metadesc_add_text_or_image_waterma':["Add text or image watermarks to photos. Adjust position, opacity, size, rotation, tiling. Download result. No upload to server.", "为照片添加文字或图片水印。调整位置、不透明度、大小、旋转角度、平铺方式。下载结果。无需上传到服务器。"],'h1_image_watermark':["Image Watermark", "图片水印"],'h3_watermark_type':["Watermark Type", "水印类型"],'subtitle_add_text_or_image_waterma':["Add text or image watermarks — nothing uploaded to any server", "添加文字或图片水印——不会上传到任何服务器"],'btn_download_png':["Download PNG", "下载PNG"],'btn_download_jpeg':["Download JPEG", "下载JPEG"],'btn_new_image':["New Image", "新形象"],'label_text':["Text", "文本"],'label_font':["Font", "字体"],'label_color':["Color", "颜色"],'label_shadow':["Shadow", "阴影"],'label_size':["Size", "尺寸"],'label_opacity':["Opacity", "不透明度"],'label_rotation':["Rotation", "旋转"],'label_position':["Position", "位置"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_resize':["Image Resize", "图片调整大小"],'link_image_filter':["Image Filter", "图像滤波器"],'link_image_crop':["Image Crop", "图片裁剪"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const canvas=document.getElementById('canvas');
 const ctx=canvas.getContext('2d');
@@ -315,6 +327,24 @@ function showToast(){
   const t=document.getElementById('toast');t.style.display='block';
   setTimeout(()=>t.style.display='none',1500);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

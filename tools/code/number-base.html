@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_number_base_converter_bin" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -155,17 +155,27 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Number Base Converter</h1>
+  <h1 ti="h1_number_base_converter" ti="h1_number_base_converter" ti="h1_number_base_converter" ti="h1_number_base_converter" ti="h1_number_base_converter">Number Base Converter</h1>
   <p>Binary · Octal · Decimal · Hex · Any base 2–36 · Bitwise ops · BigInt</p>
 </header>
 <main>
 
   <!-- Section navigation -->
   <div class="section-nav">
-    <button class="nav-btn active" data-section="converter">Converter</button>
-    <button class="nav-btn" data-section="bitwise">Bitwise Ops</button>
-    <button class="nav-btn" data-section="reference">Quick Reference</button>
+    <button class="nav-btn active" data-section="converter" ti="btn_converter" ti="btn_converter" ti="btn_converter" ti="btn_converter" ti="btn_converter">Converter</button>
+    <button class="nav-btn" data-section="bitwise" ti="btn_bitwise_ops" ti="btn_bitwise_ops" ti="btn_bitwise_ops" ti="btn_bitwise_ops" ti="btn_bitwise_ops">Bitwise Ops</button>
+    <button class="nav-btn" data-section="reference" ti="btn_quick_reference" ti="btn_quick_reference" ti="btn_quick_reference" ti="btn_quick_reference" ti="btn_quick_reference">Quick Reference</button>
   </div>
 
   <!-- ===== CONVERTER SECTION ===== -->
@@ -175,23 +185,23 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
     <div class="card">
       <div class="card-title">Options</div>
       <div class="toggle-strip">
-        <button class="toggle-btn" id="togPrefix">0x/0b Prefix</button>
-        <button class="toggle-btn" id="togSep">Digit Separator</button>
-        <button class="toggle-btn" id="togSigned">Signed (two's complement)</button>
-        <button class="toggle-btn" id="togUpper">Uppercase Hex</button>
+        <button class="toggle-btn" id="togPrefix" ti="btn_0x_0b_prefix" ti="btn_0x_0b_prefix" ti="btn_0x_0b_prefix" ti="btn_0x_0b_prefix" ti="btn_0x_0b_prefix">0x/0b Prefix</button>
+        <button class="toggle-btn" id="togSep" ti="btn_digit_separator" ti="btn_digit_separator" ti="btn_digit_separator" ti="btn_digit_separator" ti="btn_digit_separator">Digit Separator</button>
+        <button class="toggle-btn" id="togSigned" ti="btn_signed_two_s_complement" ti="btn_signed_two_s_complement" ti="btn_signed_two_s_complement" ti="btn_signed_two_s_complement" ti="btn_signed_two_s_complement">Signed (two's complement)</button>
+        <button class="toggle-btn" id="togUpper" ti="btn_uppercase_hex" ti="btn_uppercase_hex" ti="btn_uppercase_hex" ti="btn_uppercase_hex" ti="btn_uppercase_hex">Uppercase Hex</button>
       </div>
 
       <!-- Presets -->
       <div class="presets">
         <span>Presets:</span>
-        <button class="preset-btn" data-dec="255">255 (0xFF)</button>
-        <button class="preset-btn" data-dec="1024">1024 (2^10)</button>
-        <button class="preset-btn" data-dec="65535">65535 (0xFFFF)</button>
-        <button class="preset-btn" data-dec="2147483647">INT32_MAX</button>
-        <button class="preset-btn" data-dec="-2147483648">INT32_MIN</button>
-        <button class="preset-btn" data-dec="65">ASCII 'A' (65)</button>
-        <button class="preset-btn" data-dec="2130706433">IPv4 127.0.0.1</button>
-        <button class="preset-btn" data-dec="3735928559">0xDEADBEEF</button>
+        <button class="preset-btn" data-dec="255" ti="btn_255_0xff" ti="btn_255_0xff" ti="btn_255_0xff" ti="btn_255_0xff" ti="btn_255_0xff">255 (0xFF)</button>
+        <button class="preset-btn" data-dec="1024" ti="btn_1024_2_10" ti="btn_1024_2_10" ti="btn_1024_2_10" ti="btn_1024_2_10" ti="btn_1024_2_10">1024 (2^10)</button>
+        <button class="preset-btn" data-dec="65535" ti="btn_65535_0xffff" ti="btn_65535_0xffff" ti="btn_65535_0xffff" ti="btn_65535_0xffff" ti="btn_65535_0xffff">65535 (0xFFFF)</button>
+        <button class="preset-btn" data-dec="2147483647" ti="btn_int32_max" ti="btn_int32_max" ti="btn_int32_max" ti="btn_int32_max" ti="btn_int32_max">INT32_MAX</button>
+        <button class="preset-btn" data-dec="-2147483648" ti="btn_int32_min" ti="btn_int32_min" ti="btn_int32_min" ti="btn_int32_min" ti="btn_int32_min">INT32_MIN</button>
+        <button class="preset-btn" data-dec="65" ti="btn_ascii_a_65" ti="btn_ascii_a_65" ti="btn_ascii_a_65" ti="btn_ascii_a_65" ti="btn_ascii_a_65">ASCII 'A' (65)</button>
+        <button class="preset-btn" data-dec="2130706433" ti="btn_ipv4_127_0_0_1" ti="btn_ipv4_127_0_0_1" ti="btn_ipv4_127_0_0_1" ti="btn_ipv4_127_0_0_1" ti="btn_ipv4_127_0_0_1">IPv4 127.0.0.1</button>
+        <button class="preset-btn" data-dec="3735928559" ti="btn_0xdeadbeef" ti="btn_0xdeadbeef" ti="btn_0xdeadbeef" ti="btn_0xdeadbeef" ti="btn_0xdeadbeef">0xDEADBEEF</button>
       </div>
     </div>
 
@@ -202,9 +212,9 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
         <div class="base-field">
           <label>
             <span>Binary (base 2)</span>
-            <button class="copy-btn" data-field="bin">Copy</button>
+            <button class="copy-btn" data-field="bin" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
           </label>
-          <input type="text" id="fieldBin" placeholder="e.g. 11111111" spellcheck="false" autocomplete="off">
+          <input type="text" id="fieldBin" tp="placeholder_e_g_11111111" tp="placeholder_e_g_11111111" tp="placeholder_e_g_11111111" tp="placeholder_e_g_11111111" tp="placeholder_e_g_11111111" placeholder="e.g. 11111111" spellcheck="false" autocomplete="off">
           <div class="prefix" id="prefixBin"></div>
           <div class="field-error" id="errBin"></div>
         </div>
@@ -213,7 +223,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
             <span>Octal (base 8)</span>
             <button class="copy-btn" data-field="oct">Copy</button>
           </label>
-          <input type="text" id="fieldOct" placeholder="e.g. 377" spellcheck="false" autocomplete="off">
+          <input type="text" id="fieldOct" tp="placeholder_e_g_377" tp="placeholder_e_g_377" tp="placeholder_e_g_377" tp="placeholder_e_g_377" tp="placeholder_e_g_377" placeholder="e.g. 377" spellcheck="false" autocomplete="off">
           <div class="prefix" id="prefixOct"></div>
           <div class="field-error" id="errOct"></div>
         </div>
@@ -222,7 +232,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
             <span>Decimal (base 10)</span>
             <button class="copy-btn" data-field="dec">Copy</button>
           </label>
-          <input type="text" id="fieldDec" placeholder="e.g. 255" spellcheck="false" autocomplete="off">
+          <input type="text" id="fieldDec" tp="placeholder_e_g_255" tp="placeholder_e_g_255_2" tp="placeholder_e_g_255" tp="placeholder_e_g_255_2" tp="placeholder_e_g_255" tp="placeholder_e_g_255_2" tp="placeholder_e_g_255" tp="placeholder_e_g_255_2" tp="placeholder_e_g_255" tp="placeholder_e_g_255_2" placeholder="e.g. 255" spellcheck="false" autocomplete="off">
           <div class="prefix" id="prefixDec"></div>
           <div class="field-error" id="errDec"></div>
         </div>
@@ -231,7 +241,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
             <span>Hexadecimal (base 16)</span>
             <button class="copy-btn" data-field="hex">Copy</button>
           </label>
-          <input type="text" id="fieldHex" placeholder="e.g. FF" spellcheck="false" autocomplete="off">
+          <input type="text" id="fieldHex" tp="placeholder_e_g_ff" tp="placeholder_e_g_ff" tp="placeholder_e_g_ff" tp="placeholder_e_g_ff" tp="placeholder_e_g_ff" placeholder="e.g. FF" spellcheck="false" autocomplete="off">
           <div class="prefix" id="prefixHex"></div>
           <div class="field-error" id="errHex"></div>
         </div>
@@ -242,14 +252,14 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
     <div class="card">
       <div class="card-title">Custom Base Converter</div>
       <div class="custom-base-row">
-        <label>From decimal value → Base</label>
+        <label ti="label_from_decimal_value_base" ti="label_from_decimal_value_base" ti="label_from_decimal_value_base" ti="label_from_decimal_value_base" ti="label_from_decimal_value_base">From decimal value → Base</label>
         <select class="base-select" id="customFromBase">
           <option value="10" selected>Base 10 (decimal)</option>
         </select>
-        <label>input:</label>
-        <input type="text" id="customInput" placeholder="Enter value" spellcheck="false" autocomplete="off"
+        <label ti="label_input" ti="label_input" ti="label_input" ti="label_input" ti="label_input">input:</label>
+        <input type="text" id="customInput" tp="placeholder_enter_value" tp="placeholder_enter_value" tp="placeholder_enter_value" tp="placeholder_enter_value" tp="placeholder_enter_value" placeholder="Enter value" spellcheck="false" autocomplete="off"
           style="background:var(--bg);border:1px solid var(--border);border-radius:6px;color:var(--text);font-size:.9rem;padding:.45rem .65rem;font-family:'SF Mono',SFMono-Regular,Consolas,monospace;outline:none;transition:border-color .15s;width:130px">
-        <label>→ Base</label>
+        <label ti="label_base" ti="label_base" ti="label_base" ti="label_base" ti="label_base">→ Base</label>
         <select class="base-select" id="customToBase"></select>
         <span style="color:var(--text2);font-size:.82rem">=</span>
         <div class="custom-result-val empty" id="customResultVal">—</div>
@@ -261,10 +271,10 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
     <div class="card">
       <div class="card-title">Bit Visualization</div>
       <div class="bit-view-controls">
-        <button class="bit-view-btn active" data-width="8">8-bit</button>
-        <button class="bit-view-btn active" data-width="16">16-bit</button>
-        <button class="bit-view-btn active" data-width="32">32-bit</button>
-        <button class="bit-view-btn" data-width="64">64-bit</button>
+        <button class="bit-view-btn active" data-width="8" ti="btn_8_bit" ti="btn_8_bit" ti="btn_8_bit" ti="btn_8_bit" ti="btn_8_bit">8-bit</button>
+        <button class="bit-view-btn active" data-width="16" ti="btn_16_bit" ti="btn_16_bit" ti="btn_16_bit" ti="btn_16_bit" ti="btn_16_bit">16-bit</button>
+        <button class="bit-view-btn active" data-width="32" ti="btn_32_bit" ti="btn_32_bit" ti="btn_32_bit" ti="btn_32_bit" ti="btn_32_bit">32-bit</button>
+        <button class="bit-view-btn" data-width="64" ti="btn_64_bit" ti="btn_64_bit" ti="btn_64_bit" ti="btn_64_bit" ti="btn_64_bit">64-bit</button>
       </div>
       <div id="bitDisplay">
         <div style="color:var(--text2);font-size:.85rem">Enter a value above to visualize bits.</div>
@@ -287,18 +297,18 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
       <div class="card-title">Operands (decimal)</div>
       <div class="bitwise-inputs">
         <div class="bw-field">
-          <label>Operand A</label>
+          <label ti="label_operand_a" ti="label_operand_a" ti="label_operand_a" ti="label_operand_a" ti="label_operand_a">Operand A</label>
           <input type="text" id="bwA" placeholder="e.g. 255" spellcheck="false" autocomplete="off">
           <div class="field-error" id="errBwA"></div>
         </div>
         <div class="bw-field">
-          <label>Operand B (for AND/OR/XOR)</label>
-          <input type="text" id="bwB" placeholder="e.g. 170" spellcheck="false" autocomplete="off">
+          <label ti="label_operand_b_for_and_or_xor" ti="label_operand_b_for_and_or_xor" ti="label_operand_b_for_and_or_xor" ti="label_operand_b_for_and_or_xor" ti="label_operand_b_for_and_or_xor">Operand B (for AND/OR/XOR)</label>
+          <input type="text" id="bwB" tp="placeholder_e_g_170" tp="placeholder_e_g_170" tp="placeholder_e_g_170" tp="placeholder_e_g_170" tp="placeholder_e_g_170" placeholder="e.g. 170" spellcheck="false" autocomplete="off">
           <div class="field-error" id="errBwB"></div>
         </div>
       </div>
       <div class="shift-row">
-        <label>Shift amount:</label>
+        <label ti="label_shift_amount" ti="label_shift_amount" ti="label_shift_amount" ti="label_shift_amount" ti="label_shift_amount">Shift amount:</label>
         <input type="number" id="shiftAmt" value="1" min="0" max="63">
         <span style="color:var(--text2);font-size:.8rem">bits</span>
       </div>
@@ -314,27 +324,27 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
     <div class="card">
       <div class="card-title">Reference Table</div>
       <div class="ref-range">
-        <label>From:</label>
+        <label ti="label_from" ti="label_from" ti="label_from" ti="label_from" ti="label_from">From:</label>
         <input type="number" id="refFrom" value="0" min="0" max="65535">
-        <label>To:</label>
+        <label ti="label_to" ti="label_to" ti="label_to" ti="label_to" ti="label_to">To:</label>
         <input type="number" id="refTo" value="255" min="0" max="65535">
-        <label>Show:</label>
+        <label ti="label_show" ti="label_show" ti="label_show" ti="label_show" ti="label_show">Show:</label>
         <select id="refCols">
           <option value="all">All bases</option>
           <option value="4">Bin/Oct/Dec/Hex</option>
           <option value="bd">Binary + Decimal</option>
           <option value="dh">Decimal + Hex</option>
         </select>
-        <button class="toggle-btn" id="refAscii">Show ASCII</button>
-        <button class="toggle-btn active" id="refGenerate" style="border-color:var(--accent);color:var(--accent)">Generate</button>
+        <button class="toggle-btn" id="refAscii" ti="btn_show_ascii" ti="btn_show_ascii" ti="btn_show_ascii" ti="btn_show_ascii" ti="btn_show_ascii">Show ASCII</button>
+        <button class="toggle-btn active" id="refGenerate" style="border-color:var(--accent);color:var(--accent)" ti="btn_generate" ti="btn_generate" ti="btn_generate" ti="btn_generate" ti="btn_generate">Generate</button>
       </div>
       <div class="ref-table-wrap">
         <table id="refTable">
           <thead><tr>
-            <th>Dec</th>
-            <th>Hex</th>
-            <th>Oct</th>
-            <th>Binary</th>
+            <th ti="th_dec" ti="th_dec_2" ti="th_dec" ti="th_dec_2" ti="th_dec" ti="th_dec_2" ti="th_dec" ti="th_dec_2" ti="th_dec" ti="th_dec_2">Dec</th>
+            <th ti="th_hex" ti="th_hex_2" ti="th_hex" ti="th_hex_2" ti="th_hex" ti="th_hex_2" ti="th_hex" ti="th_hex_2" ti="th_hex" ti="th_hex_2">Hex</th>
+            <th ti="th_oct" ti="th_oct_2" ti="th_oct" ti="th_oct_2" ti="th_oct" ti="th_oct_2" ti="th_oct" ti="th_oct_2" ti="th_oct" ti="th_oct_2">Oct</th>
+            <th ti="th_binary" ti="th_binary_2" ti="th_binary" ti="th_binary_2" ti="th_binary" ti="th_binary_2" ti="th_binary" ti="th_binary_2" ti="th_binary" ti="th_binary_2">Binary</th>
           </tr></thead>
           <tbody id="refTbody"></tbody>
         </table>
@@ -344,11 +354,51 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.82rem;bord
 
 </main>
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — free browser-based developer tools &nbsp;·&nbsp;
-  <a href="https://github.com/gokuscraper/number-base">GitHub</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — free browser-based developer tools &nbsp;·&nbsp;
+  <a href="https://github.com/gokuscraper/number-base" ti="link_github" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a>
 </footer>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+
+
+<script>var _LANG={'title_number_base_converter_bin':["Number Base Converter — Binary, Octal, Decimal, Hex", "数字进制转换器 — 二进制、八进制、十进制、十六进制"],'metadesc_convert_numbers_between_b':["Convert numbers between binary, octal, decimal, and hexadecimal with live updates. BigInt support, bitwise operations, bit visualization, two", "支持二进制、八进制、十进制和十六进制之间的数字转换，并实时更新转换结果。支持 BigInt 类型、位运算、位可视化等功能。"],'h1_number_base_converter':["Number Base Converter", "数字进制转换器"],'btn_converter':["Converter", "转换器"],'btn_bitwise_ops':["Bitwise Ops", "位运算"],'btn_quick_reference':["Quick Reference", "快速参考"],'btn_0x_0b_prefix':["0x/0b Prefix", "0x/0b 前缀"],'btn_digit_separator':["Digit Separator", "数字分隔符"],'btn_signed_two_s_complement':["Signed (two's complement)", "签名（双补码）"],'btn_uppercase_hex':["Uppercase Hex", "大写十六进制"],'btn_255_0xff':["255 (0xFF)", "255 (0xFF)"],'btn_1024_2_10':["1024 (2^10)", "1024 (2^10)"],'btn_65535_0xffff':["65535 (0xFFFF)", "65535 (0xFFFF)"],'btn_int32_max':["INT32_MAX", "INT32_MAX"],'btn_int32_min':["INT32_MIN", "INT32_MIN"],'btn_ascii_a_65':["ASCII 'A' (65)", "ASCII &#39;A&#39; (65)"],'btn_ipv4_127_0_0_1':["IPv4 127.0.0.1", "IPv4 127.0.0.1"],'btn_0xdeadbeef':["0xDEADBEEF", "0xDEADBEEF"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_8_bit':["8-bit", "8 位"],'btn_16_bit':["16-bit", "16 位"],'btn_32_bit':["32-bit", "32 位"],'btn_64_bit':["64-bit", "64 位"],'btn_show_ascii':["Show ASCII", "显示ASCII码"],'btn_generate':["Generate", "产生"],'placeholder_e_g_11111111':["e.g. 11111111", "例如 11111111"],'placeholder_e_g_377':["e.g. 377", "例如 377"],'placeholder_e_g_255':["e.g. 255", "例如 255"],'placeholder_e_g_ff':["e.g. FF", "例如 FF"],'placeholder_enter_value':["Enter value", "输入数值"],'placeholder_e_g_255_2':["e.g. 255", "例如 255"],'placeholder_e_g_170':["e.g. 170", "例如 170"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'th_dec':["Dec", "12月"],'th_hex':["Hex", "十六进制"],'th_oct':["Oct", "十月"],'th_binary':["Binary", "二进制"],'th_dec_2':["Dec", "12月"],'th_hex_2':["Hex", "十六进制"],'th_oct_2':["Oct", "十月"],'th_binary_2':["Binary", "二进制"],'th_ascii':["ASCII", "ASCII"],'label_from_decimal_value_base':["From decimal value → Base", "从十进制值 → 基数"],'label_input':["input:", "输入："],'label_base':["→ Base", "→ 基础"],'label_operand_a':["Operand A", "操作数 A"],'label_operand_b_for_and_or_xor':["Operand B (for AND/OR/XOR)", "操作数 B（用于 AND/OR/XOR）"],'label_shift_amount':["Shift amount:", "轮班次数："],'label_from':["From:", "从："],'label_to':["To:", "到："],'label_show':["Show:", "展示："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_decimal_or_hex':["Invalid (decimal or hex)", "无效（十进制或十六进制）"],'jtc_invalid_decimal_or_hex_2':["Invalid (decimal or hex)", "无效（十进制或十六进制）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_number_base_converter_bin':["Number Base Converter — Binary, Octal, Decimal, Hex", "数字进制转换器 — 二进制、八进制、十进制、十六进制"],'metadesc_convert_numbers_between_b':["Convert numbers between binary, octal, decimal, and hexadecimal with live updates. BigInt support, bitwise operations, bit visualization, two", "支持二进制、八进制、十进制和十六进制之间的数字转换，并实时更新转换结果。支持 BigInt 类型、位运算、位可视化等功能。"],'h1_number_base_converter':["Number Base Converter", "数字进制转换器"],'btn_converter':["Converter", "转换器"],'btn_bitwise_ops':["Bitwise Ops", "位运算"],'btn_quick_reference':["Quick Reference", "快速参考"],'btn_0x_0b_prefix':["0x/0b Prefix", "0x/0b 前缀"],'btn_digit_separator':["Digit Separator", "数字分隔符"],'btn_signed_two_s_complement':["Signed (two's complement)", "签名（双补码）"],'btn_uppercase_hex':["Uppercase Hex", "大写十六进制"],'btn_255_0xff':["255 (0xFF)", "255 (0xFF)"],'btn_1024_2_10':["1024 (2^10)", "1024 (2^10)"],'btn_65535_0xffff':["65535 (0xFFFF)", "65535 (0xFFFF)"],'btn_int32_max':["INT32_MAX", "INT32_MAX"],'btn_int32_min':["INT32_MIN", "INT32_MIN"],'btn_ascii_a_65':["ASCII 'A' (65)", "ASCII &#39;A&#39; (65)"],'btn_ipv4_127_0_0_1':["IPv4 127.0.0.1", "IPv4 127.0.0.1"],'btn_0xdeadbeef':["0xDEADBEEF", "0xDEADBEEF"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_8_bit':["8-bit", "8 位"],'btn_16_bit':["16-bit", "16 位"],'btn_32_bit':["32-bit", "32 位"],'btn_64_bit':["64-bit", "64 位"],'btn_show_ascii':["Show ASCII", "显示ASCII码"],'btn_generate':["Generate", "产生"],'placeholder_e_g_11111111':["e.g. 11111111", "例如 11111111"],'placeholder_e_g_377':["e.g. 377", "例如 377"],'placeholder_e_g_255':["e.g. 255", "例如 255"],'placeholder_e_g_ff':["e.g. FF", "例如 FF"],'placeholder_enter_value':["Enter value", "输入数值"],'placeholder_e_g_255_2':["e.g. 255", "例如 255"],'placeholder_e_g_170':["e.g. 170", "例如 170"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'th_dec':["Dec", "12月"],'th_hex':["Hex", "十六进制"],'th_oct':["Oct", "十月"],'th_binary':["Binary", "二进制"],'th_dec_2':["Dec", "12月"],'th_hex_2':["Hex", "十六进制"],'th_oct_2':["Oct", "十月"],'th_binary_2':["Binary", "二进制"],'th_ascii':["ASCII", "ASCII"],'label_from_decimal_value_base':["From decimal value → Base", "从十进制值 → 基数"],'label_input':["input:", "输入："],'label_base':["→ Base", "→ 基础"],'label_operand_a':["Operand A", "操作数 A"],'label_operand_b_for_and_or_xor':["Operand B (for AND/OR/XOR)", "操作数 B（用于 AND/OR/XOR）"],'label_shift_amount':["Shift amount:", "轮班次数："],'label_from':["From:", "从："],'label_to':["To:", "到："],'label_show':["Show:", "展示："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_decimal_or_hex':["Invalid (decimal or hex)", "无效（十进制或十六进制）"],'jtc_invalid_decimal_or_hex_2':["Invalid (decimal or hex)", "无效（十进制或十六进制）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_number_base_converter_bin':["Number Base Converter — Binary, Octal, Decimal, Hex", "数字进制转换器 — 二进制、八进制、十进制、十六进制"],'metadesc_convert_numbers_between_b':["Convert numbers between binary, octal, decimal, and hexadecimal with live updates. BigInt support, bitwise operations, bit visualization, two", "支持二进制、八进制、十进制和十六进制之间的数字转换，并实时更新转换结果。支持 BigInt 类型、位运算、位可视化等功能。"],'h1_number_base_converter':["Number Base Converter", "数字进制转换器"],'btn_converter':["Converter", "转换器"],'btn_bitwise_ops':["Bitwise Ops", "位运算"],'btn_quick_reference':["Quick Reference", "快速参考"],'btn_0x_0b_prefix':["0x/0b Prefix", "0x/0b 前缀"],'btn_digit_separator':["Digit Separator", "数字分隔符"],'btn_signed_two_s_complement':["Signed (two's complement)", "签名（双补码）"],'btn_uppercase_hex':["Uppercase Hex", "大写十六进制"],'btn_255_0xff':["255 (0xFF)", "255 (0xFF)"],'btn_1024_2_10':["1024 (2^10)", "1024 (2^10)"],'btn_65535_0xffff':["65535 (0xFFFF)", "65535 (0xFFFF)"],'btn_int32_max':["INT32_MAX", "INT32_MAX"],'btn_int32_min':["INT32_MIN", "INT32_MIN"],'btn_ascii_a_65':["ASCII 'A' (65)", "ASCII &#39;A&#39; (65)"],'btn_ipv4_127_0_0_1':["IPv4 127.0.0.1", "IPv4 127.0.0.1"],'btn_0xdeadbeef':["0xDEADBEEF", "0xDEADBEEF"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_8_bit':["8-bit", "8 位"],'btn_16_bit':["16-bit", "16 位"],'btn_32_bit':["32-bit", "32 位"],'btn_64_bit':["64-bit", "64 位"],'btn_show_ascii':["Show ASCII", "显示ASCII码"],'btn_generate':["Generate", "产生"],'placeholder_e_g_11111111':["e.g. 11111111", "例如 11111111"],'placeholder_e_g_377':["e.g. 377", "例如 377"],'placeholder_e_g_255':["e.g. 255", "例如 255"],'placeholder_e_g_ff':["e.g. FF", "例如 FF"],'placeholder_enter_value':["Enter value", "输入数值"],'placeholder_e_g_255_2':["e.g. 255", "例如 255"],'placeholder_e_g_170':["e.g. 170", "例如 170"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'th_dec':["Dec", "12月"],'th_hex':["Hex", "十六进制"],'th_oct':["Oct", "十月"],'th_binary':["Binary", "二进制"],'th_dec_2':["Dec", "12月"],'th_hex_2':["Hex", "十六进制"],'th_oct_2':["Oct", "十月"],'th_binary_2':["Binary", "二进制"],'th_ascii':["ASCII", "ASCII"],'label_from_decimal_value_base':["From decimal value → Base", "从十进制值 → 基数"],'label_input':["input:", "输入："],'label_base':["→ Base", "→ 基础"],'label_operand_a':["Operand A", "操作数 A"],'label_operand_b_for_and_or_xor':["Operand B (for AND/OR/XOR)", "操作数 B（用于 AND/OR/XOR）"],'label_shift_amount':["Shift amount:", "轮班次数："],'label_from':["From:", "从："],'label_to':["To:", "到："],'label_show':["Show:", "展示："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_decimal_or_hex':["Invalid (decimal or hex)", "无效（十进制或十六进制）"],'jtc_invalid_decimal_or_hex_2':["Invalid (decimal or hex)", "无效（十进制或十六进制）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_number_base_converter_bin':["Number Base Converter — Binary, Octal, Decimal, Hex", "数字进制转换器 — 二进制、八进制、十进制、十六进制"],'metadesc_convert_numbers_between_b':["Convert numbers between binary, octal, decimal, and hexadecimal with live updates. BigInt support, bitwise operations, bit visualization, two", "支持二进制、八进制、十进制和十六进制之间的数字转换，并实时更新转换结果。支持 BigInt 类型、位运算、位可视化等功能。"],'h1_number_base_converter':["Number Base Converter", "数字进制转换器"],'btn_converter':["Converter", "转换器"],'btn_bitwise_ops':["Bitwise Ops", "位运算"],'btn_quick_reference':["Quick Reference", "快速参考"],'btn_0x_0b_prefix':["0x/0b Prefix", "0x/0b 前缀"],'btn_digit_separator':["Digit Separator", "数字分隔符"],'btn_signed_two_s_complement':["Signed (two's complement)", "签名（双补码）"],'btn_uppercase_hex':["Uppercase Hex", "大写十六进制"],'btn_255_0xff':["255 (0xFF)", "255 (0xFF)"],'btn_1024_2_10':["1024 (2^10)", "1024 (2^10)"],'btn_65535_0xffff':["65535 (0xFFFF)", "65535 (0xFFFF)"],'btn_int32_max':["INT32_MAX", "INT32_MAX"],'btn_int32_min':["INT32_MIN", "INT32_MIN"],'btn_ascii_a_65':["ASCII 'A' (65)", "ASCII &#39;A&#39; (65)"],'btn_ipv4_127_0_0_1':["IPv4 127.0.0.1", "IPv4 127.0.0.1"],'btn_0xdeadbeef':["0xDEADBEEF", "0xDEADBEEF"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_8_bit':["8-bit", "8 位"],'btn_16_bit':["16-bit", "16 位"],'btn_32_bit':["32-bit", "32 位"],'btn_64_bit':["64-bit", "64 位"],'btn_show_ascii':["Show ASCII", "显示ASCII码"],'btn_generate':["Generate", "产生"],'placeholder_e_g_11111111':["e.g. 11111111", "例如 11111111"],'placeholder_e_g_377':["e.g. 377", "例如 377"],'placeholder_e_g_255':["e.g. 255", "例如 255"],'placeholder_e_g_ff':["e.g. FF", "例如 FF"],'placeholder_enter_value':["Enter value", "输入数值"],'placeholder_e_g_255_2':["e.g. 255", "例如 255"],'placeholder_e_g_170':["e.g. 170", "例如 170"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'th_dec':["Dec", "12月"],'th_hex':["Hex", "十六进制"],'th_oct':["Oct", "十月"],'th_binary':["Binary", "二进制"],'th_dec_2':["Dec", "12月"],'th_hex_2':["Hex", "十六进制"],'th_oct_2':["Oct", "十月"],'th_binary_2':["Binary", "二进制"],'th_ascii':["ASCII", "ASCII"],'label_from_decimal_value_base':["From decimal value → Base", "从十进制值 → 基数"],'label_input':["input:", "输入："],'label_base':["→ Base", "→ 基础"],'label_operand_a':["Operand A", "操作数 A"],'label_operand_b_for_and_or_xor':["Operand B (for AND/OR/XOR)", "操作数 B（用于 AND/OR/XOR）"],'label_shift_amount':["Shift amount:", "轮班次数："],'label_from':["From:", "从："],'label_to':["To:", "到："],'label_show':["Show:", "展示："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_decimal_or_hex':["Invalid (decimal or hex)", "无效（十进制或十六进制）"],'jtc_invalid_decimal_or_hex_2':["Invalid (decimal or hex)", "无效（十进制或十六进制）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ========= UTILITIES ========= */
 const DIGITS = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -626,7 +676,7 @@ function updateCustomBase() {
     resultEl.textContent = opts.upper ? out : out.toLowerCase();
     resultEl.classList.remove('empty');
   } catch (e) {
-    resultEl.textContent = 'Invalid';
+    resultEl.textContent=T("jtc_invalid");
     resultEl.classList.add('empty');
   }
 }
@@ -671,7 +721,7 @@ function computeBitwise() {
     } catch(e) {
       // try hex
       try { a = parseBigIntBase(aRaw, 16); errA.textContent = ''; document.getElementById('bwA').classList.remove('error'); }
-      catch { errA.textContent = 'Invalid (decimal or hex)'; document.getElementById('bwA').classList.add('error'); }
+      catch { errA.textContent=T("jtc_invalid_decimal_or_hex"); document.getElementById('bwA').classList.add('error'); }
     }
   }
 
@@ -682,7 +732,7 @@ function computeBitwise() {
       document.getElementById('bwB').classList.remove('error');
     } catch(e) {
       try { b = parseBigIntBase(bRaw, 16); errB.textContent = ''; document.getElementById('bwB').classList.remove('error'); }
-      catch { errB.textContent = 'Invalid (decimal or hex)'; document.getElementById('bwB').classList.add('error'); }
+      catch { errB.textContent=T("jtc_invalid_decimal_or_hex"); document.getElementById('bwB').classList.add('error'); }
     }
   }
 
@@ -753,7 +803,7 @@ function generateRefTable() {
 
   const thead = document.querySelector('#refTable thead tr');
   thead.innerHTML = '<th>Dec</th><th>Hex</th><th>Oct</th><th>Binary</th>';
-  if (showAscii) thead.innerHTML += '<th>ASCII</th>';
+  if (showAscii) thead.innerHTML += '<th ti="th_ascii" ti="th_ascii" ti="th_ascii" ti="th_ascii" ti="th_ascii">ASCII</th>';
 
   const tbody = document.getElementById('refTbody');
   const rows = [];
@@ -878,12 +928,12 @@ document.getElementById('togUpper').classList.add('active');
 
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2" ti="strong_related_tools" ti="strong_related_tools_2" ti="strong_related_tools" ti="strong_related_tools_2" ti="strong_related_tools" ti="strong_related_tools_2" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Chmod Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/uuid-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">UUID Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/timestamp-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Timestamp Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/subnet-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Subnet Calc</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -893,5 +943,95 @@ document.getElementById('togUpper').classList.add('active');
 <a href="https://gokuscraper.github.io/dev-vault/subnet-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Subnet Calc</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

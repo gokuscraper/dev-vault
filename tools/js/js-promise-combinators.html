@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_promise_combinators_vi" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,17 +65,19 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Promise Combinators Visualizer</h1>
+<h1 ti="title_js_promise_combinators_vi" ti="h1_js_promise_combinators_vi">JS Promise Combinators Visualizer</h1>
 <p>See how Promise.all, allSettled, race, and any handle fulfillment and rejection differently</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
-<h3 style="margin-top:1.5rem">Quick Compare</h3>
+<h3 style="margin-top:1.5rem" ti="h3_quick_compare">Quick Compare</h3>
 <table class="compare-table">
-<tr><th></th><th>Settles</th><th>Short-circuits</th></tr>
+<tr><th></th><th ti="th_settles">Settles</th><th ti="th_short_circuits">Short-circuits</th></tr>
 <tr><td><code>all</code></td><td><span class="tag f">All fulfill</span></td><td><span class="tag r">First reject</span></td></tr>
 <tr><td><code>allSettled</code></td><td><span class="tag f">All settle</span></td><td>Never</td></tr>
 <tr><td><code>race</code></td><td><span class="tag first">First settle</span></td><td><span class="tag first">First settle</span></td></tr>
@@ -89,18 +91,28 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="resultsArea"></div>
 </div>
 <div class="controls">
-<button class="btn run" id="btnRun">▶ Run</button>
-<button class="btn" id="btnReset">⟲ Reset</button>
+<button class="btn run" id="btnRun" ti="btn_run">▶ Run</button>
+<button class="btn" id="btnReset" ti="btn_reset">⟲ Reset</button>
 <div class="speed-ctrl">
-<label>Speed:</label>
+<label ti="label_speed">Speed:</label>
 <input type="range" id="speedSlider" min="1" max="5" value="3">
 <span id="speedLabel">1×</span>
 </div>
 </div>
 </div>
 </div>
-<footer>JS Promise Combinators Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>JS Promise Combinators Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+<script>var _LANG={'title_js_promise_combinators_vi':["JS Promise Combinators Visualizer", "JS Promise 组合器可视化工具"],'metadesc_interactive_visualization':["Interactive visualization of Promise.all, allSettled, race, and any — see how each combinator handles fulfilled and rejected promises differently", "Promise.all、allSettled、race 和 any 的交互式可视化——了解每个组合器如何处理已履行和已拒绝的承诺。"],'h1_js_promise_combinators_vi':["JS Promise Combinators Visualizer", "JS Promise 组合器可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_quick_compare':["Quick Compare", "快速比较"],'btn_run':["▶ Run", "▶ 跑"],'btn_reset':["⟲ Reset", "⟲ 重置"],'th_settles':["Settles", "定居点"],'th_short_circuits':["Short-circuits", "短路"],'label_speed':["Speed:", "速度："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pending':["pending...", "待办的..."]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS = [
   {
@@ -340,7 +352,7 @@ function runDemo() {
         time.textContent = p.duration + 'ms';
       } else {
         fill.className = 'lane-fill pending';
-        fill.textContent = 'pending...';
+        fill.textContent=T("jtc_pending");
         time.textContent = Math.round(elapsed) + 'ms';
       }
     });
@@ -366,6 +378,24 @@ function resetDemo() {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

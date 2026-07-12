@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_typescript_generate" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,8 +53,10 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JSON → TypeScript</h1>
+<h1 ti="h1_json_typescript">JSON → TypeScript</h1>
 <p>Paste JSON, get TypeScript interfaces instantly</p>
 </header>
 
@@ -82,8 +84,8 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <div class="actions">
-<button class="btn" id="sampleBtn">Sample JSON</button>
-<button class="btn btn--accent" id="copyBtn">Copy TypeScript</button>
+<button class="btn" id="sampleBtn" ti="btn_sample_json">Sample JSON</button>
+<button class="btn btn--accent" id="copyBtn" ti="btn_copy_typescript">Copy TypeScript</button>
 </div>
 
 <div class="main">
@@ -92,21 +94,31 @@ footer a:hover{text-decoration:underline}
 <span>JSON Input</span>
 <span id="errorMsg" class="error-msg"></span>
 </div>
-<textarea id="jsonInput" placeholder="Paste your JSON here..." spellcheck="false"></textarea>
+<textarea id="jsonInput" tp="placeholder_paste_your_json_here" placeholder="Paste your JSON here..." spellcheck="false"></textarea>
 </div>
 <div class="panel">
 <div class="panel-label">
 <span>TypeScript Output</span>
 <span id="successMsg" class="success-msg"></span>
 </div>
-<textarea id="tsOutput" readonly placeholder="TypeScript interfaces will appear here..."></textarea>
+<textarea id="tsOutput" readonly tp="placeholder_typescript_interfaces_wil" placeholder="TypeScript interfaces will appear here..."></textarea>
 </div>
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 66+ free browser-based developer tools
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> — 66+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_json_typescript_generate':["JSON → TypeScript — Generate TypeScript Interfaces from JSON", "JSON → TypeScript — 从 JSON 生成 TypeScript 接口"],'metadesc_paste_json_get_typescript':["Paste JSON, get TypeScript interfaces. Smart type inference, nested objects, arrays, optional fields.", "粘贴 JSON，即可获取 TypeScript 接口。支持智能类型推断、嵌套对象、数组和可选字段。"],'h1_json_typescript':["JSON → TypeScript", "JSON → TypeScript"],'btn_sample_json':["Sample JSON", "示例 JSON"],'btn_copy_typescript':["Copy TypeScript", "复制 TypeScript"],'placeholder_paste_your_json_here':["Paste your JSON here...", "把你的JSON文件粘贴到这里……"],'placeholder_typescript_interfaces_wil':["TypeScript interfaces will appear here...", "TypeScript接口将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const jsonInput = document.getElementById('jsonInput');
 const tsOutput = document.getElementById('tsOutput');
@@ -294,7 +306,7 @@ copyBtn.addEventListener('click', () => {
   const text = tsOutput.value;
   if (!text) return;
   navigator.clipboard.writeText(text).then(() => {
-    successMsg.textContent = 'Copied!';
+    successMsg.textContent=T("jtc_copied");
     setTimeout(() => successMsg.textContent = '', 2000);
   });
 });
@@ -348,12 +360,12 @@ sampleBtn.addEventListener('click', () => {
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-schema/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Schema</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-viewer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Viewer</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -363,5 +375,23 @@ sampleBtn.addEventListener('click', () => {
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

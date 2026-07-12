@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_relative_color_syntax" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -486,21 +486,23 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <div class="container">
-    <h1>CSS Relative Color Syntax</h1>
+  <div class="container" style="position:relative">
+    <h1 ti="h1_css_relative_color_syntax">CSS Relative Color Syntax</h1>
     <p>Interactive playground for deriving colors with the <code>from</code> keyword across oklch, hsl, rgb, lab, and lch color spaces.</p>
   </div>
 </header>
 
 <nav>
   <div class="container">
-    <a href="#derivation">Derivation Lab</a>
+    <a href="#derivation" ti="link_derivation_lab">Derivation Lab</a>
     <a href="#channels">Channel Manipulation</a>
     <a href="#palettes">Palette Generator</a>
     <a href="#tints">Tints &amp; Shades</a>
-    <a href="#opacity">Opacity</a>
+    <a href="#opacity" ti="link_opacity">Opacity</a>
     <a href="#custom">Custom Expression</a>
     <a href="#codegen">Code Generator</a>
     <a href="#support">Browser Support</a>
@@ -509,7 +511,7 @@ footer a:hover { text-decoration: underline; }
 </nav>
 
 <div id="unsupported-banner" class="unsupported-banner container">
-  <h3>Browser Not Supported</h3>
+  <h3 ti="h3_browser_not_supported">Browser Not Supported</h3>
   <p>Your browser does not support CSS Relative Color Syntax. Previews may not render correctly. Use Chrome 119+, Safari 16.4+, or Firefox 128+.</p>
 </div>
 
@@ -517,17 +519,17 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 1: Derivation Lab ===================== -->
   <section id="derivation">
-    <h2>Color Derivation Lab</h2>
+    <h2 ti="h2_color_derivation_lab">Color Derivation Lab</h2>
     <p class="section-desc">Pick a base color and see it expressed and derived in every supported color space.</p>
 
     <div class="card">
       <div class="flex-row" style="margin-bottom: 20px;">
         <div>
-          <label for="baseColor">Base Color</label>
+          <label for="baseColor" ti="label_base_color" ti="label_base_color_2" ti="label_base_color_3" ti="label_base_color_4" ti="label_base_color_5">Base Color</label>
           <input type="color" id="baseColor" value="#6c8aff">
         </div>
         <div style="flex:1;">
-          <label for="baseHex">Hex</label>
+          <label for="baseHex" ti="label_hex">Hex</label>
           <input type="text" id="baseHex" value="#6c8aff" style="max-width: 160px;">
         </div>
         <div>
@@ -539,14 +541,14 @@ footer a:hover { text-decoration: underline; }
       <h3 style="font-size: 1rem; margin-bottom: 12px; color: var(--text-dim);">Same color in each space (using <code>from</code>)</h3>
       <div class="grid-3" id="spaceSwatches"></div>
 
-      <h3 style="font-size: 1rem; margin: 20px 0 12px; color: var(--text-dim);">Quick Derivations</h3>
+      <h3 style="font-size: 1rem; margin: 20px 0 12px; color: var(--text-dim);" ti="h3_quick_derivations">Quick Derivations</h3>
       <div class="grid-4" id="quickDerivations"></div>
     </div>
   </section>
 
   <!-- ===================== SECTION 2: Channel Manipulation ===================== -->
   <section id="channels">
-    <h2>Channel Manipulation</h2>
+    <h2 ti="h2_channel_manipulation" ti="link_channel_manipulation">Channel Manipulation</h2>
     <p class="section-desc">Adjust individual channels in oklch to see how lightness, chroma, and hue affect the derived color.</p>
 
     <div class="card">
@@ -554,7 +556,7 @@ footer a:hover { text-decoration: underline; }
         <div>
           <div class="slider-group">
             <div class="slider-header">
-              <label for="sliderL">Lightness multiplier</label>
+              <label for="sliderL" ti="label_lightness_multiplier">Lightness multiplier</label>
               <span class="slider-val" id="sliderLVal">1.0</span>
             </div>
             <input type="range" id="sliderL" min="0" max="2" step="0.01" value="1">
@@ -562,7 +564,7 @@ footer a:hover { text-decoration: underline; }
 
           <div class="slider-group">
             <div class="slider-header">
-              <label for="sliderC">Chroma multiplier</label>
+              <label for="sliderC" ti="label_chroma_multiplier">Chroma multiplier</label>
               <span class="slider-val" id="sliderCVal">1.0</span>
             </div>
             <input type="range" id="sliderC" min="0" max="3" step="0.01" value="1">
@@ -570,7 +572,7 @@ footer a:hover { text-decoration: underline; }
 
           <div class="slider-group">
             <div class="slider-header">
-              <label for="sliderH">Hue rotation (deg)</label>
+              <label for="sliderH" ti="label_hue_rotation_deg">Hue rotation (deg)</label>
               <span class="slider-val" id="sliderHVal">0</span>
             </div>
             <input type="range" id="sliderH" min="-180" max="180" step="1" value="0">
@@ -578,7 +580,7 @@ footer a:hover { text-decoration: underline; }
 
           <div class="slider-group">
             <div class="slider-header">
-              <label for="sliderA">Alpha</label>
+              <label for="sliderA" ti="label_alpha">Alpha</label>
               <span class="slider-val" id="sliderAVal">1.0</span>
             </div>
             <input type="range" id="sliderA" min="0" max="1" step="0.01" value="1">
@@ -594,16 +596,16 @@ footer a:hover { text-decoration: underline; }
             </select>
           </div>
 
-          <button style="margin-top: 12px;" onclick="resetSliders()">Reset</button>
+          <button style="margin-top: 12px;" onclick="resetSliders()" ti="btn_reset">Reset</button>
         </div>
 
         <div class="flex-col" style="gap: 16px;">
           <div>
-            <label>Original</label>
+            <label ti="label_original" ti="label_original_2">Original</label>
             <div id="channelOriginal" class="swatch swatch-large"></div>
           </div>
           <div>
-            <label>Derived</label>
+            <label ti="label_derived">Derived</label>
             <div id="channelDerived" class="swatch swatch-large"></div>
           </div>
           <div class="code-block" id="channelCode" style="font-size: 0.78rem;"></div>
@@ -614,7 +616,7 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 3: Palette Generator ===================== -->
   <section id="palettes">
-    <h2>Palette Generator</h2>
+    <h2 ti="h2_palette_generator" ti="link_palette_generator">Palette Generator</h2>
     <p class="section-desc">Auto-generate harmonious palettes using relative color syntax with hue rotation in oklch.</p>
 
     <div class="card">
@@ -624,7 +626,7 @@ footer a:hover { text-decoration: underline; }
           <input type="color" id="palBase" value="#6c8aff">
         </div>
         <div>
-          <label for="palType">Harmony</label>
+          <label for="palType" ti="label_harmony">Harmony</label>
           <select id="palType">
             <option value="complementary">Complementary</option>
             <option value="analogous">Analogous</option>
@@ -637,7 +639,7 @@ footer a:hover { text-decoration: underline; }
 
       <div id="paletteOutput"></div>
       <div class="code-block" id="paletteCode" style="margin-top: 16px;">
-        <button class="copy-btn" onclick="copyCode('paletteCode')">Copy</button>
+        <button class="copy-btn" onclick="copyCode('paletteCode')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8">Copy</button>
       </div>
     </div>
   </section>
@@ -654,7 +656,7 @@ footer a:hover { text-decoration: underline; }
           <input type="color" id="tsBase" value="#6c8aff">
         </div>
         <div>
-          <label for="tsSteps">Steps</label>
+          <label for="tsSteps" ti="label_steps">Steps</label>
           <select id="tsSteps">
             <option value="5">5</option>
             <option value="7">7</option>
@@ -664,10 +666,10 @@ footer a:hover { text-decoration: underline; }
         </div>
       </div>
 
-      <label style="margin-bottom: 8px;">Tints (lighter)</label>
+      <label style="margin-bottom: 8px;" ti="label_tints_lighter">Tints (lighter)</label>
       <div id="tintStrip" class="strip" style="margin-bottom: 16px;"></div>
 
-      <label style="margin-bottom: 8px;">Shades (darker)</label>
+      <label style="margin-bottom: 8px;" ti="label_shades_darker">Shades (darker)</label>
       <div id="shadeStrip" class="strip" style="margin-bottom: 16px;"></div>
 
       <label style="margin-bottom: 8px;">Full scale (shades &#8594; base &#8594; tints)</label>
@@ -681,7 +683,7 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 5: Opacity ===================== -->
   <section id="opacity">
-    <h2>Opacity Manipulation</h2>
+    <h2 ti="h2_opacity_manipulation">Opacity Manipulation</h2>
     <p class="section-desc">Derive semi-transparent versions of a color using the alpha channel in relative color syntax.</p>
 
     <div class="card">
@@ -702,21 +704,21 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 6: Custom Expression ===================== -->
   <section id="custom">
-    <h2>Custom Expression</h2>
+    <h2 ti="h2_custom_expression" ti="link_custom_expression">Custom Expression</h2>
     <p class="section-desc">Write your own relative color expressions and see them render live.</p>
 
     <div class="card">
       <div class="flex-row" style="margin-bottom: 12px;">
         <div>
-          <label for="customBase">Base</label>
+          <label for="customBase" ti="label_base">Base</label>
           <input type="color" id="customBase" value="#6c8aff">
         </div>
       </div>
 
-      <label>Expression (use the base color as the origin)</label>
+      <label ti="label_expression_use_the_base_c">Expression (use the base color as the origin)</label>
       <div class="expr-input-row" style="margin-bottom: 12px;">
-        <input type="text" id="customExpr" value="oklch(from var(--base) calc(l * 0.8) calc(c * 1.5) h)" placeholder="oklch(from var(--base) calc(l * 1.2) c h)">
-        <button onclick="evalCustom()">Apply</button>
+        <input type="text" id="customExpr" value="oklch(from var(--base) calc(l * 0.8) calc(c * 1.5) h)" tp="placeholder_oklch_from_var_base_calc" placeholder="oklch(from var(--base) calc(l * 1.2) c h)">
+        <button onclick="evalCustom()" ti="btn_apply">Apply</button>
       </div>
 
       <div class="grid-2" style="margin-bottom: 16px;">
@@ -725,19 +727,19 @@ footer a:hover { text-decoration: underline; }
           <div id="customOriginal" class="swatch swatch-large"></div>
         </div>
         <div>
-          <label>Result</label>
+          <label ti="label_result">Result</label>
           <div id="customResult" class="swatch swatch-large" style="--base: #6c8aff;"></div>
         </div>
       </div>
 
-      <h3 style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 8px;">Preset expressions</h3>
+      <h3 style="font-size: 0.9rem; color: var(--text-dim); margin-bottom: 8px;" ti="h3_preset_expressions">Preset expressions</h3>
       <div class="flex-row" id="presetBtns"></div>
     </div>
   </section>
 
   <!-- ===================== SECTION 7: Code Generator ===================== -->
   <section id="codegen">
-    <h2>Code Generator</h2>
+    <h2 ti="h2_code_generator" ti="link_code_generator">Code Generator</h2>
     <p class="section-desc">Grab ready-to-use CSS custom properties for your design system, derived from a single base color.</p>
 
     <div class="card">
@@ -747,12 +749,12 @@ footer a:hover { text-decoration: underline; }
           <input type="color" id="cgBase" value="#6c8aff">
         </div>
         <div>
-          <label for="cgPrefix">CSS variable prefix</label>
+          <label for="cgPrefix" ti="label_css_variable_prefix">CSS variable prefix</label>
           <input type="text" id="cgPrefix" value="--color" style="max-width: 160px;">
         </div>
         <div>
           <label>&nbsp;</label>
-          <button onclick="generateFullCode()">Generate</button>
+          <button onclick="generateFullCode()" ti="btn_generate">Generate</button>
         </div>
       </div>
 
@@ -766,12 +768,12 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 8: Browser Support ===================== -->
   <section id="support">
-    <h2>Browser Support</h2>
+    <h2 ti="h2_browser_support" ti="link_browser_support">Browser Support</h2>
     <p class="section-desc">CSS Relative Color Syntax browser compatibility as of early 2026.</p>
 
     <div class="card">
       <table class="ref-table">
-        <thead><tr><th>Browser</th><th>Version</th><th>Status</th></tr></thead>
+        <thead><tr><th ti="th_browser">Browser</th><th ti="th_version">Version</th><th ti="th_status">Status</th></tr></thead>
         <tbody>
           <tr><td>Chrome / Edge</td><td>119+</td><td><span class="badge badge-yes">Supported</span></td></tr>
           <tr><td>Safari</td><td>16.4+</td><td><span class="badge badge-yes">Supported</span></td></tr>
@@ -782,7 +784,7 @@ footer a:hover { text-decoration: underline; }
       </table>
 
       <div style="margin-top: 16px;">
-        <label>Your browser</label>
+        <label ti="label_your_browser">Your browser</label>
         <p id="browserDetect" style="font-size: 0.9rem;"></p>
       </div>
     </div>
@@ -790,12 +792,12 @@ footer a:hover { text-decoration: underline; }
 
   <!-- ===================== SECTION 9: Quick Reference ===================== -->
   <section id="reference">
-    <h2>Quick Reference</h2>
+    <h2 ti="h2_quick_reference" ti="link_quick_reference">Quick Reference</h2>
     <p class="section-desc">Syntax patterns for CSS Relative Color Syntax.</p>
 
     <div class="card" style="overflow-x: auto;">
       <table class="ref-table">
-        <thead><tr><th>Pattern</th><th>Description</th></tr></thead>
+        <thead><tr><th ti="th_pattern">Pattern</th><th ti="th_description">Description</th></tr></thead>
         <tbody>
           <tr><td><code>oklch(from &lt;color&gt; l c h)</code></td><td>Identity (same color in oklch)</td></tr>
           <tr><td><code>oklch(from &lt;color&gt; calc(l * 1.2) c h)</code></td><td>20% lighter</td></tr>
@@ -816,9 +818,9 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="card" style="margin-top: 16px;">
-      <h3 style="font-size: 1rem; margin-bottom: 10px;">Channel names per color space</h3>
+      <h3 style="font-size: 1rem; margin-bottom: 10px;" ti="h3_channel_names_per_color_s">Channel names per color space</h3>
       <table class="ref-table">
-        <thead><tr><th>Color Space</th><th>Channels</th><th>Ranges</th></tr></thead>
+        <thead><tr><th ti="th_color_space" ti="label_color_space">Color Space</th><th ti="th_channels">Channels</th><th ti="th_ranges">Ranges</th></tr></thead>
         <tbody>
           <tr><td><code>oklch</code></td><td><code>l c h</code></td><td>l: 0-1, c: 0-0.4, h: 0-360</td></tr>
           <tr><td><code>hsl</code></td><td><code>h s l</code></td><td>h: 0-360deg, s: 0-100%, l: 0-100%</td></tr>
@@ -840,6 +842,16 @@ footer a:hover { text-decoration: underline; }
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_css_relative_color_syntax':["CSS Relative Color Syntax Playground", "CSS 相对颜色语法练习场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS Relative Color Syntax - derive colors using the from keyword in oklch, hsl, rgb, lab, and lch color spaces.", "CSS 相对颜色语法的交互式游乐场 - 使用 from 关键字在 oklch、hsl、rgb、lab 和 lch 颜色空间中导出颜色。"],'h1_css_relative_color_syntax':["CSS Relative Color Syntax", "CSS 相对颜色语法"],'h2_color_derivation_lab':["Color Derivation Lab", "颜色衍生实验室"],'h2_channel_manipulation':["Channel Manipulation", "频道操控"],'h2_palette_generator':["Palette Generator", "调色板生成器"],'h2_tint_shade_generator':["Tint & Shade Generator", "色调和阴影生成器"],'h2_opacity_manipulation':["Opacity Manipulation", "不透明度操控"],'h2_custom_expression':["Custom Expression", "自定义表达式"],'h2_code_generator':["Code Generator", "代码生成器"],'h2_browser_support':["Browser Support", "浏览器支持"],'h2_quick_reference':["Quick Reference", "快速参考"],'h3_browser_not_supported':["Browser Not Supported", "浏览器不支持。"],'h3_quick_derivations':["Quick Derivations", "快速推导"],'h3_preset_expressions':["Preset expressions", "预设表达式"],'h3_channel_names_per_color_s':["Channel names per color space", "每个色彩空间的通道名称"],'btn_reset':["Reset", "重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_apply':["Apply", "申请"],'btn_generate':["Generate", "产生"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'label_sp_name':["${sp.name}", "${sp.name}"],'label_d_label':["${d.label}", "${d.label}"],'label_angle_deg':["+${angle}deg", "+${angle}deg"],'label_dark_angle_deg':["dark +${angle}deg", "暗 +${angle}deg"],'label_light_angle_deg':["light +${angle}deg", "光线 +${angle}deg"],'label_math_round_factor_1_100':["${Math.round((factor - 1) * 100)}%", "${Math.round((factor - 1) * 100)}%"],'label_math_round_1_factor_100':["${Math.round((1 - factor) * 100)}%", "${Math.round((1 - factor) * 100)}%"],'label_math_round_a_100':["${Math.round(a * 100)}%", "${Math.round(a * 100)}%"],'label_v_name_replace_prefix':["${v.name.replace(prefix + '-', '')}", "${v.name.replace(prefix + &#39;-&#39;, &#39;&#39;)}"],'placeholder_oklch_from_var_base_calc':["oklch(from var(--base) calc(l * 1.2) c h)", "oklch(from var(--base) calc(l * 1.2) ch)"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_status':["Status", "地位"],'th_pattern':["Pattern", "图案"],'th_description':["Description", "描述"],'th_color_space':["Color Space", "色彩空间"],'th_channels':["Channels", "频道"],'th_ranges':["Ranges", "范围"],'label_base_color':["Base Color", "底色"],'label_hex':["Hex", "十六进制"],'label_lightness_multiplier':["Lightness multiplier", "亮度倍增器"],'label_chroma_multiplier':["Chroma multiplier", "色度倍增器"],'label_hue_rotation_deg':["Hue rotation (deg)", "色调旋转（度）"],'label_alpha':["Alpha", "阿尔法"],'label_color_space':["Color Space", "色彩空间"],'label_original':["Original", "原来的"],'label_derived':["Derived", "衍生的"],'label_base_color_2':["Base Color", "底色"],'label_harmony':["Harmony", "和谐"],'label_base_color_3':["Base Color", "底色"],'label_steps':["Steps", "步骤"],'label_tints_lighter':["Tints (lighter)", "色调（较浅）"],'label_shades_darker':["Shades (darker)", "色调（较深）"],'label_full_scale_shades_base_ti':["Full scale (shades → base → tints)", "全系列（色调→基色→色调）"],'label_base_color_4':["Base Color", "底色"],'label_base':["Base", "根据"],'label_expression_use_the_base_c':["Expression (use the base color as the origin)", "表达式（使用基色作为原点）"],'label_original_2':["Original", "原来的"],'label_result':["Result", "结果"],'label_base_color_5':["Base Color", "底色"],'label_css_variable_prefix':["CSS variable prefix", "CSS 变量前缀"],'label_your_browser':["Your browser", "您的浏览器"],'link_derivation_lab':["Derivation Lab", "衍生实验室"],'link_channel_manipulation':["Channel Manipulation", "频道操控"],'link_palette_generator':["Palette Generator", "调色板生成器"],'link_tints_shades':["Tints & Shades", "色调和色度"],'link_opacity':["Opacity", "不透明度"],'link_custom_expression':["Custom Expression", "自定义表达式"],'link_code_generator':["Code Generator", "代码生成器"],'link_browser_support':["Browser Support", "浏览器支持"],'link_quick_reference':["Quick Reference", "快速参考"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"],'jtlword_copy_4':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ========== Utilities ==========
 const $ = (sel) => document.querySelector(sel);
@@ -931,7 +943,7 @@ function updateDerivationLab() {
     const div = document.createElement('div');
     div.className = 'swatch';
     div.style.backgroundColor = sp.expr(hex);
-    div.innerHTML = `<span class="swatch-label">${sp.name}</span>`;
+    div.innerHTML = `<span class="swatch-label" ti="label_sp_name">${sp.name}</span>`;
     div.title = sp.desc;
     div.style.cursor = 'pointer';
     div.onclick = () => copyText(sp.expr(hex));
@@ -945,7 +957,7 @@ function updateDerivationLab() {
     const div = document.createElement('div');
     div.className = 'swatch';
     div.style.backgroundColor = d.expr(hex);
-    div.innerHTML = `<span class="swatch-label">${d.label}</span>`;
+    div.innerHTML = `<span class="swatch-label" ti="label_d_label">${d.label}</span>`;
     div.style.cursor = 'pointer';
     div.onclick = () => copyText(d.expr(hex));
     quickContainer.appendChild(div);
@@ -1036,7 +1048,7 @@ function updatePalette() {
       ? hex
       : `oklch(from ${hex} l c calc(h + ${angle}))`;
     cell.style.backgroundColor = expr;
-    cell.innerHTML = `<span class="cell-label">+${angle}deg</span>`;
+    cell.innerHTML = `<span class="cell-label" ti="label_angle_deg">+${angle}deg</span>`;
     cell.onclick = () => copyText(expr);
     row.appendChild(cell);
 
@@ -1055,7 +1067,7 @@ function updatePalette() {
     cell.className = 'palette-cell';
     const expr = `oklch(from ${hex} calc(l * 0.7) calc(c * 0.8) calc(h + ${angle}))`;
     cell.style.backgroundColor = expr;
-    cell.innerHTML = `<span class="cell-label">dark +${angle}deg</span>`;
+    cell.innerHTML = `<span class="cell-label" ti="label_dark_angle_deg">dark +${angle}deg</span>`;
     variants.appendChild(cell);
   });
   container.appendChild(variants);
@@ -1067,7 +1079,7 @@ function updatePalette() {
     cell.className = 'palette-cell';
     const expr = `oklch(from ${hex} calc(l * 1.3) calc(c * 0.6) calc(h + ${angle}))`;
     cell.style.backgroundColor = expr;
-    cell.innerHTML = `<span class="cell-label">light +${angle}deg</span>`;
+    cell.innerHTML = `<span class="cell-label" ti="label_light_angle_deg">light +${angle}deg</span>`;
     lightvariants.appendChild(cell);
   });
   container.appendChild(lightvariants);
@@ -1100,7 +1112,7 @@ function updateTintShade() {
     const cell = document.createElement('div');
     cell.className = 'strip-cell';
     cell.style.backgroundColor = expr;
-    cell.innerHTML = `<span class="strip-label">${Math.round((factor - 1) * 100)}%</span>`;
+    cell.innerHTML = `<span class="strip-label" ti="label_math_round_factor_1_100">${Math.round((factor - 1) * 100)}%</span>`;
     tintStrip.appendChild(cell);
     cssLines.push(`  --tint-${i + 1}: ${expr};`);
   }
@@ -1112,7 +1124,7 @@ function updateTintShade() {
     const cell = document.createElement('div');
     cell.className = 'strip-cell';
     cell.style.backgroundColor = expr;
-    cell.innerHTML = `<span class="strip-label">${Math.round((1 - factor) * 100)}%</span>`;
+    cell.innerHTML = `<span class="strip-label" ti="label_math_round_1_factor_100">${Math.round((1 - factor) * 100)}%</span>`;
     shadeStrip.appendChild(cell);
     cssLines.push(`  --shade-${i + 1}: ${expr};`);
   }
@@ -1160,7 +1172,7 @@ function updateOpacity() {
     const expr = `oklch(from ${hex} l c h / ${a})`;
     const swatch = document.createElement('div');
     swatch.className = 'opacity-swatch';
-    swatch.innerHTML = `<div class="opacity-swatch-inner" style="background-color: ${expr};"></div><span class="op-label">${Math.round(a * 100)}%</span>`;
+    swatch.innerHTML = `<div class="opacity-swatch-inner" style="background-color: ${expr};"></div><span class="op-label" ti="label_math_round_a_100">${Math.round(a * 100)}%</span>`;
     swatch.style.cursor = 'pointer';
     swatch.onclick = () => copyText(expr);
     grid.appendChild(swatch);
@@ -1244,7 +1256,7 @@ function generateFullCode() {
     const cell = document.createElement('div');
     cell.className = 'palette-cell';
     cell.style.backgroundColor = v.expr;
-    cell.innerHTML = `<span class="cell-label">${v.name.replace(prefix + '-', '')}</span>`;
+    cell.innerHTML = `<span class="cell-label" ti="label_v_name_replace_prefix">${v.name.replace(prefix + '-', '')}</span>`;
     row.appendChild(cell);
   });
   preview.appendChild(row);
@@ -1316,5 +1328,23 @@ function init() {
 init();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

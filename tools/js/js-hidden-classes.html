@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_v8_hidden_classes_visuali" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,25 +86,27 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>V8 Hidden Classes Visualizer</h1>
-<p class="subtitle">Watch how JavaScript engine optimizes object property access with shapes</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_v8_hidden_classes_visuali">V8 Hidden Classes Visualizer</h1>
+<p class="subtitle" ti="subtitle_watch_how_javascript_engi">Watch how JavaScript engine optimizes object property access with shapes</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('visualizer')">Visualizer</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('visualizer')" ti="btn_visualizer">Visualizer</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-visualizer" class="panel active">
 <div class="presets" id="presets"></div>
 <div class="layout">
 <div class="code-panel">
-<h3>Code</h3>
+<h3 ti="h3_code">Code</h3>
 <textarea class="code-editor" id="code" spellcheck="false"></textarea>
 <div class="step-controls">
-<button class="btn btn-primary btn-sm" onclick="runAll()">▶ Run All</button>
-<button class="btn btn-secondary btn-sm" onclick="stepOnce()">Step</button>
-<button class="btn btn-secondary btn-sm" onclick="resetSim()">Reset</button>
+<button class="btn btn-primary btn-sm" onclick="runAll()" ti="btn_run_all">▶ Run All</button>
+<button class="btn btn-secondary btn-sm" onclick="stepOnce()" ti="btn_step">Step</button>
+<button class="btn btn-secondary btn-sm" onclick="resetSim()" ti="btn_reset">Reset</button>
 </div>
 </div>
 <div class="viz-panel" id="viz">
@@ -116,12 +118,12 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>What Are Hidden Classes?</h3>
+<h3 ti="h3_what_are_hidden_classes">What Are Hidden Classes?</h3>
 <p>V8 (and other JS engines) create internal "hidden classes" (also called Shapes or Maps) to track the structure of objects. Objects with the same properties in the same order share the same hidden class, enabling fast property access via offsets instead of hash lookups.</p>
 </div>
 <div class="ref-section">
-<h3>Transition Chains</h3>
-<p>When you add a property to an object, V8 creates a new hidden class and links it to the previous one. This forms a <strong>transition chain</strong>:</p>
+<h3 ti="h3_transition_chains">Transition Chains</h3>
+<p>When you add a property to an object, V8 creates a new hidden class and links it to the previous one. This forms a <strong ti="strong_transition_chain">transition chain</strong>:</p>
 <ul>
 <li><span class="code">{}</span> → HC0 (empty)</li>
 <li><span class="code">obj.x = 1</span> → HC1 (has "x" at offset 0)</li>
@@ -130,30 +132,40 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 <p style="margin-top:8px">If another object adds the same properties in the same order, it reuses the existing transition chain — no new hidden classes needed.</p>
 </div>
 <div class="ref-section">
-<h3>Inline Caching States</h3>
+<h3 ti="h3_inline_caching_states">Inline Caching States</h3>
 <ul>
-<li><span class="badge badge-green">Monomorphic</span> — All objects at a call site share one hidden class. <strong>Fastest</strong> — V8 generates optimized machine code.</li>
-<li><span class="badge badge-yellow">Polymorphic</span> — 2-4 different hidden classes seen. V8 checks a small list. <strong>Slower</strong> but still optimized.</li>
-<li><span class="badge badge-red">Megamorphic</span> — 5+ hidden classes. V8 falls back to dictionary lookup. <strong>Slowest</strong> — deoptimization likely.</li>
+<li><span class="badge badge-green">Monomorphic</span> — All objects at a call site share one hidden class. <strong ti="strong_fastest">Fastest</strong> — V8 generates optimized machine code.</li>
+<li><span class="badge badge-yellow">Polymorphic</span> — 2-4 different hidden classes seen. V8 checks a small list. <strong ti="strong_slower">Slower</strong> but still optimized.</li>
+<li><span class="badge badge-red">Megamorphic</span> — 5+ hidden classes. V8 falls back to dictionary lookup. <strong ti="strong_slowest">Slowest</strong> — deoptimization likely.</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Performance Rules</h3>
+<h3 ti="h3_performance_rules">Performance Rules</h3>
 <ul>
-<li><strong>Always initialize properties in the same order</strong> — Different orders create different hidden classes</li>
-<li><strong>Initialize all properties in the constructor</strong> — Don't add properties later</li>
-<li><strong>Don't delete properties</strong> — <span class="code">delete obj.x</span> forces V8 to use slower dictionary mode</li>
-<li><strong>Don't mix types</strong> — Changing <span class="code">obj.x</span> from number to string changes the hidden class</li>
-<li><strong>Use classes/constructor functions</strong> — They naturally produce consistent object shapes</li>
+<li><strong ti="strong_always_initialize_propert">Always initialize properties in the same order</strong> — Different orders create different hidden classes</li>
+<li><strong ti="strong_initialize_all_properties">Initialize all properties in the constructor</strong> — Don't add properties later</li>
+<li><strong ti="strong_don_t_delete_properties">Don't delete properties</strong> — <span class="code">delete obj.x</span> forces V8 to use slower dictionary mode</li>
+<li><strong ti="strong_don_t_mix_types">Don't mix types</strong> — Changing <span class="code">obj.x</span> from number to string changes the hidden class</li>
+<li><strong ti="strong_use_classes_constructor_f">Use classes/constructor functions</strong> — They naturally produce consistent object shapes</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Real-World Impact</h3>
-<p>Hidden class mismatches are one of the most common causes of unexpected deoptimization. In tight loops, the difference between monomorphic and megamorphic property access can be <strong>10-100x</strong>.</p>
+<h3 ti="h3_real_world_impact">Real-World Impact</h3>
+<p>Hidden class mismatches are one of the most common causes of unexpected deoptimization. In tight loops, the difference between monomorphic and megamorphic property access can be <strong ti="strong_10_100x">10-100x</strong>.</p>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_v8_hidden_classes_visuali':["V8 Hidden Classes Visualizer — JavaScript Object Shape Inspector", "V8 隐藏类可视化工具 — JavaScript 对象形状检查器"],'metadesc_interactive_v8_hidden_cla':["Interactive V8 hidden classes (shapes/maps) visualizer. Watch how adding properties creates transition chains, and why consistent object shapes matter for performance.", "V8 交互式隐藏类（形状/映射）可视化工具。观看如何通过添加属性创建过渡链，以及为什么一致的对象形状对性能至关重要。"],'h1_v8_hidden_classes_visuali':["V8 Hidden Classes Visualizer", "V8 隐藏类可视化工具"],'h3_code':["Code", "代码"],'h3_what_are_hidden_classes':["What Are Hidden Classes?", "什么是隐藏类？"],'h3_transition_chains':["Transition Chains", "过渡链"],'h3_inline_caching_states':["Inline Caching States", "内联缓存状态"],'h3_performance_rules':["Performance Rules", "绩效规则"],'h3_real_world_impact':["Real-World Impact", "实际影响"],'subtitle_watch_how_javascript_engi':["Watch how JavaScript engine optimizes object property access with shapes", "观察 JavaScript 引擎如何使用形状优化对象属性访问。"],'btn_visualizer':["Visualizer", "可视化工具"],'btn_reference':["Reference", "参考"],'btn_run_all':["▶ Run All", "▶ 全部运行"],'btn_step':["Step", "步"],'btn_reset':["Reset", "重置"],'btn_p_name':["${p.name}", "${p.name}"],'label_hc_transition':["+${hc.transition}", "+${hc.transition}"],'strong_transition_chain':["transition chain", "过渡链"],'strong_fastest':["Fastest", "最快"],'strong_slower':["Slower", "慢点"],'strong_slowest':["Slowest", "最慢"],'strong_always_initialize_propert':["Always initialize properties in the same order", "始终按相同顺序初始化属性"],'strong_initialize_all_properties':["Initialize all properties in the constructor", "在构造函数中初始化所有属性。"],'strong_don_t_delete_properties':["Don't delete properties", "不要删除属性"],'strong_don_t_mix_types':["Don't mix types", "不要混用不同类型"],'strong_use_classes_constructor_f':["Use classes/constructor functions", "使用类/构造函数"],'strong_10_100x':["10-100x", "10-100倍"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {name:'Same Shape (Fast)',code:`// Two objects, same property order → shared hidden class
@@ -246,7 +258,7 @@ function showTab(id) {
 
 function renderPresets() {
   document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -457,7 +469,7 @@ function renderViz() {
 
     html += `<div class="hc-row" style="margin-left:${depth*20}px">`;
     if (hc.transition) {
-      html += `<div class="hc-arrow">↓ <span class="label">+${hc.transition}</span></div>`;
+      html += `<div class="hc-arrow">↓ <span class="label" ti="label_hc_transition">+${hc.transition}</span></div>`;
     }
     html += `<div class="hc-node ${cls}">`;
     html += `<div class="hc-id">${hc.id}${isActive ? ' — ' + activeObjs.map(([n])=>n).join(', ') : ''}</div>`;
@@ -528,6 +540,24 @@ function stepOnce() {
 
 renderPresets();
 loadPreset(0);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

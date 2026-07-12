@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_noise_generator_white_pin" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -95,6 +95,16 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="hero">
   <h1><span>Noise Generator</span></h1>
   <p>White, pink &amp; brown noise for focus, sleep, and relaxation. Runs entirely in your browser.</p>
@@ -131,9 +141,9 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 
   <!-- Volume -->
   <div class="card">
-    <h3>Volume</h3>
+    <h3 ti="h3_volume" ti="h3_volume" ti="h3_volume" ti="h3_volume" ti="h3_volume">Volume</h3>
     <div class="control-row">
-      <label>Level</label>
+      <label ti="label_level" ti="label_level" ti="label_level" ti="label_level" ti="label_level">Level</label>
       <input type="range" id="volume" min="0" max="100" value="50" oninput="setVolume(this.value)">
       <span class="val" id="volVal">50%</span>
     </div>
@@ -141,14 +151,14 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 
   <!-- Filters -->
   <div class="card">
-    <h3>Filters</h3>
+    <h3 ti="h3_filters" ti="h3_filters" ti="h3_filters" ti="h3_filters" ti="h3_filters">Filters</h3>
     <div class="control-row">
-      <label>Low-pass</label>
+      <label ti="label_low_pass" ti="label_low_pass" ti="label_low_pass" ti="label_low_pass" ti="label_low_pass">Low-pass</label>
       <input type="range" id="lpf" min="100" max="20000" value="20000" step="100" oninput="setLPF(this.value)">
       <span class="val" id="lpfVal">20.0 kHz</span>
     </div>
     <div class="control-row">
-      <label>High-pass</label>
+      <label ti="label_high_pass" ti="label_high_pass" ti="label_high_pass" ti="label_high_pass" ti="label_high_pass">High-pass</label>
       <input type="range" id="hpf" min="20" max="5000" value="20" step="10" oninput="setHPF(this.value)">
       <span class="val" id="hpfVal">20 Hz</span>
     </div>
@@ -156,45 +166,85 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 
   <!-- Timer -->
   <div class="card">
-    <h3>Timer</h3>
+    <h3 ti="h3_timer" ti="h3_timer" ti="h3_timer" ti="h3_timer" ti="h3_timer">Timer</h3>
     <div class="timer-row">
-      <button class="timer-btn active" data-min="0" onclick="setTimer(0)">Off</button>
-      <button class="timer-btn" data-min="5" onclick="setTimer(5)">5m</button>
-      <button class="timer-btn" data-min="10" onclick="setTimer(10)">10m</button>
-      <button class="timer-btn" data-min="15" onclick="setTimer(15)">15m</button>
-      <button class="timer-btn" data-min="30" onclick="setTimer(30)">30m</button>
-      <button class="timer-btn" data-min="60" onclick="setTimer(60)">60m</button>
+      <button class="timer-btn active" data-min="0" onclick="setTimer(0)" ti="btn_off" ti="btn_off" ti="btn_off" ti="btn_off" ti="btn_off">Off</button>
+      <button class="timer-btn" data-min="5" onclick="setTimer(5)" ti="btn_5m" ti="btn_5m" ti="btn_5m" ti="btn_5m" ti="btn_5m">5m</button>
+      <button class="timer-btn" data-min="10" onclick="setTimer(10)" ti="btn_10m" ti="btn_10m" ti="btn_10m" ti="btn_10m" ti="btn_10m">10m</button>
+      <button class="timer-btn" data-min="15" onclick="setTimer(15)" ti="btn_15m" ti="btn_15m" ti="btn_15m" ti="btn_15m" ti="btn_15m">15m</button>
+      <button class="timer-btn" data-min="30" onclick="setTimer(30)" ti="btn_30m" ti="btn_30m" ti="btn_30m" ti="btn_30m" ti="btn_30m">30m</button>
+      <button class="timer-btn" data-min="60" onclick="setTimer(60)" ti="btn_60m" ti="btn_60m" ti="btn_60m" ti="btn_60m" ti="btn_60m">60m</button>
       <span class="timer-display" id="timerDisplay"></span>
     </div>
   </div>
 
   <!-- Noise Info -->
   <div class="info">
-    <h3>About These Noise Types</h3>
+    <h3 ti="h3_about_these_noise_types" ti="h3_about_these_noise_types" ti="h3_about_these_noise_types" ti="h3_about_these_noise_types" ti="h3_about_these_noise_types">About These Noise Types</h3>
     <div class="info-item">
-      <strong>White Noise</strong>
+      <strong ti="strong_white_noise" ti="strong_white_noise" ti="strong_white_noise" ti="strong_white_noise" ti="strong_white_noise">White Noise</strong>
       <p>Equal energy at every frequency. Sounds like TV static or a rushing waterfall. Effective for masking sudden sounds and improving concentration in noisy environments.</p>
     </div>
     <div class="info-item">
-      <strong>Pink Noise</strong>
+      <strong ti="strong_pink_noise" ti="strong_pink_noise" ti="strong_pink_noise" ti="strong_pink_noise" ti="strong_pink_noise">Pink Noise</strong>
       <p>Equal energy per octave (1/f power spectrum). Deeper and more balanced than white noise. Resembles steady rain or wind through trees. Studies suggest it may improve deep sleep.</p>
     </div>
     <div class="info-item">
-      <strong>Brown Noise</strong>
+      <strong ti="strong_brown_noise" ti="strong_brown_noise" ti="strong_brown_noise" ti="strong_brown_noise" ti="strong_brown_noise">Brown Noise</strong>
       <p>Also called Brownian or red noise (1/f&#178; spectrum). A deep, low rumble like thunder in the distance or a strong waterfall. Popular for deep focus, meditation, and sleep.</p>
     </div>
   </div>
 </div>
 
 <div class="footer">
-  <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> &mdash; free browser tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> &mdash; free browser tools
   <div class="links">
-    <a href="https://gokuscraper.github.io/dev-vault/tone-gen/">Tone Generator</a>
-    <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/">Frequency Calculator</a>
-    <a href="https://github.com/gokuscraper">GitHub</a>
+    <a href="https://gokuscraper.github.io/dev-vault/tone-gen/" ti="link_tone_generator" ti="link_tone_generator" ti="link_tone_generator" ti="link_tone_generator" ti="link_tone_generator">Tone Generator</a>
+    <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/" ti="link_frequency_calculator" ti="link_frequency_calculator" ti="link_frequency_calculator" ti="link_frequency_calculator" ti="link_frequency_calculator">Frequency Calculator</a>
+    <a href="https://github.com/gokuscraper" ti="link_github" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a>
   </div>
 </div>
 
+
+
+
+
+<script>var _LANG={'title_noise_generator_white_pin':["Noise Generator — White, Pink & Brown Noise", "噪声发生器——白噪声、粉红噪声和棕色噪声"],'metadesc_free_browser_based_noise':["Free browser-based noise generator. White, pink, and brown noise with volume control, filters, and auto-stop timer. No signup, no install.", "免费浏览器噪音生成器。提供白噪音、粉红噪音和棕色噪音，并带有音量控制、滤波器和自动停止定时器。无需注册，无需安装。"],'h3_volume':["Volume", "体积"],'h3_filters':["Filters", "过滤器"],'h3_timer':["Timer", "定时器"],'h3_about_these_noise_types':["About These Noise Types", "关于这些噪音类型"],'btn_off':["Off", "离开"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_60m':["60m", "60米"],'strong_white_noise':["White Noise", "白噪声"],'strong_pink_noise':["Pink Noise", "粉红噪音"],'strong_brown_noise':["Brown Noise", "棕色噪声"],'label_level':["Level", "等级"],'label_low_pass':["Low-pass", "低通"],'label_high_pass':["High-pass", "高通滤波器"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'link_github':["GitHub", "GitHub"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_noise_generator_white_pin':["Noise Generator — White, Pink & Brown Noise", "噪声发生器——白噪声、粉红噪声和棕色噪声"],'metadesc_free_browser_based_noise':["Free browser-based noise generator. White, pink, and brown noise with volume control, filters, and auto-stop timer. No signup, no install.", "免费浏览器噪音生成器。提供白噪音、粉红噪音和棕色噪音，并带有音量控制、滤波器和自动停止定时器。无需注册，无需安装。"],'h3_volume':["Volume", "体积"],'h3_filters':["Filters", "过滤器"],'h3_timer':["Timer", "定时器"],'h3_about_these_noise_types':["About These Noise Types", "关于这些噪音类型"],'btn_off':["Off", "离开"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_60m':["60m", "60米"],'strong_white_noise':["White Noise", "白噪声"],'strong_pink_noise':["Pink Noise", "粉红噪音"],'strong_brown_noise':["Brown Noise", "棕色噪声"],'label_level':["Level", "等级"],'label_low_pass':["Low-pass", "低通"],'label_high_pass':["High-pass", "高通滤波器"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'link_github':["GitHub", "GitHub"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_noise_generator_white_pin':["Noise Generator — White, Pink & Brown Noise", "噪声发生器——白噪声、粉红噪声和棕色噪声"],'metadesc_free_browser_based_noise':["Free browser-based noise generator. White, pink, and brown noise with volume control, filters, and auto-stop timer. No signup, no install.", "免费浏览器噪音生成器。提供白噪音、粉红噪音和棕色噪音，并带有音量控制、滤波器和自动停止定时器。无需注册，无需安装。"],'h3_volume':["Volume", "体积"],'h3_filters':["Filters", "过滤器"],'h3_timer':["Timer", "定时器"],'h3_about_these_noise_types':["About These Noise Types", "关于这些噪音类型"],'btn_off':["Off", "离开"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_60m':["60m", "60米"],'strong_white_noise':["White Noise", "白噪声"],'strong_pink_noise':["Pink Noise", "粉红噪音"],'strong_brown_noise':["Brown Noise", "棕色噪声"],'label_level':["Level", "等级"],'label_low_pass':["Low-pass", "低通"],'label_high_pass':["High-pass", "高通滤波器"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'link_github':["GitHub", "GitHub"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_noise_generator_white_pin':["Noise Generator — White, Pink & Brown Noise", "噪声发生器——白噪声、粉红噪声和棕色噪声"],'metadesc_free_browser_based_noise':["Free browser-based noise generator. White, pink, and brown noise with volume control, filters, and auto-stop timer. No signup, no install.", "免费浏览器噪音生成器。提供白噪音、粉红噪音和棕色噪音，并带有音量控制、滤波器和自动停止定时器。无需注册，无需安装。"],'h3_volume':["Volume", "体积"],'h3_filters':["Filters", "过滤器"],'h3_timer':["Timer", "定时器"],'h3_about_these_noise_types':["About These Noise Types", "关于这些噪音类型"],'btn_off':["Off", "离开"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_60m':["60m", "60米"],'strong_white_noise':["White Noise", "白噪声"],'strong_pink_noise':["Pink Noise", "粉红噪音"],'strong_brown_noise':["Brown Noise", "棕色噪声"],'label_level':["Level", "等级"],'label_low_pass':["Low-pass", "低通"],'label_high_pass':["High-pass", "高通滤波器"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'link_github':["GitHub", "GitHub"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
   'use strict';
@@ -440,6 +490,96 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
     }
   }
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

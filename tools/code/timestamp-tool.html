@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_timestamp_tool_unix_times" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,9 +64,15 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Timestamp Tool</h1>
-<p class="subtitle">Convert between Unix timestamps, ISO 8601, and human-readable dates.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_timestamp_tool" ti="h1_timestamp_tool" ti="h1_timestamp_tool">Timestamp Tool</h1>
+<p class="subtitle" ti="subtitle_convert_between_unix_time" ti="subtitle_convert_between_unix_time" ti="subtitle_convert_between_unix_time">Convert between Unix timestamps, ISO 8601, and human-readable dates.</p>
 
 <!-- Current Time -->
 <div class="now-bar">
@@ -78,24 +84,24 @@ footer a:hover{color:#999}
 
 <!-- Quick Presets -->
 <div class="presets">
-  <button class="preset" onclick="setInput(0)">Epoch (0)</button>
-  <button class="preset" onclick="setInput(Date.now()/1000|0)">Now</button>
-  <button class="preset" onclick="setInput(1000000000)">1 Billion</button>
-  <button class="preset" onclick="setInput(2000000000)">2 Billion</button>
-  <button class="preset" onclick="setInput(Date.now()/1000+86400|0)">Tomorrow</button>
-  <button class="preset" onclick="setInput(Date.now()/1000+604800|0)">Next Week</button>
-  <button class="preset" onclick="setInput(4102444800)">2100-01-01</button>
+  <button class="preset" onclick="setInput(0)" ti="btn_epoch_0" ti="btn_epoch_0" ti="btn_epoch_0">Epoch (0)</button>
+  <button class="preset" onclick="setInput(Date.now()/1000|0)" ti="btn_now" ti="btn_now_2" ti="btn_now" ti="btn_now_2" ti="btn_now" ti="btn_now_2">Now</button>
+  <button class="preset" onclick="setInput(1000000000)" ti="btn_1_billion" ti="btn_1_billion" ti="btn_1_billion">1 Billion</button>
+  <button class="preset" onclick="setInput(2000000000)" ti="btn_2_billion" ti="btn_2_billion" ti="btn_2_billion">2 Billion</button>
+  <button class="preset" onclick="setInput(Date.now()/1000+86400|0)" ti="btn_tomorrow" ti="btn_tomorrow" ti="btn_tomorrow">Tomorrow</button>
+  <button class="preset" onclick="setInput(Date.now()/1000+604800|0)" ti="btn_next_week" ti="btn_next_week" ti="btn_next_week">Next Week</button>
+  <button class="preset" onclick="setInput(4102444800)" ti="btn_2100_01_01" ti="btn_2100_01_01" ti="btn_2100_01_01">2100-01-01</button>
 </div>
 
 <!-- Converter -->
 <div class="converter">
-  <h2>Convert Timestamp</h2>
+  <h2 ti="h2_convert_timestamp" ti="h2_convert_timestamp" ti="h2_convert_timestamp">Convert Timestamp</h2>
   <div class="input-row">
-    <label>Input</label>
-    <input type="text" id="tsInput" placeholder="Unix timestamp, ISO 8601, or date string..." value="1709251200" oninput="convert()">
+    <label ti="label_input" ti="label_input" ti="label_input">Input</label>
+    <input type="text" id="tsInput" tp="placeholder_unix_timestamp_iso_8601_o" tp="placeholder_unix_timestamp_iso_8601_o" tp="placeholder_unix_timestamp_iso_8601_o" placeholder="Unix timestamp, ISO 8601, or date string..." value="1709251200" oninput="convert()">
   </div>
   <div class="input-row">
-    <label>Format</label>
+    <label ti="label_format" ti="label_format" ti="label_format">Format</label>
     <select id="unitSelect" onchange="convert()">
       <option value="auto">Auto-detect</option>
       <option value="seconds">Seconds</option>
@@ -104,32 +110,32 @@ footer a:hover{color:#999}
     </select>
   </div>
   <div class="btn-row">
-    <button class="btn primary" onclick="convert()">Convert</button>
+    <button class="btn primary" onclick="convert()" ti="btn_convert" ti="btn_convert" ti="btn_convert">Convert</button>
     <button class="btn" onclick="$('tsInput').value=Date.now()/1000|0;convert()">Now</button>
-    <button class="btn" onclick="$('tsInput').value='';$('results').innerHTML=''">Clear</button>
+    <button class="btn" onclick="$('tsInput').value='';$('results').innerHTML=''" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
   </div>
   <div class="result-grid" id="results"></div>
 </div>
 
 <!-- Timezone Converter -->
 <div class="converter" id="tzSection">
-  <h2>Timezone Converter</h2>
+  <h2 ti="h2_timezone_converter" ti="h2_timezone_converter" ti="h2_timezone_converter">Timezone Converter</h2>
   <div class="result-grid" id="tzGrid" style="grid-template-columns:1fr 1fr 1fr"></div>
 </div>
 
 <!-- Time Diff -->
 <div class="diff-section">
-  <h2>Time Difference</h2>
+  <h2 ti="h2_time_difference" ti="h2_time_difference" ti="h2_time_difference">Time Difference</h2>
   <div class="input-row">
-    <label>From</label>
-    <input type="text" id="diffFrom" placeholder="Timestamp or date..." value="">
+    <label ti="label_from" ti="label_from" ti="label_from">From</label>
+    <input type="text" id="diffFrom" tp="placeholder_timestamp_or_date" tp="placeholder_timestamp_or_date" tp="placeholder_timestamp_or_date" placeholder="Timestamp or date..." value="">
   </div>
   <div class="input-row">
-    <label>To</label>
-    <input type="text" id="diffTo" placeholder="Timestamp or date (default: now)" value="">
+    <label ti="label_to" ti="label_to" ti="label_to">To</label>
+    <input type="text" id="diffTo" tp="placeholder_timestamp_or_date_default" tp="placeholder_timestamp_or_date_default" tp="placeholder_timestamp_or_date_default" placeholder="Timestamp or date (default: now)" value="">
   </div>
   <div class="btn-row">
-    <button class="btn primary" onclick="calcDiff()">Calculate</button>
+    <button class="btn primary" onclick="calcDiff()" ti="btn_calculate" ti="btn_calculate" ti="btn_calculate">Calculate</button>
   </div>
   <div class="diff-result" id="diffResult"></div>
 </div>
@@ -137,10 +143,30 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/timestamp-tool">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/timestamp-tool" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+
+<script>var _LANG={'title_timestamp_tool_unix_times':["Timestamp Tool — Unix Timestamp Converter", "时间戳工具 — Unix 时间戳转换器"],'metadesc_convert_between_unix_time':["Convert between Unix timestamps, ISO 8601, and human-readable dates. Current time, relative time, timezone support. Free, instant.", "支持 Unix 时间戳、ISO 8601 日期格式和人类可读日期格式之间的转换。支持当前时间、相对时间和时区。免费，即时生效。"],'h1_timestamp_tool':["Timestamp Tool", "时间戳工具"],'h2_convert_timestamp':["Convert Timestamp", "转换时间戳"],'h2_timezone_converter':["Timezone Converter", "时区转换器"],'h2_time_difference':["Time Difference", "时差"],'subtitle_convert_between_unix_time':["Convert between Unix timestamps, ISO 8601, and human-readable dates.", "在 Unix 时间戳、ISO 8601 和人类可读日期之间进行转换。"],'btn_epoch_0':["Epoch (0)", "纪元（0）"],'btn_now':["Now", "现在"],'btn_1_billion':["1 Billion", "10亿"],'btn_2_billion':["2 Billion", "20亿"],'btn_tomorrow':["Tomorrow", "明天"],'btn_next_week':["Next Week", "下周"],'btn_2100_01_01':["2100-01-01", "2100-01-01"],'btn_convert':["Convert", "转变"],'btn_now_2':["Now", "现在"],'btn_clear':["Clear", "清除"],'btn_calculate':["Calculate", "计算"],'placeholder_unix_timestamp_iso_8601_o':["Unix timestamp, ISO 8601, or date string...", "Unix 时间戳、ISO 8601 或日期字符串……"],'placeholder_timestamp_or_date':["Timestamp or date...", "时间戳或日期……"],'placeholder_timestamp_or_date_default':["Timestamp or date (default: now)", "时间戳或日期（默认值：现在）"],'strong_related_tools':["Related Tools", "相关工具"],'label_input':["Input", "输入"],'label_format':["Format", "格式"],'label_from':["From", "从"],'label_to':["To", "到"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_local':["Local:", "当地的："],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_2':["Invalid", "无效的"],'jtc_copied':["Copied!", "已复制！"],'jtcpre_local':["Local: ", "当地的："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_timestamp_tool_unix_times':["Timestamp Tool — Unix Timestamp Converter", "时间戳工具 — Unix 时间戳转换器"],'metadesc_convert_between_unix_time':["Convert between Unix timestamps, ISO 8601, and human-readable dates. Current time, relative time, timezone support. Free, instant.", "支持 Unix 时间戳、ISO 8601 日期格式和人类可读日期格式之间的转换。支持当前时间、相对时间和时区。免费，即时生效。"],'h1_timestamp_tool':["Timestamp Tool", "时间戳工具"],'h2_convert_timestamp':["Convert Timestamp", "转换时间戳"],'h2_timezone_converter':["Timezone Converter", "时区转换器"],'h2_time_difference':["Time Difference", "时差"],'subtitle_convert_between_unix_time':["Convert between Unix timestamps, ISO 8601, and human-readable dates.", "在 Unix 时间戳、ISO 8601 和人类可读日期之间进行转换。"],'btn_epoch_0':["Epoch (0)", "纪元（0）"],'btn_now':["Now", "现在"],'btn_1_billion':["1 Billion", "10亿"],'btn_2_billion':["2 Billion", "20亿"],'btn_tomorrow':["Tomorrow", "明天"],'btn_next_week':["Next Week", "下周"],'btn_2100_01_01':["2100-01-01", "2100-01-01"],'btn_convert':["Convert", "转变"],'btn_now_2':["Now", "现在"],'btn_clear':["Clear", "清除"],'btn_calculate':["Calculate", "计算"],'placeholder_unix_timestamp_iso_8601_o':["Unix timestamp, ISO 8601, or date string...", "Unix 时间戳、ISO 8601 或日期字符串……"],'placeholder_timestamp_or_date':["Timestamp or date...", "时间戳或日期……"],'placeholder_timestamp_or_date_default':["Timestamp or date (default: now)", "时间戳或日期（默认值：现在）"],'strong_related_tools':["Related Tools", "相关工具"],'label_input':["Input", "输入"],'label_format':["Format", "格式"],'label_from':["From", "从"],'label_to':["To", "到"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_local':["Local:", "当地的："],'jtc_invalid':["Invalid", "无效的"],'jtc_invalid_2':["Invalid", "无效的"],'jtc_copied':["Copied!", "已复制！"],'jtcpre_local':["Local: ", "当地的："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 
@@ -150,7 +176,7 @@ function updateNow(){
   const unix=Math.floor(now/1000);
   $('nowUnix').textContent=unix;
   $('nowIso').textContent=new Date(now).toISOString();
-  $('nowTz').textContent='Local: '+new Date(now).toString().replace(/ \(.+\)/,'')+' · Click timestamp to copy';
+  $('nowTz').textContent=T("jtcpre_local")+new Date(now).toString().replace(/ \(.+\)/,'')+' · Click timestamp to copy';
 }
 updateNow();
 setInterval(updateNow,1000);
@@ -282,7 +308,7 @@ function setInput(v){
 function copyText(text){
   navigator.clipboard.writeText(text);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -315,12 +341,66 @@ function updateTz(date){
 convert();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/cron-explain/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Cron Explain</a>
 <a href="https://gokuscraper.github.io/dev-vault/uuid-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">UUID Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/number-base/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Number Base</a>
 <a href="https://gokuscraper.github.io/dev-vault/case-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Case Convert</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

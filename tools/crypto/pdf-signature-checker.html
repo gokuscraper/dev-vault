@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html tk="title_pdf_signature_checker" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,13 +53,19 @@ h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>PDF Signature Checker</h1>
-  <p class="desc">Verify digital signatures in PDF files. All processing happens in your browser — nothing is uploaded.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_pdf_signature_checker" ti="h1_pdf_signature_checker" ti="title_pdf_signature_checker" ti="h1_pdf_signature_checker" ti="title_pdf_signature_checker" ti="h1_pdf_signature_checker">PDF Signature Checker</h1>
+  <p class="desc">Verify digital signatures in PDF files. All processing happens in your browser 鈥?nothing is uploaded.</p>
 
   <div class="card">
     <div class="drop-zone" id="dropZone">
-      <div class="icon">📄</div>
+      <div class="icon">馃搫</div>
       <p>Drop a signed PDF here, or click to select</p>
       <input type="file" id="fileInput" accept=".pdf">
     </div>
@@ -72,6 +78,26 @@ h1{font-size:1.4rem;color:#fff;margin-bottom:6px}
   <div id="loading" class="loading" style="display:none"><span class="spinner"></span>Verifying signature...</div>
 </div>
 
+
+
+<script>var _LANG={'title_pdf_signature_checker':["PDF Signature Checker", "PDF签名检查器"],'metadesc_verify_digital_signatures':["Verify digital signatures in PDF files. Check certificate validity, document integrity, and signature authenticity entirely in your browser.", "验证PDF文件中的数字签名。完全在浏览器中即可检查证书有效性、文档完整性和签名真实性。"],'h1_pdf_signature_checker':["PDF Signature Checker", "PDF签名检查器"],'subtitle_verify_digital_signatures':["Verify digital signatures in PDF files. All processing happens in your browser — nothing is uploaded.", "验证 PDF 文件中的数字签名。所有处理都在您的浏览器中完成——无需上传任何文件。"],'btn_show_pem':["Show PEM", "显示 PEM"],'label_name':["Name:", "姓名："],'label_reason':["Reason:", "原因："],'label_location':["Location:", "地点："],'label_contact':["Contact:", "接触："],'th_issued_to':["Issued To", "签发给"],'th_issued_by':["Issued By", "由...发出"],'th_validity':["Validity", "有效性"],'th_pem':["PEM", "质子交换膜"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_pdf_signature_checker':["PDF Signature Checker", "PDF签名检查器"],'metadesc_verify_digital_signatures':["Verify digital signatures in PDF files. Check certificate validity, document integrity, and signature authenticity entirely in your browser.", "验证PDF文件中的数字签名。完全在浏览器中即可检查证书有效性、文档完整性和签名真实性。"],'h1_pdf_signature_checker':["PDF Signature Checker", "PDF签名检查器"],'subtitle_verify_digital_signatures':["Verify digital signatures in PDF files. All processing happens in your browser — nothing is uploaded.", "验证 PDF 文件中的数字签名。所有处理都在您的浏览器中完成——无需上传任何文件。"],'btn_show_pem':["Show PEM", "显示 PEM"],'label_name':["Name:", "姓名："],'label_reason':["Reason:", "原因："],'label_location':["Location:", "地点："],'label_contact':["Contact:", "接触："],'th_issued_to':["Issued To", "签发给"],'th_issued_by':["Issued By", "由...发出"],'th_validity':["Validity", "有效性"],'th_pem':["PEM", "质子交换膜"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script type="module">
 import verifyPDF from 'https://esm.sh/pdf-signature-reader@1.4.3';
 
@@ -98,7 +124,7 @@ function fmtSize(bytes) {
 function esc(s) { return String(s ?? '').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
 function badge(label, ok) {
-  return `<span class="badge ${ok ? 'ok' : 'fail'}">${ok ? '✓' : '✗'} ${esc(label)}</span>`;
+  return `<span class="badge ${ok ? 'ok' : 'fail'}">${ok ? '鉁? : '鉁?} ${esc(label)}</span>`;
 }
 
 async function processFile(file) {
@@ -123,22 +149,22 @@ async function processFile(file) {
       const m = sig.meta;
       html += `<div class="card sig-block"><div class="sig-title">Signature ${i + 1}</div>`;
       html += `<div class="sig-meta">`;
-      if (m.signatureMeta.name) html += `<div><span class="label">Name:</span> <span class="val">${esc(m.signatureMeta.name)}</span></div>`;
-      if (m.signatureMeta.reason) html += `<div><span class="label">Reason:</span> <span class="val">${esc(m.signatureMeta.reason)}</span></div>`;
-      if (m.signatureMeta.location) html += `<div><span class="label">Location:</span> <span class="val">${esc(m.signatureMeta.location)}</span></div>`;
-      if (m.signatureMeta.contactInfo) html += `<div><span class="label">Contact:</span> <span class="val">${esc(m.signatureMeta.contactInfo)}</span></div>`;
+      if (m.signatureMeta.name) html += `<div><span class="label" ti="label_name" ti="label_name" ti="label_name">Name:</span> <span class="val">${esc(m.signatureMeta.name)}</span></div>`;
+      if (m.signatureMeta.reason) html += `<div><span class="label" ti="label_reason" ti="label_reason" ti="label_reason">Reason:</span> <span class="val">${esc(m.signatureMeta.reason)}</span></div>`;
+      if (m.signatureMeta.location) html += `<div><span class="label" ti="label_location" ti="label_location" ti="label_location">Location:</span> <span class="val">${esc(m.signatureMeta.location)}</span></div>`;
+      if (m.signatureMeta.contactInfo) html += `<div><span class="label" ti="label_contact" ti="label_contact" ti="label_contact">Contact:</span> <span class="val">${esc(m.signatureMeta.contactInfo)}</span></div>`;
       html += `</div>`;
 
       for (let j = 0; j < m.certs.length; j++) {
         const c = m.certs[j];
         const isClient = c.clientCertificate;
         html += `<table class="cert-table"><caption style="caption-side:top;text-align:left;font-weight:600;color:#aaa;font-size:0.85rem;margin-bottom:6px">Certificate ${j + 1}${isClient ? ' (signer)' : ' (CA)'}</caption>`;
-        html += `<tr><th>Issued To</th><td><div class="cert-inner">${field('CN', c.issuedTo.commonName)}${field('O', c.issuedTo.organizationName)}${field('OU', c.issuedTo.organizationalUnitName)}${field('C', c.issuedTo.countryName)}${field('L', c.issuedTo.localityName)}${field('S', c.issuedTo.stateOrProvinceName)}</div></td></tr>`;
-        html += `<tr><th>Issued By</th><td><div class="cert-inner">${field('CN', c.issuedBy.commonName)}${field('O', c.issuedBy.organizationName)}${field('OU', c.issuedBy.organizationalUnitName)}${field('C', c.issuedBy.countryName)}${field('L', c.issuedBy.localityName)}${field('S', c.issuedBy.stateOrProvinceName)}</div></td></tr>`;
+        html += `<tr><th ti="th_issued_to" ti="th_issued_to" ti="th_issued_to">Issued To</th><td><div class="cert-inner">${field('CN', c.issuedTo.commonName)}${field('O', c.issuedTo.organizationName)}${field('OU', c.issuedTo.organizationalUnitName)}${field('C', c.issuedTo.countryName)}${field('L', c.issuedTo.localityName)}${field('S', c.issuedTo.stateOrProvinceName)}</div></td></tr>`;
+        html += `<tr><th ti="th_issued_by" ti="th_issued_by" ti="th_issued_by">Issued By</th><td><div class="cert-inner">${field('CN', c.issuedBy.commonName)}${field('O', c.issuedBy.organizationName)}${field('OU', c.issuedBy.organizationalUnitName)}${field('C', c.issuedBy.countryName)}${field('L', c.issuedBy.localityName)}${field('S', c.issuedBy.stateOrProvinceName)}</div></td></tr>`;
         const nb = new Date(c.validityPeriod.notBefore).toLocaleString();
         const na = new Date(c.validityPeriod.notAfter).toLocaleString();
-        html += `<tr><th>Validity</th><td><div class="validity"><span>From: ${esc(nb)}</span><span>To: ${esc(na)}</span></div></td></tr>`;
-        html += `<tr><th>PEM</th><td><button class="toggle-btn" data-target="pem-${i}-${j}">Show PEM</button><div class="pem-box" id="pem-${i}-${j}">${esc(c.pemCertificate)}</div></td></tr>`;
+        html += `<tr><th ti="th_validity" ti="th_validity" ti="th_validity">Validity</th><td><div class="validity"><span>From: ${esc(nb)}</span><span>To: ${esc(na)}</span></div></td></tr>`;
+        html += `<tr><th ti="th_pem" ti="th_pem" ti="th_pem">PEM</th><td><button class="toggle-btn" data-target="pem-${i}-${j}" ti="btn_show_pem" ti="btn_show_pem" ti="btn_show_pem">Show PEM</button><div class="pem-box" id="pem-${i}-${j}">${esc(c.pemCertificate)}</div></td></tr>`;
         html += `</table>`;
       }
       html += `</div>`;
@@ -164,6 +190,60 @@ function field(k, v) {
   if (!v) return '';
   return `<div class="pair"><span class="k">${k}:</span><span class="v">${esc(v)}</span></div>`;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

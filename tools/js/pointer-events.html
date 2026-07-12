@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_pointer_events_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,9 +91,11 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>Pointer Events Playground</h1>
+  <h1 ti="title_pointer_events_playground" ti="h1_pointer_events_playground">Pointer Events Playground</h1>
   <div class="header-right">
     <span id="pointerTypeBadge" class="badge mouse">mouse</span>
     <span id="primaryBadge" class="badge" style="display:none">PRIMARY</span>
@@ -106,7 +108,7 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   <!-- Input Visualizer -->
   <div class="panel">
     <div class="panel-header">
-      <h2>Input Visualizer</h2>
+      <h2 ti="h2_input_visualizer">Input Visualizer</h2>
       <span style="font-size:.7rem;color:var(--text-dim)">Pressure=opacity, Tilt=arrow, Twist=rotation</span>
     </div>
     <div class="panel-body">
@@ -117,11 +119,11 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
 
   <!-- Property Dashboard -->
   <div class="panel">
-    <div class="panel-header"><h2>Property Dashboard</h2></div>
+    <div class="panel-header"><h2 ti="h2_property_dashboard">Property Dashboard</h2></div>
     <div class="panel-body">
       <div class="props-grid" id="propsGrid"></div>
       <div class="snippet" id="snippetViz">
-        <button class="copy-btn" onclick="copySnippet('snippetViz')">Copy</button>
+        <button class="copy-btn" onclick="copySnippet('snippetViz')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
         <pre id="snippetVizCode"></pre>
       </div>
     </div>
@@ -130,8 +132,8 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   <!-- Pressure Drawing -->
   <div class="panel">
     <div class="panel-header">
-      <h2>Pressure Drawing</h2>
-      <button class="clear-btn" onclick="clearDrawCanvas()">Clear</button>
+      <h2 ti="h2_pressure_drawing">Pressure Drawing</h2>
+      <button class="clear-btn" onclick="clearDrawCanvas()" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3">Clear</button>
     </div>
     <div class="panel-body">
       <div class="presets" id="drawPresets"></div>
@@ -142,7 +144,7 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   <!-- Event Log -->
   <div class="panel">
     <div class="panel-header">
-      <h2>Event Log</h2>
+      <h2 ti="h2_event_log">Event Log</h2>
       <button class="clear-btn" onclick="clearLog()">Clear</button>
     </div>
     <div class="panel-body">
@@ -164,7 +166,7 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   <!-- Coalesced Events -->
   <div class="panel full-width">
     <div class="panel-header">
-      <h2>Coalesced Events</h2>
+      <h2 ti="h2_coalesced_events">Coalesced Events</h2>
       <button class="clear-btn" onclick="clearCoalesced()">Clear</button>
     </div>
     <div class="panel-body">
@@ -183,7 +185,7 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
 
   <!-- Multi-Input Comparison -->
   <div class="panel full-width">
-    <div class="panel-header"><h2>Multi-Input Comparison</h2></div>
+    <div class="panel-header"><h2 ti="h2_multi_input_comparison">Multi-Input Comparison</h2></div>
     <div class="panel-body">
       <div class="multi-panels">
         <div class="multi-panel" id="multiMouse">
@@ -212,7 +214,7 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   <!-- Pointer Capture -->
   <div class="panel full-width">
     <div class="panel-header">
-      <h2>Pointer Capture Demo</h2>
+      <h2 ti="h2_pointer_capture_demo">Pointer Capture Demo</h2>
       <span id="captureStatus" style="font-size:.75rem;color:var(--text-dim)">Drag the box</span>
     </div>
     <div class="panel-body">
@@ -232,6 +234,16 @@ canvas{display:block;width:100%;border-radius:4px;cursor:crosshair;touch-action:
   Pointer Events Playground &mdash; Vanilla JS, No Dependencies &mdash; Works with Mouse, Touch &amp; Stylus
 </div>
 
+
+<script>var _LANG={'title_pointer_events_playground':["Pointer Events Playground", "指针事件游乐场"],'h1_pointer_events_playground':["Pointer Events Playground", "指针事件游乐场"],'h2_input_visualizer':["Input Visualizer", "输入可视化工具"],'h2_property_dashboard':["Property Dashboard", "房产仪表盘"],'h2_pressure_drawing':["Pressure Drawing", "压力拉拔"],'h2_event_log':["Event Log", "事件日志"],'h2_coalesced_events':["Coalesced Events", "合并事件"],'h2_multi_input_comparison':["Multi-Input Comparison", "多输入比较"],'h2_pointer_capture_demo':["Pointer Capture Demo", "指针捕获演示"],'btn_copy':["Copy", "复制"],'btn_clear':["Clear", "清除"],'btn_clear_2':["Clear", "清除"],'btn_copy_2':["Copy", "复制"],'btn_clear_3':["Clear", "清除"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'label_p':["${p}", "${p}"],'jtc_pointerevent_not_supporte':["PointerEvent: Not Supported", "PointerEvent：不支持。"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ========== Utilities ========== */
 const $ = s => document.querySelector(s);
@@ -253,7 +265,7 @@ function canvasXY(canvas, e) {
 
 /* ========== Browser Support ========== */
 if (!window.PointerEvent) {
-  $('#supportBadge').textContent = 'PointerEvent: Not Supported';
+  $('#supportBadge').textContent=T("jtc_pointerevent_not_supporte");
   $('#supportBadge').className = 'badge support-no';
 }
 
@@ -267,7 +279,7 @@ const propEls = {};
 PROPS.forEach(p => {
   const d = document.createElement('div');
   d.className = 'prop-item';
-  d.innerHTML = `<span class="prop-label">${p}</span><span class="prop-value" id="pv_${p}">-</span>`;
+  d.innerHTML = `<span class="prop-label" ti="label_p">${p}</span><span class="prop-value" id="pv_${p}">-</span>`;
   propsGrid.appendChild(d);
   propEls[p] = d.querySelector('.prop-value');
 });
@@ -775,8 +787,8 @@ function copySnippet(id) {
   const code = document.querySelector(`#${id} pre`).textContent;
   navigator.clipboard.writeText(code).then(() => {
     const btn = document.querySelector(`#${id} .copy-btn`);
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -797,6 +809,24 @@ window.addEventListener('resize', () => {
 });
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

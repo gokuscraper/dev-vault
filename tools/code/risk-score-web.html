@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_is_your_claude_code_safe" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -458,6 +458,10 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- ══════════════ HERO ══════════════ -->
 <header>
@@ -484,7 +488,7 @@
     ></textarea>
     <div class="scan-row">
       <button class="btn-scan" onclick="runScan()">Scan Now &rarr;</button>
-      <button class="btn-sample" onclick="loadSample()">Load risky sample</button>
+      <button class="btn-sample" onclick="loadSample()" ti="btn_load_risky_sample" ti="btn_load_risky_sample">Load risky sample</button>
       <span class="hint" id="hint">Ctrl+Enter to scan</span>
     </div>
   </div>
@@ -492,7 +496,7 @@
   <!-- Static CTA (shown before first scan) -->
   <div class="cta-card" id="static-cta">
     <div class="cta-eye">More than a scanner</div>
-    <h2>Harden Your Claude Code Setup</h2>
+    <h2 ti="h2_harden_your_claude_code_s" ti="h2_harden_your_claude_code_s">Harden Your Claude Code Setup</h2>
     <p>The scanner catches obvious risks. The Ops Kit shows you how to fix them with ready-to-use hook templates, hardening scripts, and a 25-item checklist.</p>
     <a href="https://gokuscraper.github.io/dev-vault/cc-ops-kit-landing/" class="btn-cta" target="_blank" rel="noopener">
       Get Claude Code Ops Kit
@@ -542,7 +546,7 @@
     <!-- Result CTA -->
     <div class="cta-card fade-up delay-3">
       <div class="cta-eye">Want a deeper audit?</div>
-      <h2>Get the Full Claude Code Ops Kit</h2>
+      <h2 ti="h2_get_the_full_claude_code" ti="h2_get_the_full_claude_code">Get the Full Claude Code Ops Kit</h2>
       <p>Battle-tested CLAUDE.md template, PreToolUse safety hooks, secrets injection guide, and a step-by-step hardening checklist.</p>
       <div class="cta-feats">
         <span class="cta-feat"><span class="ok">&#10003;</span> Safe CLAUDE.md template</span>
@@ -558,7 +562,7 @@
 
     <div class="cta-card fade-up delay-3" style="border-color:#2563eb">
       <div class="cta-eye">Rolling this out to a team?</div>
-      <h2>One unprotected developer is the whole org's risk</h2>
+      <h2 ti="h2_one_unprotected_developer" ti="h2_one_unprotected_developer">One unprotected developer is the whole org's risk</h2>
       <p>An unsafe config on one machine can delete files, leak secrets, or break production for everyone. Score your team's governance for free, or have the baseline designed and audited for you (async / remote-friendly).</p>
       <div class="cta-feats">
         <span class="cta-feat"><span class="ok">&#10003;</span> 8 org-level controls</span>
@@ -585,10 +589,30 @@
 
 <footer>
   Claude Code Risk Scanner &mdash; free, open-source, runs entirely in your browser. No data is sent anywhere.
-  <br>Also try: <a href="https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/" style="color:#6c8cff">Safety Scorer</a> (10-category coverage check) · <a href="https://gokuscraper.github.io/dev-vault/" style="color:#6c8cff">300+ Dev Tools</a>
+  <br>Also try: <a href="https://gokuscraper.github.io/dev-vault/cl
+<script>var _LANG={'title_is_your_claude_code_safe':["Is Your Claude Code Safe? — CLAUDE.md Risk Scanner", "您的 Claude 代码安全吗？— CLAUDE.md 风险扫描器"],'metadesc_paste_your_claude_md_and':["Paste your CLAUDE.md and instantly detect dangerous commands, exposed secrets, and risky configurations. Free, client-side only.", "粘贴您的 CLAUDE.md 文件，即可立即检测危险命令、泄露的密钥和风险配置。免费，仅限客户端使用。"],'h2_harden_your_claude_code_s':["Harden Your Claude Code Setup", "强化您的 Claude 代码设置"],'h2_get_the_full_claude_code':["Get the Full Claude Code Ops Kit", "获取完整的克劳德代码操作工具包"],'h2_one_unprotected_developer':["One unprotected developer is the whole org's risk", "一个未受保护的开发人员就可能给整个组织带来风险。"],'btn_scan_now':["Scan Now →", "立即扫描 →"],'btn_load_risky_sample':["Load risky sample", "加载风险样本"],'btn_scan_a_different_file':["← Scan a different file", "← 扫描其他文件"],'placeholder_my_claude_md_paste_the_f':["# My CLAUDE.md\n\nPaste the full contents of your Claude Code instruction file here…\n(or click \"Load risky sample\" to see the scanner in action)", "# 我的 CLAUDE.md 文件 请将您的 Claude Code 指令文件的全部内容粘贴到此处……（或点击“加载风险样本”查看扫描器运行情况）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+aude-code-risk-scorer/" style="color:#6c8cff">Safety Scorer</a> (10-category coverage check) · <a href="https://gokuscraper.github.io/dev-vault/" style="color:#6c8cff">300+ Dev Tools</a>
 </footer>
 
 <!-- ══════════════ SCRIPT ══════════════ -->
+
+<script>var _LANG={'title_is_your_claude_code_safe':["Is Your Claude Code Safe? — CLAUDE.md Risk Scanner", "您的 Claude 代码安全吗？— CLAUDE.md 风险扫描器"],'metadesc_paste_your_claude_md_and':["Paste your CLAUDE.md and instantly detect dangerous commands, exposed secrets, and risky configurations. Free, client-side only.", "粘贴您的 CLAUDE.md 文件，即可立即检测危险命令、泄露的密钥和风险配置。免费，仅限客户端使用。"],'h2_harden_your_claude_code_s':["Harden Your Claude Code Setup", "强化您的 Claude 代码设置"],'h2_get_the_full_claude_code':["Get the Full Claude Code Ops Kit", "获取完整的克劳德代码操作工具包"],'h2_one_unprotected_developer':["One unprotected developer is the whole org's risk", "一个未受保护的开发人员就可能给整个组织带来风险。"],'btn_scan_now':["Scan Now →", "立即扫描 →"],'btn_load_risky_sample':["Load risky sample", "加载风险样本"],'btn_scan_a_different_file':["← Scan a different file", "← 扫描其他文件"],'placeholder_my_claude_md_paste_the_f':["# My CLAUDE.md\n\nPaste the full contents of your Claude Code instruction file here…\n(or click \"Load risky sample\" to see the scanner in action)", "# 我的 CLAUDE.md 文件 请将您的 Claude Code 指令文件的全部内容粘贴到此处……（或点击“加载风险样本”查看扫描器运行情况）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 'use strict';
 
@@ -901,6 +925,42 @@ function resetScan() {
 document.getElementById('txt').addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); runScan(); }
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

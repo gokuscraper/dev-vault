@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_dialog_element_playg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -171,6 +171,8 @@ dialog[data-stack="3"]{translate:40px 40px}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>&lt;dialog&gt; <span>Playground</span></h1>
@@ -183,11 +185,11 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="section">
       <div class="section-title">Presets</div>
       <div class="presets">
-        <button class="preset-btn active" data-preset="confirm">Confirm</button>
-        <button class="preset-btn" data-preset="alert">Alert</button>
-        <button class="preset-btn" data-preset="login">Login Form</button>
-        <button class="preset-btn" data-preset="fullscreen">Full-screen</button>
-        <button class="preset-btn" data-preset="stacked">Stacked</button>
+        <button class="preset-btn active" data-preset="confirm" ti="btn_confirm" ti="btn_confirm_2" ti="btn_confirm_3" ti="btn_confirm_4" ti="btn_confirm_5">Confirm</button>
+        <button class="preset-btn" data-preset="alert" ti="btn_alert">Alert</button>
+        <button class="preset-btn" data-preset="login" ti="btn_login_form">Login Form</button>
+        <button class="preset-btn" data-preset="fullscreen" ti="btn_full_screen">Full-screen</button>
+        <button class="preset-btn" data-preset="stacked" ti="btn_stacked">Stacked</button>
       </div>
     </div>
 
@@ -196,19 +198,19 @@ dialog[data-stack="3"]{translate:40px 40px}
       <div class="section-title">Dialog Type</div>
       <div class="toggle-row">
         <label class="toggle"><input type="checkbox" id="isModal" checked><span class="slider"></span></label>
-        <label for="isModal">Modal (showModal)</label>
+        <label for="isModal" ti="label_modal_showmodal">Modal (showModal)</label>
       </div>
       <div class="toggle-row">
         <label class="toggle"><input type="checkbox" id="closeOnBackdrop" checked><span class="slider"></span></label>
-        <label for="closeOnBackdrop">Close on backdrop click</label>
+        <label for="closeOnBackdrop" ti="label_close_on_backdrop_click">Close on backdrop click</label>
       </div>
       <div class="toggle-row">
         <label class="toggle"><input type="checkbox" id="useAnimation" checked><span class="slider"></span></label>
-        <label for="useAnimation">Animate open/close</label>
+        <label for="useAnimation" ti="label_animate_open_close">Animate open/close</label>
       </div>
       <div class="toggle-row">
         <label class="toggle"><input type="checkbox" id="useFormMethod"><span class="slider"></span></label>
-        <label for="useFormMethod">form method="dialog"</label>
+        <label for="useFormMethod" ti="label_form_method_dialog">form method="dialog"</label>
       </div>
     </div>
 
@@ -216,21 +218,21 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="section">
       <div class="section-title">::backdrop Style</div>
       <div class="control-group">
-        <label>Background Color</label>
+        <label ti="label_background_color">Background Color</label>
         <div class="color-row">
           <input type="color" id="backdropColor" value="#000000">
           <span id="backdropColorVal">#000000</span>
         </div>
       </div>
       <div class="control-group">
-        <label>Opacity</label>
+        <label ti="label_opacity">Opacity</label>
         <div class="range-row">
           <input type="range" id="backdropOpacity" min="0" max="100" value="60">
           <span class="range-val" id="backdropOpacityVal">0.6</span>
         </div>
       </div>
       <div class="control-group">
-        <label>Backdrop Blur</label>
+        <label ti="label_backdrop_blur">Backdrop Blur</label>
         <div class="range-row">
           <input type="range" id="backdropBlur" min="0" max="20" value="0">
           <span class="range-val" id="backdropBlurVal">0px</span>
@@ -242,15 +244,15 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="section">
       <div class="section-title">Content</div>
       <div class="control-group">
-        <label>Dialog Title</label>
+        <label ti="label_dialog_title">Dialog Title</label>
         <input type="text" id="dialogTitle" value="Confirm Action">
       </div>
       <div class="control-group">
-        <label>Dialog Message</label>
+        <label ti="label_dialog_message">Dialog Message</label>
         <textarea id="dialogMessage">Are you sure you want to proceed?</textarea>
       </div>
       <div class="control-group">
-        <label>Alert Type (for Alert preset)</label>
+        <label ti="label_alert_type_for_alert_pres">Alert Type (for Alert preset)</label>
         <select id="alertType">
           <option value="info">Info</option>
           <option value="warning">Warning</option>
@@ -263,21 +265,21 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="section">
       <div class="section-title">Dialog Style</div>
       <div class="control-group">
-        <label>Border Radius</label>
+        <label ti="label_border_radius">Border Radius</label>
         <div class="range-row">
           <input type="range" id="dialogRadius" min="0" max="24" value="12">
           <span class="range-val" id="dialogRadiusVal">12px</span>
         </div>
       </div>
       <div class="control-group">
-        <label>Padding</label>
+        <label ti="label_padding">Padding</label>
         <div class="range-row">
           <input type="range" id="dialogPadding" min="8" max="48" value="24">
           <span class="range-val" id="dialogPaddingVal">24px</span>
         </div>
       </div>
       <div class="control-group">
-        <label>Min Width</label>
+        <label ti="label_min_width">Min Width</label>
         <div class="range-row">
           <input type="range" id="dialogWidth" min="200" max="800" value="320" step="10">
           <span class="range-val" id="dialogWidthVal">320px</span>
@@ -289,28 +291,28 @@ dialog[data-stack="3"]{translate:40px 40px}
   <main class="main">
     <!-- Demo Area -->
     <div class="demo-area">
-      <h2>Demo</h2>
+      <h2 ti="h2_demo">Demo</h2>
       <div class="demo-buttons">
-        <button class="btn btn-primary" id="openDialogBtn">Open Dialog</button>
-        <button class="btn btn-secondary" id="openNonModalBtn">Open Non-Modal</button>
+        <button class="btn btn-primary" id="openDialogBtn" ti="btn_open_dialog" ti="btn_open_dialog_2">Open Dialog</button>
+        <button class="btn btn-secondary" id="openNonModalBtn" ti="btn_open_non_modal">Open Non-Modal</button>
       </div>
       <div class="return-value-display" id="returnValueDisplay">
-        <strong>returnValue:</strong> <code id="returnValueCode">(none)</code>
+        <strong ti="strong_returnvalue">returnValue:</strong> <code id="returnValueCode">(none)</code>
       </div>
     </div>
 
     <!-- Code Output -->
     <div class="tabs">
-      <button class="tab-btn active" data-tab="html">HTML</button>
-      <button class="tab-btn" data-tab="css">CSS</button>
-      <button class="tab-btn" data-tab="js">JavaScript</button>
+      <button class="tab-btn active" data-tab="html" ti="btn_html">HTML</button>
+      <button class="tab-btn" data-tab="css" ti="btn_css">CSS</button>
+      <button class="tab-btn" data-tab="js" ti="btn_javascript">JavaScript</button>
     </div>
 
     <div class="tab-content active" data-tab="html">
       <div class="code-section">
         <div class="code-header">
-          <h3>HTML</h3>
-          <button class="copy-btn" data-copy="html">Copy</button>
+          <h3 ti="h3_html">HTML</h3>
+          <button class="copy-btn" data-copy="html" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button>
         </div>
         <pre id="codeHTML"></pre>
       </div>
@@ -319,7 +321,7 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="tab-content" data-tab="css">
       <div class="code-section">
         <div class="code-header">
-          <h3>CSS</h3>
+          <h3 ti="h3_css">CSS</h3>
           <button class="copy-btn" data-copy="css">Copy</button>
         </div>
         <pre id="codeCSS"></pre>
@@ -329,7 +331,7 @@ dialog[data-stack="3"]{translate:40px 40px}
     <div class="tab-content" data-tab="js">
       <div class="code-section">
         <div class="code-header">
-          <h3>JavaScript</h3>
+          <h3 ti="h3_javascript">JavaScript</h3>
           <button class="copy-btn" data-copy="js">Copy</button>
         </div>
         <pre id="codeJS"></pre>
@@ -346,6 +348,16 @@ dialog[data-stack="3"]{translate:40px 40px}
 <footer class="footer">
 </footer>
 
+
+<script>var _LANG={'title_html_dialog_element_playg':["HTML Dialog Element Playground — Dev Vault", "HTML对话框元素练习场 — 开发者宝库"],'metadesc_native_html_dialogs_witho':["Native HTML dialogs without libraries. Modal, non-modal, backdrop, forms. Interactive dialog builder.", "无需库即可创建原生 HTML 对话框。支持模态、非模态、背景和表单。交互式对话框构建器。"],'h2_demo':["Demo", "演示"],'h2_esc_title':["${esc(title)}", "${esc(title)}"],'h2_esc_title_2':["${esc(title)}", "${esc(title)}"],'h2_esc_title_3':["${esc(title)}", "${esc(title)}"],'h2_esc_title_4':["${esc(title)}", "${esc(title)}"],'h2_esc_title_5':["${esc(title)}", "${esc(title)}"],'h2_esc_title_6':["${esc(title)}", "${esc(title)}"],'h2_esc_title_7':["${esc(title)}", "${esc(title)}"],'h2_esc_title_8':["${esc(title)}", "${esc(title)}"],'h2_state_dialogtitle':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_state_dialogtitle_2':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_state_dialogtitle_3':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_state_dialogtitle_4':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_state_dialogtitle_5':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_state_dialogtitle_6':["${state.dialogTitle}", "${state.dialogTitle}"],'h2_second_layer':["Second Layer", "第二层"],'h3_html':["HTML", "HTML"],'h3_css':["CSS", "CSS"],'h3_javascript':["JavaScript", "JavaScript"],'btn_confirm':["Confirm", "确认"],'btn_alert':["Alert", "警报"],'btn_login_form':["Login Form", "登录表单"],'btn_full_screen':["Full-screen", "全屏"],'btn_stacked':["Stacked", "堆叠"],'btn_open_dialog':["Open Dialog", "打开对话框"],'btn_open_non_modal':["Open Non-Modal", "开放非模态"],'btn_html':["HTML", "HTML"],'btn_css':["CSS", "CSS"],'btn_javascript':["JavaScript", "JavaScript"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_cancel':["Cancel", "取消"],'btn_confirm_2':["Confirm", "确认"],'btn_cancel_2':["Cancel", "取消"],'btn_confirm_3':["Confirm", "确认"],'btn_ok':["OK", "好的"],'btn_cancel_3':["Cancel", "取消"],'btn_sign_in':["Sign In", "登入"],'btn_close':["Close", "关闭"],'btn_close_2':["Close", "关闭"],'btn_close_3':["Close", "关闭"],'btn_open_layer_nextlayer':["Open Layer ${nextLayer}", "打开图层 ${nextLayer}"],'btn_cancel_4':["Cancel", "取消"],'btn_confirm_4':["Confirm", "确认"],'btn_cancel_5':["Cancel", "取消"],'btn_confirm_5':["Confirm", "确认"],'btn_ok_2':["OK", "好的"],'btn_cancel_6':["Cancel", "取消"],'btn_sign_in_2':["Sign In", "登入"],'btn_close_4':["Close", "关闭"],'btn_close_5':["Close", "关闭"],'btn_open_another':["Open Another", "打开另一个"],'btn_open_dialog_2':["Open Dialog", "打开对话框"],'btn_close_6':["Close", "关闭"],'placeholder_you_example_com':["you@example.com", "you@example.com"],'placeholder_password':["Password", "密码"],'placeholder_you_example_com_2':["you@example.com", "you@example.com"],'placeholder_password_2':["Password", "密码"],'strong_returnvalue':["returnValue:", "返回值："],'label_modal_showmodal':["Modal (showModal)", "模态框（showModal）"],'label_close_on_backdrop_click':["Close on backdrop click", "关闭背景点击"],'label_animate_open_close':["Animate open/close", "动画打开/关闭"],'label_form_method_dialog':["form method=\"dialog\"", "表单方法=&quot;dialog&quot;"],'label_background_color':["Background Color", "背景颜色"],'label_opacity':["Opacity", "不透明度"],'label_backdrop_blur':["Backdrop Blur", "背景模糊"],'label_dialog_title':["Dialog Title", "对话框标题"],'label_dialog_message':["Dialog Message", "对话框消息"],'label_alert_type_for_alert_pres':["Alert Type (for Alert preset)", "警报类型（用于警报预设）"],'label_border_radius':["Border Radius", "边界半径"],'label_padding':["Padding", "填充"],'label_min_width':["Min Width", "最小宽度"],'label_email':["Email", "电子邮件"],'label_password':["Password", "密码"],'label_email_2':["Email", "电子邮件"],'label_password_2':["Password", "密码"],'footer_html_dialog_element_playg':["HTML Dialog Element Playground — Dev Vault", "HTML对话框元素练习场 — 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -442,11 +454,11 @@ dialog[data-stack="3"]{translate:40px 40px}
 
     if (preset === 'confirm') {
       if (state.useFormMethod) {
-        return `<h2>${esc(title)}</h2>
+        return `<h2 ti="h2_esc_title" ti="h2_esc_title_2" ti="h2_esc_title_3" ti="h2_esc_title_4" ti="h2_esc_title_5" ti="h2_esc_title_6" ti="h2_esc_title_7" ti="h2_esc_title_8">${esc(title)}</h2>
 <p>${esc(msg)}</p>
 <form method="dialog">
   <div class="dialog-actions">
-    <button class="btn-cancel" value="cancel">Cancel</button>
+    <button class="btn-cancel" value="cancel" ti="btn_cancel" ti="btn_cancel_2" ti="btn_cancel_3" ti="btn_cancel_4" ti="btn_cancel_5" ti="btn_cancel_6">Cancel</button>
     <button class="btn-confirm" value="confirm">Confirm</button>
   </div>
 </form>`;
@@ -466,7 +478,7 @@ dialog[data-stack="3"]{translate:40px 40px}
 <h2>${esc(title)}</h2>
 <p>${esc(msg)}</p>
 <div class="dialog-actions">
-  <button class="btn-confirm" onclick="this.closest('dialog').close('ok')">OK</button>
+  <button class="btn-confirm" onclick="this.closest('dialog').close('ok')" ti="btn_ok" ti="btn_ok_2">OK</button>
 </div>`;
     }
 
@@ -475,13 +487,13 @@ dialog[data-stack="3"]{translate:40px 40px}
       return `<h2>${esc(title)}</h2>
 <p>${esc(msg)}</p>
 ${wrap[0]}
-  <label for="login-email">Email</label>
-  <input type="email" id="login-email" placeholder="you@example.com" autofocus>
-  <label for="login-pass">Password</label>
-  <input type="password" id="login-pass" placeholder="Password">
+  <label for="login-email" ti="label_email" ti="label_email_2">Email</label>
+  <input type="email" id="login-email" tp="placeholder_you_example_com" tp="placeholder_you_example_com_2" placeholder="you@example.com" autofocus>
+  <label for="login-pass" ti="label_password" ti="label_password_2">Password</label>
+  <input type="password" id="login-pass" tp="placeholder_password" tp="placeholder_password_2" placeholder="Password">
   <div class="dialog-actions">
     <button class="btn-cancel" ${state.useFormMethod ? 'value="cancel" formnovalidate' : "onclick=\"this.closest('dialog').close('cancel')\""}>Cancel</button>
-    <button class="btn-confirm" ${state.useFormMethod ? 'value="login"' : "onclick=\"this.closest('dialog').close('login')\""}>Sign In</button>
+    <button class="btn-confirm" ${state.useFormMethod ? 'value="login"' : "onclick=\"this.closest('dialog').close('login')\""} ti="btn_sign_in" ti="btn_sign_in_2">Sign In</button>
   </div>
 ${wrap[1]}`;
     }
@@ -490,7 +502,7 @@ ${wrap[1]}`;
       return `<h2>${esc(title)}</h2>
 <p>${esc(msg)}</p>
 <div class="dialog-actions">
-  <button class="btn-confirm" onclick="this.closest('dialog').close('closed')">Close</button>
+  <button class="btn-confirm" onclick="this.closest('dialog').close('closed')" ti="btn_close" ti="btn_close_2" ti="btn_close_3" ti="btn_close_4" ti="btn_close_5" ti="btn_close_6">Close</button>
 </div>`;
     }
 
@@ -507,7 +519,7 @@ ${wrap[1]}`;
 <p>${esc(msg)}</p>
 <div class="dialog-actions">
   <button class="btn-cancel" onclick="this.closest('dialog').close('back')">Close</button>
-  <button class="btn-confirm" onclick="openStackedDialog(${nextLayer})">Open Layer ${nextLayer}</button>
+  <button class="btn-confirm" onclick="openStackedDialog(${nextLayer})" ti="btn_open_layer_nextlayer">Open Layer ${nextLayer}</button>
 </div>`;
     }
 
@@ -689,9 +701,9 @@ ${wrap[1]}`;
       const key = btn.dataset.copy;
       const code = key === 'html' ? generatedHTML : key === 'css' ? generatedCSS : generatedJS;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = 'Copied!';
+        btn.textContent=T("jtc_copied");
         btn.classList.add('copied');
-        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+        setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1500);
       });
     });
   });
@@ -710,7 +722,7 @@ ${wrap[1]}`;
     let dialogContent = '';
     if (preset === 'confirm') {
       if (state.useFormMethod) {
-        dialogContent = `  <h2>${state.dialogTitle}</h2>
+        dialogContent = `  <h2 ti="h2_state_dialogtitle" ti="h2_state_dialogtitle_2" ti="h2_state_dialogtitle_3" ti="h2_state_dialogtitle_4" ti="h2_state_dialogtitle_5" ti="h2_state_dialogtitle_6">${state.dialogTitle}</h2>
   <p>${state.dialogMessage}</p>
   <form method="dialog">
     <div class="dialog-actions">
@@ -759,7 +771,7 @@ ${wrap[1]}`;
   <p>${state.dialogMessage}</p>
   <div class="dialog-actions">
     <button class="cancel">Close</button>
-    <button class="confirm" id="openNext">Open Another</button>
+    <button class="confirm" id="openNext" ti="btn_open_another">Open Another</button>
   </div>`;
     }
 
@@ -775,7 +787,7 @@ ${dialogContent}
 
 <!-- Second dialog for stacking -->
 <dialog id="myDialog2" class="my-dialog">
-  <h2>Second Layer</h2>
+  <h2 ti="h2_second_layer">Second Layer</h2>
   <p>Stacked on top of the first dialog.</p>
   <div class="dialog-actions">
     <button class="confirm" onclick="this.closest('dialog').close()">Close</button>
@@ -935,6 +947,24 @@ ${dialogContent}
 
   // Init
   update();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

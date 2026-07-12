@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_compare_side_by_sid" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,9 +52,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Compare</h1>
-<p class="sub">Compare two images with a slider — nothing uploaded</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_compare">Image Compare</h1>
+<p class="sub" ti="subtitle_compare_two_images_with_a">Compare two images with a slider — nothing uploaded</p>
 
 <div class="upload-area" id="uploadArea">
 <div class="drop-zone" id="dropA" onclick="document.getElementById('fileA').click()">
@@ -100,16 +102,26 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="actions">
-<button class="btn" onclick="swapImages()">Swap Images</button>
-<button class="btn" onclick="resetAll()">New Compare</button>
+<button class="btn" onclick="swapImages()" ti="btn_swap_images">Swap Images</button>
+<button class="btn" onclick="resetAll()" ti="btn_new_compare">New Compare</button>
 </div>
 <div class="info">All processing happens locally in your browser.</div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-filter/">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/">Image Crop</a> | <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-filter/" ti="link_image_filter">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/" ti="link_image_crop">Image Crop</a> | <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a></div>
 </div>
 
+
+<script>var _LANG={'title_image_compare_side_by_sid':["Image Compare — Side-by-Side Slider Comparison", "图片对比——并排滑块对比"],'metadesc_compare_two_images_with_a':["Compare two images with a before/after slider. Drag to reveal differences. Overlay and side-by-side modes. No upload to server.", "使用前后对比滑块比较两张图片。拖动滑块即可显示差异。支持叠加和并排显示模式。无需上传到服务器。"],'h1_image_compare':["Image Compare", "图片对比"],'subtitle_compare_two_images_with_a':["Compare two images with a slider — nothing uploaded", "使用滑块比较两张图片——未上传任何内容。"],'btn_swap_images':["Swap Images", "交换图片"],'btn_new_compare':["New Compare", "新比较"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_filter':["Image Filter", "图像滤波器"],'link_image_crop':["Image Crop", "图片裁剪"],'link_image_resize':["Image Resize", "图片调整大小"],'jtc_loaded':["✓ Loaded (", "✓ 已加载（"],'jtc_drop_image_or_click':["Drop image or click", "拖放图片或点击"],'jtcpre_loaded':["✓ Loaded (", "✓ 已加载（"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let imgA=null,imgB=null;
 let displayW=0,displayH=0;
@@ -138,7 +150,7 @@ function loadImg(file,side,zone){
     img.onload=()=>{
       if(side==='a')imgA=img;else imgB=img;
       zone.classList.add('loaded');
-      zone.querySelector('p').textContent='✓ Loaded ('+img.width+'×'+img.height+')';
+      zone.querySelector('p').textContent=T("jtc_loaded")+img.width+'×'+img.height+')';
       if(imgA&&imgB)startCompare();
     };
     img.src=e.target.result;
@@ -276,11 +288,29 @@ function resetAll(){
   document.getElementById('workspace').style.display='none';
   document.querySelectorAll('.drop-zone').forEach(z=>{
     z.classList.remove('loaded');
-    z.querySelector('p').textContent='Drop image or click';
+    z.querySelector('p').textContent=T("jtc_drop_image_or_click");
   });
   document.getElementById('fileA').value='';
   document.getElementById('fileB').value='';
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

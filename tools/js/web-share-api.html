@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_share_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,6 +102,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>&#x1f4e4; Web Share <span>API</span> Playground</h1>
@@ -110,7 +112,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
 <div class="support-bar" id="supportBar"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="grid">
 
     <!-- Basic Share -->
@@ -121,20 +123,20 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
       <div class="card-body">
         <div class="info-box info">Share content using the native sharing dialog. All fields are optional, but at least one must be provided.</div>
         <div class="field">
-          <label>Title</label>
-          <input type="text" id="shareTitle" value="Web Share API Playground" placeholder="Page title">
+          <label ti="label_title">Title</label>
+          <input type="text" id="shareTitle" value="Web Share API Playground" tp="placeholder_page_title" placeholder="Page title">
         </div>
         <div class="field">
-          <label>Text</label>
-          <textarea id="shareText" placeholder="Text to share">Check out this awesome Web API playground!</textarea>
+          <label ti="label_text">Text</label>
+          <textarea id="shareText" tp="placeholder_text_to_share" placeholder="Text to share">Check out this awesome Web API playground!</textarea>
         </div>
         <div class="field">
-          <label>URL</label>
-          <input type="text" id="shareUrl" value="" placeholder="https://example.com">
+          <label ti="label_url">URL</label>
+          <input type="text" id="shareUrl" value="" tp="placeholder_https_example_com" placeholder="https://example.com">
         </div>
         <div class="btn-row">
           <button class="primary" onclick="doShare()">&#x1f4e4; Share</button>
-          <button onclick="fillCurrentUrl()">Use Current URL</button>
+          <button onclick="fillCurrentUrl()" ti="btn_use_current_url">Use Current URL</button>
         </div>
         <div id="shareResult" class="result-area" style="display:none"></div>
 
@@ -164,7 +166,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
         <div class="btn-row" style="margin-top:8px">
           <button class="success" onclick="shareFiles()" id="shareFilesBtn" disabled>&#x1f4e4; Share Files</button>
-          <button onclick="generateTestFile()">Generate Test File</button>
+          <button onclick="generateTestFile()" ti="btn_generate_test_file">Generate Test File</button>
         </div>
 
         <div id="canShareResult" style="margin-top:8px;font-size:.8rem"></div>
@@ -188,7 +190,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         </div>
 
         <div id="templatePreview" style="display:none">
-          <label>Generated Share Data</label>
+          <label ti="label_generated_share_data">Generated Share Data</label>
           <pre id="templateCode"></pre>
           <button class="primary" style="margin-top:8px" onclick="shareTemplate()">&#x1f4e4; Share This</button>
         </div>
@@ -236,7 +238,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         </div>
 
         <div style="margin-top:12px;padding:12px;border-radius:var(--radius);border:1px solid var(--border);background:var(--surface2)">
-          <h3 style="font-size:.85rem;margin-bottom:8px">Your Browser</h3>
+          <h3 style="font-size:.85rem;margin-bottom:8px" ti="h3_your_browser">Your Browser</h3>
           <div id="browserInfo" style="font-size:.8rem;color:var(--text2)"></div>
         </div>
       </div>
@@ -256,7 +258,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
           <li><span class="fb-icon">4&#xfe0f;&#x20e3;</span><span>Manual copy with <code>document.execCommand('copy')</code></span></li>
         </ul>
 
-        <label style="margin-top:12px">Fallback Code Pattern</label>
+        <label style="margin-top:12px" ti="label_fallback_code_pattern">Fallback Code Pattern</label>
         <pre>async function share(data) {
   if (navigator.share) {
     try {
@@ -278,7 +280,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 }</pre>
 
         <div class="btn-row" style="margin-top:8px">
-          <button class="primary" onclick="testFallback()">Test Fallback Cascade</button>
+          <button class="primary" onclick="testFallback()" ti="btn_test_fallback_cascade">Test Fallback Cascade</button>
         </div>
         <div id="fallbackResult" class="result-area" style="display:none"></div>
       </div>
@@ -295,43 +297,43 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
           <div>
             <div class="field">
-              <label>Action URL</label>
-              <input type="text" id="targetAction" value="/share-receiver" placeholder="/share">
+              <label ti="label_action_url">Action URL</label>
+              <input type="text" id="targetAction" value="/share-receiver" tp="placeholder_share" placeholder="/share">
             </div>
             <div class="field">
-              <label>Method</label>
+              <label ti="label_method">Method</label>
               <select id="targetMethod">
                 <option value="GET">GET</option>
                 <option value="POST" selected>POST</option>
               </select>
             </div>
             <div class="field">
-              <label>Enctype (for POST)</label>
+              <label ti="label_enctype_for_post">Enctype (for POST)</label>
               <select id="targetEnctype">
                 <option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
                 <option value="multipart/form-data" selected>multipart/form-data</option>
               </select>
             </div>
             <div class="field">
-              <label>Title param name</label>
-              <input type="text" id="targetTitle" value="title" placeholder="title">
+              <label ti="label_title_param_name">Title param name</label>
+              <input type="text" id="targetTitle" value="title" tp="placeholder_title" placeholder="title">
             </div>
             <div class="field">
-              <label>Text param name</label>
-              <input type="text" id="targetText" value="text" placeholder="text">
+              <label ti="label_text_param_name">Text param name</label>
+              <input type="text" id="targetText" value="text" tp="placeholder_text" placeholder="text">
             </div>
             <div class="field">
-              <label>URL param name</label>
-              <input type="text" id="targetUrl" value="url" placeholder="url">
+              <label ti="label_url_param_name">URL param name</label>
+              <input type="text" id="targetUrl" value="url" tp="placeholder_url" placeholder="url">
             </div>
             <div class="field">
-              <label>Accept file types (comma-sep)</label>
-              <input type="text" id="targetAccept" value="image/*,text/*" placeholder="image/*">
+              <label ti="label_accept_file_types_comma_s">Accept file types (comma-sep)</label>
+              <input type="text" id="targetAccept" value="image/*,text/*" tp="placeholder_image" placeholder="image/*">
             </div>
-            <button class="primary" onclick="generateManifest()">Generate Manifest</button>
+            <button class="primary" onclick="generateManifest()" ti="btn_generate_manifest">Generate Manifest</button>
           </div>
           <div>
-            <label>Web App Manifest Snippet</label>
+            <label ti="label_web_app_manifest_snippet">Web App Manifest Snippet</label>
             <pre id="manifestOutput" class="manifest-preview">{
   "share_target": {
     "action": "/share-receiver",
@@ -357,7 +359,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f4dc;</span> Share Result &amp; Event Log</h2>
-        <button onclick="clearLog()">Clear</button>
+        <button onclick="clearLog()" ti="btn_clear">Clear</button>
       </div>
       <div class="card-body">
         <div class="info-box info"><code>navigator.share()</code> returns a Promise. It resolves on success and rejects with <code>AbortError</code> (user cancelled) or <code>TypeError</code> (invalid data).</div>
@@ -371,9 +373,19 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </div>
 
 <footer>
-  Web Share API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> project
+  Web Share API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a> project
 </footer>
 
+
+<script>var _LANG={'title_web_share_api_playground':["Web Share API Playground", "Web Share API 演示平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Web Share API — share text, URLs, titles, and files using the native sharing UI. Includes file sharing, platform detection, and fallback strategies.", "Web Share API 的交互式演示环境——使用原生分享界面分享文本、URL、标题和文件。包含文件分享、平台检测和备用策略。"],'h3_your_browser':["Your Browser", "您的浏览器"],'btn_share':["📤 Share", "📤 分享"],'btn_use_current_url':["Use Current URL", "使用当前 URL"],'btn_share_files':["📤 Share Files", "📤 分享文件"],'btn_generate_test_file':["Generate Test File", "生成测试文件"],'btn_article':["📰 Article", "📰 文章"],'btn_product':["🛍️ Product", "🛍️产品"],'btn_event':["🎫 Event", "🎫 活动"],'btn_code_snippet':["💻 Code Snippet", "💻 代码片段"],'btn_social_post':["📱 Social Post", "📱 社交媒体帖子"],'btn_contact_info':["📇 Contact Info", "📇 联系方式"],'btn_share_this':["📤 Share This", "📤 分享此内容"],'btn_test_fallback_cascade':["Test Fallback Cascade", "测试回退级联"],'btn_generate_manifest':["Generate Manifest", "生成清单"],'btn_clear':["Clear", "清除"],'placeholder_page_title':["Page title", "页面标题"],'placeholder_text_to_share':["Text to share", "分享文本"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_share':["/share", "/分享"],'placeholder_title':["title", "标题"],'placeholder_text':["text", "文本"],'placeholder_url':["url", "网址"],'placeholder_image':["image/*", "图像/*"],'strong_browser':["${browser}", "${browser}"],'strong_platform':["${platform}", "${platform}"],'strong_ismobile_yes_no':["${isMobile ? 'Yes' : 'No'}", "${isMobile ? &#39;是&#39; : &#39;否&#39;}"],'strong_hasshare_supported_not_s':["${hasShare ? 'Supported' : 'Not supported'}", "${hasShare ? &#39;支持&#39; : &#39;不支持&#39;}"],'strong_hascanshare_supported_no':["${hasCanShare ? 'Supported' : 'Not supported'}", "${hasCanShare ? &#39;支持&#39; : &#39;不支持&#39;}"],'label_title':["Title", "标题"],'label_text':["Text", "文本"],'label_url':["URL", "URL"],'label_generated_share_data':["Generated Share Data", "生成的共享数据"],'label_fallback_code_pattern':["Fallback Code Pattern", "回退代码模式"],'label_action_url':["Action URL", "操作 URL"],'label_method':["Method", "方法"],'label_enctype_for_post':["Enctype (for POST)", "加密类型（用于 POST）"],'label_title_param_name':["Title param name", "标题参数名称"],'label_text_param_name':["Text param name", "文本参数名称"],'label_url_param_name':["URL param name", "URL 参数名称"],'label_accept_file_types_comma_s':["Accept file types (comma-sep)", "接受文件类型（逗号分隔）"],'label_web_app_manifest_snippet':["Web App Manifest Snippet", "Web应用程序清单代码片段"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtc_step_1_native_share_succe':["Step 1: Native share succeeded!", "第一步：原生分享成功！"],'jtc_step_1_user_cancelled_nat':["Step 1: User cancelled native share. Falling through...", "步骤 1：用户取消了原生分享。失败……"],'jtc_step_2_copied_to_clipboar':["Step 2: Copied to clipboard!", "步骤 2：已复制到剪贴板！"],'jtc_step_4_showing_prompt_for':["Step 4: Showing prompt for manual copy.", "步骤 4：显示手动复制提示。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ── Feature Detection ── */
 const hasShare = !!navigator.share;
@@ -405,11 +417,11 @@ const isMobile = /Mobi|Android/i.test(ua);
 const platform = navigator.platform || 'Unknown';
 
 document.getElementById('browserInfo').innerHTML = `
-  <div>Browser: <strong>${browser}</strong></div>
-  <div>Platform: <strong>${platform}</strong></div>
-  <div>Mobile: <strong>${isMobile ? 'Yes' : 'No'}</strong></div>
-  <div>Share API: <strong style="color:${hasShare ? 'var(--accent2)' : 'var(--err)'}">${hasShare ? 'Supported' : 'Not supported'}</strong></div>
-  <div>File Share: <strong style="color:${hasCanShare ? 'var(--accent2)' : 'var(--err)'}">${hasCanShare ? 'Supported' : 'Not supported'}</strong></div>
+  <div>Browser: <strong ti="strong_browser">${browser}</strong></div>
+  <div>Platform: <strong ti="strong_platform">${platform}</strong></div>
+  <div>Mobile: <strong ti="strong_ismobile_yes_no">${isMobile ? 'Yes' : 'No'}</strong></div>
+  <div>Share API: <strong style="color:${hasShare ? 'var(--accent2)' : 'var(--err)'}" ti="strong_hasshare_supported_not_s">${hasShare ? 'Supported' : 'Not supported'}</strong></div>
+  <div>File Share: <strong style="color:${hasCanShare ? 'var(--accent2)' : 'var(--err)'}" ti="strong_hascanshare_supported_no">${hasCanShare ? 'Supported' : 'Not supported'}</strong></div>
 `;
 
 /* ── Logging ── */
@@ -648,13 +660,13 @@ async function testFallback() {
     try {
       await navigator.share(data);
       el.className = 'result-area ok';
-      el.textContent = 'Step 1: Native share succeeded!';
+      el.textContent=T("jtc_step_1_native_share_succe");
       addLog('Fallback step 1: native share succeeded', 'ok');
       return;
     } catch (e) {
       if (e.name === 'AbortError') {
         el.className = 'result-area';
-        el.textContent = 'Step 1: User cancelled native share. Falling through...';
+        el.textContent=T("jtc_step_1_user_cancelled_nat");
         addLog('Fallback step 1: cancelled, trying clipboard', 'warn');
       }
     }
@@ -668,7 +680,7 @@ async function testFallback() {
     try {
       await navigator.clipboard.writeText(text);
       el.className = 'result-area ok';
-      el.textContent = 'Step 2: Copied to clipboard!';
+      el.textContent=T("jtc_step_2_copied_to_clipboar");
       addLog('Fallback step 2: clipboard copy succeeded', 'ok');
       return;
     } catch (e) {
@@ -679,7 +691,7 @@ async function testFallback() {
   // Last resort
   prompt('Copy this link:', text);
   el.className = 'result-area';
-  el.textContent = 'Step 4: Showing prompt for manual copy.';
+  el.textContent=T("jtc_step_4_showing_prompt_for");
   addLog('Fallback step 4: manual prompt shown', 'warn');
 }
 
@@ -720,6 +732,24 @@ function generateManifest() {
 /* ── Init ── */
 updatePreview();
 fillCurrentUrl();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_to_base64_convert_i" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,9 +47,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image to Base64</h1>
-<p class="sub">Convert images to data URIs — nothing uploaded to any server</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_to_base64">Image to Base64</h1>
+<p class="sub" ti="subtitle_convert_images_to_data_ur">Convert images to data URIs — nothing uploaded to any server</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
 <p>Drop an image here or click to select</p>
@@ -60,17 +62,17 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="preview">
 <img id="previewImg" alt="Preview">
 <div class="meta">
-<div class="meta-row"><span class="label">File name</span><span class="value" id="metaName">-</span></div>
-<div class="meta-row"><span class="label">Type</span><span class="value" id="metaType">-</span></div>
-<div class="meta-row"><span class="label">Dimensions</span><span class="value" id="metaDim">-</span></div>
-<div class="meta-row"><span class="label">Original size</span><span class="value" id="metaOrig">-</span></div>
-<div class="meta-row"><span class="label">Base64 size</span><span class="value" id="metaB64">-</span></div>
-<div class="meta-row"><span class="label">Size increase</span><span class="value" id="metaInc">-</span></div>
+<div class="meta-row"><span class="label" ti="label_file_name">File name</span><span class="value" id="metaName">-</span></div>
+<div class="meta-row"><span class="label" ti="label_type">Type</span><span class="value" id="metaType">-</span></div>
+<div class="meta-row"><span class="label" ti="label_dimensions">Dimensions</span><span class="value" id="metaDim">-</span></div>
+<div class="meta-row"><span class="label" ti="label_original_size">Original size</span><span class="value" id="metaOrig">-</span></div>
+<div class="meta-row"><span class="label" ti="label_base64_size">Base64 size</span><span class="value" id="metaB64">-</span></div>
+<div class="meta-row"><span class="label" ti="label_size_increase">Size increase</span><span class="value" id="metaInc">-</span></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Output Format</h3>
+<h3 ti="h3_output_format">Output Format</h3>
 <div class="tabs" id="formatTabs">
 <div class="tab active" data-fmt="datauri">Data URI</div>
 <div class="tab" data-fmt="css">CSS</div>
@@ -80,21 +82,31 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 <div class="output-area" id="output"></div>
 <div style="margin-top:8px;text-align:right">
-<button class="btn btn-primary" onclick="copyOutput()">Copy</button>
+<button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy">Copy</button>
 </div>
 </div>
 
 <div class="actions">
-<button class="btn" onclick="resetAll()">New Image</button>
+<button class="btn" onclick="resetAll()" ti="btn_new_image">New Image</button>
 </div>
 <div class="info">All processing happens locally in your browser. Images are never sent to any server.</div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/base64/">Base64 Encoder</a> | <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/">Favicon Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/base64/" ti="link_base64_encoder">Base64 Encoder</a> | <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" ti="link_favicon_gen">Favicon Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_image_to_base64_convert_i':["Image to Base64 — Convert Images to Data URIs", "图片转 Base64 — 将图片转换为数据 URI"],'metadesc_convert_images_to_base64':["Convert images to Base64 data URIs. Get CSS background-image, HTML img tag, raw Base64. Preview and copy. No upload to server.", "将图片转换为 Base64 数据 URI。获取 CSS 背景图片、HTML img 标签和原始 Base64 编码。可预览和复制。无需上传到服务器。"],'h1_image_to_base64':["Image to Base64", "图像转换为 Base64"],'h3_output_format':["Output Format", "输出格式"],'subtitle_convert_images_to_data_ur':["Convert images to data URIs — nothing uploaded to any server", "将图像转换为数据 URI——不会上传任何内容到任何服务器"],'btn_copy':["Copy", "复制"],'btn_new_image':["New Image", "新形象"],'label_file_name':["File name", "文件名"],'label_type':["Type", "类型"],'label_dimensions':["Dimensions", "方面"],'label_original_size':["Original size", "原尺寸"],'label_base64_size':["Base64 size", "Base64 大小"],'label_size_increase':["Size increase", "尺寸增大"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_base64_encoder':["Base64 Encoder", "Base64编码器"],'link_image_resize':["Image Resize", "图片调整大小"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let dataUri='';
 let fileName='';
@@ -185,6 +197,24 @@ function resetAll(){
   fileInput.value='';
   dataUri='';rawB64='';
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

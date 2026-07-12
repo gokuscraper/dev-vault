@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_logical_properties_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,34 +62,36 @@ td code.physical{color:#ef5350}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>CSS Logical Properties Playground</h1>
+<h1 ti="title_css_logical_properties_pl" ti="h1_css_logical_properties_pl">CSS Logical Properties Playground</h1>
 <p>Explore inline/block dimensions: how logical properties map to physical ones across writing modes</p>
 </header>
 <div class="app">
 <div class="main">
 <div class="controls">
-<label>Writing Mode:</label>
+<label ti="label_writing_mode">Writing Mode:</label>
 <select id="writingMode" onchange="update()">
 <option value="horizontal-tb">horizontal-tb (default)</option>
 <option value="vertical-rl">vertical-rl (Japanese/Chinese)</option>
 <option value="vertical-lr">vertical-lr (Mongolian)</option>
 </select>
-<label>Direction:</label>
+<label ti="label_direction">Direction:</label>
 <select id="direction" onchange="update()">
 <option value="ltr">LTR (English, etc.)</option>
 <option value="rtl">RTL (Arabic, Hebrew)</option>
 </select>
 </div>
 <div class="demo-container">
-<h3>Live Preview</h3>
+<h3 ti="h3_live_preview">Live Preview</h3>
 <div class="demo-box" id="demoBox">
 <div class="inner-box" id="innerBox">
 Content
-<span class="dim-label inline-start" id="lIS">inline-start</span>
-<span class="dim-label inline-end" id="lIE">inline-end</span>
-<span class="dim-label block-start" id="lBS">block-start</span>
-<span class="dim-label block-end" id="lBE">block-end</span>
+<span class="dim-label inline-start" id="lIS" ti="label_inline_start">inline-start</span>
+<span class="dim-label inline-end" id="lIE" ti="label_inline_end">inline-end</span>
+<span class="dim-label block-start" id="lBS" ti="label_block_start">block-start</span>
+<span class="dim-label block-end" id="lBE" ti="label_block_end">block-end</span>
 </div>
 </div>
 <div class="axis-legend">
@@ -99,12 +101,12 @@ Content
 </div>
 <div class="property-grid" id="propGrid"></div>
 <div class="mapping-table">
-<h3>Logical → Physical Mapping</h3>
+<h3 ti="h3_logical_physical_mapping">Logical → Physical Mapping</h3>
 <div id="mappingRows"></div>
 </div>
 </div>
 <div class="sidebar">
-<h3>How It Works</h3>
+<h3 ti="h3_how_it_works">How It Works</h3>
 <div class="detail-box" id="details">
 <h4>Logical Properties</h4>
 <p>CSS logical properties use <b>inline</b> (text direction) and <b>block</b> (block layout direction) instead of physical directions (top/right/bottom/left). They automatically adapt to writing mode and text direction.</p>
@@ -112,7 +114,7 @@ Content
 <div class="detail-box">
 <h4>Axes</h4>
 <table>
-<tr><th>Mode</th><th>Inline</th><th>Block</th></tr>
+<tr><th ti="th_mode">Mode</th><th ti="th_inline">Inline</th><th ti="th_block">Block</th></tr>
 <tr><td>horizontal-tb LTR</td><td>← →</td><td>↑ ↓</td></tr>
 <tr><td>horizontal-tb RTL</td><td>→ ←</td><td>↑ ↓</td></tr>
 <tr><td>vertical-rl</td><td>↑ ↓</td><td>→ ←</td></tr>
@@ -122,7 +124,7 @@ Content
 <div class="detail-box">
 <h4>Property Mapping</h4>
 <table>
-<tr><th>Logical</th><th>Physical (h-tb, ltr)</th></tr>
+<tr><th ti="th_logical">Logical</th><th ti="th_physical_h_tb_ltr">Physical (h-tb, ltr)</th></tr>
 <tr><td><code class="logical">margin-inline-start</code></td><td><code class="physical">margin-left</code></td></tr>
 <tr><td><code class="logical">margin-inline-end</code></td><td><code class="physical">margin-right</code></td></tr>
 <tr><td><code class="logical">margin-block-start</code></td><td><code class="physical">margin-top</code></td></tr>
@@ -154,6 +156,16 @@ Content
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_logical_properties_pl':["CSS Logical Properties Playground", "CSS 逻辑属性练习场"],'metadesc_interactive_css_logical_p':["Interactive CSS Logical Properties playground: inline/block dimensions, margin-inline, padding-block, border-inline-start, inset, and writing-mode/direction switching", "交互式 CSS 逻辑属性示例：行内/块级尺寸、行内边距、块级内边距、行内边框起始位置、内边距以及书写模式/方向切换"],'h1_css_logical_properties_pl':["CSS Logical Properties Playground", "CSS 逻辑属性练习场"],'h3_live_preview':["Live Preview", "实时预览"],'h3_logical_physical_mapping':["Logical → Physical Mapping", "逻辑映射 → 物理映射"],'h3_how_it_works':["How It Works", "工作原理"],'label_inline_start':["inline-start", "内联开始"],'label_inline_end':["inline-end", "内联结束"],'label_block_start':["block-start", "启动"],'label_block_end':["block-end", "块端"],'th_mode':["Mode", "模式"],'th_inline':["Inline", "排队"],'th_block':["Block", "堵塞"],'th_logical':["Logical", "逻辑"],'th_physical_h_tb_ltr':["Physical (h-tb, ltr)", "物理（h-tb，ltr）"],'label_writing_mode':["Writing Mode:", "写作模式："],'label_direction':["Direction:", "方向："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const props=[
   {logical:'margin-inline-start',css:'marginInlineStart',unit:'px',min:0,max:40,val:16},
@@ -262,6 +274,24 @@ function update(){
 }
 
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

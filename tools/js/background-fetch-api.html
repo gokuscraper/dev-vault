@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_background_fetch_api_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -432,33 +432,37 @@ button.danger { background: var(--error); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Background Fetch API Playground</h1>
+  <h1 ti="title_background_fetch_api_play" ti="h1_background_fetch_api_play" ti="title_background_fetch_api_play" ti="h1_background_fetch_api_play">Background Fetch API Playground</h1>
   <p>Download large files in the background, even after the tab is closed</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <span class="support-icon" id="supportIcon">...</span>
     <div class="support-text">
-      <h3 id="supportTitle">Checking Background Fetch API support...</h3>
+      <h3 id="supportTitle" ti="h3_checking_background_fetch" ti="h3_checking_background_fetch">Checking Background Fetch API support...</h3>
       <p id="supportDesc">Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="registration">Registration Flow</button>
-    <button class="tab-btn" data-tab="simulation">Download Simulation</button>
-    <button class="tab-btn" data-tab="events">Event Handlers</button>
-    <button class="tab-btn" data-tab="usecases">Use Cases</button>
-    <button class="tab-btn" data-tab="compat">Browser Support</button>
+    <button class="tab-btn active" data-tab="registration" ti="btn_registration_flow" ti="btn_registration_flow">Registration Flow</button>
+    <button class="tab-btn" data-tab="simulation" ti="btn_download_simulation" ti="btn_download_simulation">Download Simulation</button>
+    <button class="tab-btn" data-tab="events" ti="btn_event_handlers" ti="btn_event_handlers">Event Handlers</button>
+    <button class="tab-btn" data-tab="usecases" ti="btn_use_cases" ti="btn_use_cases">Use Cases</button>
+    <button class="tab-btn" data-tab="compat" ti="btn_browser_support" ti="btn_browser_support">Browser Support</button>
   </div>
 
   <!-- Tab 1: Registration Flow -->
   <div class="tab-panel active" id="tab-registration">
     <div class="card">
-      <h2>Background Fetch Registration Flow</h2>
+      <h2 ti="h2_background_fetch_registra" ti="h2_background_fetch_registra">Background Fetch Registration Flow</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Background Fetch API requires a Service Worker registration. This flow visualizes
         the complete lifecycle from SW registration through fetch completion.
@@ -510,8 +514,8 @@ button.danger { background: var(--error); }
       </div>
 
       <div class="form-row">
-        <button id="simulateRegBtn">Simulate Registration Flow</button>
-        <button id="resetRegBtn" class="secondary">Reset</button>
+        <button id="simulateRegBtn" ti="btn_simulate_registration_flo" ti="btn_simulate_registration_flo">Simulate Registration Flow</button>
+        <button id="resetRegBtn" class="secondary" ti="btn_reset" ti="btn_reset">Reset</button>
       </div>
 
       <div class="code-block"><span class="cm">// Complete Background Fetch registration</span>
@@ -542,7 +546,7 @@ bgFetch.<span class="fn">addEventListener</span>(<span class="str">'progress'</s
   <!-- Tab 2: Download Simulation -->
   <div class="tab-panel" id="tab-simulation">
     <div class="card">
-      <h2>Download Simulation</h2>
+      <h2 ti="h2_download_simulation" ti="h2_download_simulation">Download Simulation</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Simulate background fetch downloads with configurable parameters. In a real implementation,
         the browser handles downloads even when the tab is closed.
@@ -554,30 +558,30 @@ bgFetch.<span class="fn">addEventListener</span>(<span class="str">'progress'</s
           <input type="text" id="fetchId" value="podcast-episode-42">
         </div>
         <div class="form-group">
-          <label>Title</label>
+          <label ti="label_title" ti="label_title">Title</label>
           <input type="text" id="fetchTitle" value="Downloading Episode 42...">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Number of Files</label>
+          <label ti="label_number_of_files" ti="label_number_of_files">Number of Files</label>
           <input type="number" id="fetchFileCount" value="3" min="1" max="10">
         </div>
         <div class="form-group">
-          <label>Total Size (MB)</label>
+          <label ti="label_total_size_mb" ti="label_total_size_mb">Total Size (MB)</label>
           <input type="number" id="fetchTotalSize" value="50" min="1" max="1000">
         </div>
         <div class="form-group">
-          <label>Speed (MB/s)</label>
+          <label ti="label_speed_mb_s" ti="label_speed_mb_s">Speed (MB/s)</label>
           <input type="number" id="fetchSpeed" value="2" min="0.1" max="100" step="0.1">
         </div>
       </div>
 
       <div class="form-row">
-        <button id="startFetchBtn">Start Download</button>
-        <button id="pauseFetchBtn" class="secondary" disabled>Pause</button>
-        <button id="abortFetchBtn" class="danger" disabled>Abort</button>
+        <button id="startFetchBtn" ti="btn_start_download" ti="btn_start_download">Start Download</button>
+        <button id="pauseFetchBtn" class="secondary" disabled ti="btn_pause" ti="btn_pause">Pause</button>
+        <button id="abortFetchBtn" class="danger" disabled ti="btn_abort" ti="btn_abort">Abort</button>
       </div>
 
       <div class="progress-bar"><div class="progress-fill" id="fetchProgress"></div></div>
@@ -609,7 +613,7 @@ bgFetch.<span class="fn">addEventListener</span>(<span class="str">'progress'</s
         </div>
       </div>
 
-      <h3>Active Fetches</h3>
+      <h3 ti="h3_active_fetches" ti="h3_active_fetches">Active Fetches</h3>
       <div class="fetch-list" id="fetchList">
         <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;">No active fetches. Start a download above.</p>
       </div>
@@ -621,20 +625,20 @@ bgFetch.<span class="fn">addEventListener</span>(<span class="str">'progress'</s
   <!-- Tab 3: Event Handlers -->
   <div class="tab-panel" id="tab-events">
     <div class="card">
-      <h2>Event Handlers & Service Worker Events</h2>
+      <h2 ti="h2_event_handlers_service_wo" ti="h2_event_handlers_service_wo">Event Handlers & Service Worker Events</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Background Fetch fires events in both the page context and the Service Worker.
         This demo visualizes the event timeline.
       </p>
 
       <div class="form-row">
-        <button id="simSuccessBtn">Simulate Success</button>
-        <button id="simFailBtn" class="secondary">Simulate Failure</button>
-        <button id="simAbortBtn" class="secondary">Simulate User Abort</button>
-        <button id="clearEventsBtn" class="secondary">Clear</button>
+        <button id="simSuccessBtn" ti="btn_simulate_success" ti="btn_simulate_success">Simulate Success</button>
+        <button id="simFailBtn" class="secondary" ti="btn_simulate_failure" ti="btn_simulate_failure">Simulate Failure</button>
+        <button id="simAbortBtn" class="secondary" ti="btn_simulate_user_abort" ti="btn_simulate_user_abort">Simulate User Abort</button>
+        <button id="clearEventsBtn" class="secondary" ti="btn_clear" ti="btn_clear">Clear</button>
       </div>
 
-      <h3>Event Timeline</h3>
+      <h3 ti="h3_event_timeline" ti="h3_event_timeline">Event Timeline</h3>
       <div class="timeline" id="eventTimeline">
         <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;padding:0.5rem 0;">
           Click a simulation button to see the event flow.
@@ -643,7 +647,7 @@ bgFetch.<span class="fn">addEventListener</span>(<span class="str">'progress'</s
     </div>
 
     <div class="card">
-      <h2>Service Worker Code</h2>
+      <h2 ti="h2_service_worker_code" ti="h2_service_worker_code">Service Worker Code</h2>
       <div class="code-block"><span class="cm">// sw.js - Service Worker event handlers</span>
 
 <span class="cm">// Fired when all requests complete successfully</span>
@@ -692,7 +696,7 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
   <!-- Tab 4: Use Cases -->
   <div class="tab-panel" id="tab-usecases">
     <div class="card">
-      <h2>Real-World Use Cases</h2>
+      <h2 ti="h2_real_world_use_cases" ti="h2_real_world_use_cases">Real-World Use Cases</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Background Fetch is designed for downloading large resources that may take a long time.
         Unlike regular <code>fetch()</code>, downloads persist even if the user navigates away or closes the tab.
@@ -702,32 +706,32 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
         <div class="usecase-card">
           <h4>Podcast Downloads</h4>
           <p>Download episodes for offline listening. Multiple files, resume on network recovery.</p>
-          <button onclick="simulateUseCase('podcast', this)">Simulate Podcast Download</button>
+          <button onclick="simulateUseCase('podcast', this)" ti="btn_simulate_podcast_download" ti="btn_simulate_podcast_download">Simulate Podcast Download</button>
         </div>
         <div class="usecase-card">
           <h4>Large File Transfer</h4>
           <p>Download datasets, ML models, or archive files that may take minutes to complete.</p>
-          <button onclick="simulateUseCase('large-file', this)">Simulate Large File</button>
+          <button onclick="simulateUseCase('large-file', this)" ti="btn_simulate_large_file" ti="btn_simulate_large_file">Simulate Large File</button>
         </div>
         <div class="usecase-card">
           <h4>Offline Map Tiles</h4>
           <p>Pre-download map regions for offline navigation. Hundreds of small tile images.</p>
-          <button onclick="simulateUseCase('map-tiles', this)">Simulate Map Tiles</button>
+          <button onclick="simulateUseCase('map-tiles', this)" ti="btn_simulate_map_tiles" ti="btn_simulate_map_tiles">Simulate Map Tiles</button>
         </div>
         <div class="usecase-card">
           <h4>Course Content</h4>
           <p>Download video lectures and materials for offline learning. Multi-file bundles.</p>
-          <button onclick="simulateUseCase('course', this)">Simulate Course Download</button>
+          <button onclick="simulateUseCase('course', this)" ti="btn_simulate_course_download" ti="btn_simulate_course_download">Simulate Course Download</button>
         </div>
         <div class="usecase-card">
           <h4>Game Assets</h4>
           <p>Download textures, audio, and level data for a web game. Large combined payload.</p>
-          <button onclick="simulateUseCase('game', this)">Simulate Game Assets</button>
+          <button onclick="simulateUseCase('game', this)" ti="btn_simulate_game_assets" ti="btn_simulate_game_assets">Simulate Game Assets</button>
         </div>
         <div class="usecase-card">
           <h4>Media Library Sync</h4>
           <p>Sync a music or photo library for offline access. Incremental downloads.</p>
-          <button onclick="simulateUseCase('media', this)">Simulate Media Sync</button>
+          <button onclick="simulateUseCase('media', this)" ti="btn_simulate_media_sync" ti="btn_simulate_media_sync">Simulate Media Sync</button>
         </div>
       </div>
 
@@ -738,7 +742,7 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
   <!-- Tab 5: Browser Support -->
   <div class="tab-panel" id="tab-compat">
     <div class="card">
-      <h2>Browser Support Detection</h2>
+      <h2 ti="h2_browser_support_detection" ti="h2_browser_support_detection">Browser Support Detection</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Background Fetch API has limited browser support. It is currently available in
         Chromium-based browsers behind the Service Worker registration.
@@ -763,10 +767,10 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
         </div>
       </div>
 
-      <h3>Browser Compatibility</h3>
+      <h3 ti="h3_browser_compatibility" ti="h3_browser_compatibility">Browser Compatibility</h3>
       <table class="compat-table">
         <thead>
-          <tr><th>Browser</th><th>Version</th><th>Support</th><th>Notes</th></tr>
+          <tr><th ti="th_browser" ti="th_browser">Browser</th><th ti="th_version" ti="th_version">Version</th><th ti="th_support" ti="th_support">Support</th><th ti="th_notes" ti="th_notes">Notes</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -807,7 +811,7 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
         </tbody>
       </table>
 
-      <h3>Key Limitations</h3>
+      <h3 ti="h3_key_limitations" ti="h3_key_limitations">Key Limitations</h3>
       <div style="margin:0.75rem 0;font-size:0.9rem;color:var(--text-dim);">
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
           <li>&#x26A0;&#xFE0F; Requires HTTPS (or localhost for development)</li>
@@ -822,6 +826,16 @@ self.<span class="fn">addEventListener</span>(<span class="str">'backgroundfetch
   </div>
 </div>
 
+
+<script>var _LANG={'title_background_fetch_api_play':["Background Fetch API Playground", "Background Fetch API 演练场"],'metadesc_interactive_playground_fo':["Interactive playground for the Background Fetch API - explore registration, progress tracking, and service worker integration.", "Background Fetch API 交互式演练场 — 探索注册、进度跟踪和 Service Worker 集成。"],'h1_background_fetch_api_play':["Background Fetch API Playground", "Background Fetch API 演练场"],'h2_background_fetch_registra':["Background Fetch Registration Flow", "Background Fetch 注册流程"],'h2_download_simulation':["Download Simulation", "下载模拟"],'h2_event_handlers_service_wo':["Event Handlers & Service Worker Events", "事件处理器与 Service Worker 事件"],'h2_service_worker_code':["Service Worker Code", "Service Worker 代码"],'h2_real_world_use_cases':["Real-World Use Cases", "实际使用场景"],'h2_browser_support_detection':["Browser Support Detection", "浏览器支持检测"],'h3_checking_background_fetch':["Checking Background Fetch API support...", "正在检查 Background Fetch API 支持..."],'h3_active_fetches':["Active Fetches", "活跃的 Fetch"],'h3_event_timeline':["Event Timeline", "事件时间线"],'h3_browser_compatibility':["Browser Compatibility", "浏览器兼容性"],'h3_key_limitations':["Key Limitations", "主要限制"],'btn_registration_flow':["Registration Flow", "注册流程"],'btn_download_simulation':["Download Simulation", "下载模拟"],'btn_event_handlers':["Event Handlers", "事件处理器"],'btn_use_cases':["Use Cases", "使用场景"],'btn_browser_support':["Browser Support", "浏览器支持"],'btn_simulate_registration_flo':["Simulate Registration Flow", "模拟注册流程"],'btn_reset':["Reset", "重置"],'btn_start_download':["Start Download", "开始下载"],'btn_pause':["Pause", "暂停"],'btn_abort':["Abort", "中止"],'btn_simulate_success':["Simulate Success", "模拟成功"],'btn_simulate_failure':["Simulate Failure", "模拟失败"],'btn_simulate_user_abort':["Simulate User Abort", "模拟用户中止"],'btn_clear':["Clear", "清空"],'btn_simulate_podcast_download':["Simulate Podcast Download", "模拟播客下载"],'btn_simulate_large_file':["Simulate Large File", "模拟大文件"],'btn_simulate_map_tiles':["Simulate Map Tiles", "模拟地图瓦片"],'btn_simulate_course_download':["Simulate Course Download", "模拟课程下载"],'btn_simulate_game_assets':["Simulate Game Assets", "模拟游戏资源"],'btn_simulate_media_sync':["Simulate Media Sync", "模拟媒体同步"],'label_fetch_id':["Fetch ID", "Fetch ID"],'label_files':["Files", "文件"],'label_downloaded':["Downloaded", "已下载"],'label_total':["Total", "总计"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_support':["Support", "支持"],'th_notes':["Notes", "备注"],'label_fetch_id_2':["Fetch ID", "Fetch ID"],'label_title':["Title", "标题"],'label_number_of_files':["Number of Files", "文件数"],'label_total_size_mb':["Total Size (MB)", "总大小（MB）"],'label_speed_mb_s':["Speed (MB/s)", "速度（MB/s）"],'jtc_u2705':["\\u2705", "\\u2705"],'jtc_background_fetch_api_is_s':["Background Fetch API is supported!", "Background Fetch API 受支持！"],'jtc_your_browser_supports_bac':["Your browser supports background downloads via Service Workers.", "您的浏览器支持通过 Service Worker 进行后台下载。"],'jtc_u274c':["\\u274C", "\\u274C"],'jtc_background_fetch_api_is_n':["Background Fetch API is not supported", "Background Fetch API 不受支持"],'jtc_aborted':["Aborted", "已中止"],'jtc_running':["Running...", "运行中..."],'jtc_simulate_again':["Simulate Again", "再次模拟"],'jtlword_downloading':["Downloading", "下载中"],'jtlword_files':["Files", "文件"],'jtlword_downloaded':["Downloaded", "已下载"],'jtlword_total':["Total", "总计"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab System ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -862,13 +876,13 @@ const hasCache = 'caches' in window;
 
   if (hasBGFetch) {
     banner.classList.add('supported');
-    icon.textContent = '\u2705';
-    title.textContent = 'Background Fetch API is supported!';
-    desc.textContent = 'Your browser supports background downloads via Service Workers.';
+    icon.textContent=T("jtc_u2705");
+    title.textContent=T("jtc_background_fetch_api_is_s");
+    desc.textContent=T("jtc_your_browser_supports_bac");
   } else {
     banner.classList.add('unsupported');
-    icon.textContent = '\u274C';
-    title.textContent = 'Background Fetch API is not supported';
+    icon.textContent=T("jtc_u274c");
+    title.textContent=T("jtc_background_fetch_api_is_n");
     desc.textContent = hasSW
       ? 'Service Worker is available but BackgroundFetchManager is not. Try Chrome 74+.'
       : 'Service Worker is not available. This API requires HTTPS and a modern Chromium browser.';
@@ -971,19 +985,19 @@ document.getElementById('startFetchBtn').addEventListener('click', () => {
     <div class="progress-bar"><div class="progress-fill" id="fetchItemProgress"></div></div>
     <div class="fetch-details">
       <div class="fetch-detail-item">
-        <span class="fetch-detail-label">Fetch ID</span>
+        <span class="fetch-detail-label" ti="label_fetch_id" ti="label_fetch_id_2" ti="label_fetch_id" ti="label_fetch_id_2">Fetch ID</span>
         <span class="fetch-detail-value">${id}</span>
       </div>
       <div class="fetch-detail-item">
-        <span class="fetch-detail-label">Files</span>
+        <span class="fetch-detail-label" ti="label_files" ti="label_files">Files</span>
         <span class="fetch-detail-value">${fileCount}</span>
       </div>
       <div class="fetch-detail-item">
-        <span class="fetch-detail-label">Downloaded</span>
+        <span class="fetch-detail-label" ti="label_downloaded" ti="label_downloaded">Downloaded</span>
         <span class="fetch-detail-value" id="fetchItemDL">0 MB</span>
       </div>
       <div class="fetch-detail-item">
-        <span class="fetch-detail-label">Total</span>
+        <span class="fetch-detail-label" ti="label_total" ti="label_total">Total</span>
         <span class="fetch-detail-value">${totalMB} MB</span>
       </div>
     </div>
@@ -1071,7 +1085,7 @@ document.getElementById('abortFetchBtn').addEventListener('click', () => {
 
   const badge = document.getElementById('fetchStatusBadge');
   badge.className = 'fetch-status aborted';
-  badge.textContent = 'Aborted';
+  badge.textContent=T("jtc_aborted");
 
   document.getElementById('pauseFetchBtn').disabled = true;
   document.getElementById('abortFetchBtn').disabled = true;
@@ -1158,7 +1172,7 @@ async function simulateUseCase(type, btn) {
   document.getElementById(logId).innerHTML = '';
 
   btn.disabled = true;
-  btn.textContent = 'Running...';
+  btn.textContent=T("jtc_running");
 
   log(logId, `Starting use case: ${config.title}`, 'info');
   log(logId, `${config.desc}: ${config.files} files, ${config.sizeMB} MB total`, 'info');
@@ -1177,8 +1191,48 @@ async function simulateUseCase(type, btn) {
 
   log(logId, `${config.title} download complete! ${config.files} files cached.`, 'success');
   btn.disabled = false;
-  btn.textContent = 'Simulate Again';
+  btn.textContent=T("jtc_simulate_again");
 }
+</script>
+<script>var _LANG={'title_background_fetch_api_play':["Background Fetch API Playground", "Background Fetch API 演练场"],'metadesc_interactive_playground_fo':["Interactive playground for the Background Fetch API - explore registration, progress tracking, and service worker integration.", "Background Fetch API 交互式演练场 — 探索注册、进度跟踪和 Service Worker 集成。"],'h1_background_fetch_api_play':["Background Fetch API Playground", "Background Fetch API 演练场"],'h2_background_fetch_registra':["Background Fetch Registration Flow", "Background Fetch 注册流程"],'h2_download_simulation':["Download Simulation", "下载模拟"],'h2_event_handlers_service_wo':["Event Handlers & Service Worker Events", "事件处理器与 Service Worker 事件"],'h2_service_worker_code':["Service Worker Code", "Service Worker 代码"],'h2_real_world_use_cases':["Real-World Use Cases", "实际使用场景"],'h2_browser_support_detection':["Browser Support Detection", "浏览器支持检测"],'h3_checking_background_fetch':["Checking Background Fetch API support...", "正在检查 Background Fetch API 支持..."],'h3_active_fetches':["Active Fetches", "活跃的 Fetch"],'h3_event_timeline':["Event Timeline", "事件时间线"],'h3_browser_compatibility':["Browser Compatibility", "浏览器兼容性"],'h3_key_limitations':["Key Limitations", "主要限制"],'btn_registration_flow':["Registration Flow", "注册流程"],'btn_download_simulation':["Download Simulation", "下载模拟"],'btn_event_handlers':["Event Handlers", "事件处理器"],'btn_use_cases':["Use Cases", "使用场景"],'btn_browser_support':["Browser Support", "浏览器支持"],'btn_simulate_registration_flo':["Simulate Registration Flow", "模拟注册流程"],'btn_reset':["Reset", "重置"],'btn_start_download':["Start Download", "开始下载"],'btn_pause':["Pause", "暂停"],'btn_abort':["Abort", "中止"],'btn_simulate_success':["Simulate Success", "模拟成功"],'btn_simulate_failure':["Simulate Failure", "模拟失败"],'btn_simulate_user_abort':["Simulate User Abort", "模拟用户中止"],'btn_clear':["Clear", "清空"],'btn_simulate_podcast_download':["Simulate Podcast Download", "模拟播客下载"],'btn_simulate_large_file':["Simulate Large File", "模拟大文件"],'btn_simulate_map_tiles':["Simulate Map Tiles", "模拟地图瓦片"],'btn_simulate_course_download':["Simulate Course Download", "模拟课程下载"],'btn_simulate_game_assets':["Simulate Game Assets", "模拟游戏资源"],'btn_simulate_media_sync':["Simulate Media Sync", "模拟媒体同步"],'label_fetch_id':["Fetch ID", "Fetch ID"],'label_files':["Files", "文件"],'label_downloaded':["Downloaded", "已下载"],'label_total':["Total", "总计"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_support':["Support", "支持"],'th_notes':["Notes", "备注"],'label_fetch_id_2':["Fetch ID", "Fetch ID"],'label_title':["Title", "标题"],'label_number_of_files':["Number of Files", "文件数"],'label_total_size_mb':["Total Size (MB)", "总大小（MB）"],'label_speed_mb_s':["Speed (MB/s)", "速度（MB/s）"],'jtc_u2705':["\\u2705", "\\u2705"],'jtc_background_fetch_api_is_s':["Background Fetch API is supported!", "Background Fetch API 受支持！"],'jtc_your_browser_supports_bac':["Your browser supports background downloads via Service Workers.", "您的浏览器支持通过 Service Worker 进行后台下载。"],'jtc_u274c':["\\u274C", "\\u274C"],'jtc_background_fetch_api_is_n':["Background Fetch API is not supported", "Background Fetch API 不受支持"],'jtc_aborted':["Aborted", "已中止"],'jtc_running':["Running...", "运行中..."],'jtc_simulate_again':["Simulate Again", "再次模拟"],'jtlword_downloading':["Downloading", "下载中"],'jtlword_files':["Files", "文件"],'jtlword_downloaded':["Downloaded", "已下载"],'jtlword_total':["Total", "总计"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

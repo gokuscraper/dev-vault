@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_qr_code_generator_create" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,28 +58,30 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>QR Code Generator</h1>
-<p class="subtitle">Generate QR codes for URLs, text, WiFi, and more.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_qr_code_generator">QR Code Generator</h1>
+<p class="subtitle" ti="subtitle_generate_qr_codes_for_url">Generate QR codes for URLs, text, WiFi, and more.</p>
 
 <div class="tabs">
-  <button class="tab active" onclick="setMode('text')">Text / URL</button>
-  <button class="tab" onclick="setMode('wifi')">WiFi</button>
-  <button class="tab" onclick="setMode('email')">Email</button>
-  <button class="tab" onclick="setMode('phone')">Phone</button>
-  <button class="tab" onclick="setMode('sms')">SMS</button>
+  <button class="tab active" onclick="setMode('text')" ti="btn_text_url">Text / URL</button>
+  <button class="tab" onclick="setMode('wifi')" ti="btn_wifi">WiFi</button>
+  <button class="tab" onclick="setMode('email')" ti="btn_email" ti="label_email">Email</button>
+  <button class="tab" onclick="setMode('phone')" ti="btn_phone" ti="label_phone" ti="label_phone_2">Phone</button>
+  <button class="tab" onclick="setMode('sms')" ti="btn_sms">SMS</button>
 </div>
 
 <div class="input-section" id="inputSection"></div>
 
 <div class="customize">
-  <h3>Customize</h3>
+  <h3 ti="h3_customize">Customize</h3>
   <div class="row">
-    <label>FG Color</label>
+    <label ti="label_fg_color">FG Color</label>
     <input type="color" id="fgColor" value="#000000" oninput="generate()">
-    <label>BG Color</label>
+    <label ti="label_bg_color">BG Color</label>
     <input type="color" id="bgColor" value="#ffffff" oninput="generate()">
-    <label>Size</label>
+    <label ti="label_size">Size</label>
     <select id="qrSize" onchange="generate()">
       <option value="200">200px</option>
       <option value="300" selected>300px</option>
@@ -94,17 +96,27 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="downloadPng()">Download PNG</button>
-  <button class="btn" onclick="copyImage()">Copy Image</button>
+  <button class="btn primary" onclick="downloadPng()" ti="btn_download_png">Download PNG</button>
+  <button class="btn" onclick="copyImage()" ti="btn_copy_image">Copy Image</button>
 </div>
 
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/qr-code">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/qr-code" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_qr_code_generator_create':["QR Code Generator — Create QR Codes Instantly", "二维码生成器 — 立即创建二维码"],'metadesc_generate_qr_codes_for_url':["Generate QR codes for URLs, text, WiFi, email, phone. Customize colors, download PNG/SVG. Free.", "生成网址、文本、WiFi、电子邮件、电话号码的二维码。自定义颜色，下载PNG/SVG格式文件。免费。"],'h1_qr_code_generator':["QR Code Generator", "二维码生成器"],'h3_customize':["Customize", "定制"],'subtitle_generate_qr_codes_for_url':["Generate QR codes for URLs, text, WiFi, and more.", "生成网址、文本、WiFi 等的二维码。"],'btn_text_url':["Text / URL", "文本/网址"],'btn_wifi':["WiFi", "无线上网"],'btn_email':["Email", "电子邮件"],'btn_phone':["Phone", "电话"],'btn_sms':["SMS", "短信"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_image':["Copy Image", "复制图像"],'placeholder_enter_text_or_url':["Enter text or URL...", "输入文本或网址..."],'placeholder_network_name':["Network name", "网络名称"],'placeholder_password':["Password", "密码"],'placeholder_user_example_com':["user@example.com", "user@example.com"],'placeholder_subject':["Subject", "主题"],'placeholder_message':["Message", "信息"],'placeholder_1234567890':["+1234567890", "+1234567890"],'placeholder_1234567890_2':["+1234567890", "+1234567890"],'placeholder_hello':["Hello!", "你好！"],'strong_related_tools':["Related Tools", "相关工具"],'label_fg_color':["FG Color", "FG 颜色"],'label_bg_color':["BG Color", "背景颜色"],'label_size':["Size", "尺寸"],'label_ssid':["SSID", "SSID"],'label_password':["Password", "密码"],'label_security':["Security", "安全"],'label_email':["Email", "电子邮件"],'label_subject':["Subject", "主题"],'label_body':["Body", "身体"],'label_phone':["Phone", "电话"],'label_phone_2':["Phone", "电话"],'label_message':["Message", "信息"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_qr_copied':["QR Copied!", "二维码已复制！"],'jtlword_ssid':["SSID", "SSID"],'jtlword_password':["Password", "密码"],'jtlword_security':["Security", "安全"],'jtlword_wep':["WEP", "WEP"],'jtlword_none':["None", "没有任何"],'jtlword_email':["Email", "电子邮件"],'jtlword_subject':["Subject", "主题"],'jtlword_body':["Body", "身体"],'jtlword_phone':["Phone", "电话"],'jtlword_phone_2':["Phone", "电话"],'jtlword_message':["Message", "信息"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Minimal QR Code generator (alphanumeric + byte mode, ECC L)
 // Based on simplified QR algorithm for web use
@@ -121,27 +133,27 @@ function renderInput(){
   const sec=document.getElementById('inputSection');
   switch(currentMode){
     case'text':
-      sec.innerHTML=`<textarea id="qrData" placeholder="Enter text or URL..." oninput="generate()">https://github.com</textarea>`;
+      sec.innerHTML=`<textarea id="qrData" tp="placeholder_enter_text_or_url" placeholder="Enter text or URL..." oninput="generate()">https://github.com</textarea>`;
       break;
     case'wifi':
       sec.innerHTML=`
-        <div class="row"><label>SSID</label><input type="text" id="wifiSsid" placeholder="Network name" oninput="generate()"></div>
-        <div class="row"><label>Password</label><input type="password" id="wifiPass" placeholder="Password" oninput="generate()"></div>
-        <div class="row"><label>Security</label><select id="wifiSec" onchange="generate()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div>`;
+        <div class="row"><label ti="label_ssid">SSID</label><input type="text" id="wifiSsid" tp="placeholder_network_name" placeholder="Network name" oninput="generate()"></div>
+        <div class="row"><label ti="label_password">Password</label><input type="password" id="wifiPass" tp="placeholder_password" placeholder="Password" oninput="generate()"></div>
+        <div class="row"><label ti="label_security">Security</label><select id="wifiSec" onchange="generate()"><option value="WPA">WPA/WPA2</option><option value="WEP">WEP</option><option value="nopass">None</option></select></div>`;
       break;
     case'email':
       sec.innerHTML=`
-        <div class="row"><label>Email</label><input type="text" id="emailTo" placeholder="user@example.com" oninput="generate()"></div>
-        <div class="row"><label>Subject</label><input type="text" id="emailSubj" placeholder="Subject" oninput="generate()"></div>
-        <div class="row"><label>Body</label><input type="text" id="emailBody" placeholder="Message" oninput="generate()"></div>`;
+        <div class="row"><label>Email</label><input type="text" id="emailTo" tp="placeholder_user_example_com" placeholder="user@example.com" oninput="generate()"></div>
+        <div class="row"><label ti="label_subject">Subject</label><input type="text" id="emailSubj" tp="placeholder_subject" placeholder="Subject" oninput="generate()"></div>
+        <div class="row"><label ti="label_body">Body</label><input type="text" id="emailBody" tp="placeholder_message" placeholder="Message" oninput="generate()"></div>`;
       break;
     case'phone':
-      sec.innerHTML=`<div class="row"><label>Phone</label><input type="text" id="phone" placeholder="+1234567890" oninput="generate()"></div>`;
+      sec.innerHTML=`<div class="row"><label>Phone</label><input type="text" id="phone" tp="placeholder_1234567890" tp="placeholder_1234567890_2" placeholder="+1234567890" oninput="generate()"></div>`;
       break;
     case'sms':
       sec.innerHTML=`
         <div class="row"><label>Phone</label><input type="text" id="smsPhone" placeholder="+1234567890" oninput="generate()"></div>
-        <div class="row"><label>Message</label><input type="text" id="smsMsg" placeholder="Hello!" oninput="generate()"></div>`;
+        <div class="row"><label ti="label_message">Message</label><input type="text" id="smsMsg" tp="placeholder_hello" placeholder="Hello!" oninput="generate()"></div>`;
       break;
   }
   generate();
@@ -234,7 +246,7 @@ function copyImage(){
   canvas.toBlob(blob=>{
     navigator.clipboard.write([new ClipboardItem({'image/png':blob})]);
     const el=document.createElement('div');
-    el.className='copied';el.textContent='QR Copied!';
+    el.className='copied';el.textContent=T("jtc_qr_copied");
     document.body.appendChild(el);
     setTimeout(()=>el.remove(),1600);
   });
@@ -243,12 +255,30 @@ function copyImage(){
 renderInput();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Favicon Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/url-parser/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Url Parser</a>
 <a href="https://gokuscraper.github.io/dev-vault/data-uri/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Data Uri</a>
 <a href="https://gokuscraper.github.io/dev-vault/meta-tags/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Meta Tags</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

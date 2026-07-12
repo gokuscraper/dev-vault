@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_property_descriptors_p" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -535,6 +535,8 @@ pre.code-output .bool { color: #ff5370; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <div>
@@ -553,13 +555,13 @@ pre.code-output .bool { color: #ff5370; }
     <div class="section">
       <div class="section-title">Properties</div>
       <div class="prop-editor" id="propEditor"></div>
-      <button class="add-prop-btn" id="addPropBtn" style="margin-top:8px">+ Add Property</button>
+      <button class="add-prop-btn" id="addPropBtn" style="margin-top:8px" ti="btn_add_property">+ Add Property</button>
     </div>
 
     <div class="section">
       <div class="section-title">Reference: Descriptor Attributes</div>
       <table class="ref-table">
-        <tr><th>Attribute</th><th>Default (=)</th><th>Default (define)</th></tr>
+        <tr><th ti="th_attribute">Attribute</th><th ti="th_default">Default (=)</th><th ti="th_default_define">Default (define)</th></tr>
         <tr><td><code>value</code></td><td>the value</td><td>undefined</td></tr>
         <tr><td><code>writable</code></td><td>true</td><td>false</td></tr>
         <tr><td><code>enumerable</code></td><td>true</td><td>false</td></tr>
@@ -573,7 +575,7 @@ pre.code-output .bool { color: #ff5370; }
     <div class="section">
       <div class="section-title">Reference: Object Locking</div>
       <table class="ref-table">
-        <tr><th>Method</th><th>Add</th><th>Del</th><th>Write</th><th>Config</th></tr>
+        <tr><th ti="th_method">Method</th><th ti="th_add">Add</th><th ti="th_del">Del</th><th ti="th_write">Write</th><th ti="th_config">Config</th></tr>
         <tr><td><code>preventExtensions</code></td><td style="color:var(--red)">No</td><td style="color:var(--green)">Yes</td><td style="color:var(--green)">Yes</td><td style="color:var(--green)">Yes</td></tr>
         <tr><td><code>seal</code></td><td style="color:var(--red)">No</td><td style="color:var(--red)">No</td><td style="color:var(--green)">Yes</td><td style="color:var(--red)">No</td></tr>
         <tr><td><code>freeze</code></td><td style="color:var(--red)">No</td><td style="color:var(--red)">No</td><td style="color:var(--red)">No</td><td style="color:var(--red)">No</td></tr>
@@ -601,7 +603,7 @@ pre.code-output .bool { color: #ff5370; }
       <div class="card">
         <div class="card-header">
           <span>Generated Code</span>
-          <button class="copy-btn" id="copyBtn">Copy</button>
+          <button class="copy-btn" id="copyBtn" ti="btn_copy">Copy</button>
         </div>
         <div class="card-body">
           <pre class="code-output" id="codeOutput"></pre>
@@ -612,9 +614,19 @@ pre.code-output .bool { color: #ff5370; }
 </div>
 
 <div class="footer">
-  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">Dev Vault</a> — 200+ free browser-based developer tools
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener" ti="footer_dev_vault">Dev Vault</a> — 200+ free browser-based developer tools
 </div>
 
+
+<script>var _LANG={'title_js_property_descriptors_p':["JS Property Descriptors Playground — Dev Vault", "JS 属性描述符练习场 — 开发者宝库"],'metadesc_interactive_playground_fo':["Interactive playground for JavaScript property descriptors. Toggle writable, enumerable, configurable flags. Explore Object.freeze, seal, defineProperty, accessor descriptors with live behavior tests.", "用于 JavaScript 属性描述符的交互式演示环境。可切换可写、可枚举和可配置标志。通过实时行为测试探索 Object.freeze、seal、defineProperty 和访问器描述符。"],'btn_add_property':["+ Add Property", "+ 添加属性"],'btn_copy':["Copy", "复制"],'btn_togglelabel':["${toggleLabel}", "${toggleLabel}"],'label_get':["get", "得到"],'label_set':["set", "放"],'label_value':["value", "价值"],'placeholder_return':["return ...", "返回 ..."],'placeholder_this_x_v':["this.x = v", "this.x = v"],'th_attribute':["Attribute", "属性"],'th_default':["Default (=)", "默认值（=）"],'th_default_define':["Default (define)", "默认值（定义）"],'th_method':["Method", "方法"],'th_add':["Add", "添加"],'th_del':["Del", "德尔"],'th_write':["Write", "写"],'th_config':["Config", "配置"],'footer_js_property_descriptors_p':["JS Property Descriptors Playground — Dev Vault", "JS 属性描述符练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   'use strict';
@@ -779,17 +791,17 @@ pre.code-output .bool { color: #ff5370; }
       if (isAccessor) {
         html += `
         <div class="prop-value-row">
-          <span class="prop-value-label" style="width:30px">get</span>
-          <input class="prop-value-input accessor-input" data-idx="${i}" data-field="getCode" value="${escAttr(prop.getCode || '')}" placeholder="return ...">
+          <span class="prop-value-label" style="width:30px" ti="label_get">get</span>
+          <input class="prop-value-input accessor-input" data-idx="${i}" data-field="getCode" value="${escAttr(prop.getCode || '')}" tp="placeholder_return" placeholder="return ...">
         </div>
         <div class="prop-value-row">
-          <span class="prop-value-label" style="width:30px">set</span>
-          <input class="prop-value-input accessor-input" data-idx="${i}" data-field="setCode" value="${escAttr(prop.setCode || '')}" placeholder="this.x = v">
+          <span class="prop-value-label" style="width:30px" ti="label_set">set</span>
+          <input class="prop-value-input accessor-input" data-idx="${i}" data-field="setCode" value="${escAttr(prop.setCode || '')}" tp="placeholder_this_x_v" placeholder="this.x = v">
         </div>`;
       } else {
         html += `
         <div class="prop-value-row">
-          <span class="prop-value-label">value</span>
+          <span class="prop-value-label" ti="label_value">value</span>
           <input class="prop-value-input value-input" data-idx="${i}" value="${escAttr(prop.value)}">
         </div>`;
       }
@@ -803,7 +815,7 @@ pre.code-output .bool { color: #ff5370; }
 
       // Toggle between data/accessor
       const toggleLabel = isAccessor ? 'Data' : 'Accessor';
-      html += `<button class="flag-toggle on" data-idx="${i}" data-action="toggleType" style="background:var(--purple-dim);color:var(--purple);border-color:rgba(168,85,247,0.3)">${toggleLabel}</button>`;
+      html += `<button class="flag-toggle on" data-idx="${i}" data-action="toggleType" style="background:var(--purple-dim);color:var(--purple);border-color:rgba(168,85,247,0.3)" ti="btn_togglelabel">${toggleLabel}</button>`;
 
       html += `</div>`;
       card.innerHTML = html;
@@ -1166,10 +1178,10 @@ pre.code-output .bool { color: #ff5370; }
   els.copyBtn.addEventListener('click', () => {
     const code = els.codeOutput.textContent;
     navigator.clipboard.writeText(code).then(() => {
-      els.copyBtn.textContent = 'Copied!';
+      els.copyBtn.textContent=T("jtc_copied");
       els.copyBtn.classList.add('copied');
       setTimeout(() => {
-        els.copyBtn.textContent = 'Copy';
+        els.copyBtn.textContent=T("jtc_copy");
         els.copyBtn.classList.remove('copied');
       }, 2000);
     });
@@ -1179,6 +1191,24 @@ pre.code-output .bool { color: #ff5370; }
   state.activePreset = 0;
   state.properties = JSON.parse(JSON.stringify(PRESETS[0].properties));
   renderAll();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

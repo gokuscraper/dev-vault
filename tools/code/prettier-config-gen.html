@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_prettier_config_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,66 +49,68 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Prettier Config Generator</h1>
-<p class="sub">Build Prettier formatting config with live preview</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_prettier_config_generator">Prettier Config Generator</h1>
+<p class="sub" ti="subtitle_build_prettier_formatting">Build Prettier formatting config with live preview</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="grid">
 <div>
 <div class="section">
-<h3>Core Options</h3>
+<h3 ti="h3_core_options">Core Options</h3>
 <div class="row">
-<div class="col"><label>Print Width</label><input type="number" id="oPrintWidth" value="80" min="40" max="200" oninput="gen()"></div>
-<div class="col"><label>Tab Width</label><input type="number" id="oTabWidth" value="2" min="1" max="8" oninput="gen()"></div>
+<div class="col"><label ti="label_print_width">Print Width</label><input type="number" id="oPrintWidth" value="80" min="40" max="200" oninput="gen()"></div>
+<div class="col"><label ti="label_tab_width">Tab Width</label><input type="number" id="oTabWidth" value="2" min="1" max="8" oninput="gen()"></div>
 </div>
-<div class="check-row"><input type="checkbox" id="oUseTabs" onchange="gen()"><label for="oUseTabs">Use tabs instead of spaces</label></div>
-<div class="check-row"><input type="checkbox" id="oSemi" checked onchange="gen()"><label for="oSemi">Semicolons</label></div>
-<div class="check-row"><input type="checkbox" id="oSingleQuote" onchange="gen()"><label for="oSingleQuote">Single quotes</label></div>
-<div class="check-row"><input type="checkbox" id="oBracketSpacing" checked onchange="gen()"><label for="oBracketSpacing">Bracket spacing { foo }</label></div>
-<div class="check-row"><input type="checkbox" id="oBracketSameLine" onchange="gen()"><label for="oBracketSameLine">Bracket same line (JSX)</label></div>
-<div class="check-row"><input type="checkbox" id="oSingleAttrPerLine" onchange="gen()"><label for="oSingleAttrPerLine">Single attribute per line</label></div>
+<div class="check-row"><input type="checkbox" id="oUseTabs" onchange="gen()"><label for="oUseTabs" ti="label_use_tabs_instead_of_space">Use tabs instead of spaces</label></div>
+<div class="check-row"><input type="checkbox" id="oSemi" checked onchange="gen()"><label for="oSemi" ti="label_semicolons">Semicolons</label></div>
+<div class="check-row"><input type="checkbox" id="oSingleQuote" onchange="gen()"><label for="oSingleQuote" ti="label_single_quotes">Single quotes</label></div>
+<div class="check-row"><input type="checkbox" id="oBracketSpacing" checked onchange="gen()"><label for="oBracketSpacing" ti="label_bracket_spacing_foo">Bracket spacing { foo }</label></div>
+<div class="check-row"><input type="checkbox" id="oBracketSameLine" onchange="gen()"><label for="oBracketSameLine" ti="label_bracket_same_line_jsx">Bracket same line (JSX)</label></div>
+<div class="check-row"><input type="checkbox" id="oSingleAttrPerLine" onchange="gen()"><label for="oSingleAttrPerLine" ti="label_single_attribute_per_line">Single attribute per line</label></div>
 </div>
 
 <div class="section">
-<h3>Advanced</h3>
+<h3 ti="h3_advanced">Advanced</h3>
 <div class="row">
-<div class="col"><label>Trailing Commas</label>
+<div class="col"><label ti="label_trailing_commas">Trailing Commas</label>
 <select id="oTrailingComma" onchange="gen()">
 <option selected>all</option><option>es5</option><option>none</option>
 </select></div>
-<div class="col"><label>Arrow Parens</label>
+<div class="col"><label ti="label_arrow_parens">Arrow Parens</label>
 <select id="oArrowParens" onchange="gen()">
 <option selected>always</option><option>avoid</option>
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>Quote Props</label>
+<div class="col"><label ti="label_quote_props">Quote Props</label>
 <select id="oQuoteProps" onchange="gen()">
 <option selected>as-needed</option><option>consistent</option><option>preserve</option>
 </select></div>
-<div class="col"><label>JSX Quotes</label>
+<div class="col"><label ti="label_jsx_quotes">JSX Quotes</label>
 <select id="oJsxSingleQuote" onchange="gen()">
 <option value="false" selected>Double</option><option value="true">Single</option>
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>Prose Wrap</label>
+<div class="col"><label ti="label_prose_wrap">Prose Wrap</label>
 <select id="oProseWrap" onchange="gen()">
 <option selected>preserve</option><option>always</option><option>never</option>
 </select></div>
-<div class="col"><label>HTML Whitespace</label>
+<div class="col"><label ti="label_html_whitespace">HTML Whitespace</label>
 <select id="oHtmlWhitespaceSensitivity" onchange="gen()">
 <option selected>css</option><option>strict</option><option>ignore</option>
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>End of Line</label>
+<div class="col"><label ti="label_end_of_line">End of Line</label>
 <select id="oEndOfLine" onchange="gen()">
 <option selected>lf</option><option>crlf</option><option>cr</option><option>auto</option>
 </select></div>
-<div class="col"><label>Embedded Language</label>
+<div class="col"><label ti="label_embedded_language">Embedded Language</label>
 <select id="oEmbeddedLanguageFormatting" onchange="gen()">
 <option selected>auto</option><option>off</option>
 </select></div>
@@ -118,19 +120,19 @@ input:focus,select:focus{border-color:#3b82f6}
 
 <div>
 <div class="section">
-<h3>Live Preview</h3>
+<h3 ti="h3_live_preview">Live Preview</h3>
 <div class="preview"><pre id="preview"></pre></div>
 </div>
 
 <div class="section">
-<h3>Config Output</h3>
+<h3 ti="h3_config_output">Config Output</h3>
 <div class="tabs">
 <div class="tab active" onclick="setFmt('json')">JSON</div>
 <div class="tab" onclick="setFmt('yaml')">YAML</div>
 <div class="tab" onclick="setFmt('js')">JS</div>
 </div>
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 <p class="hint">Save as .prettierrc (JSON), .prettierrc.yml (YAML), or prettier.config.js (JS)</p>
@@ -138,11 +140,21 @@ input:focus,select:focus{border-color:#3b82f6}
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/eslint-config-gen/">ESLint Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/tsconfig-gen/">tsconfig Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/">package.json Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/eslint-config-gen/" ti="link_eslint_config_gen">ESLint Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/tsconfig-gen/" ti="link_tsconfig_gen">tsconfig Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/" ti="link_package_json_gen">package.json Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_prettier_config_generator':["Prettier Config Generator — Build .prettierrc Visually", "Prettier 配置生成器 — 可视化构建 .prettierrc 文件"],'metadesc_generate_prettier_config':["Generate Prettier config visually. All formatting options with live preview. JSON, YAML, JS output. No signup.", "以可视化方式生成 Prettier 配置。所有格式选项均可实时预览。支持 JSON、YAML 和 JS 输出。无需注册。"],'h1_prettier_config_generator':["Prettier Config Generator", "Prettier 配置生成器"],'h3_core_options':["Core Options", "核心期权"],'h3_advanced':["Advanced", "先进的"],'h3_live_preview':["Live Preview", "实时预览"],'h3_config_output':["Config Output", "配置输出"],'subtitle_build_prettier_formatting':["Build Prettier formatting config with live preview", "使用实时预览构建 Prettier 格式化配置"],'btn_copy':["Copy", "复制"],'label_print_width':["Print Width", "打印宽度"],'label_tab_width':["Tab Width", "标签页宽度"],'label_use_tabs_instead_of_space':["Use tabs instead of spaces", "请使用制表符代替空格"],'label_semicolons':["Semicolons", "分号"],'label_single_quotes':["Single quotes", "单引号"],'label_bracket_spacing_foo':["Bracket spacing { foo }", "括号间距 { foo }"],'label_bracket_same_line_jsx':["Bracket same line (JSX)", "同行括号 (JSX)"],'label_single_attribute_per_line':["Single attribute per line", "每行一个属性"],'label_trailing_commas':["Trailing Commas", "尾随逗号"],'label_arrow_parens':["Arrow Parens", "箭头括号"],'label_quote_props':["Quote Props", "引用道具"],'label_jsx_quotes':["JSX Quotes", "JSX 引用"],'label_prose_wrap':["Prose Wrap", "散文包装"],'label_html_whitespace':["HTML Whitespace", "HTML空白字符"],'label_end_of_line':["End of Line", "行尾"],'label_embedded_language':["Embedded Language", "嵌入式语言"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_eslint_config_gen':["ESLint Config Gen", "ESLint 配置生成器"],'link_tsconfig_gen':["tsconfig Gen", "tsconfig Gen"],'link_package_json_gen':["package.json Gen", "package.json 生成"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = {
   'Default': {printWidth:80,tabWidth:2,useTabs:false,semi:true,singleQuote:false,bracketSpacing:true,bracketSameLine:false,trailingComma:'all',arrowParens:'always',quoteProps:'as-needed',jsxSingleQuote:false,proseWrap:'preserve',htmlWS:'css',endOfLine:'lf',embeddedLang:'auto',singleAttrPerLine:false},
@@ -258,6 +270,24 @@ function copyOut(){
 
 initPresets();
 loadPreset('Default');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

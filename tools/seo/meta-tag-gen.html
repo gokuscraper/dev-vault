@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html tk="title_meta_tag_generator_seo_so" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Meta Tag Generator — SEO &amp; Social Media Meta Tags</title>
+<title>Meta Tag Generator 鈥?SEO &amp; Social Media Meta Tags</title>
 <meta name="description" content="Generate HTML meta tags for SEO, Open Graph, Twitter Cards. Preview how your page looks on Google, Facebook, Twitter. Copy ready-to-use HTML.">
 <link rel="canonical" href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/">
 <script type="application/ld+json">
@@ -49,43 +49,47 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Meta Tag Generator</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_meta_tag_generator" ti="h1_meta_tag_generator">Meta Tag Generator</h1>
 <p class="sub">Generate SEO &amp; social meta tags with live preview</p>
 
 <div class="layout">
 <div>
 <div class="section">
-<h3>Basic SEO</h3>
-<div class="field"><label>Page Title</label><input id="title" value="My Page Title" oninput="gen()" maxlength="70"><div class="char-count"><span id="titleCount">14</span>/60 recommended</div></div>
-<div class="field"><label>Description</label><textarea id="desc" oninput="gen()" maxlength="200">A brief description of your page content for search engines and social sharing.</textarea><div class="char-count"><span id="descCount">79</span>/160 recommended</div></div>
-<div class="field"><label>URL</label><input id="url" value="https://example.com/page" oninput="gen()"></div>
-<div class="field"><label>Canonical URL (if different)</label><input id="canonical" value="" oninput="gen()"></div>
+<h3 ti="h3_basic_seo" ti="h3_basic_seo">Basic SEO</h3>
+<div class="field"><label ti="label_page_title" ti="label_page_title">Page Title</label><input id="title" value="My Page Title" oninput="gen()" maxlength="70"><div class="char-count"><span id="titleCount">14</span>/60 recommended</div></div>
+<div class="field"><label ti="label_description" ti="label_description">Description</label><textarea id="desc" oninput="gen()" maxlength="200">A brief description of your page content for search engines and social sharing.</textarea><div class="char-count"><span id="descCount">79</span>/160 recommended</div></div>
+<div class="field"><label ti="label_url" ti="label_url">URL</label><input id="url" value="https://example.com/page" oninput="gen()"></div>
+<div class="field"><label ti="label_canonical_url_if_differen" ti="label_canonical_url_if_differen">Canonical URL (if different)</label><input id="canonical" value="" oninput="gen()"></div>
 <div class="field-row">
-<div class="field"><label>Robots</label><select id="robots" onchange="gen()"><option value="index, follow">Index, Follow</option><option value="noindex, follow">NoIndex, Follow</option><option value="index, nofollow">Index, NoFollow</option><option value="noindex, nofollow">NoIndex, NoFollow</option></select></div>
-<div class="field"><label>Language</label><input id="lang" value="en" oninput="gen()"></div>
+<div class="field"><label ti="label_robots" ti="label_robots">Robots</label><select id="robots" onchange="gen()"><option value="index, follow">Index, Follow</option><option value="noindex, follow">NoIndex, Follow</option><option value="index, nofollow">Index, NoFollow</option><option value="noindex, nofollow">NoIndex, NoFollow</option></select></div>
+<div class="field"><label ti="label_language" ti="label_language">Language</label><input id="lang" value="en" oninput="gen()"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Open Graph (Facebook, LinkedIn)</h3>
-<div class="field"><label>OG Title (leave empty to use page title)</label><input id="ogTitle" oninput="gen()"></div>
-<div class="field"><label>OG Description</label><input id="ogDesc" oninput="gen()"></div>
-<div class="field"><label>OG Image URL</label><input id="ogImage" placeholder="https://example.com/image.png (1200×630 recommended)" oninput="gen()"></div>
-<div class="field"><label>OG Type</label><select id="ogType" onchange="gen()"><option value="website">Website</option><option value="article">Article</option><option value="product">Product</option></select></div>
-<div class="field"><label>Site Name</label><input id="siteName" value="" oninput="gen()"></div>
+<h3 ti="h3_open_graph_facebook_linke" ti="h3_open_graph_facebook_linke">Open Graph (Facebook, LinkedIn)</h3>
+<div class="field"><label ti="label_og_title_leave_empty_to_u" ti="label_og_title_leave_empty_to_u">OG Title (leave empty to use page title)</label><input id="ogTitle" oninput="gen()"></div>
+<div class="field"><label ti="label_og_description" ti="label_og_description">OG Description</label><input id="ogDesc" oninput="gen()"></div>
+<div class="field"><label ti="label_og_image_url" ti="label_og_image_url">OG Image URL</label><input id="ogImage" placeholder="https://example.com/image.png (1200脳630 recommended)" oninput="gen()"></div>
+<div class="field"><label ti="label_og_type" ti="label_og_type">OG Type</label><select id="ogType" onchange="gen()"><option value="website">Website</option><option value="article">Article</option><option value="product">Product</option></select></div>
+<div class="field"><label ti="label_site_name" ti="label_site_name">Site Name</label><input id="siteName" value="" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Twitter Card</h3>
-<div class="field"><label>Card Type</label><select id="twCard" onchange="gen()"><option value="summary_large_image">Summary Large Image</option><option value="summary">Summary</option></select></div>
-<div class="field"><label>Twitter @username</label><input id="twSite" placeholder="@username" oninput="gen()"></div>
+<h3 ti="h3_twitter_card" ti="h3_twitter_card">Twitter Card</h3>
+<div class="field"><label ti="label_card_type" ti="label_card_type">Card Type</label><select id="twCard" onchange="gen()"><option value="summary_large_image">Summary Large Image</option><option value="summary">Summary</option></select></div>
+<div class="field"><label ti="label_twitter_username" ti="label_twitter_username">Twitter @username</label><input id="twSite" tp="placeholder_username" tp="placeholder_username" placeholder="@username" oninput="gen()"></div>
 </div>
 </div>
 
 <div>
 <div class="section">
-<h3>Google Preview</h3>
+<h3 ti="h3_google_preview" ti="h3_google_preview">Google Preview</h3>
 <div class="google-preview">
 <div class="g-url" id="previewUrl">example.com</div>
 <div class="g-title" id="previewTitle">My Page Title</div>
@@ -94,9 +98,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Social Preview</h3>
+<h3 ti="h3_social_preview" ti="h3_social_preview">Social Preview</h3>
 <div class="preview-card">
-<div class="img" id="previewImage">1200 × 630 recommended</div>
+<div class="img" id="previewImage">1200 脳 630 recommended</div>
 <div class="body">
 <div class="url" id="previewDomain">example.com</div>
 <div class="title" id="previewOgTitle">My Page Title</div>
@@ -106,20 +110,30 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Generated HTML</h3>
+<h3 ti="h3_generated_html" ti="h3_generated_html">Generated HTML</h3>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyHTML()">Copy HTML</button>
+<button class="btn btn-primary" onclick="copyHTML()" ti="btn_copy_html" ti="btn_copy_html">Copy HTML</button>
 </div>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/og-preview/">OG Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/robots-txt-gen/">robots.txt</a> | <a href="https://gokuscraper.github.io/dev-vault/json-ld-gen/">JSON-LD</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/og-preview/" ti="link_og_preview" ti="link_og_preview">OG Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/robots-txt-gen/" ti="link_robots_txt" ti="link_robots_txt">robots.txt</a> | <a href="https://gokuscraper.github.io/dev-vault/json-ld-gen/" ti="link_json_ld" ti="link_json_ld">JSON-LD</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_meta_tag_generator_seo_so':["Meta Tag Generator — SEO & Social Media Meta Tags", "元标签生成器 — SEO 和社交媒体元标签"],'metadesc_generate_html_meta_tags_f':["Generate HTML meta tags for SEO, Open Graph, Twitter Cards. Preview how your page looks on Google, Facebook, Twitter. Copy ready-to-use HTML.", "生成用于 SEO、Open Graph 和 Twitter Cards 的 HTML 元标签。预览您的页面在 Google、Facebook 和 Twitter 上的显示效果。复制可直接使用的 HTML 代码。"],'metadesc_esc_desc':["${esc(desc)}", "${esc(desc)}"],'h1_meta_tag_generator':["Meta Tag Generator", "元标签生成器"],'h3_basic_seo':["Basic SEO", "基础SEO"],'h3_open_graph_facebook_linke':["Open Graph (Facebook, LinkedIn)", "Open Graph（Facebook、LinkedIn）"],'h3_twitter_card':["Twitter Card", "Twitter 卡片"],'h3_google_preview':["Google Preview", "Google预览"],'h3_social_preview':["Social Preview", "社交预览"],'h3_generated_html':["Generated HTML", "生成的 HTML"],'subtitle_generate_seo_social_meta':["Generate SEO & social meta tags with live preview", "生成带有实时预览的 SEO 和社交媒体元标签"],'btn_copy_html':["Copy HTML", "复制 HTML"],'placeholder_https_example_com_image_p':["https://example.com/image.png (1200×630 recommended)", "https://example.com/image.png（建议分辨率为 1200×630）"],'placeholder_username':["@username", "@用户名"],'label_page_title':["Page Title", "页面标题"],'label_description':["Description", "描述"],'label_url':["URL", "URL"],'label_canonical_url_if_differen':["Canonical URL (if different)", "规范网址（如有不同）"],'label_robots':["Robots", "机器人"],'label_language':["Language", "语言"],'label_og_title_leave_empty_to_u':["OG Title (leave empty to use page title)", "OG 标题（留空则使用页面标题）"],'label_og_description':["OG Description", "OG描述"],'label_og_image_url':["OG Image URL", "OG 图片 URL"],'label_og_type':["OG Type", "OG型"],'label_site_name':["Site Name", "网站名称"],'label_card_type':["Card Type", "卡片类型"],'label_twitter_username':["Twitter @username", "Twitter @用户名"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_og_preview':["OG Preview", "OG预览"],'link_robots_txt':["robots.txt", "robots.txt"],'link_json_ld':["JSON-LD", "JSON-LD"],'jtc_image_failed_to_load':["Image failed to load", "图片加载失败"],'jtc_1200_630_recommended':["1200 × 630 recommended", "建议分辨率为 1200 × 630"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function gen(){
   const title=document.getElementById('title').value;
@@ -150,8 +164,8 @@ function gen(){
   document.getElementById('previewOgTitle').textContent=ogTitle;
   document.getElementById('previewOgDesc').textContent=(ogDesc||desc).slice(0,100);
   const imgEl=document.getElementById('previewImage');
-  if(ogImage){imgEl.innerHTML=`<img src="${ogImage}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.textContent='Image failed to load'">`}
-  else{imgEl.textContent='1200 × 630 recommended'}
+  if(ogImage){imgEl.innerHTML=`<img src="${ogImage}" style="width:100%;height:100%;object-fit:cover" onerror="this.parentElement.textContent=T('jtc_image_failed_to_load')">`}
+  else{imgEl.textContent='1200 脳 630 recommended'}
 
   // Generate HTML
   let html='<!-- Primary Meta Tags -->\n';
@@ -186,12 +200,48 @@ function esc(s){return s.replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/<
 
 function copyHTML(){
   navigator.clipboard.writeText(document.getElementById('output').textContent).then(()=>{
-    const t=document.getElementById('toast');t.textContent='Copied!';t.style.display='block';
+    const t=document.getElementById('toast');t.textContent=T("jtc_copied");t.style.display='block';
     setTimeout(()=>t.style.display='none',1500);
   });
 }
 
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_gamepad_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -338,12 +338,14 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Gamepad API Playground</h1>
+  <h1 ti="title_gamepad_api_playground" ti="h1_gamepad_api_playground">Gamepad API Playground</h1>
   <p>Real-time gamepad input visualization, rumble testing, and dead zone configuration</p>
 </header>
 
-<div class="container" id="app">
+<div class="container" style="position:relative" id="app">
   <div id="no-support" class="no-support" style="display:none;">
     Your browser does not support the Gamepad API. Try Chrome, Edge, or Firefox.
   </div>
@@ -365,10 +367,10 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
     <div class="card">
       <h2><span class="icon">⚙️</span> Dead Zone Configuration</h2>
       <div class="deadzone-config">
-        <label>Axis Dead Zone:</label>
+        <label ti="label_axis_dead_zone">Axis Dead Zone:</label>
         <input type="range" id="deadzone" min="0" max="0.5" step="0.01" value="0.08">
         <span class="deadzone-val" id="deadzone-val">0.08</span>
-        <label style="margin-left:1rem;">Applies to all axes — values within the dead zone are treated as 0.</label>
+        <label style="margin-left:1rem;" ti="label_applies_to_all_axes_value">Applies to all axes — values within the dead zone are treated as 0.</label>
       </div>
     </div>
 
@@ -391,18 +393,18 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
         <div id="rumble-section">
           <div class="rumble-controls">
             <div class="rumble-group">
-              <label>Strong Motor</label>
+              <label ti="label_strong_motor">Strong Motor</label>
               <input type="range" id="rumble-strong" min="0" max="1" step="0.05" value="0.5">
             </div>
             <div class="rumble-group">
-              <label>Weak Motor</label>
+              <label ti="label_weak_motor">Weak Motor</label>
               <input type="range" id="rumble-weak" min="0" max="1" step="0.05" value="0.5">
             </div>
             <div class="rumble-group">
-              <label>Duration (ms)</label>
+              <label ti="label_duration_ms">Duration (ms)</label>
               <input type="number" id="rumble-dur" value="500" min="50" max="5000" step="50">
             </div>
-            <button class="rumble-btn" id="rumble-btn" disabled>Test Rumble</button>
+            <button class="rumble-btn" id="rumble-btn" disabled ti="btn_test_rumble">Test Rumble</button>
           </div>
           <p id="rumble-status" style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-dim);"></p>
         </div>
@@ -425,6 +427,16 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
   </div>
 </div>
 
+
+<script>var _LANG={'title_gamepad_api_playground':["Gamepad API Playground", "游戏手柄 API 演示区"],'metadesc_interactive_gamepad_api_e':["Interactive Gamepad API explorer — real-time button/axis visualization, rumble testing, dead zone config, and multi-gamepad support.", "交互式游戏手柄 API 浏览器——实时按钮/轴可视化、震动测试、死区配置和多游戏手柄支持。"],'h1_gamepad_api_playground':["Gamepad API Playground", "游戏手柄 API 演示区"],'btn_test_rumble':["Test Rumble", "测试隆隆"],'label_axis_dead_zone':["Axis Dead Zone:", "轴线死区："],'label_applies_to_all_axes_value':["Applies to all axes — values within the dead zone are treated as 0.", "适用于所有轴——死区内的值视为 0。"],'label_strong_motor':["Strong Motor", "强劲动力"],'label_weak_motor':["Weak Motor", "运动功能减弱"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'jtc_vibration_supported_pulse':["Vibration supported (pulse API)", "支持振动（脉冲 API）"],'jtc_vibration_not_supported_o':["Vibration not supported on this gamepad/browser.", "此游戏手柄/浏览器不支持震动功能。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -593,10 +605,10 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
       $('rumble-status').textContent = `Vibration supported: ${va.type || 'dual-rumble'}`;
     } else if (va && va.pulse) {
       rumbleBtn.disabled = false;
-      $('rumble-status').textContent = 'Vibration supported (pulse API)';
+      $('rumble-status').textContent=T("jtc_vibration_supported_pulse");
     } else {
       rumbleBtn.disabled = true;
-      $('rumble-status').textContent = 'Vibration not supported on this gamepad/browser.';
+      $('rumble-status').textContent=T("jtc_vibration_not_supported_o");
     }
   }
 
@@ -696,6 +708,24 @@ button.rumble-btn:disabled { opacity: 0.4; cursor: not-allowed; }
     }
   }
   setInterval(pollForGamepads, 1000);
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

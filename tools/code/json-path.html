@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_path_query_tool_live" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -444,20 +444,22 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <!-- Header -->
 <div class="header">
   <h1>JSON<span>Path</span></h1>
   <div class="query-row">
     <div class="query-prefix">$</div>
-    <input type="text" id="queryInput" placeholder=".store.book[*].title" spellcheck="false" autocomplete="off">
+    <input type="text" id="queryInput" tp="placeholder_store_book_title" placeholder=".store.book[*].title" spellcheck="false" autocomplete="off">
   </div>
   <div class="match-badge">
     <span id="matchCount" class="count" style="display:none"></span>
     <span id="typeTag" class="type-tag" style="display:none"></span>
     <span id="errorTag" style="color:var(--red);font-size:12px"></span>
   </div>
-  <button class="btn" id="formatBtn" title="Format JSON">Format</button>
-  <button class="btn btn-primary" id="copyBtn" title="Copy results to clipboard">Copy</button>
+  <button class="btn" id="formatBtn" title="Format JSON" ti="btn_format">Format</button>
+  <button class="btn btn-primary" id="copyBtn" title="Copy results to clipboard" ti="btn_copy">Copy</button>
 </div>
 
 <!-- Main workspace -->
@@ -471,7 +473,7 @@ footer a:hover{text-decoration:underline}
     </div>
     <div class="pane-body">
       <div class="pane-tab-content active" id="pane-input">
-        <textarea id="jsonInput" spellcheck="false" placeholder="Paste JSON here, or click a preset..."></textarea>
+        <textarea id="jsonInput" spellcheck="false" tp="placeholder_paste_json_here_or_click" placeholder="Paste JSON here, or click a preset..."></textarea>
         <div class="json-err" id="jsonErr"></div>
       </div>
       <div class="pane-tab-content" id="pane-tree">
@@ -522,6 +524,16 @@ footer a:hover{text-decoration:underline}
   Standalone JSON Path Query Tool &mdash; No dependencies, no server, works offline
 </footer>
 
+
+<script>var _LANG={'title_json_path_query_tool_live':["JSON Path Query Tool — Live JSONPath Evaluator", "JSON 路径查询工具 — 实时 JSONPath 评估器"],'metadesc_query_json_data_with_json':["Query JSON data with JSONPath expressions instantly. Live results, tree view, 10 presets, filter, recursive descent, array slicing. No dependencies.", "使用 JSONPath 表达式即时查询 JSON 数据。实时结果、树状视图、10 个预设、筛选、递归下降、数组切片。无任何依赖项。"],'btn_format':["Format", "格式"],'btn_copy':["Copy", "复制"],'placeholder_store_book_title':[".store.book[*].title", ".store.book[*].title"],'placeholder_paste_json_here_or_click':["Paste JSON here, or click a preset...", "在此处粘贴 JSON 代码，或单击预设选项……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_json_error':["JSON error:", "JSON 错误："],'jtc_copied':["Copied!", "已复制！"],'jtcpre_json_error':["JSON error: ", "JSON 错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // =====================================================================
 // Native JSONPath Evaluator
@@ -1096,7 +1108,7 @@ function evaluate() {
     jsonErr.style.display = 'none';
   } catch (e) {
     jsonErr.style.display = 'block';
-    jsonErr.textContent = 'JSON error: ' + e.message;
+    jsonErr.textContent=T("jtcpre_json_error")+ e.message;
     currentData = null;
     resultArea.innerHTML = '<div class="error-state">Invalid JSON — fix the input to evaluate.</div>';
     treeRoot.innerHTML = '';
@@ -1239,7 +1251,7 @@ copyBtn.addEventListener('click', () => {
 
   navigator.clipboard.writeText(text).then(() => {
     const orig = copyBtn.textContent;
-    copyBtn.textContent = 'Copied!';
+    copyBtn.textContent=T("jtc_copied");
     copyBtn.style.color = 'var(--green)';
     setTimeout(() => {
       copyBtn.textContent = orig;
@@ -1285,12 +1297,30 @@ presetList.children[0].classList.add('active');
 evaluate();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-viewer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Viewer</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-schema/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Schema</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-diff/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Diff</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

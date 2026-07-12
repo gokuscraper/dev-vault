@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_animation_timing_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,7 +50,11 @@ button:hover{background:#3a2a4a}
 </style>
 </head>
 <body>
-<h1>Animation Timing Playground</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_animation_timing_playgrou" ti="h1_animation_timing_playgrou" ti="title_animation_timing_playgrou" ti="h1_animation_timing_playgrou">Animation Timing Playground</h1>
 <div class="app">
 <div class="tabs">
 <div class="tab active" onclick="switchTab(0)">Cubic Bezier</div>
@@ -64,40 +68,40 @@ button:hover{background:#3a2a4a}
 <div class="row">
 <div class="col">
 <div class="panel">
-<h2>Cubic Bezier Editor</h2>
+<h2 ti="h2_cubic_bezier_editor" ti="h2_cubic_bezier_editor">Cubic Bezier Editor</h2>
 <canvas class="bezier-canvas" id="bezierCanvas" width="280" height="280"></canvas>
 <div class="row" style="gap:8px;margin-top:8px">
-<div><label>X1</label><input type="number" id="bx1" value="0.25" step="0.01" min="0" max="1" oninput="updateBezier()"></div>
-<div><label>Y1</label><input type="number" id="by1" value="0.1" step="0.01" min="-1" max="2" oninput="updateBezier()"></div>
-<div><label>X2</label><input type="number" id="bx2" value="0.25" step="0.01" min="0" max="1" oninput="updateBezier()"></div>
-<div><label>Y2</label><input type="number" id="by2" value="1" step="0.01" min="-1" max="2" oninput="updateBezier()"></div>
+<div><label ti="label_x1" ti="label_x1">X1</label><input type="number" id="bx1" value="0.25" step="0.01" min="0" max="1" oninput="updateBezier()"></div>
+<div><label ti="label_y1" ti="label_y1">Y1</label><input type="number" id="by1" value="0.1" step="0.01" min="-1" max="2" oninput="updateBezier()"></div>
+<div><label ti="label_x2" ti="label_x2">X2</label><input type="number" id="bx2" value="0.25" step="0.01" min="0" max="1" oninput="updateBezier()"></div>
+<div><label ti="label_y2" ti="label_y2">Y2</label><input type="number" id="by2" value="1" step="0.01" min="-1" max="2" oninput="updateBezier()"></div>
 </div>
-<h2 style="margin-top:12px">Presets</h2>
+<h2 style="margin-top:12px" ti="h2_presets" ti="h2_presets">Presets</h2>
 <div class="presets" id="bezierPresets"></div>
 </div>
 </div>
 <div class="col">
 <div class="panel">
-<h2>Preview</h2>
-<label>Duration (ms)</label>
+<h2 ti="h2_preview" ti="h2_preview_2" ti="h2_preview_3" ti="h2_preview" ti="h2_preview_2" ti="h2_preview_3">Preview</h2>
+<label ti="label_duration_ms" ti="label_duration_ms_2" ti="label_duration_ms_3" ti="label_duration_ms_4" ti="label_duration_ms" ti="label_duration_ms_2" ti="label_duration_ms_3" ti="label_duration_ms_4">Duration (ms)</label>
 <input type="range" id="bezDuration" min="100" max="3000" value="1000" oninput="document.getElementById('bezDurVal').textContent=this.value+'ms'">
 <span id="bezDurVal" style="font-size:.8rem;color:#999">1000ms</span>
-<label>Iterations</label>
+<label ti="label_iterations" ti="label_iterations">Iterations</label>
 <select id="bezIter"><option>1</option><option>2</option><option>3</option><option value="infinite">Infinite</option></select>
 <div class="preview-track" id="bezPreviewTrack">
 <div class="preview-ball" id="bezBall"></div>
 </div>
 <div class="btn-row">
-<button onclick="playBezier()">Play</button>
-<button onclick="resetBezier()">Reset</button>
+<button onclick="playBezier()" ti="btn_play" ti="btn_play_2" ti="btn_play_3" ti="btn_play" ti="btn_play_2" ti="btn_play_3">Play</button>
+<button onclick="resetBezier()" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4">Reset</button>
 </div>
-<h2 style="margin-top:16px">CSS Output</h2>
+<h2 style="margin-top:16px" ti="h2_css_output" ti="h2_css_output_2" ti="h2_css_output_3" ti="h2_css_output" ti="h2_css_output_2" ti="h2_css_output_3">CSS Output</h2>
 <div class="output" id="bezCSSOut"></div>
-<h2 style="margin-top:12px">JS Web Animations API</h2>
+<h2 style="margin-top:12px" ti="h2_js_web_animations_api" ti="h2_js_web_animations_api">JS Web Animations API</h2>
 <div class="output" id="bezJSOut"></div>
 <div class="btn-row">
-<button onclick="copyText('bezCSSOut')">Copy CSS</button>
-<button onclick="copyText('bezJSOut')">Copy JS</button>
+<button onclick="copyText('bezCSSOut')" ti="btn_copy_css" ti="btn_copy_css_2" ti="btn_copy_css_3" ti="btn_copy_css" ti="btn_copy_css_2" ti="btn_copy_css_3">Copy CSS</button>
+<button onclick="copyText('bezJSOut')" ti="btn_copy_js" ti="btn_copy_js_2" ti="btn_copy_js" ti="btn_copy_js_2">Copy JS</button>
 </div>
 </div>
 </div>
@@ -109,18 +113,18 @@ button:hover{background:#3a2a4a}
 <div class="row">
 <div class="col">
 <div class="panel">
-<h2>Steps Editor</h2>
-<label>Number of Steps</label>
+<h2 ti="h2_steps_editor" ti="h2_steps_editor">Steps Editor</h2>
+<label ti="label_number_of_steps" ti="label_number_of_steps">Number of Steps</label>
 <input type="range" id="stepsCount" min="1" max="20" value="4" oninput="updateSteps()">
 <span id="stepsCountVal" style="font-size:.8rem;color:#999">4</span>
-<label>Jump Term</label>
+<label ti="label_jump_term" ti="label_jump_term">Jump Term</label>
 <select id="stepsJump" onchange="updateSteps()">
 <option value="jump-end">jump-end (end)</option>
 <option value="jump-start">jump-start (start)</option>
 <option value="jump-both">jump-both</option>
 <option value="jump-none">jump-none</option>
 </select>
-<h2 style="margin-top:12px">Visualization</h2>
+<h2 style="margin-top:12px" ti="h2_visualization" ti="h2_visualization">Visualization</h2>
 <div class="steps-visual" id="stepsVisual"></div>
 </div>
 </div>
@@ -139,7 +143,7 @@ button:hover{background:#3a2a4a}
 </div>
 <h2 style="margin-top:16px">CSS Output</h2>
 <div class="output" id="stepsCSSOut"></div>
-<h2 style="margin-top:12px">JS Output</h2>
+<h2 style="margin-top:12px" ti="h2_js_output" ti="h2_js_output">JS Output</h2>
 <div class="output" id="stepsJSOut"></div>
 <div class="btn-row">
 <button onclick="copyText('stepsCSSOut')">Copy CSS</button>
@@ -155,15 +159,15 @@ button:hover{background:#3a2a4a}
 <div class="row">
 <div class="col">
 <div class="panel">
-<h2>Linear Multi-Point Editor</h2>
+<h2 ti="h2_linear_multi_point_editor" ti="h2_linear_multi_point_editor">Linear Multi-Point Editor</h2>
 <p style="font-size:.78rem;color:#666;margin-bottom:8px">Click on the canvas to add points. CSS <code>linear()</code> function (new specification).</p>
 <canvas class="linear-canvas" id="linearCanvas" width="500" height="200"></canvas>
 <div class="point-list" id="linearPoints"></div>
 <div class="btn-row">
-<button onclick="clearLinearPoints()">Clear Points</button>
-<button onclick="addLinearPreset('bounce')">Bounce</button>
-<button onclick="addLinearPreset('elastic')">Elastic</button>
-<button onclick="addLinearPreset('snap')">Snap</button>
+<button onclick="clearLinearPoints()" ti="btn_clear_points" ti="btn_clear_points">Clear Points</button>
+<button onclick="addLinearPreset('bounce')" ti="btn_bounce" ti="btn_bounce">Bounce</button>
+<button onclick="addLinearPreset('elastic')" ti="btn_elastic" ti="btn_elastic">Elastic</button>
+<button onclick="addLinearPreset('snap')" ti="btn_snap" ti="btn_snap">Snap</button>
 </div>
 </div>
 </div>
@@ -193,12 +197,12 @@ button:hover{background:#3a2a4a}
 <!-- COMPARE -->
 <div class="tab-content" id="tab3">
 <div class="panel">
-<h2>Side-by-Side Comparison</h2>
+<h2 ti="h2_side_by_side_comparison" ti="h2_side_by_side_comparison">Side-by-Side Comparison</h2>
 <label>Duration (ms)</label>
 <input type="range" id="compDuration" min="200" max="3000" value="1000" style="width:300px" oninput="document.getElementById('compDurVal').textContent=this.value+'ms'">
 <span id="compDurVal" style="font-size:.8rem;color:#999">1000ms</span>
 <div class="btn-row" style="margin-bottom:16px">
-<button onclick="playComparison()">Play All</button>
+<button onclick="playComparison()" ti="btn_play_all" ti="btn_play_all">Play All</button>
 <button onclick="resetComparison()">Reset</button>
 </div>
 <div class="comparison-row" id="compList"></div>
@@ -206,6 +210,16 @@ button:hover{background:#3a2a4a}
 </div>
 </div>
 
+
+<script>var _LANG={'title_animation_timing_playgrou':["Animation Timing Playground", "动画时序演练场"],'h1_animation_timing_playgrou':["Animation Timing Playground", "动画时序演练场"],'h2_cubic_bezier_editor':["Cubic Bezier Editor", "Cubic Bezier 编辑器"],'h2_presets':["Presets", "预设"],'h2_preview':["Preview", "预览"],'h2_css_output':["CSS Output", "CSS 输出"],'h2_js_web_animations_api':["JS Web Animations API", "JS Web Animations API"],'h2_steps_editor':["Steps Editor", "Steps 编辑器"],'h2_visualization':["Visualization", "可视化"],'h2_preview_2':["Preview", "预览"],'h2_css_output_2':["CSS Output", "CSS 输出"],'h2_js_output':["JS Output", "JS 输出"],'h2_linear_multi_point_editor':["Linear Multi-Point Editor", "线性多点编辑器"],'h2_preview_3':["Preview", "预览"],'h2_css_output_3':["CSS Output", "CSS 输出"],'h2_side_by_side_comparison':["Side-by-Side Comparison", "并排比较"],'btn_play':["Play", "播放"],'btn_reset':["Reset", "重置"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_copy_js':["Copy JS", "复制 JS"],'btn_play_2':["Play", "播放"],'btn_reset_2':["Reset", "重置"],'btn_copy_css_2':["Copy CSS", "复制 CSS"],'btn_copy_js_2':["Copy JS", "复制 JS"],'btn_clear_points':["Clear Points", "清除点"],'btn_bounce':["Bounce", "弹跳"],'btn_elastic':["Elastic", "弹性"],'btn_snap':["Snap", "吸附"],'btn_play_3':["Play", "播放"],'btn_reset_3':["Reset", "重置"],'btn_copy_css_3':["Copy CSS", "复制 CSS"],'btn_play_all':["Play All", "全部播放"],'btn_reset_4':["Reset", "重置"],'label_x1':["X1", "X1"],'label_y1':["Y1", "Y1"],'label_x2':["X2", "X2"],'label_y2':["Y2", "Y2"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_iterations':["Iterations", "迭代次数"],'label_number_of_steps':["Number of Steps", "步数"],'label_jump_term':["Jump Term", "跳跃项"],'label_duration_ms_2':["Duration (ms)", "持续时间（毫秒）"],'label_duration_ms_3':["Duration (ms)", "持续时间（毫秒）"],'label_duration_ms_4':["Duration (ms)", "持续时间（毫秒）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 function switchTab(i){
@@ -526,6 +540,46 @@ updateBezier();
 updateSteps();
 drawLinear();
 buildComparison();
+</script>
+<script>var _LANG={'title_animation_timing_playgrou':["Animation Timing Playground", "动画时序演练场"],'h1_animation_timing_playgrou':["Animation Timing Playground", "动画时序演练场"],'h2_cubic_bezier_editor':["Cubic Bezier Editor", "Cubic Bezier 编辑器"],'h2_presets':["Presets", "预设"],'h2_preview':["Preview", "预览"],'h2_css_output':["CSS Output", "CSS 输出"],'h2_js_web_animations_api':["JS Web Animations API", "JS Web Animations API"],'h2_steps_editor':["Steps Editor", "Steps 编辑器"],'h2_visualization':["Visualization", "可视化"],'h2_preview_2':["Preview", "预览"],'h2_css_output_2':["CSS Output", "CSS 输出"],'h2_js_output':["JS Output", "JS 输出"],'h2_linear_multi_point_editor':["Linear Multi-Point Editor", "线性多点编辑器"],'h2_preview_3':["Preview", "预览"],'h2_css_output_3':["CSS Output", "CSS 输出"],'h2_side_by_side_comparison':["Side-by-Side Comparison", "并排比较"],'btn_play':["Play", "播放"],'btn_reset':["Reset", "重置"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_copy_js':["Copy JS", "复制 JS"],'btn_play_2':["Play", "播放"],'btn_reset_2':["Reset", "重置"],'btn_copy_css_2':["Copy CSS", "复制 CSS"],'btn_copy_js_2':["Copy JS", "复制 JS"],'btn_clear_points':["Clear Points", "清除点"],'btn_bounce':["Bounce", "弹跳"],'btn_elastic':["Elastic", "弹性"],'btn_snap':["Snap", "吸附"],'btn_play_3':["Play", "播放"],'btn_reset_3':["Reset", "重置"],'btn_copy_css_3':["Copy CSS", "复制 CSS"],'btn_play_all':["Play All", "全部播放"],'btn_reset_4':["Reset", "重置"],'label_x1':["X1", "X1"],'label_y1':["Y1", "Y1"],'label_x2':["X2", "X2"],'label_y2':["Y2", "Y2"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_iterations':["Iterations", "迭代次数"],'label_number_of_steps':["Number of Steps", "步数"],'label_jump_term':["Jump Term", "跳跃项"],'label_duration_ms_2':["Duration (ms)", "持续时间（毫秒）"],'label_duration_ms_3':["Duration (ms)", "持续时间（毫秒）"],'label_duration_ms_4':["Duration (ms)", "持续时间（毫秒）"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

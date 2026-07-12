@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_semver_calc_visual_semant" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,8 +77,10 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <header>
     <h1><span>Semver</span> Calc</h1>
     <p>Visual semantic versioning calculator — see which versions match your range</p>
@@ -86,12 +88,12 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 
   <div class="input-section">
     <div class="input-group">
-      <label>Version</label>
-      <input type="text" id="versionInput" value="1.4.2" placeholder="e.g. 1.4.2">
+      <label ti="label_version">Version</label>
+      <input type="text" id="versionInput" value="1.4.2" tp="placeholder_e_g_1_4_2" placeholder="e.g. 1.4.2">
     </div>
     <div class="input-group">
       <label>Range</label>
-      <input type="text" id="rangeInput" value="^1.2.0" placeholder="e.g. ^1.2.0, ~2.1, >=1.0.0 <3.0.0">
+      <input type="text" id="rangeInput" value="^1.2.0" tp="placeholder_e_g_1_2_0_2_1_1_0_0_3_0_0" placeholder="e.g. ^1.2.0, ~2.1, >=1.0.0 <3.0.0">
     </div>
   </div>
 
@@ -115,9 +117,19 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </div>
 
 <footer>
-  <p>Semver Calc — <a href="https://semver.org/" target="_blank">semver.org</a> spec | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a></p>
+  <p>Semver Calc — <a href="https://semver.org/" target="_blank">semver.org</a> spec | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault">Dev Vault</a></p>
 </footer>
 
+
+<script>var _LANG={'title_semver_calc_visual_semant':["Semver Calc — Visual Semantic Versioning Calculator", "Semver Calc — 可视化语义版本控制计算器"],'metadesc_visual_semver_range_calcu':["Visual semver range calculator. See which versions match ^, ~, >=, and complex ranges. Interactive timeline visualization.", "可视化语义版本范围计算器。查看哪些版本与 ^、~、&gt;= 和复杂范围匹配。交互式时间线可视化。"],'h3_version_bumps_from_esc_ve':["Version Bumps from ${esc(ver)}", "版本号从 ${esc(ver)} 开始递增"],'h3_range_comparison_for_esc':["Range Comparison for ${esc(ver)}", "${esc(ver)} 的范围比较"],'placeholder_e_g_1_4_2':["e.g. 1.4.2", "例如 1.4.2"],'placeholder_e_g_1_2_0_2_1_1_0_0_3_0_0':["e.g. ^1.2.0, ~2.1, >=1.0.0 <3.0.0", "例如 ^1.2.0、~2.1、&gt;=1.0.0 &lt;3.0.0"],'th_range':["Range", "范围"],'th_tv_raw':["${tv.raw}", "${tv.raw}"],'th_meaning':["Meaning", "意义"],'label_version':["Version", "版本"],'label_range':["Range", "范围"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_major':["Major", "主要的"],'jtlword_minor':["Minor", "次要的"],'jtlword_patch':["Patch", "修补"],'jtlword_range':["Range", "范围"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Minimal semver implementation (no deps)
 // Supports: ^, ~, >=, <=, >, <, =, x/X/*, ranges with ||, hyphen ranges
@@ -331,7 +343,7 @@ function update() {
   const bumpEl = document.getElementById('bump');
   if (v) {
     bumpEl.innerHTML = `<div class="bump-section">
-      <h3>Version Bumps from ${esc(ver)}</h3>
+      <h3 ti="h3_version_bumps_from_esc_ve">Version Bumps from ${esc(ver)}</h3>
       <div class="bump-grid">
         <div class="bump-card major" onclick="setVersion('${v.major+1}.0.0')">
           <div class="label">Major</div>
@@ -383,9 +395,9 @@ function update() {
       { major: v.major + 1, minor: 0, patch: 0, pre: '', raw: `${v.major+1}.0.0` },
     ];
 
-    compareEl.innerHTML = `<h3>Range Comparison for ${esc(ver)}</h3>
+    compareEl.innerHTML = `<h3 ti="h3_range_comparison_for_esc">Range Comparison for ${esc(ver)}</h3>
     <table class="compare-table">
-      <thead><tr><th>Range</th>${testVersions.map(tv => `<th>${tv.raw}</th>`).join('')}<th>Meaning</th></tr></thead>
+      <thead><tr><th ti="th_range" ti="label_range">Range</th>${testVersions.map(tv => `<th ti="th_tv_raw">${tv.raw}</th>`).join('')}<th ti="th_meaning">Meaning</th></tr></thead>
       <tbody>${ranges.map(r => `<tr>
         <td>${esc(r)}</td>
         ${testVersions.map(tv => {
@@ -428,6 +440,24 @@ if (params.has('r')) rInput.value = params.get('r');
 vInput.addEventListener('input', update);
 rInput.addEventListener('input', update);
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

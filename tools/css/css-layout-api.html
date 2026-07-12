@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_layout_api_houdini_la" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,23 +91,25 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1><span class="icon">📐</span> CSS Layout API Playground</h1>
   <div class="links">
     <span class="badge">Experimental API</span>
-    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault">Dev Vault</a>
     <a href="https://drafts.css-houdini.org/css-layout-api/" target="_blank">Spec</a>
   </div>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" data-tab="explainer">Concept Explainer</button>
-  <button class="tab" data-tab="masonry">Masonry Layout</button>
-  <button class="tab" data-tab="circular">Circular Layout</button>
-  <button class="tab" data-tab="intrinsic">Intrinsic Sizes</button>
-  <button class="tab" data-tab="comparison">Layout Comparison</button>
-  <button class="tab" data-tab="support">Browser Support</button>
+  <button class="tab active" data-tab="explainer" ti="btn_concept_explainer">Concept Explainer</button>
+  <button class="tab" data-tab="masonry" ti="btn_masonry_layout">Masonry Layout</button>
+  <button class="tab" data-tab="circular" ti="btn_circular_layout">Circular Layout</button>
+  <button class="tab" data-tab="intrinsic" ti="btn_intrinsic_sizes">Intrinsic Sizes</button>
+  <button class="tab" data-tab="comparison" ti="btn_layout_comparison">Layout Comparison</button>
+  <button class="tab" data-tab="support" ti="btn_browser_support">Browser Support</button>
 </nav>
 
 <main class="container">
@@ -119,12 +121,12 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
     </div>
 
     <div class="card">
-      <h2>📚 What is the CSS Layout API?</h2>
+      <h2 ti="h2_what_is_the_css_layout_a">📚 What is the CSS Layout API?</h2>
       <p>The CSS Layout API (part of CSS Houdini) allows developers to create custom layout algorithms that can be used in CSS via <code>display: layout(name)</code>. Think of it as creating your own <code>display: flex</code> or <code>display: grid</code> from scratch.</p>
     </div>
 
     <div class="card">
-      <h2>📝 registerLayout() Structure</h2>
+      <h2 ti="h2_registerlayout_structure">📝 registerLayout() Structure</h2>
       <pre>// layout-worklet.js
 registerLayout('my-layout', class {
   // Declare which CSS properties affect this layout
@@ -206,7 +208,7 @@ registerLayout('my-layout', class {
     </div>
 
     <div class="card">
-      <h2>🔧 CSS Usage</h2>
+      <h2 ti="h2_css_usage">🔧 CSS Usage</h2>
       <pre>/* Register the worklet */
 CSS.layoutWorklet.addModule('layout-worklet.js');
 
@@ -224,18 +226,18 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
     </div>
 
     <div class="card">
-      <h2>🏗️ Key Concepts</h2>
+      <h2 ti="h2_key_concepts">🏗️ Key Concepts</h2>
       <div class="grid-2">
         <div>
-          <h3>LayoutChild</h3>
+          <h3 ti="h3_layoutchild">LayoutChild</h3>
           <p>Represents each child element. You call <code>child.layoutNextFragment()</code> to get its dimensions and can position it manually.</p>
-          <h3>LayoutConstraints</h3>
+          <h3 ti="h3_layoutconstraints">LayoutConstraints</h3>
           <p>Contains <code>fixedInlineSize</code> (available width) and optionally <code>fixedBlockSize</code> (available height).</p>
         </div>
         <div>
-          <h3>LayoutEdges</h3>
+          <h3 ti="h3_layoutedges">LayoutEdges</h3>
           <p>The container's padding + border. Access via <code>edges.inlineStart</code>, <code>edges.blockStart</code>, etc.</p>
-          <h3>LayoutFragment</h3>
+          <h3 ti="h3_layoutfragment">LayoutFragment</h3>
           <p>Result of laying out a child. Has <code>blockSize</code>, <code>inlineSize</code>, <code>inlineOffset</code>, <code>blockOffset</code>.</p>
         </div>
       </div>
@@ -245,13 +247,13 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   <!-- Masonry Layout -->
   <div class="panel" id="panel-masonry">
     <div class="card">
-      <h2>🧱 Masonry Layout Demo</h2>
+      <h2 ti="h2_masonry_layout_demo">🧱 Masonry Layout Demo</h2>
       <p>A JavaScript simulation of how a masonry layout worklet would arrange items. Items are placed in the shortest column.</p>
     </div>
 
     <div class="grid-2">
       <div class="card">
-        <h2>Controls</h2>
+        <h2 ti="h2_controls" ti="h2_controls_2">Controls</h2>
         <div class="form-group">
           <label>Columns: <span id="masonryColsVal">3</span></label>
           <input type="range" id="masonryCols" min="1" max="6" value="3" oninput="updateMasonry()">
@@ -265,19 +267,19 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
           <input type="range" id="masonryItems" min="3" max="30" value="12" oninput="updateMasonry()">
         </div>
         <div class="btn-group">
-          <button class="btn cyan" onclick="updateMasonry()">Re-layout</button>
-          <button class="btn secondary" onclick="randomizeMasonry()">Randomize Heights</button>
+          <button class="btn cyan" onclick="updateMasonry()" ti="btn_re_layout">Re-layout</button>
+          <button class="btn secondary" onclick="randomizeMasonry()" ti="btn_randomize_heights">Randomize Heights</button>
         </div>
       </div>
 
       <div class="card">
-        <h2>📝 Worklet Code</h2>
+        <h2 ti="h2_worklet_code" ti="h2_worklet_code_2">📝 Worklet Code</h2>
         <pre id="masonryCode"></pre>
       </div>
     </div>
 
     <div class="card">
-      <h2>Result</h2>
+      <h2 ti="h2_result" ti="h2_result_2">Result</h2>
       <div class="layout-container" id="masonryContainer" style="min-height:400px;"></div>
     </div>
   </div>
@@ -285,7 +287,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   <!-- Circular Layout -->
   <div class="panel" id="panel-circular">
     <div class="card">
-      <h2>🔵 Circular Layout Demo</h2>
+      <h2 ti="h2_circular_layout_demo">🔵 Circular Layout Demo</h2>
       <p>Items arranged in a circle. This demonstrates positioning children using trigonometry in a custom layout algorithm.</p>
     </div>
 
@@ -309,8 +311,8 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
           <input type="range" id="circularSize" min="24" max="80" value="48" oninput="updateCircular()">
         </div>
         <div class="btn-group">
-          <button class="btn cyan" onclick="animateCircular()">Animate</button>
-          <button class="btn secondary" onclick="stopCircularAnim()">Stop</button>
+          <button class="btn cyan" onclick="animateCircular()" ti="btn_animate">Animate</button>
+          <button class="btn secondary" onclick="stopCircularAnim()" ti="btn_stop">Stop</button>
         </div>
       </div>
 
@@ -329,15 +331,15 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   <!-- Intrinsic Sizes -->
   <div class="panel" id="panel-intrinsic">
     <div class="card">
-      <h2>📏 LayoutChild Intrinsic Sizes</h2>
+      <h2 ti="h2_layoutchild_intrinsic_si">📏 LayoutChild Intrinsic Sizes</h2>
       <p>The Layout API provides <code>intrinsicSizes()</code> to query the natural dimensions of children before positioning them. This is how the browser calculates min-content and max-content sizes.</p>
     </div>
 
     <div class="card">
-      <h2>Intrinsic Size Concepts</h2>
+      <h2 ti="h2_intrinsic_size_concepts">Intrinsic Size Concepts</h2>
       <table class="size-table">
         <thead>
-          <tr><th>Property</th><th>Description</th><th>Example</th></tr>
+          <tr><th ti="th_property">Property</th><th ti="th_description">Description</th><th ti="th_example">Example</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -355,7 +357,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
     </div>
 
     <div class="card">
-      <h2>Interactive Demo</h2>
+      <h2 ti="h2_interactive_demo">Interactive Demo</h2>
       <p>Resize the container to see how intrinsic sizes affect layout decisions:</p>
       <div class="form-group">
         <label>Container Width: <span id="intrinsicWidthVal">600</span>px</label>
@@ -368,7 +370,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
     </div>
 
     <div class="card">
-      <h2>📝 Code</h2>
+      <h2 ti="h2_code">📝 Code</h2>
       <pre>async intrinsicSizes(children, edges, styleMap) {
   const childSizes = await Promise.all(
     children.map(child => child.intrinsicSizes())
@@ -394,7 +396,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   <!-- Layout Comparison -->
   <div class="panel" id="panel-comparison">
     <div class="card">
-      <h2>⚖️ Layout Mode Comparison</h2>
+      <h2 ti="h2_layout_mode_comparison">⚖️ Layout Mode Comparison</h2>
       <p>Compare existing CSS layout modes with what the Layout API enables.</p>
     </div>
 
@@ -415,21 +417,21 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
 
     <div class="grid-2" style="margin-top:16px;">
       <div class="card">
-        <h2 id="comparisonTitle">Flexbox</h2>
+        <h2 id="comparisonTitle" ti="h2_flexbox" ti="th_flexbox">Flexbox</h2>
         <div id="comparisonDemo" style="border:2px dashed var(--border); border-radius:var(--radius); padding:8px; min-height:200px;"></div>
       </div>
       <div class="card">
-        <h2>Code</h2>
+        <h2 ti="h2_code_2">Code</h2>
         <pre id="comparisonCode"></pre>
       </div>
     </div>
 
     <div class="card">
-      <h2>📊 Feature Comparison</h2>
+      <h2 ti="h2_feature_comparison">📊 Feature Comparison</h2>
       <div style="overflow-x:auto;">
         <table class="size-table">
           <thead>
-            <tr><th>Feature</th><th style="color:var(--accent);">Flexbox</th><th style="color:var(--green);">Grid</th><th style="color:var(--cyan);">Layout API</th></tr>
+            <tr><th ti="th_feature">Feature</th><th style="color:var(--accent);">Flexbox</th><th style="color:var(--green);" ti="th_grid">Grid</th><th style="color:var(--cyan);" ti="th_layout_api">Layout API</th></tr>
           </thead>
           <tbody>
             <tr><td>Dimensions</td><td>1D (row or column)</td><td>2D (rows + columns)</td><td>Any</td></tr>
@@ -449,16 +451,16 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   <!-- Browser Support -->
   <div class="panel" id="panel-support">
     <div class="card">
-      <h2>🌐 Browser Support Status</h2>
+      <h2 ti="h2_browser_support_status">🌐 Browser Support Status</h2>
       <div class="info-box error">The CSS Layout API has no stable browser implementation as of 2026. It is the least mature of the Houdini APIs.</div>
     </div>
 
     <div class="card">
-      <h2>Houdini API Maturity</h2>
+      <h2 ti="h2_houdini_api_maturity">Houdini API Maturity</h2>
       <div style="overflow-x:auto;">
         <table class="size-table">
           <thead>
-            <tr><th>API</th><th>Chrome</th><th>Firefox</th><th>Safari</th><th>Status</th></tr>
+            <tr><th ti="th_api">API</th><th ti="th_chrome">Chrome</th><th ti="th_firefox">Firefox</th><th ti="th_safari">Safari</th><th ti="th_status">Status</th></tr>
           </thead>
           <tbody>
             <tr>
@@ -502,7 +504,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
     </div>
 
     <div class="card">
-      <h2>🛣️ Current Status</h2>
+      <h2 ti="h2_current_status">🛣️ Current Status</h2>
       <p>The CSS Layout API specification is at an early stage. Key facts:</p>
       <ul style="margin-top:12px; padding-left:20px; color:var(--text-secondary); line-height:2;">
         <li>Chrome has experimental support behind the <code>--enable-experimental-web-platform-features</code> flag</li>
@@ -514,10 +516,10 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
     </div>
 
     <div class="card">
-      <h2>🔄 Alternatives for Today</h2>
+      <h2 ti="h2_alternatives_for_today">🔄 Alternatives for Today</h2>
       <div class="grid-2">
         <div>
-          <h3>Masonry Layout</h3>
+          <h3 ti="h3_masonry_layout">Masonry Layout</h3>
           <p>Use JavaScript libraries like Masonry.js, CSS columns, or CSS Grid with <code>grid-auto-rows</code> + <code>grid-row: span N</code>.</p>
           <pre>.masonry {
   display: grid;
@@ -530,7 +532,7 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
 }</pre>
         </div>
         <div>
-          <h3>Circular Layout</h3>
+          <h3 ti="h3_circular_layout">Circular Layout</h3>
           <p>Use CSS transforms with <code>rotate()</code> and <code>translate()</code>, or absolute positioning with JS-calculated coordinates.</p>
           <pre>.circle-container {
   position: relative;
@@ -557,6 +559,16 @@ CSS.layoutWorklet.addModule('layout-worklet.js');
   Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — Free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_css_layout_api_houdini_la':["CSS Layout API (Houdini Layout) Playground — Dev Vault", "CSS 布局 API（Houdini 布局）练习场 — 开发者宝库"],'metadesc_interactive_css_layout_ap':["Interactive CSS Layout API playground. Explore registerLayout(), custom layout algorithms, masonry and circular layouts, LayoutChild intrinsic sizes, and comparison with flex/grid.", "交互式 CSS 布局 API 演示。探索 registerLayout()、自定义布局算法、瀑布流和圆形布局、LayoutChild 的固有尺寸，以及与 flex/grid 的比较。"],'h2_what_is_the_css_layout_a':["📚 What is the CSS Layout API?", "📚 什么是 CSS 布局 API？"],'h2_registerlayout_structure':["📝 registerLayout() Structure", "📝 registerLayout() 结构"],'h2_css_usage':["🔧 CSS Usage", "🔧 CSS 使用"],'h2_key_concepts':["🏗️ Key Concepts", "🏗️关键概念"],'h2_masonry_layout_demo':["🧱 Masonry Layout Demo", "🧱 砌体布局演示"],'h2_controls':["Controls", "控制"],'h2_worklet_code':["📝 Worklet Code", "📝 工作区代码"],'h2_result':["Result", "结果"],'h2_circular_layout_demo':["🔵 Circular Layout Demo", "🔵 圆形布局演示"],'h2_controls_2':["Controls", "控制"],'h2_worklet_code_2':["📝 Worklet Code", "📝 工作区代码"],'h2_result_2':["Result", "结果"],'h2_layoutchild_intrinsic_si':["📏 LayoutChild Intrinsic Sizes", "📏 LayoutChild 固有尺寸"],'h2_intrinsic_size_concepts':["Intrinsic Size Concepts", "固有尺寸概念"],'h2_interactive_demo':["Interactive Demo", "交互式演示"],'h2_code':["📝 Code", "📝 代码"],'h2_layout_mode_comparison':["⚖️ Layout Mode Comparison", "⚖️ 布局模式比较"],'h2_flexbox':["Flexbox", "Flexbox"],'h2_code_2':["Code", "代码"],'h2_feature_comparison':["📊 Feature Comparison", "📊 功能对比"],'h2_browser_support_status':["🌐 Browser Support Status", "🌐 浏览器支持状态"],'h2_houdini_api_maturity':["Houdini API Maturity", "Houdini API 成熟度"],'h2_current_status':["🛣️ Current Status", "🛣️ 当前状态"],'h2_alternatives_for_today':["🔄 Alternatives for Today", "🔄 今日替代方案"],'h3_layoutchild':["LayoutChild", "布局子项"],'h3_layoutconstraints':["LayoutConstraints", "布局约束"],'h3_layoutedges':["LayoutEdges", "布局边缘"],'h3_layoutfragment':["LayoutFragment", "布局片段"],'h3_masonry_layout':["Masonry Layout", "砌体布局"],'h3_circular_layout':["Circular Layout", "圆形布局"],'btn_concept_explainer':["Concept Explainer", "概念解释器"],'btn_masonry_layout':["Masonry Layout", "砌体布局"],'btn_circular_layout':["Circular Layout", "圆形布局"],'btn_intrinsic_sizes':["Intrinsic Sizes", "固有尺寸"],'btn_layout_comparison':["Layout Comparison", "布局比较"],'btn_browser_support':["Browser Support", "浏览器支持"],'btn_re_layout':["Re-layout", "重新布局"],'btn_randomize_heights':["Randomize Heights", "随机化高度"],'btn_animate':["Animate", "动画"],'btn_stop':["Stop", "停止"],'th_property':["Property", "财产"],'th_description':["Description", "描述"],'th_example':["Example", "例子"],'th_feature':["Feature", "特征"],'th_flexbox':["Flexbox", "Flexbox"],'th_grid':["Grid", "网格"],'th_layout_api':["Layout API", "布局 API"],'th_api':["API", "API"],'th_chrome':["Chrome", "铬合金"],'th_firefox':["Firefox", "火狐浏览器"],'th_safari':["Safari", "狩猎之旅"],'th_status':["Status", "地位"],'footer_css_layout_api_houdini_la':["CSS Layout API (Houdini Layout) Playground — Dev Vault", "CSS 布局 API（Houdini 布局）练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_flexbox':["Flexbox", "Flexbox"],'jtc_css_grid':["CSS Grid", "CSS Grid"],'jtc_layout_api_custom':["Layout API (Custom)", "布局 API（自定义）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab Navigation ===
 document.querySelectorAll('.tab').forEach(tab => {
@@ -750,7 +762,7 @@ function selectComparison(type) {
   }).join('');
 
   if (type === 'flex') {
-    title.textContent = 'Flexbox';
+    title.textContent=T("jtc_flexbox");
     demo.innerHTML = `<div style="display:flex; flex-wrap:wrap; gap:8px;">${items}</div>`;
     demo.querySelector('div').querySelectorAll('div').forEach(d => d.style.flex = '1 1 120px');
     code.textContent = `.container {
@@ -762,7 +774,7 @@ function selectComparison(type) {
   flex: 1 1 120px;
 }`;
   } else if (type === 'grid') {
-    title.textContent = 'CSS Grid';
+    title.textContent=T("jtc_css_grid");
     demo.innerHTML = `<div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:8px;">${items}</div>`;
     code.textContent = `.container {
   display: grid;
@@ -770,7 +782,7 @@ function selectComparison(type) {
   gap: 8px;
 }`;
   } else {
-    title.textContent = 'Layout API (Custom)';
+    title.textContent=T("jtc_layout_api_custom");
     demo.innerHTML = `<div style="position:relative; min-height:200px;"></div>`;
     const wrapper = demo.querySelector('div');
     // Simulate a staggered layout
@@ -811,6 +823,24 @@ randomizeMasonry();
 updateCircular();
 updateIntrinsic();
 selectComparison('flex');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

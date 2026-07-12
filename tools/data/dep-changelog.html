@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_dep_changelog_see_what_ch" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,23 +77,25 @@ footer a{color:#4da6ff;text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Dep Changelog</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_dep_changelog">Dep Changelog</h1>
 <p class="tagline">Paste your package.json. See what changed in every dependency.</p>
 
 <div class="input-section">
-  <label>package.json or package names (one per line)</label>
-  <textarea id="input" placeholder='{"dependencies": {"react": "^18.2.0", "next": "^14.0.0"}}
+  <label ti="label_package_json_or_package_n">package.json or package names (one per line)</label>
+  <textarea id="input" tp="placeholder_dependencies_react_18_2" placeholder='{"dependencies": {"react": "^18.2.0", "next": "^14.0.0"}}
 
 Or just list package names:
 react
 next
 express'></textarea>
-  <div class="hint">Supports: full package.json, dependency objects, or one package name per line. <button class="sample-btn" onclick="loadSample()">Load sample</button></div>
+  <div class="hint">Supports: full package.json, dependency objects, or one package name per line. <button class="sample-btn" onclick="loadSample()" ti="btn_load_sample">Load sample</button></div>
 </div>
 
 <div class="btn-row">
-  <button class="btn-primary" id="analyzeBtn" onclick="analyze()">Analyze Dependencies</button>
+  <button class="btn-primary" id="analyzeBtn" onclick="analyze()" ti="btn_analyze_dependencies">Analyze Dependencies</button>
 </div>
 
 <div id="status" class="status" style="display:none"></div>
@@ -102,9 +104,19 @@ express'></textarea>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper">GitHub</a> · Built by <a href="https://github.com/gokuscraper">gokuscraper</a> · No data leaves your browser
+  <a href="https://github.com/gokuscraper" ti="link_github">GitHub</a> · Built by <a href="https://github.com/gokuscraper" ti="link_gokuscraper">gokuscraper</a> · No data leaves your browser
 </footer>
 
+
+<script>var _LANG={'title_dep_changelog_see_what_ch':["Dep Changelog — See What Changed in Your Dependencies", "依赖项变更日志 — 查看依赖项的变更"],'metadesc_paste_your_package_json_a':["Paste your package.json and instantly see changelogs for all dependencies. Breaking changes highlighted. No signup, no tracking.", "粘贴您的 package.json 文件，即可立即查看所有依赖项的变更日志。重大变更会高亮显示。无需注册，无需追踪。"],'h1_dep_changelog':["Dep Changelog", "部门变更日志"],'h2_summary':["Summary", "概括"],'btn_load_sample':["Load sample", "加载样本"],'btn_analyze_dependencies':["Analyze Dependencies", "分析依赖关系"],'btn_pkg_changetext_show_chan':["${pkg.changeText ? 'Show changelog' : 'No changelog available'}", "${pkg.changeText ? &#39;显示变更日志&#39; : &#39;暂无变更日志&#39;}"],'placeholder_dependencies_react_18_2':["{\"dependencies\": {\"react\": \"^18.2.0\", \"next\": \"^14.0.0\"}}\n\nOr just list package names:\nreact\nnext\nexpress", "{&quot;dependencies&quot;: {&quot;react&quot;: &quot;^18.2.0&quot;, &quot;next&quot;: &quot;^14.0.0&quot;}} 或者直接列出包名：react next express"],'label_package_json_or_package_n':["package.json or package names (one per line)", "package.json 或包名（每行一个）"],'link_github':["GitHub", "GitHub"],'link_gokuscraper':["gokuscraper", "悟空摩天大楼"],'jtc_no_packages_found_paste_a':["No packages found. Paste a package.json or list package names.", "未找到软件包。请粘贴 package.json 文件或列出软件包名称。"],'jtc_analyzing':["Analyzing...", "分析中……"],'jtc_analyze_dependencies':["Analyze Dependencies", "分析依赖关系"],'jtlword_breaking':["BREAKING", "突发新闻"],'jtlword_summary':["Summary", "概括"],'jtlword_packages':["Packages", "包裹"],'jtlword_breaking_2':["Breaking", "突发"],'jtlword_outdated':["Outdated", "过时的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SAMPLE = `{
   "dependencies": {
@@ -247,13 +259,13 @@ async function analyze() {
   const names = Object.keys(deps);
   if (names.length === 0) {
     document.getElementById('status').style.display = 'block';
-    document.getElementById('status').textContent = 'No packages found. Paste a package.json or list package names.';
+    document.getElementById('status').textContent=T("jtc_no_packages_found_paste_a");
     return;
   }
 
   const btn = document.getElementById('analyzeBtn');
   btn.disabled = true;
-  btn.textContent = 'Analyzing...';
+  btn.textContent=T("jtc_analyzing");
 
   const statusEl = document.getElementById('status');
   statusEl.style.display = 'block';
@@ -334,7 +346,7 @@ async function analyze() {
         </div>
       </div>
       ${pkg.error ? `<div style="color:#f87171;font-size:0.85rem">Error: ${escHtml(pkg.error)}</div>` :
-        `<button class="toggle-btn" onclick="document.getElementById('${id}').style.display=document.getElementById('${id}').style.display==='none'?'block':'none'">
+        `<button class="toggle-btn" onclick="document.getElementById('${id}').style.display=document.getElementById('${id}').style.display==='none'?'block':'none'" ti="btn_pkg_changetext_show_chan">
           ${pkg.changeText ? 'Show changelog' : 'No changelog available'}
         </button>
         <div id="${id}" class="changelog-content" style="display:none">${changeHtml}</div>`
@@ -347,7 +359,7 @@ async function analyze() {
   summaryEl.style.display = 'block';
   summaryEl.innerHTML = `
     <div class="summary">
-      <h2>Summary</h2>
+      <h2 ti="h2_summary">Summary</h2>
       <div class="summary-grid">
         <div class="summary-stat"><div class="num">${names.length}</div><div class="label">Packages</div></div>
         <div class="summary-stat"><div class="num" style="color:${totalBreaking?'#f87171':'#4ade80'}">${totalBreaking}</div><div class="label">Breaking</div></div>
@@ -359,8 +371,26 @@ async function analyze() {
 
   statusEl.style.display = 'none';
   btn.disabled = false;
-  btn.textContent = 'Analyze Dependencies';
+  btn.textContent=T("jtc_analyze_dependencies");
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

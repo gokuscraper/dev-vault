@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_javascript_keycode_finder" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -375,9 +375,11 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>JavaScript Keycode Finder</h1>
+  <h1 ti="title_javascript_keycode_finder" ti="h1_javascript_keycode_finder">JavaScript Keycode Finder</h1>
   <span class="badge">keydown · keyup · keypress</span>
   <span class="sub">Press any key to inspect all event properties</span>
 </header>
@@ -407,7 +409,7 @@
     <table class="props-table">
       <tr>
         <td>event.key</td>
-        <td><div class="prop-value"><span class="val" id="p-key">—</span><button class="copy-btn" data-prop="p-key">copy</button></div></td>
+        <td><div class="prop-value"><span class="val" id="p-key">—</span><button class="copy-btn" data-prop="p-key" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8">copy</button></div></td>
       </tr>
       <tr>
         <td>event.code</td>
@@ -461,7 +463,7 @@
     <!-- History -->
     <div class="history-header">
       <div class="section-title">History <span id="histCount" style="font-weight:normal;font-size:11px">(0)</span></div>
-      <button class="clear-btn" id="clearHistBtn">Clear</button>
+      <button class="clear-btn" id="clearHistBtn" ti="btn_clear">Clear</button>
     </div>
     <div class="history-list" id="historyList">
       <div style="color:var(--text2);font-size:12px;padding:8px;text-align:center">No keys pressed yet</div>
@@ -477,6 +479,16 @@
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_javascript_keycode_finder':["JavaScript Keycode Finder", "JavaScript 键码查找器"],'metadesc_press_any_key_and_instant':["Press any key and instantly see all keyboard event properties: key, code, keyCode, modifiers, and more.", "按下任意键，即可立即查看所有键盘事件属性：键、代码、键码、修饰符等。"],'h1_javascript_keycode_finder':["JavaScript Keycode Finder", "JavaScript 键码查找器"],'btn_copy':["copy", "复制"],'btn_copy_2':["copy", "复制"],'btn_copy_3':["copy", "复制"],'btn_copy_4':["copy", "复制"],'btn_copy_5':["copy", "复制"],'btn_copy_6':["copy", "复制"],'btn_copy_7':["copy", "复制"],'btn_copy_8':["copy", "复制"],'btn_clear':["Clear", "清除"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_done':["done", "完毕"],'jtc_copy':["copy", "复制"],'jtlword_document':["document", "文档"],'jtlword_addeventlistener':["addEventListener", "添加事件监听器"],'jtlword_if':["if", "如果"],'jtlword_log':["log", "日志"],'jtlword_document_2':["document", "文档"],'jtlword_addeventlistener_2':["addEventListener", "添加事件监听器"],'jtlword_if_2':["if", "如果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Data ────────────────────────────────────────────────────────────────────
 const LOCATION_MAP = { 0:'Standard', 1:'Left', 2:'Right', 3:'Numpad' };
@@ -660,9 +672,9 @@ document.querySelector('.props-table').addEventListener('click', e => {
   const val = document.getElementById(btn.dataset.prop).textContent;
   if (val === '—') return;
   copyText(val);
-  btn.textContent = 'done';
+  btn.textContent=T("jtc_done");
   btn.classList.add('copied');
-  setTimeout(() => { btn.textContent = 'copy'; btn.classList.remove('copied'); }, 1200);
+  setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1200);
   showToast(`Copied: ${val}`);
 });
 
@@ -714,12 +726,30 @@ function showToast(msg) {
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-cursor/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Cursor</a>
 <a href="https://gokuscraper.github.io/dev-vault/http-status/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Http Status</a>
 <a href="https://gokuscraper.github.io/dev-vault/emoji-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Emoji Picker</a>
 <a href="https://gokuscraper.github.io/dev-vault/git-cheatsheet/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Git Cheatsheet</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

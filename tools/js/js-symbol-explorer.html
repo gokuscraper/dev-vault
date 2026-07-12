@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_symbol_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,20 +66,22 @@ td code{color:#f06292;font-size:.75rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Symbol Explorer</h1>
+<h1 ti="title_js_symbol_explorer" ti="h1_js_symbol_explorer">JS Symbol Explorer</h1>
 <p>Interactive guide to well-known Symbols and their effects on JavaScript behavior</p>
 </header>
 <div class="app">
 <div class="symbols-list" id="symbolsList"></div>
 <div class="main" id="mainArea"></div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details"></div>
 <div class="detail-box">
 <h4>All Well-Known Symbols</h4>
 <table>
-<tr><th>Symbol</th><th>Purpose</th><th>ES</th></tr>
+<tr><th ti="th_symbol">Symbol</th><th ti="th_purpose">Purpose</th><th ti="th_es">ES</th></tr>
 <tr><td><code>@@iterator</code></td><td>for...of iteration</td><td><span class="badge badge-es6">ES6</span></td></tr>
 <tr><td><code>@@asyncIterator</code></td><td>for await...of</td><td><span class="badge badge-es9">ES9</span></td></tr>
 <tr><td><code>@@toPrimitive</code></td><td>Type coercion control</td><td><span class="badge badge-es6">ES6</span></td></tr>
@@ -98,7 +100,7 @@ td code{color:#f06292;font-size:.75rem}
 <div class="detail-box">
 <h4>Key Concepts</h4>
 <table>
-<tr><th>Concept</th><th>Description</th></tr>
+<tr><th ti="th_concept">Concept</th><th ti="th_description">Description</th></tr>
 <tr><td>Well-Known</td><td>Built-in symbols used by the JS engine internally</td></tr>
 <tr><td>Protocol</td><td>A symbol-based interface contract (e.g., iterable protocol)</td></tr>
 <tr><td>Metaprogramming</td><td>Customizing language-level behavior of objects</td></tr>
@@ -108,6 +110,16 @@ td code{color:#f06292;font-size:.75rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_js_symbol_explorer':["JS Symbol Explorer", "JS 符号浏览器"],'metadesc_interactive_explorer_for':["Interactive explorer for JavaScript well-known Symbols: Symbol.iterator, Symbol.toPrimitive, Symbol.hasInstance, and more", "用于交互式浏览 JavaScript 常用符号（例如 Symbol.iterator、Symbol.toPrimitive、Symbol.hasInstance 等）的浏览器。"],'h1_js_symbol_explorer':["JS Symbol Explorer", "JS 符号浏览器"],'h3_details':["Details", "细节"],'h3_how_it_works':["How It Works", "工作原理"],'h3_code_example':["Code Example", "代码示例"],'h3_output':["Output", "输出"],'btn_run_in_console':["▶ Run in Console", "▶ 在控制台中运行"],'th_symbol':["Symbol", "象征"],'th_purpose':["Purpose", "目的"],'th_es':["ES", "ES"],'th_concept':["Concept", "概念"],'th_description':["Description", "描述"],'jalert_open_devtools_console_f12':["Open DevTools Console (F12) and paste the code to run it live!", "打开开发者工具控制台（F12），粘贴代码即可运行！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const symbols=[
 {
@@ -456,7 +468,7 @@ function showSymbol(idx,btn){
   // Visual flow
   let flowHTML='';
   if(s.flow){
-    flowHTML=`<div class="visual"><h3>How It Works</h3><div class="flow-diagram">`;
+    flowHTML=`<div class="visual"><h3 ti="h3_how_it_works">How It Works</h3><div class="flow-diagram">`;
     s.flow.forEach(f=>{
       if(f.arrow)flowHTML+=`<span class="flow-arrow">→</span>`;
       else flowHTML+=`<div class="flow-box ${f.cls}">${f.text}</div>`;
@@ -465,10 +477,10 @@ function showSymbol(idx,btn){
   }
 
   // Code
-  let codeHTML=`<div class="code-section"><div class="code-header"><h3>Code Example</h3><button onclick="runExample(${idx})">▶ Run in Console</button></div><pre>${s.code}</pre></div>`;
+  let codeHTML=`<div class="code-section"><div class="code-header"><h3 ti="h3_code_example">Code Example</h3><button onclick="runExample(${idx})" ti="btn_run_in_console">▶ Run in Console</button></div><pre>${s.code}</pre></div>`;
 
   // Output
-  let outHTML=`<div class="output-section"><h3>Output</h3><div class="output">`;
+  let outHTML=`<div class="output-section"><h3 ti="h3_output">Output</h3><div class="output">`;
   s.output.forEach(o=>{outHTML+=`<div class="line ${o.cls}">${o.text}</div>`;});
   outHTML+=`</div></div>`;
 
@@ -480,10 +492,28 @@ function showSymbol(idx,btn){
 
 function runExample(idx){
   // Open browser console hint
-  alert('Open DevTools Console (F12) and paste the code to run it live!');
+  T("jalert_open_devtools_console_f12");
 }
 
 showSymbol(0,null);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

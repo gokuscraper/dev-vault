@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_resize_browser_base" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,9 +72,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Resize</h1>
-<p class="subtitle">Resize images in your browser. No upload, no server. Privacy first.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_resize">Image Resize</h1>
+<p class="subtitle" ti="subtitle_resize_images_in_your_bro">Resize images in your browser. No upload, no server. Privacy first.</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
   <div class="icon">📷</div>
@@ -84,36 +86,36 @@ footer a:hover{color:#999}
 
 <div class="editor" id="editor">
   <div class="preview-row">
-    <div class="preview-pane"><h3>Original</h3><img id="origImg"><div class="dims" id="origDims"></div></div>
-    <div class="preview-pane"><h3>Resized</h3><canvas id="canvas" style="max-width:100%;max-height:250px;border-radius:6px"></canvas><div class="dims" id="newDims"></div></div>
+    <div class="preview-pane"><h3 ti="h3_original">Original</h3><img id="origImg"><div class="dims" id="origDims"></div></div>
+    <div class="preview-pane"><h3 ti="h3_resized">Resized</h3><canvas id="canvas" style="max-width:100%;max-height:250px;border-radius:6px"></canvas><div class="dims" id="newDims"></div></div>
   </div>
 
   <div class="controls">
     <div class="presets">
-      <button class="preset-btn" onclick="setSize(1920,1080)">1920×1080</button>
-      <button class="preset-btn" onclick="setSize(1280,720)">1280×720</button>
-      <button class="preset-btn" onclick="setSize(800,600)">800×600</button>
-      <button class="preset-btn" onclick="setSize(512,512)">512×512</button>
-      <button class="preset-btn" onclick="setSize(256,256)">256×256</button>
-      <button class="preset-btn" onclick="setSize(128,128)">128×128</button>
-      <button class="preset-btn" onclick="setSize(64,64)">64×64</button>
-      <button class="preset-btn" onclick="setPercent(50)">50%</button>
-      <button class="preset-btn" onclick="setPercent(25)">25%</button>
+      <button class="preset-btn" onclick="setSize(1920,1080)" ti="btn_1920_1080">1920×1080</button>
+      <button class="preset-btn" onclick="setSize(1280,720)" ti="btn_1280_720">1280×720</button>
+      <button class="preset-btn" onclick="setSize(800,600)" ti="btn_800_600">800×600</button>
+      <button class="preset-btn" onclick="setSize(512,512)" ti="btn_512_512">512×512</button>
+      <button class="preset-btn" onclick="setSize(256,256)" ti="btn_256_256">256×256</button>
+      <button class="preset-btn" onclick="setSize(128,128)" ti="btn_128_128">128×128</button>
+      <button class="preset-btn" onclick="setSize(64,64)" ti="btn_64_64">64×64</button>
+      <button class="preset-btn" onclick="setPercent(50)" ti="btn_50">50%</button>
+      <button class="preset-btn" onclick="setPercent(25)" ti="btn_25">25%</button>
     </div>
     <div class="ctrl-row">
-      <div class="ctrl-item"><label>Width</label><input type="number" id="newW" min="1" max="8000" oninput="onWidth()"></div>
+      <div class="ctrl-item"><label ti="label_width">Width</label><input type="number" id="newW" min="1" max="8000" oninput="onWidth()"></div>
       <button class="lock-btn active" id="lockBtn" onclick="toggleLock()">🔗</button>
-      <div class="ctrl-item"><label>Height</label><input type="number" id="newH" min="1" max="8000" oninput="onHeight()"></div>
-      <div class="ctrl-item"><label>Format</label><select id="format" onchange="resize()"><option value="png">PNG</option><option value="jpeg">JPEG</option><option value="webp">WebP</option></select></div>
+      <div class="ctrl-item"><label ti="label_height">Height</label><input type="number" id="newH" min="1" max="8000" oninput="onHeight()"></div>
+      <div class="ctrl-item"><label ti="label_format">Format</label><select id="format" onchange="resize()"><option value="png">PNG</option><option value="jpeg">JPEG</option><option value="webp">WebP</option></select></div>
     </div>
     <div class="quality-row" id="qualityRow" style="display:none">
-      <label>Quality</label>
+      <label ti="label_quality">Quality</label>
       <input type="range" id="quality" min="10" max="100" value="85" oninput="resize()">
       <span class="val" id="qualityVal">85%</span>
     </div>
     <div class="btn-row">
-      <button class="btn primary" onclick="download()">Download</button>
-      <button class="btn" onclick="reset()">New Image</button>
+      <button class="btn primary" onclick="download()" ti="btn_download">Download</button>
+      <button class="btn" onclick="reset()" ti="btn_new_image">New Image</button>
     </div>
   </div>
 
@@ -122,10 +124,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/image-resize">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/image-resize" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_image_resize_browser_base':["Image Resize — Browser-Based Image Resizer", "图片调整大小 — 基于浏览器的图片调整器"],'metadesc_resize_images_in_your_bro':["Resize images in your browser. No upload, no server. Maintain aspect ratio, custom dimensions. Download PNG/JPEG. Free.", "在浏览器中调整图片大小。无需上传，无需服务器。保持宽高比，支持自定义尺寸。下载 PNG/JPEG 文件。免费。"],'h1_image_resize':["Image Resize", "图片调整大小"],'h3_original':["Original", "原来的"],'h3_resized':["Resized", "调整大小"],'subtitle_resize_images_in_your_bro':["Resize images in your browser. No upload, no server. Privacy first.", "在浏览器中调整图片大小。无需上传，无需服务器。隐私至上。"],'btn_1920_1080':["1920×1080", "1920×1080"],'btn_1280_720':["1280×720", "1280×720"],'btn_800_600':["800×600", "800×600"],'btn_512_512':["512×512", "512×512"],'btn_256_256':["256×256", "256×256"],'btn_128_128':["128×128", "128×128"],'btn_64_64':["64×64", "64×64"],'btn_50':["50%", "50%"],'btn_25':["25%", "25%"],'btn_download':["Download", "下载"],'btn_new_image':["New Image", "新形象"],'strong_related_tools':["Related Tools", "相关工具"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'label_format':["Format", "格式"],'label_quality':["Quality", "质量"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let origW=0,origH=0,locked=true,img=new Image();
 
@@ -247,12 +259,30 @@ function formatBytes(b){
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-extract/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Extract</a>
 <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
 <a href="https://gokuscraper.github.io/dev-vault/aspect-ratio/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Aspect Ratio</a>
 <a href="https://gokuscraper.github.io/dev-vault/data-uri/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Data Uri</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

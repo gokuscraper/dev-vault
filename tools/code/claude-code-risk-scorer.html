@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_claude_code_risk_scorer_s" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -384,16 +384,18 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
   <header>
-    <h1>Claude Code Risk Scorer</h1>
-    <p class="subtitle">Paste your CLAUDE.md — find safety gaps before they become incidents</p>
+    <h1 ti="h1_claude_code_risk_scorer">Claude Code Risk Scorer</h1>
+    <p class="subtitle" ti="subtitle_paste_your_claude_md_find">Paste your CLAUDE.md — find safety gaps before they become incidents</p>
     <div class="privacy-badge">🔒 100% client-side — nothing leaves your browser</div>
   </header>
 
   <div class="input-section">
-    <label for="input">Your CLAUDE.md content</label>
-    <textarea id="input" placeholder="# My CLAUDE.md
+    <label for="input" ti="label_your_claude_md_content">Your CLAUDE.md content</label>
+    <textarea id="input" tp="placeholder_my_claude_md_paste_your" placeholder="# My CLAUDE.md
 
 Paste your entire CLAUDE.md file here.
 
@@ -404,8 +406,8 @@ error handling, backup procedures, and more.
 Works with any format — YAML, Markdown, plain text.
 English and Japanese supported."></textarea>
     <div class="btn-row">
-      <button class="btn btn-primary" id="scoreBtn" onclick="runScore()">Score My Config</button>
-      <button class="btn btn-sample" onclick="loadSample()">Load Example</button>
+      <button class="btn btn-primary" id="scoreBtn" onclick="runScore()" ti="btn_score_my_config">Score My Config</button>
+      <button class="btn btn-sample" onclick="loadSample()" ti="btn_load_example">Load Example</button>
     </div>
   </div>
 
@@ -422,12 +424,12 @@ English and Japanese supported."></textarea>
     <div class="checks-grid" id="checksGrid"></div>
 
     <div class="recs" id="recsBox" style="display:none">
-      <h3>Recommendations</h3>
+      <h3 ti="h3_recommendations">Recommendations</h3>
       <div id="recsList"></div>
     </div>
 
     <div class="cta-box" id="ctaBox" style="display:none">
-      <h3>Want a production-ready template?</h3>
+      <h3 ti="h3_want_a_production_ready_t">Want a production-ready template?</h3>
       <p id="ctaMsg"></p>
       <a class="cta-link" href="https://gokuscraper.github.io/dev-vault/cc-ops-kit-landing/" target="_blank" rel="noopener">Get the Ops Kit ($19) →</a>
     </div>
@@ -449,6 +451,16 @@ English and Japanese supported."></textarea>
   </footer>
 </div>
 
+
+<script>var _LANG={'title_claude_code_risk_scorer_s':["Claude Code Risk Scorer — Scan Your CLAUDE.md for Safety Gaps", "Claude Code 风险评分器 — 扫描您的 CLAUDE.md 文件以查找安全漏洞"],'metadesc_paste_your_claude_md_and':["Paste your CLAUDE.md and get a safety score from 0-100. Find guardrail gaps before they become incidents. Free, runs in browser, no data sent.", "粘贴您的 CLAUDE.md 文件，即可获得 0-100 的安全评分。在事故发生前发现护栏缝隙。免费，在浏览器中运行，不发送任何数据。"],'h1_claude_code_risk_scorer':["Claude Code Risk Scorer", "克劳德代码风险评分器"],'h3_recommendations':["Recommendations", "建议"],'h3_want_a_production_ready_t':["Want a production-ready template?", "想要一个可直接用于生产的模板吗？"],'subtitle_paste_your_claude_md_find':["Paste your CLAUDE.md — find safety gaps before they become incidents", "粘贴您的 CLAUDE.md 文件——在安全漏洞演变成事故之前发现它们。"],'btn_score_my_config':["Score My Config", "我的配置评分"],'btn_load_example':["Load Example", "加载示例"],'btn_copy_result':["Copy Result", "复制结果"],'btn_score_another':["Score Another", "再进一球"],'placeholder_my_claude_md_paste_your':["# My CLAUDE.md\n\nPaste your entire CLAUDE.md file here.\n\nThe scorer checks for 10 safety categories:\nforbidden actions, publishing limits, budget controls,\nerror handling, backup procedures, and more.\n\nWorks with any format — YAML, Markdown, plain text.\nEnglish and Japanese supported.", "# 我的 CLAUDE.md 请将整个 CLAUDE.md 文件粘贴到此处。评分器会检查 10 个安全类别：禁止操作、发布限制、预算控制、错误处理、备份程序等等。支持任何格式——YAML、Markdown、纯文本。支持英语和日语。"],'label_your_claude_md_content':["Your CLAUDE.md content", "您的 CLAUDE.md 内容"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_result':["Copy Result", "复制结果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const CHECKS = [
   {
@@ -774,8 +786,8 @@ function runScore() {
   const shareUrl = 'https://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/';
   shareRow.innerHTML = `
     <a class="share-btn" href="https://twitter.com/intent/tweet?text=${encodeURIComponent(shareText)}&url=${encodeURIComponent(shareUrl)}" target="_blank" rel="noopener">Share on X</a>
-    <button class="share-btn" onclick="copyScore(${total}, '${verdict.label}')">Copy Result</button>
-    <button class="share-btn" onclick="document.getElementById('input').value='';document.getElementById('results').classList.remove('visible');document.getElementById('input').focus();">Score Another</button>
+    <button class="share-btn" onclick="copyScore(${total}, '${verdict.label}')" ti="btn_copy_result">Copy Result</button>
+    <button class="share-btn" onclick="document.getElementById('input').value='';document.getElementById('results').classList.remove('visible');document.getElementById('input').focus();" ti="btn_score_another">Score Another</button>
   `;
 
   document.getElementById('results').classList.add('visible');
@@ -786,8 +798,8 @@ function copyScore(score, label) {
   const text = `Claude Code Risk Score: ${score}/100 (${label})\nhttps://gokuscraper.github.io/dev-vault/claude-code-risk-scorer/`;
   navigator.clipboard.writeText(text).then(() => {
     const btn = event.target;
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy Result', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy_result"), 1500);
   });
 }
 
@@ -833,6 +845,24 @@ document.getElementById('input').addEventListener('keydown', e => {
     runScore();
   }
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

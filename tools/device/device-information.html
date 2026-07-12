@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_device_information" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,17 +25,29 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Device Information</h1>
-  <p class="desc">Detailed information about your browser and device</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_device_information" ti="h1_device_information">Device Information</h1>
+  <p class="desc" ti="subtitle_detailed_information_abou">Detailed information about your browser and device</p>
   <div class="card">
     <div class="flex-center">
-      <button id="refreshBtn">Refresh</button>
-      <button id="copyBtn">Copy All</button>
+      <button id="refreshBtn" ti="btn_refresh">Refresh</button>
+      <button id="copyBtn" ti="btn_copy_all">Copy All</button>
     </div>
     <div id="info"></div>
   </div>
 </div>
+
+<script>var _LANG={'title_device_information':["Device Information", "设备信息"],'metadesc_view_detailed_information':["View detailed information about your device and browser: screen size, user agent, hardware concurrency, memory, battery, and more.", "查看有关您的设备和浏览器的详细信息：屏幕尺寸、用户代理、硬件并发性、内存、电池等。"],'h1_device_information':["Device Information", "设备信息"],'h2_browser':["Browser", "浏览器"],'h2_screen':["Screen", "屏幕"],'h2_window':["Window", "窗户"],'h2_location':["Location", "地点"],'h2_timing':["Timing", "定时"],'h2_navigator_features':["Navigator Features", "导航功能"],'subtitle_detailed_information_abou':["Detailed information about your browser and device", "有关您的浏览器和设备的详细信息"],'btn_refresh':["Refresh", "刷新"],'btn_copy_all':["Copy All", "全部复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function row(label, value) {
   return `<tr><td>${label}</td><td>${value ?? '<span style="color:#555">N/A</span>'}</td></tr>`;
@@ -49,7 +61,7 @@ function getInfo() {
   const l = location;
   const sections = [];
 
-  sections.push('<h2>Browser</h2><table>');
+  sections.push('<h2 ti="h2_browser">Browser</h2><table>');
   sections.push(row('User Agent', n.userAgent));
   sections.push(row('Platform', n.platform));
   sections.push(row('Language', n.language));
@@ -64,7 +76,7 @@ function getInfo() {
   sections.push(row('Max Touch Points', n.maxTouchPoints));
   sections.push('</table>');
 
-  sections.push('<h2>Screen</h2><table>');
+  sections.push('<h2 ti="h2_screen">Screen</h2><table>');
   sections.push(row('Width', s.width + 'px'));
   sections.push(row('Height', s.height + 'px'));
   sections.push(row('Avail Width', s.availWidth + 'px'));
@@ -75,7 +87,7 @@ function getInfo() {
   sections.push(row('Orientation', s.orientation?.type));
   sections.push('</table>');
 
-  sections.push('<h2>Window</h2><table>');
+  sections.push('<h2 ti="h2_window">Window</h2><table>');
   sections.push(row('Inner Width', w.innerWidth + 'px'));
   sections.push(row('Inner Height', w.innerHeight + 'px'));
   sections.push(row('Outer Width', w.outerWidth + 'px'));
@@ -86,7 +98,7 @@ function getInfo() {
   sections.push(row('Page Y Offset', w.pageYOffset));
   sections.push('</table>');
 
-  sections.push('<h2>Location</h2><table>');
+  sections.push('<h2 ti="h2_location">Location</h2><table>');
   sections.push(row('HREF', l.href));
   sections.push(row('Protocol', l.protocol));
   sections.push(row('Host', l.host));
@@ -98,7 +110,7 @@ function getInfo() {
   sections.push(row('Origin', l.origin));
   sections.push('</table>');
 
-  sections.push('<h2>Timing</h2><table>');
+  sections.push('<h2 ti="h2_timing">Timing</h2><table>');
   const t = performance?.timing;
   if (t) {
     sections.push(row('DOM Interactive', new Date(t.domInteractive).toISOString()));
@@ -108,7 +120,7 @@ function getInfo() {
   }
   sections.push('</table>');
 
-  sections.push('<h2>Navigator Features</h2><table>');
+  sections.push('<h2 ti="h2_navigator_features">Navigator Features</h2><table>');
   sections.push(row('Service Worker', 'serviceWorker' in n));
   sections.push(row('Geolocation', 'geolocation' in n));
   sections.push(row('Web Bluetooth', 'bluetooth' in n));
@@ -142,6 +154,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(text);
 });
 refresh();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

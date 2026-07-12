@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_metronome_bpm_counter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,8 +50,14 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>Web Metronome</h1>
-<p class="subtitle">BPM Counter & Beat Timer</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="h1_web_metronome" ti="h1_web_metronome" ti="h1_web_metronome">Web Metronome</h1>
+<p class="subtitle" ti="subtitle_bpm_counter_beat_timer" ti="subtitle_bpm_counter_beat_timer" ti="subtitle_bpm_counter_beat_timer">BPM Counter & Beat Timer</p>
 
 <div class="card">
   <div class="bpm-display" id="bpmDisplay">120</div>
@@ -61,7 +67,7 @@ footer a:hover{text-decoration:underline}
     <input type="number" id="bpmInput" min="20" max="300" value="120">
   </div>
   <div class="row" style="justify-content:center;margin-top:.5rem">
-    <button class="tap-btn" id="tapBtn">Tap Tempo</button>
+    <button class="tap-btn" id="tapBtn" ti="btn_tap_tempo" ti="btn_tap_tempo" ti="btn_tap_tempo">Tap Tempo</button>
   </div>
 </div>
 
@@ -70,9 +76,9 @@ footer a:hover{text-decoration:underline}
 <button class="play-btn" id="playBtn">&#9654; Play</button>
 
 <div class="card">
-  <h2>Settings</h2>
+  <h2 ti="h2_settings" ti="h2_settings" ti="h2_settings">Settings</h2>
   <div class="row">
-    <label>Time Sig</label>
+    <label ti="label_time_sig" ti="label_time_sig" ti="label_time_sig">Time Sig</label>
     <select id="timeSig">
       <option value="2">2/4</option>
       <option value="3">3/4</option>
@@ -81,7 +87,7 @@ footer a:hover{text-decoration:underline}
       <option value="6">6/8</option>
       <option value="7">7/8</option>
     </select>
-    <label style="margin-left:.5rem">Sound</label>
+    <label style="margin-left:.5rem" ti="label_sound" ti="label_sound" ti="label_sound">Sound</label>
     <select id="soundType">
       <option value="click">Click</option>
       <option value="beep">Beep</option>
@@ -89,43 +95,63 @@ footer a:hover{text-decoration:underline}
     </select>
   </div>
   <div class="row">
-    <label>Volume</label>
+    <label ti="label_volume" ti="label_volume" ti="label_volume">Volume</label>
     <input type="range" id="volumeSlider" min="0" max="100" value="70">
   </div>
   <div class="row">
-    <label>Subdiv</label>
+    <label ti="label_subdiv" ti="label_subdiv" ti="label_subdiv">Subdiv</label>
     <div class="subs">
-      <button class="btn active" data-sub="1">None</button>
-      <button class="btn" data-sub="2">8th</button>
-      <button class="btn" data-sub="3">Triplet</button>
-      <button class="btn" data-sub="4">16th</button>
+      <button class="btn active" data-sub="1" ti="btn_none" ti="btn_none" ti="btn_none">None</button>
+      <button class="btn" data-sub="2" ti="btn_8th" ti="btn_8th" ti="btn_8th">8th</button>
+      <button class="btn" data-sub="3" ti="btn_triplet" ti="btn_triplet" ti="btn_triplet">Triplet</button>
+      <button class="btn" data-sub="4" ti="btn_16th" ti="btn_16th" ti="btn_16th">16th</button>
     </div>
   </div>
   <div class="row">
-    <label>Accent</label>
-    <button class="btn active" id="accentBtn">Beat 1</button>
+    <label ti="label_accent" ti="label_accent" ti="label_accent">Accent</label>
+    <button class="btn active" id="accentBtn" ti="btn_beat_1" ti="btn_beat_1" ti="btn_beat_1">Beat 1</button>
   </div>
 </div>
 
 <div class="card">
-  <h2>Presets</h2>
+  <h2 ti="h2_presets" ti="h2_presets" ti="h2_presets">Presets</h2>
   <div class="presets">
-    <button class="btn" data-bpm="50">Largo 50</button>
-    <button class="btn" data-bpm="70">Adagio 70</button>
-    <button class="btn" data-bpm="90">Andante 90</button>
-    <button class="btn" data-bpm="110">Moderato 110</button>
-    <button class="btn" data-bpm="140">Allegro 140</button>
-    <button class="btn" data-bpm="180">Presto 180</button>
-    <button class="btn" data-bpm="200">Vivace 200</button>
+    <button class="btn" data-bpm="50" ti="btn_largo_50" ti="btn_largo_50" ti="btn_largo_50">Largo 50</button>
+    <button class="btn" data-bpm="70" ti="btn_adagio_70" ti="btn_adagio_70" ti="btn_adagio_70">Adagio 70</button>
+    <button class="btn" data-bpm="90" ti="btn_andante_90" ti="btn_andante_90" ti="btn_andante_90">Andante 90</button>
+    <button class="btn" data-bpm="110" ti="btn_moderato_110" ti="btn_moderato_110" ti="btn_moderato_110">Moderato 110</button>
+    <button class="btn" data-bpm="140" ti="btn_allegro_140" ti="btn_allegro_140" ti="btn_allegro_140">Allegro 140</button>
+    <button class="btn" data-bpm="180" ti="btn_presto_180" ti="btn_presto_180" ti="btn_presto_180">Presto 180</button>
+    <button class="btn" data-bpm="200" ti="btn_vivace_200" ti="btn_vivace_200" ti="btn_vivace_200">Vivace 200</button>
   </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &middot;
-  <a href="https://gokuscraper.github.io/dev-vault/tone-gen/">Tone Generator</a> &middot;
-  <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/">Frequency Calculator</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> &middot;
+  <a href="https://gokuscraper.github.io/dev-vault/tone-gen/" ti="link_tone_generator" ti="link_tone_generator" ti="link_tone_generator">Tone Generator</a> &middot;
+  <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/" ti="link_frequency_calculator" ti="link_frequency_calculator" ti="link_frequency_calculator">Frequency Calculator</a>
 </footer>
 
+
+
+<script>var _LANG={'title_web_metronome_bpm_counter':["Web Metronome — BPM Counter & Beat Timer", "网络节拍器 — BPM计数器和节拍计时器"],'metadesc_free_browser_based_metron':["Free browser-based metronome with tap tempo, time signatures, subdivisions, and precise Web Audio API timing. No install needed.", "一款免费的基于浏览器的节拍器，具备点击速度、拍号、细分节拍和精确的 Web Audio API 计时功能。无需安装。"],'h1_web_metronome':["Web Metronome", "网络节拍器"],'h2_settings':["Settings", "设置"],'h2_presets':["Presets", "预设"],'subtitle_bpm_counter_beat_timer':["BPM Counter & Beat Timer", "BPM计数器和节拍计时器"],'btn_tap_tempo':["Tap Tempo", "轻敲节奏"],'btn_play':["▶ Play", "▶ 播放"],'btn_none':["None", "没有任何"],'btn_8th':["8th", "第八"],'btn_triplet':["Triplet", "三胞胎"],'btn_16th':["16th", "第十六"],'btn_beat_1':["Beat 1", "第一拍"],'btn_largo_50':["Largo 50", "Largo 50"],'btn_adagio_70':["Adagio 70", "柔板 70"],'btn_andante_90':["Andante 90", "行板 90"],'btn_moderato_110':["Moderato 110", "中速 110"],'btn_allegro_140':["Allegro 140", "快板 140"],'btn_presto_180':["Presto 180", "Presto 180"],'btn_vivace_200':["Vivace 200", "Vivace 200"],'label_time_sig':["Time Sig", "时间信号"],'label_sound':["Sound", "声音"],'label_volume':["Volume", "体积"],'label_subdiv':["Subdiv", "细分"],'label_accent':["Accent", "口音"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'jtc_u25a0_stop':["\\u25A0 Stop", "• 停止"],'jtc_u25b6_play':["\\u25B6 Play", "→ 播放"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_web_metronome_bpm_counter':["Web Metronome — BPM Counter & Beat Timer", "网络节拍器 — BPM计数器和节拍计时器"],'metadesc_free_browser_based_metron':["Free browser-based metronome with tap tempo, time signatures, subdivisions, and precise Web Audio API timing. No install needed.", "一款免费的基于浏览器的节拍器，具备点击速度、拍号、细分节拍和精确的 Web Audio API 计时功能。无需安装。"],'h1_web_metronome':["Web Metronome", "网络节拍器"],'h2_settings':["Settings", "设置"],'h2_presets':["Presets", "预设"],'subtitle_bpm_counter_beat_timer':["BPM Counter & Beat Timer", "BPM计数器和节拍计时器"],'btn_tap_tempo':["Tap Tempo", "轻敲节奏"],'btn_play':["▶ Play", "▶ 播放"],'btn_none':["None", "没有任何"],'btn_8th':["8th", "第八"],'btn_triplet':["Triplet", "三胞胎"],'btn_16th':["16th", "第十六"],'btn_beat_1':["Beat 1", "第一拍"],'btn_largo_50':["Largo 50", "Largo 50"],'btn_adagio_70':["Adagio 70", "柔板 70"],'btn_andante_90':["Andante 90", "行板 90"],'btn_moderato_110':["Moderato 110", "中速 110"],'btn_allegro_140':["Allegro 140", "快板 140"],'btn_presto_180':["Presto 180", "Presto 180"],'btn_vivace_200':["Vivace 200", "Vivace 200"],'label_time_sig':["Time Sig", "时间信号"],'label_sound':["Sound", "声音"],'label_volume':["Volume", "体积"],'label_subdiv':["Subdiv", "细分"],'label_accent':["Accent", "口音"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'jtc_u25a0_stop':["\\u25A0 Stop", "• 停止"],'jtc_u25b6_play':["\\u25B6 Play", "→ 播放"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
   /* --- State --- */
@@ -275,13 +301,13 @@ footer a:hover{text-decoration:underline}
     currentBeat = 0; currentSub = 0;
     nextNoteTime = audioCtx.currentTime + 0.05;
     timerID = setInterval(scheduler, LOOKAHEAD);
-    playBtn.textContent = '\u25A0 Stop';
+    playBtn.textContent=T("jtc_u25a0_stop");
     playBtn.classList.add('playing');
   }
   function stop(){
     playing = false;
     clearInterval(timerID); timerID = null;
-    playBtn.textContent = '\u25B6 Play';
+    playBtn.textContent=T("jtc_u25b6_play");
     playBtn.classList.remove('playing');
     const dots = beatContainer.children;
     for(let i=0;i<dots.length;i++) dots[i].className='beat';
@@ -310,6 +336,60 @@ footer a:hover{text-decoration:underline}
     if(e.code==='Space'){ e.preventDefault(); playing ? stop() : start(); }
     if(e.code==='KeyT'){ tapBtn.click(); }
   });
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_markdown_table_visual_tab" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,24 +74,30 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Markdown Table</h1>
-<p class="subtitle">Visual table generator. Edit cells, copy markdown or HTML.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_markdown_table" ti="h1_markdown_table" ti="h1_markdown_table">Markdown Table</h1>
+<p class="subtitle" ti="subtitle_visual_table_generator_ed" ti="subtitle_visual_table_generator_ed" ti="subtitle_visual_table_generator_ed">Visual table generator. Edit cells, copy markdown or HTML.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="preset(3,3)">3×3</button>
-  <button class="preset-btn" onclick="preset(4,5)">4×5</button>
-  <button class="preset-btn" onclick="preset(2,4)">2×4</button>
-  <button class="preset-btn" onclick="presetComparison()">Comparison</button>
-  <button class="preset-btn" onclick="presetAPI()">API Docs</button>
+  <button class="preset-btn" onclick="preset(3,3)" ti="btn_3_3" ti="btn_3_3" ti="btn_3_3">3×3</button>
+  <button class="preset-btn" onclick="preset(4,5)" ti="btn_4_5" ti="btn_4_5" ti="btn_4_5">4×5</button>
+  <button class="preset-btn" onclick="preset(2,4)" ti="btn_2_4" ti="btn_2_4" ti="btn_2_4">2×4</button>
+  <button class="preset-btn" onclick="presetComparison()" ti="btn_comparison" ti="btn_comparison" ti="btn_comparison">Comparison</button>
+  <button class="preset-btn" onclick="presetAPI()" ti="btn_api_docs" ti="btn_api_docs" ti="btn_api_docs">API Docs</button>
 </div>
 
 <div class="toolbar">
-  <button class="btn" onclick="addCol()">+ Column</button>
-  <button class="btn" onclick="addRow()">+ Row</button>
-  <button class="btn danger" onclick="removeCol()">- Column</button>
-  <button class="btn danger" onclick="removeRow()">- Row</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn" onclick="addCol()" ti="btn_column" ti="btn_column" ti="btn_column">+ Column</button>
+  <button class="btn" onclick="addRow()" ti="btn_row" ti="btn_row" ti="btn_row">+ Row</button>
+  <button class="btn danger" onclick="removeCol()" ti="btn_column_2" ti="btn_column_2" ti="btn_column_2">- Column</button>
+  <button class="btn danger" onclick="removeRow()" ti="btn_row_2" ti="btn_row_2" ti="btn_row_2">- Row</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
 </div>
 
 <div class="table-wrap">
@@ -100,22 +106,42 @@ footer a:hover{color:#999}
 
 <div class="output-section">
   <div class="output-pane" onclick="copyMd()">
-    <h3>Markdown</h3>
+    <h3 ti="h3_markdown" ti="h3_markdown" ti="h3_markdown">Markdown</h3>
     <pre id="mdOutput"></pre>
     <div class="hint">Click to copy</div>
   </div>
   <div class="preview-pane">
-    <h3>Preview</h3>
+    <h3 ti="h3_preview" ti="h3_preview" ti="h3_preview">Preview</h3>
     <div id="previewArea"></div>
   </div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/markdown-table">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/markdown-table" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+
+<script>var _LANG={'title_markdown_table_visual_tab':["Markdown Table — Visual Table Generator", "Markdown 表格 — 可视化表格生成器"],'metadesc_visual_markdown_table_gen':["Visual markdown table generator. Click to edit cells, add rows/columns. Copy markdown. Free.", "可视化 Markdown 表格生成器。点击即可编辑单元格、添加行/列。复制 Markdown 代码。免费。"],'h1_markdown_table':["Markdown Table", "Markdown 表格"],'h3_markdown':["Markdown", "Markdown"],'h3_preview':["Preview", "预览"],'subtitle_visual_table_generator_ed':["Visual table generator. Edit cells, copy markdown or HTML.", "可视化表格生成器。可编辑单元格，复制 Markdown 或 HTML 代码。"],'btn_3_3':["3×3", "3×3"],'btn_4_5':["4×5", "4×5"],'btn_2_4':["2×4", "2×4"],'btn_comparison':["Comparison", "比较"],'btn_api_docs':["API Docs", "API 文档"],'btn_column':["+ Column", "+ 列"],'btn_row':["+ Row", "+ 行"],'btn_column_2':["- Column", "- 柱子"],'btn_row_2':["- Row", "- 排"],'btn_clear':["Clear", "清除"],'strong_related_tools':["Related Tools", "相关工具"],'th_esc_h':["${esc(h)}", "${esc(h)}"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_markdown_copied':["Markdown Copied!", "Markdown 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_markdown_table_visual_tab':["Markdown Table — Visual Table Generator", "Markdown 表格 — 可视化表格生成器"],'metadesc_visual_markdown_table_gen':["Visual markdown table generator. Click to edit cells, add rows/columns. Copy markdown. Free.", "可视化 Markdown 表格生成器。点击即可编辑单元格、添加行/列。复制 Markdown 代码。免费。"],'h1_markdown_table':["Markdown Table", "Markdown 表格"],'h3_markdown':["Markdown", "Markdown"],'h3_preview':["Preview", "预览"],'subtitle_visual_table_generator_ed':["Visual table generator. Edit cells, copy markdown or HTML.", "可视化表格生成器。可编辑单元格，复制 Markdown 或 HTML 代码。"],'btn_3_3':["3×3", "3×3"],'btn_4_5':["4×5", "4×5"],'btn_2_4':["2×4", "2×4"],'btn_comparison':["Comparison", "比较"],'btn_api_docs':["API Docs", "API 文档"],'btn_column':["+ Column", "+ 列"],'btn_row':["+ Row", "+ 行"],'btn_column_2':["- Column", "- 柱子"],'btn_row_2':["- Row", "- 排"],'btn_clear':["Clear", "清除"],'strong_related_tools':["Related Tools", "相关工具"],'th_esc_h':["${esc(h)}", "${esc(h)}"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_markdown_copied':["Markdown Copied!", "Markdown 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let colCount=3,rowCount=3;
 let headers=['Header 1','Header 2','Header 3'];
@@ -259,7 +285,7 @@ function generateOutput(){
 
   // Preview
   let preview='<table class="preview-table"><thead><tr>';
-  headers.forEach(h=>preview+=`<th>${esc(h)}</th>`);
+  headers.forEach(h=>preview+=`<th ti="th_esc_h" ti="th_esc_h" ti="th_esc_h">${esc(h)}</th>`);
   preview+='</tr></thead><tbody>';
   data.forEach(row=>{
     preview+='<tr>';
@@ -276,7 +302,7 @@ function generateOutput(){
 function copyMd(){
   navigator.clipboard.writeText(document.getElementById('mdOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Markdown Copied!';
+  el.className='copied';el.textContent=T("jtc_markdown_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -284,12 +310,66 @@ function copyMd(){
 render();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/md-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">MD Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/csv-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSV ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/lorem-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Lorem Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

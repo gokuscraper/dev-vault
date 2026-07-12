@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_terraform_generator_creat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,12 +51,18 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Terraform Generator</h1>
-<p class="sub">Generate HCL configurations visually — AWS, GCP, Azure</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_terraform_generator" ti="h1_terraform_generator" ti="h1_terraform_generator">Terraform Generator</h1>
+<p class="sub" ti="subtitle_generate_hcl_configuratio" ti="subtitle_generate_hcl_configuratio" ti="subtitle_generate_hcl_configuratio">Generate HCL configurations visually — AWS, GCP, Azure</p>
 
 <div class="section">
-<h3>Provider</h3>
+<h3 ti="h3_provider" ti="h3_provider" ti="h3_provider">Provider</h3>
 <div class="tabs" id="providerTabs">
 <div class="tab active" data-p="aws">AWS</div>
 <div class="tab" data-p="gcp">GCP</div>
@@ -65,7 +71,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Resource Type</h3>
+<h3 ti="h3_resource_type" ti="h3_resource_type" ti="h3_resource_type">Resource Type</h3>
 <div class="tabs" id="resourceTabs"></div>
 <div class="presets">
 <div class="preset" onclick="loadPreset('web-server')">Web Server</div>
@@ -80,17 +86,37 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyHCL()">Copy HCL</button>
-<button class="btn" onclick="downloadHCL()">Download .tf</button>
+<button class="btn btn-primary" onclick="copyHCL()" ti="btn_copy_hcl" ti="btn_copy_hcl" ti="btn_copy_hcl">Copy HCL</button>
+<button class="btn" onclick="downloadHCL()" ti="btn_download_tf" ti="btn_download_tf" ti="btn_download_tf">Download .tf</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/k8s-yaml-gen/">K8s YAML</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/k8s-yaml-gen/" ti="link_k8s_yaml" ti="link_k8s_yaml" ti="link_k8s_yaml">K8s YAML</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/" ti="link_docker_compose" ti="link_docker_compose" ti="link_docker_compose">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config" ti="link_nginx_config" ti="link_nginx_config">Nginx Config</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_terraform_generator_creat':["Terraform Generator — Create HCL Configs Visually", "Terraform 生成器 — 以可视化方式创建 HCL 配置"],'metadesc_generate_terraform_hcl_co':["Generate Terraform HCL configurations visually. AWS, GCP, Azure resources. EC2, S3, RDS, VPC, Lambda, CloudFront. Copy or download.", "以可视化方式生成 Terraform HCL 配置。支持 AWS、GCP 和 Azure 资源，包括 EC2、S3、RDS、VPC、Lambda 和 CloudFront。可复制或下载。"],'h1_terraform_generator':["Terraform Generator", "Terraform 生成器"],'h3_provider':["Provider", "提供者"],'h3_resource_type':["Resource Type", "资源类型"],'h3_configuration':["Configuration", "配置"],'subtitle_generate_hcl_configuratio':["Generate HCL configurations visually — AWS, GCP, Azure", "以可视化方式生成 HCL 配置 — AWS、GCP、Azure"],'btn_copy_hcl':["Copy HCL", "复制 HCL"],'btn_download_tf':["Download .tf", "下载 .tf"],'btn_tag':["+ Tag", "+ 标签"],'placeholder_key':["key", "钥匙"],'placeholder_value':["value", "价值"],'label_region':["Region", "地区"],'label_public_ip':["Public IP", "公网 IP"],'label_tags':["Tags", "标签"],'label_acl':["ACL", "前交叉韧带"],'label_versioning':["Versioning", "版本控制"],'label_static_website_hosting':["Static Website Hosting", "静态网站托管"],'label_multi_az':["Multi-AZ", "多区域"],'label_publicly_accessible':["Publicly Accessible", "公开访问"],'label_dns_support':["DNS Support", "DNS 支持"],'label_dns_hostnames':["DNS Hostnames", "DNS主机名"],'label_https_only':["HTTPS Only", "仅限 HTTPS"],'label_assume_role_service':["Assume Role Service", "承担角色服务"],'label_project':["Project", "项目"],'label_region_2':["Region", "地区"],'label_storage_class':["Storage Class", "存储类"],'label_location':["Location", "地点"],'label_account_tier':["Account Tier", "账户等级"],'label_sku':["SKU", "SKU"],'label_label':["${label}", "${label}"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_k8s_yaml':["K8s YAML", "K8s YAML"],'link_docker_compose':["Docker Compose", "Docker Compose"],'link_nginx_config':["Nginx Config", "Nginx 配置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_terraform_generator_creat':["Terraform Generator — Create HCL Configs Visually", "Terraform 生成器 — 以可视化方式创建 HCL 配置"],'metadesc_generate_terraform_hcl_co':["Generate Terraform HCL configurations visually. AWS, GCP, Azure resources. EC2, S3, RDS, VPC, Lambda, CloudFront. Copy or download.", "以可视化方式生成 Terraform HCL 配置。支持 AWS、GCP 和 Azure 资源，包括 EC2、S3、RDS、VPC、Lambda 和 CloudFront。可复制或下载。"],'h1_terraform_generator':["Terraform Generator", "Terraform 生成器"],'h3_provider':["Provider", "提供者"],'h3_resource_type':["Resource Type", "资源类型"],'h3_configuration':["Configuration", "配置"],'subtitle_generate_hcl_configuratio':["Generate HCL configurations visually — AWS, GCP, Azure", "以可视化方式生成 HCL 配置 — AWS、GCP、Azure"],'btn_copy_hcl':["Copy HCL", "复制 HCL"],'btn_download_tf':["Download .tf", "下载 .tf"],'btn_tag':["+ Tag", "+ 标签"],'placeholder_key':["key", "钥匙"],'placeholder_value':["value", "价值"],'label_region':["Region", "地区"],'label_public_ip':["Public IP", "公网 IP"],'label_tags':["Tags", "标签"],'label_acl':["ACL", "前交叉韧带"],'label_versioning':["Versioning", "版本控制"],'label_static_website_hosting':["Static Website Hosting", "静态网站托管"],'label_multi_az':["Multi-AZ", "多区域"],'label_publicly_accessible':["Publicly Accessible", "公开访问"],'label_dns_support':["DNS Support", "DNS 支持"],'label_dns_hostnames':["DNS Hostnames", "DNS主机名"],'label_https_only':["HTTPS Only", "仅限 HTTPS"],'label_assume_role_service':["Assume Role Service", "承担角色服务"],'label_project':["Project", "项目"],'label_region_2':["Region", "地区"],'label_storage_class':["Storage Class", "存储类"],'label_location':["Location", "地点"],'label_account_tier':["Account Tier", "账户等级"],'label_sku':["SKU", "SKU"],'label_label':["${label}", "${label}"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_k8s_yaml':["K8s YAML", "K8s YAML"],'link_docker_compose':["Docker Compose", "Docker Compose"],'link_nginx_config':["Nginx Config", "Nginx 配置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let provider='aws';
 let resource='ec2';
@@ -134,53 +160,53 @@ function updateResourceTabs(){
 
 function updateFields(){
   const panel=document.getElementById('fieldsPanel');
-  let html='<div class="section"><h3>Configuration</h3>';
+  let html='<div class="section"><h3 ti="h3_configuration" ti="h3_configuration" ti="h3_configuration">Configuration</h3>';
 
   if(provider==='aws'){
-    html+='<div class="field"><label>Region</label><select id="fRegion" onchange="gen()"><option>us-east-1</option><option>us-west-2</option><option>eu-west-1</option><option>ap-northeast-1</option><option>ap-southeast-1</option></select></div>';
+    html+='<div class="field"><label ti="label_region" ti="label_region_2" ti="label_region" ti="label_region_2" ti="label_region" ti="label_region_2">Region</label><select id="fRegion" onchange="gen()"><option>us-east-1</option><option>us-west-2</option><option>eu-west-1</option><option>ap-northeast-1</option><option>ap-southeast-1</option></select></div>';
 
     if(resource==='ec2'){
       html+=field('fName','Name','my-instance')+field('fAmi','AMI','ami-0c55b159cbfafe1f0')+
         fieldRow(field('fType','Instance Type','t3.micro'),field('fKeyName','Key Pair','my-key'))+
-        '<div class="check-row"><input type="checkbox" id="fPublicIp" checked onchange="gen()"><label for="fPublicIp">Public IP</label></div>'+
-        '<div class="field"><label>Tags</label></div><div class="kv-list" id="fTags"></div><button class="add-btn" onclick="addKV(\'fTags\');gen()">+ Tag</button>';
+        '<div class="check-row"><input type="checkbox" id="fPublicIp" checked onchange="gen()"><label for="fPublicIp" ti="label_public_ip" ti="label_public_ip" ti="label_public_ip">Public IP</label></div>'+
+        '<div class="field"><label ti="label_tags" ti="label_tags" ti="label_tags">Tags</label></div><div class="kv-list" id="fTags"></div><button class="add-btn" onclick="addKV(\'fTags\');gen()" ti="btn_tag" ti="btn_tag" ti="btn_tag">+ Tag</button>';
     }else if(resource==='s3'){
       html+=field('fBucket','Bucket Name','my-bucket-name')+
-        '<div class="field"><label>ACL</label><select id="fAcl" onchange="gen()"><option value="private">private</option><option value="public-read">public-read</option></select></div>'+
-        '<div class="check-row"><input type="checkbox" id="fVersioning" onchange="gen()"><label for="fVersioning">Versioning</label></div>'+
-        '<div class="check-row"><input type="checkbox" id="fWebsite" onchange="gen()"><label for="fWebsite">Static Website Hosting</label></div>';
+        '<div class="field"><label ti="label_acl" ti="label_acl" ti="label_acl">ACL</label><select id="fAcl" onchange="gen()"><option value="private">private</option><option value="public-read">public-read</option></select></div>'+
+        '<div class="check-row"><input type="checkbox" id="fVersioning" onchange="gen()"><label for="fVersioning" ti="label_versioning" ti="label_versioning" ti="label_versioning">Versioning</label></div>'+
+        '<div class="check-row"><input type="checkbox" id="fWebsite" onchange="gen()"><label for="fWebsite" ti="label_static_website_hosting" ti="label_static_website_hosting" ti="label_static_website_hosting">Static Website Hosting</label></div>';
     }else if(resource==='rds'){
       html+=field('fIdentifier','DB Identifier','my-db')+field('fEngine','Engine','postgres')+field('fEngineVer','Engine Version','16.1')+
         fieldRow(field('fDbClass','Instance Class','db.t3.micro'),field('fStorage','Storage (GB)','20'))+
         fieldRow(field('fDbName','Database Name','mydb'),field('fDbUser','Username','admin'))+
-        '<div class="check-row"><input type="checkbox" id="fMultiAz" onchange="gen()"><label for="fMultiAz">Multi-AZ</label></div>'+
-        '<div class="check-row"><input type="checkbox" id="fPublicDb" onchange="gen()"><label for="fPublicDb">Publicly Accessible</label></div>';
+        '<div class="check-row"><input type="checkbox" id="fMultiAz" onchange="gen()"><label for="fMultiAz" ti="label_multi_az" ti="label_multi_az" ti="label_multi_az">Multi-AZ</label></div>'+
+        '<div class="check-row"><input type="checkbox" id="fPublicDb" onchange="gen()"><label for="fPublicDb" ti="label_publicly_accessible" ti="label_publicly_accessible" ti="label_publicly_accessible">Publicly Accessible</label></div>';
     }else if(resource==='vpc'){
       html+=field('fVpcCidr','CIDR Block','10.0.0.0/16')+field('fVpcName','Name','my-vpc')+
-        '<div class="check-row"><input type="checkbox" id="fDnsSupport" checked onchange="gen()"><label for="fDnsSupport">DNS Support</label></div>'+
-        '<div class="check-row"><input type="checkbox" id="fDnsHostnames" checked onchange="gen()"><label for="fDnsHostnames">DNS Hostnames</label></div>';
+        '<div class="check-row"><input type="checkbox" id="fDnsSupport" checked onchange="gen()"><label for="fDnsSupport" ti="label_dns_support" ti="label_dns_support" ti="label_dns_support">DNS Support</label></div>'+
+        '<div class="check-row"><input type="checkbox" id="fDnsHostnames" checked onchange="gen()"><label for="fDnsHostnames" ti="label_dns_hostnames" ti="label_dns_hostnames" ti="label_dns_hostnames">DNS Hostnames</label></div>';
     }else if(resource==='lambda'){
       html+=field('fFuncName','Function Name','my-function')+field('fRuntime','Runtime','nodejs20.x')+
         field('fHandler','Handler','index.handler')+field('fMemory','Memory (MB)','128')+field('fTimeout','Timeout (s)','30');
     }else if(resource==='cloudfront'){
       html+=field('fOrigin','Origin Domain','my-bucket.s3.amazonaws.com')+field('fOriginId','Origin ID','S3Origin')+
-        '<div class="check-row"><input type="checkbox" id="fHttpsOnly" checked onchange="gen()"><label for="fHttpsOnly">HTTPS Only</label></div>';
+        '<div class="check-row"><input type="checkbox" id="fHttpsOnly" checked onchange="gen()"><label for="fHttpsOnly" ti="label_https_only" ti="label_https_only" ti="label_https_only">HTTPS Only</label></div>';
     }else if(resource==='iam-role'){
       html+=field('fRoleName','Role Name','my-role')+
-        '<div class="field"><label>Assume Role Service</label><select id="fAssumeService" onchange="gen()"><option>ec2.amazonaws.com</option><option>lambda.amazonaws.com</option><option>ecs-tasks.amazonaws.com</option></select></div>';
+        '<div class="field"><label ti="label_assume_role_service" ti="label_assume_role_service" ti="label_assume_role_service">Assume Role Service</label><select id="fAssumeService" onchange="gen()"><option>ec2.amazonaws.com</option><option>lambda.amazonaws.com</option><option>ecs-tasks.amazonaws.com</option></select></div>';
     }else if(resource==='security-group'){
       html+=field('fSgName','Name','my-sg')+field('fSgDesc','Description','Security group')+
         fieldRow(field('fIngressPort','Ingress Port','80'),field('fIngressCidr','Ingress CIDR','0.0.0.0/0'));
     }
   }else if(provider==='gcp'){
-    html+='<div class="field"><label>Project</label><input id="fProject" value="my-project" oninput="gen()"></div>'+
+    html+='<div class="field"><label ti="label_project" ti="label_project" ti="label_project">Project</label><input id="fProject" value="my-project" oninput="gen()"></div>'+
       '<div class="field"><label>Region</label><select id="fRegion" onchange="gen()"><option>us-central1</option><option>us-east1</option><option>europe-west1</option><option>asia-northeast1</option></select></div>';
 
     if(resource==='compute'){
       html+=field('fName','Name','my-vm')+field('fMachineType','Machine Type','e2-micro')+field('fImage','Image','debian-cloud/debian-12')+field('fZone','Zone','us-central1-a');
     }else if(resource==='gcs'){
       html+=field('fBucket','Bucket Name','my-bucket')+field('fLocation','Location','US')+
-        '<div class="field"><label>Storage Class</label><select id="fStorageClass" onchange="gen()"><option>STANDARD</option><option>NEARLINE</option><option>COLDLINE</option></select></div>';
+        '<div class="field"><label ti="label_storage_class" ti="label_storage_class" ti="label_storage_class">Storage Class</label><select id="fStorageClass" onchange="gen()"><option>STANDARD</option><option>NEARLINE</option><option>COLDLINE</option></select></div>';
     }else if(resource==='cloudsql'){
       html+=field('fName','Name','my-db')+field('fDbVersion','Version','POSTGRES_16')+field('fTier','Tier','db-f1-micro');
     }else if(resource==='vpc'){
@@ -191,14 +217,14 @@ function updateFields(){
       html+=field('fName','Name','my-service')+field('fImage','Image','gcr.io/my-project/my-image')+field('fPort','Port','8080');
     }
   }else if(provider==='azure'){
-    html+='<div class="field"><label>Location</label><select id="fLocation" onchange="gen()"><option>eastus</option><option>westus2</option><option>westeurope</option><option>japaneast</option></select></div>'+
+    html+='<div class="field"><label ti="label_location" ti="label_location" ti="label_location">Location</label><select id="fLocation" onchange="gen()"><option>eastus</option><option>westus2</option><option>westeurope</option><option>japaneast</option></select></div>'+
       field('fRgName','Resource Group','my-rg');
 
     if(resource==='vm'){
       html+=field('fName','Name','my-vm')+field('fVmSize','Size','Standard_B1s')+field('fAdminUser','Admin Username','azureuser');
     }else if(resource==='storage'){
       html+=field('fName','Name','mystorageaccount')+
-        '<div class="field"><label>Account Tier</label><select id="fTier" onchange="gen()"><option>Standard</option><option>Premium</option></select></div>';
+        '<div class="field"><label ti="label_account_tier" ti="label_account_tier" ti="label_account_tier">Account Tier</label><select id="fTier" onchange="gen()"><option>Standard</option><option>Premium</option></select></div>';
     }else if(resource==='sql-db'){
       html+=field('fServerName','Server Name','my-sqlserver')+field('fDbName','Database Name','mydb')+field('fAdminUser','Admin Login','sqladmin');
     }else if(resource==='vnet'){
@@ -207,7 +233,7 @@ function updateFields(){
       html+=field('fName','Name','my-func-app')+field('fRuntime','Runtime','node')+field('fRuntimeVer','Runtime Version','~20');
     }else if(resource==='app-service'){
       html+=field('fName','Name','my-web-app')+
-        '<div class="field"><label>SKU</label><select id="fSku" onchange="gen()"><option>F1</option><option>B1</option><option>S1</option><option>P1v2</option></select></div>';
+        '<div class="field"><label ti="label_sku" ti="label_sku" ti="label_sku">SKU</label><select id="fSku" onchange="gen()"><option>F1</option><option>B1</option><option>S1</option><option>P1v2</option></select></div>';
     }
   }
 
@@ -217,7 +243,7 @@ function updateFields(){
 }
 
 function field(id,label,val){
-  return `<div class="field"><label>${label}</label><input id="${id}" value="${val}" oninput="gen()"></div>`;
+  return `<div class="field"><label ti="label_label" ti="label_label" ti="label_label">${label}</label><input id="${id}" value="${val}" oninput="gen()"></div>`;
 }
 function fieldRow(a,b){return `<div class="field-row">${a}${b}</div>`}
 
@@ -226,7 +252,7 @@ function addKV(listId,k,v){
   if(!list)return;
   const row=document.createElement('div');
   row.className='kv-row';
-  row.innerHTML=`<input placeholder="key" value="${k||''}" oninput="gen()"><input placeholder="value" value="${v||''}" oninput="gen()"><button onclick="this.parentElement.remove();gen()">×</button>`;
+  row.innerHTML=`<input tp="placeholder_key" tp="placeholder_key" tp="placeholder_key" placeholder="key" value="${k||''}" oninput="gen()"><input tp="placeholder_value" tp="placeholder_value" tp="placeholder_value" placeholder="value" value="${v||''}" oninput="gen()"><button onclick="this.parentElement.remove();gen()">×</button>`;
   list.appendChild(row);
 }
 
@@ -375,6 +401,60 @@ function showToast(msg){
 
 // Init
 updateResourceTabs();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

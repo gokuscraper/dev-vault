@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_container_style_queri" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -869,40 +869,48 @@ footer a:hover { text-decoration: underline }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- ═══════════════════════════════════════ HEADER ═══════════════════════════════════════ -->
 <header>
-  <h1>Container Style Queries Playground</h1>
+  <h1 ti="h1_container_style_queries_p" ti="h1_container_style_queries_p" ti="h1_container_style_queries_p" ti="h1_container_style_queries_p">Container Style Queries Playground</h1>
   <p>Query parent container's custom property values to conditionally style children — pure CSS contextual styling with <code>@container style()</code></p>
   <span class="badge">Chrome 111+ / Edge 111+ / Safari 18.2+</span>
 </header>
 
 <!-- ═══════════════════════════════════════ NAV ═══════════════════════════════════════ -->
 <nav>
-  <div class="container">
-    <a href="#basic">Basic</a>
-    <a href="#flags">Feature Flags</a>
-    <a href="#themes">Themes</a>
-    <a href="#variants">Variants</a>
-    <a href="#multi">AND Logic</a>
+  <div class="container" style="position:relative">
+    <a href="#basic" ti="link_basic" ti="link_basic" ti="link_basic" ti="link_basic">Basic</a>
+    <a href="#flags" ti="link_feature_flags" ti="link_feature_flags" ti="link_feature_flags" ti="link_feature_flags">Feature Flags</a>
+    <a href="#themes" ti="link_themes" ti="link_themes" ti="link_themes" ti="link_themes">Themes</a>
+    <a href="#variants" ti="link_variants" ti="link_variants" ti="link_variants" ti="link_variants">Variants</a>
+    <a href="#multi" ti="link_and_logic" ti="link_and_logic" ti="link_and_logic" ti="link_and_logic">AND Logic</a>
     <a href="#combo">Style + Size</a>
-    <a href="#data">Data-Driven</a>
-    <a href="#editor">Live Editor</a>
-    <a href="#compare">Comparison</a>
-    <a href="#support">Browser Support</a>
+    <a href="#data" ti="link_data_driven" ti="link_data_driven" ti="link_data_driven" ti="link_data_driven">Data-Driven</a>
+    <a href="#editor" ti="link_live_editor" ti="link_live_editor" ti="link_live_editor" ti="link_live_editor">Live Editor</a>
+    <a href="#compare" ti="link_comparison" ti="link_comparison" ti="link_comparison" ti="link_comparison">Comparison</a>
+    <a href="#support" ti="link_browser_support" ti="link_browser_support" ti="link_browser_support" ti="link_browser_support">Browser Support</a>
   </div>
 </nav>
 
-<div class="container">
+<div class="container" style="position:relative">
 
 <!-- ═══════════════════════════════════════ 1. BASIC ═══════════════════════════════════════ -->
 <section id="basic">
-  <h2>1. Basic Style Query</h2>
+  <h2 ti="h2_1_basic_style_query" ti="h2_1_basic_style_query" ti="h2_1_basic_style_query" ti="h2_1_basic_style_query">1. Basic Style Query</h2>
   <p class="subtitle">Toggle a CSS custom property on the parent — the child responds via <code>@container style(--highlight: true)</code></p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">Interactive Demo</span>
+      <span class="label" ti="label_interactive_demo" ti="label_interactive_demo" ti="label_interactive_demo" ti="label_interactive_demo">Interactive Demo</span>
       <div class="controls">
         <label class="toggle-label">
           <input type="checkbox" class="toggle" id="basicToggle">
@@ -936,12 +944,12 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 2. FEATURE FLAGS ═══════════════════════════════════════ -->
 <section id="flags">
-  <h2>2. Feature Flags</h2>
+  <h2 ti="h2_2_feature_flags" ti="h2_2_feature_flags" ti="h2_2_feature_flags" ti="h2_2_feature_flags">2. Feature Flags</h2>
   <p class="subtitle">Use CSS custom properties as native feature flags — toggle <code>--featured</code>, <code>--experimental</code>, <code>--compact</code> independently</p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">CSS Feature Flags</span>
+      <span class="label" ti="label_css_feature_flags" ti="label_css_feature_flags" ti="label_css_feature_flags" ti="label_css_feature_flags">CSS Feature Flags</span>
       <div class="controls">
         <label class="toggle-label"><input type="checkbox" class="toggle" id="flagFeatured"><span>--featured</span></label>
         <label class="toggle-label"><input type="checkbox" class="toggle" id="flagExperimental"><span>--experimental</span></label>
@@ -986,16 +994,16 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 3. THEMES ═══════════════════════════════════════ -->
 <section id="themes">
-  <h2>3. Theme Switching</h2>
+  <h2 ti="h2_3_theme_switching" ti="h2_3_theme_switching" ti="h2_3_theme_switching" ti="h2_3_theme_switching">3. Theme Switching</h2>
   <p class="subtitle">Switch between <code>dark</code>, <code>light</code>, and <code>colorful</code> themes with <code>@container style(--theme: ...)</code></p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">Theme Toggle</span>
+      <span class="label" ti="label_theme_toggle" ti="label_theme_toggle" ti="label_theme_toggle" ti="label_theme_toggle">Theme Toggle</span>
       <div class="controls">
-        <button class="btn active" onclick="setTheme('dark')">Dark</button>
-        <button class="btn" onclick="setTheme('light')">Light</button>
-        <button class="btn" onclick="setTheme('colorful')">Colorful</button>
+        <button class="btn active" onclick="setTheme('dark')" ti="btn_dark" ti="btn_dark" ti="btn_dark" ti="btn_dark">Dark</button>
+        <button class="btn" onclick="setTheme('light')" ti="btn_light" ti="btn_light" ti="btn_light" ti="btn_light">Light</button>
+        <button class="btn" onclick="setTheme('colorful')" ti="btn_colorful" ti="btn_colorful" ti="btn_colorful" ti="btn_colorful">Colorful</button>
       </div>
     </div>
     <div class="demo-body">
@@ -1020,17 +1028,17 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 4. VARIANTS ═══════════════════════════════════════ -->
 <section id="variants">
-  <h2>4. Component Variants</h2>
+  <h2 ti="h2_4_component_variants" ti="h2_4_component_variants" ti="h2_4_component_variants" ti="h2_4_component_variants">4. Component Variants</h2>
   <p class="subtitle">A single card component with four layouts driven by <code>@container style(--variant: ...)</code></p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">Card Variant</span>
+      <span class="label" ti="label_card_variant" ti="label_card_variant" ti="label_card_variant" ti="label_card_variant">Card Variant</span>
       <div class="controls">
-        <button class="btn active" onclick="setVariant('default')">Default</button>
-        <button class="btn" onclick="setVariant('horizontal')">Horizontal</button>
-        <button class="btn" onclick="setVariant('compact')">Compact</button>
-        <button class="btn" onclick="setVariant('featured')">Featured</button>
+        <button class="btn active" onclick="setVariant('default')" ti="btn_default" ti="btn_default" ti="btn_default" ti="btn_default">Default</button>
+        <button class="btn" onclick="setVariant('horizontal')" ti="btn_horizontal" ti="btn_horizontal" ti="btn_horizontal" ti="btn_horizontal">Horizontal</button>
+        <button class="btn" onclick="setVariant('compact')" ti="btn_compact" ti="btn_compact" ti="btn_compact" ti="btn_compact">Compact</button>
+        <button class="btn" onclick="setVariant('featured')" ti="btn_featured" ti="btn_featured" ti="btn_featured" ti="btn_featured">Featured</button>
       </div>
     </div>
     <div class="demo-body">
@@ -1042,8 +1050,8 @@ footer a:hover { text-decoration: underline }
             <p>The same HTML markup renders in completely different layouts based on the container's --variant custom property.</p>
           </div>
           <div class="card-actions">
-            <button class="btn" style="font-size:.78rem">View</button>
-            <button class="btn" style="font-size:.78rem">Edit</button>
+            <button class="btn" style="font-size:.78rem" ti="btn_view" ti="btn_view" ti="btn_view" ti="btn_view">View</button>
+            <button class="btn" style="font-size:.78rem" ti="btn_edit" ti="btn_edit" ti="btn_edit" ti="btn_edit">Edit</button>
           </div>
         </div>
       </div>
@@ -1065,19 +1073,19 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 5. MULTIPLE CONDITIONS ═══════════════════════════════════════ -->
 <section id="multi">
-  <h2>5. Multiple Conditions (AND Logic)</h2>
+  <h2 ti="h2_5_multiple_conditions_and" ti="h2_5_multiple_conditions_and" ti="h2_5_multiple_conditions_and" ti="h2_5_multiple_conditions_and">5. Multiple Conditions (AND Logic)</h2>
   <p class="subtitle">Combine style queries with <code>and</code> — both conditions must match: <code>@container style(--size: large) and style(--priority: high)</code></p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">AND Conditions</span>
+      <span class="label" ti="label_and_conditions" ti="label_and_conditions" ti="label_and_conditions" ti="label_and_conditions">AND Conditions</span>
       <div class="controls">
         <span style="font-size:.78rem;color:var(--text-dim)">Size:</span>
-        <button class="btn active" onclick="setMulti('size','normal')">Normal</button>
-        <button class="btn" onclick="setMulti('size','large')">Large</button>
+        <button class="btn active" onclick="setMulti('size','normal')" ti="btn_normal" ti="btn_normal" ti="btn_normal" ti="btn_normal">Normal</button>
+        <button class="btn" onclick="setMulti('size','large')" ti="btn_large" ti="btn_large" ti="btn_large" ti="btn_large">Large</button>
         <span style="font-size:.78rem;color:var(--text-dim);margin-left:.5rem">Priority:</span>
-        <button class="btn active" onclick="setMulti('priority','low')">Low</button>
-        <button class="btn" onclick="setMulti('priority','high')">High</button>
+        <button class="btn active" onclick="setMulti('priority','low')" ti="btn_low" ti="btn_low" ti="btn_low" ti="btn_low">Low</button>
+        <button class="btn" onclick="setMulti('priority','high')" ti="btn_high" ti="btn_high" ti="btn_high" ti="btn_high">High</button>
       </div>
     </div>
     <div class="demo-body">
@@ -1108,15 +1116,15 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 6. STYLE + SIZE ═══════════════════════════════════════ -->
 <section id="combo">
-  <h2>6. Style + Size Queries Combined</h2>
+  <h2 ti="h2_6_style_size_queries_comb" ti="h2_6_style_size_queries_comb" ti="h2_6_style_size_queries_comb" ti="h2_6_style_size_queries_comb">6. Style + Size Queries Combined</h2>
   <p class="subtitle">Combine <code>@container style()</code> with size queries — layout adapts to both container width and custom property state</p>
 
   <div class="demo">
     <div class="demo-header">
-      <span class="label">Style + Size</span>
+      <span class="label" ti="label_style_size" ti="link_style_size" ti="label_style_size" ti="link_style_size" ti="label_style_size" ti="link_style_size" ti="label_style_size" ti="link_style_size">Style + Size</span>
       <div class="controls">
-        <button class="btn active" onclick="setLayout('grid')">--layout: grid</button>
-        <button class="btn" onclick="setLayout('list')">--layout: list</button>
+        <button class="btn active" onclick="setLayout('grid')" ti="btn_layout_grid" ti="btn_layout_grid" ti="btn_layout_grid" ti="btn_layout_grid">--layout: grid</button>
+        <button class="btn" onclick="setLayout('list')" ti="btn_layout_list" ti="btn_layout_list" ti="btn_layout_list" ti="btn_layout_list">--layout: list</button>
       </div>
     </div>
     <div class="demo-body">
@@ -1152,14 +1160,14 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 7. DATA-DRIVEN ═══════════════════════════════════════ -->
 <section id="data">
-  <h2>7. Data-Driven Styling</h2>
+  <h2 ti="h2_7_data_driven_styling" ti="h2_7_data_driven_styling" ti="h2_7_data_driven_styling" ti="h2_7_data_driven_styling">7. Data-Driven Styling</h2>
   <p class="subtitle">Map <code>data-*</code> attributes to CSS custom properties — style queries consume them for semantic, state-based styling</p>
 
   <div class="demo">
     <div class="demo-header">
       <span class="label">Data Attributes &rarr; Custom Properties &rarr; Style Queries</span>
       <div class="controls">
-        <button class="btn" onclick="randomizeData()">Randomize States</button>
+        <button class="btn" onclick="randomizeData()" ti="btn_randomize_states" ti="btn_randomize_states" ti="btn_randomize_states" ti="btn_randomize_states">Randomize States</button>
       </div>
     </div>
     <div class="demo-body">
@@ -1217,8 +1225,8 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 8. LIVE EDITOR ═══════════════════════════════════════ -->
 <section id="editor">
-  <h2>8. Live Code Editor</h2>
-  <p class="subtitle">Write your own style queries and see them render in real time</p>
+  <h2 ti="h2_8_live_code_editor" ti="h2_8_live_code_editor" ti="h2_8_live_code_editor" ti="h2_8_live_code_editor">8. Live Code Editor</h2>
+  <p class="subtitle" ti="subtitle_write_your_own_style_quer" ti="subtitle_write_your_own_style_quer" ti="subtitle_write_your_own_style_quer" ti="subtitle_write_your_own_style_quer">Write your own style queries and see them render in real time</p>
 
   <div class="demo">
     <div class="demo-body">
@@ -1226,7 +1234,7 @@ footer a:hover { text-decoration: underline }
         <div class="editor-pane">
           <div class="pane-header">
             <span>CSS + HTML</span>
-            <button class="editor-reset" onclick="resetEditor()">Reset</button>
+            <button class="editor-reset" onclick="resetEditor()" ti="btn_reset" ti="btn_reset" ti="btn_reset" ti="btn_reset">Reset</button>
           </div>
           <textarea class="editor-textarea" id="editorInput" spellcheck="false"></textarea>
         </div>
@@ -1241,7 +1249,7 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 9. COMPARISON ═══════════════════════════════════════ -->
 <section id="compare">
-  <h2>9. Comparison: Approaches to Contextual Styling</h2>
+  <h2 ti="h2_9_comparison_approaches_t" ti="h2_9_comparison_approaches_t" ti="h2_9_comparison_approaches_t" ti="h2_9_comparison_approaches_t">9. Comparison: Approaches to Contextual Styling</h2>
   <p class="subtitle">Style queries vs media queries vs <code>:has()</code> vs JavaScript — when to use each</p>
 
   <div class="demo">
@@ -1250,11 +1258,11 @@ footer a:hover { text-decoration: underline }
         <table class="comparison-table">
           <thead>
             <tr>
-              <th>Capability</th>
-              <th>@container style()</th>
-              <th>@media</th>
-              <th>:has()</th>
-              <th>JS Toggle</th>
+              <th ti="th_capability" ti="th_capability" ti="th_capability" ti="th_capability">Capability</th>
+              <th ti="th_container_style" ti="th_container_style" ti="th_container_style" ti="th_container_style">@container style()</th>
+              <th ti="th_media" ti="th_media" ti="th_media" ti="th_media">@media</th>
+              <th ti="th_has" ti="th_has" ti="th_has" ti="th_has">:has()</th>
+              <th ti="th_js_toggle" ti="th_js_toggle" ti="th_js_toggle" ti="th_js_toggle">JS Toggle</th>
             </tr>
           </thead>
           <tbody>
@@ -1337,8 +1345,8 @@ footer a:hover { text-decoration: underline }
 
 <!-- ═══════════════════════════════════════ 10. BROWSER SUPPORT ═══════════════════════════════════════ -->
 <section id="support">
-  <h2>10. Browser Support</h2>
-  <p class="subtitle">Container Style Queries support for custom property conditions (as of 2026)</p>
+  <h2 ti="h2_10_browser_support" ti="h2_10_browser_support" ti="h2_10_browser_support" ti="h2_10_browser_support">10. Browser Support</h2>
+  <p class="subtitle" ti="subtitle_container_style_queries_s" ti="subtitle_container_style_queries_s" ti="subtitle_container_style_queries_s" ti="subtitle_container_style_queries_s">Container Style Queries support for custom property conditions (as of 2026)</p>
 
   <div class="support-grid">
     <div class="support-card">
@@ -1368,16 +1376,46 @@ footer a:hover { text-decoration: underline }
   </div>
 
   <div class="compat-note">
-    <strong>Note:</strong> Style queries currently only support querying <strong>CSS custom properties</strong> (e.g., <code>--theme</code>). Querying standard CSS properties like <code>background-color</code> or <code>display</code> is not yet implemented in any browser. Firefox remains the last major holdout — Interop 2025/2026 may bring it. No <code>container-type</code> declaration is needed for style queries (unlike size queries).
+    <strong ti="strong_note" ti="strong_note" ti="strong_note" ti="strong_note">Note:</strong> Style queries currently only support querying <strong ti="strong_css_custom_properties" ti="strong_css_custom_properties" ti="strong_css_custom_properties" ti="strong_css_custom_properties">CSS custom properties</strong> (e.g., <code>--theme</code>). Querying standard CSS properties like <code>background-color</code> or <code>display</code> is not yet implemented in any browser. Firefox remains the last major holdout — Interop 2025/2026 may bring it. No <code>container-type</code> declaration is needed for style queries (unlike size queries).
   </div>
 </section>
 
 </div><!-- /.container -->
 
 <footer>
-  <p>Built for learning CSS Container Style Queries &mdash; <a href="https://github.com/gokuscraper/container-style-queries">Source on GitHub</a></p>
+  <p>Built for learning CSS Container Style Queries &mdash; <a href="https://github.com/gokuscraper/container-style-queries" ti="link_s
+
+<script>var _LANG={'title_css_container_style_queri':["CSS Container Style Queries Playground", "CSS容器样式查询练习场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS Container Style Queries — query parent custom properties to conditionally style children with @container style()", "CSS 容器样式查询交互式示例 — 使用 @container style() 查询父容器的自定义属性，以有条件地设置子容器的样式"],'h1_container_style_queries_p':["Container Style Queries Playground", "容器样式查询练习场"],'h2_1_basic_style_query':["1. Basic Style Query", "1. 基本样式查询"],'h2_2_feature_flags':["2. Feature Flags", "2. 功能标志"],'h2_3_theme_switching':["3. Theme Switching", "3. 主题切换"],'h2_4_component_variants':["4. Component Variants", "4. 组件变体"],'h2_5_multiple_conditions_and':["5. Multiple Conditions (AND Logic)", "5. 多重条件（与逻辑）"],'h2_6_style_size_queries_comb':["6. Style + Size Queries Combined", "6. 款式 + 尺码查询合并"],'h2_7_data_driven_styling':["7. Data-Driven Styling", "7. 数据驱动的样式"],'h2_8_live_code_editor':["8. Live Code Editor", "8. 在线代码编辑器"],'h2_9_comparison_approaches_t':["9. Comparison: Approaches to Contextual Styling", "9. 比较：语境风格化方法"],'h2_10_browser_support':["10. Browser Support", "10. 浏览器支持"],'subtitle_write_your_own_style_quer':["Write your own style queries and see them render in real time", "编写您自己的样式查询，并实时查看渲染效果"],'subtitle_container_style_queries_s':["Container Style Queries support for custom property conditions (as of 2026)", "容器样式查询支持自定义属性条件（截至 2026 年）"],'btn_dark':["Dark", "黑暗的"],'btn_light':["Light", "光"],'btn_colorful':["Colorful", "丰富多彩的"],'btn_default':["Default", "默认"],'btn_horizontal':["Horizontal", "水平的"],'btn_compact':["Compact", "袖珍的"],'btn_featured':["Featured", "精选"],'btn_view':["View", "看法"],'btn_edit':["Edit", "编辑"],'btn_normal':["Normal", "普通的"],'btn_large':["Large", "大的"],'btn_low':["Low", "低的"],'btn_high':["High", "高的"],'btn_layout_grid':["--layout: grid", "--layout: 网格"],'btn_layout_list':["--layout: list", "--layout: 列表"],'btn_randomize_states':["Randomize States", "随机状态"],'btn_reset':["Reset", "重置"],'btn_happy':["Happy", "快乐的"],'btn_sad':["Sad", "伤心"],'label_interactive_demo':["Interactive Demo", "交互式演示"],'label_css_feature_flags':["CSS Feature Flags", "CSS特性标志"],'label_theme_toggle':["Theme Toggle", "主题切换"],'label_card_variant':["Card Variant", "卡牌变体"],'label_and_conditions':["AND Conditions", "和条件"],'label_style_size':["Style + Size", "款式 + 尺码"],'label_data_attributes_custom_pr':["Data Attributes → Custom Properties → Style Queries", "数据属性 → 自定义属性 → 样式查询"],'strong_note':["Note:", "笔记："],'strong_css_custom_properties':["CSS custom properties", "CSS 自定义属性"],'th_capability':["Capability", "能力"],'th_container_style':["@container style()", "@container style()"],'th_media':["@media", "@媒体"],'th_has':[":has()", "：有（）"],'th_js_toggle':["JS Toggle", "JS切换"],'link_basic':["Basic", "基本的"],'link_feature_flags':["Feature Flags", "功能标志"],'link_themes':["Themes", "主题"],'link_variants':["Variants", "变体"],'link_and_logic':["AND Logic", "与逻辑"],'link_style_size':["Style + Size", "款式 + 尺码"],'link_data_driven':["Data-Driven", "数据驱动"],'link_live_editor':["Live Editor", "实时编辑器"],'link_comparison':["Comparison", "比较"],'link_browser_support':["Browser Support", "浏览器支持"],'link_source_on_github':["Source on GitHub", "GitHub 上的源代码"],'jtc_your_browser_does_not_sup':["Your browser does not support CSS Container Style Queries. Use Chrome 111+, Edge 111+, or Safari 18.2+ for the full experience.", "您的浏览器不支持 CSS 容器样式查询。请使用 Chrome 111+、Edge 111+ 或 Safari 18.2+ 以获得完整体验。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_css_container_style_queri':["CSS Container Style Queries Playground", "CSS容器样式查询练习场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS Container Style Queries — query parent custom properties to conditionally style children with @container style()", "CSS 容器样式查询交互式示例 — 使用 @container style() 查询父容器的自定义属性，以有条件地设置子容器的样式"],'h1_container_style_queries_p':["Container Style Queries Playground", "容器样式查询练习场"],'h2_1_basic_style_query':["1. Basic Style Query", "1. 基本样式查询"],'h2_2_feature_flags':["2. Feature Flags", "2. 功能标志"],'h2_3_theme_switching':["3. Theme Switching", "3. 主题切换"],'h2_4_component_variants':["4. Component Variants", "4. 组件变体"],'h2_5_multiple_conditions_and':["5. Multiple Conditions (AND Logic)", "5. 多重条件（与逻辑）"],'h2_6_style_size_queries_comb':["6. Style + Size Queries Combined", "6. 款式 + 尺码查询合并"],'h2_7_data_driven_styling':["7. Data-Driven Styling", "7. 数据驱动的样式"],'h2_8_live_code_editor':["8. Live Code Editor", "8. 在线代码编辑器"],'h2_9_comparison_approaches_t':["9. Comparison: Approaches to Contextual Styling", "9. 比较：语境风格化方法"],'h2_10_browser_support':["10. Browser Support", "10. 浏览器支持"],'subtitle_write_your_own_style_quer':["Write your own style queries and see them render in real time", "编写您自己的样式查询，并实时查看渲染效果"],'subtitle_container_style_queries_s':["Container Style Queries support for custom property conditions (as of 2026)", "容器样式查询支持自定义属性条件（截至 2026 年）"],'btn_dark':["Dark", "黑暗的"],'btn_light':["Light", "光"],'btn_colorful':["Colorful", "丰富多彩的"],'btn_default':["Default", "默认"],'btn_horizontal':["Horizontal", "水平的"],'btn_compact':["Compact", "袖珍的"],'btn_featured':["Featured", "精选"],'btn_view':["View", "看法"],'btn_edit':["Edit", "编辑"],'btn_normal':["Normal", "普通的"],'btn_large':["Large", "大的"],'btn_low':["Low", "低的"],'btn_high':["High", "高的"],'btn_layout_grid':["--layout: grid", "--layout: 网格"],'btn_layout_list':["--layout: list", "--layout: 列表"],'btn_randomize_states':["Randomize States", "随机状态"],'btn_reset':["Reset", "重置"],'btn_happy':["Happy", "快乐的"],'btn_sad':["Sad", "伤心"],'label_interactive_demo':["Interactive Demo", "交互式演示"],'label_css_feature_flags':["CSS Feature Flags", "CSS特性标志"],'label_theme_toggle':["Theme Toggle", "主题切换"],'label_card_variant':["Card Variant", "卡牌变体"],'label_and_conditions':["AND Conditions", "和条件"],'label_style_size':["Style + Size", "款式 + 尺码"],'label_data_attributes_custom_pr':["Data Attributes → Custom Properties → Style Queries", "数据属性 → 自定义属性 → 样式查询"],'strong_note':["Note:", "笔记："],'strong_css_custom_properties':["CSS custom properties", "CSS 自定义属性"],'th_capability':["Capability", "能力"],'th_container_style':["@container style()", "@container style()"],'th_media':["@media", "@媒体"],'th_has':[":has()", "：有（）"],'th_js_toggle':["JS Toggle", "JS切换"],'link_basic':["Basic", "基本的"],'link_feature_flags':["Feature Flags", "功能标志"],'link_themes':["Themes", "主题"],'link_variants':["Variants", "变体"],'link_and_logic':["AND Logic", "与逻辑"],'link_style_size':["Style + Size", "款式 + 尺码"],'link_data_driven':["Data-Driven", "数据驱动"],'link_live_editor':["Live Editor", "实时编辑器"],'link_comparison':["Comparison", "比较"],'link_browser_support':["Browser Support", "浏览器支持"],'link_source_on_github':["Source on GitHub", "GitHub 上的源代码"],'jtc_your_browser_does_not_sup':["Your browser does not support CSS Container Style Queries. Use Chrome 111+, Edge 111+, or Safari 18.2+ for the full experience.", "您的浏览器不支持 CSS 容器样式查询。请使用 Chrome 111+、Edge 111+ 或 Safari 18.2+ 以获得完整体验。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+ource_on_github" ti="link_source_on_github">Source on GitHub</a></p>
 </footer>
 
+
+<script>var _LANG={'title_css_container_style_queri':["CSS Container Style Queries Playground", "CSS容器样式查询练习场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS Container Style Queries — query parent custom properties to conditionally style children with @container style()", "CSS 容器样式查询交互式示例 — 使用 @container style() 查询父容器的自定义属性，以有条件地设置子容器的样式"],'h1_container_style_queries_p':["Container Style Queries Playground", "容器样式查询练习场"],'h2_1_basic_style_query':["1. Basic Style Query", "1. 基本样式查询"],'h2_2_feature_flags':["2. Feature Flags", "2. 功能标志"],'h2_3_theme_switching':["3. Theme Switching", "3. 主题切换"],'h2_4_component_variants':["4. Component Variants", "4. 组件变体"],'h2_5_multiple_conditions_and':["5. Multiple Conditions (AND Logic)", "5. 多重条件（与逻辑）"],'h2_6_style_size_queries_comb':["6. Style + Size Queries Combined", "6. 款式 + 尺码查询合并"],'h2_7_data_driven_styling':["7. Data-Driven Styling", "7. 数据驱动的样式"],'h2_8_live_code_editor':["8. Live Code Editor", "8. 在线代码编辑器"],'h2_9_comparison_approaches_t':["9. Comparison: Approaches to Contextual Styling", "9. 比较：语境风格化方法"],'h2_10_browser_support':["10. Browser Support", "10. 浏览器支持"],'subtitle_write_your_own_style_quer':["Write your own style queries and see them render in real time", "编写您自己的样式查询，并实时查看渲染效果"],'subtitle_container_style_queries_s':["Container Style Queries support for custom property conditions (as of 2026)", "容器样式查询支持自定义属性条件（截至 2026 年）"],'btn_dark':["Dark", "黑暗的"],'btn_light':["Light", "光"],'btn_colorful':["Colorful", "丰富多彩的"],'btn_default':["Default", "默认"],'btn_horizontal':["Horizontal", "水平的"],'btn_compact':["Compact", "袖珍的"],'btn_featured':["Featured", "精选"],'btn_view':["View", "看法"],'btn_edit':["Edit", "编辑"],'btn_normal':["Normal", "普通的"],'btn_large':["Large", "大的"],'btn_low':["Low", "低的"],'btn_high':["High", "高的"],'btn_layout_grid':["--layout: grid", "--layout: 网格"],'btn_layout_list':["--layout: list", "--layout: 列表"],'btn_randomize_states':["Randomize States", "随机状态"],'btn_reset':["Reset", "重置"],'btn_happy':["Happy", "快乐的"],'btn_sad':["Sad", "伤心"],'label_interactive_demo':["Interactive Demo", "交互式演示"],'label_css_feature_flags':["CSS Feature Flags", "CSS特性标志"],'label_theme_toggle':["Theme Toggle", "主题切换"],'label_card_variant':["Card Variant", "卡牌变体"],'label_and_conditions':["AND Conditions", "和条件"],'label_style_size':["Style + Size", "款式 + 尺码"],'label_data_attributes_custom_pr':["Data Attributes → Custom Properties → Style Queries", "数据属性 → 自定义属性 → 样式查询"],'strong_note':["Note:", "笔记："],'strong_css_custom_properties':["CSS custom properties", "CSS 自定义属性"],'th_capability':["Capability", "能力"],'th_container_style':["@container style()", "@container style()"],'th_media':["@media", "@媒体"],'th_has':[":has()", "：有（）"],'th_js_toggle':["JS Toggle", "JS切换"],'link_basic':["Basic", "基本的"],'link_feature_flags':["Feature Flags", "功能标志"],'link_themes':["Themes", "主题"],'link_variants':["Variants", "变体"],'link_and_logic':["AND Logic", "与逻辑"],'link_style_size':["Style + Size", "款式 + 尺码"],'link_data_driven':["Data-Driven", "数据驱动"],'link_live_editor':["Live Editor", "实时编辑器"],'link_comparison':["Comparison", "比较"],'link_browser_support':["Browser Support", "浏览器支持"],'link_source_on_github':["Source on GitHub", "GitHub 上的源代码"],'jtc_your_browser_does_not_sup':["Your browser does not support CSS Container Style Queries. Use Chrome 111+, Edge 111+, or Safari 18.2+ for the full experience.", "您的浏览器不支持 CSS 容器样式查询。请使用 Chrome 111+、Edge 111+ 或 Safari 18.2+ 以获得完整体验。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ═══════════════════════════════════════════
    Interactions
@@ -1518,11 +1556,11 @@ const defaultCode = `<style>
 
 <div style="margin-top:1rem;display:flex;gap:.5rem">
   <button onclick="document.getElementById('liveParent').style.setProperty('--mood','happy')"
-    style="padding:.4rem .8rem;background:#065f46;color:#34d399;border:1px solid #34d399;border-radius:6px;cursor:pointer">
+    style="padding:.4rem .8rem;background:#065f46;color:#34d399;border:1px solid #34d399;border-radius:6px;cursor:pointer" ti="btn_happy" ti="btn_happy" ti="btn_happy" ti="btn_happy">
     Happy
   </button>
   <button onclick="document.getElementById('liveParent').style.setProperty('--mood','sad')"
-    style="padding:.4rem .8rem;background:#1e1b4b;color:#818cf8;border:1px solid #818cf8;border-radius:6px;cursor:pointer">
+    style="padding:.4rem .8rem;background:#1e1b4b;color:#818cf8;border:1px solid #818cf8;border-radius:6px;cursor:pointer" ti="btn_sad" ti="btn_sad" ti="btn_sad" ti="btn_sad">
     Sad
   </button>
 </div>`;
@@ -1584,11 +1622,83 @@ function updateButtons(activeBtn) {
     // Style queries not supported — show warning
     const banner = document.createElement('div');
     banner.style.cssText = 'position:fixed;bottom:0;left:0;right:0;padding:1rem;background:#7f1d1d;color:#fca5a5;text-align:center;font-size:.88rem;z-index:9999';
-    banner.textContent = 'Your browser does not support CSS Container Style Queries. Use Chrome 111+, Edge 111+, or Safari 18.2+ for the full experience.';
+    banner.textContent=T("jtc_your_browser_does_not_sup");
     document.body.appendChild(banner);
   }
 })();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

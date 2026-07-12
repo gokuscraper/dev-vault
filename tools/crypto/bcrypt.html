@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_bcrypt" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,37 +30,51 @@ button.primary:hover{background:#2563eb}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>BCrypt</h1>
-  <p class="desc">Hash and compare strings using the BCrypt algorithm</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_bcrypt" ti="h1_bcrypt" ti="title_bcrypt" ti="h1_bcrypt">BCrypt</h1>
+  <p class="desc" ti="subtitle_hash_and_compare_strings" ti="subtitle_hash_and_compare_strings">Hash and compare strings using the BCrypt algorithm</p>
   <div class="card">
-    <h2>Hash</h2>
-    <label>Your string</label>
+    <h2 ti="h2_hash" ti="h2_hash">Hash</h2>
+    <label ti="label_your_string" ti="label_your_string_2" ti="label_your_string" ti="label_your_string_2">Your string</label>
     <input type="text" id="hashInput" value="Hello World" spellcheck="false">
     <div class="row mt-10">
-      <label>Salt rounds</label>
+      <label ti="label_salt_rounds" ti="label_salt_rounds">Salt rounds</label>
       <input type="number" id="saltCount" value="10" min="0" max="100" style="width:100px">
     </div>
     <div class="mt-10">
-      <label>Result</label>
+      <label ti="label_result" ti="label_result">Result</label>
       <textarea id="hashOutput" readonly rows="2"></textarea>
     </div>
     <div class="flex-center mt-10">
-      <button class="primary" id="copyHashBtn">Copy hash</button>
+      <button class="primary" id="copyHashBtn" ti="btn_copy_hash" ti="btn_copy_hash">Copy hash</button>
     </div>
   </div>
   <div class="card">
-    <h2>Compare string with hash</h2>
+    <h2 ti="h2_compare_string_with_hash" ti="h2_compare_string_with_hash">Compare string with hash</h2>
     <label>Your string</label>
     <input type="text" id="compareString" value="Hello World" spellcheck="false">
-    <label class="mt-10">Your hash</label>
-    <input type="text" id="compareHash" placeholder="Paste a BCrypt hash..." spellcheck="false">
+    <label class="mt-10" ti="label_your_hash" ti="label_your_hash">Your hash</label>
+    <input type="text" id="compareHash" tp="placeholder_paste_a_bcrypt_hash" tp="placeholder_paste_a_bcrypt_hash" placeholder="Paste a BCrypt hash..." spellcheck="false">
     <div class="mt-10">
       <span id="matchResult" style="font-size:1.1rem;font-weight:700"></span>
     </div>
   </div>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bcryptjs@2.4.3/dist/bcrypt.min.js"></script>
+
+<script>var _LANG={'title_bcrypt':["BCrypt", "BCrypt"],'metadesc_hash_and_compare_strings':["Hash and compare strings using the BCrypt algorithm. Generate secure password hashes with configurable salt rounds.", "使用 BCrypt 算法对字符串进行哈希和比较。生成具有可配置盐轮数的安全密码哈希。"],'h1_bcrypt':["BCrypt", "BCrypt"],'h2_hash':["Hash", "哈希"],'h2_compare_string_with_hash':["Compare string with hash", "比较字符串与哈希"],'subtitle_hash_and_compare_strings':["Hash and compare strings using the BCrypt algorithm", "使用 BCrypt 算法对字符串进行哈希和比较"],'btn_copy_hash':["Copy hash", "复制哈希"],'placeholder_paste_a_bcrypt_hash':["Paste a BCrypt hash...", "粘贴 BCrypt 哈希..."],'label_your_string':["Your string", "你的字符串"],'label_salt_rounds':["Salt rounds", "盐轮数"],'label_result':["Result", "结果"],'label_your_string_2':["Your string", "你的字符串"],'label_your_hash':["Your hash", "你的哈希"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const hashInput = document.getElementById('hashInput');
 const saltCount = document.getElementById('saltCount');
@@ -96,6 +110,46 @@ function updateCompare() {
 }
 compareString.addEventListener('input', updateCompare);
 compareHash.addEventListener('input', updateCompare);
+</script>
+<script>var _LANG={'title_bcrypt':["BCrypt", "BCrypt"],'metadesc_hash_and_compare_strings':["Hash and compare strings using the BCrypt algorithm. Generate secure password hashes with configurable salt rounds.", "使用 BCrypt 算法对字符串进行哈希和比较。生成具有可配置盐轮数的安全密码哈希。"],'h1_bcrypt':["BCrypt", "BCrypt"],'h2_hash':["Hash", "哈希"],'h2_compare_string_with_hash':["Compare string with hash", "比较字符串与哈希"],'subtitle_hash_and_compare_strings':["Hash and compare strings using the BCrypt algorithm", "使用 BCrypt 算法对字符串进行哈希和比较"],'btn_copy_hash':["Copy hash", "复制哈希"],'placeholder_paste_a_bcrypt_hash':["Paste a BCrypt hash...", "粘贴 BCrypt 哈希..."],'label_your_string':["Your string", "你的字符串"],'label_salt_rounds':["Salt rounds", "盐轮数"],'label_result':["Result", "结果"],'label_your_string_2':["Your string", "你的字符串"],'label_your_hash':["Your hash", "你的哈希"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

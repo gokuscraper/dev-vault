@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_visualizer_visual_r" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -100,22 +100,26 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Regex Visualizer</h1>
-<p class="sub">Visualize and explain regular expressions step by step</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_regex_visualizer" ti="h1_regex_visualizer">Regex Visualizer</h1>
+<p class="sub" ti="subtitle_visualize_and_explain_reg" ti="subtitle_visualize_and_explain_reg">Visualize and explain regular expressions step by step</p>
 
 <!-- Presets -->
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets" ti="h3_presets">Presets</h3>
 <div class="presets" id="presets"></div>
 </div>
 
 <!-- Regex input -->
 <div class="section">
-<h3>Regular Expression</h3>
+<h3 ti="h3_regular_expression" ti="h3_regular_expression">Regular Expression</h3>
 <div class="regex-row">
-<input type="text" id="regexInput" placeholder="Enter regex pattern, e.g. (\w+)@(\w+)\.(\w+)" spellcheck="false">
-<button class="btn" id="copyBtn" title="Copy regex">Copy</button>
+<input type="text" id="regexInput" tp="placeholder_enter_regex_pattern_e_g_w" tp="placeholder_enter_regex_pattern_e_g_w" placeholder="Enter regex pattern, e.g. (\w+)@(\w+)\.(\w+)" spellcheck="false">
+<button class="btn" id="copyBtn" title="Copy regex" ti="btn_copy" ti="btn_copy">Copy</button>
 </div>
 <div class="flags-row">
 <label><input type="checkbox" id="flag-g" checked> <code>g</code> global</label>
@@ -132,9 +136,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <!-- Test string -->
 <div class="section">
-<h3>Test String</h3>
+<h3 ti="h3_test_string" ti="h3_test_string">Test String</h3>
 <div class="field">
-<textarea id="testInput" placeholder="Enter test string here...">Hello world, my email is user@example.com and backup is admin@test.org</textarea>
+<textarea id="testInput" tp="placeholder_enter_test_string_here" tp="placeholder_enter_test_string_here" placeholder="Enter test string here...">Hello world, my email is user@example.com and backup is admin@test.org</textarea>
 </div>
 <div id="perfWarn" class="perf-warn">Performance warning: regex execution exceeded 100ms timeout.</div>
 <h3>Matches <span id="matchCount" class="match-count">0</span></h3>
@@ -143,18 +147,18 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- Match groups -->
 <div class="section">
-<h3>Match Details</h3>
+<h3 ti="h3_match_details" ti="h3_match_details">Match Details</h3>
 <div id="matchList"></div>
 </div>
 
 <!-- Replace mode -->
 <div class="section">
-<h3>Replace Mode</h3>
+<h3 ti="h3_replace_mode" ti="h3_replace_mode">Replace Mode</h3>
 <div class="field">
 <label>Replacement String (supports $1, $2, $&amp;, etc.)</label>
-<input type="text" id="replaceInput" placeholder="e.g. [$1 at $2]" spellcheck="false">
+<input type="text" id="replaceInput" tp="placeholder_e_g_1_at_2" tp="placeholder_e_g_1_at_2" placeholder="e.g. [$1 at $2]" spellcheck="false">
 </div>
-<label style="font-size:0.78rem;color:#888;font-weight:600;display:block;margin-bottom:4px">Result</label>
+<label style="font-size:0.78rem;color:#888;font-weight:600;display:block;margin-bottom:4px" ti="label_result" ti="label_result">Result</label>
 <div id="replaceOutput" class="replace-output"></div>
 </div>
 </div>
@@ -163,10 +167,10 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <!-- Visual explanation -->
 <div class="section">
-<h3>Visual Explanation</h3>
+<h3 ti="h3_visual_explanation" ti="h3_visual_explanation">Visual Explanation</h3>
 <div id="explanationArea">
 <table class="token-table">
-<thead><tr><th>Token</th><th>Type</th><th>Meaning</th></tr></thead>
+<thead><tr><th ti="th_token" ti="th_token">Token</th><th ti="th_type" ti="th_type">Type</th><th ti="th_meaning" ti="th_meaning">Meaning</th></tr></thead>
 <tbody id="tokenBody"></tbody>
 </table>
 </div>
@@ -175,7 +179,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <!-- Quick reference -->
 <div class="section">
 <div class="ref-toggle" id="refToggle">
-<h3>Quick Reference</h3>
+<h3 ti="h3_quick_reference" ti="h3_quick_reference">Quick Reference</h3>
 <span class="arrow" id="refArrow">&#9660;</span>
 </div>
 <div class="ref-content" id="refContent">
@@ -240,12 +244,32 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/regex-test/">Regex Test</a> | <a href="https://gokuscraper.github.io/dev-vault/regex-replace/">Regex Replace</a> | <a href="https://gokuscraper.github.io/dev-vault/regex-cheatsheet/">Regex Cheatsheet</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/regex-test/" ti="link_regex_test" ti="link_regex_test">Regex Test</a> | <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" ti="link_regex_replace" ti="link_regex_replac
+<script>var _LANG={'title_regex_visualizer_visual_r':["Regex Visualizer — Visual Regular Expression Explainer", "正则表达式可视化工具——可视化正则表达式解释器"],'metadesc_visualize_and_explain_reg':["Visualize and explain regular expressions. Match highlighting, group capture, replace mode. Quick reference. Email, URL, date presets.", "可视化并解释正则表达式。匹配项高亮显示、分组捕获、替换模式。快速参考。电子邮件、URL、日期预设。"],'h1_regex_visualizer':["Regex Visualizer", "正则表达式可视化工具"],'h3_presets':["Presets", "预设"],'h3_regular_expression':["Regular Expression", "正则表达式"],'h3_test_string':["Test String", "测试字符串"],'h3_match_details':["Match Details", "比赛详情"],'h3_replace_mode':["Replace Mode", "替换模式"],'h3_visual_explanation':["Visual Explanation", "视觉解释"],'h3_quick_reference':["Quick Reference", "快速参考"],'subtitle_visualize_and_explain_reg':["Visualize and explain regular expressions step by step", "逐步可视化并解释正则表达式"],'btn_copy':["Copy", "复制"],'placeholder_enter_regex_pattern_e_g_w':["Enter regex pattern, e.g. (\\w+)@(\\w+)\\.(\\w+)", "输入正则表达式模式，例如 (\\w+)@(\\w+)\\.(\\w+)"],'placeholder_enter_test_string_here':["Enter test string here...", "请在此处输入测试字符串..."],'placeholder_e_g_1_at_2':["e.g. [$1 at $2]", "例如 [$1 到 $2]"],'th_token':["Token", "令牌"],'th_type':["Type", "类型"],'th_meaning':["Meaning", "意义"],'label_replacement_string_suppor':["Replacement String (supports $1, $2, $&, etc.)", "替换字符串（支持 $1、$2、$&amp; 等）"],'label_result':["Result", "结果"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_regex_test':["Regex Test", "正则表达式测试"],'link_regex_replace':["Regex Replace", "正则表达式替换"],'link_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+e">Regex Replace</a> | <a href="https://gokuscraper.github.io/dev-vault/regex-cheatsheet/" ti="link_regex_cheatsheet" ti="link_regex_cheatsheet">Regex Cheatsheet</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_regex_visualizer_visual_r':["Regex Visualizer — Visual Regular Expression Explainer", "正则表达式可视化工具——可视化正则表达式解释器"],'metadesc_visualize_and_explain_reg':["Visualize and explain regular expressions. Match highlighting, group capture, replace mode. Quick reference. Email, URL, date presets.", "可视化并解释正则表达式。匹配项高亮显示、分组捕获、替换模式。快速参考。电子邮件、URL、日期预设。"],'h1_regex_visualizer':["Regex Visualizer", "正则表达式可视化工具"],'h3_presets':["Presets", "预设"],'h3_regular_expression':["Regular Expression", "正则表达式"],'h3_test_string':["Test String", "测试字符串"],'h3_match_details':["Match Details", "比赛详情"],'h3_replace_mode':["Replace Mode", "替换模式"],'h3_visual_explanation':["Visual Explanation", "视觉解释"],'h3_quick_reference':["Quick Reference", "快速参考"],'subtitle_visualize_and_explain_reg':["Visualize and explain regular expressions step by step", "逐步可视化并解释正则表达式"],'btn_copy':["Copy", "复制"],'placeholder_enter_regex_pattern_e_g_w':["Enter regex pattern, e.g. (\\w+)@(\\w+)\\.(\\w+)", "输入正则表达式模式，例如 (\\w+)@(\\w+)\\.(\\w+)"],'placeholder_enter_test_string_here':["Enter test string here...", "请在此处输入测试字符串..."],'placeholder_e_g_1_at_2':["e.g. [$1 at $2]", "例如 [$1 到 $2]"],'th_token':["Token", "令牌"],'th_type':["Type", "类型"],'th_meaning':["Meaning", "意义"],'label_replacement_string_suppor':["Replacement String (supports $1, $2, $&, etc.)", "替换字符串（支持 $1、$2、$&amp; 等）"],'label_result':["Result", "结果"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_regex_test':["Regex Test", "正则表达式测试"],'link_regex_replace':["Regex Replace", "正则表达式替换"],'link_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
   // --- Presets ---
@@ -597,7 +621,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
         const result = testStr.replace(replRegex, replacement);
         replaceOutput.textContent = result;
       } catch(e) {
-        replaceOutput.textContent = 'Error: ' + e.message;
+        replaceOutput.textContent=T("jtcpre_error")+ e.message;
       }
     }
   }
@@ -613,6 +637,42 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
   // Initial
   regexInput.value = '(\\w+)@(\\w+)\\.(\\w+)';
   update();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

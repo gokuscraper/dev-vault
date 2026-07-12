@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_favicon_generator_create" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,13 +66,15 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Favicon Generator</h1>
-<p class="subtitle">Create favicons from emoji, letters, or text. Download as PNG.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_favicon_generator">Favicon Generator</h1>
+<p class="subtitle" ti="subtitle_create_favicons_from_emoj">Create favicons from emoji, letters, or text. Download as PNG.</p>
 
 <div class="editor">
   <div class="row">
-    <span class="label">Text</span>
+    <span class="label" ti="label_text">Text</span>
     <input type="text" id="text" value="🚀" oninput="render()">
   </div>
   <div class="quick-emoji">
@@ -86,28 +88,28 @@ footer a:hover{color:#999}
     <button class="emoji-btn" onclick="setText('✨')">✨</button>
     <button class="emoji-btn" onclick="setText('🎮')">🎮</button>
     <button class="emoji-btn" onclick="setText('🧪')">🧪</button>
-    <button class="emoji-btn" onclick="setText('AB')">AB</button>
-    <button class="emoji-btn" onclick="setText('Go')">Go</button>
+    <button class="emoji-btn" onclick="setText('AB')" ti="btn_ab">AB</button>
+    <button class="emoji-btn" onclick="setText('Go')" ti="btn_go">Go</button>
   </div>
   <div class="row">
-    <span class="label">Background</span>
+    <span class="label" ti="label_background">Background</span>
     <input type="color" id="bgColor" value="#1a1a2e" oninput="render()">
-    <button class="btn" onclick="document.getElementById('bgColor').value='#ffffff';render()" style="font-size:0.75rem">White</button>
-    <button class="btn" onclick="document.getElementById('bgColor').value='#000000';render()" style="font-size:0.75rem">Black</button>
-    <button class="btn" onclick="document.getElementById('bgColor').value='#3b82f6';render()" style="font-size:0.75rem">Blue</button>
+    <button class="btn" onclick="document.getElementById('bgColor').value='#ffffff';render()" style="font-size:0.75rem" ti="btn_white">White</button>
+    <button class="btn" onclick="document.getElementById('bgColor').value='#000000';render()" style="font-size:0.75rem" ti="btn_black">Black</button>
+    <button class="btn" onclick="document.getElementById('bgColor').value='#3b82f6';render()" style="font-size:0.75rem" ti="btn_blue">Blue</button>
     <label style="font-size:0.78rem;color:#888;display:flex;align-items:center;gap:4px"><input type="checkbox" id="transparent" onchange="render()" style="accent-color:#3b82f6"> Transparent</label>
   </div>
   <div class="row">
-    <span class="label">Text Color</span>
+    <span class="label" ti="label_text_color">Text Color</span>
     <input type="color" id="textColor" value="#ffffff" oninput="render()">
   </div>
   <div class="row">
-    <span class="label">Font Size</span>
+    <span class="label" ti="label_font_size">Font Size</span>
     <input type="range" id="fontSize" min="20" max="90" value="62" oninput="render()">
     <span class="range-val" id="fontSizeVal">62%</span>
   </div>
   <div class="row">
-    <span class="label">Shape</span>
+    <span class="label" ti="label_shape">Shape</span>
     <select id="shape" onchange="render()">
       <option value="square">Square</option>
       <option value="rounded">Rounded</option>
@@ -132,11 +134,11 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="download(32)">Download 32px</button>
-  <button class="btn primary" onclick="download(64)">Download 64px</button>
-  <button class="btn primary" onclick="download(128)">Download 128px</button>
-  <button class="btn primary" onclick="download(256)">Download 256px</button>
-  <button class="btn" onclick="download(512)">512px</button>
+  <button class="btn primary" onclick="download(32)" ti="btn_download_32px">Download 32px</button>
+  <button class="btn primary" onclick="download(64)" ti="btn_download_64px">Download 64px</button>
+  <button class="btn primary" onclick="download(128)" ti="btn_download_128px">Download 128px</button>
+  <button class="btn primary" onclick="download(256)" ti="btn_download_256px">Download 256px</button>
+  <button class="btn" onclick="download(512)" ti="btn_512px">512px</button>
 </div>
 
 <div class="code-output" onclick="copyCode()">
@@ -147,10 +149,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/favicon-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/favicon-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_favicon_generator_create':["Favicon Generator — Create Favicons from Text", "网站图标生成器 — 从文本创建网站图标"],'metadesc_generate_favicons_from_em':["Generate favicons from emoji, letters, or text. Multiple sizes, background colors, download as PNG. Free.", "可从表情符号、字母或文本生成网站图标。多种尺寸、背景颜色可选，可下载为 PNG 格式。免费。"],'h1_favicon_generator':["Favicon Generator", "网站图标生成器"],'subtitle_create_favicons_from_emoj':["Create favicons from emoji, letters, or text. Download as PNG.", "可使用表情符号、字母或文本创建网站图标。下载为PNG格式。"],'btn_ab':["AB", "AB"],'btn_go':["Go", "去"],'btn_white':["White", "白色的"],'btn_black':["Black", "黑色的"],'btn_blue':["Blue", "蓝色的"],'btn_download_32px':["Download 32px", "下载 32px"],'btn_download_64px':["Download 64px", "下载 64px"],'btn_download_128px':["Download 128px", "下载 128px"],'btn_download_256px':["Download 256px", "下载 256px"],'btn_512px':["512px", "512像素"],'label_text':["Text", "文本"],'label_background':["Background", "背景"],'label_text_color':["Text Color", "文本颜色"],'label_font_size':["Font Size", "字体大小"],'label_shape':["Shape", "形状"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_link_rel':["<link rel=", "<link rel="],'jtc_html_copied':["HTML Copied!", "HTML 代码已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const sizes=[16,32,48,64,128,256];
 
@@ -222,7 +234,7 @@ function download(size){
 function copyCode(){
   navigator.clipboard.writeText(document.getElementById('htmlCode').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='HTML Copied!';
+  el.className='copied';el.textContent=T("jtc_html_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -230,12 +242,30 @@ function copyCode(){
 render();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/svg-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SVG Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/emoji-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Emoji Picker</a>
 <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
 <a href="https://gokuscraper.github.io/dev-vault/qr-code/" style="color:#4da6ff;text-decoration:none;margin:0 8px">QR Code</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

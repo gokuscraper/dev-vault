@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_tree_viewer_interact" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,21 +65,23 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<a href="https://gokuscraper.github.io/dev-vault/" class="back-link">dev-toolkit</a>
-<h1>JSON Tree Viewer</h1>
+<a href="https://gokuscraper.github.io/dev-vault/" class="back-link" ti="link_dev_toolkit">dev-toolkit</a>
+<h1 ti="h1_json_tree_viewer">JSON Tree Viewer</h1>
 </header>
 <main>
 <div class="input-section">
-<textarea id="input" placeholder="Paste JSON here..." spellcheck="false"></textarea>
+<textarea id="input" tp="placeholder_paste_json_here" placeholder="Paste JSON here..." spellcheck="false"></textarea>
 <div class="toolbar">
-<button class="btn-primary" onclick="parseAndRender()">Parse</button>
-<button onclick="formatInput()">Format</button>
-<button onclick="clearAll()">Clear</button>
+<button class="btn-primary" onclick="parseAndRender()" ti="btn_parse">Parse</button>
+<button onclick="formatInput()" ti="btn_format">Format</button>
+<button onclick="clearAll()" ti="btn_clear">Clear</button>
 <span style="color:var(--border)">|</span>
-<button onclick="expandAll()">Expand All</button>
-<button onclick="collapseAll()">Collapse All</button>
-<input type="text" class="search-box" id="search" placeholder="Search keys or values..." oninput="doSearch(this.value)">
+<button onclick="expandAll()" ti="btn_expand_all">Expand All</button>
+<button onclick="collapseAll()" ti="btn_collapse_all">Collapse All</button>
+<input type="text" class="search-box" id="search" tp="placeholder_search_keys_or_values" placeholder="Search keys or values..." oninput="doSearch(this.value)">
 </div>
 </div>
 <div id="error"></div>
@@ -90,8 +92,18 @@ footer a:hover{text-decoration:underline}
 <div class="toast" id="toast"></div>
 <footer>
 <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> — Free browser tools for developers
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a> <a href="https://gokuscraper.github.io/dev-vault/json-viewer/">JSON Viewer</a> <a href="https://gokuscraper.github.io/dev-vault/json-path/">JSON Path</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a> <a href="https://gokuscraper.github.io/dev-vault/json-viewer/" ti="link_json_viewer">JSON Viewer</a> <a href="https://gokuscraper.github.io/dev-vault/json-path/" ti="link_json_path">JSON Path</a></div>
 </footer>
+
+<script>var _LANG={'title_json_tree_viewer_interact':["JSON Tree Viewer — Interactive JSON Explorer", "JSON 树状查看器 — 交互式 JSON 浏览器"],'metadesc_visualize_json_data_as_an':["Visualize JSON data as an interactive collapsible tree. Search keys and values, copy JSONPath, expand/collapse nodes, and explore nested structures.", "将 JSON 数据可视化为交互式可折叠树状结构。搜索键和值，复制 JSONPath，展开/折叠节点，并探索嵌套结构。"],'h1_json_tree_viewer':["JSON Tree Viewer", "JSON 树状查看器"],'btn_parse':["Parse", "解析"],'btn_format':["Format", "格式"],'btn_clear':["Clear", "清除"],'btn_expand_all':["Expand All", "全部展开"],'btn_collapse_all':["Collapse All", "全部收起"],'placeholder_paste_json_here':["Paste JSON here...", "把JSON文件粘贴到这里……"],'placeholder_search_keys_or_values':["Search keys or values...", "搜索键或值..."],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_json_format':["JSON Format", "JSON 格式"],'link_json_viewer':["JSON Viewer", "JSON 查看器"],'link_json_path':["JSON Path", "JSON 路径"],'jtc_u25bc':["\\u25BC", "♀♀"],'jtc_copy':["copy", "复制"],'jtc_u25bc_2':["\\u25BC", "♀♀"],'jtc_u25b6':["\\u25B6", "☎"],'jtc_u25bc_3':["\\u25BC", "♀♀"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TRUNC=120,LAZY_THRESHOLD=500;
 let parsedData=null,currentPath='',allNodes=[];
@@ -122,7 +134,7 @@ function buildNode(value,path,depth,key,isLast){const wrap=document.createElemen
 
 if(value!==null&&typeof value==='object'){
 const isArr=Array.isArray(value);const entries=isArr?value:Object.entries(value);const len=isArr?value.length:Object.keys(value).length;
-const toggle=document.createElement('span');toggle.className='tree-toggle';toggle.textContent='\u25BC';
+const toggle=document.createElement('span');toggle.className='tree-toggle';toggle.textContent=T("jtc_u25bc");
 const label=document.createElement('span');
 let keyPart=key!==null?`<span class="tree-key">${escHtml(String(key))}</span>: `:'';
 label.innerHTML=keyPart+(isArr?'[':'{');
@@ -153,7 +165,7 @@ let keyPart=key!==null?`<span class="tree-key">${escHtml(String(key))}</span>: `
 let valHtml=formatValue(value,path);
 content.innerHTML=keyPart+valHtml+(isLast?'':',');
 
-const copyBtn=document.createElement('span');copyBtn.className='copy-btn';copyBtn.textContent='copy';copyBtn.addEventListener('click',e=>{e.stopPropagation();navigator.clipboard.writeText(typeof value==='string'?value:JSON.stringify(value)).then(()=>toast('Value copied'))});
+const copyBtn=document.createElement('span');copyBtn.className='copy-btn';copyBtn.textContent=T("jtc_copy");copyBtn.addEventListener('click',e=>{e.stopPropagation();navigator.clipboard.writeText(typeof value==='string'?value:JSON.stringify(value)).then(()=>toast('Value copied'))});
 
 line.appendChild(toggle);line.appendChild(content);line.appendChild(copyBtn);
 line.addEventListener('click',()=>selectNode(line,path));
@@ -173,14 +185,14 @@ return escHtml(String(v))}
 
 function selectNode(line,path){document.querySelectorAll('.tree-line.selected').forEach(el=>el.classList.remove('selected'));line.classList.add('selected');currentPath=path;document.getElementById('pathBar').textContent=path}
 
-function expandAll(){document.querySelectorAll('.tree-children').forEach(el=>{el.classList.remove('collapsed');if(!el.dataset.rendered){/* trigger render via toggle click */}});document.querySelectorAll('.tree-toggle').forEach(t=>{if(t.textContent==='\u25B6')t.textContent='\u25BC'})}
+function expandAll(){document.querySelectorAll('.tree-children').forEach(el=>{el.classList.remove('collapsed');if(!el.dataset.rendered){/* trigger render via toggle click */}});document.querySelectorAll('.tree-toggle').forEach(t=>{if(t.textContent==='\u25B6')t.textContent=T("jtc_u25bc")})}
 
-function collapseAll(){document.querySelectorAll('.tree-children').forEach(el=>el.classList.add('collapsed'));document.querySelectorAll('.tree-toggle').forEach(t=>{if(t.textContent==='\u25BC'&&t.parentElement.querySelector('.tree-count'))t.textContent='\u25B6'})}
+function collapseAll(){document.querySelectorAll('.tree-children').forEach(el=>el.classList.add('collapsed'));document.querySelectorAll('.tree-toggle').forEach(t=>{if(t.textContent==='\u25BC'&&t.parentElement.querySelector('.tree-count'))t.textContent=T("jtc_u25b6")})}
 
 function doSearch(q){document.querySelectorAll('.highlight').forEach(el=>el.classList.remove('highlight'));if(!q.trim())return;const lq=q.toLowerCase();let first=null;
 allNodes.forEach(line=>{const text=line.textContent.toLowerCase();if(text.includes(lq)){line.classList.add('highlight');if(!first)first=line;
 // Expand parents
-let p=line.parentElement;while(p){if(p.classList&&p.classList.contains('tree-children')&&p.classList.contains('collapsed')){p.classList.remove('collapsed');const tog=p.previousElementSibling?.querySelector('.tree-toggle');if(tog)tog.textContent='\u25BC'}
+let p=line.parentElement;while(p){if(p.classList&&p.classList.contains('tree-children')&&p.classList.contains('collapsed')){p.classList.remove('collapsed');const tog=p.previousElementSibling?.querySelector('.tree-toggle');if(tog)tog.textContent=T("jtc_u25bc")}
 p=p.parentElement}}});
 if(first)first.scrollIntoView({behavior:'smooth',block:'center'})}
 
@@ -190,6 +202,24 @@ document.getElementById('input').addEventListener('paste',()=>setTimeout(parseAn
 // Sample data on load
 document.getElementById('input').value=JSON.stringify({"name":"JSON Tree Viewer","version":"1.0","features":["collapsible tree","search","JSONPath","copy value"],"config":{"theme":"dark","maxDepth":null,"autoExpand":true,"colors":{"string":"green","number":"orange","boolean":"purple"}},"stats":[42,3.14,true,false,null]},null,2);
 parseAndRender();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

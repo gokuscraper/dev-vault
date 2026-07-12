@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_text_transform_case_conve" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,46 +49,72 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Text Transform</h1>
-<p class="subtitle">Case converter & text utilities. 12 transformations.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_text_transform" ti="h1_text_transform" ti="h1_text_transform">Text Transform</h1>
+<p class="subtitle" ti="subtitle_case_converter_text_utili" ti="subtitle_case_converter_text_utili" ti="subtitle_case_converter_text_utili">Case converter & text utilities. 12 transformations.</p>
 
 <div class="input-area">
-  <textarea id="input" placeholder="Paste your text here..." oninput="updateStats()">Hello World Example Text</textarea>
+  <textarea id="input" tp="placeholder_paste_your_text_here" tp="placeholder_paste_your_text_here" tp="placeholder_paste_your_text_here" placeholder="Paste your text here..." oninput="updateStats()">Hello World Example Text</textarea>
 </div>
 
 <div class="transforms">
-  <button class="tf-btn" onclick="apply(t=>t.toUpperCase())"><span class="label">UPPERCASE</span><span class="example">HELLO WORLD</span></button>
-  <button class="tf-btn" onclick="apply(t=>t.toLowerCase())"><span class="label">lowercase</span><span class="example">hello world</span></button>
-  <button class="tf-btn" onclick="apply(titleCase)"><span class="label">Title Case</span><span class="example">Hello World</span></button>
-  <button class="tf-btn" onclick="apply(sentenceCase)"><span class="label">Sentence case</span><span class="example">Hello world</span></button>
-  <button class="tf-btn" onclick="apply(toCamel)"><span class="label">camelCase</span><span class="example">helloWorld</span></button>
-  <button class="tf-btn" onclick="apply(toPascal)"><span class="label">PascalCase</span><span class="example">HelloWorld</span></button>
-  <button class="tf-btn" onclick="apply(toSnake)"><span class="label">snake_case</span><span class="example">hello_world</span></button>
-  <button class="tf-btn" onclick="apply(toKebab)"><span class="label">kebab-case</span><span class="example">hello-world</span></button>
-  <button class="tf-btn" onclick="apply(toConstant)"><span class="label">CONSTANT_CASE</span><span class="example">HELLO_WORLD</span></button>
-  <button class="tf-btn" onclick="apply(toDot)"><span class="label">dot.case</span><span class="example">hello.world</span></button>
-  <button class="tf-btn" onclick="apply(reverseText)"><span class="label">Reverse</span><span class="example">dlroW olleH</span></button>
-  <button class="tf-btn" onclick="apply(sortLines)"><span class="label">Sort Lines</span><span class="example">A→Z per line</span></button>
-  <button class="tf-btn" onclick="apply(dedupeLines)"><span class="label">Deduplicate</span><span class="example">Remove dupes</span></button>
-  <button class="tf-btn" onclick="apply(trimLines)"><span class="label">Trim Lines</span><span class="example">Strip whitespace</span></button>
-  <button class="tf-btn" onclick="apply(removeEmpty)"><span class="label">Remove Empty</span><span class="example">No blank lines</span></button>
-  <button class="tf-btn" onclick="apply(numberLines)"><span class="label">Number Lines</span><span class="example">1. Hello</span></button>
+  <button class="tf-btn" onclick="apply(t=>t.toUpperCase())"><span class="label" ti="label_uppercase" ti="label_uppercase" ti="label_uppercase">UPPERCASE</span><span class="example">HELLO WORLD</span></button>
+  <button class="tf-btn" onclick="apply(t=>t.toLowerCase())"><span class="label" ti="label_lowercase" ti="label_lowercase" ti="label_lowercase">lowercase</span><span class="example">hello world</span></button>
+  <button class="tf-btn" onclick="apply(titleCase)"><span class="label" ti="label_title_case" ti="label_title_case" ti="label_title_case">Title Case</span><span class="example">Hello World</span></button>
+  <button class="tf-btn" onclick="apply(sentenceCase)"><span class="label" ti="label_sentence_case" ti="label_sentence_case" ti="label_sentence_case">Sentence case</span><span class="example">Hello world</span></button>
+  <button class="tf-btn" onclick="apply(toCamel)"><span class="label" ti="label_camelcase" ti="label_camelcase" ti="label_camelcase">camelCase</span><span class="example">helloWorld</span></button>
+  <button class="tf-btn" onclick="apply(toPascal)"><span class="label" ti="label_pascalcase" ti="label_pascalcase" ti="label_pascalcase">PascalCase</span><span class="example">HelloWorld</span></button>
+  <button class="tf-btn" onclick="apply(toSnake)"><span class="label" ti="label_snake_case" ti="label_snake_case" ti="label_snake_case">snake_case</span><span class="example">hello_world</span></button>
+  <button class="tf-btn" onclick="apply(toKebab)"><span class="label" ti="label_kebab_case" ti="label_kebab_case" ti="label_kebab_case">kebab-case</span><span class="example">hello-world</span></button>
+  <button class="tf-btn" onclick="apply(toConstant)"><span class="label" ti="label_constant_case" ti="label_constant_case" ti="label_constant_case">CONSTANT_CASE</span><span class="example">HELLO_WORLD</span></button>
+  <button class="tf-btn" onclick="apply(toDot)"><span class="label" ti="label_dot_case" ti="label_dot_case" ti="label_dot_case">dot.case</span><span class="example">hello.world</span></button>
+  <button class="tf-btn" onclick="apply(reverseText)"><span class="label" ti="label_reverse" ti="label_reverse" ti="label_reverse">Reverse</span><span class="example">dlroW olleH</span></button>
+  <button class="tf-btn" onclick="apply(sortLines)"><span class="label" ti="label_sort_lines" ti="label_sort_lines" ti="label_sort_lines">Sort Lines</span><span class="example">A→Z per line</span></button>
+  <button class="tf-btn" onclick="apply(dedupeLines)"><span class="label" ti="label_deduplicate" ti="label_deduplicate" ti="label_deduplicate">Deduplicate</span><span class="example">Remove dupes</span></button>
+  <button class="tf-btn" onclick="apply(trimLines)"><span class="label" ti="label_trim_lines" ti="label_trim_lines" ti="label_trim_lines">Trim Lines</span><span class="example">Strip whitespace</span></button>
+  <button class="tf-btn" onclick="apply(removeEmpty)"><span class="label" ti="label_remove_empty" ti="label_remove_empty" ti="label_remove_empty">Remove Empty</span><span class="example">No blank lines</span></button>
+  <button class="tf-btn" onclick="apply(numberLines)"><span class="label" ti="label_number_lines" ti="label_number_lines" ti="label_number_lines">Number Lines</span><span class="example">1. Hello</span></button>
 </div>
 
 <div class="output-area">
   <textarea id="output" readonly></textarea>
-  <button class="copy-btn" onclick="copyOutput()">Copy</button>
+  <button class="copy-btn" onclick="copyOutput()" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 </div>
 
 <div class="stats" id="stats"></div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/text-transform">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/text-transform" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+
+<script>var _LANG={'title_text_transform_case_conve':["Text Transform — Case Converter & Text Utilities", "文本转换 — 大小写转换器和文本实用工具"],'metadesc_convert_text_case_upper_l':["Convert text case: UPPER, lower, Title, camelCase, snake_case, kebab-case. Reverse, sort, dedupe. Free.", "转换文本大小写：大写、小写、标题格式、驼峰式、蛇形式、卷尾式。反转、排序、去重。免费。"],'h1_text_transform':["Text Transform", "文本转换"],'subtitle_case_converter_text_utili':["Case converter & text utilities. 12 transformations.", "大小写转换器和文本实用工具。12 种转换。"],'btn_copy':["Copy", "复制"],'label_uppercase':["UPPERCASE", "大写"],'label_lowercase':["lowercase", "小写"],'label_title_case':["Title Case", "标题大小写"],'label_sentence_case':["Sentence case", "判决案例"],'label_camelcase':["camelCase", "骆驼牌"],'label_pascalcase':["PascalCase", "帕斯卡命名法"],'label_snake_case':["snake_case", "蛇壳"],'label_kebab_case':["kebab-case", "烤肉串箱"],'label_constant_case':["CONSTANT_CASE", "常量"],'label_dot_case':["dot.case", "点.case"],'label_reverse':["Reverse", "撤销"],'label_sort_lines':["Sort Lines", "排序行"],'label_deduplicate':["Deduplicate", "去重"],'label_trim_lines':["Trim Lines", "修剪线"],'label_remove_empty':["Remove Empty", "移除空"],'label_number_lines':["Number Lines", "数轴"],'placeholder_paste_your_text_here':["Paste your text here...", "将您的文本粘贴到此处……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_text_transform_case_conve':["Text Transform — Case Converter & Text Utilities", "文本转换 — 大小写转换器和文本实用工具"],'metadesc_convert_text_case_upper_l':["Convert text case: UPPER, lower, Title, camelCase, snake_case, kebab-case. Reverse, sort, dedupe. Free.", "转换文本大小写：大写、小写、标题格式、驼峰式、蛇形式、卷尾式。反转、排序、去重。免费。"],'h1_text_transform':["Text Transform", "文本转换"],'subtitle_case_converter_text_utili':["Case converter & text utilities. 12 transformations.", "大小写转换器和文本实用工具。12 种转换。"],'btn_copy':["Copy", "复制"],'label_uppercase':["UPPERCASE", "大写"],'label_lowercase':["lowercase", "小写"],'label_title_case':["Title Case", "标题大小写"],'label_sentence_case':["Sentence case", "判决案例"],'label_camelcase':["camelCase", "骆驼牌"],'label_pascalcase':["PascalCase", "帕斯卡命名法"],'label_snake_case':["snake_case", "蛇壳"],'label_kebab_case':["kebab-case", "烤肉串箱"],'label_constant_case':["CONSTANT_CASE", "常量"],'label_dot_case':["dot.case", "点.case"],'label_reverse':["Reverse", "撤销"],'label_sort_lines':["Sort Lines", "排序行"],'label_deduplicate':["Deduplicate", "去重"],'label_trim_lines':["Trim Lines", "修剪线"],'label_remove_empty':["Remove Empty", "移除空"],'label_number_lines':["Number Lines", "数轴"],'placeholder_paste_your_text_here':["Paste your text here...", "将您的文本粘贴到此处……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function getInput(){return document.getElementById('input').value}
 
@@ -133,7 +159,7 @@ function updateStats(){
 function copyOutput(){
   navigator.clipboard.writeText(document.getElementById('output').value);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -141,12 +167,66 @@ function copyOutput(){
 updateStats();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/case-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Case Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
 <a href="https://gokuscraper.github.io/dev-vault/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

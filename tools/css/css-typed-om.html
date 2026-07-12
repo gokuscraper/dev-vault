@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_typed_om_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -483,6 +483,8 @@ label {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1>CSS <span>Typed OM</span> Playground</h1>
@@ -492,17 +494,17 @@ label {
 
 <main class="main">
   <div class="tab-bar" id="tabBar">
-    <button class="tab-btn active" data-tab="explorer">StyleValue Explorer</button>
-    <button class="tab-btn" data-tab="arithmetic">Unit Arithmetic</button>
-    <button class="tab-btn" data-tab="inspector">Value Inspector</button>
-    <button class="tab-btn" data-tab="transform">Transform Builder</button>
-    <button class="tab-btn" data-tab="perf">Performance</button>
+    <button class="tab-btn active" data-tab="explorer" ti="btn_stylevalue_explorer">StyleValue Explorer</button>
+    <button class="tab-btn" data-tab="arithmetic" ti="btn_unit_arithmetic">Unit Arithmetic</button>
+    <button class="tab-btn" data-tab="inspector" ti="btn_value_inspector">Value Inspector</button>
+    <button class="tab-btn" data-tab="transform" ti="btn_transform_builder">Transform Builder</button>
+    <button class="tab-btn" data-tab="perf" ti="btn_performance">Performance</button>
   </div>
 
   <!-- Panel 1: CSSStyleValue Explorer -->
   <section class="panel active" id="panel-explorer">
     <div class="card">
-      <h2>CSSStyleValue Explorer</h2>
+      <h2 ti="h2_cssstylevalue_explorer">CSSStyleValue Explorer</h2>
       <p class="card-desc">See how <code>el.computedStyleMap()</code> returns typed values instead of raw strings. Click any property to inspect its typed representation.</p>
 
       <div class="controls">
@@ -511,7 +513,7 @@ label {
           <option value="sample-text">Sample Text</option>
           <option value="sample-circle">Sample Circle</option>
         </select>
-        <button class="btn" id="explorerRefresh">Refresh Map</button>
+        <button class="btn" id="explorerRefresh" ti="btn_refresh_map">Refresh Map</button>
       </div>
 
       <div style="display:flex;gap:16px;flex-wrap:wrap;margin:12px 0;">
@@ -522,7 +524,7 @@ label {
 
       <div id="explorerOutput">
         <table class="prop-table">
-          <thead><tr><th>Property</th><th>Type</th><th>Value (Typed)</th><th>Value (String)</th></tr></thead>
+          <thead><tr><th ti="th_property">Property</th><th ti="th_type">Type</th><th ti="th_value_typed">Value (Typed)</th><th ti="th_value_string">Value (String)</th></tr></thead>
           <tbody id="explorerBody"></tbody>
         </table>
       </div>
@@ -532,18 +534,18 @@ label {
   <!-- Panel 2: Unit Arithmetic -->
   <section class="panel" id="panel-arithmetic">
     <div class="card">
-      <h2>Unit Arithmetic</h2>
+      <h2 ti="h2_unit_arithmetic">Unit Arithmetic</h2>
       <p class="card-desc">CSS Typed OM lets you perform arithmetic on CSS values with proper units. No more string parsing — add, subtract, multiply, and convert units directly.</p>
 
-      <h3>Try These Expressions</h3>
+      <h3 ti="h3_try_these_expressions">Try These Expressions</h3>
       <p class="card-desc">Click an expression to run it, or write your own below.</p>
 
       <ul class="expr-list" id="arithExprList"></ul>
 
-      <h3>Custom Expression</h3>
+      <h3 ti="h3_custom_expression">Custom Expression</h3>
       <div class="controls">
-        <input type="text" id="arithInput" placeholder="e.g. CSS.px(100).add(CSS.px(50))" style="flex:1;min-width:200px;" value="CSS.px(100).add(CSS.px(50))">
-        <button class="btn" id="arithRun">Run</button>
+        <input type="text" id="arithInput" tp="placeholder_e_g_css_px_100_add_css_px" placeholder="e.g. CSS.px(100).add(CSS.px(50))" style="flex:1;min-width:200px;" value="CSS.px(100).add(CSS.px(50))">
+        <button class="btn" id="arithRun" ti="btn_run">Run</button>
       </div>
 
       <div class="compare" style="margin-top:16px;">
@@ -557,10 +559,10 @@ label {
         </div>
       </div>
 
-      <h3>Unit Factory Reference</h3>
+      <h3 ti="h3_unit_factory_reference">Unit Factory Reference</h3>
       <div style="overflow-x:auto;">
         <table class="prop-table">
-          <thead><tr><th>Factory</th><th>Example</th><th>Returns</th></tr></thead>
+          <thead><tr><th ti="th_factory">Factory</th><th ti="th_example">Example</th><th ti="th_returns">Returns</th></tr></thead>
           <tbody>
             <tr><td>CSS.px(n)</td><td><code>CSS.px(16)</code></td><td>CSSUnitValue {value: 16, unit: "px"}</td></tr>
             <tr><td>CSS.em(n)</td><td><code>CSS.em(1.5)</code></td><td>CSSUnitValue {value: 1.5, unit: "em"}</td></tr>
@@ -581,7 +583,7 @@ label {
   <!-- Panel 3: Value Type Inspector -->
   <section class="panel" id="panel-inspector">
     <div class="card">
-      <h2>Value Type Inspector</h2>
+      <h2 ti="h2_value_type_inspector">Value Type Inspector</h2>
       <p class="card-desc">Enter a CSS property name and value to see how the Typed OM parses it. Compare the string representation with the typed object hierarchy.</p>
 
       <div class="controls">
@@ -606,7 +608,7 @@ label {
         <label>Value:
           <input type="text" id="inspValue" value="100px" style="width:180px;">
         </label>
-        <button class="btn" id="inspRun">Parse</button>
+        <button class="btn" id="inspRun" ti="btn_parse">Parse</button>
       </div>
 
       <div class="compare" style="margin-top:16px;">
@@ -624,7 +626,7 @@ label {
         </div>
       </div>
 
-      <h3>Type Hierarchy</h3>
+      <h3 ti="h3_type_hierarchy">Type Hierarchy</h3>
       <p class="card-desc">CSS Typed OM organizes values into a class hierarchy:</p>
       <pre><code><span class="kw">CSSStyleValue</span>                   <span class="cm">// Base class</span>
   <span class="fn">CSSNumericValue</span>              <span class="cm">// Numbers with units</span>
@@ -643,12 +645,12 @@ label {
   <!-- Panel 4: Transform Builder -->
   <section class="panel" id="panel-transform">
     <div class="card">
-      <h2>Transform Builder</h2>
+      <h2 ti="h2_transform_builder">Transform Builder</h2>
       <p class="card-desc">Build CSS transforms using typed constructors like <code>CSSTranslate</code>, <code>CSSRotate</code>, and <code>CSSScale</code>. See the live result and generated code.</p>
 
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
         <div>
-          <h3>Translate</h3>
+          <h3 ti="h3_translate">Translate</h3>
           <div class="controls">
             <label>X: <input type="range" id="txX" min="-150" max="150" value="0"><span id="txXVal">0px</span></label>
           </div>
@@ -656,12 +658,12 @@ label {
             <label>Y: <input type="range" id="txY" min="-100" max="100" value="0"><span id="txYVal">0px</span></label>
           </div>
 
-          <h3>Rotate</h3>
+          <h3 ti="h3_rotate">Rotate</h3>
           <div class="controls">
             <label>Angle: <input type="range" id="txR" min="-180" max="180" value="0"><span id="txRVal">0deg</span></label>
           </div>
 
-          <h3>Scale</h3>
+          <h3 ti="h3_scale">Scale</h3>
           <div class="controls">
             <label>X: <input type="range" id="txSx" min="0.1" max="3" step="0.1" value="1"><span id="txSxVal">1</span></label>
           </div>
@@ -670,12 +672,12 @@ label {
           </div>
 
           <div class="controls" style="margin-top:12px;">
-            <button class="btn-outline btn" id="txReset">Reset</button>
+            <button class="btn-outline btn" id="txReset" ti="btn_reset">Reset</button>
           </div>
         </div>
 
         <div>
-          <h3>Live Preview</h3>
+          <h3 ti="h3_live_preview">Live Preview</h3>
           <div class="transform-preview-area">
             <div class="transform-grid-line h"></div>
             <div class="transform-grid-line v"></div>
@@ -684,10 +686,10 @@ label {
         </div>
       </div>
 
-      <h3>Generated Typed OM Code</h3>
+      <h3 ti="h3_generated_typed_om_code">Generated Typed OM Code</h3>
       <pre id="txCode"></pre>
 
-      <h3>Equivalent CSS</h3>
+      <h3 ti="h3_equivalent_css">Equivalent CSS</h3>
       <pre id="txCss"></pre>
     </div>
   </section>
@@ -695,7 +697,7 @@ label {
   <!-- Panel 5: Performance Comparison -->
   <section class="panel" id="panel-perf">
     <div class="card">
-      <h2>Performance Comparison</h2>
+      <h2 ti="h2_performance_comparison">Performance Comparison</h2>
       <p class="card-desc">Typed OM avoids string parsing overhead. Run a benchmark to compare setting styles via strings vs typed values.</p>
 
       <div class="controls">
@@ -706,23 +708,23 @@ label {
             <option value="100000">100,000</option>
           </select>
         </label>
-        <button class="btn" id="perfRun">Run Benchmark</button>
+        <button class="btn" id="perfRun" ti="btn_run_benchmark">Run Benchmark</button>
       </div>
 
-      <h3>Results</h3>
+      <h3 ti="h3_results">Results</h3>
       <div class="perf-bars" id="perfBars">
         <div class="perf-row">
-          <span class="perf-label">String</span>
+          <span class="perf-label" ti="label_string">String</span>
           <div class="perf-bar-track"><div class="perf-bar-fill string-bar" id="perfStringBar" style="width:0%;">—</div></div>
         </div>
         <div class="perf-row">
-          <span class="perf-label">Typed OM</span>
+          <span class="perf-label" ti="label_typed_om">Typed OM</span>
           <div class="perf-bar-track"><div class="perf-bar-fill typed-bar" id="perfTypedBar" style="width:0%;">—</div></div>
         </div>
       </div>
       <div class="output-box" id="perfOutput">Click "Run Benchmark" to start.</div>
 
-      <h3>Code Comparison</h3>
+      <h3 ti="h3_code_comparison">Code Comparison</h3>
       <div class="compare">
         <div class="compare-col">
           <h4>String-based (Traditional)</h4>
@@ -766,7 +768,7 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
         </div>
       </div>
 
-      <h3>Why Typed OM?</h3>
+      <h3 ti="h3_why_typed_om">Why Typed OM?</h3>
       <div style="display:grid;grid-template-columns:repeat(auto-fit, minmax(200px, 1fr));gap:12px;margin-top:8px;">
         <div style="background:var(--bg);border:1px solid var(--border);border-radius:6px;padding:14px;">
           <div style="color:var(--green);font-weight:600;margin-bottom:4px;">No more parseFloat()</div>
@@ -793,10 +795,20 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
   <div>Built by <a href="https://github.com/gokuscraper" target="_blank" rel="noopener">gokuscraper</a> &times; Claude Code</div>
   <div class="footer-links">
     <a href="https://github.com/gokuscraper/css-typed-om" target="_blank" rel="noopener">GitHub</a>
-    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener" ti="footer_dev_vault">Dev Vault</a>
   </div>
 </footer>
 
+
+<script>var _LANG={'title_css_typed_om_playground':["CSS Typed OM Playground", "CSS Typed OM Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the CSS Typed Object Model API. Explore typed CSS values, unit arithmetic, transform building, and performance comparisons — all in the browser.", "CSS类型化对象模型API的交互式演示环境。探索类型化CSS值、单位运算、变换构建和性能比较——所有操作均可在浏览器中完成。"],'h2_cssstylevalue_explorer':["CSSStyleValue Explorer", "CSS样式值浏览器"],'h2_unit_arithmetic':["Unit Arithmetic", "单位算术"],'h2_value_type_inspector':["Value Type Inspector", "值类型检查器"],'h2_transform_builder':["Transform Builder", "转换构建器"],'h2_performance_comparison':["Performance Comparison", "性能比较"],'h3_try_these_expressions':["Try These Expressions", "试试这些表达式"],'h3_custom_expression':["Custom Expression", "自定义表达式"],'h3_unit_factory_reference':["Unit Factory Reference", "单位工厂参考"],'h3_type_hierarchy':["Type Hierarchy", "类型层次结构"],'h3_translate':["Translate", "翻译"],'h3_rotate':["Rotate", "旋转"],'h3_scale':["Scale", "规模"],'h3_live_preview':["Live Preview", "实时预览"],'h3_generated_typed_om_code':["Generated Typed OM Code", "生成的类型化 OM 代码"],'h3_equivalent_css':["Equivalent CSS", "等效 CSS"],'h3_results':["Results", "结果"],'h3_code_comparison':["Code Comparison", "代码比较"],'h3_why_typed_om':["Why Typed OM?", "为什么需要类型化 OM？"],'btn_stylevalue_explorer':["StyleValue Explorer", "样式值浏览器"],'btn_unit_arithmetic':["Unit Arithmetic", "单位算术"],'btn_value_inspector':["Value Inspector", "估价师"],'btn_transform_builder':["Transform Builder", "转换构建器"],'btn_performance':["Performance", "表现"],'btn_refresh_map':["Refresh Map", "刷新地图"],'btn_run':["Run", "跑步"],'btn_parse':["Parse", "解析"],'btn_reset':["Reset", "重置"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'label_string':["String", "细绳"],'label_typed_om':["Typed OM", "类型化 OM"],'placeholder_e_g_css_px_100_add_css_px':["e.g. CSS.px(100).add(CSS.px(50))", "例如：CSS.px(100).add(CSS.px(50))"],'th_property':["Property", "财产"],'th_type':["Type", "类型"],'th_value_typed':["Value (Typed)", "值（已输入）"],'th_value_string':["Value (String)", "值（字符串）"],'th_factory':["Factory", "工厂"],'th_example':["Example", "例子"],'th_returns':["Returns", "返回"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_simulated_css_typed_om_n':["[Simulated] CSS Typed OM not available.\\nIn a supported browser, this would return a typed value.", "[模拟] CSS Typed OM 不可用。\\n在受支持的浏览器中，这将返回一个类型化的值。"],'jtc_not_available_css_typed':["[Not available] CSS Typed OM required.", "[不可用] 需要 CSS 类型化 OM。"],'jtc_null_property_not_in_comp':["null (property not in computed style map)", "空值（属性不在计算样式映射中）"],'jtc_running_benchmark':["Running benchmark...", "运行基准测试……"],'jtlword_string':["string", "细绳"],'jtlword_const':["const", "常量"],'jtlword_log':["log", "日志"],'jtlword_attributestylemap':["attributeStyleMap", "属性样式映射"],'jtlword_set':["set", "放"],'jtlword_attributestylemap_2':["attributeStyleMap", "属性样式映射"],'jtlword_set_2':["set", "放"],'jtlword_new':["new", "新的"],'jtlword_cssunitvalue':["CSSUnitValue", "CSS单位值"],'jtlword_attributestylemap_3':["attributeStyleMap", "属性样式映射"],'jtlword_set_3':["set", "放"],'jtlword_new_2':["new", "新的"],'jtlword_csskeywordvalue':["CSSKeywordValue", "CSS关键字值"],'jtlword_attributestylemap_4':["attributeStyleMap", "属性样式映射"],'jtlword_set_4':["set", "放"],'jtlword_parse':["parse", "解析"],'jtlword_const_2':["const", "常量"],'jtlword_new_3':["new", "新的"],'jtlword_csstransformvalue':["CSSTransformValue", "CSS转换值"],'jtlword_attributestylemap_5':["attributeStyleMap", "属性样式映射"],'jtlword_set_5':["set", "放"],'jtlword_element':["element", "元素"],'jtlword_transform':["transform", "转换"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -927,7 +939,7 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
     codeEl.innerHTML = `<code><span class="kw">const</span> result = ${escapeHtml(expr)};\nconsole.<span class="fn">log</span>(result);</code>`;
 
     if (!hasTypedOM) {
-      resultEl.textContent = '[Simulated] CSS Typed OM not available.\nIn a supported browser, this would return a typed value.';
+      resultEl.textContent=T("jtc_simulated_css_typed_om_n");
       resultEl.style.color = 'var(--orange)';
       return;
     }
@@ -981,7 +993,7 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
     oldCode.innerHTML = `<code>el.style.${camelCase(prop)} = <span class="str">"${escapeHtml(val)}"</span>;</code>`;
 
     if (!hasTypedOM) {
-      typedEl.textContent = '[Not available] CSS Typed OM required.';
+      typedEl.textContent=T("jtc_not_available_css_typed");
       typedEl.style.color = 'var(--orange)';
       newCode.innerHTML = `<code><span class="cm">// Requires Chrome/Edge 66+</span></code>`;
       return;
@@ -1013,7 +1025,7 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
           newCode.innerHTML = `<code>el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(\n  <span class="str">'${prop}'</span>,\n  CSSStyleValue.<span class="fn">parse</span>(<span class="str">'${prop}'</span>, <span class="str">'${escapeHtml(val)}'</span>)\n);</code>`;
         }
       } else {
-        typedEl.textContent = 'null (property not in computed style map)';
+        typedEl.textContent=T("jtc_null_property_not_in_comp");
         typedEl.style.color = 'var(--orange)';
         newCode.innerHTML = `<code><span class="cm">// This property may not be supported by Typed OM</span></code>`;
       }
@@ -1103,7 +1115,7 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
     const stringBar = document.getElementById('perfStringBar');
     const typedBar = document.getElementById('perfTypedBar');
 
-    output.textContent = 'Running benchmark...';
+    output.textContent=T("jtc_running_benchmark");
     output.style.color = 'var(--text-dim)';
 
     // Reset bars
@@ -1183,6 +1195,24 @@ el.<span class="fn">attributeStyleMap</span>.<span class="fn">set</span>(<span c
   function camelCase(s) {
     return s.replace(/-([a-z])/g, (_, c) => c.toUpperCase());
   }
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

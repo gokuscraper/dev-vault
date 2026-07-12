@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_iterator_generator_vis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,13 +64,15 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Iterator & Generator Visualizer</h1>
+<h1 ti="title_js_iterator_generator_vis" ti="h1_js_iterator_generator_vis">JS Iterator & Generator Visualizer</h1>
 <p>Step through yield, next(), for-of, and async generators with live execution state</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Patterns</h3>
+<h3 ti="h3_patterns">Patterns</h3>
 <div id="presets"></div>
 </div>
 <div class="main">
@@ -98,15 +100,25 @@ footer a{color:#00d4ff;text-decoration:none}
 </div>
 </div>
 <div class="controls">
-<button class="btn primary" id="btnStep">next() →</button>
-<button class="btn" id="btnRunAll">▶ Run All</button>
-<button class="btn" id="btnReset">⟲ Reset</button>
+<button class="btn primary" id="btnStep" ti="btn_next">next() →</button>
+<button class="btn" id="btnRunAll" ti="btn_run_all">▶ Run All</button>
+<button class="btn" id="btnReset" ti="btn_reset">⟲ Reset</button>
 <span class="step-info" id="stepInfo">Click next() to step through the generator</span>
 </div>
 </div>
 </div>
-<footer>JS Iterator & Generator Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>JS Iterator & Generator Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+<script>var _LANG={'title_js_iterator_generator_vis':["JS Iterator & Generator Visualizer", "JS迭代器和生成器可视化工具"],'metadesc_interactive_javascript_it':["Interactive JavaScript iterator and generator visualizer — step through yield, next(), for-of, spread, and async generators with live execution state", "交互式 JavaScript 迭代器和生成器可视化工具——逐​​步演示 yield、next()、for-of、展开式和异步生成器，并实时显示执行状态"],'h1_js_iterator_generator_vis':["JS Iterator & Generator Visualizer", "JS迭代器和生成器可视化工具"],'h3_patterns':["Patterns", "模式"],'btn_next':["next() →", "下一步() →"],'btn_run_all':["▶ Run All", "▶ 全部运行"],'btn_reset':["⟲ Reset", "⟲ 重置"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_click_next_to_step_throug':["Click next() to step through", "点击“下一步”按钮继续操作。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -420,10 +432,28 @@ function resetVis() {
   document.getElementById('nextInput').textContent = '—';
   document.getElementById('stepCount').textContent = '0';
   document.getElementById('yieldHistory').innerHTML = '';
-  document.getElementById('stepInfo').textContent = 'Click next() to step through';
+  document.getElementById('stepInfo').textContent=T("jtc_click_next_to_step_throug");
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

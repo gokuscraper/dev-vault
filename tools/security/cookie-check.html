@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cookie_check_http_cookie" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -101,9 +101,17 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Cookie Check</h1>
-<p class="subtitle">Analyze and audit HTTP cookie security attributes.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_cookie_check" ti="h1_cookie_check" ti="h1_cookie_check" ti="h1_cookie_check">Cookie Check</h1>
+<p class="subtitle" ti="subtitle_analyze_and_audit_http_co" ti="subtitle_analyze_and_audit_http_co" ti="subtitle_analyze_and_audit_http_co" ti="subtitle_analyze_and_audit_http_co">Analyze and audit HTTP cookie security attributes.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab('analyze')">Analyze</div>
@@ -115,7 +123,7 @@ footer a:hover{color:#999}
 <div class="tab-panel active" id="tab-analyze">
 <div class="input-section">
   <div style="margin-bottom:8px;font-size:0.82rem;color:#888">Paste one or more <code style="background:#1a1a1a;padding:2px 6px;border-radius:4px;font-family:monospace;color:#4da6ff">Set-Cookie</code> headers (one per line):</div>
-  <textarea id="cookieInput" placeholder="session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400
+  <textarea id="cookieInput" tp="placeholder_session_abc123_path_httpo" tp="placeholder_session_abc123_path_httpo" tp="placeholder_session_abc123_path_httpo" tp="placeholder_session_abc123_path_httpo" placeholder="session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400
 _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com"></textarea>
   <div class="presets" style="margin-top:10px">
     <span style="color:#555;font-size:0.72rem;padding:4px 0">Examples:</span>
@@ -127,8 +135,8 @@ _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example
   </div>
 </div>
 <div class="btn-row">
-  <button class="btn primary" onclick="analyzeCookies()">Analyze</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="analyzeCookies()" ti="btn_analyze" ti="btn_analyze" ti="btn_analyze" ti="btn_analyze">Analyze</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
 </div>
 <div id="results"></div>
 </div>
@@ -136,14 +144,14 @@ _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example
 <!-- BUILD TAB -->
 <div class="tab-panel" id="tab-build">
 <div class="builder-section">
-  <div class="builder-row"><label>Name</label><input type="text" id="bName" value="session" placeholder="cookie name"></div>
-  <div class="builder-row"><label>Value</label><input type="text" id="bValue" value="abc123" placeholder="cookie value"></div>
-  <div class="builder-row"><label>Domain</label><input type="text" id="bDomain" placeholder=".example.com (optional)"></div>
-  <div class="builder-row"><label>Path</label><input type="text" id="bPath" value="/" placeholder="/"></div>
-  <div class="builder-row"><label>SameSite</label>
+  <div class="builder-row"><label ti="label_name" ti="label_name" ti="label_name" ti="label_name">Name</label><input type="text" id="bName" value="session" tp="placeholder_cookie_name" tp="placeholder_cookie_name" tp="placeholder_cookie_name" tp="placeholder_cookie_name" placeholder="cookie name"></div>
+  <div class="builder-row"><label ti="label_value" ti="label_value" ti="label_value" ti="label_value">Value</label><input type="text" id="bValue" value="abc123" tp="placeholder_cookie_value" tp="placeholder_cookie_value" tp="placeholder_cookie_value" tp="placeholder_cookie_value" placeholder="cookie value"></div>
+  <div class="builder-row"><label ti="label_domain" ti="label_domain" ti="label_domain" ti="label_domain">Domain</label><input type="text" id="bDomain" tp="placeholder_example_com_optional" tp="placeholder_example_com_optional" tp="placeholder_example_com_optional" tp="placeholder_example_com_optional" placeholder=".example.com (optional)"></div>
+  <div class="builder-row"><label ti="label_path" ti="label_path" ti="label_path" ti="label_path">Path</label><input type="text" id="bPath" value="/" placeholder="/"></div>
+  <div class="builder-row"><label ti="label_samesite" ti="label_samesite" ti="label_samesite" ti="label_samesite">SameSite</label>
     <select id="bSameSite"><option value="Strict">Strict</option><option value="Lax" selected>Lax</option><option value="None">None</option><option value="">(not set)</option></select>
   </div>
-  <div class="builder-row"><label>Max-Age</label>
+  <div class="builder-row"><label ti="label_max_age" ti="label_max_age" ti="label_max_age" ti="label_max_age">Max-Age</label>
     <select id="bMaxAge"><option value="">Session (no expiry)</option><option value="3600">1 hour</option><option value="86400">1 day</option><option value="604800">1 week</option><option value="2592000">30 days</option><option value="31536000">1 year</option></select>
   </div>
   <div class="builder-row" style="gap:16px">
@@ -151,14 +159,14 @@ _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example
     <label class="check-label"><input type="checkbox" id="bHttpOnly" checked> HttpOnly</label>
   </div>
 </div>
-<div class="btn-row"><button class="btn primary" onclick="buildCookie()">Generate</button></div>
+<div class="btn-row"><button class="btn primary" onclick="buildCookie()" ti="btn_generate" ti="btn_generate" ti="btn_generate" ti="btn_generate">Generate</button></div>
 <div id="buildOutput"></div>
 </div>
 
 <!-- LEARN TAB -->
 <div class="tab-panel" id="tab-learn">
 <div class="info">
-  <h3>Cookie Security Attributes</h3>
+  <h3 ti="h3_cookie_security_attribute" ti="h3_cookie_security_attribute" ti="h3_cookie_security_attribute" ti="h3_cookie_security_attribute">Cookie Security Attributes</h3>
   <p><code>Secure</code> — Only sent over HTTPS. Prevents interception on insecure networks.</p>
   <p style="margin-top:6px"><code>HttpOnly</code> — Not accessible via JavaScript (<code>document.cookie</code>). Prevents XSS cookie theft.</p>
   <p style="margin-top:6px"><code>SameSite=Strict</code> — Never sent on cross-site requests. Maximum CSRF protection.</p>
@@ -166,18 +174,18 @@ _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example
   <p style="margin-top:6px"><code>SameSite=None</code> — Sent on all cross-site requests. Requires <code>Secure</code> flag. Used for third-party cookies.</p>
 </div>
 <div class="info">
-  <h3>Expiration</h3>
+  <h3 ti="h3_expiration" ti="h3_expiration" ti="h3_expiration" ti="h3_expiration">Expiration</h3>
   <p><code>Max-Age=N</code> — Cookie expires N seconds from now. Preferred over <code>Expires</code>.</p>
   <p style="margin-top:6px"><code>Expires=date</code> — Cookie expires at a specific date/time (HTTP date format).</p>
-  <p style="margin-top:6px">If neither is set, the cookie is a <strong>session cookie</strong> — deleted when the browser closes.</p>
+  <p style="margin-top:6px">If neither is set, the cookie is a <strong ti="strong_session_cookie" ti="strong_session_cookie" ti="strong_session_cookie" ti="strong_session_cookie">session cookie</strong> — deleted when the browser closes.</p>
 </div>
 <div class="info">
-  <h3>Domain & Path</h3>
+  <h3 ti="h3_domain_path" ti="h3_domain_path" ti="h3_domain_path" ti="h3_domain_path">Domain & Path</h3>
   <p><code>Domain=.example.com</code> — Cookie available to example.com and all subdomains. Omitting Domain restricts to the exact host (more secure).</p>
   <p style="margin-top:6px"><code>Path=/</code> — Cookie available on all paths. <code>Path=/admin</code> restricts to /admin and below.</p>
 </div>
 <div class="info">
-  <h3>Best Practices</h3>
+  <h3 ti="h3_best_practices" ti="h3_best_practices" ti="h3_best_practices" ti="h3_best_practices">Best Practices</h3>
   <p>1. Always use <code>Secure</code> and <code>HttpOnly</code> for session cookies.</p>
   <p style="margin-top:6px">2. Use <code>SameSite=Lax</code> or <code>Strict</code> to prevent CSRF attacks.</p>
   <p style="margin-top:6px">3. Set short <code>Max-Age</code> — only as long as needed.</p>
@@ -189,18 +197,48 @@ _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/cookie-check">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/cookie-check" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/cors-test/">CORS Test</a>
-    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/">CSP Builder</a>
-    <a href="https://gokuscraper.github.io/dev-vault/headers-check/">Headers Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/sri-gen/">SRI Gen</a>
+    <strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/cors-test/" ti="link_cors_test" ti="link_cors_test" ti="link_cors_test" ti="link_cors_test">CORS Test</a>
+    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/" ti="link_csp_builder" ti="link_csp_builder" ti="link_csp_builder" ti="link_csp_builder">CSP Builder</a>
+    <a href="https://gokuscraper.github.io/dev-vault/headers-check/" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check">Headers Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/sri-gen/" ti="link_sri_gen" ti="link_sri_gen" ti="link_sri_gen" ti="link_sri_gen">SRI Gen</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 101 free tools</a></div>
+  <div
+
+<script>var _LANG={'title_cookie_check_http_cookie':["Cookie Check — HTTP Cookie Analyzer", "Cookie 检查 — HTTP Cookie 分析器"],'metadesc_analyze_and_validate_http':["Analyze and validate HTTP Set-Cookie headers. Check SameSite, Secure, HttpOnly, Expires attributes. Cookie security audit. Free.", "分析并验证 HTTP Set-Cookie 标头。检查 SameSite、Secure、HttpOnly 和 Expires 属性。Cookie 安全审计。免费。"],'h1_cookie_check':["Cookie Check", "Cookie 检查"],'h3_cookie_security_attribute':["Cookie Security Attributes", "Cookie 安全属性"],'h3_expiration':["Expiration", "到期日"],'h3_domain_path':["Domain & Path", "域和路径"],'h3_best_practices':["Best Practices", "最佳实践"],'h3_cookie_security_summary':["Cookie Security Summary", "Cookie 安全摘要"],'subtitle_analyze_and_audit_http_co':["Analyze and audit HTTP cookie security attributes.", "分析和审核HTTP cookie安全属性。"],'btn_analyze':["Analyze", "分析"],'btn_clear':["Clear", "清除"],'btn_generate':["Generate", "产生"],'btn_analyze_this_cookie':["Analyze this cookie", "分析此 Cookie"],'placeholder_session_abc123_path_httpo':["session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400\n_ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com", "session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400 _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com"],'placeholder_cookie_name':["cookie name", "cookie 名称"],'placeholder_cookie_value':["cookie value", "cookie 值"],'placeholder_example_com_optional':[".example.com (optional)", ".example.com（可选）"],'strong_session_cookie':["session cookie", "会话 cookie"],'strong_related_tools':["Related Tools", "相关工具"],'label_name':["Name", "姓名"],'label_value':["Value", "价值"],'label_domain':["Domain", "领域"],'label_path':["Path", "小路"],'label_samesite':["SameSite", "SameSite"],'label_max_age':["Max-Age", "最大年龄"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_cors_test':["CORS Test", "CORS 测试"],'link_csp_builder':["CSP Builder", "CSP 构建器"],'link_headers_check':["Headers Check", "标头检查"],'link_sri_gen':["SRI Gen", "SRI Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cookie_check_http_cookie':["Cookie Check — HTTP Cookie Analyzer", "Cookie 检查 — HTTP Cookie 分析器"],'metadesc_analyze_and_validate_http':["Analyze and validate HTTP Set-Cookie headers. Check SameSite, Secure, HttpOnly, Expires attributes. Cookie security audit. Free.", "分析并验证 HTTP Set-Cookie 标头。检查 SameSite、Secure、HttpOnly 和 Expires 属性。Cookie 安全审计。免费。"],'h1_cookie_check':["Cookie Check", "Cookie 检查"],'h3_cookie_security_attribute':["Cookie Security Attributes", "Cookie 安全属性"],'h3_expiration':["Expiration", "到期日"],'h3_domain_path':["Domain & Path", "域和路径"],'h3_best_practices':["Best Practices", "最佳实践"],'h3_cookie_security_summary':["Cookie Security Summary", "Cookie 安全摘要"],'subtitle_analyze_and_audit_http_co':["Analyze and audit HTTP cookie security attributes.", "分析和审核HTTP cookie安全属性。"],'btn_analyze':["Analyze", "分析"],'btn_clear':["Clear", "清除"],'btn_generate':["Generate", "产生"],'btn_analyze_this_cookie':["Analyze this cookie", "分析此 Cookie"],'placeholder_session_abc123_path_httpo':["session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400\n_ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com", "session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400 _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com"],'placeholder_cookie_name':["cookie name", "cookie 名称"],'placeholder_cookie_value':["cookie value", "cookie 值"],'placeholder_example_com_optional':[".example.com (optional)", ".example.com（可选）"],'strong_session_cookie':["session cookie", "会话 cookie"],'strong_related_tools':["Related Tools", "相关工具"],'label_name':["Name", "姓名"],'label_value':["Value", "价值"],'label_domain':["Domain", "领域"],'label_path':["Path", "小路"],'label_samesite':["SameSite", "SameSite"],'label_max_age':["Max-Age", "最大年龄"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_cors_test':["CORS Test", "CORS 测试"],'link_csp_builder':["CSP Builder", "CSP 构建器"],'link_headers_check':["Headers Check", "标头检查"],'link_sri_gen':["SRI Gen", "SRI Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+ style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_cookie_check_http_cookie':["Cookie Check — HTTP Cookie Analyzer", "Cookie 检查 — HTTP Cookie 分析器"],'metadesc_analyze_and_validate_http':["Analyze and validate HTTP Set-Cookie headers. Check SameSite, Secure, HttpOnly, Expires attributes. Cookie security audit. Free.", "分析并验证 HTTP Set-Cookie 标头。检查 SameSite、Secure、HttpOnly 和 Expires 属性。Cookie 安全审计。免费。"],'h1_cookie_check':["Cookie Check", "Cookie 检查"],'h3_cookie_security_attribute':["Cookie Security Attributes", "Cookie 安全属性"],'h3_expiration':["Expiration", "到期日"],'h3_domain_path':["Domain & Path", "域和路径"],'h3_best_practices':["Best Practices", "最佳实践"],'h3_cookie_security_summary':["Cookie Security Summary", "Cookie 安全摘要"],'subtitle_analyze_and_audit_http_co':["Analyze and audit HTTP cookie security attributes.", "分析和审核HTTP cookie安全属性。"],'btn_analyze':["Analyze", "分析"],'btn_clear':["Clear", "清除"],'btn_generate':["Generate", "产生"],'btn_analyze_this_cookie':["Analyze this cookie", "分析此 Cookie"],'placeholder_session_abc123_path_httpo':["session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400\n_ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com", "session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=86400 _ga=GA1.2.123456; Expires=Thu, 01 Jan 2028 00:00:00 GMT; Path=/; Domain=.example.com"],'placeholder_cookie_name':["cookie name", "cookie 名称"],'placeholder_cookie_value':["cookie value", "cookie 值"],'placeholder_example_com_optional':[".example.com (optional)", ".example.com（可选）"],'strong_session_cookie':["session cookie", "会话 cookie"],'strong_related_tools':["Related Tools", "相关工具"],'label_name':["Name", "姓名"],'label_value':["Value", "价值"],'label_domain':["Domain", "领域"],'label_path':["Path", "小路"],'label_samesite':["SameSite", "SameSite"],'label_max_age':["Max-Age", "最大年龄"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_cors_test':["CORS Test", "CORS 测试"],'link_csp_builder':["CSP Builder", "CSP 构建器"],'link_headers_check':["Headers Check", "标头检查"],'link_sri_gen':["SRI Gen", "SRI Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
   secure:'session=abc123; Path=/; HttpOnly; Secure; SameSite=Strict; Max-Age=3600',
@@ -401,7 +439,7 @@ function analyzeCookies(){
   const failCount=audits.filter(a=>a.audit.grade==='D').length;
 
   let html=`<div class="summary">
-    <h3>Cookie Security Summary</h3>
+    <h3 ti="h3_cookie_security_summary" ti="h3_cookie_security_summary" ti="h3_cookie_security_summary" ti="h3_cookie_security_summary">Cookie Security Summary</h3>
     <div class="stats">
       <div class="stat"><div class="num">${cookies.length}</div><div class="label">Cookies</div></div>
       <div class="stat"><div class="num">${avgScore}/100</div><div class="label">Avg Score</div></div>
@@ -453,7 +491,7 @@ function buildCookie(){
       <code>Set-Cookie: ${esc(cookie)}</code>
     </div>
     <div style="text-align:center;margin-top:12px">
-      <button class="btn" onclick="document.getElementById('cookieInput').value='${cookie.replace(/'/g,"\\'")}';switchTab('analyze');analyzeCookies()">Analyze this cookie</button>
+      <button class="btn" onclick="document.getElementById('cookieInput').value='${cookie.replace(/'/g,"\\'")}';switchTab('analyze');analyzeCookies()" ti="btn_analyze_this_cookie" ti="btn_analyze_this_cookie" ti="btn_analyze_this_cookie" ti="btn_analyze_this_cookie">Analyze this cookie</button>
     </div>`;
 }
 
@@ -475,6 +513,78 @@ function toast(msg){
 }
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_xml_formatter_validator_f" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -64,25 +64,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <h1>XML Formatter &amp; Validator</h1>
-<p class="sub">Format, minify, validate, and convert XML. XPath queries. No upload required.</p>
+<p class="sub" ti="subtitle_format_minify_validate_an">Format, minify, validate, and convert XML. XPath queries. No upload required.</p>
 
 <div class="layout">
 <!-- Left column: Input -->
 <div>
 <div class="section">
-<h3>Input XML</h3>
+<h3 ti="h3_input_xml">Input XML</h3>
 <div class="presets">
-<button class="preset" onclick="loadSample('rss')">RSS Feed</button>
-<button class="preset" onclick="loadSample('svg')">SVG</button>
-<button class="preset" onclick="loadSample('android')">Android Layout</button>
+<button class="preset" onclick="loadSample('rss')" ti="btn_rss_feed">RSS Feed</button>
+<button class="preset" onclick="loadSample('svg')" ti="btn_svg">SVG</button>
+<button class="preset" onclick="loadSample('android')" ti="btn_android_layout">Android Layout</button>
 </div>
 <div class="field">
-<textarea id="xmlInput" placeholder="Paste your XML here..."></textarea>
+<textarea id="xmlInput" tp="placeholder_paste_your_xml_here" placeholder="Paste your XML here..."></textarea>
 </div>
 <div class="field">
-<label>Indent</label>
+<label ti="label_indent">Indent</label>
 <select id="indentType">
 <option value="2">2 Spaces</option>
 <option value="4">4 Spaces</option>
@@ -90,20 +92,20 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="formatXml()">Format</button>
-<button class="btn" onclick="minifyXml()">Minify</button>
-<button class="btn" onclick="validateXml()">Validate</button>
+<button class="btn btn-primary" onclick="formatXml()" ti="btn_format">Format</button>
+<button class="btn" onclick="minifyXml()" ti="btn_minify">Minify</button>
+<button class="btn" onclick="validateXml()" ti="btn_validate">Validate</button>
 <button class="btn" onclick="xmlToJson()">XML &rarr; JSON</button>
 </div>
 </div>
 
 <div class="section">
-<h3>XPath Query</h3>
+<h3 ti="h3_xpath_query">XPath Query</h3>
 <div class="field">
-<input type="text" id="xpathInput" placeholder="e.g. //item/title or /rss/channel/title">
+<input type="text" id="xpathInput" tp="placeholder_e_g_item_title_or_rss_cha" placeholder="e.g. //item/title or /rss/channel/title">
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="evalXpath()">Evaluate</button>
+<button class="btn btn-primary" onclick="evalXpath()" ti="btn_evaluate">Evaluate</button>
 </div>
 <div class="xpath-results" id="xpathResults"></div>
 </div>
@@ -112,17 +114,17 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <!-- Right column: Output -->
 <div>
 <div class="section">
-<h3>Output</h3>
+<h3 ti="h3_output">Output</h3>
 <div class="output-area" id="outputArea">Formatted XML will appear here...</div>
 <div class="actions">
-<button class="btn" onclick="copyOutput()">Copy</button>
-<button class="btn" onclick="downloadOutput()">Download</button>
+<button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+<button class="btn" onclick="downloadOutput()" ti="btn_download">Download</button>
 </div>
 <div class="error-panel" id="errorPanel"></div>
 </div>
 
 <div class="section">
-<h3>Statistics</h3>
+<h3 ti="h3_statistics">Statistics</h3>
 <div class="stats-grid" id="statsGrid">
 <div class="stat-item"><div class="stat-val" id="statElements">-</div><div class="stat-label">Elements</div></div>
 <div class="stat-item"><div class="stat-val" id="statAttributes">-</div><div class="stat-label">Attributes</div></div>
@@ -135,12 +137,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a> | <a href="https://gokuscraper.github.io/dev-vault/yaml-json/">YAML/JSON</a> | <a href="https://gokuscraper.github.io/dev-vault/svg-optimizer/">SVG Optimizer</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a> | <a href="https://gokuscraper.github.io/dev-vault/yaml-json/" ti="link_yaml_json">YAML/JSON</a> | <a href="https://gokuscraper.github.io/dev-vault/svg-optimizer/" ti="link_svg_optimizer">SVG Optimizer</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_xml_formatter_validator_f':["XML Formatter & Validator — Format, Minify, Convert XML", "XML格式化和验证工具 — 格式化、压缩、转换XML"],'metadesc_format_validate_and_minif':["Format, validate, and minify XML. Convert to JSON. XPath queries. Syntax highlighting. No upload required.", "格式化、验证和压缩 XML 文件。转换为 JSON 格式。支持 XPath 查询。语法高亮显示。无需上传文件。"],'h1_xml_formatter_validator':["XML Formatter & Validator", "XML格式化和验证器"],'h3_input_xml':["Input XML", "输入 XML"],'h3_xpath_query':["XPath Query", "XPath 查询"],'h3_output':["Output", "输出"],'h3_statistics':["Statistics", "统计数据"],'subtitle_format_minify_validate_an':["Format, minify, validate, and convert XML. XPath queries. No upload required.", "格式化、压缩、验证和转换 XML 文件。支持 XPath 查询。无需上传。"],'btn_rss_feed':["RSS Feed", "RSS订阅"],'btn_svg':["SVG", "SVG"],'btn_android_layout':["Android Layout", "Android 布局"],'btn_format':["Format", "格式"],'btn_minify':["Minify", "缩小"],'btn_validate':["Validate", "证实"],'btn_xml_json':["XML → JSON", "XML → JSON"],'btn_evaluate':["Evaluate", "评价"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'placeholder_paste_your_xml_here':["Paste your XML here...", "把你的 XML 文件粘贴到这里……"],'placeholder_e_g_item_title_or_rss_cha':["e.g. //item/title or /rss/channel/title", "例如 //item/title 或 /rss/channel/title"],'label_indent':["Indent", "缩进"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_blog':["Dev Vault Blog", "开发者宝库博客"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_json_format':["JSON Format", "JSON 格式"],'link_yaml_json':["YAML/JSON", "YAML/JSON"],'link_svg_optimizer':["SVG Optimizer", "SVG优化器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const samples = {
 rss: `<?xml version="1.0" encoding="UTF-8"?>
@@ -654,6 +666,24 @@ function downloadOutput() {
   a.click();
   URL.revokeObjectURL(a.href);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

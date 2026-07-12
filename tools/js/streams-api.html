@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_streams_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,47 +86,49 @@ select { width: auto; cursor: pointer; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Streams API Playground</h1>
+  <h1 ti="title_streams_api_playground" ti="h1_streams_api_playground">Streams API Playground</h1>
   <p>ReadableStream, WritableStream, TransformStream & pipeline demos</p>
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-panel="readable">ReadableStream</button>
-  <button class="tab" data-panel="writable">WritableStream</button>
-  <button class="tab" data-panel="transform">TransformStream</button>
-  <button class="tab" data-panel="backpressure">Backpressure</button>
-  <button class="tab" data-panel="tee">Teeing</button>
-  <button class="tab" data-panel="custom">Custom Source/Sink</button>
-  <button class="tab" data-panel="fetch">Fetch Pipeline</button>
-  <button class="tab" data-panel="bytestream">Byte Streams</button>
+  <button class="tab active" data-panel="readable" ti="btn_readablestream">ReadableStream</button>
+  <button class="tab" data-panel="writable" ti="btn_writablestream">WritableStream</button>
+  <button class="tab" data-panel="transform" ti="btn_transformstream">TransformStream</button>
+  <button class="tab" data-panel="backpressure" ti="btn_backpressure">Backpressure</button>
+  <button class="tab" data-panel="tee" ti="btn_teeing">Teeing</button>
+  <button class="tab" data-panel="custom" ti="btn_custom_source_sink">Custom Source/Sink</button>
+  <button class="tab" data-panel="fetch" ti="btn_fetch_pipeline">Fetch Pipeline</button>
+  <button class="tab" data-panel="bytestream" ti="btn_byte_streams">Byte Streams</button>
 </div>
 
 <main>
   <!-- Panel 1: ReadableStream -->
   <div class="panel active" id="panel-readable">
-    <h2>ReadableStream Creation & Reading</h2>
-    <p class="desc">Create readable streams from custom sources and consume them chunk by chunk.</p>
+    <h2 ti="h2_readablestream_creation_r">ReadableStream Creation & Reading</h2>
+    <p class="desc" ti="subtitle_create_readable_streams_f">Create readable streams from custom sources and consume them chunk by chunk.</p>
 
     <span class="support-badge" id="rs-badge">Checking...</span>
 
-    <h3>Timer Stream (pushes data every 500ms)</h3>
+    <h3 ti="h3_timer_stream_pushes_data">Timer Stream (pushes data every 500ms)</h3>
     <div class="btn-row">
-      <button class="success" onclick="startTimerStream()">Start Timer Stream</button>
-      <button class="danger" onclick="cancelTimerStream()">Cancel</button>
+      <button class="success" onclick="startTimerStream()" ti="btn_start_timer_stream">Start Timer Stream</button>
+      <button class="danger" onclick="cancelTimerStream()" ti="btn_cancel">Cancel</button>
     </div>
     <div class="log-area" id="timer-log"><div class="entry system">Timer stream output...</div></div>
 
-    <h3>Array-backed Stream</h3>
-    <p class="desc">Pull-based: data is enqueued on demand when the consumer requests it.</p>
+    <h3 ti="h3_array_backed_stream">Array-backed Stream</h3>
+    <p class="desc" ti="subtitle_pull_based_data_is_enqueu">Pull-based: data is enqueued on demand when the consumer requests it.</p>
     <div class="btn-row">
-      <button onclick="arrayStream()">Create & Read Array Stream</button>
-      <button onclick="arrayStreamManual()">Read Manually (chunk by chunk)</button>
+      <button onclick="arrayStream()" ti="btn_create_read_array_stream">Create & Read Array Stream</button>
+      <button onclick="arrayStreamManual()" ti="btn_read_manually_chunk_by_ch">Read Manually (chunk by chunk)</button>
     </div>
     <div class="log-area" id="array-log"><div class="entry system">Array stream output...</div></div>
 
-    <h3>Code Pattern</h3>
+    <h3 ti="h3_code_pattern">Code Pattern</h3>
     <div class="code-block">const stream = new ReadableStream({
   start(controller) {
     controller.enqueue('chunk 1');
@@ -145,29 +147,29 @@ while (true) {
 
   <!-- Panel 2: WritableStream -->
   <div class="panel" id="panel-writable">
-    <h2>WritableStream Creation & Writing</h2>
-    <p class="desc">WritableStream receives data chunks and processes them through a sink.</p>
+    <h2 ti="h2_writablestream_creation_w">WritableStream Creation & Writing</h2>
+    <p class="desc" ti="subtitle_writablestream_receives_d">WritableStream receives data chunks and processes them through a sink.</p>
 
-    <h3>Console Sink</h3>
-    <input id="ws-input" placeholder="Enter text to write to stream..." value="Hello Streams!" />
+    <h3 ti="h3_console_sink">Console Sink</h3>
+    <input id="ws-input" tp="placeholder_enter_text_to_write_to_st" placeholder="Enter text to write to stream..." value="Hello Streams!" />
     <div class="btn-row">
-      <button class="success" onclick="writeToStream()">Write to Stream</button>
-      <button onclick="writeMultiple()">Write 5 Chunks</button>
-      <button class="warn" onclick="abortStream()">Abort Stream</button>
+      <button class="success" onclick="writeToStream()" ti="btn_write_to_stream">Write to Stream</button>
+      <button onclick="writeMultiple()" ti="btn_write_5_chunks">Write 5 Chunks</button>
+      <button class="warn" onclick="abortStream()" ti="btn_abort_stream">Abort Stream</button>
     </div>
     <div class="log-area" id="ws-log"><div class="entry system">WritableStream output...</div></div>
 
-    <h3>Collecting Sink (buffer all chunks)</h3>
+    <h3 ti="h3_collecting_sink_buffer_al">Collecting Sink (buffer all chunks)</h3>
     <div class="btn-row">
-      <button onclick="collectingStream()">Demo: Collecting Sink</button>
+      <button onclick="collectingStream()" ti="btn_demo_collecting_sink">Demo: Collecting Sink</button>
     </div>
     <div class="log-area" id="collect-log"><div class="entry system">Collecting sink output...</div></div>
   </div>
 
   <!-- Panel 3: TransformStream -->
   <div class="panel" id="panel-transform">
-    <h2>TransformStream Piping</h2>
-    <p class="desc">TransformStream sits between readable and writable, transforming data as it flows through.</p>
+    <h2 ti="h2_transformstream_piping">TransformStream Piping</h2>
+    <p class="desc" ti="subtitle_transformstream_sits_betw">TransformStream sits between readable and writable, transforming data as it flows through.</p>
 
     <div class="pipe-viz">
       <div class="pipe-node" id="t-source">Source</div>
@@ -181,18 +183,18 @@ while (true) {
       <div class="pipe-node" id="t-sink">Sink</div>
     </div>
 
-    <h3>Built-in Transforms</h3>
-    <input id="tf-input" placeholder="Enter text to transform..." value="Hello, World! This is a Streams demo." />
+    <h3 ti="h3_built_in_transforms">Built-in Transforms</h3>
+    <input id="tf-input" tp="placeholder_enter_text_to_transform" placeholder="Enter text to transform..." value="Hello, World! This is a Streams demo." />
     <div class="btn-row">
-      <button onclick="transformDemo('upper')">Uppercase</button>
-      <button onclick="transformDemo('reverse')">Reverse</button>
-      <button onclick="transformDemo('length')">Char Count</button>
-      <button onclick="transformDemo('base64')">Base64 Encode</button>
-      <button onclick="transformDemo('hash')">Simple Hash</button>
+      <button onclick="transformDemo('upper')" ti="btn_uppercase">Uppercase</button>
+      <button onclick="transformDemo('reverse')" ti="btn_reverse">Reverse</button>
+      <button onclick="transformDemo('length')" ti="btn_char_count">Char Count</button>
+      <button onclick="transformDemo('base64')" ti="btn_base64_encode">Base64 Encode</button>
+      <button onclick="transformDemo('hash')" ti="btn_simple_hash">Simple Hash</button>
     </div>
     <div class="log-area" id="tf-log"><div class="entry system">Transform results...</div></div>
 
-    <h3>Chained Transforms</h3>
+    <h3 ti="h3_chained_transforms">Chained Transforms</h3>
     <div class="btn-row">
       <button class="success" onclick="chainedTransform()">Chain: Split Words &rarr; Uppercase &rarr; Add Index</button>
     </div>
@@ -201,27 +203,27 @@ while (true) {
 
   <!-- Panel 4: Backpressure -->
   <div class="panel" id="panel-backpressure">
-    <h2>Backpressure Visualization</h2>
-    <p class="desc">Backpressure occurs when the consumer is slower than the producer. The stream's internal queue fills up, signaling the producer to slow down.</p>
+    <h2 ti="h2_backpressure_visualizatio">Backpressure Visualization</h2>
+    <p class="desc" ti="subtitle_backpressure_occurs_when">Backpressure occurs when the consumer is slower than the producer. The stream's internal queue fills up, signaling the producer to slow down.</p>
 
-    <h3>Fast Producer, Slow Consumer</h3>
+    <h3 ti="h3_fast_producer_slow_consum">Fast Producer, Slow Consumer</h3>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Producer speed (ms/chunk):</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_producer_speed_ms_chunk">Producer speed (ms/chunk):</label>
         <input type="number" id="bp-prod-speed" value="50" min="10" max="1000" />
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Consumer speed (ms/chunk):</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_consumer_speed_ms_chunk">Consumer speed (ms/chunk):</label>
         <input type="number" id="bp-cons-speed" value="300" min="10" max="1000" />
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="startBackpressure()">Start Demo</button>
-      <button class="danger" onclick="stopBackpressure()">Stop</button>
+      <button class="success" onclick="startBackpressure()" ti="btn_start_demo">Start Demo</button>
+      <button class="danger" onclick="stopBackpressure()" ti="btn_stop">Stop</button>
     </div>
 
     <div class="bp-meter">
-      <span class="bp-label">Queue fill:</span>
+      <span class="bp-label" ti="label_queue_fill">Queue fill:</span>
       <div class="bp-bar"><div class="bp-fill" id="bp-fill" style="width:0%;background:var(--accent2);"></div></div>
       <span id="bp-val" style="font-size:0.75rem;color:var(--text-dim);min-width:40px;">0%</span>
     </div>
@@ -240,8 +242,8 @@ while (true) {
 
   <!-- Panel 5: Teeing -->
   <div class="panel" id="panel-tee">
-    <h2>Stream Teeing (Read Twice)</h2>
-    <p class="desc">tee() splits a ReadableStream into two independent branches. Both receive all chunks. The original stream becomes locked.</p>
+    <h2 ti="h2_stream_teeing_read_twice">Stream Teeing (Read Twice)</h2>
+    <p class="desc" ti="subtitle_tee_splits_a_readablestre">tee() splits a ReadableStream into two independent branches. Both receive all chunks. The original stream becomes locked.</p>
 
     <div class="pipe-viz">
       <div class="pipe-node" id="tee-source">Source</div>
@@ -255,8 +257,8 @@ while (true) {
     </div>
 
     <div class="btn-row">
-      <button class="success" onclick="teeDemo()">Tee: Log + Transform</button>
-      <button onclick="teeRace()">Tee: Race Two Consumers</button>
+      <button class="success" onclick="teeDemo()" ti="btn_tee_log_transform">Tee: Log + Transform</button>
+      <button onclick="teeRace()" ti="btn_tee_race_two_consumers">Tee: Race Two Consumers</button>
     </div>
     <div class="grid2">
       <div class="log-area" id="tee-log1"><div class="entry system">Branch 1...</div></div>
@@ -266,25 +268,25 @@ while (true) {
 
   <!-- Panel 6: Custom Source/Sink -->
   <div class="panel" id="panel-custom">
-    <h2>Custom Source & Sink Implementation</h2>
-    <p class="desc">Implement custom underlying sources and sinks with full lifecycle control.</p>
+    <h2 ti="h2_custom_source_sink_implem">Custom Source & Sink Implementation</h2>
+    <p class="desc" ti="subtitle_implement_custom_underlyi">Implement custom underlying sources and sinks with full lifecycle control.</p>
 
-    <h3>Custom Source with Backpressure Awareness</h3>
+    <h3 ti="h3_custom_source_with_backpr">Custom Source with Backpressure Awareness</h3>
     <div class="btn-row">
-      <button class="success" onclick="customSource()">Run Custom Source</button>
+      <button class="success" onclick="customSource()" ti="btn_run_custom_source">Run Custom Source</button>
     </div>
     <div class="log-area" id="custom-src-log"><div class="entry system">Custom source log...</div></div>
 
-    <h3>Custom Sink with Batching</h3>
-    <p class="desc">Sink that batches incoming chunks and flushes when batch is full or stream closes.</p>
+    <h3 ti="h3_custom_sink_with_batching">Custom Sink with Batching</h3>
+    <p class="desc" ti="subtitle_sink_that_batches_incomin">Sink that batches incoming chunks and flushes when batch is full or stream closes.</p>
     <div class="btn-row">
-      <button onclick="customSink()">Run Batching Sink (batch size: 3)</button>
+      <button onclick="customSink()" ti="btn_run_batching_sink_batch_s">Run Batching Sink (batch size: 3)</button>
     </div>
     <div class="log-area" id="custom-sink-log"><div class="entry system">Custom sink log...</div></div>
 
     <h3>Full Pipeline: Source &rarr; Transform &rarr; Sink</h3>
     <div class="btn-row">
-      <button class="warn" onclick="fullPipeline()">Run Full Pipeline</button>
+      <button class="warn" onclick="fullPipeline()" ti="btn_run_full_pipeline">Run Full Pipeline</button>
     </div>
     <div class="log-area" id="pipeline-log"><div class="entry system">Pipeline log...</div></div>
   </div>
@@ -292,46 +294,56 @@ while (true) {
   <!-- Panel 7: Fetch Pipeline -->
   <div class="panel" id="panel-fetch">
     <h2>Fetch &rarr; ReadableStream Pipeline</h2>
-    <p class="desc">Process fetch responses as streams for progressive loading and real-time processing.</p>
+    <p class="desc" ti="subtitle_process_fetch_responses_a">Process fetch responses as streams for progressive loading and real-time processing.</p>
 
-    <h3>Simulated Fetch Stream</h3>
-    <p class="desc">Since we can't fetch arbitrary URLs from a playground, this simulates a streamed response using a ReadableStream.</p>
+    <h3 ti="h3_simulated_fetch_stream">Simulated Fetch Stream</h3>
+    <p class="desc" ti="subtitle_since_we_can_t_fetch_arbi">Since we can't fetch arbitrary URLs from a playground, this simulates a streamed response using a ReadableStream.</p>
     <div class="btn-row">
-      <button class="success" onclick="simulatedFetch()">Simulate Streamed Response</button>
-      <button onclick="fetchWithProgress()">Fetch with Progress Bar</button>
+      <button class="success" onclick="simulatedFetch()" ti="btn_simulate_streamed_respons">Simulate Streamed Response</button>
+      <button onclick="fetchWithProgress()" ti="btn_fetch_with_progress_bar">Fetch with Progress Bar</button>
     </div>
     <div class="progress-bar" id="fetch-progress" style="display:none;">
       <div class="progress-fill" id="fetch-fill" style="width:0%;">0%</div>
     </div>
     <div class="log-area" id="fetch-log"><div class="entry system">Fetch pipeline log...</div></div>
 
-    <h3>Stream → Text Decoder Pipeline</h3>
+    <h3 ti="h3_stream_text_decoder_pipel">Stream → Text Decoder Pipeline</h3>
     <div class="btn-row">
-      <button onclick="decoderPipeline()">Binary → Text Decode Pipeline</button>
+      <button onclick="decoderPipeline()" ti="btn_binary_text_decode_pipeli">Binary → Text Decode Pipeline</button>
     </div>
     <div class="log-area" id="decoder-log"><div class="entry system">Decoder pipeline log...</div></div>
   </div>
 
   <!-- Panel 8: Byte Streams -->
   <div class="panel" id="panel-bytestream">
-    <h2>Byte Stream Mode</h2>
-    <p class="desc">BYOB (Bring Your Own Buffer) readers allow zero-copy reads into pre-allocated buffers. This is optimal for binary data processing.</p>
+    <h2 ti="h2_byte_stream_mode">Byte Stream Mode</h2>
+    <p class="desc" ti="subtitle_byob_bring_your_own_buffe">BYOB (Bring Your Own Buffer) readers allow zero-copy reads into pre-allocated buffers. This is optimal for binary data processing.</p>
 
-    <h3>BYOB Reader Demo</h3>
+    <h3 ti="h3_byob_reader_demo">BYOB Reader Demo</h3>
     <div class="btn-row">
-      <button class="success" onclick="byobDemo()">BYOB Read</button>
-      <button onclick="defaultVsByob()">Default vs BYOB Comparison</button>
+      <button class="success" onclick="byobDemo()" ti="btn_byob_read">BYOB Read</button>
+      <button onclick="defaultVsByob()" ti="btn_default_vs_byob_compariso">Default vs BYOB Comparison</button>
     </div>
     <div class="log-area" id="byob-log"><div class="entry system">Byte stream log...</div></div>
 
-    <h3>Byte Stream with Auto-Allocation</h3>
+    <h3 ti="h3_byte_stream_with_auto_all">Byte Stream with Auto-Allocation</h3>
     <div class="btn-row">
-      <button onclick="autoAllocDemo()">Auto-allocation Demo</button>
+      <button onclick="autoAllocDemo()" ti="btn_auto_allocation_demo">Auto-allocation Demo</button>
     </div>
     <div class="log-area" id="auto-log"><div class="entry system">Auto-allocation log...</div></div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_streams_api_playground':["Streams API Playground", "Streams API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the Streams API - ReadableStream, WritableStream, TransformStream, backpressure, teeing, and fetch pipelines.", "Streams API 的交互式演示平台 - ReadableStream、WritableStream、TransformStream、反压、分流和获取管道。"],'h1_streams_api_playground':["Streams API Playground", "Streams API Playground"],'h2_readablestream_creation_r':["ReadableStream Creation & Reading", "ReadableStream 创建与阅读"],'h2_writablestream_creation_w':["WritableStream Creation & Writing", "可写流创建与写作"],'h2_transformstream_piping':["TransformStream Piping", "转换流管道"],'h2_backpressure_visualizatio':["Backpressure Visualization", "背压可视化"],'h2_stream_teeing_read_twice':["Stream Teeing (Read Twice)", "溪流发球（读两遍）"],'h2_custom_source_sink_implem':["Custom Source & Sink Implementation", "自定义源和接收器实现"],'h2_fetch_readablestream_pipe':["Fetch → ReadableStream Pipeline", "获取 → 可读流管道"],'h2_byte_stream_mode':["Byte Stream Mode", "字节流模式"],'h3_timer_stream_pushes_data':["Timer Stream (pushes data every 500ms)", "定时器流（每 500 毫秒推送一次数据）"],'h3_array_backed_stream':["Array-backed Stream", "数组支持的流"],'h3_code_pattern':["Code Pattern", "代码模式"],'h3_console_sink':["Console Sink", "控制台接收器"],'h3_collecting_sink_buffer_al':["Collecting Sink (buffer all chunks)", "收集接收器（缓冲所有数据块）"],'h3_built_in_transforms':["Built-in Transforms", "内置变换"],'h3_chained_transforms':["Chained Transforms", "链式变换"],'h3_fast_producer_slow_consum':["Fast Producer, Slow Consumer", "生产速度快，消费速度慢"],'h3_custom_source_with_backpr':["Custom Source with Backpressure Awareness", "具有反压感知功能的自定义源"],'h3_custom_sink_with_batching':["Custom Sink with Batching", "带批处理功能的定制水槽"],'h3_full_pipeline_source_tran':["Full Pipeline: Source → Transform → Sink", "完整流程：源 → 转换 → 接收器"],'h3_simulated_fetch_stream':["Simulated Fetch Stream", "模拟取样流"],'h3_stream_text_decoder_pipel':["Stream → Text Decoder Pipeline", "流 → 文本解码器管道"],'h3_byob_reader_demo':["BYOB Reader Demo", "BYOB 阅读器演示"],'h3_byte_stream_with_auto_all':["Byte Stream with Auto-Allocation", "带自动分配功能的字节流"],'subtitle_create_readable_streams_f':["Create readable streams from custom sources and consume them chunk by chunk.", "从自定义源创建可读流，并逐块消费它们。"],'subtitle_pull_based_data_is_enqueu':["Pull-based: data is enqueued on demand when the consumer requests it.", "拉取式：数据在消费者请求时按需加入队列。"],'subtitle_writablestream_receives_d':["WritableStream receives data chunks and processes them through a sink.", "WritableStream 接收数据块并通过接收器进行处理。"],'subtitle_transformstream_sits_betw':["TransformStream sits between readable and writable, transforming data as it flows through.", "TransformStream 位于可读和可写之间，在数据流经时对其进行转换。"],'subtitle_backpressure_occurs_when':["Backpressure occurs when the consumer is slower than the producer. The stream's internal queue fills up, signaling the producer to slow down.", "当消费者执行速度慢于生产者时，就会发生背压。数据流的内部队列会填满，从而发出信号，要求生产者减慢执行速度。"],'subtitle_tee_splits_a_readablestre':["tee() splits a ReadableStream into two independent branches. Both receive all chunks. The original stream becomes locked.", "`tee()` 函数将一个 `ReadableStream` 分成两个独立的分支。两个分支都接收所有数据块。原始流会被锁定。"],'subtitle_implement_custom_underlyi':["Implement custom underlying sources and sinks with full lifecycle control.", "实现具有完整生命周期控制的自定义底层数据源和数据接收器。"],'subtitle_sink_that_batches_incomin':["Sink that batches incoming chunks and flushes when batch is full or stream closes.", "接收批量数据并于批次满或流关闭时进行刷新的接收器。"],'subtitle_process_fetch_responses_a':["Process fetch responses as streams for progressive loading and real-time processing.", "将处理获取的响应作为流进行渐进式加载和实时处理。"],'subtitle_since_we_can_t_fetch_arbi':["Since we can't fetch arbitrary URLs from a playground, this simulates a streamed response using a ReadableStream.", "由于我们无法从 playground 获取任意 URL，因此使用 ReadableStream 模拟流式响应。"],'subtitle_byob_bring_your_own_buffe':["BYOB (Bring Your Own Buffer) readers allow zero-copy reads into pre-allocated buffers. This is optimal for binary data processing.", "自带缓冲区 (BYOB) 读取器允许将数据零拷贝读取到预分配的缓冲区中。这对于二进制数据处理来说是最佳选择。"],'btn_readablestream':["ReadableStream", "可读流"],'btn_writablestream':["WritableStream", "可写流"],'btn_transformstream':["TransformStream", "转换流"],'btn_backpressure':["Backpressure", "反压"],'btn_teeing':["Teeing", "球"],'btn_custom_source_sink':["Custom Source/Sink", "自定义源/接收器"],'btn_fetch_pipeline':["Fetch Pipeline", "获取管道"],'btn_byte_streams':["Byte Streams", "字节流"],'btn_start_timer_stream':["Start Timer Stream", "启动定时器流"],'btn_cancel':["Cancel", "取消"],'btn_create_read_array_stream':["Create & Read Array Stream", "创建和读取数组流"],'btn_read_manually_chunk_by_ch':["Read Manually (chunk by chunk)", "手动阅读（逐段阅读）"],'btn_write_to_stream':["Write to Stream", "写入流"],'btn_write_5_chunks':["Write 5 Chunks", "写5个部分"],'btn_abort_stream':["Abort Stream", "中止流"],'btn_demo_collecting_sink':["Demo: Collecting Sink", "演示：收集水槽"],'btn_uppercase':["Uppercase", "大写字母"],'btn_reverse':["Reverse", "撤销"],'btn_char_count':["Char Count", "字符数"],'btn_base64_encode':["Base64 Encode", "Base64 编码"],'btn_simple_hash':["Simple Hash", "简单哈希"],'btn_chain_split_words_upperca':["Chain: Split Words → Uppercase → Add Index", "链式操作：拆分单词 → 转换为大写 → 添加索引"],'btn_start_demo':["Start Demo", "开始演示"],'btn_stop':["Stop", "停止"],'btn_tee_log_transform':["Tee: Log + Transform", "Tee：对数 + 变换"],'btn_tee_race_two_consumers':["Tee: Race Two Consumers", "T恤：竞相成为消费者"],'btn_run_custom_source':["Run Custom Source", "运行自定义源"],'btn_run_batching_sink_batch_s':["Run Batching Sink (batch size: 3)", "运行批量水槽（批量大小：3）"],'btn_run_full_pipeline':["Run Full Pipeline", "运行完整流程"],'btn_simulate_streamed_respons':["Simulate Streamed Response", "模拟流式响应"],'btn_fetch_with_progress_bar':["Fetch with Progress Bar", "带进度条的获取"],'btn_binary_text_decode_pipeli':["Binary → Text Decode Pipeline", "二进制→文本解码管道"],'btn_byob_read':["BYOB Read", "自带酒水（BYOB）"],'btn_default_vs_byob_compariso':["Default vs BYOB Comparison", "默认设置与自带酒水对比"],'btn_auto_allocation_demo':["Auto-allocation Demo", "自动分配演示"],'label_queue_fill':["Queue fill:", "队列填充："],'placeholder_enter_text_to_write_to_st':["Enter text to write to stream...", "输入要写入流的文本..."],'placeholder_enter_text_to_transform':["Enter text to transform...", "输入要转换的文本..."],'label_producer_speed_ms_chunk':["Producer speed (ms/chunk):", "生产者速度（毫秒/块）："],'label_consumer_speed_ms_chunk':["Consumer speed (ms/chunk):", "消费者速度（毫秒/数据块）："],'jtc_streams_api_full_support':["Streams API: Full Support", "Streams API：完全支持"],'jtc_streams_api_partial_no_su':["Streams API: Partial/No Support", "Streams API：部分支持/不支持"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab navigation
 document.querySelectorAll('.tab').forEach(tab => {
@@ -357,10 +369,10 @@ function clearLog(id) { document.getElementById(id).innerHTML = ''; }
 const badge = document.getElementById('rs-badge');
 if (typeof ReadableStream !== 'undefined' && typeof WritableStream !== 'undefined' && typeof TransformStream !== 'undefined') {
   badge.className = 'support-badge yes';
-  badge.textContent = 'Streams API: Full Support';
+  badge.textContent=T("jtc_streams_api_full_support");
 } else {
   badge.className = 'support-badge no';
-  badge.textContent = 'Streams API: Partial/No Support';
+  badge.textContent=T("jtc_streams_api_partial_no_su");
 }
 
 // --- Panel 1: ReadableStream ---
@@ -1126,6 +1138,24 @@ async function autoAllocDemo() {
     log('auto-log', `Auto-allocation not supported: ${e.message}`, 'error');
   }
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

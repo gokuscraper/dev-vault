@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ssh_config_generator_buil" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,35 +46,47 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>SSH Config Generator</h1>
-<p class="sub">Build ~/.ssh/config visually — hosts, keys, proxies, tunnels</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_ssh_config_generator">SSH Config Generator</h1>
+<p class="sub" ti="subtitle_build_ssh_config_visually">Build ~/.ssh/config visually — hosts, keys, proxies, tunnels</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Global Defaults</h3>
-<div class="check-row"><input type="checkbox" id="keepAlive" checked onchange="gen()"><label for="keepAlive">ServerAliveInterval 60</label></div>
-<div class="check-row"><input type="checkbox" id="addKeys" checked onchange="gen()"><label for="addKeys">AddKeysToAgent yes</label></div>
-<div class="check-row"><input type="checkbox" id="strictHost" onchange="gen()"><label for="strictHost">StrictHostKeyChecking no</label></div>
+<h3 ti="h3_global_defaults">Global Defaults</h3>
+<div class="check-row"><input type="checkbox" id="keepAlive" checked onchange="gen()"><label for="keepAlive" ti="label_serveraliveinterval_60">ServerAliveInterval 60</label></div>
+<div class="check-row"><input type="checkbox" id="addKeys" checked onchange="gen()"><label for="addKeys" ti="label_addkeystoagent_yes">AddKeysToAgent yes</label></div>
+<div class="check-row"><input type="checkbox" id="strictHost" onchange="gen()"><label for="strictHost" ti="label_stricthostkeychecking_no">StrictHostKeyChecking no</label></div>
 </div>
 
 <div class="section">
-<h3>Hosts</h3>
+<h3 ti="h3_hosts">Hosts</h3>
 <div id="hostList"></div>
-<button class="add-btn" onclick="addHost()">+ Add Host</button>
+<button class="add-btn" onclick="addHost()" ti="btn_add_host">+ Add Host</button>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/curl-builder/">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/">chmod Calc</a> | <a href="https://gokuscraper.github.io/dev-vault/password-gen/">Password Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/curl-builder/" ti="link_curl_builder">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/" ti="link_chmod_calc">chmod Calc</a> | <a href="https://gokuscraper.github.io/dev-vault/password-gen/" ti="link_password_gen">Password Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_ssh_config_generator_buil':["SSH Config Generator — Build ~/.ssh/config Visually", "SSH 配置生成器 — 以可视化方式构建 ~/.ssh/config 文件"],'metadesc_generate_ssh_config_file':["Generate SSH config file visually. Add hosts, keys, proxy jumps, port forwarding. 6 presets for common setups. No signup.", "以可视化方式生成 SSH 配置文件。添加主机、密钥、代理跳转和端口转发。提供 6 种常用配置的预设方案。无需注册。"],'h1_ssh_config_generator':["SSH Config Generator", "SSH 配置生成器"],'h3_global_defaults':["Global Defaults", "全局默认值"],'h3_hosts':["Hosts", "主持人"],'subtitle_build_ssh_config_visually':["Build ~/.ssh/config visually — hosts, keys, proxies, tunnels", "以可视化方式构建 ~/.ssh/config 文件——主机、密钥、代理、隧道"],'btn_add_host':["+ Add Host", "+ 添加主机"],'btn_copy':["Copy", "复制"],'placeholder_bastion':["bastion", "堡垒"],'placeholder_5432_localhost_5432':["5432:localhost:5432", "5432:localhost:5432"],'placeholder_8080_localhost_3000':["8080:localhost:3000", "8080:localhost:3000"],'label_serveraliveinterval_60':["ServerAliveInterval 60", "ServerAliveInterval 60"],'label_addkeystoagent_yes':["AddKeysToAgent yes", "AddKeysToAgent 是"],'label_stricthostkeychecking_no':["StrictHostKeyChecking no", "严格主机密钥检查：否"],'label_host_alias':["Host Alias", "主机别名"],'label_hostname_ip_domain':["HostName (IP/domain)", "主机名（IP/域名）"],'label_user':["User", "用户"],'label_port':["Port", "港口"],'label_identityfile':["IdentityFile", "身份文件"],'label_proxyjump_via_host_alias':["ProxyJump (via host alias)", "ProxyJump（通过主机别名）"],'label_localforward_local_remote':["LocalForward (local:remote:remotePort)", "LocalForward（本地:远程:远程端口）"],'label_remoteforward':["RemoteForward", "远程转发"],'label_forwardagent':["ForwardAgent", "前向代理"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_chmod_calc':["chmod Calc", "chmod Calc"],'link_password_gen':["Password Gen", "密码生成器"],'jtlword_user':["User", "用户"],'jtlword_port':["Port", "港口"],'jtlword_identityfile':["IdentityFile", "身份文件"],'jtlword_remoteforward':["RemoteForward", "远程转发"],'jtlword_forwardagent':["ForwardAgent", "前向代理"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
 'Basic Server':[
@@ -130,22 +142,22 @@ function renderHosts(){
     const d=document.createElement('div');d.className='host-item';
     d.innerHTML=`<span class="remove" onclick="removeHost(${i})">✕</span>
     <div class="row">
-      <div class="col"><label>Host Alias</label><input value="${esc(h.alias)}" onchange="hosts[${i}].alias=this.value;gen()"></div>
-      <div class="col"><label>HostName (IP/domain)</label><input value="${esc(h.hostname)}" onchange="hosts[${i}].hostname=this.value;gen()"></div>
+      <div class="col"><label ti="label_host_alias">Host Alias</label><input value="${esc(h.alias)}" onchange="hosts[${i}].alias=this.value;gen()"></div>
+      <div class="col"><label ti="label_hostname_ip_domain">HostName (IP/domain)</label><input value="${esc(h.hostname)}" onchange="hosts[${i}].hostname=this.value;gen()"></div>
     </div>
     <div class="row">
-      <div class="col"><label>User</label><input value="${esc(h.user)}" onchange="hosts[${i}].user=this.value;gen()"></div>
-      <div class="col" style="max-width:100px"><label>Port</label><input value="${esc(h.port)}" onchange="hosts[${i}].port=this.value;gen()"></div>
-      <div class="col"><label>IdentityFile</label><input value="${esc(h.key)}" onchange="hosts[${i}].key=this.value;gen()"></div>
+      <div class="col"><label ti="label_user">User</label><input value="${esc(h.user)}" onchange="hosts[${i}].user=this.value;gen()"></div>
+      <div class="col" style="max-width:100px"><label ti="label_port">Port</label><input value="${esc(h.port)}" onchange="hosts[${i}].port=this.value;gen()"></div>
+      <div class="col"><label ti="label_identityfile">IdentityFile</label><input value="${esc(h.key)}" onchange="hosts[${i}].key=this.value;gen()"></div>
     </div>
     <div class="row">
-      <div class="col"><label>ProxyJump (via host alias)</label><input value="${esc(h.jump)}" onchange="hosts[${i}].jump=this.value;gen()" placeholder="bastion"></div>
+      <div class="col"><label ti="label_proxyjump_via_host_alias">ProxyJump (via host alias)</label><input value="${esc(h.jump)}" onchange="hosts[${i}].jump=this.value;gen()" tp="placeholder_bastion" placeholder="bastion"></div>
     </div>
     <div class="row">
-      <div class="col"><label>LocalForward (local:remote:remotePort)</label><input value="${esc(h.localForward)}" onchange="hosts[${i}].localForward=this.value;gen()" placeholder="5432:localhost:5432"></div>
-      <div class="col"><label>RemoteForward</label><input value="${esc(h.remoteForward)}" onchange="hosts[${i}].remoteForward=this.value;gen()" placeholder="8080:localhost:3000"></div>
+      <div class="col"><label ti="label_localforward_local_remote">LocalForward (local:remote:remotePort)</label><input value="${esc(h.localForward)}" onchange="hosts[${i}].localForward=this.value;gen()" tp="placeholder_5432_localhost_5432" placeholder="5432:localhost:5432"></div>
+      <div class="col"><label ti="label_remoteforward">RemoteForward</label><input value="${esc(h.remoteForward)}" onchange="hosts[${i}].remoteForward=this.value;gen()" tp="placeholder_8080_localhost_3000" placeholder="8080:localhost:3000"></div>
     </div>
-    <div class="check-row"><input type="checkbox" ${h.forwardAgent?'checked':''} onchange="hosts[${i}].forwardAgent=this.checked;gen()" id="fa${i}"><label for="fa${i}">ForwardAgent</label></div>`;
+    <div class="check-row"><input type="checkbox" ${h.forwardAgent?'checked':''} onchange="hosts[${i}].forwardAgent=this.checked;gen()" id="fa${i}"><label for="fa${i}" ti="label_forwardagent">ForwardAgent</label></div>`;
     c.appendChild(d);
   });
 }
@@ -188,6 +200,24 @@ function copyOut(){
 initPresets();
 hosts=JSON.parse(JSON.stringify(PRESETS['Basic Server']));
 renderHosts();gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

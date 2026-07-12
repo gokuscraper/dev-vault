@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_gzip_converter_compress_d" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,14 +43,16 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>GZIP Converter</h1>
-<p class="subtitle">Compress and decompress strings using GZIP, Deflate, and Zlib.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_gzip_converter">GZIP Converter</h1>
+<p class="subtitle" ti="subtitle_compress_and_decompress_s">Compress and decompress strings using GZIP, Deflate, and Zlib.</p>
 
 <div class="card">
-  <h3>Compress String</h3>
+  <h3 ti="h3_compress_string">Compress String</h3>
   <div class="label">Input text</div>
-  <textarea id="inputText" placeholder="Type or paste a string to compress..." oninput="compress()"></textarea>
+  <textarea id="inputText" tp="placeholder_type_or_paste_a_string_to" placeholder="Type or paste a string to compress..." oninput="compress()"></textarea>
   
   <div style="margin-top:12px">
     <div class="label">GZIP (click to copy)</div>
@@ -67,9 +69,9 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <h3>Decompress String</h3>
+  <h3 ti="h3_decompress_string">Decompress String</h3>
   <div class="info">Paste a base64-encoded compressed string. Tool auto-detects GZIP/Deflate/Zlib.</div>
-  <textarea id="compressedInput" placeholder="Paste base64 compressed string..." oninput="decompress()"></textarea>
+  <textarea id="compressedInput" tp="placeholder_paste_base64_compressed_s" placeholder="Paste base64 compressed string..." oninput="decompress()"></textarea>
   
   <div style="margin-top:12px">
     <div class="label">Decompressed (click to copy)</div>
@@ -78,10 +80,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_gzip_converter_compress_d':["GZIP Converter — Compress & Decompress Strings", "GZIP转换器——字符串压缩与解压缩"],'metadesc_compress_strings_using_gz':["Compress strings using GZIP, Deflate, or Zlib. Decompress base64 compressed strings back to text. Free browser tool.", "使用 GZIP、Deflate 或 Zlib 压缩字符串。将 base64 压缩的字符串解压缩为文本。免费浏览器工具。"],'h1_gzip_converter':["GZIP Converter", "GZIP转换器"],'h3_compress_string':["Compress String", "压缩字符串"],'h3_decompress_string':["Decompress String", "解压缩字符串"],'subtitle_compress_and_decompress_s':["Compress and decompress strings using GZIP, Deflate, and Zlib.", "使用 GZIP、Deflate 和 Zlib 压缩和解压缩字符串。"],'placeholder_type_or_paste_a_string_to':["Type or paste a string to compress...", "输入或粘贴字符串进行压缩……"],'placeholder_paste_base64_compressed_s':["Paste base64 compressed string...", "粘贴 base64 压缩字符串……"],'link_github':["GitHub", "GitHub"],'jtc_error':["Error:", "错误："],'jtc_could_not_decompress_inv':["✗ Could not decompress. Invalid or unsupported format.", "✗ 无法解压缩。格式无效或不受支持。"],'jtc_copied':["Copied!", "已复制！"],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Compression helpers using CompressionStream API
 async function compressWith(algorithm, text) {
@@ -140,7 +152,7 @@ async function compress() {
     document.getElementById('deflateOutput').textContent = await compressWith('deflate-raw', text);
     document.getElementById('zlibOutput').textContent = await compressWith('deflate', text);
   } catch(e) {
-    document.getElementById('gzipOutput').textContent = 'Error: ' + e.message;
+    document.getElementById('gzipOutput').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
@@ -156,7 +168,7 @@ async function decompress() {
       return;
     } catch(e) { /* try next */ }
   }
-  document.getElementById('decompressedOutput').textContent = '✗ Could not decompress. Invalid or unsupported format.';
+  document.getElementById('decompressedOutput').textContent=T("jtc_could_not_decompress_inv");
 }
 
 function copyText(id) {
@@ -166,11 +178,29 @@ function copyText(id) {
   navigator.clipboard.writeText(text).then(() => {
     const toast = document.createElement('div');
     toast.className = 'copy-toast';
-    toast.textContent = 'Copied!';
+    toast.textContent=T("jtc_copied");
     document.body.appendChild(toast);
     setTimeout(() => toast.remove(), 1500);
   });
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

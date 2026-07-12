@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_dockerfile_gen_visual_doc" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,23 +67,25 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Dockerfile Gen</h1>
-<p class="subtitle">Generate production-ready Dockerfiles for any language.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_dockerfile_gen">Dockerfile Gen</h1>
+<p class="subtitle" ti="subtitle_generate_production_ready">Generate production-ready Dockerfiles for any language.</p>
 
 <!-- Language selection -->
 <div class="section">
-  <h3>Select language / framework</h3>
+  <h3 ti="h3_select_language_framework">Select language / framework</h3>
   <div class="template-grid" id="templateGrid"></div>
 </div>
 
 <!-- Options -->
 <div class="section" id="optionsSection" style="display:none">
-  <h3>Configuration</h3>
-  <div class="input-row"><label>Base image</label><input id="baseImage" placeholder="auto-detected"></div>
-  <div class="input-row"><label>App directory</label><input id="appDir" value="/app" placeholder="/app"></div>
-  <div class="input-row"><label>Port</label><input id="port" value="3000" placeholder="3000"></div>
-  <div class="input-row"><label>Start command</label><input id="startCmd" placeholder="auto-detected"></div>
+  <h3 ti="h3_configuration">Configuration</h3>
+  <div class="input-row"><label ti="label_base_image">Base image</label><input id="baseImage" tp="placeholder_auto_detected" tp="placeholder_auto_detected_2" placeholder="auto-detected"></div>
+  <div class="input-row"><label ti="label_app_directory">App directory</label><input id="appDir" value="/app" tp="placeholder_app" placeholder="/app"></div>
+  <div class="input-row"><label ti="label_port">Port</label><input id="port" value="3000" tp="placeholder_3000" placeholder="3000"></div>
+  <div class="input-row"><label ti="label_start_command">Start command</label><input id="startCmd" placeholder="auto-detected"></div>
   <div class="check-grid" style="margin-top:12px">
     <label class="check-item"><input type="checkbox" id="multiStage" checked><div><div class="label">Multi-stage build</div><div class="desc">Smaller final image</div></div></label>
     <label class="check-item"><input type="checkbox" id="nonRoot" checked><div><div class="label">Non-root user</div><div class="desc">Security best practice</div></div></label>
@@ -94,9 +96,9 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="generate()">Generate</button>
-  <button class="btn" onclick="copyTab()">Copy</button>
-  <button class="btn" onclick="downloadTab()">Download</button>
+  <button class="btn primary" onclick="generate()" ti="btn_generate">Generate</button>
+  <button class="btn" onclick="copyTab()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadTab()" ti="btn_download">Download</button>
 </div>
 
 <!-- Output tabs -->
@@ -113,17 +115,27 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/dockerfile-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/dockerfile-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/env-gen/">Env Gen</a>
-    <a href="https://gokuscraper.github.io/dev-vault/nginx-config/">Nginx Config</a>
-    <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">gitignore Gen</a>
+    <strong style="color:#888" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/env-gen/" ti="link_env_gen">Env Gen</a>
+    <a href="https://gokuscraper.github.io/dev-vault/nginx-config/" ti="link_nginx_config">Nginx Config</a>
+    <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen">gitignore Gen</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 110+ free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_110_free_tools" ti="footer_dev_vault_110_free_tools_2">Dev Vault — 110+ free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_dockerfile_gen_visual_doc':["Dockerfile Gen — Visual Dockerfile Generator", "Dockerfile Gen — 可视化 Dockerfile 生成器"],'metadesc_generate_dockerfiles_visu':["Generate Dockerfiles visually. Node.js, Python, Go, Rust, Ruby, PHP, Java templates. Multi-stage builds, .dockerignore. Free.", "可视化生成 Dockerfile。支持 Node.js、Python、Go、Rust、Ruby、PHP 和 Java 模板。支持多阶段构建和 .dockerignore 文件。免费。"],'h1_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'h3_select_language_framework':["Select language / framework", "选择语言/框架"],'h3_configuration':["Configuration", "配置"],'subtitle_generate_production_ready':["Generate production-ready Dockerfiles for any language.", "为任何语言生成可用于生产环境的 Dockerfile。"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'placeholder_auto_detected':["auto-detected", "自动检测"],'placeholder_app':["/app", "/应用程序"],'placeholder_3000':["3000", "3000"],'placeholder_auto_detected_2':["auto-detected", "自动检测"],'strong_related_tools':["Related Tools", "相关工具"],'label_base_image':["Base image", "基础图像"],'label_app_directory':["App directory", "应用目录"],'label_port':["Port", "港口"],'label_start_command':["Start command", "启动命令"],'footer_dev_vault_110_free_tools':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'footer_dev_vault_110_free_tools_2':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_env_gen':["Env Gen", "环境遗传"],'link_nginx_config':["Nginx Config", "Nginx 配置"],'link_gitignore_gen':["gitignore Gen", "gitignore Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const LANGS=[
   {id:'node',name:'Node.js',icon:'JS',base:'node:20-alpine',port:'3000',start:'node server.js',install:'npm ci --omit=dev',copy:'package*.json',buildCmd:'npm run build',srcCopy:'.'},
@@ -368,6 +380,24 @@ function toast(msg){
 }
 
 renderGrid();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

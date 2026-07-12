@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_http_status_http_status_c" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -52,11 +52,13 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>HTTP Status</h1>
-<p class="subtitle">Quick reference for all HTTP status codes.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<input type="text" class="search" id="search" placeholder="Search by code or name..." oninput="filter()">
+<div class="container" style="position:relative">
+<h1 ti="h1_http_status">HTTP Status</h1>
+<p class="subtitle" ti="subtitle_quick_reference_for_all_h">Quick reference for all HTTP status codes.</p>
+
+<input type="text" class="search" id="search" tp="placeholder_search_by_code_or_name" placeholder="Search by code or name..." oninput="filter()">
 
 <div class="filters" id="filters"></div>
 <div class="count" id="count"></div>
@@ -64,10 +66,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/http-status">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/http-status" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_http_status_http_status_c':["HTTP Status — HTTP Status Code Reference", "HTTP 状态 — HTTP 状态代码参考"],'metadesc_quick_reference_for_all_h':["Quick reference for all HTTP status codes. Search, filter by category. Description, common usage. Free.", "快速查阅所有 HTTP 状态码。可按类别搜索和筛选。包含描述和常见用法。免费。"],'h1_http_status':["HTTP Status", "HTTP 状态"],'subtitle_quick_reference_for_all_h':["Quick reference for all HTTP status codes.", "HTTP状态码快速参考。"],'btn_c_label_count':["${c.label} (${count})", "${c.label} (${count})"],'placeholder_search_by_code_or_name':["Search by code or name...", "按代码或名称搜索……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const CODES=[
   // 1xx Informational
@@ -131,7 +143,7 @@ function renderFilters(){
   document.getElementById('filters').innerHTML=CATS.map(c=>{
     const count=c.id==='all'?CODES.length:CODES.filter(x=>x.cat===c.id).length;
     const isActive=c.id===activeCat;
-    return`<button class="filter-btn${isActive?' active':''}" style="--fc:${c.color};--fb:${c.bg}" onclick="setCat('${c.id}')">${c.label} (${count})</button>`;
+    return`<button class="filter-btn${isActive?' active':''}" style="--fc:${c.color};--fb:${c.bg}" onclick="setCat('${c.id}')" ti="btn_c_label_count">${c.label} (${count})</button>`;
   }).join('');
 }
 
@@ -161,12 +173,30 @@ renderFilters();
 filter();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/url-parser/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Url Parser</a>
 <a href="https://gokuscraper.github.io/dev-vault/api-tester/" style="color:#4da6ff;text-decoration:none;margin:0 8px">API Tester</a>
 <a href="https://gokuscraper.github.io/dev-vault/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/cron-explain/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Cron Explain</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

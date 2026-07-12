@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_trusted_types_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,9 +63,15 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Trusted Types Explorer</h1>
-<p class="subtitle">Interactive demo of the Trusted Types API for DOM XSS prevention</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_trusted_types_explorer" ti="h1_trusted_types_explorer" ti="title_trusted_types_explorer" ti="h1_trusted_types_explorer" ti="title_trusted_types_explorer" ti="h1_trusted_types_explorer">Trusted Types Explorer</h1>
+<p class="subtitle" ti="subtitle_interactive_demo_of_the_t" ti="subtitle_interactive_demo_of_the_t" ti="subtitle_interactive_demo_of_the_t">Interactive demo of the Trusted Types API for DOM XSS prevention</p>
 
 <div class="info-box">
 Trusted Types help prevent DOM XSS by requiring typed objects instead of raw strings for dangerous DOM sinks like <code>innerHTML</code>, <code>eval()</code>, and <code>document.write()</code>.
@@ -73,7 +79,7 @@ Trusted Types help prevent DOM XSS by requiring typed objects instead of raw str
 </div>
 
 <div class="panel" style="margin-bottom:20px">
-<h2>Security Model</h2>
+<h2 ti="h2_security_model" ti="h2_security_model" ti="h2_security_model">Security Model</h2>
 <div class="diagram">
 <div class="diagram-box diagram-unsafe">Untrusted String<br><small>"&lt;img onerror=...&gt;"</small></div>
 <div class="diagram-arrow">&rarr;</div>
@@ -87,13 +93,13 @@ Trusted Types help prevent DOM XSS by requiring typed objects instead of raw str
 
 <div class="panels">
 <div class="panel">
-<h2>1. Create Policies</h2>
+<h2 ti="h2_1_create_policies" ti="h2_1_create_policies" ti="h2_1_create_policies">1. Create Policies</h2>
 <div>
-<label>Policy Name</label>
-<input type="text" id="policyName" value="sanitizer" placeholder="Policy name">
+<label ti="label_policy_name" ti="label_policy_name" ti="label_policy_name">Policy Name</label>
+<input type="text" id="policyName" value="sanitizer" tp="placeholder_policy_name" tp="placeholder_policy_name" tp="placeholder_policy_name" placeholder="Policy name">
 </div>
 <div style="margin-top:8px">
-<label>Sanitization Strategy</label>
+<label ti="label_sanitization_strategy" ti="label_sanitization_strategy" ti="label_sanitization_strategy">Sanitization Strategy</label>
 <select id="sanitizeStrategy">
 <option value="escape">Escape HTML entities</option>
 <option value="strip">Strip all tags</option>
@@ -102,29 +108,29 @@ Trusted Types help prevent DOM XSS by requiring typed objects instead of raw str
 </select>
 </div>
 <div class="controls" style="margin-top:12px">
-<button onclick="createPolicy()">Create Policy</button>
-<button onclick="createDefaultPolicy()" class="info">Create Default Policy</button>
+<button onclick="createPolicy()" ti="btn_create_policy" ti="btn_create_policy" ti="btn_create_policy">Create Policy</button>
+<button onclick="createDefaultPolicy()" class="info" ti="btn_create_default_policy" ti="btn_create_default_policy" ti="btn_create_default_policy">Create Default Policy</button>
 </div>
 
-<h3>Active Policies</h3>
+<h3 ti="h3_active_policies" ti="h3_active_policies" ti="h3_active_policies">Active Policies</h3>
 <div id="policyList">
 <div style="color:#555;font-size:0.85rem;padding:8px">No policies created yet.</div>
 </div>
 </div>
 
 <div class="panel">
-<h2>2. Test innerHTML Assignment</h2>
+<h2 ti="h2_2_test_innerhtml_assignme" ti="h2_2_test_innerhtml_assignme" ti="h2_2_test_innerhtml_assignme">2. Test innerHTML Assignment</h2>
 <div>
-<label>HTML Input (potentially dangerous)</label>
+<label ti="label_html_input_potentially_da" ti="label_html_input_potentially_da" ti="label_html_input_potentially_da">HTML Input (potentially dangerous)</label>
 <textarea id="htmlInput">&lt;b&gt;Hello&lt;/b&gt; &lt;img src=x onerror="alert('XSS')"&gt; &lt;script&gt;alert('bad')&lt;/script&gt;</textarea>
 </div>
 <div style="margin-top:8px">
-<label>Policy to Use</label>
+<label ti="label_policy_to_use" ti="label_policy_to_use" ti="label_policy_to_use">Policy to Use</label>
 <select id="testPolicy"><option value="">-- No policy (raw string) --</option></select>
 </div>
 <div class="controls" style="margin-top:12px">
-<button onclick="testInnerHTML(false)" class="danger">Assign WITHOUT Trusted Types</button>
-<button onclick="testInnerHTML(true)" class="safe">Assign WITH Trusted Types</button>
+<button onclick="testInnerHTML(false)" class="danger" ti="btn_assign_without_trusted_ty" ti="btn_assign_without_trusted_ty" ti="btn_assign_without_trusted_ty">Assign WITHOUT Trusted Types</button>
+<button onclick="testInnerHTML(true)" class="safe" ti="btn_assign_with_trusted_types" ti="btn_assign_with_trusted_types" ti="btn_assign_with_trusted_types">Assign WITH Trusted Types</button>
 </div>
 
 <div class="result-label" style="margin-top:12px">Result</div>
@@ -140,7 +146,7 @@ Trusted Types help prevent DOM XSS by requiring typed objects instead of raw str
 
 <div class="panels">
 <div class="panel">
-<h2>3. Explore Sink Types</h2>
+<h2 ti="h2_3_explore_sink_types" ti="h2_3_explore_sink_types" ti="h2_3_explore_sink_types">3. Explore Sink Types</h2>
 <div class="tab-bar">
 <div class="tab active" onclick="switchTab(this,'sink-html')">TrustedHTML</div>
 <div class="tab" onclick="switchTab(this,'sink-script')">TrustedScript</div>
@@ -178,30 +184,30 @@ worker = <span class="kw">new</span> <span class="fn">Worker</span>(trustedScrip
 </div>
 
 <div class="panel">
-<h2>4. Event Log</h2>
+<h2 ti="h2_4_event_log" ti="h2_4_event_log" ti="h2_4_event_log">4. Event Log</h2>
 <div class="log" id="eventLog">
 <div class="log-entry"><span class="log-warn">[info]</span> Ready. Create a policy and test assignments.</div>
 </div>
 <div style="margin-top:8px">
-<button onclick="document.getElementById('eventLog').innerHTML=''" class="danger" style="font-size:0.8rem">Clear Log</button>
+<button onclick="document.getElementById('eventLog').innerHTML=''" class="danger" style="font-size:0.8rem" ti="btn_clear_log" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button>
 </div>
 </div>
 </div>
 
 <div class="panel" style="margin-bottom:20px">
-<h2>5. CSP Header Configuration</h2>
+<h2 ti="h2_5_csp_header_configuratio" ti="h2_5_csp_header_configuratio" ti="h2_5_csp_header_configuratio">5. CSP Header Configuration</h2>
 <p style="font-size:0.85rem;color:#999;margin-bottom:12px">These Content Security Policy headers enable Trusted Types enforcement:</p>
 
-<h3>Report Only (recommended for testing)</h3>
+<h3 ti="h3_report_only_recommended_f" ti="h3_report_only_recommended_f" ti="h3_report_only_recommended_f">Report Only (recommended for testing)</h3>
 <div class="csp-example">Content-Security-Policy-Report-Only: require-trusted-types-for 'script'; report-uri /csp-report</div>
 
-<h3>Enforce (production)</h3>
+<h3 ti="h3_enforce_production" ti="h3_enforce_production" ti="h3_enforce_production">Enforce (production)</h3>
 <div class="csp-example">Content-Security-Policy: require-trusted-types-for 'script'</div>
 
-<h3>Allow specific policies only</h3>
+<h3 ti="h3_allow_specific_policies_o" ti="h3_allow_specific_policies_o" ti="h3_allow_specific_policies_o">Allow specific policies only</h3>
 <div class="csp-example">Content-Security-Policy: trusted-types sanitizer default; require-trusted-types-for 'script'</div>
 
-<h3>With reporting endpoint (modern)</h3>
+<h3 ti="h3_with_reporting_endpoint_m" ti="h3_with_reporting_endpoint_m" ti="h3_with_reporting_endpoint_m">With reporting endpoint (modern)</h3>
 <div class="csp-example">Content-Security-Policy: require-trusted-types-for 'script'; report-to csp-endpoint
 Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"</div>
 
@@ -211,9 +217,9 @@ Reporting-Endpoints: csp-endpoint="https://example.com/csp-reports"</div>
 </div>
 
 <div class="panel" style="margin-bottom:20px">
-<h2>6. Default Policy</h2>
+<h2 ti="h2_6_default_policy" ti="h2_6_default_policy" ti="h2_6_default_policy">6. Default Policy</h2>
 <div class="info-box">
-The <strong>default</strong> policy is special: it's automatically invoked when a string is assigned to a dangerous sink without an explicit trusted type. It acts as a global safety net. Only <strong>one</strong> default policy can exist.
+The <strong ti="strong_default" ti="strong_default" ti="strong_default">default</strong> policy is special: it's automatically invoked when a string is assigned to a dangerous sink without an explicit trusted type. It acts as a global safety net. Only <strong ti="strong_one" ti="strong_one" ti="strong_one">one</strong> default policy can exist.
 </div>
 <div class="code-block"><span class="cmt">// The default policy catches all untyped sink assignments</span>
 <span class="kw">if</span> (<span class="kw">typeof</span> trustedTypes !== <span class="str">'undefined'</span>) {
@@ -234,11 +240,31 @@ The <strong>default</strong> policy is special: it's automatically invoked when 
 </div>
 
 <div class="panel">
-<h2>Browser Support</h2>
+<h2 ti="h2_browser_support" ti="h2_browser_support" ti="h2_browser_support">Browser Support</h2>
 <div id="browserSupport" style="margin-top:8px"></div>
 </div>
 </div>
 
+
+
+<script>var _LANG={'title_trusted_types_explorer':["Trusted Types Explorer", "可信类型浏览器"],'h1_trusted_types_explorer':["Trusted Types Explorer", "可信类型浏览器"],'h2_security_model':["Security Model", "安全模型"],'h2_1_create_policies':["1. Create Policies", "1. 制定策略"],'h2_2_test_innerhtml_assignme':["2. Test innerHTML Assignment", "2. 测试 innerHTML 赋值"],'h2_3_explore_sink_types':["3. Explore Sink Types", "3. 探索水槽类型"],'h2_4_event_log':["4. Event Log", "4. 事件日志"],'h2_5_csp_header_configuratio':["5. CSP Header Configuration", "5. CSP 报头配置"],'h2_6_default_policy':["6. Default Policy", "6. 默认策略"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_active_policies':["Active Policies", "主动策略"],'h3_report_only_recommended_f':["Report Only (recommended for testing)", "仅报告（推荐用于测试）"],'h3_enforce_production':["Enforce (production)", "强制（生产）"],'h3_allow_specific_policies_o':["Allow specific policies only", "仅允许特定策略"],'h3_with_reporting_endpoint_m':["With reporting endpoint (modern)", "带有报告端点（现代）"],'h3_meta_tag_limited_no_repor':["Meta tag (limited — no report-uri support)", "元标签（功能有限——不支持报告 URI）"],'subtitle_interactive_demo_of_the_t':["Interactive demo of the Trusted Types API for DOM XSS prevention", "Trusted Types API 的交互式演示，用于预防 DOM XSS 攻击"],'btn_create_policy':["Create Policy", "创建策略"],'btn_create_default_policy':["Create Default Policy", "创建默认策略"],'btn_assign_without_trusted_ty':["Assign WITHOUT Trusted Types", "不使用可信类型进行分配"],'btn_assign_with_trusted_types':["Assign WITH Trusted Types", "使用可信类型进行分配"],'btn_clear_log':["Clear Log", "清除日志"],'placeholder_policy_name':["Policy name", "保单名称"],'strong_default':["default", "默认"],'strong_one':["one", "一"],'label_policy_name':["Policy Name", "保单名称"],'label_sanitization_strategy':["Sanitization Strategy", "消毒策略"],'label_html_input_potentially_da':["HTML Input (potentially dangerous)", "HTML 输入（可能存在危险）"],'label_policy_to_use':["Policy to Use", "使用政策"],'jtlword_available':["Available", "可用的"],'jtlword_available_2':["Available", "可用的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_trusted_types_explorer':["Trusted Types Explorer", "可信类型浏览器"],'h1_trusted_types_explorer':["Trusted Types Explorer", "可信类型浏览器"],'h2_security_model':["Security Model", "安全模型"],'h2_1_create_policies':["1. Create Policies", "1. 制定策略"],'h2_2_test_innerhtml_assignme':["2. Test innerHTML Assignment", "2. 测试 innerHTML 赋值"],'h2_3_explore_sink_types':["3. Explore Sink Types", "3. 探索水槽类型"],'h2_4_event_log':["4. Event Log", "4. 事件日志"],'h2_5_csp_header_configuratio':["5. CSP Header Configuration", "5. CSP 报头配置"],'h2_6_default_policy':["6. Default Policy", "6. 默认策略"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_active_policies':["Active Policies", "主动策略"],'h3_report_only_recommended_f':["Report Only (recommended for testing)", "仅报告（推荐用于测试）"],'h3_enforce_production':["Enforce (production)", "强制（生产）"],'h3_allow_specific_policies_o':["Allow specific policies only", "仅允许特定策略"],'h3_with_reporting_endpoint_m':["With reporting endpoint (modern)", "带有报告端点（现代）"],'h3_meta_tag_limited_no_repor':["Meta tag (limited — no report-uri support)", "元标签（功能有限——不支持报告 URI）"],'subtitle_interactive_demo_of_the_t':["Interactive demo of the Trusted Types API for DOM XSS prevention", "Trusted Types API 的交互式演示，用于预防 DOM XSS 攻击"],'btn_create_policy':["Create Policy", "创建策略"],'btn_create_default_policy':["Create Default Policy", "创建默认策略"],'btn_assign_without_trusted_ty':["Assign WITHOUT Trusted Types", "不使用可信类型进行分配"],'btn_assign_with_trusted_types':["Assign WITH Trusted Types", "使用可信类型进行分配"],'btn_clear_log':["Clear Log", "清除日志"],'placeholder_policy_name':["Policy name", "保单名称"],'strong_default':["default", "默认"],'strong_one':["one", "一"],'label_policy_name':["Policy Name", "保单名称"],'label_sanitization_strategy':["Sanitization Strategy", "消毒策略"],'label_html_input_potentially_da':["HTML Input (potentially dangerous)", "HTML 输入（可能存在危险）"],'label_policy_to_use':["Policy to Use", "使用政策"],'jtlword_available':["Available", "可用的"],'jtlword_available_2':["Available", "可用的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const policies = {};
 let hasDefault = false;
@@ -438,6 +464,60 @@ function esc(s) {
   d.textContent = String(s);
   return d.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

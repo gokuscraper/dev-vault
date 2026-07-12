@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_api_rate_limit_calculator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -69,26 +69,30 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>API Rate Limit Calculator</h1>
-<p class="sub">Calculate and visualize API rate limiting strategies</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_api_rate_limit_calculator" ti="h1_api_rate_limit_calculator">API Rate Limit Calculator</h1>
+<p class="sub" ti="subtitle_calculate_and_visualize_a" ti="subtitle_calculate_and_visualize_a">Calculate and visualize API rate limiting strategies</p>
 
 <div class="layout">
 <!-- LEFT COLUMN -->
 <div>
   <div class="section">
-    <h3>Rate Limit Configuration</h3>
+    <h3 ti="h3_rate_limit_configuration" ti="h3_rate_limit_configuration">Rate Limit Configuration</h3>
     <div class="field">
-      <label>Requests per Window</label>
+      <label ti="label_requests_per_window" ti="label_requests_per_window">Requests per Window</label>
       <input type="number" id="reqCount" value="100" min="1" oninput="calc()">
     </div>
     <div class="field-row">
       <div class="field">
-        <label>Window Duration</label>
+        <label ti="label_window_duration" ti="label_window_duration">Window Duration</label>
         <input type="number" id="windowVal" value="1" min="1" oninput="calc()">
       </div>
       <div class="field">
-        <label>Unit</label>
+        <label ti="label_unit" ti="label_unit">Unit</label>
         <select id="windowUnit" onchange="calc()">
           <option value="1">Seconds</option>
           <option value="60" selected>Minutes</option>
@@ -98,28 +102,28 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
       </div>
     </div>
     <div class="field">
-      <label>Burst Limit (max concurrent)</label>
+      <label ti="label_burst_limit_max_concurren" ti="label_burst_limit_max_concurren">Burst Limit (max concurrent)</label>
       <input type="number" id="burstLimit" value="10" min="1" oninput="calc()">
     </div>
   </div>
 
   <div class="section">
-    <h3>Common API Presets</h3>
+    <h3 ti="h3_common_api_presets" ti="h3_common_api_presets">Common API Presets</h3>
     <div class="presets">
-      <button class="preset" onclick="applyPreset(5000,1,'3600',10,'GitHub (Auth)')">GitHub (Auth)</button>
-      <button class="preset" onclick="applyPreset(60,1,'3600',5,'GitHub (Unauth)')">GitHub (Unauth)</button>
-      <button class="preset" onclick="applyPreset(300,15,'60',10,'Twitter/X')">Twitter/X</button>
-      <button class="preset" onclick="applyPreset(500,1,'60',20,'OpenAI Tier 1')">OpenAI T1</button>
-      <button class="preset" onclick="applyPreset(5000,1,'60',50,'OpenAI Tier 4')">OpenAI T4</button>
-      <button class="preset" onclick="applyPreset(100,1,'1',100,'Stripe')">Stripe</button>
-      <button class="preset" onclick="applyPreset(10000,1,'1',5000,'AWS API GW')">AWS API GW</button>
+      <button class="preset" onclick="applyPreset(5000,1,'3600',10,'GitHub (Auth)')" ti="btn_github_auth" ti="btn_github_auth">GitHub (Auth)</button>
+      <button class="preset" onclick="applyPreset(60,1,'3600',5,'GitHub (Unauth)')" ti="btn_github_unauth" ti="btn_github_unauth">GitHub (Unauth)</button>
+      <button class="preset" onclick="applyPreset(300,15,'60',10,'Twitter/X')" ti="btn_twitter_x" ti="btn_twitter_x">Twitter/X</button>
+      <button class="preset" onclick="applyPreset(500,1,'60',20,'OpenAI Tier 1')" ti="btn_openai_t1" ti="btn_openai_t1">OpenAI T1</button>
+      <button class="preset" onclick="applyPreset(5000,1,'60',50,'OpenAI Tier 4')" ti="btn_openai_t4" ti="btn_openai_t4">OpenAI T4</button>
+      <button class="preset" onclick="applyPreset(100,1,'1',100,'Stripe')" ti="btn_stripe" ti="btn_stripe">Stripe</button>
+      <button class="preset" onclick="applyPreset(10000,1,'1',5000,'AWS API GW')" ti="btn_aws_api_gw" ti="btn_aws_api_gw">AWS API GW</button>
     </div>
   </div>
 
   <div class="section">
-    <h3>Cost Calculator</h3>
+    <h3 ti="h3_cost_calculator" ti="h3_cost_calculator">Cost Calculator</h3>
     <div class="field">
-      <label>Price per Request ($)</label>
+      <label ti="label_price_per_request" ti="label_price_per_request">Price per Request ($)</label>
       <input type="number" id="pricePerReq" value="0.001" min="0" step="0.0001" oninput="calc()">
     </div>
     <div id="costOutput"></div>
@@ -129,52 +133,62 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <!-- RIGHT COLUMN -->
 <div>
   <div class="section">
-    <h3>Rate Calculations</h3>
+    <h3 ti="h3_rate_calculations" ti="h3_rate_calculations">Rate Calculations</h3>
     <div class="stat-grid" id="statsGrid"></div>
     <div class="comparison" id="windowComparison"></div>
   </div>
 
   <div class="section">
-    <h3>Algorithm Explanations</h3>
+    <h3 ti="h3_algorithm_explanations" ti="h3_algorithm_explanations">Algorithm Explanations</h3>
     <div class="tabs" id="algoTabs">
-      <button class="tab active" onclick="showAlgo('fixed')">Fixed Window</button>
-      <button class="tab" onclick="showAlgo('sliding')">Sliding Log</button>
-      <button class="tab" onclick="showAlgo('token')">Token Bucket</button>
-      <button class="tab" onclick="showAlgo('leaky')">Leaky Bucket</button>
-      <button class="tab" onclick="showAlgo('counter')">Sliding Counter</button>
+      <button class="tab active" onclick="showAlgo('fixed')" ti="btn_fixed_window" ti="btn_fixed_window">Fixed Window</button>
+      <button class="tab" onclick="showAlgo('sliding')" ti="btn_sliding_log" ti="btn_sliding_log">Sliding Log</button>
+      <button class="tab" onclick="showAlgo('token')" ti="btn_token_bucket" ti="btn_token_bucket">Token Bucket</button>
+      <button class="tab" onclick="showAlgo('leaky')" ti="btn_leaky_bucket" ti="btn_leaky_bucket">Leaky Bucket</button>
+      <button class="tab" onclick="showAlgo('counter')" ti="btn_sliding_counter" ti="btn_sliding_counter">Sliding Counter</button>
     </div>
     <div class="output-area" id="algoOutput"></div>
   </div>
 
   <div class="section">
-    <h3>Implementation Code</h3>
+    <h3 ti="h3_implementation_code" ti="h3_implementation_code">Implementation Code</h3>
     <div class="tabs" id="codeTabs">
-      <button class="tab active" onclick="showCode('js')">JavaScript</button>
-      <button class="tab" onclick="showCode('python')">Python</button>
-      <button class="tab" onclick="showCode('node')">Node.js</button>
-      <button class="tab" onclick="showCode('go')">Go</button>
+      <button class="tab active" onclick="showCode('js')" ti="btn_javascript" ti="btn_javascript">JavaScript</button>
+      <button class="tab" onclick="showCode('python')" ti="btn_python" ti="btn_python">Python</button>
+      <button class="tab" onclick="showCode('node')" ti="btn_node_js" ti="btn_node_js">Node.js</button>
+      <button class="tab" onclick="showCode('go')" ti="btn_go" ti="btn_go">Go</button>
     </div>
     <div class="output-area" id="codeOutput"></div>
     <div class="actions">
-      <button class="btn btn-primary" onclick="copyCode()">Copy Code</button>
+      <button class="btn btn-primary" onclick="copyCode()" ti="btn_copy_code" ti="btn_copy_code">Copy Code</button>
     </div>
   </div>
 
   <div class="section">
-    <h3>Server-Side Response Headers</h3>
+    <h3 ti="h3_server_side_response_head" ti="h3_server_side_response_head">Server-Side Response Headers</h3>
     <div class="output-area" id="headerOutput"></div>
     <div class="actions">
-      <button class="btn btn-primary" onclick="copyHeaders()">Copy Headers</button>
+      <button class="btn btn-primary" onclick="copyHeaders()" ti="btn_copy_headers" ti="btn_copy_headers">Copy Headers</button>
     </div>
   </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/api-mock-gen/">API Mock</a> | <a href="https://gokuscraper.github.io/dev-vault/curl-builder/">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/http-status/">HTTP Status</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/api-mock-gen/" ti="link_api_mock" ti="link_api_mock">API Mock</a> | <a href="https://gokuscraper.github.io/dev-vault/curl-builder/" ti="link_curl_builder" ti="link_curl_builder">cURL Builder</a> | <a href="https://gokuscraper.github.io/dev-vault/http-status/" ti="link_http_status" ti="link_http_status">HTTP Status</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_api_rate_limit_calculator':["API Rate Limit Calculator — Rate Limiting Strategy Tool", "API 速率限制计算器 — 限流策略工具"],'metadesc_calculate_api_rate_limits':["Calculate API rate limits. Token bucket, sliding window algorithms. Implementation code in JS, Python, Go. Cost calculator. GitHub, OpenAI presets.", "计算 API 速率限制。令牌桶、滑动窗口算法。JS、Python、Go 实现代码。成本计算器。GitHub、OpenAI 预设。"],'h1_api_rate_limit_calculator':["API Rate Limit Calculator", "API 速率限制计算器"],'h3_rate_limit_configuration':["Rate Limit Configuration", "速率限制配置"],'h3_common_api_presets':["Common API Presets", "常见 API 预设"],'h3_cost_calculator':["Cost Calculator", "成本计算器"],'h3_rate_calculations':["Rate Calculations", "速率计算"],'h3_algorithm_explanations':["Algorithm Explanations", "算法说明"],'h3_implementation_code':["Implementation Code", "实现代码"],'h3_server_side_response_head':["Server-Side Response Headers", "服务端响应头"],'subtitle_calculate_and_visualize_a':["Calculate and visualize API rate limiting strategies", "计算并可视化 API 速率限制策略"],'btn_github_auth':["GitHub (Auth)", "GitHub (Auth)"],'btn_github_unauth':["GitHub (Unauth)", "GitHub (Unauth)"],'btn_twitter_x':["Twitter/X", "Twitter/X"],'btn_openai_t1':["OpenAI T1", "OpenAI T1"],'btn_openai_t4':["OpenAI T4", "OpenAI T4"],'btn_stripe':["Stripe", "Stripe"],'btn_aws_api_gw':["AWS API GW", "AWS API GW"],'btn_fixed_window':["Fixed Window", "固定窗口"],'btn_sliding_log':["Sliding Log", "滑动日志"],'btn_token_bucket':["Token Bucket", "令牌桶"],'btn_leaky_bucket':["Leaky Bucket", "漏桶"],'btn_sliding_counter':["Sliding Counter", "滑动计数器"],'btn_javascript':["JavaScript", "JavaScript"],'btn_python':["Python", "Python"],'btn_node_js':["Node.js", "Node.js"],'btn_go':["Go", "Go"],'btn_copy_code':["Copy Code", "复制代码"],'btn_copy_headers':["Copy Headers", "复制请求头"],'label_fixed_window_worst_case_b':["Fixed window worst-case burst", "固定窗口最坏突发"],'label_sliding_window_worst_case':["Sliding window worst-case", "滑动窗口最坏情况"],'label_sliding_counter_accuracy':["Sliding counter accuracy", "滑动计数器准确度"],'label_token_bucket_peak_burst':["Token bucket peak burst", "令牌桶峰值突发"],'label_requests_per_window':["Requests per Window", "每窗口请求数"],'label_window_duration':["Window Duration", "窗口持续时间"],'label_unit':["Unit", "单位"],'label_burst_limit_max_concurren':["Burst Limit (max concurrent)", "突发限制（最大并发）"],'label_price_per_request':["Price per Request ($)", "每请求价格（$）"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_api_mock':["API Mock", "API Mock"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_http_status':["HTTP Status", "HTTP 状态"],'jtlword_ms':["ms", "毫秒"],'jtlword_tokens':["tokens", "token"],'jtlword_concurrent':["concurrent", "并发"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentAlgo='fixed', currentCode='js';
 
@@ -229,10 +243,10 @@ function calc(){
   // Window comparison
   document.getElementById('windowComparison').innerHTML=`
     <div style="font-size:0.78rem;color:#888;margin-bottom:6px;margin-top:4px">Fixed vs Sliding Window</div>
-    <div class="comparison-row"><span class="comparison-label">Fixed window worst-case burst</span><span class="comparison-value">${r*2} req (2x at boundary)</span></div>
-    <div class="comparison-row"><span class="comparison-label">Sliding window worst-case</span><span class="comparison-value">${r} req (strict)</span></div>
-    <div class="comparison-row"><span class="comparison-label">Sliding counter accuracy</span><span class="comparison-value">~${fmt(r*1.0)} req (weighted)</span></div>
-    <div class="comparison-row"><span class="comparison-label">Token bucket peak burst</span><span class="comparison-value">${bucketSize} req (bucket cap)</span></div>
+    <div class="comparison-row"><span class="comparison-label" ti="label_fixed_window_worst_case_b" ti="label_fixed_window_worst_case_b">Fixed window worst-case burst</span><span class="comparison-value">${r*2} req (2x at boundary)</span></div>
+    <div class="comparison-row"><span class="comparison-label" ti="label_sliding_window_worst_case" ti="label_sliding_window_worst_case">Sliding window worst-case</span><span class="comparison-value">${r} req (strict)</span></div>
+    <div class="comparison-row"><span class="comparison-label" ti="label_sliding_counter_accuracy" ti="label_sliding_counter_accuracy">Sliding counter accuracy</span><span class="comparison-value">~${fmt(r*1.0)} req (weighted)</span></div>
+    <div class="comparison-row"><span class="comparison-label" ti="label_token_bucket_peak_burst" ti="label_token_bucket_peak_burst">Token bucket peak burst</span><span class="comparison-value">${bucketSize} req (bucket cap)</span></div>
   `;
 
   // Cost
@@ -724,6 +738,46 @@ function copyHeaders(){
 }
 
 calc();
+</script>
+<script>var _LANG={'title_api_rate_limit_calculator':["API Rate Limit Calculator — Rate Limiting Strategy Tool", "API 速率限制计算器 — 限流策略工具"],'metadesc_calculate_api_rate_limits':["Calculate API rate limits. Token bucket, sliding window algorithms. Implementation code in JS, Python, Go. Cost calculator. GitHub, OpenAI presets.", "计算 API 速率限制。令牌桶、滑动窗口算法。JS、Python、Go 实现代码。成本计算器。GitHub、OpenAI 预设。"],'h1_api_rate_limit_calculator':["API Rate Limit Calculator", "API 速率限制计算器"],'h3_rate_limit_configuration':["Rate Limit Configuration", "速率限制配置"],'h3_common_api_presets':["Common API Presets", "常见 API 预设"],'h3_cost_calculator':["Cost Calculator", "成本计算器"],'h3_rate_calculations':["Rate Calculations", "速率计算"],'h3_algorithm_explanations':["Algorithm Explanations", "算法说明"],'h3_implementation_code':["Implementation Code", "实现代码"],'h3_server_side_response_head':["Server-Side Response Headers", "服务端响应头"],'subtitle_calculate_and_visualize_a':["Calculate and visualize API rate limiting strategies", "计算并可视化 API 速率限制策略"],'btn_github_auth':["GitHub (Auth)", "GitHub (Auth)"],'btn_github_unauth':["GitHub (Unauth)", "GitHub (Unauth)"],'btn_twitter_x':["Twitter/X", "Twitter/X"],'btn_openai_t1':["OpenAI T1", "OpenAI T1"],'btn_openai_t4':["OpenAI T4", "OpenAI T4"],'btn_stripe':["Stripe", "Stripe"],'btn_aws_api_gw':["AWS API GW", "AWS API GW"],'btn_fixed_window':["Fixed Window", "固定窗口"],'btn_sliding_log':["Sliding Log", "滑动日志"],'btn_token_bucket':["Token Bucket", "令牌桶"],'btn_leaky_bucket':["Leaky Bucket", "漏桶"],'btn_sliding_counter':["Sliding Counter", "滑动计数器"],'btn_javascript':["JavaScript", "JavaScript"],'btn_python':["Python", "Python"],'btn_node_js':["Node.js", "Node.js"],'btn_go':["Go", "Go"],'btn_copy_code':["Copy Code", "复制代码"],'btn_copy_headers':["Copy Headers", "复制请求头"],'label_fixed_window_worst_case_b':["Fixed window worst-case burst", "固定窗口最坏突发"],'label_sliding_window_worst_case':["Sliding window worst-case", "滑动窗口最坏情况"],'label_sliding_counter_accuracy':["Sliding counter accuracy", "滑动计数器准确度"],'label_token_bucket_peak_burst':["Token bucket peak burst", "令牌桶峰值突发"],'label_requests_per_window':["Requests per Window", "每窗口请求数"],'label_window_duration':["Window Duration", "窗口持续时间"],'label_unit':["Unit", "单位"],'label_burst_limit_max_concurren':["Burst Limit (max concurrent)", "突发限制（最大并发）"],'label_price_per_request':["Price per Request ($)", "每请求价格（$）"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_api_mock':["API Mock", "API Mock"],'link_curl_builder':["cURL Builder", "cURL 构建器"],'link_http_status':["HTTP Status", "HTTP 状态"],'jtlword_ms':["ms", "毫秒"],'jtlword_tokens':["tokens", "token"],'jtlword_concurrent':["concurrent", "并发"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

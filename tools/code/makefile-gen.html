@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_makefile_generator_build" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,42 +47,68 @@ textarea{font-family:'Fira Code',monospace;resize:vertical}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Makefile Generator</h1>
-<p class="sub">Build Makefiles visually with templates</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_makefile_generator" ti="h1_makefile_generator" ti="h1_makefile_generator">Makefile Generator</h1>
+<p class="sub" ti="subtitle_build_makefiles_visually" ti="subtitle_build_makefiles_visually" ti="subtitle_build_makefiles_visually">Build Makefiles visually with templates</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Variables</h3>
+<h3 ti="h3_variables" ti="h3_variables" ti="h3_variables">Variables</h3>
 <div id="varsList"></div>
-<button class="add-btn" onclick="addVar()">+ Add Variable</button>
+<button class="add-btn" onclick="addVar()" ti="btn_add_variable" ti="btn_add_variable" ti="btn_add_variable">+ Add Variable</button>
 </div>
 
 <div class="section">
-<h3>Options</h3>
-<div class="check-row"><input type="checkbox" id="optPhony" checked onchange="gen()"><label for="optPhony">.PHONY declarations</label></div>
-<div class="check-row"><input type="checkbox" id="optDefault" checked onchange="gen()"><label for="optDefault">.DEFAULT_GOAL</label></div>
-<div class="check-row"><input type="checkbox" id="optHelp" checked onchange="gen()"><label for="optHelp">help target (auto-generated)</label></div>
-<div class="check-row"><input type="checkbox" id="optSilent" onchange="gen()"><label for="optSilent">Silent mode (@prefix)</label></div>
+<h3 ti="h3_options" ti="h3_options" ti="h3_options">Options</h3>
+<div class="check-row"><input type="checkbox" id="optPhony" checked onchange="gen()"><label for="optPhony" ti="label_phony_declarations" ti="label_phony_declarations" ti="label_phony_declarations">.PHONY declarations</label></div>
+<div class="check-row"><input type="checkbox" id="optDefault" checked onchange="gen()"><label for="optDefault" ti="label_default_goal" ti="label_default_goal" ti="label_default_goal">.DEFAULT_GOAL</label></div>
+<div class="check-row"><input type="checkbox" id="optHelp" checked onchange="gen()"><label for="optHelp" ti="label_help_target_auto_generate" ti="label_help_target_auto_generate" ti="label_help_target_auto_generate">help target (auto-generated)</label></div>
+<div class="check-row"><input type="checkbox" id="optSilent" onchange="gen()"><label for="optSilent" ti="label_silent_mode_prefix" ti="label_silent_mode_prefix" ti="label_silent_mode_prefix">Silent mode (@prefix)</label></div>
 </div>
 
 <div class="section">
-<h3>Targets</h3>
+<h3 ti="h3_targets" ti="h3_targets" ti="h3_targets">Targets</h3>
 <div id="targetsList"></div>
-<button class="add-btn" onclick="addTarget()">+ Add Target</button>
+<button class="add-btn" onclick="addTarget()" ti="btn_add_target" ti="btn_add_target" ti="btn_add_target">+ Add Target</button>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/">GH Actions Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">.gitignore Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/" ti="link_dockerfile_gen" ti="link_dockerfile_gen" ti="link_dockerfile_gen">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen">GH Actions Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen" ti="link_gitignore_gen" ti="link_gitignore_gen">.gitignore Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_makefile_generator_build':["Makefile Generator — Build Makefiles Visually", "Makefile 生成器 — 以可视化方式构建 Makefile"],'metadesc_generate_makefiles_visual':["Generate Makefiles visually. C/C++, Go, Python, Docker, LaTeX templates. Custom targets, variables, dependencies. No signup.", "以可视化方式生成 Makefile。支持 C/C++、Go、Python、Docker 和 LaTeX 模板。可自定义目标、变量和依赖项。无需注册。"],'h1_makefile_generator':["Makefile Generator", "Makefile 生成器"],'h3_variables':["Variables", "变量"],'h3_options':["Options", "选项"],'h3_targets':["Targets", "目标"],'subtitle_build_makefiles_visually':["Build Makefiles visually with templates", "使用模板以可视化方式构建 Makefile"],'btn_add_variable':["+ Add Variable", "+ 添加变量"],'btn_add_target':["+ Add Target", "+ 添加目标"],'btn_copy':["Copy", "复制"],'placeholder_var_name':["VAR_NAME", "变量名"],'placeholder_value':["value", "价值"],'placeholder_dep1_dep2':["dep1 dep2", "依赖1 依赖2"],'placeholder_help_text':["## help text", "## 帮助文本"],'label_phony_declarations':[".PHONY declarations", "虚假声明"],'label_default_goal':[".DEFAULT_GOAL", ".DEFAULT_GOAL"],'label_help_target_auto_generate':["help target (auto-generated)", "帮助目标（自动生成）"],'label_silent_mode_prefix':["Silent mode (@prefix)", "静默模式（@前缀）"],'label_target':["Target", "目标"],'label_dependencies':["Dependencies", "依赖关系"],'label_description':["Description", "描述"],'label_commands_one_per_line':["Commands (one per line)", "命令（每行一条）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'jtlword_target':["Target", "目标"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_description':["Description", "描述"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_makefile_generator_build':["Makefile Generator — Build Makefiles Visually", "Makefile 生成器 — 以可视化方式构建 Makefile"],'metadesc_generate_makefiles_visual':["Generate Makefiles visually. C/C++, Go, Python, Docker, LaTeX templates. Custom targets, variables, dependencies. No signup.", "以可视化方式生成 Makefile。支持 C/C++、Go、Python、Docker 和 LaTeX 模板。可自定义目标、变量和依赖项。无需注册。"],'h1_makefile_generator':["Makefile Generator", "Makefile 生成器"],'h3_variables':["Variables", "变量"],'h3_options':["Options", "选项"],'h3_targets':["Targets", "目标"],'subtitle_build_makefiles_visually':["Build Makefiles visually with templates", "使用模板以可视化方式构建 Makefile"],'btn_add_variable':["+ Add Variable", "+ 添加变量"],'btn_add_target':["+ Add Target", "+ 添加目标"],'btn_copy':["Copy", "复制"],'placeholder_var_name':["VAR_NAME", "变量名"],'placeholder_value':["value", "价值"],'placeholder_dep1_dep2':["dep1 dep2", "依赖1 依赖2"],'placeholder_help_text':["## help text", "## 帮助文本"],'label_phony_declarations':[".PHONY declarations", "虚假声明"],'label_default_goal':[".DEFAULT_GOAL", ".DEFAULT_GOAL"],'label_help_target_auto_generate':["help target (auto-generated)", "帮助目标（自动生成）"],'label_silent_mode_prefix':["Silent mode (@prefix)", "静默模式（@前缀）"],'label_target':["Target", "目标"],'label_dependencies':["Dependencies", "依赖关系"],'label_description':["Description", "描述"],'label_commands_one_per_line':["Commands (one per line)", "命令（每行一条）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'jtlword_target':["Target", "目标"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_description':["Description", "描述"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TEMPLATES = {
   'C/C++': {
@@ -214,8 +240,8 @@ function renderVars(){
   vars.forEach((v,i)=>{
     const d=document.createElement('div');
     d.className='row';
-    d.innerHTML=`<div class="col" style="max-width:180px"><input value="${esc(v.k)}" onchange="vars[${i}].k=this.value;gen()" placeholder="VAR_NAME"></div>
-    <div class="col"><input value="${esc(v.v)}" onchange="vars[${i}].v=this.value;gen()" placeholder="value"></div>
+    d.innerHTML=`<div class="col" style="max-width:180px"><input value="${esc(v.k)}" onchange="vars[${i}].k=this.value;gen()" tp="placeholder_var_name" tp="placeholder_var_name" tp="placeholder_var_name" placeholder="VAR_NAME"></div>
+    <div class="col"><input value="${esc(v.v)}" onchange="vars[${i}].v=this.value;gen()" tp="placeholder_value" tp="placeholder_value" tp="placeholder_value" placeholder="value"></div>
     <div style="padding-top:2px"><span style="color:#666;cursor:pointer;font-size:0.8rem" onclick="removeVar(${i})">✕</span></div>`;
     c.appendChild(d);
   });
@@ -227,11 +253,11 @@ function renderTargets(){
     const d=document.createElement('div');d.className='target-item';
     d.innerHTML=`<span class="remove" onclick="removeTarget(${i})">✕</span>
     <div class="row">
-      <div class="col" style="max-width:160px"><label>Target</label><input value="${esc(t.name)}" onchange="targets[${i}].name=this.value;gen()"></div>
-      <div class="col" style="max-width:180px"><label>Dependencies</label><input value="${esc(t.deps)}" onchange="targets[${i}].deps=this.value;gen()" placeholder="dep1 dep2"></div>
-      <div class="col"><label>Description</label><input value="${esc(t.desc)}" onchange="targets[${i}].desc=this.value;gen()" placeholder="## help text"></div>
+      <div class="col" style="max-width:160px"><label ti="label_target" ti="label_target" ti="label_target">Target</label><input value="${esc(t.name)}" onchange="targets[${i}].name=this.value;gen()"></div>
+      <div class="col" style="max-width:180px"><label ti="label_dependencies" ti="label_dependencies" ti="label_dependencies">Dependencies</label><input value="${esc(t.deps)}" onchange="targets[${i}].deps=this.value;gen()" tp="placeholder_dep1_dep2" tp="placeholder_dep1_dep2" tp="placeholder_dep1_dep2" placeholder="dep1 dep2"></div>
+      <div class="col"><label ti="label_description" ti="label_description" ti="label_description">Description</label><input value="${esc(t.desc)}" onchange="targets[${i}].desc=this.value;gen()" tp="placeholder_help_text" tp="placeholder_help_text" tp="placeholder_help_text" placeholder="## help text"></div>
     </div>
-    <label>Commands (one per line)</label>
+    <label ti="label_commands_one_per_line" ti="label_commands_one_per_line" ti="label_commands_one_per_line">Commands (one per line)</label>
     <textarea rows="2" onchange="targets[${i}].cmds=this.value;gen()">${esc(t.cmds)}</textarea>`;
     c.appendChild(d);
   });
@@ -291,6 +317,60 @@ function copyOut(){
 
 initPresets();
 loadPreset('C/C++');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

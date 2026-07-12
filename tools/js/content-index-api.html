@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_content_index_api_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -356,13 +356,21 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Content Index API Playground</h1>
+  <h1 ti="title_content_index_api_playgro" ti="h1_content_index_api_playgro" ti="title_content_index_api_playgro" ti="h1_content_index_api_playgro" ti="title_content_index_api_playgro" ti="h1_content_index_api_playgro" ti="title_content_index_api_playgro" ti="h1_content_index_api_playgro">Content Index API Playground</h1>
   <p>Manage offline-available content listings for your Progressive Web App</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Support Detection -->
   <div id="supportBanner" class="support-banner"></div>
 
@@ -383,18 +391,18 @@
       </p>
 
       <div class="form-group">
-        <label>Content ID (unique)</label>
-        <input type="text" id="contentId" placeholder="e.g. article-123" value="">
+        <label ti="label_content_id_unique" ti="label_content_id_unique" ti="label_content_id_unique" ti="label_content_id_unique">Content ID (unique)</label>
+        <input type="text" id="contentId" tp="placeholder_e_g_article_123" tp="placeholder_e_g_article_123" tp="placeholder_e_g_article_123" tp="placeholder_e_g_article_123" placeholder="e.g. article-123" value="">
       </div>
 
       <div class="form-group">
-        <label>Title</label>
-        <input type="text" id="contentTitle" placeholder="e.g. Getting Started with PWAs">
+        <label ti="label_title" ti="label_title" ti="label_title" ti="label_title">Title</label>
+        <input type="text" id="contentTitle" tp="placeholder_e_g_getting_started_with" tp="placeholder_e_g_getting_started_with" tp="placeholder_e_g_getting_started_with" tp="placeholder_e_g_getting_started_with" placeholder="e.g. Getting Started with PWAs">
       </div>
 
       <div class="form-group">
         <label>Description</label>
-        <textarea id="contentDesc" placeholder="Brief description of the content..."></textarea>
+        <textarea id="contentDesc" tp="placeholder_brief_description_of_the" tp="placeholder_brief_description_of_the" tp="placeholder_brief_description_of_the" tp="placeholder_brief_description_of_the" placeholder="Brief description of the content..."></textarea>
       </div>
 
       <div class="form-row">
@@ -408,28 +416,28 @@
           </select>
         </div>
         <div class="form-group">
-          <label>URL</label>
-          <input type="text" id="contentUrl" placeholder="/articles/getting-started">
+          <label ti="label_url" ti="label_url" ti="label_url" ti="label_url">URL</label>
+          <input type="text" id="contentUrl" tp="placeholder_articles_getting_started" tp="placeholder_articles_getting_started" tp="placeholder_articles_getting_started" tp="placeholder_articles_getting_started" placeholder="/articles/getting-started">
         </div>
       </div>
 
       <!-- Icons -->
       <div class="form-group">
-        <label>Icons (optional)</label>
+        <label ti="label_icons_optional" ti="label_icons_optional" ti="label_icons_optional" ti="label_icons_optional">Icons (optional)</label>
         <div class="icon-builder" id="iconBuilder">
           <div class="icon-entry">
-            <input type="text" placeholder="src URL" data-field="src">
-            <input type="text" placeholder="sizes (e.g. 192x192)" data-field="sizes" style="max-width:120px;">
-            <input type="text" placeholder="type (e.g. image/png)" data-field="type" style="max-width:120px;">
+            <input type="text" tp="placeholder_src_url" tp="placeholder_src_url_2" tp="placeholder_src_url" tp="placeholder_src_url_2" tp="placeholder_src_url" tp="placeholder_src_url_2" tp="placeholder_src_url" tp="placeholder_src_url_2" placeholder="src URL" data-field="src">
+            <input type="text" tp="placeholder_sizes_e_g_192x192" tp="placeholder_sizes_e_g_192x192" tp="placeholder_sizes_e_g_192x192" tp="placeholder_sizes_e_g_192x192" placeholder="sizes (e.g. 192x192)" data-field="sizes" style="max-width:120px;">
+            <input type="text" tp="placeholder_type_e_g_image_png" tp="placeholder_type_e_g_image_png" tp="placeholder_type_e_g_image_png" tp="placeholder_type_e_g_image_png" placeholder="type (e.g. image/png)" data-field="type" style="max-width:120px;">
             <button onclick="removeIcon(this)">&times;</button>
           </div>
         </div>
-        <button class="btn btn-sm btn-secondary" onclick="addIconEntry()" style="margin-top:0.5rem;">+ Add Icon</button>
+        <button class="btn btn-sm btn-secondary" onclick="addIconEntry()" style="margin-top:0.5rem;" ti="btn_add_icon" ti="btn_add_icon" ti="btn_add_icon" ti="btn_add_icon">+ Add Icon</button>
       </div>
 
       <div style="display:flex;gap:0.5rem;">
-        <button class="btn" onclick="addContent()">Add to Index</button>
-        <button class="btn btn-secondary" onclick="fillSample()">Fill Sample</button>
+        <button class="btn" onclick="addContent()" ti="btn_add_to_index" ti="btn_add_to_index" ti="btn_add_to_index" ti="btn_add_to_index">Add to Index</button>
+        <button class="btn btn-secondary" onclick="fillSample()" ti="btn_fill_sample" ti="btn_fill_sample" ti="btn_fill_sample" ti="btn_fill_sample">Fill Sample</button>
       </div>
 
       <div id="addCodePreview" class="code-block" style="display:none;margin-top:1rem;"></div>
@@ -439,8 +447,8 @@
     <div class="card">
       <h2>&#x1F4CB; Indexed Content</h2>
       <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
-        <button class="btn btn-sm" onclick="refreshList()">Refresh (getAll)</button>
-        <button class="btn btn-sm btn-danger" onclick="deleteAll()">Delete All</button>
+        <button class="btn btn-sm" onclick="refreshList()" ti="btn_refresh_getall" ti="btn_refresh_getall" ti="btn_refresh_getall" ti="btn_refresh_getall">Refresh (getAll)</button>
+        <button class="btn btn-sm btn-danger" onclick="deleteAll()" ti="btn_delete_all" ti="btn_delete_all" ti="btn_delete_all" ti="btn_delete_all">Delete All</button>
       </div>
       <div id="contentList" class="content-list">
         <div class="empty-state">No content indexed yet. Add some content using the form.</div>
@@ -470,7 +478,7 @@
     <div class="card">
       <h2>&#x1F3F7;&#xFE0F; Category Types</h2>
       <table>
-        <thead><tr><th>Category</th><th>Description</th><th>Use Case</th></tr></thead>
+        <thead><tr><th ti="th_category" ti="label_category" ti="th_category" ti="label_category" ti="th_category" ti="label_category" ti="th_category" ti="label_category">Category</th><th ti="th_description" ti="label_description" ti="th_description" ti="label_description" ti="th_description" ti="label_description" ti="th_description" ti="label_description">Description</th><th ti="th_use_case" ti="th_use_case" ti="th_use_case" ti="th_use_case">Use Case</th></tr></thead>
         <tbody>
           <tr><td><span class="content-item-category cat-article">article</span></td><td>Text-based content</td><td>Blog posts, news articles, tutorials</td></tr>
           <tr><td><span class="content-item-category cat-homepage">homepage</span></td><td>Landing/start pages</td><td>App homepage, section landing pages</td></tr>
@@ -480,7 +488,7 @@
       </table>
 
       <div style="margin-top:1rem;font-size:0.83rem;color:var(--text-dim);">
-        <strong>Icon Requirements:</strong>
+        <strong ti="strong_icon_requirements" ti="strong_icon_requirements" ti="strong_icon_requirements" ti="strong_icon_requirements">Icon Requirements:</strong>
         <ul style="padding-left:1.5rem;margin-top:0.5rem;">
           <li>At least one icon with <code>sizes</code> and <code>type</code></li>
           <li>Recommended: 192x192 and 512x512 PNG</li>
@@ -566,13 +574,43 @@ entries.forEach(e => console.log(e.id, e.title));
   <!-- Event Log -->
   <div class="card">
     <h2>&#x1F4DC; Event Log</h2>
-    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;">Clear</button>
-    <div id="eventLog" class="log-area">
+    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
+    <div id="eventLog" c
+
+<script>var _LANG={'title_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Content Index API - manage offline-available content in your PWA.", "内容索引 API 的交互式游乐场 - 在您的 PWA 中管理离线可用内容。"],'h1_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'h2_add_content_to_index':["➕ Add Content to Index", "➕ 将内容添加到索引"],'h2_indexed_content':["📋 Indexed Content", "📋 已索引内容"],'h2_offline_content_browser':["📱 Offline Content Browser Preview", "📱 离线内容浏览器预览"],'h2_category_types':["🏷️ Category Types", "🏷️ 类别类型"],'h2_service_worker_integrati':["⚙️ Service Worker Integration", "⚙️ Service Worker 集成"],'h2_api_quick_reference':["📖 API Quick Reference", "📖 API 快速参考"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_add_icon':["+ Add Icon", "+ 添加图标"],'btn_add_to_index':["Add to Index", "添加到索引"],'btn_fill_sample':["Fill Sample", "填充样品"],'btn_refresh_getall':["Refresh (getAll)", "刷新（获取全部）"],'btn_delete_all':["Delete All", "全部删除"],'btn_clear':["Clear", "清除"],'btn_delete':["Delete", "删除"],'placeholder_e_g_article_123':["e.g. article-123", "例如第123条"],'placeholder_e_g_getting_started_with':["e.g. Getting Started with PWAs", "例如：PWA入门"],'placeholder_brief_description_of_the':["Brief description of the content...", "内容简介……"],'placeholder_articles_getting_started':["/articles/getting-started", "/articles/getting-started"],'placeholder_src_url':["src URL", "源 URL"],'placeholder_sizes_e_g_192x192':["sizes (e.g. 192x192)", "尺寸（例如 192x192）"],'placeholder_type_e_g_image_png':["type (e.g. image/png)", "类型（例如 image/png）"],'placeholder_src_url_2':["src URL", "源 URL"],'placeholder_sizes':["sizes", "尺寸"],'placeholder_type':["type", "类型"],'strong_icon_requirements':["Icon Requirements:", "图标要求："],'th_category':["Category", "类别"],'th_description':["Description", "描述"],'th_use_case':["Use Case", "用例"],'label_content_id_unique':["Content ID (unique)", "内容 ID（唯一）"],'label_title':["Title", "标题"],'label_description':["Description", "描述"],'label_category':["Category", "类别"],'label_url':["URL", "URL"],'label_icons_optional':["Icons (optional)", "图标（可选）"],'jtlword_await':["await", "等待"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Content Index API - manage offline-available content in your PWA.", "内容索引 API 的交互式游乐场 - 在您的 PWA 中管理离线可用内容。"],'h1_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'h2_add_content_to_index':["➕ Add Content to Index", "➕ 将内容添加到索引"],'h2_indexed_content':["📋 Indexed Content", "📋 已索引内容"],'h2_offline_content_browser':["📱 Offline Content Browser Preview", "📱 离线内容浏览器预览"],'h2_category_types':["🏷️ Category Types", "🏷️ 类别类型"],'h2_service_worker_integrati':["⚙️ Service Worker Integration", "⚙️ Service Worker 集成"],'h2_api_quick_reference':["📖 API Quick Reference", "📖 API 快速参考"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_add_icon':["+ Add Icon", "+ 添加图标"],'btn_add_to_index':["Add to Index", "添加到索引"],'btn_fill_sample':["Fill Sample", "填充样品"],'btn_refresh_getall':["Refresh (getAll)", "刷新（获取全部）"],'btn_delete_all':["Delete All", "全部删除"],'btn_clear':["Clear", "清除"],'btn_delete':["Delete", "删除"],'placeholder_e_g_article_123':["e.g. article-123", "例如第123条"],'placeholder_e_g_getting_started_with':["e.g. Getting Started with PWAs", "例如：PWA入门"],'placeholder_brief_description_of_the':["Brief description of the content...", "内容简介……"],'placeholder_articles_getting_started':["/articles/getting-started", "/articles/getting-started"],'placeholder_src_url':["src URL", "源 URL"],'placeholder_sizes_e_g_192x192':["sizes (e.g. 192x192)", "尺寸（例如 192x192）"],'placeholder_type_e_g_image_png':["type (e.g. image/png)", "类型（例如 image/png）"],'placeholder_src_url_2':["src URL", "源 URL"],'placeholder_sizes':["sizes", "尺寸"],'placeholder_type':["type", "类型"],'strong_icon_requirements':["Icon Requirements:", "图标要求："],'th_category':["Category", "类别"],'th_description':["Description", "描述"],'th_use_case':["Use Case", "用例"],'label_content_id_unique':["Content ID (unique)", "内容 ID（唯一）"],'label_title':["Title", "标题"],'label_description':["Description", "描述"],'label_category':["Category", "类别"],'label_url':["URL", "URL"],'label_icons_optional':["Icons (optional)", "图标（可选）"],'jtlword_await':["await", "等待"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+lass="log-area">
       <div class="log-entry info"><span class="time">[--:--:--]</span> <span class="msg">Playground initialized.</span></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Content Index API - manage offline-available content in your PWA.", "内容索引 API 的交互式游乐场 - 在您的 PWA 中管理离线可用内容。"],'h1_content_index_api_playgro':["Content Index API Playground", "内容索引 API 演示区"],'h2_add_content_to_index':["➕ Add Content to Index", "➕ 将内容添加到索引"],'h2_indexed_content':["📋 Indexed Content", "📋 已索引内容"],'h2_offline_content_browser':["📱 Offline Content Browser Preview", "📱 离线内容浏览器预览"],'h2_category_types':["🏷️ Category Types", "🏷️ 类别类型"],'h2_service_worker_integrati':["⚙️ Service Worker Integration", "⚙️ Service Worker 集成"],'h2_api_quick_reference':["📖 API Quick Reference", "📖 API 快速参考"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_add_icon':["+ Add Icon", "+ 添加图标"],'btn_add_to_index':["Add to Index", "添加到索引"],'btn_fill_sample':["Fill Sample", "填充样品"],'btn_refresh_getall':["Refresh (getAll)", "刷新（获取全部）"],'btn_delete_all':["Delete All", "全部删除"],'btn_clear':["Clear", "清除"],'btn_delete':["Delete", "删除"],'placeholder_e_g_article_123':["e.g. article-123", "例如第123条"],'placeholder_e_g_getting_started_with':["e.g. Getting Started with PWAs", "例如：PWA入门"],'placeholder_brief_description_of_the':["Brief description of the content...", "内容简介……"],'placeholder_articles_getting_started':["/articles/getting-started", "/articles/getting-started"],'placeholder_src_url':["src URL", "源 URL"],'placeholder_sizes_e_g_192x192':["sizes (e.g. 192x192)", "尺寸（例如 192x192）"],'placeholder_type_e_g_image_png':["type (e.g. image/png)", "类型（例如 image/png）"],'placeholder_src_url_2':["src URL", "源 URL"],'placeholder_sizes':["sizes", "尺寸"],'placeholder_type':["type", "类型"],'strong_icon_requirements':["Icon Requirements:", "图标要求："],'th_category':["Category", "类别"],'th_description':["Description", "描述"],'th_use_case':["Use Case", "用例"],'label_content_id_unique':["Content ID (unique)", "内容 ID（唯一）"],'label_title':["Title", "标题"],'label_description':["Description", "描述"],'label_category':["Category", "类别"],'label_url':["URL", "URL"],'label_icons_optional':["Icons (optional)", "图标（可选）"],'jtlword_await':["await", "等待"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   /* ===== State ===== */
   const indexedContent = new Map();
@@ -639,8 +677,8 @@ entries.forEach(e => console.log(e.id, e.title));
     entry.className = 'icon-entry';
     entry.innerHTML = `
       <input type="text" placeholder="src URL" data-field="src">
-      <input type="text" placeholder="sizes" data-field="sizes" style="max-width:120px;">
-      <input type="text" placeholder="type" data-field="type" style="max-width:120px;">
+      <input type="text" tp="placeholder_sizes" tp="placeholder_sizes" tp="placeholder_sizes" tp="placeholder_sizes" placeholder="sizes" data-field="sizes" style="max-width:120px;">
+      <input type="text" tp="placeholder_type" tp="placeholder_type" tp="placeholder_type" tp="placeholder_type" placeholder="type" data-field="type" style="max-width:120px;">
       <button onclick="removeIcon(this)">&times;</button>
     `;
     builder.appendChild(entry);
@@ -802,7 +840,7 @@ entries.forEach(e => console.log(e.id, e.title));
         </div>
         ${entry.icons && entry.icons.length ? `<div class="icon-preview">${entry.icons.map(i => `<span class="icon-preview-item">${esc(i.src)} ${i.sizes || ''}</span>`).join('')}</div>` : ''}
         <div class="content-item-actions">
-          <button class="btn btn-sm btn-danger" onclick="deleteContent('${esc(id)}')">Delete</button>
+          <button class="btn btn-sm btn-danger" onclick="deleteContent('${esc(id)}')" ti="btn_delete" ti="btn_delete" ti="btn_delete" ti="btn_delete">Delete</button>
         </div>
       </div>`;
     });
@@ -841,6 +879,78 @@ entries.forEach(e => console.log(e.id, e.title));
 
   /* ===== Init ===== */
   updateUI();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

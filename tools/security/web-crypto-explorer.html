@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_crypto_api_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,11 +48,13 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>Web Crypto API Explorer</h1>
+<h1 ti="title_web_crypto_api_explorer" ti="h1_web_crypto_api_explorer">Web Crypto API Explorer</h1>
 <p>Generate keys, encrypt, decrypt, hash, sign and verify — all in your browser using the native Web Crypto API</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="tabs">
 <div class="tab active" data-tab="hash">Hash</div>
 <div class="tab" data-tab="encrypt">Encrypt / Decrypt</div>
@@ -65,7 +67,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="tab-hash" class="tab-content">
 <div class="info-box">Hash functions produce a fixed-size digest from arbitrary input. They are one-way — you cannot reverse a hash to get the original data.</div>
 <div class="form-group">
-<label>Algorithm</label>
+<label ti="label_algorithm" ti="label_algorithm_2" ti="label_algorithm_3" ti="label_algorithm_4">Algorithm</label>
 <select id="hashAlgo">
 <option value="SHA-256">SHA-256 (most common)</option>
 <option value="SHA-384">SHA-384</option>
@@ -74,17 +76,17 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group">
-<label>Input Text</label>
-<textarea id="hashInput" placeholder="Enter text to hash...">Hello, Web Crypto API!</textarea>
+<label ti="label_input_text">Input Text</label>
+<textarea id="hashInput" tp="placeholder_enter_text_to_hash" placeholder="Enter text to hash...">Hello, Web Crypto API!</textarea>
 </div>
 <div class="form-group">
-<label>Encoding</label>
+<label ti="label_encoding">Encoding</label>
 <select id="hashEncoding">
 <option value="hex">Hex</option>
 <option value="base64">Base64</option>
 </select>
 </div>
-<button class="btn primary" onclick="computeHash()">Compute Hash</button>
+<button class="btn primary" onclick="computeHash()" ti="btn_compute_hash">Compute Hash</button>
 <div class="result-label" style="margin-top:1rem">Result:</div>
 <div class="result-box" id="hashResult">Click "Compute Hash" to see the result</div>
 <div style="margin-top:.5rem;font-size:.72rem;color:#555" id="hashMeta"></div>
@@ -103,7 +105,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group">
-<label>Key Length</label>
+<label ti="label_key_length">Key Length</label>
 <select id="encKeyLen">
 <option value="256">256-bit (strongest)</option>
 <option value="128">128-bit</option>
@@ -112,13 +114,13 @@ footer a{color:#00d4ff;text-decoration:none}
 </div>
 </div>
 <div class="form-group">
-<label>Plaintext</label>
-<textarea id="encPlaintext" placeholder="Enter text to encrypt...">Secret message 🔐</textarea>
+<label ti="label_plaintext">Plaintext</label>
+<textarea id="encPlaintext" tp="placeholder_enter_text_to_encrypt" placeholder="Enter text to encrypt...">Secret message 🔐</textarea>
 </div>
 <div class="btn-group">
-<button class="btn primary" onclick="generateEncKey()">1. Generate Key</button>
-<button class="btn success" onclick="encryptData()">2. Encrypt</button>
-<button class="btn danger" onclick="decryptData()">3. Decrypt</button>
+<button class="btn primary" onclick="generateEncKey()" ti="btn_1_generate_key">1. Generate Key</button>
+<button class="btn success" onclick="encryptData()" ti="btn_2_encrypt">2. Encrypt</button>
+<button class="btn danger" onclick="decryptData()" ti="btn_3_decrypt">3. Decrypt</button>
 </div>
 <div class="result-label" style="margin-top:1rem">Key (JWK):</div>
 <div class="key-display" id="encKeyDisplay">Generate a key first</div>
@@ -142,7 +144,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group" id="sigCurveGroup">
-<label>Curve</label>
+<label ti="label_curve">Curve</label>
 <select id="sigCurve">
 <option value="P-256">P-256 (most common)</option>
 <option value="P-384">P-384</option>
@@ -150,14 +152,14 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group">
-<label>Message</label>
-<textarea id="sigMessage" placeholder="Enter message to sign...">This message is authentic.</textarea>
+<label ti="label_message">Message</label>
+<textarea id="sigMessage" tp="placeholder_enter_message_to_sign" placeholder="Enter message to sign...">This message is authentic.</textarea>
 </div>
 <div class="btn-group">
-<button class="btn primary" onclick="generateSigKey()">1. Generate Key Pair</button>
-<button class="btn success" onclick="signData()">2. Sign</button>
-<button class="btn" onclick="verifySignature()">3. Verify</button>
-<button class="btn danger" onclick="tamperAndVerify()">4. Tamper & Verify</button>
+<button class="btn primary" onclick="generateSigKey()" ti="btn_1_generate_key_pair">1. Generate Key Pair</button>
+<button class="btn success" onclick="signData()" ti="btn_2_sign">2. Sign</button>
+<button class="btn" onclick="verifySignature()" ti="btn_3_verify">3. Verify</button>
+<button class="btn danger" onclick="tamperAndVerify()" ti="btn_4_tamper_verify">4. Tamper & Verify</button>
 </div>
 <div class="result-label" style="margin-top:1rem">Public Key:</div>
 <div class="key-display" id="sigPubKey">Generate keys first</div>
@@ -183,7 +185,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group" id="keygenLenGroup">
-<label>Key Length / Curve</label>
+<label ti="label_key_length_curve">Key Length / Curve</label>
 <select id="keygenParam">
 <option value="256">256-bit</option>
 <option value="128">128-bit</option>
@@ -192,13 +194,13 @@ footer a{color:#00d4ff;text-decoration:none}
 </div>
 </div>
 <div class="form-group">
-<label>Extractable</label>
+<label ti="label_extractable">Extractable</label>
 <select id="keygenExtractable">
 <option value="true">Yes (can export)</option>
 <option value="false">No (locked in browser)</option>
 </select>
 </div>
-<button class="btn primary" onclick="generateArbitraryKey()">Generate Key</button>
+<button class="btn primary" onclick="generateArbitraryKey()" ti="btn_generate_key">Generate Key</button>
 <div class="result-label" style="margin-top:1rem">Generated Key (JWK):</div>
 <div class="key-display" id="keygenResult">Click Generate to create a key</div>
 <div style="margin-top:.5rem;font-size:.72rem;color:#555" id="keygenMeta"></div>
@@ -209,7 +211,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div class="info-box"><code>crypto.getRandomValues()</code> generates cryptographically strong random values. Unlike <code>Math.random()</code>, these are suitable for security-sensitive operations.</div>
 <div class="form-row">
 <div class="form-group">
-<label>Type</label>
+<label ti="label_type">Type</label>
 <select id="randType">
 <option value="Uint8Array">Uint8Array (bytes)</option>
 <option value="Uint16Array">Uint16Array</option>
@@ -218,12 +220,12 @@ footer a{color:#00d4ff;text-decoration:none}
 </select>
 </div>
 <div class="form-group">
-<label>Count</label>
+<label ti="label_count">Count</label>
 <input type="number" id="randCount" value="16" min="1" max="256">
 </div>
 </div>
 <div class="form-group">
-<label>Output Format</label>
+<label ti="label_output_format">Output Format</label>
 <select id="randFormat">
 <option value="hex">Hex</option>
 <option value="decimal">Decimal array</option>
@@ -231,15 +233,25 @@ footer a{color:#00d4ff;text-decoration:none}
 <option value="uuid">UUID v4 (ignores count)</option>
 </select>
 </div>
-<button class="btn primary" onclick="generateRandom()">Generate</button>
+<button class="btn primary" onclick="generateRandom()" ti="btn_generate">Generate</button>
 <div class="result-label" style="margin-top:1rem">Result:</div>
 <div class="result-box" id="randResult">Click Generate</div>
 <div class="result-label" style="margin-top:.8rem">Comparison: Math.random():</div>
 <div class="result-box" id="randMathResult" style="color:#888">—</div>
 </div>
 </div>
-<footer>Web Crypto API Explorer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> · All operations run locally in your browser</footer>
+<footer>Web Crypto API Explorer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> · All operations run locally in your browser</footer>
 
+
+<script>var _LANG={'title_web_crypto_api_explorer':["Web Crypto API Explorer", "Web Crypto API Explorer"],'metadesc_interactive_web_crypto_ap':["Interactive Web Crypto API explorer — generate keys, encrypt, decrypt, hash, sign and verify data directly in the browser with no server required", "交互式 Web 加密 API 浏览器 — 无需服务器，即可直接在浏览器中生成密钥、加密、解密、哈希、签名和验证数据"],'h1_web_crypto_api_explorer':["Web Crypto API Explorer", "Web Crypto API Explorer"],'btn_compute_hash':["Compute Hash", "计算哈希"],'btn_1_generate_key':["1. Generate Key", "1. 生成密钥"],'btn_2_encrypt':["2. Encrypt", "2. 加密"],'btn_3_decrypt':["3. Decrypt", "3. 解密"],'btn_1_generate_key_pair':["1. Generate Key Pair", "1. 生成密钥对"],'btn_2_sign':["2. Sign", "2. 标志"],'btn_3_verify':["3. Verify", "3. 核实"],'btn_4_tamper_verify':["4. Tamper & Verify", "4. 篡改与验证"],'btn_generate_key':["Generate Key", "生成密钥"],'btn_generate':["Generate", "产生"],'placeholder_enter_text_to_hash':["Enter text to hash...", "输入要进行哈希处理的文本..."],'placeholder_enter_text_to_encrypt':["Enter text to encrypt...", "请输入要加密的文本..."],'placeholder_enter_message_to_sign':["Enter message to sign...", "请输入要签名的信息……"],'label_algorithm':["Algorithm", "算法"],'label_input_text':["Input Text", "输入文本"],'label_encoding':["Encoding", "编码"],'label_algorithm_2':["Algorithm", "算法"],'label_key_length':["Key Length", "关键长度"],'label_plaintext':["Plaintext", "纯文本"],'label_algorithm_3':["Algorithm", "算法"],'label_curve':["Curve", "曲线"],'label_message':["Message", "信息"],'label_algorithm_4':["Algorithm", "算法"],'label_key_length_curve':["Key Length / Curve", "键长/曲线"],'label_extractable':["Extractable", "可萃取物"],'label_type':["Type", "类型"],'label_count':["Count", "数数"],'label_output_format':["Output Format", "输出格式"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_error':["Error:", "错误："],'jtc_error_2':["Error:", "错误："],'jtc_error_3':["Error:", "错误："],'jtc_error_4':["Error:", "错误："],'jtc_error_5':["Error:", "错误："],'jtc_error_6':["Error:", "错误："],'jtc_error_7':["Error:", "错误："],'jtc_error_8':["Error:", "错误："],'jtc_error_9':["Error:", "错误："],'jtc_math_random_cannot_genera':["Math.random() cannot generate cryptographically secure UUIDs", "Math.random() 无法生成加密安全的 UUID"],'jtcpre_error':["Error: ", "错误："],'jtcpre_error_2':["Error: ", "错误："],'jtcpre_error_3':["Error: ", "错误："],'jtcpre_error_4':["Error: ", "错误："],'jtcpre_error_5':["Error: ", "错误："],'jtcpre_error_6':["Error: ", "错误："],'jtcpre_error_7':["Error: ", "错误："],'jtcpre_error_8':["Error: ", "错误："],'jtcpre_error_9':["Error: ", "错误："],'jalert_generate_a_key_first':["Generate a key first!", "请先生成密钥！"],'jalert_encrypt_data_first':["Encrypt data first!", "先加密数据！"],'jalert_generate_keys_first':["Generate keys first!", "请先生成密钥！"],'jalert_sign_data_first':["Sign data first!", "先签署数据！"],'jalert_sign_data_first_2':["Sign data first!", "先签署数据！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(t => {
@@ -278,7 +290,7 @@ async function computeHash() {
     meta.textContent = `${algo} · ${new Uint8Array(digest).length * 8} bits · ${(t1 - t0).toFixed(2)}ms · ${input.length} chars input`;
   } catch (e) {
     el.className = 'result-box error';
-    el.textContent = 'Error: ' + e.message;
+    el.textContent=T("jtcpre_error")+ e.message;
   }
 }
 
@@ -295,12 +307,12 @@ async function generateEncKey() {
     const jwk = await crypto.subtle.exportKey('jwk', encKey);
     document.getElementById('encKeyDisplay').textContent = JSON.stringify(jwk, null, 2);
   } catch (e) {
-    document.getElementById('encKeyDisplay').textContent = 'Error: ' + e.message;
+    document.getElementById('encKeyDisplay').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
 async function encryptData() {
-  if (!encKey) { alert('Generate a key first!'); return; }
+  if (!encKey) { T("jalert_generate_a_key_first"); return; }
   const algo = document.getElementById('encAlgo').value;
   const plaintext = document.getElementById('encPlaintext').value;
   try {
@@ -316,12 +328,12 @@ async function encryptData() {
     document.getElementById('encDecrypted').textContent = '—';
   } catch (e) {
     document.getElementById('encCiphertext').className = 'result-box error';
-    document.getElementById('encCiphertext').textContent = 'Error: ' + e.message;
+    document.getElementById('encCiphertext').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
 async function decryptData() {
-  if (!encKey || !encCiphertextBytes) { alert('Encrypt data first!'); return; }
+  if (!encKey || !encCiphertextBytes) { T("jalert_encrypt_data_first"); return; }
   const algo = document.getElementById('encAlgo').value;
   try {
     const params = algo === 'AES-GCM' ? { name: algo, iv: encIvBytes }
@@ -333,7 +345,7 @@ async function decryptData() {
     document.getElementById('encDecrypted').className = 'result-box success';
   } catch (e) {
     document.getElementById('encDecrypted').className = 'result-box error';
-    document.getElementById('encDecrypted').textContent = 'Error: ' + e.message;
+    document.getElementById('encDecrypted').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
@@ -361,12 +373,12 @@ async function generateSigKey() {
     const pubJwk = await crypto.subtle.exportKey('jwk', sigKeyPair.publicKey);
     document.getElementById('sigPubKey').textContent = JSON.stringify(pubJwk, null, 2);
   } catch (e) {
-    document.getElementById('sigPubKey').textContent = 'Error: ' + e.message;
+    document.getElementById('sigPubKey').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
 async function signData() {
-  if (!sigKeyPair) { alert('Generate keys first!'); return; }
+  if (!sigKeyPair) { T("jalert_generate_keys_first"); return; }
   const algo = document.getElementById('sigAlgo').value;
   const msg = document.getElementById('sigMessage').value;
   try {
@@ -377,12 +389,12 @@ async function signData() {
     document.getElementById('sigVerify').textContent = '—';
   } catch (e) {
     document.getElementById('sigSignature').className = 'result-box error';
-    document.getElementById('sigSignature').textContent = 'Error: ' + e.message;
+    document.getElementById('sigSignature').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
 async function verifySignature() {
-  if (!sigKeyPair || !sigSignatureBytes) { alert('Sign data first!'); return; }
+  if (!sigKeyPair || !sigSignatureBytes) { T("jalert_sign_data_first"); return; }
   const algo = document.getElementById('sigAlgo').value;
   const msg = document.getElementById('sigMessage').value;
   try {
@@ -393,12 +405,12 @@ async function verifySignature() {
     el.className = 'result-box ' + (valid ? 'success' : 'error');
   } catch (e) {
     document.getElementById('sigVerify').className = 'result-box error';
-    document.getElementById('sigVerify').textContent = 'Error: ' + e.message;
+    document.getElementById('sigVerify').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
 async function tamperAndVerify() {
-  if (!sigKeyPair || !sigSignatureBytes) { alert('Sign data first!'); return; }
+  if (!sigKeyPair || !sigSignatureBytes) { T("jalert_sign_data_first"); return; }
   const algo = document.getElementById('sigAlgo').value;
   const msg = document.getElementById('sigMessage').value + ' (tampered!)';
   try {
@@ -409,7 +421,7 @@ async function tamperAndVerify() {
     el.className = 'result-box ' + (valid ? 'success' : 'error');
   } catch (e) {
     document.getElementById('sigVerify').className = 'result-box error';
-    document.getElementById('sigVerify').textContent = 'Error: ' + e.message;
+    document.getElementById('sigVerify').textContent=T("jtcpre_error")+ e.message;
   }
 }
 
@@ -464,7 +476,7 @@ async function generateArbitraryKey() {
     }
     meta.textContent = `Generated in ${(t1 - t0).toFixed(2)}ms`;
   } catch (e) {
-    el.textContent = 'Error: ' + e.message;
+    el.textContent=T("jtcpre_error")+ e.message;
     meta.textContent = '';
   }
 }
@@ -484,7 +496,7 @@ function generateRandom() {
     const hex = buf2hex(bytes);
     el.textContent = `${hex.slice(0, 8)}-${hex.slice(8, 12)}-${hex.slice(12, 16)}-${hex.slice(16, 20)}-${hex.slice(20)}`;
     el.className = 'result-box success';
-    mathEl.textContent = 'Math.random() cannot generate cryptographically secure UUIDs';
+    mathEl.textContent=T("jtc_math_random_cannot_genera");
     return;
   }
 
@@ -507,6 +519,24 @@ function generateRandom() {
 
 // Init
 updateKeygenOptions();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_locks_api_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,34 +77,36 @@ td code{color:#7e57c2;font-size:.72rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>Web Locks API Visualizer</h1>
+<h1 ti="title_web_locks_api_visualizer" ti="h1_web_locks_api_visualizer">Web Locks API Visualizer</h1>
 <p>Explore exclusive/shared locks, lock queuing, and cross-tab coordination</p>
 </header>
 <div class="app">
 <div class="main">
 <div class="scenarios" id="scenarioBar"></div>
 <div class="viz-area">
-<h3>Lock State</h3>
+<h3 ti="h3_lock_state">Lock State</h3>
 <div class="lock-grid" id="lockGrid"></div>
 </div>
 <div class="timeline">
-<h3>Timeline</h3>
+<h3 ti="h3_timeline">Timeline</h3>
 <div class="controls">
 <button id="prevBtn" onclick="prevStep()" disabled>&larr; Prev</button>
 <button id="nextBtn" onclick="nextStep()">Next &rarr;</button>
 <button onclick="toggleAuto()">&#9654; Auto</button>
-<button onclick="resetSteps()">Reset</button>
+<button onclick="resetSteps()" ti="btn_reset">Reset</button>
 <span class="step-info" id="stepInfo">Step 0 / 0</span>
 </div>
 <div class="events" id="eventLog"></div>
 </div>
 <div class="live-demo">
-<h3>Live Demo (Real API)</h3>
+<h3 ti="h3_live_demo_real_api">Live Demo (Real API)</h3>
 <div class="live-btns">
-<button onclick="liveExclusive()">🔒 Acquire Exclusive</button>
-<button onclick="liveShared()">🔓 Acquire Shared</button>
-<button onclick="liveQuery()">📋 Query Locks</button>
+<button onclick="liveExclusive()" ti="btn_acquire_exclusive">🔒 Acquire Exclusive</button>
+<button onclick="liveShared()" ti="btn_acquire_shared">🔓 Acquire Shared</button>
+<button onclick="liveQuery()" ti="btn_query_locks">📋 Query Locks</button>
 </div>
 <div class="live-log" id="liveLog"></div>
 </div>
@@ -114,12 +116,12 @@ td code{color:#7e57c2;font-size:.72rem}
 </div>
 </div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details"></div>
 <div class="detail-box">
 <h4>Lock Modes</h4>
 <table>
-<tr><th>Mode</th><th>Concurrent?</th><th>Use Case</th></tr>
+<tr><th ti="th_mode">Mode</th><th ti="th_concurrent">Concurrent?</th><th ti="th_use_case">Use Case</th></tr>
 <tr><td><code>exclusive</code></td><td>No (1 holder)</td><td>Write operations, mutations</td></tr>
 <tr><td><code>shared</code></td><td>Yes (N holders)</td><td>Read operations, queries</td></tr>
 </table>
@@ -128,7 +130,7 @@ td code{color:#7e57c2;font-size:.72rem}
 <div class="detail-box">
 <h4>API</h4>
 <table>
-<tr><th>Method</th><th>Description</th></tr>
+<tr><th ti="th_method">Method</th><th ti="th_description">Description</th></tr>
 <tr><td><code>navigator.locks.request(name, cb)</code></td><td>Acquire exclusive lock</td></tr>
 <tr><td><code>navigator.locks.request(name, {mode:'shared'}, cb)</code></td><td>Acquire shared lock</td></tr>
 <tr><td><code>navigator.locks.query()</code></td><td>List held and pending locks</td></tr>
@@ -137,7 +139,7 @@ td code{color:#7e57c2;font-size:.72rem}
 <div class="detail-box">
 <h4>Options</h4>
 <table>
-<tr><th>Option</th><th>Effect</th></tr>
+<tr><th ti="th_option">Option</th><th ti="th_effect">Effect</th></tr>
 <tr><td><code>mode</code></td><td>'exclusive' (default) or 'shared'</td></tr>
 <tr><td><code>ifAvailable</code></td><td>Don't wait; null if unavailable</td></tr>
 <tr><td><code>steal</code></td><td>Break existing lock (dangerous)</td></tr>
@@ -154,6 +156,16 @@ td code{color:#7e57c2;font-size:.72rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_web_locks_api_visualizer':["Web Locks API Visualizer", "Web Locks API 可视化工具"],'metadesc_interactive_web_locks_api':["Interactive Web Locks API visualizer: exclusive/shared locks, cross-tab coordination, deadlock detection, lock queuing", "交互式 Web 锁 API 可视化工具：独占锁/共享锁、跨表协调、死锁检测、锁队列"],'h1_web_locks_api_visualizer':["Web Locks API Visualizer", "Web Locks API 可视化工具"],'h3_lock_state':["Lock State", "锁定状态"],'h3_timeline':["Timeline", "时间线"],'h3_live_demo_real_api':["Live Demo (Real API)", "在线演示（真实 API）"],'h3_details':["Details", "细节"],'btn_prev':["← Prev", "← 上一页"],'btn_next':["Next →", "下一页 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'btn_acquire_exclusive':["🔒 Acquire Exclusive", "🔒 获取独家内容"],'btn_acquire_shared':["🔓 Acquire Shared", "🔓 获取共享"],'btn_query_locks':["📋 Query Locks", "📋 查询锁定"],'th_mode':["Mode", "模式"],'th_concurrent':["Concurrent?", "并发？"],'th_use_case':["Use Case", "用例"],'th_method':["Method", "方法"],'th_description':["Description", "描述"],'th_option':["Option", "选项"],'th_effect':["Effect", "影响"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const scenarios=[
 {
@@ -397,6 +409,24 @@ async function liveQuery(){
 }
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

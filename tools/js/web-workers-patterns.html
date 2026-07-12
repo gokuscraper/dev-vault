@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_workers_patterns_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -337,6 +337,8 @@ header p {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>Web Workers</span> Patterns Playground</h1>
@@ -345,7 +347,7 @@ header p {
 
 <div class="layout">
   <aside class="sidebar">
-    <h2>Presets</h2>
+    <h2 ti="h2_presets">Presets</h2>
     <button class="preset-btn active" data-preset="dedicated-basic">
       Dedicated Worker Basics
       <span class="badge badge-dedicated">Dedicated</span>
@@ -381,6 +383,16 @@ header p {
   </main>
 </div>
 
+
+<script>var _LANG={'title_web_workers_patterns_play':["Web Workers Patterns Playground", "Web Workers 模式游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for Web Workers message passing patterns. Dedicated Worker, SharedWorker, Transferable Objects, Structured Clone cost, Worker Pool.", "Web Workers 消息传递模式的交互式演示。专用 Worker、共享 Worker、可转移对象、结构化克隆成本、Worker 池。"],'h2_presets':["Presets", "预设"],'h3_preset_title':["${preset.title}", "${preset.title}"],'btn_run':["Run", "跑步"],'btn_clear':["Clear", "清除"],'label_p_label':["${p.label}", "${p.label}"],'jtc_running':["Running...", "跑步..."],'jtc_run':["Run", "跑步"],'jtc_run_2':["Run", "跑步"],'jtlword_run':["Run", "跑步"],'jtlword_clear':["Clear", "清除"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Preset Definitions ──
 
@@ -1306,15 +1318,15 @@ function renderPreset(presetId) {
 
   mainEl.innerHTML = `
     <div class="info-card">
-      <h3>${preset.title}</h3>
+      <h3 ti="h3_preset_title">${preset.title}</h3>
       <p>${preset.description}</p>
     </div>
     <div class="controls" id="controls">
-      <button class="run-btn" id="runBtn">Run</button>
-      <button class="clear-btn" id="clearBtn">Clear</button>
+      <button class="run-btn" id="runBtn" ti="btn_run">Run</button>
+      <button class="clear-btn" id="clearBtn" ti="btn_clear">Clear</button>
       ${preset.params.map(p => `
         <div class="param-group">
-          <label for="${p.id}">${p.label}</label>
+          <label for="${p.id}" ti="label_p_label">${p.label}</label>
           <input type="${p.type}" id="${p.id}" value="${p.value}" min="${p.min || ''}" max="${p.max || ''}">
         </div>
       `).join('')}
@@ -1347,7 +1359,7 @@ function runPreset() {
   const preset = PRESETS[currentPreset];
   const runBtn = document.getElementById('runBtn');
   runBtn.disabled = true;
-  runBtn.textContent = 'Running...';
+  runBtn.textContent=T("jtc_running");
 
   const logContainer = document.getElementById('logContainer');
   const statsRow = document.getElementById('statsRow');
@@ -1376,7 +1388,7 @@ function runPreset() {
   function done(entries) {
     running = false;
     runBtn.disabled = false;
-    runBtn.textContent = 'Run';
+    runBtn.textContent=T("jtc_run");
 
     // Stats
     if (preset.stats) {
@@ -1402,7 +1414,7 @@ function runPreset() {
     log('recv', `Error: ${err.message}`);
     running = false;
     runBtn.disabled = false;
-    runBtn.textContent = 'Run';
+    runBtn.textContent=T("jtc_run");
   }
 }
 
@@ -1433,5 +1445,23 @@ window.addEventListener('resize', () => {
 });
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

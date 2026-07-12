@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mediarecorder_studio_scre" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -99,13 +99,19 @@ a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>MediaRecorder Studio <span class="badge">Playground</span></h1>
   <div class="browser-support" id="browserSupport"></div>
 </div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Left Column: Recording Panel -->
   <div>
     <!-- Mode Tabs -->
@@ -149,10 +155,10 @@ a{color:var(--accent);text-decoration:none}
 
         <!-- Controls -->
         <div class="controls">
-          <button class="btn primary" id="btnStart">Start</button>
-          <button class="btn" id="btnPause" disabled>Pause</button>
-          <button class="btn danger" id="btnStop" disabled>Stop</button>
-          <button class="btn" id="btnSource">Start Camera</button>
+          <button class="btn primary" id="btnStart" ti="btn_start" ti="btn_start" ti="btn_start">Start</button>
+          <button class="btn" id="btnPause" disabled ti="btn_pause" ti="btn_pause" ti="btn_pause">Pause</button>
+          <button class="btn danger" id="btnStop" disabled ti="btn_stop" ti="btn_stop" ti="btn_stop">Stop</button>
+          <button class="btn" id="btnSource" ti="btn_start_camera" ti="btn_start_camera" ti="btn_start_camera">Start Camera</button>
         </div>
       </div>
     </div>
@@ -175,12 +181,12 @@ a{color:var(--accent);text-decoration:none}
       <div class="panel-header">Settings</div>
       <div class="panel-body">
         <div class="setting-group">
-          <label>MIME Type / Codec</label>
+          <label ti="label_mime_type_codec" ti="label_mime_type_codec" ti="label_mime_type_codec">MIME Type / Codec</label>
           <select id="codecSelect"></select>
         </div>
         <div class="setting-row">
           <div class="setting-group">
-            <label>Resolution</label>
+            <label ti="label_resolution" ti="label_resolution" ti="label_resolution">Resolution</label>
             <select id="resolutionSelect">
               <option value="3840x2160">4K (3840x2160)</option>
               <option value="1920x1080" selected>1080p (1920x1080)</option>
@@ -190,7 +196,7 @@ a{color:var(--accent);text-decoration:none}
             </select>
           </div>
           <div class="setting-group">
-            <label>Frame Rate</label>
+            <label ti="label_frame_rate" ti="label_frame_rate" ti="label_frame_rate">Frame Rate</label>
             <select id="fpsSelect">
               <option value="60">60 fps</option>
               <option value="30" selected>30 fps</option>
@@ -201,11 +207,11 @@ a{color:var(--accent);text-decoration:none}
         </div>
         <div class="setting-row">
           <div class="setting-group">
-            <label>Video Bitrate (kbps)</label>
+            <label ti="label_video_bitrate_kbps" ti="label_video_bitrate_kbps" ti="label_video_bitrate_kbps">Video Bitrate (kbps)</label>
             <input type="number" id="videoBitrate" value="2500" min="100" max="20000" step="100">
           </div>
           <div class="setting-group">
-            <label>Audio Bitrate (kbps)</label>
+            <label ti="label_audio_bitrate_kbps" ti="label_audio_bitrate_kbps" ti="label_audio_bitrate_kbps">Audio Bitrate (kbps)</label>
             <input type="number" id="audioBitrate" value="128" min="32" max="320" step="16">
           </div>
         </div>
@@ -218,7 +224,7 @@ a{color:var(--accent);text-decoration:none}
       <div class="panel-body">
         <div class="codec-scroll">
           <table class="codec-table" id="codecTable">
-            <thead><tr><th>MIME Type</th><th>Supported</th></tr></thead>
+            <thead><tr><th ti="th_mime_type" ti="th_mime_type" ti="th_mime_type">MIME Type</th><th ti="th_supported" ti="th_supported" ti="th_supported">Supported</th></tr></thead>
             <tbody></tbody>
           </table>
         </div>
@@ -242,6 +248,26 @@ a{color:var(--accent);text-decoration:none}
   </div>
 </div>
 
+
+
+<script>var _LANG={'title_mediarecorder_studio_scre':["MediaRecorder Studio - Screen Capture & Recording Playground", "MediaRecorder Studio - 屏幕捕获和录制游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for browser-based audio/video recording using getUserMedia, getDisplayMedia, and MediaRecorder API.", "使用 getUserMedia、getDisplayMedia 和 MediaRecorder API 的基于浏览器的音频/视频录制交互式演示平台。"],'btn_start':["Start", "开始"],'btn_pause':["Pause", "暂停"],'btn_stop':["Stop", "停止"],'btn_start_camera':["Start Camera", "启动相机"],'btn_play':["Play", "玩"],'btn_download':["Download", "下载"],'btn_copy':["Copy", "复制"],'th_mime_type':["MIME Type", "MIME 类型"],'th_supported':["Supported", "支持"],'label_mime_type_codec':["MIME Type / Codec", "MIME 类型/编解码器"],'label_resolution':["Resolution", "解决"],'label_frame_rate':["Frame Rate", "帧率"],'label_video_bitrate_kbps':["Video Bitrate (kbps)", "视频比特率（kbps）"],'label_audio_bitrate_kbps':["Audio Bitrate (kbps)", "音频比特率（kbps）"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_mediarecorder_studio_scre':["MediaRecorder Studio - Screen Capture & Recording Playground", "MediaRecorder Studio - 屏幕捕获和录制游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for browser-based audio/video recording using getUserMedia, getDisplayMedia, and MediaRecorder API.", "使用 getUserMedia、getDisplayMedia 和 MediaRecorder API 的基于浏览器的音频/视频录制交互式演示平台。"],'btn_start':["Start", "开始"],'btn_pause':["Pause", "暂停"],'btn_stop':["Stop", "停止"],'btn_start_camera':["Start Camera", "启动相机"],'btn_play':["Play", "玩"],'btn_download':["Download", "下载"],'btn_copy':["Copy", "复制"],'th_mime_type':["MIME Type", "MIME 类型"],'th_supported':["Supported", "支持"],'label_mime_type_codec':["MIME Type / Codec", "MIME 类型/编解码器"],'label_resolution':["Resolution", "解决"],'label_frame_rate':["Frame Rate", "帧率"],'label_video_bitrate_kbps':["Video Bitrate (kbps)", "视频比特率（kbps）"],'label_audio_bitrate_kbps':["Audio Bitrate (kbps)", "音频比特率（kbps）"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── State ──
 const state = {
@@ -622,8 +648,8 @@ function renderRecordings() {
         <div class="name">${r.name}</div>
         <div class="info">${r.mime} &middot; ${formatSize(r.size)}</div>
       </div>
-      <button class="btn" onclick="playRecording(${i})">Play</button>
-      <button class="btn primary" onclick="downloadRecording(${i})">Download</button>
+      <button class="btn" onclick="playRecording(${i})" ti="btn_play" ti="btn_play" ti="btn_play">Play</button>
+      <button class="btn primary" onclick="downloadRecording(${i})" ti="btn_download" ti="btn_download" ti="btn_download">Download</button>
     </div>
   `).join('');
 }
@@ -726,20 +752,74 @@ recorder.<span class="fn">start</span>();`);
 }
 
 function codeBlock(html) {
-  return `<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>${html}</div>`;
+  return `<div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>${html}</div>`;
 }
 
 function copyCode(btn) {
   const block = btn.parentElement;
   const text = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
 // ── Boot ──
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

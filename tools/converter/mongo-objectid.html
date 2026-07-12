@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mongodb_objectid_converte" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,13 +33,19 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>MongoDB ObjectID Converter</h1>
-<p class="desc">Decode ObjectIDs to timestamps, generate ObjectIDs from dates.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_mongodb_objectid_converte" ti="h1_mongodb_objectid_converte" ti="title_mongodb_objectid_converte" ti="h1_mongodb_objectid_converte" ti="title_mongodb_objectid_converte" ti="h1_mongodb_objectid_converte">MongoDB ObjectID Converter</h1>
+<p class="desc" ti="subtitle_decode_objectids_to_times" ti="subtitle_decode_objectids_to_times" ti="subtitle_decode_objectids_to_times">Decode ObjectIDs to timestamps, generate ObjectIDs from dates.</p>
 
 <div class="card">
-  <label>ObjectID → Date</label>
-  <input type="text" id="oidInput" placeholder="Paste an ObjectId (e.g. 507f1f77bcf86cd799439011)" value="507f1f77bcf86cd799439011" oninput="decodeOid()">
+  <label ti="label_objectid_date" ti="label_objectid_date" ti="label_objectid_date">ObjectID → Date</label>
+  <input type="text" id="oidInput" tp="placeholder_paste_an_objectid_e_g_507" tp="placeholder_paste_an_objectid_e_g_507" tp="placeholder_paste_an_objectid_e_g_507" placeholder="Paste an ObjectId (e.g. 507f1f77bcf86cd799439011)" value="507f1f77bcf86cd799439011" oninput="decodeOid()">
   <div class="label">Local Time (click to copy)</div>
   <div class="output" id="localTimeDisplay" onclick="copyText('localTimeDisplay')">—</div>
   <div class="label">UTC (click to copy)</div>
@@ -47,7 +53,7 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <label>Date → ObjectID</label>
+  <label ti="label_date_objectid" ti="label_date_objectid" ti="label_date_objectid">Date → ObjectID</label>
   <div class="label">Pick a date and time</div>
   <input type="datetime-local" id="datePicker" oninput="encodeDate()">
   <div class="label">Table name (for query)</div>
@@ -61,10 +67,30 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p>Data never leaves your browser. <a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github" ti="link_github" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+
+<script>var _LANG={'title_mongodb_objectid_converte':["MongoDB ObjectID Converter", "MongoDB ObjectID 转换器"],'metadesc_decode_mongodb_objectids':["Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates. Free browser tool.", "将 MongoDB ObjectID 解码为时间戳，或根据日期生成 ObjectID。免费浏览器工具。"],'h1_mongodb_objectid_converte':["MongoDB ObjectID Converter", "MongoDB ObjectID 转换器"],'subtitle_decode_objectids_to_times':["Decode ObjectIDs to timestamps, generate ObjectIDs from dates.", "将对象 ID 解码为时间戳，根据日期生成对象 ID。"],'placeholder_paste_an_objectid_e_g_507':["Paste an ObjectId (e.g. 507f1f77bcf86cd799439011)", "粘贴对象 ID（例如 507f1f77bcf86cd799439011）"],'label_objectid_date':["ObjectID → Date", "对象ID → 日期"],'label_date_objectid':["Date → ObjectID", "日期 → 对象 ID"],'link_github':["GitHub", "GitHub"],'jtc_invalid_objectid':["Invalid ObjectID", "无效的对象ID"],'jtc_invalid_objectid_2':["Invalid ObjectID", "无效的对象ID"],'jtc_objectid':["ObjectId(", "ObjectId("],'jtc_db':["db.", "数据库。"],'jtc_copied':["Copied!", "已复制！"],'jtcpre_objectid':["ObjectId(\"", "ObjectId(&quot;"],'jtcpre_db':["db.", "数据库。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_mongodb_objectid_converte':["MongoDB ObjectID Converter", "MongoDB ObjectID 转换器"],'metadesc_decode_mongodb_objectids':["Decode MongoDB ObjectIDs to timestamps, generate ObjectIDs from dates. Free browser tool.", "将 MongoDB ObjectID 解码为时间戳，或根据日期生成 ObjectID。免费浏览器工具。"],'h1_mongodb_objectid_converte':["MongoDB ObjectID Converter", "MongoDB ObjectID 转换器"],'subtitle_decode_objectids_to_times':["Decode ObjectIDs to timestamps, generate ObjectIDs from dates.", "将对象 ID 解码为时间戳，根据日期生成对象 ID。"],'placeholder_paste_an_objectid_e_g_507':["Paste an ObjectId (e.g. 507f1f77bcf86cd799439011)", "粘贴对象 ID（例如 507f1f77bcf86cd799439011）"],'label_objectid_date':["ObjectID → Date", "对象ID → 日期"],'label_date_objectid':["Date → ObjectID", "日期 → 对象 ID"],'link_github':["GitHub", "GitHub"],'jtc_invalid_objectid':["Invalid ObjectID", "无效的对象ID"],'jtc_invalid_objectid_2':["Invalid ObjectID", "无效的对象ID"],'jtc_objectid':["ObjectId(", "ObjectId("],'jtc_db':["db.", "数据库。"],'jtc_copied':["Copied!", "已复制！"],'jtcpre_objectid':["ObjectId(\"", "ObjectId(&quot;"],'jtcpre_db':["db.", "数据库。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function decodeOid() {
   const oid = document.getElementById('oidInput').value.trim();
@@ -78,8 +104,8 @@ function decodeOid() {
   const hex = oid.substring(0, 8);
   const timestamp = parseInt(hex, 16) * 1000;
   if (isNaN(timestamp)) {
-    localEl.textContent = 'Invalid ObjectID';
-    utcEl.textContent = 'Invalid ObjectID';
+    localEl.textContent=T("jtc_invalid_objectid");
+    utcEl.textContent=T("jtc_invalid_objectid");
     return;
   }
   const d = new Date(timestamp);
@@ -103,8 +129,8 @@ function encodeDate() {
   const hex = Math.floor(d.getTime() / 1000).toString(16);
   const oid = hex + '0000000000000000';
   oidEl.textContent = oid;
-  syntaxEl.textContent = 'ObjectId("' + oid + '")';
-  queryEl.textContent = 'db.' + tableName + '.find({_id: {$gt: ObjectId("' + oid + '")}})';
+  syntaxEl.textContent='ObjectId("' + oid + '")';
+  queryEl.textContent=T("jtc_db") + tableName + '.find({_id: {$gt: ObjectId("' + oid + '")}})';
 }
 
 function copyText(id) {
@@ -113,7 +139,7 @@ function copyText(id) {
   navigator.clipboard.writeText(text).then(() => {
     const t = document.createElement('div');
     t.className = 'copy-toast';
-    t.textContent = 'Copied!';
+    t.textContent=T("jtc_copied");
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 1500);
   });
@@ -124,6 +150,60 @@ const pad = n => String(n).padStart(2, '0');
 document.getElementById('datePicker').value = now.getFullYear() + '-' + pad(now.getMonth()+1) + '-' + pad(now.getDate()) + 'T' + pad(now.getHours()) + ':' + pad(now.getMinutes());
 encodeDate();
 decodeOid();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

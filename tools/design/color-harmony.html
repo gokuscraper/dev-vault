@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_harmony_generator_c" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,22 +78,24 @@ canvas#wheel{cursor:crosshair}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Color Harmony Generator</h1>
-<p class="sub">Generate harmonious palettes using color theory</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_color_harmony_generator">Color Harmony Generator</h1>
+<p class="sub" ti="subtitle_generate_harmonious_palet">Generate harmonious palettes using color theory</p>
 
 <div class="layout">
 <!-- LEFT COLUMN -->
 <div>
   <div class="section">
-    <h3>Base Color</h3>
+    <h3 ti="h3_base_color">Base Color</h3>
     <div class="field-row">
       <div class="field" style="flex:0 0 60px">
-        <label>Picker</label>
+        <label ti="label_picker">Picker</label>
         <input type="color" id="colorPicker" value="#4da6ff">
       </div>
       <div class="field">
-        <label>HEX</label>
+        <label ti="label_hex">HEX</label>
         <input type="text" id="hexInput" value="#4da6ff" maxlength="7">
       </div>
     </div>
@@ -112,7 +114,7 @@ canvas#wheel{cursor:crosshair}
   </div>
 
   <div class="section">
-    <h3>Harmony Mode</h3>
+    <h3 ti="h3_harmony_mode">Harmony Mode</h3>
     <div class="tabs" id="modeTabs">
       <div class="tab active" data-mode="complementary">Complementary</div>
       <div class="tab" data-mode="analogous">Analogous</div>
@@ -124,17 +126,17 @@ canvas#wheel{cursor:crosshair}
   </div>
 
   <div class="section">
-    <h3>Color Wheel</h3>
+    <h3 ti="h3_color_wheel">Color Wheel</h3>
     <div class="wheel-wrap">
       <canvas id="wheel" width="240" height="240"></canvas>
     </div>
   </div>
 
   <div class="section">
-    <h3>Palette Variations</h3>
+    <h3 ti="h3_palette_variations">Palette Variations</h3>
     <div class="shift-controls">
-      <button class="btn" id="warmBtn">Warm Shift</button>
-      <button class="btn" id="coolBtn">Cool Shift</button>
+      <button class="btn" id="warmBtn" ti="btn_warm_shift">Warm Shift</button>
+      <button class="btn" id="coolBtn" ti="btn_cool_shift">Cool Shift</button>
     </div>
     <div class="field">
       <label>Saturation Adjust <span id="satAdjVal" class="slider-val">0</span></label>
@@ -146,7 +148,7 @@ canvas#wheel{cursor:crosshair}
 <!-- RIGHT COLUMN -->
 <div>
   <div class="section">
-    <h3>Palette</h3>
+    <h3 ti="h3_palette">Palette</h3>
     <div class="palette-grid" id="paletteGrid"></div>
     <div id="contrastInfo" class="contrast-row"></div>
   </div>
@@ -157,7 +159,7 @@ canvas#wheel{cursor:crosshair}
   </div>
 
   <div class="section">
-    <h3>Export</h3>
+    <h3 ti="h3_export">Export</h3>
     <div class="tabs" id="exportTabs">
       <div class="tab active" data-fmt="css">CSS</div>
       <div class="tab" data-fmt="scss">SCSS</div>
@@ -166,18 +168,28 @@ canvas#wheel{cursor:crosshair}
     </div>
     <div class="output-area" id="exportOutput"></div>
     <div class="actions">
-      <button class="btn btn-primary" id="copyExport">Copy All</button>
+      <button class="btn btn-primary" id="copyExport" ti="btn_copy_all">Copy All</button>
     </div>
   </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-palette/">Color Palette</a> | <a href="https://gokuscraper.github.io/dev-vault/color-mixer/">Color Mixer</a> | <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/">HSL Picker</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-palette/" ti="link_color_palette">Color Palette</a> | <a href="https://gokuscraper.github.io/dev-vault/color-mixer/" ti="link_color_mixer">Color Mixer</a> | <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/" ti="link_hsl_picker">HSL Picker</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_color_harmony_generator_c':["Color Harmony Generator — Color Theory Palette Builder", "色彩和谐生成器 — 色彩理论调色板构建器"],'metadesc_generate_harmonious_color':["Generate harmonious color palettes. Complementary, analogous, triadic, split-complementary. Color wheel visualization. Export CSS, SCSS, Tailwind.", "生成和谐的配色方案。互补色、邻近色、三色配色、分裂互补色。色轮可视化。导出 CSS、SCSS、Tailwind 格式。"],'h1_color_harmony_generator':["Color Harmony Generator", "色彩和谐生成器"],'h3_base_color':["Base Color", "底色"],'h3_harmony_mode':["Harmony Mode", "和声模式"],'h3_color_wheel':["Color Wheel", "色轮"],'h3_palette_variations':["Palette Variations", "调色板变化"],'h3_palette':["Palette", "调色板"],'h3_tints_shades':["Tints & Shades", "色调和色度"],'h3_export':["Export", "出口"],'subtitle_generate_harmonious_palet':["Generate harmonious palettes using color theory", "运用色彩理论生成和谐的调色板"],'btn_warm_shift':["Warm Shift", "暖班"],'btn_cool_shift':["Cool Shift", "冷启动"],'btn_copy_all':["Copy All", "全部复制"],'label_picker':["Picker", "拾取器"],'label_hex':["HEX", "六边形"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_color_palette':["Color Palette", "调色板"],'link_color_mixer':["Color Mixer", "颜色混合器"],'link_hsl_picker':["HSL Picker", "HSL 选号器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 let baseH = 210, baseS = 100, baseL = 65;
@@ -534,6 +546,24 @@ document.getElementById('satAdjSlider').addEventListener('input', e => {
 
 // Initial render
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

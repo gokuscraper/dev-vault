@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_temporal_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -154,6 +154,12 @@ td.no { color: var(--red); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>Temporal</span> API Playground</h1>
   <p>Explore the next-generation JavaScript date/time API</p>
@@ -163,6 +169,26 @@ td.no { color: var(--red); }
 <nav id="nav"></nav>
 <main id="main"></main>
 
+
+
+<script>var _LANG={'title_temporal_api_playground':["Temporal API Playground", "时间 API 游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for the TC39 Temporal API — explore PlainDate, ZonedDateTime, Duration arithmetic, calendar systems, and more.", "TC39 时间 API 的交互式游乐场——探索 PlainDate、ZonedDateTime、Duration 算术、日历系统等等。"],'h3_temporal_now':["Temporal.Now", "暂时的。"],'h3_plaindate_plaintime_plain':["PlainDate, PlainTime, PlainDateTime", "普通日期、普通时间、普通日期时间"],'h3_date_arithmetic':["Date Arithmetic", "日期运算"],'h3_zoneddatetime_explorer':["ZonedDateTime Explorer", "分区日期时间浏览器"],'h3_dst_transition_detector':["DST Transition Detector", "DST转换检测器"],'h3_duration_arithmetic':["Duration Arithmetic", "持续时间算术"],'h3_duration_balancing':["Duration Balancing", "持续时间平衡"],'h3_calendar_systems_comparis':["Calendar Systems Comparison", "日历系统比较"],'h3_date_formatting_with_intl':["Date Formatting with Intl", "使用 Intl 进行日期格式化"],'h3_temporal_vs_date_api':["Temporal vs Date API", "时间与日期 API"],'h3_date_api_pain_points_solv':["Date API Pain Points Solved by Temporal", "Temporal 解决了 Date API 的痛点"],'h3_browser_support_status':["Browser Support Status", "浏览器支持状态"],'h3_using_the_polyfill':["Using the Polyfill", "使用聚酯填充物"],'h3_resources':["Resources", "资源"],'label_label':["${label}:", "${label}:"],'label_install':["Install:", "安装："],'label_import':["Import:", "进口："],'label_cdn_for_browser':["CDN (for browser):", "CDN（适用于浏览器）："],'th_task':["Task", "任务"],'th_date_api':["Date API", "日期 API"],'th_temporal_api':["Temporal API", "临时 API"],'th_environment':["Environment", "环境"],'th_status':["Status", "地位"],'th_available':["Available", "可用的"],'label_year':["Year", "年"],'label_month':["Month", "月"],'label_day':["Day", "天"],'label_hour':["Hour", "小时"],'label_minute':["Minute", "分钟"],'label_add':["Add", "添加"],'label_from_tz':["From TZ", "来自坦桑尼亚"],'label_to_tz':["To TZ", "到坦桑尼亚"],'label_timezone':["Timezone", "时区"],'label_year_2':["Year", "年"],'label_dur_1':["Dur 1", "持续时间 1"],'label_dur_2':["Dur 2", "持续时间 2"],'label_locale':["Locale", "本地化"],'jtlword_year':["Year", "年"],'jtlword_month':["Month", "月"],'jtlword_day':["Day", "天"],'jtlword_hour':["Hour", "小时"],'jtlword_minute':["Minute", "分钟"],'jtlword_add':["Add", "添加"],'jtlword_timezone':["Timezone", "时区"],'jtlword_year_2':["Year", "年"],'jtlword_locale':["Locale", "本地化"],'jtlword_resources':["Resources", "资源"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_temporal_api_playground':["Temporal API Playground", "时间 API 游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for the TC39 Temporal API — explore PlainDate, ZonedDateTime, Duration arithmetic, calendar systems, and more.", "TC39 时间 API 的交互式游乐场——探索 PlainDate、ZonedDateTime、Duration 算术、日历系统等等。"],'h3_temporal_now':["Temporal.Now", "暂时的。"],'h3_plaindate_plaintime_plain':["PlainDate, PlainTime, PlainDateTime", "普通日期、普通时间、普通日期时间"],'h3_date_arithmetic':["Date Arithmetic", "日期运算"],'h3_zoneddatetime_explorer':["ZonedDateTime Explorer", "分区日期时间浏览器"],'h3_dst_transition_detector':["DST Transition Detector", "DST转换检测器"],'h3_duration_arithmetic':["Duration Arithmetic", "持续时间算术"],'h3_duration_balancing':["Duration Balancing", "持续时间平衡"],'h3_calendar_systems_comparis':["Calendar Systems Comparison", "日历系统比较"],'h3_date_formatting_with_intl':["Date Formatting with Intl", "使用 Intl 进行日期格式化"],'h3_temporal_vs_date_api':["Temporal vs Date API", "时间与日期 API"],'h3_date_api_pain_points_solv':["Date API Pain Points Solved by Temporal", "Temporal 解决了 Date API 的痛点"],'h3_browser_support_status':["Browser Support Status", "浏览器支持状态"],'h3_using_the_polyfill':["Using the Polyfill", "使用聚酯填充物"],'h3_resources':["Resources", "资源"],'label_label':["${label}:", "${label}:"],'label_install':["Install:", "安装："],'label_import':["Import:", "进口："],'label_cdn_for_browser':["CDN (for browser):", "CDN（适用于浏览器）："],'th_task':["Task", "任务"],'th_date_api':["Date API", "日期 API"],'th_temporal_api':["Temporal API", "临时 API"],'th_environment':["Environment", "环境"],'th_status':["Status", "地位"],'th_available':["Available", "可用的"],'label_year':["Year", "年"],'label_month':["Month", "月"],'label_day':["Day", "天"],'label_hour':["Hour", "小时"],'label_minute':["Minute", "分钟"],'label_add':["Add", "添加"],'label_from_tz':["From TZ", "来自坦桑尼亚"],'label_to_tz':["To TZ", "到坦桑尼亚"],'label_timezone':["Timezone", "时区"],'label_year_2':["Year", "年"],'label_dur_1':["Dur 1", "持续时间 1"],'label_dur_2':["Dur 2", "持续时间 2"],'label_locale':["Locale", "本地化"],'jtlword_year':["Year", "年"],'jtlword_month':["Month", "月"],'jtlword_day':["Day", "天"],'jtlword_hour':["Hour", "小时"],'jtlword_minute':["Minute", "分钟"],'jtlword_add':["Add", "添加"],'jtlword_timezone':["Timezone", "时区"],'jtlword_year_2':["Year", "年"],'jtlword_locale':["Locale", "本地化"],'jtlword_resources':["Resources", "资源"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Feature detection
 const hasTemporal = typeof globalThis.Temporal !== 'undefined';
@@ -225,12 +251,12 @@ function h(tag, attrs, ...children) {
 }
 
 function makeOutput(id) { return h('div', {className: 'output', id}); }
-function line(label, value, cls='value') { return `<span class="label">${label}: </span><span class="${cls}">${value}</span>\n`; }
+function line(label, value, cls='value') { return `<span class="label" ti="label_label" ti="label_label" ti="label_label">${label}: </span><span class="${cls}">${value}</span>\n`; }
 
 // Section 1: Temporal.Now
 const secNow = h('div', {className: 'section active', id: 'sec-now'});
 const nowCard = h('div', {className: 'card'});
-nowCard.innerHTML = '<h3>Temporal.Now</h3><p>Get the current instant, date, and time in various formats.</p>';
+nowCard.innerHTML = '<h3 ti="h3_temporal_now" ti="h3_temporal_now" ti="h3_temporal_now">Temporal.Now</h3><p>Get the current instant, date, and time in various formats.</p>';
 const nowBtn = h('button', {className: 'run', onClick: runNow}, 'Run Temporal.Now');
 const nowOut = makeOutput('nowOut');
 nowCard.append(nowBtn, nowOut);
@@ -271,24 +297,24 @@ function runNow() {
 // Section 2: PlainDate/Time
 const secPlain = h('div', {className: 'section', id: 'sec-plaindate'});
 const plainCard = h('div', {className: 'card'});
-plainCard.innerHTML = `<h3>PlainDate, PlainTime, PlainDateTime</h3>
+plainCard.innerHTML = `<h3 ti="h3_plaindate_plaintime_plain" ti="h3_plaindate_plaintime_plain" ti="h3_plaindate_plaintime_plain">PlainDate, PlainTime, PlainDateTime</h3>
 <p>Wall-clock date and time without timezone. Create, inspect, and manipulate.</p>`;
 const plainInputs = h('div', {className: 'row'});
 plainInputs.innerHTML = `
-<label>Year</label><input type="number" id="pYear" value="2026" style="width:80px">
-<label>Month</label><input type="number" id="pMonth" value="3" min="1" max="12" style="width:60px">
-<label>Day</label><input type="number" id="pDay" value="12" min="1" max="31" style="width:60px">
-<label>Hour</label><input type="number" id="pHour" value="14" min="0" max="23" style="width:60px">
-<label>Minute</label><input type="number" id="pMin" value="30" min="0" max="59" style="width:60px">`;
+<label ti="label_year" ti="label_year_2" ti="label_year" ti="label_year_2" ti="label_year" ti="label_year_2">Year</label><input type="number" id="pYear" value="2026" style="width:80px">
+<label ti="label_month" ti="label_month" ti="label_month">Month</label><input type="number" id="pMonth" value="3" min="1" max="12" style="width:60px">
+<label ti="label_day" ti="label_day" ti="label_day">Day</label><input type="number" id="pDay" value="12" min="1" max="31" style="width:60px">
+<label ti="label_hour" ti="label_hour" ti="label_hour">Hour</label><input type="number" id="pHour" value="14" min="0" max="23" style="width:60px">
+<label ti="label_minute" ti="label_minute" ti="label_minute">Minute</label><input type="number" id="pMin" value="30" min="0" max="59" style="width:60px">`;
 const plainBtn = h('button', {className: 'run', onClick: runPlain}, 'Create & Inspect');
 const plainOut = makeOutput('plainOut');
 plainCard.append(plainInputs, plainBtn, plainOut);
 
 const plainArithCard = h('div', {className: 'card'});
-plainArithCard.innerHTML = `<h3>Date Arithmetic</h3><p>Add or subtract from a PlainDate.</p>`;
+plainArithCard.innerHTML = `<h3 ti="h3_date_arithmetic" ti="h3_date_arithmetic" ti="h3_date_arithmetic">Date Arithmetic</h3><p>Add or subtract from a PlainDate.</p>`;
 const arithRow = h('div', {className: 'row'});
 arithRow.innerHTML = `
-<label>Add</label>
+<label ti="label_add" ti="label_add" ti="label_add">Add</label>
 <input type="number" id="addYears" value="0" style="width:50px"><span style="color:var(--text-dim)">y</span>
 <input type="number" id="addMonths" value="1" style="width:50px"><span style="color:var(--text-dim)">m</span>
 <input type="number" id="addDays" value="15" style="width:50px"><span style="color:var(--text-dim)">d</span>`;
@@ -378,20 +404,20 @@ const secZoned = h('div', {className: 'section', id: 'sec-zoned'});
 const zonedCard = h('div', {className: 'card'});
 const popularTz = ['UTC','America/New_York','America/Los_Angeles','America/Chicago','Europe/London','Europe/Paris','Europe/Berlin','Asia/Tokyo','Asia/Shanghai','Asia/Kolkata','Australia/Sydney','Pacific/Auckland'];
 let tzOpts = popularTz.map(t => `<option value="${t}">${t}</option>`).join('');
-zonedCard.innerHTML = `<h3>ZonedDateTime Explorer</h3>
+zonedCard.innerHTML = `<h3 ti="h3_zoneddatetime_explorer" ti="h3_zoneddatetime_explorer" ti="h3_zoneddatetime_explorer">ZonedDateTime Explorer</h3>
 <p>Explore timezone-aware date/time. Convert between timezones with full DST awareness.</p>`;
 const zonedRow = h('div', {className: 'row'});
 zonedRow.innerHTML = `
-<label>From TZ</label><select id="fromTz">${tzOpts}</select>
-<label>To TZ</label><select id="toTz"><option value="Asia/Tokyo" selected>Asia/Tokyo</option>${tzOpts}</select>`;
+<label ti="label_from_tz" ti="label_from_tz" ti="label_from_tz">From TZ</label><select id="fromTz">${tzOpts}</select>
+<label ti="label_to_tz" ti="label_to_tz" ti="label_to_tz">To TZ</label><select id="toTz"><option value="Asia/Tokyo" selected>Asia/Tokyo</option>${tzOpts}</select>`;
 const zonedBtn = h('button', {className: 'run', onClick: runZoned}, 'Convert Current Time');
 const zonedOut = makeOutput('zonedOut');
 zonedCard.append(zonedRow, zonedBtn, zonedOut);
 
 const dstCard = h('div', {className: 'card'});
-dstCard.innerHTML = `<h3>DST Transition Detector</h3><p>Find DST transitions for a timezone in a given year.</p>`;
+dstCard.innerHTML = `<h3 ti="h3_dst_transition_detector" ti="h3_dst_transition_detector" ti="h3_dst_transition_detector">DST Transition Detector</h3><p>Find DST transitions for a timezone in a given year.</p>`;
 const dstRow = h('div', {className: 'row'});
-dstRow.innerHTML = `<label>Timezone</label><select id="dstTz">${tzOpts}</select>
+dstRow.innerHTML = `<label ti="label_timezone" ti="label_timezone" ti="label_timezone">Timezone</label><select id="dstTz">${tzOpts}</select>
 <label>Year</label><input type="number" id="dstYear" value="2026" style="width:80px">`;
 const dstBtn = h('button', {className: 'run', onClick: runDST}, 'Find Transitions');
 const dstOut = makeOutput('dstOut');
@@ -461,16 +487,16 @@ function runDST() {
 // Section 4: Duration
 const secDur = h('div', {className: 'section', id: 'sec-duration'});
 const durCard = h('div', {className: 'card'});
-durCard.innerHTML = `<h3>Duration Arithmetic</h3><p>Create durations and perform arithmetic operations.</p>`;
+durCard.innerHTML = `<h3 ti="h3_duration_arithmetic" ti="h3_duration_arithmetic" ti="h3_duration_arithmetic">Duration Arithmetic</h3><p>Create durations and perform arithmetic operations.</p>`;
 const durRow = h('div', {className: 'row'});
 durRow.innerHTML = `
-<label>Dur 1</label>
+<label ti="label_dur_1" ti="label_dur_1" ti="label_dur_1">Dur 1</label>
 <input type="number" id="d1h" value="2" style="width:50px"><span style="color:var(--text-dim)">h</span>
 <input type="number" id="d1m" value="30" style="width:50px"><span style="color:var(--text-dim)">m</span>
 <input type="number" id="d1s" value="0" style="width:50px"><span style="color:var(--text-dim)">s</span>`;
 const durRow2 = h('div', {className: 'row'});
 durRow2.innerHTML = `
-<label>Dur 2</label>
+<label ti="label_dur_2" ti="label_dur_2" ti="label_dur_2">Dur 2</label>
 <input type="number" id="d2h" value="1" style="width:50px"><span style="color:var(--text-dim)">h</span>
 <input type="number" id="d2m" value="45" style="width:50px"><span style="color:var(--text-dim)">m</span>
 <input type="number" id="d2s" value="30" style="width:50px"><span style="color:var(--text-dim)">s</span>`;
@@ -479,7 +505,7 @@ const durOut = makeOutput('durOut');
 durCard.append(durRow, durRow2, durBtn, durOut);
 
 const durCompare = h('div', {className: 'card'});
-durCompare.innerHTML = `<h3>Duration Balancing</h3><p>See how durations are balanced to different largest units.</p>`;
+durCompare.innerHTML = `<h3 ti="h3_duration_balancing" ti="h3_duration_balancing" ti="h3_duration_balancing">Duration Balancing</h3><p>See how durations are balanced to different largest units.</p>`;
 const durCBtn = h('button', {className: 'run', onClick: runDurBalance}, 'Balance PT5000S');
 const durCOut = makeOutput('durCOut');
 durCompare.append(durCBtn, durCOut);
@@ -541,7 +567,7 @@ function runDurBalance() {
 // Section 5: Calendars
 const secCal = h('div', {className: 'section', id: 'sec-calendars'});
 const calCard = h('div', {className: 'card'});
-calCard.innerHTML = `<h3>Calendar Systems Comparison</h3><p>See today's date in different calendar systems supported by Temporal.</p>`;
+calCard.innerHTML = `<h3 ti="h3_calendar_systems_comparis" ti="h3_calendar_systems_comparis" ti="h3_calendar_systems_comparis">Calendar Systems Comparison</h3><p>See today's date in different calendar systems supported by Temporal.</p>`;
 const calBtn = h('button', {className: 'run', onClick: runCalendars}, 'Show All Calendars');
 const calOut = makeOutput('calOut');
 calCard.append(calBtn, calOut);
@@ -583,10 +609,10 @@ function runCalendars() {
 // Section 6: Formatting
 const secFmt = h('div', {className: 'section', id: 'sec-formatting'});
 const fmtCard = h('div', {className: 'card'});
-fmtCard.innerHTML = `<h3>Date Formatting with Intl</h3><p>Temporal objects work seamlessly with Intl.DateTimeFormat.</p>`;
+fmtCard.innerHTML = `<h3 ti="h3_date_formatting_with_intl" ti="h3_date_formatting_with_intl" ti="h3_date_formatting_with_intl">Date Formatting with Intl</h3><p>Temporal objects work seamlessly with Intl.DateTimeFormat.</p>`;
 const fmtRow = h('div', {className: 'row'});
 const locales = ['en-US','ja-JP','de-DE','fr-FR','zh-CN','ko-KR','ar-SA','hi-IN','pt-BR','ru-RU'];
-fmtRow.innerHTML = `<label>Locale</label><select id="fmtLocale">${locales.map(l=>`<option value="${l}">${l}</option>`).join('')}</select>`;
+fmtRow.innerHTML = `<label ti="label_locale" ti="label_locale" ti="label_locale">Locale</label><select id="fmtLocale">${locales.map(l=>`<option value="${l}">${l}</option>`).join('')}</select>`;
 const fmtBtn = h('button', {className: 'run', onClick: runFormat}, 'Format Current Date');
 const fmtOut = makeOutput('fmtOut');
 fmtCard.append(fmtRow, fmtBtn, fmtOut);
@@ -629,7 +655,7 @@ function runFormat() {
 // Section 7: Comparison with Date
 const secCmp = h('div', {className: 'section', id: 'sec-comparison'});
 const cmpCard = h('div', {className: 'card'});
-cmpCard.innerHTML = `<h3>Temporal vs Date API</h3><p>Side-by-side comparison of common operations.</p>`;
+cmpCard.innerHTML = `<h3 ti="h3_temporal_vs_date_api" ti="h3_temporal_vs_date_api" ti="h3_temporal_vs_date_api">Temporal vs Date API</h3><p>Side-by-side comparison of common operations.</p>`;
 
 const comparisons = [
   { task: 'Get current date', dateApi: 'new Date()', temporal: 'Temporal.Now.plainDateISO()' },
@@ -644,7 +670,7 @@ const comparisons = [
   { task: 'Days in month', dateApi: 'new Date(y, m, 0).getDate()  // trick', temporal: 'plainDate.daysInMonth' },
 ];
 
-let tableHTML = '<table><thead><tr><th>Task</th><th>Date API</th><th>Temporal API</th></tr></thead><tbody>';
+let tableHTML = '<table><thead><tr><th ti="th_task" ti="th_task" ti="th_task">Task</th><th ti="th_date_api" ti="th_date_api" ti="th_date_api">Date API</th><th ti="th_temporal_api" ti="th_temporal_api" ti="th_temporal_api">Temporal API</th></tr></thead><tbody>';
 for (const c of comparisons) {
   tableHTML += `<tr><td>${c.task}</td><td><code style="color:var(--orange);font-size:0.8rem">${c.dateApi}</code></td><td><code style="color:var(--green);font-size:0.8rem">${c.temporal}</code></td></tr>`;
 }
@@ -652,7 +678,7 @@ tableHTML += '</tbody></table>';
 cmpCard.innerHTML += tableHTML;
 
 const cmpProblems = h('div', {className: 'card'});
-cmpProblems.innerHTML = `<h3>Date API Pain Points Solved by Temporal</h3>
+cmpProblems.innerHTML = `<h3 ti="h3_date_api_pain_points_solv" ti="h3_date_api_pain_points_solv" ti="h3_date_api_pain_points_solv">Date API Pain Points Solved by Temporal</h3>
 <div class="output">
 <span class="error">✗ Months are 0-indexed (0=January)</span>
 <span class="green"> → Temporal: 1-indexed (1=January)</span>
@@ -680,7 +706,7 @@ secCmp.append(cmpCard, cmpProblems);
 // Section 8: Support
 const secSupport = h('div', {className: 'section', id: 'sec-support'});
 const supCard = h('div', {className: 'card'});
-supCard.innerHTML = `<h3>Browser Support Status</h3>
+supCard.innerHTML = `<h3 ti="h3_browser_support_status" ti="h3_browser_support_status" ti="h3_browser_support_status">Browser Support Status</h3>
 <p>Temporal is a TC39 Stage 3 proposal. Browser implementations are in progress.</p>`;
 
 const supportData = [
@@ -691,7 +717,7 @@ const supportData = [
   { browser: 'Deno', status: 'Behind --unstable-temporal flag', supported: false },
 ];
 
-let supTable = '<table><thead><tr><th>Environment</th><th>Status</th><th>Available</th></tr></thead><tbody>';
+let supTable = '<table><thead><tr><th ti="th_environment" ti="th_environment" ti="th_environment">Environment</th><th ti="th_status" ti="th_status" ti="th_status">Status</th><th ti="th_available" ti="th_available" ti="th_available">Available</th></tr></thead><tbody>';
 for (const s of supportData) {
   supTable += `<tr><td>${s.browser}</td><td>${s.status}</td><td class="${s.supported?'yes':'no'}">${s.supported?'✓':'✗'}</td></tr>`;
 }
@@ -699,24 +725,24 @@ supTable += '</tbody></table>';
 supCard.innerHTML += supTable;
 
 const polyfillCard = h('div', {className: 'card'});
-polyfillCard.innerHTML = `<h3>Using the Polyfill</h3>
-<div class="output"><span class="label">Install:</span> <span class="value">npm install @js-temporal/polyfill</span>
+polyfillCard.innerHTML = `<h3 ti="h3_using_the_polyfill" ti="h3_using_the_polyfill" ti="h3_using_the_polyfill">Using the Polyfill</h3>
+<div class="output"><span class="label" ti="label_install" ti="label_install" ti="label_install">Install:</span> <span class="value">npm install @js-temporal/polyfill</span>
 
-<span class="label">Import:</span>
+<span class="label" ti="label_import" ti="label_import" ti="label_import">Import:</span>
 <span class="value">import { Temporal } from '@js-temporal/polyfill';
 
 // Use exactly like the native API
 const now = Temporal.Now.plainDateISO();
 console.log(now.toString());</span>
 
-<span class="label">CDN (for browser):</span>
+<span class="label" ti="label_cdn_for_browser" ti="label_cdn_for_browser" ti="label_cdn_for_browser">CDN (for browser):</span>
 <span class="value">&lt;script src="https://cdn.jsdelivr.net/npm/@js-temporal/polyfill/dist/index.umd.js"&gt;&lt;/script&gt;
 &lt;script&gt;
   const { Temporal } = temporal;
 &lt;/script&gt;</span></div>`;
 
 const resourcesCard = h('div', {className: 'card'});
-resourcesCard.innerHTML = `<h3>Resources</h3>
+resourcesCard.innerHTML = `<h3 ti="h3_resources" ti="h3_resources" ti="h3_resources">Resources</h3>
 <div class="output"><span class="value">TC39 Proposal:    </span><a href="https://github.com/tc39/proposal-temporal" style="color:var(--accent)">github.com/tc39/proposal-temporal</a>
 <span class="value">Documentation:    </span><a href="https://tc39.es/proposal-temporal/docs/" style="color:var(--accent)">tc39.es/proposal-temporal/docs/</a>
 <span class="value">Polyfill:         </span><a href="https://github.com/js-temporal/temporal-polyfill" style="color:var(--accent)">github.com/js-temporal/temporal-polyfill</a>
@@ -729,6 +755,60 @@ secSupport.append(supCard, polyfillCard, resourcesCard);
 
 // Auto-run first section
 runNow();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

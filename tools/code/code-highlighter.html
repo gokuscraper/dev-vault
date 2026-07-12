@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_code_highlighter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,9 +42,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Code Highlighter</h1>
-<p class="subtitle">Syntax-highlight code and copy as HTML or plain text.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_code_highlighter" ti="h1_code_highlighter">Code Highlighter</h1>
+<p class="subtitle" ti="subtitle_syntax_highlight_code_and">Syntax-highlight code and copy as HTML or plain text.</p>
 
 <div class="card">
   <div class="opt-row">
@@ -63,13 +65,13 @@ function identity&lt;T extends number | string = string&gt;(arg: T): T {
 
   <div class="switch-row">
     <input type="checkbox" id="showLineNumbers" onchange="highlight()">
-    <label for="showLineNumbers">Show line numbers</label>
+    <label for="showLineNumbers" ti="label_show_line_numbers">Show line numbers</label>
   </div>
   
   <div class="btn-row">
-    <button class="btn" onclick="copyHtml()">Copy HTML (Word)</button>
-    <button class="btn" onclick="copyText()">Copy Code Text</button>
-    <button class="btn primary" onclick="highlight()">Highlight</button>
+    <button class="btn" onclick="copyHtml()" ti="btn_copy_html_word">Copy HTML (Word)</button>
+    <button class="btn" onclick="copyText()" ti="btn_copy_code_text">Copy Code Text</button>
+    <button class="btn primary" onclick="highlight()" ti="btn_highlight">Highlight</button>
   </div>
   
   <div class="label">Highlighted Output</div>
@@ -77,11 +79,21 @@ function identity&lt;T extends number | string = string&gt;(arg: T): T {
 </div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/highlight.js@11.9.0/lib/highlight.min.js"></script>
+
+<script>var _LANG={'title_code_highlighter':["Code Highlighter", "代码高亮显示"],'metadesc_syntax_highlight_code_and':["Syntax highlight code and copy highlighted HTML for Word or code text. Supports JS, Python, HTML, CSS, and more.", "对代码进行语法高亮显示，并可复制高亮显示的 HTML 代码到 Word 文档或代码文本中。支持 JS、Python、HTML、CSS 等多种语言。"],'h1_code_highlighter':["Code Highlighter", "代码高亮显示"],'subtitle_syntax_highlight_code_and':["Syntax-highlight code and copy as HTML or plain text.", "语法高亮显示代码，并以 HTML 或纯文本格式复制。"],'btn_copy_html_word':["Copy HTML (Word)", "复制 HTML（Word）"],'btn_copy_code_text':["Copy Code Text", "复制代码文本"],'btn_highlight':["Highlight", "强调"],'label_show_line_numbers':["Show line numbers", "显示行号"],'link_github':["GitHub", "GitHub"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function highlight() {
   const code = document.getElementById('codeInput').value;
@@ -148,13 +160,31 @@ function copyText() {
 function showToast() {
   const t = document.createElement('div');
   t.className = 'copy-toast';
-  t.textContent = 'Copied!';
+  t.textContent=T("jtc_copied");
   document.body.appendChild(t);
   setTimeout(() => t.remove(), 1500);
 }
 
 // Initial highlight
 document.addEventListener('DOMContentLoaded', highlight);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

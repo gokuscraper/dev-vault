@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_webcodecs_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -387,48 +387,50 @@ canvas {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>WebCodecs API Playground</h1>
+  <h1 ti="title_webcodecs_api_playground" ti="h1_webcodecs_api_playground">WebCodecs API Playground</h1>
   <p>Encode, decode, and process video/audio frames directly in the browser</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <span class="support-icon" id="supportIcon">...</span>
     <div class="support-text">
-      <h3 id="supportTitle">Checking WebCodecs API support...</h3>
+      <h3 id="supportTitle" ti="h3_checking_webcodecs_api_su">Checking WebCodecs API support...</h3>
       <p id="supportDesc">Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="codec-detect">Codec Detection</button>
-    <button class="tab-btn" data-tab="video-encode">Video Encoder</button>
-    <button class="tab-btn" data-tab="video-decode">Video Decoder</button>
-    <button class="tab-btn" data-tab="audio-codec">Audio Codec</button>
-    <button class="tab-btn" data-tab="frame-process">Frame Processing</button>
+    <button class="tab-btn active" data-tab="codec-detect" ti="btn_codec_detection">Codec Detection</button>
+    <button class="tab-btn" data-tab="video-encode" ti="btn_video_encoder">Video Encoder</button>
+    <button class="tab-btn" data-tab="video-decode" ti="btn_video_decoder">Video Decoder</button>
+    <button class="tab-btn" data-tab="audio-codec" ti="btn_audio_codec" ti="label_audio_codec">Audio Codec</button>
+    <button class="tab-btn" data-tab="frame-process" ti="btn_frame_processing">Frame Processing</button>
   </div>
 
   <!-- Tab 1: Codec Detection -->
   <div class="tab-panel active" id="tab-codec-detect">
     <div class="card">
-      <h2>Codec Support Detection</h2>
+      <h2 ti="h2_codec_support_detection">Codec Support Detection</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Test which video and audio codecs your browser supports for encoding and decoding via
         <code style="color:var(--accent)">VideoEncoder.isConfigSupported()</code> and
         <code style="color:var(--accent)">VideoDecoder.isConfigSupported()</code>.
       </p>
 
-      <h3>Video Codecs</h3>
+      <h3 ti="h3_video_codecs">Video Codecs</h3>
       <table class="codec-table">
         <thead>
-          <tr><th>Codec</th><th>String</th><th>Encode</th><th>Decode</th></tr>
+          <tr><th ti="th_codec" ti="th_codec_2" ti="label_codec">Codec</th><th ti="th_string" ti="th_string_2">String</th><th ti="th_encode" ti="th_encode_2">Encode</th><th ti="th_decode" ti="th_decode_2">Decode</th></tr>
         </thead>
         <tbody id="videoCodecBody"></tbody>
       </table>
 
-      <h3>Audio Codecs</h3>
+      <h3 ti="h3_audio_codecs">Audio Codecs</h3>
       <table class="codec-table">
         <thead>
           <tr><th>Codec</th><th>String</th><th>Encode</th><th>Decode</th></tr>
@@ -436,14 +438,14 @@ canvas {
         <tbody id="audioCodecBody"></tbody>
       </table>
 
-      <button id="recheckBtn" class="secondary" style="margin-top:1rem;">Re-check All Codecs</button>
+      <button id="recheckBtn" class="secondary" style="margin-top:1rem;" ti="btn_re_check_all_codecs">Re-check All Codecs</button>
     </div>
   </div>
 
   <!-- Tab 2: Video Encoder -->
   <div class="tab-panel" id="tab-video-encode">
     <div class="card">
-      <h2>VideoEncoder Demo</h2>
+      <h2 ti="h2_videoencoder_demo">VideoEncoder Demo</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Generate synthetic video frames on a canvas and encode them using the VideoEncoder API.
         Adjust bitrate, framerate, and codec parameters to see how they affect encoding performance.
@@ -460,44 +462,44 @@ canvas {
           </select>
         </div>
         <div class="form-group">
-          <label>Width</label>
+          <label ti="label_width">Width</label>
           <input type="number" id="encWidth" value="640" min="64" max="1920" step="16">
         </div>
         <div class="form-group">
-          <label>Height</label>
+          <label ti="label_height">Height</label>
           <input type="number" id="encHeight" value="480" min="64" max="1080" step="16">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Bitrate (kbps)</label>
+          <label ti="label_bitrate_kbps" ti="label_bitrate_kbps_2">Bitrate (kbps)</label>
           <input type="number" id="encBitrate" value="1000" min="100" max="50000" step="100">
         </div>
         <div class="form-group">
-          <label>Framerate (fps)</label>
+          <label ti="label_framerate_fps">Framerate (fps)</label>
           <input type="number" id="encFps" value="30" min="1" max="120">
         </div>
         <div class="form-group">
-          <label>Frames to Encode</label>
+          <label ti="label_frames_to_encode">Frames to Encode</label>
           <input type="number" id="encFrames" value="60" min="1" max="300">
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Key Frame Interval</label>
+          <label ti="label_key_frame_interval">Key Frame Interval</label>
           <input type="number" id="encKeyInterval" value="30" min="1" max="300">
         </div>
         <div class="form-group">
-          <label>Latency Mode</label>
+          <label ti="label_latency_mode">Latency Mode</label>
           <select id="encLatency">
             <option value="quality">Quality</option>
             <option value="realtime">Realtime</option>
           </select>
         </div>
         <div class="form-group" style="justify-content:end;">
-          <button id="startEncodeBtn">Start Encoding</button>
+          <button id="startEncodeBtn" ti="btn_start_encoding">Start Encoding</button>
         </div>
       </div>
 
@@ -544,7 +546,7 @@ canvas {
   <!-- Tab 3: Video Decoder -->
   <div class="tab-panel" id="tab-video-decode">
     <div class="card">
-      <h2>VideoDecoder Demo</h2>
+      <h2 ti="h2_videodecoder_demo">VideoDecoder Demo</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Encode frames first, then decode the encoded chunks back into video frames
         and render them on a canvas. This demonstrates the full encode-decode roundtrip.
@@ -552,13 +554,13 @@ canvas {
 
       <div class="form-row">
         <div class="form-group" style="flex:none;">
-          <button id="encodeForDecodeBtn">1. Encode Frames</button>
+          <button id="encodeForDecodeBtn" ti="btn_1_encode_frames">1. Encode Frames</button>
         </div>
         <div class="form-group" style="flex:none;">
-          <button id="startDecodeBtn" disabled>2. Decode Chunks</button>
+          <button id="startDecodeBtn" disabled ti="btn_2_decode_chunks">2. Decode Chunks</button>
         </div>
         <div class="form-group" style="flex:none;">
-          <button id="clearDecodeBtn" class="secondary">Clear</button>
+          <button id="clearDecodeBtn" class="secondary" ti="btn_clear">Clear</button>
         </div>
       </div>
 
@@ -601,7 +603,7 @@ canvas {
   <!-- Tab 4: Audio Codec -->
   <div class="tab-panel" id="tab-audio-codec">
     <div class="card">
-      <h2>AudioEncoder / AudioDecoder Demo</h2>
+      <h2 ti="h2_audioencoder_audiodecoder">AudioEncoder / AudioDecoder Demo</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Generate a synthetic audio signal (sine wave), encode it with the AudioEncoder API,
         then decode it back. View encoding metrics and compare input/output.
@@ -617,7 +619,7 @@ canvas {
           </select>
         </div>
         <div class="form-group">
-          <label>Sample Rate</label>
+          <label ti="label_sample_rate">Sample Rate</label>
           <select id="audioSampleRate">
             <option value="8000">8000 Hz</option>
             <option value="16000">16000 Hz</option>
@@ -626,7 +628,7 @@ canvas {
           </select>
         </div>
         <div class="form-group">
-          <label>Channels</label>
+          <label ti="label_channels">Channels</label>
           <select id="audioChannels">
             <option value="1">Mono</option>
             <option value="2" selected>Stereo</option>
@@ -640,19 +642,19 @@ canvas {
           <input type="number" id="audioBitrate" value="128" min="16" max="512">
         </div>
         <div class="form-group">
-          <label>Frequency (Hz)</label>
+          <label ti="label_frequency_hz">Frequency (Hz)</label>
           <input type="number" id="audioFreq" value="440" min="20" max="20000">
         </div>
         <div class="form-group">
-          <label>Duration (seconds)</label>
+          <label ti="label_duration_seconds">Duration (seconds)</label>
           <input type="number" id="audioDuration" value="1" min="0.1" max="10" step="0.1">
         </div>
       </div>
 
       <div class="form-row">
-        <button id="startAudioEncBtn">Encode Audio</button>
-        <button id="startAudioDecBtn" class="secondary" disabled>Decode Audio</button>
-        <button id="playDecodedBtn" class="secondary" disabled>Play Decoded</button>
+        <button id="startAudioEncBtn" ti="btn_encode_audio">Encode Audio</button>
+        <button id="startAudioDecBtn" class="secondary" disabled ti="btn_decode_audio">Decode Audio</button>
+        <button id="playDecodedBtn" class="secondary" disabled ti="btn_play_decoded">Play Decoded</button>
       </div>
 
       <div class="progress-bar"><div class="progress-fill" id="audioProgress"></div></div>
@@ -691,7 +693,7 @@ canvas {
   <!-- Tab 5: Frame Processing -->
   <div class="tab-panel" id="tab-frame-process">
     <div class="card">
-      <h2>Frame-by-Frame Processing</h2>
+      <h2 ti="h2_frame_by_frame_processing">Frame-by-Frame Processing</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Capture frames from a generated animation, apply real-time pixel-level effects
         using VideoFrame, and render the results. Demonstrates per-frame manipulation.
@@ -699,7 +701,7 @@ canvas {
 
       <div class="form-row">
         <div class="form-group">
-          <label>Effect</label>
+          <label ti="label_effect">Effect</label>
           <select id="frameEffect">
             <option value="none">None (passthrough)</option>
             <option value="grayscale">Grayscale</option>
@@ -711,7 +713,7 @@ canvas {
           </select>
         </div>
         <div class="form-group">
-          <label>Resolution</label>
+          <label ti="label_resolution">Resolution</label>
           <select id="frameRes">
             <option value="160">160x120</option>
             <option value="320" selected>320x240</option>
@@ -719,8 +721,8 @@ canvas {
           </select>
         </div>
         <div class="form-group" style="justify-content:end;">
-          <button id="startProcessBtn">Start Processing</button>
-          <button id="stopProcessBtn" class="danger" style="display:none;">Stop</button>
+          <button id="startProcessBtn" ti="btn_start_processing">Start Processing</button>
+          <button id="stopProcessBtn" class="danger" style="display:none;" ti="btn_stop">Stop</button>
         </div>
       </div>
 
@@ -758,7 +760,7 @@ canvas {
     </div>
 
     <div class="card" style="margin-top:1rem;">
-      <h2>API Code Example</h2>
+      <h2 ti="h2_api_code_example">API Code Example</h2>
       <div class="code-block"><span class="cm">// Create a VideoFrame from a canvas</span>
 <span class="kw">const</span> frame = <span class="kw">new</span> <span class="fn">VideoFrame</span>(canvas, {
   <span class="str">timestamp</span>: performance.<span class="fn">now</span>() * <span class="num">1000</span>,
@@ -789,6 +791,16 @@ frame.<span class="fn">close</span>();</div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_webcodecs_api_playground':["WebCodecs API Playground", "WebCodecs API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the WebCodecs API - encode, decode, and process video/audio frames in the browser.", "WebCodecs API 的交互式演示环境 - 在浏览器中对视频/音频帧进行编码、解码和处理。"],'h1_webcodecs_api_playground':["WebCodecs API Playground", "WebCodecs API Playground"],'h2_codec_support_detection':["Codec Support Detection", "编解码器支持检测"],'h2_videoencoder_demo':["VideoEncoder Demo", "视频编码器演示"],'h2_videodecoder_demo':["VideoDecoder Demo", "视频解码器演示"],'h2_audioencoder_audiodecoder':["AudioEncoder / AudioDecoder Demo", "音频编码器/音频解码器演示"],'h2_frame_by_frame_processing':["Frame-by-Frame Processing", "逐帧处理"],'h2_api_code_example':["API Code Example", "API 代码示例"],'h3_checking_webcodecs_api_su':["Checking WebCodecs API support...", "正在检查 WebCodecs API 支持情况……"],'h3_video_codecs':["Video Codecs", "视频编解码器"],'h3_audio_codecs':["Audio Codecs", "音频编解码器"],'btn_codec_detection':["Codec Detection", "编解码器检测"],'btn_video_encoder':["Video Encoder", "视频编码器"],'btn_video_decoder':["Video Decoder", "视频解码器"],'btn_audio_codec':["Audio Codec", "音频编解码器"],'btn_frame_processing':["Frame Processing", "帧处理"],'btn_re_check_all_codecs':["Re-check All Codecs", "重新检查所有编解码器"],'btn_start_encoding':["Start Encoding", "开始编码"],'btn_1_encode_frames':["1. Encode Frames", "1. 对帧进行编码"],'btn_2_decode_chunks':["2. Decode Chunks", "2. 解码块"],'btn_clear':["Clear", "清除"],'btn_encode_audio':["Encode Audio", "音频编码"],'btn_decode_audio':["Decode Audio", "音频解码"],'btn_play_decoded':["Play Decoded", "解码游戏"],'btn_start_processing':["Start Processing", "开始处理"],'btn_stop':["Stop", "停止"],'th_codec':["Codec", "编解码器"],'th_string':["String", "细绳"],'th_encode':["Encode", "编码"],'th_decode':["Decode", "解码"],'th_codec_2':["Codec", "编解码器"],'th_string_2':["String", "细绳"],'th_encode_2':["Encode", "编码"],'th_decode_2':["Decode", "解码"],'label_codec':["Codec", "编解码器"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'label_bitrate_kbps':["Bitrate (kbps)", "比特率（kbps）"],'label_framerate_fps':["Framerate (fps)", "帧率（fps）"],'label_frames_to_encode':["Frames to Encode", "待编码帧"],'label_key_frame_interval':["Key Frame Interval", "关键帧间隔"],'label_latency_mode':["Latency Mode", "延迟模式"],'label_audio_codec':["Audio Codec", "音频编解码器"],'label_sample_rate':["Sample Rate", "采样率"],'label_channels':["Channels", "频道"],'label_bitrate_kbps_2':["Bitrate (kbps)", "比特率（kbps）"],'label_frequency_hz':["Frequency (Hz)", "频率（赫兹）"],'label_duration_seconds':["Duration (seconds)", "持续时间（秒）"],'label_effect':["Effect", "影响"],'label_resolution':["Resolution", "解决"],'jtc_u2705':["\\u2705", "☎"],'jtc_webcodecs_api_is_supporte':["WebCodecs API is supported!", "支持 WebCodecs API！"],'jtc_videoencoder_videodecoder':["VideoEncoder, VideoDecoder", "视频编码器、视频解码器"],'jtc_u274c':["\\u274C", "☎"],'jtc_webcodecs_api_is_not_supp':["WebCodecs API is not supported", "WebCodecs API 不受支持"],'jtc_try_chrome_94_or_edge_94':["Try Chrome 94+ or Edge 94+. All demos will run in simulation mode.", "请尝试使用 Chrome 94+ 或 Edge 94+ 版本。所有演示都将在模拟模式下运行。"],'jtcpre_videoencoder_videodecoder':["VideoEncoder, VideoDecoder", "视频编码器、视频解码器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab System ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -831,14 +843,14 @@ const hasAudioCodecs = typeof AudioEncoder !== 'undefined' && typeof AudioDecode
 
   if (hasWebCodecs) {
     banner.classList.add('supported');
-    icon.textContent = '\u2705';
-    title.textContent = 'WebCodecs API is supported!';
-    desc.textContent = 'VideoEncoder, VideoDecoder' + (hasAudioCodecs ? ', AudioEncoder, AudioDecoder' : '') + ' are available.';
+    icon.textContent=T("jtc_u2705");
+    title.textContent=T("jtc_webcodecs_api_is_supporte");
+    desc.textContent=T("jtc_videoencoder_videodecoder") + (hasAudioCodecs ? ', AudioEncoder, AudioDecoder' : '') + ' are available.';
   } else {
     banner.classList.add('unsupported');
-    icon.textContent = '\u274C';
-    title.textContent = 'WebCodecs API is not supported';
-    desc.textContent = 'Try Chrome 94+ or Edge 94+. All demos will run in simulation mode.';
+    icon.textContent=T("jtc_u274c");
+    title.textContent=T("jtc_webcodecs_api_is_not_supp");
+    desc.textContent=T("jtc_try_chrome_94_or_edge_94");
   }
 })();
 
@@ -1571,6 +1583,24 @@ document.getElementById('stopProcessBtn').addEventListener('click', () => {
   document.getElementById('stopProcessBtn').style.display = 'none';
   log('procLog', 'Processing stopped', 'warn');
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

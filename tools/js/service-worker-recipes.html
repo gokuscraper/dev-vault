@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_service_worker_recipes_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,31 +93,33 @@ pre{padding:1rem;overflow-x:auto;font-family:'Fira Code','Cascadia Code','SF Mon
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<h1>Service Worker Recipes Playground</h1>
-<p class="subtitle">Interactive guide to caching strategies, lifecycle, and update patterns</p>
+
+<h1 ti="title_service_worker_recipes_pl" ti="h1_service_worker_recipes_pl">Service Worker Recipes Playground</h1>
+<p class="subtitle" ti="subtitle_interactive_guide_to_cach">Interactive guide to caching strategies, lifecycle, and update patterns</p>
 
 <div class="tab-bar" id="tabs">
-  <button class="active" data-tab="cache-first">Cache First</button>
-  <button data-tab="network-first">Network First</button>
-  <button data-tab="stale-while">Stale-While-Revalidate</button>
-  <button data-tab="cache-only">Cache Only</button>
-  <button data-tab="network-only">Network Only</button>
-  <button data-tab="lifecycle">Lifecycle</button>
-  <button data-tab="update">Update Flow</button>
+  <button class="active" data-tab="cache-first" ti="btn_cache_first">Cache First</button>
+  <button data-tab="network-first" ti="btn_network_first">Network First</button>
+  <button data-tab="stale-while" ti="btn_stale_while_revalidate">Stale-While-Revalidate</button>
+  <button data-tab="cache-only" ti="btn_cache_only">Cache Only</button>
+  <button data-tab="network-only" ti="btn_network_only">Network Only</button>
+  <button data-tab="lifecycle" ti="btn_lifecycle">Lifecycle</button>
+  <button data-tab="update" ti="btn_update_flow">Update Flow</button>
 </div>
 
 <!-- Cache First -->
 <div class="panel active" id="cache-first">
   <div class="strategy-header">
-    <h2>Cache First</h2>
+    <h2 ti="h2_cache_first">Cache First</h2>
     <span class="badge badge-perf">Best Performance</span>
     <span class="badge badge-offline">Offline Ready</span>
   </div>
   <p class="desc">Check the cache first. If a cached response exists, serve it immediately. Only go to the network if the resource isn't in the cache. This is ideal for assets that rarely change &mdash; fonts, images, CSS/JS with versioned URLs.</p>
 
   <div class="diagram-box">
-    <h3>Request Flow</h3>
+    <h3 ti="h3_request_flow" ti="h3_request_flow_2" ti="h3_request_flow_3" ti="h3_request_flow_4">Request Flow</h3>
     <div class="flow">
       <div class="flow-node node-app">App Request</div>
       <div class="flow-arrow">&rarr;</div>
@@ -142,9 +144,9 @@ pre{padding:1rem;overflow-x:auto;font-family:'Fira Code','Cascadia Code','SF Mon
   </div>
 
   <div class="use-cases">
-    <div class="use-case"><strong>Fonts</strong>Google Fonts, icon fonts &mdash; never change once loaded</div>
-    <div class="use-case"><strong>Versioned Assets</strong>app.abc123.js &mdash; URL changes on update</div>
-    <div class="use-case"><strong>Images</strong>Product images, avatars with hash URLs</div>
+    <div class="use-case"><strong ti="strong_fonts">Fonts</strong>Google Fonts, icon fonts &mdash; never change once loaded</div>
+    <div class="use-case"><strong ti="strong_versioned_assets">Versioned Assets</strong>app.abc123.js &mdash; URL changes on update</div>
+    <div class="use-case"><strong ti="strong_images">Images</strong>Product images, avatars with hash URLs</div>
   </div>
 
   <div class="pros-cons">
@@ -153,7 +155,7 @@ pre{padding:1rem;overflow-x:auto;font-family:'Fira Code','Cascadia Code','SF Mon
   </div>
 
   <div class="code-block">
-    <div class="code-header"><span>sw.js &mdash; Cache First Strategy</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-header"><span>sw.js &mdash; Cache First Strategy</span><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9">Copy</button></div>
 <pre><span class="cm">// Cache First: prioritize cache, fallback to network</span>
 self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
   event.respondWith(
@@ -185,7 +187,7 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
 <!-- Network First -->
 <div class="panel" id="network-first">
   <div class="strategy-header">
-    <h2>Network First</h2>
+    <h2 ti="h2_network_first">Network First</h2>
     <span class="badge badge-fresh">Always Fresh</span>
     <span class="badge badge-offline">Offline Fallback</span>
   </div>
@@ -217,9 +219,9 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
   </div>
 
   <div class="use-cases">
-    <div class="use-case"><strong>API Responses</strong>User data, dashboard stats &mdash; freshness matters</div>
-    <div class="use-case"><strong>News/Social Feeds</strong>Content updates frequently</div>
-    <div class="use-case"><strong>E-commerce Prices</strong>Must show current pricing when possible</div>
+    <div class="use-case"><strong ti="strong_api_responses">API Responses</strong>User data, dashboard stats &mdash; freshness matters</div>
+    <div class="use-case"><strong ti="strong_news_social_feeds">News/Social Feeds</strong>Content updates frequently</div>
+    <div class="use-case"><strong ti="strong_e_commerce_prices">E-commerce Prices</strong>Must show current pricing when possible</div>
   </div>
 
   <div class="pros-cons">
@@ -274,14 +276,14 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
 <!-- Stale While Revalidate -->
 <div class="panel" id="stale-while">
   <div class="strategy-header">
-    <h2>Stale-While-Revalidate</h2>
+    <h2 ti="h2_stale_while_revalidate">Stale-While-Revalidate</h2>
     <span class="badge badge-balance">Best Balance</span>
     <span class="badge badge-perf">Fast</span>
   </div>
-  <p class="desc">Serve the cached version immediately (fast!), but simultaneously fetch the latest version from the network and update the cache in the background. The user sees stale content now but gets fresh content on the next visit. Great for content that updates but isn't time-critical.</p>
+  <p class="desc" ti="subtitle_serve_the_cached_version">Serve the cached version immediately (fast!), but simultaneously fetch the latest version from the network and update the cache in the background. The user sees stale content now but gets fresh content on the next visit. Great for content that updates but isn't time-critical.</p>
 
   <div class="diagram-box">
-    <h3>Request Flow (Parallel)</h3>
+    <h3 ti="h3_request_flow_parallel">Request Flow (Parallel)</h3>
     <div class="flow">
       <div class="flow-node node-app">App Request</div>
       <div class="flow-arrow">&rarr;</div>
@@ -303,9 +305,9 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
   </div>
 
   <div class="use-cases">
-    <div class="use-case"><strong>Blog Posts</strong>Show cached version, update in background</div>
-    <div class="use-case"><strong>User Avatars</strong>Fast display, eventual consistency</div>
-    <div class="use-case"><strong>Non-critical CSS/JS</strong>Analytics scripts, third-party widgets</div>
+    <div class="use-case"><strong ti="strong_blog_posts">Blog Posts</strong>Show cached version, update in background</div>
+    <div class="use-case"><strong ti="strong_user_avatars">User Avatars</strong>Fast display, eventual consistency</div>
+    <div class="use-case"><strong ti="strong_non_critical_css_js">Non-critical CSS/JS</strong>Analytics scripts, third-party widgets</div>
   </div>
 
   <div class="pros-cons">
@@ -364,11 +366,11 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
 <!-- Cache Only -->
 <div class="panel" id="cache-only">
   <div class="strategy-header">
-    <h2>Cache Only</h2>
+    <h2 ti="h2_cache_only">Cache Only</h2>
     <span class="badge badge-perf">Fastest</span>
     <span class="badge badge-offline">Fully Offline</span>
   </div>
-  <p class="desc">Only serve from the cache. Never go to the network for this request. The resources must have been pre-cached during the install phase. This is the simplest strategy and guarantees offline availability for known assets.</p>
+  <p class="desc" ti="subtitle_only_serve_from_the_cache">Only serve from the cache. Never go to the network for this request. The resources must have been pre-cached during the install phase. This is the simplest strategy and guarantees offline availability for known assets.</p>
 
   <div class="diagram-box">
     <h3>Request Flow</h3>
@@ -385,9 +387,9 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
   </div>
 
   <div class="use-cases">
-    <div class="use-case"><strong>App Shell</strong>HTML skeleton pre-cached at install</div>
-    <div class="use-case"><strong>Offline Page</strong>A dedicated /offline.html fallback</div>
-    <div class="use-case"><strong>Critical Assets</strong>Core CSS/JS that must always be available</div>
+    <div class="use-case"><strong ti="strong_app_shell">App Shell</strong>HTML skeleton pre-cached at install</div>
+    <div class="use-case"><strong ti="strong_offline_page">Offline Page</strong>A dedicated /offline.html fallback</div>
+    <div class="use-case"><strong ti="strong_critical_assets">Critical Assets</strong>Core CSS/JS that must always be available</div>
   </div>
 
   <div class="pros-cons">
@@ -436,7 +438,7 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
 <!-- Network Only -->
 <div class="panel" id="network-only">
   <div class="strategy-header">
-    <h2>Network Only</h2>
+    <h2 ti="h2_network_only">Network Only</h2>
     <span class="badge badge-fresh">Always Fresh</span>
     <span class="badge badge-simple">Simplest</span>
   </div>
@@ -457,9 +459,9 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
   </div>
 
   <div class="use-cases">
-    <div class="use-case"><strong>Authentication</strong>Login/logout must always be live</div>
-    <div class="use-case"><strong>Payments</strong>Checkout flows require real-time verification</div>
-    <div class="use-case"><strong>Real-time Data</strong>WebSocket connections, live scores</div>
+    <div class="use-case"><strong ti="strong_authentication">Authentication</strong>Login/logout must always be live</div>
+    <div class="use-case"><strong ti="strong_payments">Payments</strong>Checkout flows require real-time verification</div>
+    <div class="use-case"><strong ti="strong_real_time_data">Real-time Data</strong>WebSocket connections, live scores</div>
   </div>
 
   <div class="pros-cons">
@@ -507,7 +509,7 @@ self.addEventListener(<span class="st">'fetch'</span>, (event) =&gt; {
 <!-- Lifecycle -->
 <div class="panel" id="lifecycle">
   <div class="strategy-header">
-    <h2>Registration Lifecycle</h2>
+    <h2 ti="h2_registration_lifecycle">Registration Lifecycle</h2>
   </div>
   <p class="desc">A Service Worker goes through a specific lifecycle: registration &rarr; installation &rarr; waiting &rarr; activation. Understanding this lifecycle is crucial for handling updates correctly and avoiding unexpected behavior.</p>
 
@@ -624,7 +626,7 @@ self.addEventListener(<span class="st">'activate'</span>, (event) =&gt; {
   <p class="desc">When you deploy a new version of your Service Worker, the browser detects the byte-level difference and starts an update. By default, the new SW waits until all tabs are closed. <code>skipWaiting()</code> forces immediate activation &mdash; powerful but needs careful handling.</p>
 
   <div class="diagram-box">
-    <h3>Update Process</h3>
+    <h3 ti="h3_update_process">Update Process</h3>
     <div class="flow">
       <div class="flow-node node-net">New SW Downloaded</div>
       <div class="flow-arrow">&rarr;</div>
@@ -717,6 +719,16 @@ navigator.serviceWorker.addEventListener(<span class="st">'controllerchange'</sp
   </div>
 </div>
 
+
+<script>var _LANG={'title_service_worker_recipes_pl':["Service Worker Recipes Playground", "服务人员食谱游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for learning Service Worker caching strategies with live code examples and visual diagrams.", "交互式练习场，用于学习 Service Worker 缓存策略，包含实时代码示例和可视化图表。"],'h1_service_worker_recipes_pl':["Service Worker Recipes Playground", "服务人员食谱游乐场"],'h2_cache_first':["Cache First", "缓存优先"],'h2_network_first':["Network First", "网络优先"],'h2_stale_while_revalidate':["Stale-While-Revalidate", "过期-重新验证"],'h2_cache_only':["Cache Only", "仅缓存"],'h2_network_only':["Network Only", "仅限网络"],'h2_registration_lifecycle':["Registration Lifecycle", "注册生命周期"],'h2_update_flow_skipwaiting':["Update Flow & skipWaiting", "更新流程并跳过等待"],'h3_request_flow':["Request Flow", "请求流程"],'h3_request_flow_2':["Request Flow", "请求流程"],'h3_request_flow_parallel':["Request Flow (Parallel)", "请求流程（并行）"],'h3_request_flow_3':["Request Flow", "请求流程"],'h3_request_flow_4':["Request Flow", "请求流程"],'h3_update_process':["Update Process", "更新流程"],'subtitle_interactive_guide_to_cach':["Interactive guide to caching strategies, lifecycle, and update patterns", "缓存策略、生命周期和更新模式的交互式指南"],'subtitle_check_the_cache_first_if':["Check the cache first. If a cached response exists, serve it immediately. Only go to the network if the resource isn't in the cache. This is ideal for assets that rarely change — fonts, images, CSS/JS with versioned URLs.", "首先检查缓存。如果缓存中已有响应，则立即提供。只有当资源不在缓存中时才访问网络。这对于很少更改的资源（例如字体、图像、带有版本化 URL 的 CSS/JS）非常理想。"],'subtitle_always_try_the_network_fi':["Always try the network first. If the network responds, cache the result and serve it. If the network fails (offline, timeout), fall back to the cached version. Best for content that needs to be up-to-date — API responses, news feeds, user profiles.", "始终先尝试连接网络。如果网络响应正常，则缓存结果并立即提供。如果网络故障（离线、超时），则回退到缓存版本。这种方法最适合需要保持最新状态的内容，例如 API 响应、新闻推送和用户个人资料。"],'subtitle_serve_the_cached_version':["Serve the cached version immediately (fast!), but simultaneously fetch the latest version from the network and update the cache in the background. The user sees stale content now but gets fresh content on the next visit. Great for content that updates but isn't time-critical.", "立即提供缓存版本（速度很快！），同时从网络获取最新版本并在后台更新缓存。用户现在看到的是旧内容，但下次访问时即可看到最新内容。非常适合会定期更新但对时间要求不高的内容。"],'subtitle_only_serve_from_the_cache':["Only serve from the cache. Never go to the network for this request. The resources must have been pre-cached during the install phase. This is the simplest strategy and guarantees offline availability for known assets.", "仅从缓存提供服务。此请求绝不通过网络访问。资源必须在安装阶段预先缓存。这是最简单的策略，可确保已知资源的离线可用性。"],'subtitle_always_go_to_the_network':["Always go to the network. Never use cache. This is equivalent to having no Service Worker for this request, but you can still add logging, analytics, or request modification. Use for requests that must always be live — login, checkout, real-time data.", "始终使用网络访问，切勿使用缓存。这相当于此请求不使用 Service Worker，但您仍然可以添加日志记录、分析或请求修改功能。适用于必须始终保持在线的请求，例如登录、结账和实时数据。"],'subtitle_a_service_worker_goes_thr':["A Service Worker goes through a specific lifecycle: registration → installation → waiting → activation. Understanding this lifecycle is crucial for handling updates correctly and avoiding unexpected behavior.", "Service Worker 遵循特定的生命周期：注册 → 安装 → 等待 → 激活。理解这个生命周期对于正确处理更新和避免意外行为至关重要。"],'btn_cache_first':["Cache First", "缓存优先"],'btn_network_first':["Network First", "网络优先"],'btn_stale_while_revalidate':["Stale-While-Revalidate", "过期-重新验证"],'btn_cache_only':["Cache Only", "仅缓存"],'btn_network_only':["Network Only", "仅限网络"],'btn_lifecycle':["Lifecycle", "生命周期"],'btn_update_flow':["Update Flow", "更新流程"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'strong_fonts':["Fonts", "字体"],'strong_versioned_assets':["Versioned Assets", "版本化资产"],'strong_images':["Images", "图片"],'strong_api_responses':["API Responses", "API响应"],'strong_news_social_feeds':["News/Social Feeds", "新闻/社交动态"],'strong_e_commerce_prices':["E-commerce Prices", "电子商务价格"],'strong_blog_posts':["Blog Posts", "博客文章"],'strong_user_avatars':["User Avatars", "用户头像"],'strong_non_critical_css_js':["Non-critical CSS/JS", "非关键 CSS/JS"],'strong_app_shell':["App Shell", "应用程序外壳"],'strong_offline_page':["Offline Page", "离线页面"],'strong_critical_assets':["Critical Assets", "关键资产"],'strong_authentication':["Authentication", "验证"],'strong_payments':["Payments", "付款"],'strong_real_time_data':["Real-time Data", "实时数据"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.getElementById('tabs').addEventListener('click', (e) => {
@@ -732,8 +744,8 @@ function copyCode(btn) {
   const pre = btn.closest('.code-block').querySelector('pre');
   const text = pre.textContent;
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -741,6 +753,24 @@ function copyCode(btn) {
 function toggleDetail(el) {
   el.classList.toggle('highlight');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

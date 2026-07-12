@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_pomodoro_timer_focus_brea" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,9 +76,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Pomodoro Timer</h1>
-<p class="subtitle">Focus & Break Cycle Timer</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_pomodoro_timer">Pomodoro Timer</h1>
+<p class="subtitle" ti="subtitle_focus_break_cycle_timer">Focus & Break Cycle Timer</p>
 
 <div class="timer-wrap">
   <div class="ring-container">
@@ -95,30 +97,30 @@ footer a:hover{color:#999}
 </div>
 
 <div class="controls">
-  <button class="btn primary" id="startBtn" onclick="toggleTimer()">Start</button>
-  <button class="btn" id="resetBtn" onclick="resetTimer()">Reset</button>
-  <button class="btn" id="skipBtn" onclick="skipPhase()">Skip</button>
+  <button class="btn primary" id="startBtn" onclick="toggleTimer()" ti="btn_start">Start</button>
+  <button class="btn" id="resetBtn" onclick="resetTimer()" ti="btn_reset">Reset</button>
+  <button class="btn" id="skipBtn" onclick="skipPhase()" ti="btn_skip">Skip</button>
 </div>
 
 <div class="task-row">
-  <input type="text" id="taskInput" placeholder="What are you working on?" maxlength="80">
+  <input type="text" id="taskInput" tp="placeholder_what_are_you_working_on" placeholder="What are you working on?" maxlength="80">
 </div>
 
 <div class="card">
-  <h2>Presets</h2>
+  <h2 ti="h2_presets">Presets</h2>
   <div class="presets">
-    <button class="preset-btn active" onclick="applyPreset(25,5,15,4,this)">Classic 25/5/15</button>
-    <button class="preset-btn" onclick="applyPreset(15,3,10,4,this)">Short Sprint 15/3/10</button>
-    <button class="preset-btn" onclick="applyPreset(50,10,20,4,this)">Deep Work 50/10/20</button>
+    <button class="preset-btn active" onclick="applyPreset(25,5,15,4,this)" ti="btn_classic_25_5_15">Classic 25/5/15</button>
+    <button class="preset-btn" onclick="applyPreset(15,3,10,4,this)" ti="btn_short_sprint_15_3_10">Short Sprint 15/3/10</button>
+    <button class="preset-btn" onclick="applyPreset(50,10,20,4,this)" ti="btn_deep_work_50_10_20">Deep Work 50/10/20</button>
   </div>
-  <div class="setting-row"><label>Work</label><input type="range" id="sWork" min="15" max="60" value="25" oninput="updateSetting()"><span class="val" id="vWork">25m</span></div>
-  <div class="setting-row"><label>Short Break</label><input type="range" id="sShort" min="3" max="15" value="5" oninput="updateSetting()"><span class="val" id="vShort">5m</span></div>
-  <div class="setting-row"><label>Long Break</label><input type="range" id="sLong" min="10" max="30" value="15" oninput="updateSetting()"><span class="val" id="vLong">15m</span></div>
-  <div class="setting-row"><label>Long break after</label><input type="range" id="sRounds" min="2" max="6" value="4" oninput="updateSetting()"><span class="val" id="vRounds">4</span></div>
+  <div class="setting-row"><label ti="label_work">Work</label><input type="range" id="sWork" min="15" max="60" value="25" oninput="updateSetting()"><span class="val" id="vWork">25m</span></div>
+  <div class="setting-row"><label ti="label_short_break">Short Break</label><input type="range" id="sShort" min="3" max="15" value="5" oninput="updateSetting()"><span class="val" id="vShort">5m</span></div>
+  <div class="setting-row"><label ti="label_long_break">Long Break</label><input type="range" id="sLong" min="10" max="30" value="15" oninput="updateSetting()"><span class="val" id="vLong">15m</span></div>
+  <div class="setting-row"><label ti="label_long_break_after">Long break after</label><input type="range" id="sRounds" min="2" max="6" value="4" oninput="updateSetting()"><span class="val" id="vRounds">4</span></div>
 </div>
 
 <div class="card">
-  <h2>Today's Progress</h2>
+  <h2 ti="h2_today_s_progress">Today's Progress</h2>
   <div class="stats">
     <div class="stat"><div class="num" id="statSessions">0</div><div class="lbl">Sessions</div></div>
     <div class="stat"><div class="num" id="statFocus">0m</div><div class="lbl">Focus Time</div></div>
@@ -126,16 +128,26 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <h2>Session History</h2>
+  <h2 ti="h2_session_history">Session History</h2>
   <div class="history-list" id="historyList"><div class="empty">No sessions yet today</div></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &middot;
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> &middot;
   Related: Stopwatch &middot; Reading Time
 </footer>
 
+
+<script>var _LANG={'title_pomodoro_timer_focus_brea':["Pomodoro Timer — Focus & Break Cycle Timer", "番茄钟计时器——专注与休息循环计时器"],'metadesc_free_pomodoro_timer_with':["Free Pomodoro timer with work/break cycles, browser notifications, progress tracking, and session history. No signup, no ads.", "免费番茄工作法计时器，具备工作/休息循环、浏览器通知、进度跟踪和会话历史记录功能。无需注册，无广告。"],'h1_pomodoro_timer':["Pomodoro Timer", "番茄钟计时器"],'h2_presets':["Presets", "预设"],'h2_today_s_progress':["Today's Progress", "今日进展"],'h2_session_history':["Session History", "会话历史记录"],'subtitle_focus_break_cycle_timer':["Focus & Break Cycle Timer", "专注与休息循环计时器"],'btn_start':["Start", "开始"],'btn_reset':["Reset", "重置"],'btn_skip':["Skip", "跳过"],'btn_classic_25_5_15':["Classic 25/5/15", "经典款 25/5/15"],'btn_short_sprint_15_3_10':["Short Sprint 15/3/10", "短程冲刺 2010年3月15日"],'btn_deep_work_50_10_20':["Deep Work 50/10/20", "深度工作 50/10/20"],'placeholder_what_are_you_working_on':["What are you working on?", "你在忙什么？"],'label_work':["Work", "工作"],'label_short_break':["Short Break", "短暂休息"],'label_long_break':["Long Break", "长假"],'label_long_break_after':["Long break after", "长时间休息后"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_round':["Round", "圆形的"],'jtcpre_round':["Round ", "圆形的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const CIRC = 2 * Math.PI * 116; // ~729.2
 const STORAGE_KEY = 'pomodoro_history';
@@ -233,7 +245,7 @@ function render() {
   ringFg.setAttribute('stroke-dasharray', CIRC);
   ringFg.setAttribute('stroke-dashoffset', CIRC * (1 - progress));
 
-  roundInfo.textContent = 'Round ' + round + ' of ' + settings.rounds;
+  roundInfo.textContent=T("jtcpre_round")+ round + ' of ' + settings.rounds;
   startBtn.textContent = running ? 'Pause' : 'Start';
 }
 
@@ -389,6 +401,24 @@ function escHtml(s) { const d = document.createElement('div'); d.textContent = s
 loadSettings();
 resetPhase();
 updateStats();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

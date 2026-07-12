@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_javascript_beautifier_for" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,23 +58,25 @@ footer .back{color:#666}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JavaScript Beautifier</h1>
-<p class="subtitle">Format & prettify JS code instantly in your browser</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_javascript_beautifier">JavaScript Beautifier</h1>
+<p class="subtitle" ti="subtitle_format_prettify_js_code_i">Format & prettify JS code instantly in your browser</p>
 
 <div class="options-bar">
-  <div class="opt-group"><label>Indent</label><select id="optIndent"><option value="2">2 spaces</option><option value="4" selected>4 spaces</option><option value="8">8 spaces</option><option value="tab">Tab</option></select></div>
-  <div class="opt-group"><label>Semicolons</label><select id="optSemi"><option value="keep">Keep</option><option value="add">Add</option><option value="remove">Remove</option></select></div>
-  <div class="opt-group"><label>Quotes</label><select id="optQuotes"><option value="keep">Keep</option><option value="single">Single</option><option value="double">Double</option></select></div>
-  <div class="opt-group"><label>Brackets</label><select id="optBrackets"><option value="same">Same line</option><option value="new">New line</option></select></div>
-  <div class="opt-group"><label>Trailing comma</label><select id="optTrailing"><option value="none">None</option><option value="es5">ES5</option><option value="all">All</option></select></div>
-  <div class="live-toggle"><label class="switch"><input type="checkbox" id="liveMode"><span class="slider"></span></label><label for="liveMode">Live</label></div>
+  <div class="opt-group"><label ti="label_indent">Indent</label><select id="optIndent"><option value="2">2 spaces</option><option value="4" selected>4 spaces</option><option value="8">8 spaces</option><option value="tab">Tab</option></select></div>
+  <div class="opt-group"><label ti="label_semicolons">Semicolons</label><select id="optSemi"><option value="keep">Keep</option><option value="add">Add</option><option value="remove">Remove</option></select></div>
+  <div class="opt-group"><label ti="label_quotes">Quotes</label><select id="optQuotes"><option value="keep">Keep</option><option value="single">Single</option><option value="double">Double</option></select></div>
+  <div class="opt-group"><label ti="label_brackets">Brackets</label><select id="optBrackets"><option value="same">Same line</option><option value="new">New line</option></select></div>
+  <div class="opt-group"><label ti="label_trailing_comma">Trailing comma</label><select id="optTrailing"><option value="none">None</option><option value="es5">ES5</option><option value="all">All</option></select></div>
+  <div class="live-toggle"><label class="switch"><input type="checkbox" id="liveMode"><span class="slider"></span></label><label for="liveMode" ti="label_live">Live</label></div>
 </div>
 
 <div class="panels">
   <div class="panel">
     <div class="panel-header"><span>Input</span><span class="stats" id="inStats">0 chars · 0 lines</span></div>
-    <textarea id="input" placeholder="Paste JavaScript code here..." spellcheck="false"></textarea>
+    <textarea id="input" tp="placeholder_paste_javascript_code_her" placeholder="Paste JavaScript code here..." spellcheck="false"></textarea>
   </div>
   <div class="panel">
     <div class="panel-header"><span>Output</span><span class="stats" id="outStats">0 chars · 0 lines</span></div>
@@ -83,22 +85,32 @@ footer .back{color:#666}
 </div>
 
 <div class="btn-bar">
-  <button class="btn primary" onclick="doFormat()">Format</button>
-  <button class="btn accent" onclick="doMinify()">Minify</button>
-  <button class="btn" onclick="doCopy()">Copy</button>
-  <button class="btn" onclick="doClear()">Clear</button>
-  <button class="btn" onclick="pasteSample()">Paste Sample</button>
+  <button class="btn primary" onclick="doFormat()" ti="btn_format">Format</button>
+  <button class="btn accent" onclick="doMinify()" ti="btn_minify">Minify</button>
+  <button class="btn" onclick="doCopy()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="doClear()" ti="btn_clear">Clear</button>
+  <button class="btn" onclick="pasteSample()" ti="btn_paste_sample">Paste Sample</button>
 </div>
 </div>
 
 <footer>
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
-<a href="https://gokuscraper.github.io/dev-vault/js-minifier/">JS Minifier</a>
-<a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a>
-<a href="https://gokuscraper.github.io/dev-vault/html-minifier/">HTML Minifier</a>
-<div style="margin-top:12px"><a class="back" href="https://gokuscraper.github.io/dev-vault/">Dev Vault — Free Developer Tools</a></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
+<a href="https://gokuscraper.github.io/dev-vault/js-minifier/" ti="link_js_minifier">JS Minifier</a>
+<a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a>
+<a href="https://gokuscraper.github.io/dev-vault/html-minifier/" ti="link_html_minifier">HTML Minifier</a>
+<div style="margin-top:12px"><a class="back" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault_free_developer">Dev Vault — Free Developer Tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_javascript_beautifier_for':["JavaScript Beautifier — Format & Prettify JS Code", "JavaScript 美化工具 — 格式化和美化 JS 代码"],'metadesc_format_and_beautify_javas':["Format and beautify JavaScript code in your browser. Adjust indent size, semicolons, quotes, bracket style, and trailing commas. No signup, no server upload.", "在浏览器中格式化和美化 JavaScript 代码。调​​整缩进大小、分号、引号、括号样式和尾随逗号。无需注册，无需上传到服务器。"],'h1_javascript_beautifier':["JavaScript Beautifier", "JavaScript 美化器"],'subtitle_format_prettify_js_code_i':["Format & prettify JS code instantly in your browser", "在浏览器中即时格式化和美化 JS 代码"],'btn_format':["Format", "格式"],'btn_minify':["Minify", "缩小"],'btn_copy':["Copy", "复制"],'btn_clear':["Clear", "清除"],'btn_paste_sample':["Paste Sample", "糊状样品"],'placeholder_paste_javascript_code_her':["Paste JavaScript code here...", "在此处粘贴 JavaScript 代码……"],'strong_related_tools':["Related Tools", "相关工具"],'label_indent':["Indent", "缩进"],'label_semicolons':["Semicolons", "分号"],'label_quotes':["Quotes", "引号"],'label_brackets':["Brackets", "括号"],'label_trailing_comma':["Trailing comma", "尾随逗号"],'label_live':["Live", "居住"],'link_js_minifier':["JS Minifier", "JS压缩器"],'link_json_format':["JSON Format", "JSON 格式"],'link_html_minifier':["HTML Minifier", "HTML 压缩器"],'link_dev_vault_free_developer':["Dev Vault — Free Developer Tools", "Dev Vault — 免费开发者工具"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Tokenizer ---
 function tokenize(src) {
@@ -374,7 +386,7 @@ function doCopy() {
   navigator.clipboard.writeText(rawOutput).then(() => {
     const btn = document.querySelectorAll('.btn')[2];
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1200);
   });
 }
@@ -427,6 +439,24 @@ document.querySelectorAll('.options-bar select').forEach(sel => {
 document.addEventListener('keydown', e => {
   if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') { e.preventDefault(); doFormat(); }
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

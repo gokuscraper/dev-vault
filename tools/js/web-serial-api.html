@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_serial_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -439,6 +439,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>
@@ -469,7 +471,7 @@
       </div>
 
       <div class="form-group">
-        <label>Data Bits</label>
+        <label ti="label_data_bits">Data Bits</label>
         <select id="dataBits">
           <option value="8" selected>8</option>
           <option value="7">7</option>
@@ -477,7 +479,7 @@
       </div>
 
       <div class="form-group">
-        <label>Stop Bits</label>
+        <label ti="label_stop_bits">Stop Bits</label>
         <select id="stopBits">
           <option value="1" selected>1</option>
           <option value="2">2</option>
@@ -485,7 +487,7 @@
       </div>
 
       <div class="form-group">
-        <label>Parity</label>
+        <label ti="label_parity">Parity</label>
         <select id="parity">
           <option value="none" selected>None</option>
           <option value="even">Even</option>
@@ -494,7 +496,7 @@
       </div>
 
       <div class="form-group">
-        <label>Flow Control</label>
+        <label ti="label_flow_control">Flow Control</label>
         <select id="flowControl">
           <option value="none" selected>None</option>
           <option value="hardware">Hardware (RTS/CTS)</option>
@@ -502,8 +504,8 @@
       </div>
 
       <div class="btn-row">
-        <button id="connectBtn" onclick="handleConnect()">Request Port</button>
-        <button id="disconnectBtn" class="btn-danger" onclick="handleDisconnect()" disabled>Disconnect</button>
+        <button id="connectBtn" onclick="handleConnect()" ti="btn_request_port">Request Port</button>
+        <button id="disconnectBtn" class="btn-danger" onclick="handleDisconnect()" disabled ti="btn_disconnect">Disconnect</button>
       </div>
 
       <!-- Connection State Machine -->
@@ -529,7 +531,7 @@
         <div class="signal-card">
           <div class="signal-name">DTR (Data Terminal Ready)</div>
           <div class="signal-value" id="dtrValue"><span class="signal-off">LOW</span></div>
-          <button class="btn-small btn-secondary signal-toggle" id="dtrBtn" onclick="toggleSignal('dtr')" disabled>Toggle</button>
+          <button class="btn-small btn-secondary signal-toggle" id="dtrBtn" onclick="toggleSignal('dtr')" disabled ti="btn_toggle" ti="btn_toggle_2">Toggle</button>
         </div>
         <div class="signal-card">
           <div class="signal-name">RTS (Request To Send)</div>
@@ -555,7 +557,7 @@
       </div>
 
       <div style="margin-top:1rem">
-        <button class="btn-small btn-secondary" id="readSignalsBtn" onclick="readSignals()" disabled>Read Input Signals</button>
+        <button class="btn-small btn-secondary" id="readSignalsBtn" onclick="readSignals()" disabled ti="btn_read_input_signals">Read Input Signals</button>
       </div>
 
       <!-- Stats -->
@@ -586,8 +588,8 @@
       <span>Terminal</span>
       <div style="display:flex;gap:0.5rem;align-items:center">
         <div class="mode-toggle">
-          <button class="active" id="modeAscii" onclick="setMode('ascii')">ASCII</button>
-          <button id="modeHex" onclick="setMode('hex')">HEX</button>
+          <button class="active" id="modeAscii" onclick="setMode('ascii')" ti="btn_ascii">ASCII</button>
+          <button id="modeHex" onclick="setMode('hex')" ti="btn_hex">HEX</button>
         </div>
         <label style="font-size:0.75rem;color:var(--text-dim);display:flex;align-items:center;gap:0.3rem">
           <input type="checkbox" id="localEcho" checked> Echo
@@ -598,14 +600,14 @@
         <label style="font-size:0.75rem;color:var(--text-dim);display:flex;align-items:center;gap:0.3rem">
           <input type="checkbox" id="appendNewline" checked> +\n
         </label>
-        <button class="btn-small btn-secondary" onclick="clearTerminal()">Clear</button>
+        <button class="btn-small btn-secondary" onclick="clearTerminal()" ti="btn_clear" ti="btn_clear_2">Clear</button>
       </div>
     </div>
     <div class="panel-body">
       <div class="terminal" id="terminal"></div>
       <div class="terminal-input-row">
-        <input type="text" id="terminalInput" placeholder="Type command and press Enter..." onkeydown="if(event.key==='Enter')sendData()">
-        <button onclick="sendData()" id="sendBtn" disabled>Send</button>
+        <input type="text" id="terminalInput" tp="placeholder_type_command_and_press_en" placeholder="Type command and press Enter..." onkeydown="if(event.key==='Enter')sendData()">
+        <button onclick="sendData()" id="sendBtn" disabled ti="btn_send" ti="btn_send_2" ti="btn_send_3" ti="btn_send_4" ti="btn_send_5" ti="btn_send_6" ti="btn_send_7" ti="btn_send_8" ti="btn_send_9" ti="btn_send_10" ti="btn_send_11" ti="btn_send_12" ti="btn_send_13">Send</button>
       </div>
     </div>
   </div>
@@ -670,16 +672,16 @@ port.writable
       <span>Quick Reference</span>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="showTab('tabArduino',this)">Arduino Commands</button>
-      <button class="tab-btn" onclick="showTab('tabEsp32',this)">ESP32 Commands</button>
-      <button class="tab-btn" onclick="showTab('tabApi',this)">API Reference</button>
-      <button class="tab-btn" onclick="showTab('tabBaudRef',this)">Baud Rates</button>
+      <button class="tab-btn active" onclick="showTab('tabArduino',this)" ti="btn_arduino_commands">Arduino Commands</button>
+      <button class="tab-btn" onclick="showTab('tabEsp32',this)" ti="btn_esp32_commands">ESP32 Commands</button>
+      <button class="tab-btn" onclick="showTab('tabApi',this)" ti="btn_api_reference">API Reference</button>
+      <button class="tab-btn" onclick="showTab('tabBaudRef',this)" ti="btn_baud_rates">Baud Rates</button>
     </div>
     <div class="panel-body">
       <div class="tab-content active" id="tabArduino">
         <div class="scroll-x">
           <table class="ref-table">
-            <thead><tr><th>Command</th><th>Description</th><th>Try It</th></tr></thead>
+            <thead><tr><th ti="th_command" ti="th_command_2">Command</th><th ti="th_description" ti="th_description_2">Description</th><th ti="th_try_it" ti="th_try_it_2">Try It</th></tr></thead>
             <tbody>
               <tr><td>AT</td><td>Basic attention test (responds OK)</td><td><button class="btn-small btn-secondary" onclick="quickSend('AT')">Send</button></td></tr>
               <tr><td>LED_ON</td><td>Turn on built-in LED</td><td><button class="btn-small btn-secondary" onclick="quickSend('LED_ON')">Send</button></td></tr>
@@ -748,7 +750,7 @@ await port.close();</div>
       <div class="tab-content" id="tabBaudRef">
         <div class="scroll-x">
           <table class="ref-table">
-            <thead><tr><th>Baud Rate</th><th>Common Use</th><th>Bytes/sec</th></tr></thead>
+            <thead><tr><th ti="th_baud_rate" ti="label_baud_rate">Baud Rate</th><th ti="th_common_use">Common Use</th><th ti="th_bytes_sec">Bytes/sec</th></tr></thead>
             <tbody>
               <tr><td>300</td><td>Legacy modems</td><td>~30</td></tr>
               <tr><td>1200</td><td>Old serial devices</td><td>~120</td></tr>
@@ -771,6 +773,16 @@ await port.close();</div>
 
 </div>
 
+
+<script>var _LANG={'title_web_serial_api_playground':["Web Serial API Playground", "Web Serial API 演示平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Web Serial API. Connect to serial devices, send/receive data, and explore serial communication in the browser.", "Web Serial API 的交互式演示环境。连接到串口设备，发送/接收数据，并在浏览器中探索串口通信。"],'btn_request_port':["Request Port", "请求端口"],'btn_disconnect':["Disconnect", "断开"],'btn_toggle':["Toggle", "切换"],'btn_toggle_2':["Toggle", "切换"],'btn_read_input_signals':["Read Input Signals", "读取输入信号"],'btn_ascii':["ASCII", "ASCII"],'btn_hex':["HEX", "六边形"],'btn_clear':["Clear", "清除"],'btn_send':["Send", "发送"],'btn_clear_2':["Clear", "清除"],'btn_arduino_commands':["Arduino Commands", "Arduino 命令"],'btn_esp32_commands':["ESP32 Commands", "ESP32 命令"],'btn_api_reference':["API Reference", "API 参考"],'btn_baud_rates':["Baud Rates", "波特率"],'btn_send_2':["Send", "发送"],'btn_send_3':["Send", "发送"],'btn_send_4':["Send", "发送"],'btn_send_5':["Send", "发送"],'btn_send_6':["Send", "发送"],'btn_send_7':["Send", "发送"],'btn_send_8':["Send", "发送"],'btn_send_9':["Send", "发送"],'btn_send_10':["Send", "发送"],'btn_send_11':["Send", "发送"],'btn_send_12':["Send", "发送"],'btn_send_13':["Send", "发送"],'placeholder_type_command_and_press_en':["Type command and press Enter...", "输入命令并按回车键……"],'th_command':["Command", "命令"],'th_description':["Description", "描述"],'th_try_it':["Try It", "试试看"],'th_command_2':["Command", "命令"],'th_description_2':["Description", "描述"],'th_try_it_2':["Try It", "试试看"],'th_baud_rate':["Baud Rate", "波特率"],'th_common_use':["Common Use", "常用"],'th_bytes_sec':["Bytes/sec", "字节/秒"],'label_baud_rate':["Baud Rate", "波特率"],'label_data_bits':["Data Bits", "数据位"],'label_stop_bits':["Stop Bits", "停止位"],'label_parity':["Parity", "平价"],'label_flow_control':["Flow Control", "流量控制"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"],'jtc_simulated_port_com3':["Simulated Port (COM3)", "模拟端口（COM3）"],'jtc_no_port_selected':["No port selected", "未选择端口"],'jtc_no_port_selected_2':["No port selected", "未选择端口"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // State
   let port = null;
@@ -792,10 +804,10 @@ await port.close();</div>
   function init() {
     const badge = document.getElementById('supportBadge');
     if (isSupported) {
-      badge.textContent = 'Supported';
+      badge.textContent=T("jtc_supported");
       badge.className = 'api-badge badge-supported';
     } else {
-      badge.textContent = 'Not Supported';
+      badge.textContent=T("jtc_not_supported");
       badge.className = 'api-badge badge-unsupported';
       document.getElementById('unsupportedMsg').style.display = 'block';
     }
@@ -880,7 +892,7 @@ await port.close();</div>
 
     setTimeout(() => {
       setState('opening');
-      document.getElementById('portInfo').textContent = 'Simulated Port (COM3)';
+      document.getElementById('portInfo').textContent=T("jtc_simulated_port_com3");
 
       setTimeout(() => {
         setState('connected');
@@ -898,7 +910,7 @@ await port.close();</div>
     setState('idle');
     enableControls(false);
     updateStreamStatus(false);
-    document.getElementById('portInfo').textContent = 'No port selected';
+    document.getElementById('portInfo').textContent=T("jtc_no_port_selected");
     termLog('sys', '[SIM] Disconnected');
   }
 
@@ -958,7 +970,7 @@ await port.close();</div>
       setState('idle');
       enableControls(false);
       updateStreamStatus(false);
-      document.getElementById('portInfo').textContent = 'No port selected';
+      document.getElementById('portInfo').textContent=T("jtc_no_port_selected");
       termLog('sys', 'Disconnected');
     } catch (err) {
       termLog('err', `Disconnect error: ${err.message}`);
@@ -1250,6 +1262,24 @@ await port.close();</div>
 
   // Init on load
   init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

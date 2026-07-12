@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_intl_api_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,6 +56,8 @@ th { color: var(--accent); font-weight: 600; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>Intl</span> API Explorer</h1>
   <p>Internationalization APIs for numbers, dates, text, and more</p>
@@ -63,9 +65,19 @@ th { color: var(--accent); font-weight: 600; }
 <nav id="nav"></nav>
 <main id="main"></main>
 
+
+<script>var _LANG={'title_intl_api_explorer':["Intl API Explorer", "国际 API 浏览器"],'metadesc_interactive_explorer_for':["Interactive explorer for JavaScript Intl API — NumberFormat, DateTimeFormat, RelativeTimeFormat, ListFormat, Segmenter, and more.", "JavaScript Intl API 的交互式浏览器 — NumberFormat、DateTimeFormat、RelativeTimeFormat、ListFormat、Segmenter 等。"],'h3_intl_numberformat':["Intl.NumberFormat", "国际号码格式"],'h3_currency_comparison':["Currency Comparison", "货币比较"],'h3_intl_datetimeformat':["Intl.DateTimeFormat", "国际日期时间格式"],'h3_calendar_systems':["Calendar Systems", "日历系统"],'h3_intl_relativetimeformat':["Intl.RelativeTimeFormat", "国际相对时间格式"],'h3_all_units_at_once':["All Units at Once", "所有单位同时"],'h3_intl_listformat':["Intl.ListFormat", "国际列表格式"],'h3_intl_pluralrules':["Intl.PluralRules", "国际复数规则"],'h3_intl_segmenter':["Intl.Segmenter", "国际分割器"],'h3_intl_displaynames':["Intl.DisplayNames", "国际显示名称"],'h3_locale_comparison_grid':["Locale Comparison Grid", "区域比较表"],'btn_format':["Format", "格式"],'btn_compare_currencies':["Compare Currencies", "比较货币"],'btn_format_current_date':["Format Current Date", "格式化当前日期"],'btn_compare_calendars':["Compare Calendars", "比较日历"],'btn_format_2':["Format", "格式"],'btn_show_all_units_3_to_3':["Show All Units (-3 to +3)", "显示所有单位（-3 到 +3）"],'btn_format_3':["Format", "格式"],'btn_show_plural_categories':["Show Plural Categories", "显示复数类别"],'btn_segment':["Segment", "部分"],'btn_show_names':["Show Names", "显示名称"],'btn_generate_grid':["Generate Grid", "生成网格"],'label_esc_label':["${esc(label)}:", "${esc(label)}:"],'strong_granularity_segments_len':["${granularity} (${segments.length} segments):", "${granularity} (${segments.length} 个段):"],'th_locale':["Locale", "本地化"],'th_number':["Number", "数字"],'th_currency':["Currency", "货币"],'th_date':["Date", "日期"],'th_relative_1_day':["Relative (-1 day)", "相对（-1 天）"],'th_list':["List", "列表"],'label_number':["Number", "数字"],'label_locale':["Locale", "本地化"],'label_locale_2':["Locale", "本地化"],'label_value':["Value", "价值"],'label_unit':["Unit", "单元"],'label_locale_3':["Locale", "本地化"],'label_items':["Items", "项目"],'label_locale_4':["Locale", "本地化"],'label_locale_5':["Locale", "本地化"],'label_text':["Text", "文本"],'label_locale_6':["Locale", "本地化"],'label_locale_7':["Locale", "本地化"],'jtlword_number':["Number", "数字"],'jtlword_locale':["Locale", "本地化"],'jtlword_format':["Format", "格式"],'jtlword_locale_2':["Locale", "本地化"],'jtlword_value':["Value", "价值"],'jtlword_unit':["Unit", "单元"],'jtlword_second':["second", "第二"],'jtlword_minute':["minute", "分钟"],'jtlword_hour':["hour", "小时"],'jtlword_day':["day", "天"],'jtlword_week':["week", "星期"],'jtlword_month':["month", "月"],'jtlword_quarter':["quarter", "四分之一"],'jtlword_year':["year", "年"],'jtlword_locale_3':["Locale", "本地化"],'jtlword_format_2':["Format", "格式"],'jtlword_items':["Items", "项目"],'jtlword_locale_4':["Locale", "本地化"],'jtlword_format_3':["Format", "格式"],'jtlword_locale_5':["Locale", "本地化"],'jtlword_text':["Text", "文本"],'jtlword_locale_6':["Locale", "本地化"],'jtlword_segment':["Segment", "部分"],'jtlword_locale_7':["Locale", "本地化"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function ln(label, value, cls='value') {
-  return `<span class="label">${esc(label)}: </span><span class="${cls}">${esc(String(value))}</span>\n`;
+  return `<span class="label" ti="label_esc_label">${esc(label)}: </span><span class="${cls}">${esc(String(value))}</span>\n`;
 }
 function esc(s) { return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
 
@@ -104,19 +116,19 @@ sec1.id = 'sec-number';
 sec1.className = 'section active';
 sec1.innerHTML = `
 <div class="card">
-  <h3>Intl.NumberFormat</h3>
+  <h3 ti="h3_intl_numberformat">Intl.NumberFormat</h3>
   <p>Format numbers as currency, percentages, units, and more across locales.</p>
   <div class="row">
     <label>Number</label><input type="number" id="nfNum" value="1234567.89" step="any" style="width:150px">
     <label>Locale</label><select id="nfLocale">${localeOpts()}</select>
   </div>
-  <button class="run" onclick="runNumberFormat()">Format</button>
+  <button class="run" onclick="runNumberFormat()" ti="btn_format" ti="btn_format_2" ti="btn_format_3">Format</button>
   <div class="output" id="nfOut"></div>
 </div>
 <div class="card">
-  <h3>Currency Comparison</h3>
+  <h3 ti="h3_currency_comparison">Currency Comparison</h3>
   <p>See how the same amount looks in different currencies.</p>
-  <button class="run" onclick="runCurrency()">Compare Currencies</button>
+  <button class="run" onclick="runCurrency()" ti="btn_compare_currencies">Compare Currencies</button>
   <div class="output" id="currOut"></div>
 </div>`;
 main.appendChild(sec1);
@@ -174,17 +186,17 @@ sec2.id = 'sec-datetime';
 sec2.className = 'section';
 sec2.innerHTML = `
 <div class="card">
-  <h3>Intl.DateTimeFormat</h3>
+  <h3 ti="h3_intl_datetimeformat">Intl.DateTimeFormat</h3>
   <p>Format dates and times with extensive options.</p>
   <div class="row">
     <label>Locale</label><select id="dtLocale">${localeOpts()}</select>
   </div>
-  <button class="run" onclick="runDateTimeFormat()">Format Current Date</button>
+  <button class="run" onclick="runDateTimeFormat()" ti="btn_format_current_date">Format Current Date</button>
   <div class="output" id="dtOut"></div>
 </div>
 <div class="card">
-  <h3>Calendar Systems</h3>
-  <button class="run" onclick="runCalendarDTF()">Compare Calendars</button>
+  <h3 ti="h3_calendar_systems">Calendar Systems</h3>
+  <button class="run" onclick="runCalendarDTF()" ti="btn_compare_calendars">Compare Calendars</button>
   <div class="output" id="calDtOut"></div>
 </div>`;
 main.appendChild(sec2);
@@ -238,11 +250,11 @@ sec3.id = 'sec-relative';
 sec3.className = 'section';
 sec3.innerHTML = `
 <div class="card">
-  <h3>Intl.RelativeTimeFormat</h3>
+  <h3 ti="h3_intl_relativetimeformat">Intl.RelativeTimeFormat</h3>
   <p>Format relative time strings like "3 days ago" or "in 2 hours".</p>
   <div class="row">
-    <label>Value</label><input type="number" id="rtVal" value="-3" style="width:80px">
-    <label>Unit</label>
+    <label ti="label_value">Value</label><input type="number" id="rtVal" value="-3" style="width:80px">
+    <label ti="label_unit">Unit</label>
     <select id="rtUnit">
       <option value="second">second</option>
       <option value="minute">minute</option>
@@ -259,8 +271,8 @@ sec3.innerHTML = `
   <div class="output" id="rtOut"></div>
 </div>
 <div class="card">
-  <h3>All Units at Once</h3>
-  <button class="run" onclick="runAllRelative()">Show All Units (-3 to +3)</button>
+  <h3 ti="h3_all_units_at_once">All Units at Once</h3>
+  <button class="run" onclick="runAllRelative()" ti="btn_show_all_units_3_to_3">Show All Units (-3 to +3)</button>
   <div class="output" id="rtAllOut"></div>
 </div>`;
 main.appendChild(sec3);
@@ -307,10 +319,10 @@ sec4.id = 'sec-list';
 sec4.className = 'section';
 sec4.innerHTML = `
 <div class="card">
-  <h3>Intl.ListFormat</h3>
+  <h3 ti="h3_intl_listformat">Intl.ListFormat</h3>
   <p>Format lists of items with proper conjunction/disjunction for each locale.</p>
   <div class="row">
-    <label>Items</label><input type="text" id="lfItems" value="Apple, Banana, Cherry" style="width:300px">
+    <label ti="label_items">Items</label><input type="text" id="lfItems" value="Apple, Banana, Cherry" style="width:300px">
     <label>Locale</label><select id="lfLocale">${localeOpts()}</select>
   </div>
   <button class="run" onclick="runListFormat()">Format</button>
@@ -347,12 +359,12 @@ sec5.id = 'sec-plural';
 sec5.className = 'section';
 sec5.innerHTML = `
 <div class="card">
-  <h3>Intl.PluralRules</h3>
+  <h3 ti="h3_intl_pluralrules">Intl.PluralRules</h3>
   <p>Determine the plural category for a number in different locales.</p>
   <div class="row">
     <label>Locale</label><select id="prLocale">${localeOpts()}</select>
   </div>
-  <button class="run" onclick="runPluralRules()">Show Plural Categories</button>
+  <button class="run" onclick="runPluralRules()" ti="btn_show_plural_categories">Show Plural Categories</button>
   <div class="output" id="prOut"></div>
 </div>`;
 main.appendChild(sec5);
@@ -386,15 +398,15 @@ sec6.id = 'sec-segmenter';
 sec6.className = 'section';
 sec6.innerHTML = `
 <div class="card">
-  <h3>Intl.Segmenter</h3>
+  <h3 ti="h3_intl_segmenter">Intl.Segmenter</h3>
   <p>Segment text into words, sentences, or grapheme clusters — essential for CJK languages and emoji.</p>
   <div class="row">
-    <label>Text</label><input type="text" id="segText" value="Hello, World! This is a test. 日本語のテスト。👨‍👩‍👧‍👦🏳️‍🌈" style="width:100%;max-width:500px">
+    <label ti="label_text">Text</label><input type="text" id="segText" value="Hello, World! This is a test. 日本語のテスト。👨‍👩‍👧‍👦🏳️‍🌈" style="width:100%;max-width:500px">
   </div>
   <div class="row">
     <label>Locale</label><select id="segLocale">${localeOpts()}</select>
   </div>
-  <button class="run" onclick="runSegmenter()">Segment</button>
+  <button class="run" onclick="runSegmenter()" ti="btn_segment">Segment</button>
   <div id="segOut"></div>
 </div>`;
 main.appendChild(sec6);
@@ -415,7 +427,7 @@ function runSegmenter() {
     const segments = [...seg.segment(text)];
     const cls = `seg-${granularity}`;
 
-    html += `<div style="margin-bottom:1rem"><strong style="color:var(--accent)">${granularity} (${segments.length} segments):</strong><div style="margin-top:0.5rem">`;
+    html += `<div style="margin-bottom:1rem"><strong style="color:var(--accent)" ti="strong_granularity_segments_len">${granularity} (${segments.length} segments):</strong><div style="margin-top:0.5rem">`;
     for (const s of segments) {
       const display = s.segment.replace(/\n/g, '\\n').replace(/ /g, '·');
       const extra = s.isWordLike !== undefined ? (s.isWordLike ? ' [word]' : '') : '';
@@ -432,12 +444,12 @@ sec7.id = 'sec-display';
 sec7.className = 'section';
 sec7.innerHTML = `
 <div class="card">
-  <h3>Intl.DisplayNames</h3>
+  <h3 ti="h3_intl_displaynames">Intl.DisplayNames</h3>
   <p>Get human-readable names for languages, regions, currencies, scripts, and more.</p>
   <div class="row">
     <label>Locale</label><select id="dnLocale">${localeOpts()}</select>
   </div>
-  <button class="run" onclick="runDisplayNames()">Show Names</button>
+  <button class="run" onclick="runDisplayNames()" ti="btn_show_names">Show Names</button>
   <div class="output" id="dnOut"></div>
 </div>`;
 main.appendChild(sec7);
@@ -492,9 +504,9 @@ sec8.id = 'sec-grid';
 sec8.className = 'section';
 sec8.innerHTML = `
 <div class="card">
-  <h3>Locale Comparison Grid</h3>
+  <h3 ti="h3_locale_comparison_grid">Locale Comparison Grid</h3>
   <p>See the same value formatted across all locales simultaneously.</p>
-  <button class="run" onclick="runLocaleGrid()">Generate Grid</button>
+  <button class="run" onclick="runLocaleGrid()" ti="btn_generate_grid">Generate Grid</button>
   <div id="gridOut" style="overflow-x:auto"></div>
 </div>`;
 main.appendChild(sec8);
@@ -504,7 +516,7 @@ function runLocaleGrid() {
   const now = new Date();
   const num = 1234567.89;
 
-  let html = '<table><thead><tr><th>Locale</th><th>Number</th><th>Currency</th><th>Date</th><th>Relative (-1 day)</th><th>List</th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th ti="th_locale" ti="label_locale" ti="label_locale_2" ti="label_locale_3" ti="label_locale_4" ti="label_locale_5" ti="label_locale_6" ti="label_locale_7">Locale</th><th ti="th_number" ti="label_number">Number</th><th ti="th_currency">Currency</th><th ti="th_date">Date</th><th ti="th_relative_1_day">Relative (-1 day)</th><th ti="th_list">List</th></tr></thead><tbody>';
   for (const loc of LOCALES) {
     let numFmt, curFmt, dateFmt, relFmt, listFmt;
     try { numFmt = new Intl.NumberFormat(loc).format(num); } catch { numFmt = '?'; }
@@ -520,6 +532,24 @@ function runLocaleGrid() {
 
 // Auto-run first
 runNumberFormat();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

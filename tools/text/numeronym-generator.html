@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_numeronym_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +25,15 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Numeronym Generator</h1>
-  <p class="desc">Generate i18n-style numeronyms — e.g. 'internationalization' → 'i18n'</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_numeronym_generator" ti="h1_numeronym_generator" ti="title_numeronym_generator" ti="h1_numeronym_generator">Numeronym Generator</h1>
+  <p class="desc" ti="subtitle_generate_i18n_style_numer" ti="subtitle_generate_i18n_style_numer">Generate i18n-style numeronyms — e.g. 'internationalization' → 'i18n'</p>
   <div class="card">
-    <label>Input (one word per line)</label>
+    <label ti="label_input_one_word_per_line" ti="label_input_one_word_per_line">Input (one word per line)</label>
     <textarea id="inputWords" rows="5" spellcheck="false">internationalization
 accessibility
 localization
@@ -38,10 +42,20 @@ Dev Vault
 number of words</textarea>
     <div class="result-box" id="output"></div>
     <div class="flex-center">
-      <button id="copyBtn">Copy</button>
+      <button id="copyBtn" ti="btn_copy" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_numeronym_generator':["Numeronym Generator", "数字词生成器"],'metadesc_generate_numeronyms_i18n':["Generate numeronyms (i18n-style abbreviations) from words and phrases. e.g.", "从单词和短语生成数字同义词（国际化风格的缩写）。例如"],'h1_numeronym_generator':["Numeronym Generator", "数字词生成器"],'subtitle_generate_i18n_style_numer':["Generate i18n-style numeronyms — e.g. 'internationalization' → 'i18n'", "生成 i18n 风格的数字同义词——例如，“internationalization”→“i18n”"],'btn_copy':["Copy", "复制"],'label_input_one_word_per_line':["Input (one word per line)", "输入（每行一个单词）"],'footer_internationalization_acce':["internationalization\naccessibility\nlocalization\nHello World\nDev Vault\nnumber of words", "国际化 可访问性 本地化 Hello World 开发库 字数"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function toNumeronym(word) {
   const w = word.trim();
@@ -52,7 +66,6 @@ function toNumeronym(word) {
 function numeronymLine(line) {
   return line.split(/\s+/).map(w => {
     if (!w) return '';
-    // Keep punctuation at end
     const m = w.match(/^([a-zA-Z]+)([^a-zA-Z]*)$/);
     if (m) return toNumeronym(m[1]) + m[2];
     return toNumeronym(w);
@@ -69,6 +82,42 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('output').textContent);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

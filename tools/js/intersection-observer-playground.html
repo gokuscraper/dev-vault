@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_intersection_observer_pla" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -221,6 +221,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">IO</span>
@@ -228,7 +230,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">Web API</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
@@ -237,28 +239,28 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <div class="controls-panel">
     <div class="section-title">Use Case Presets</div>
     <div class="preset-btns">
-      <button class="preset-btn active" data-preset="default">Default</button>
-      <button class="preset-btn" data-preset="lazyload">Lazy Load</button>
-      <button class="preset-btn" data-preset="infinite">Infinite Scroll</button>
-      <button class="preset-btn" data-preset="animation">Animate In</button>
-      <button class="preset-btn" data-preset="sticky">Sticky Header</button>
-      <button class="preset-btn" data-preset="progress">Read Progress</button>
+      <button class="preset-btn active" data-preset="default" ti="btn_default">Default</button>
+      <button class="preset-btn" data-preset="lazyload" ti="btn_lazy_load">Lazy Load</button>
+      <button class="preset-btn" data-preset="infinite" ti="btn_infinite_scroll">Infinite Scroll</button>
+      <button class="preset-btn" data-preset="animation" ti="btn_animate_in">Animate In</button>
+      <button class="preset-btn" data-preset="sticky" ti="btn_sticky_header">Sticky Header</button>
+      <button class="preset-btn" data-preset="progress" ti="btn_read_progress">Read Progress</button>
     </div>
 
     <div class="section-title">Threshold</div>
     <div class="control-group">
       <div class="control-row">
-        <label>Value</label>
+        <label ti="label_value">Value</label>
         <input type="range" id="opt-threshold" min="0" max="1" step="0.05" value="0">
         <span class="val-display" id="val-threshold">0</span>
       </div>
       <div class="threshold-presets">
         <button class="tp-btn active" data-val="0">0</button>
-        <button class="tp-btn" data-val="0.25">0.25</button>
-        <button class="tp-btn" data-val="0.5">0.5</button>
-        <button class="tp-btn" data-val="0.75">0.75</button>
-        <button class="tp-btn" data-val="1">1.0</button>
-        <button class="tp-btn" data-val="multi">Array</button>
+        <button class="tp-btn" data-val="0.25" ti="btn_0_25">0.25</button>
+        <button class="tp-btn" data-val="0.5" ti="btn_0_5">0.5</button>
+        <button class="tp-btn" data-val="0.75" ti="btn_0_75">0.75</button>
+        <button class="tp-btn" data-val="1" ti="btn_1_0">1.0</button>
+        <button class="tp-btn" data-val="multi" ti="btn_array">Array</button>
       </div>
       <div id="multiThresholdRow" style="display:none;margin-top:8px;">
         <input type="text" id="opt-threshold-multi" value="0, 0.25, 0.5, 0.75, 1.0" style="width:100%;font-family:var(--mono);font-size:0.75rem;padding:6px 10px;border-radius:6px;background:var(--bg-input);border:1px solid var(--border);color:var(--text);outline:none;">
@@ -268,22 +270,22 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <div class="section-title">Root Margin</div>
     <div class="control-group">
       <div class="control-row">
-        <label>Top</label>
+        <label ti="label_top">Top</label>
         <input type="range" id="opt-margin-top" min="-200" max="200" step="5" value="0">
         <span class="val-display" id="val-margin-top">0px</span>
       </div>
       <div class="control-row">
-        <label>Right</label>
+        <label ti="label_right">Right</label>
         <input type="range" id="opt-margin-right" min="-200" max="200" step="5" value="0">
         <span class="val-display" id="val-margin-right">0px</span>
       </div>
       <div class="control-row">
-        <label>Bottom</label>
+        <label ti="label_bottom">Bottom</label>
         <input type="range" id="opt-margin-bottom" min="-200" max="200" step="5" value="0">
         <span class="val-display" id="val-margin-bottom">0px</span>
       </div>
       <div class="control-row">
-        <label>Left</label>
+        <label ti="label_left">Left</label>
         <input type="range" id="opt-margin-left" min="-200" max="200" step="5" value="0">
         <span class="val-display" id="val-margin-left">0px</span>
       </div>
@@ -308,7 +310,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- Preview -->
   <div class="preview-panel">
     <div class="panel-header">
-      <h3>Scroll to observe</h3>
+      <h3 ti="h3_scroll_to_observe">Scroll to observe</h3>
       <span style="font-family:var(--mono);font-size:0.7rem;color:var(--text-dim)" id="scrollInfo">0px</span>
     </div>
     <div class="scroll-viewport" id="scrollViewport">
@@ -316,7 +318,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
         <div class="spacer">&#8595; Scroll down to see the target element &#8595;</div>
         <div class="spacer" style="height:200px"></div>
         <div class="target-element" id="targetElement">
-          <span class="target-label">Target Element</span>
+          <span class="target-label" ti="label_target_element">Target Element</span>
           <span class="target-ratio" id="targetRatio">0%</span>
         </div>
         <div class="spacer" style="height:200px"></div>
@@ -333,13 +335,23 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- Code -->
   <div class="code-panel">
     <div class="panel-header">
-      <h3>JavaScript</h3>
-      <button class="btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_javascript">JavaScript</h3>
+      <button class="btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output"><pre id="codeContent"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_intersection_observer_pla':["Intersection Observer Playground — Dev Vault", "交叉路口观察者游乐场 — 开发者宝库"],'metadesc_interactive_intersection':["Interactive Intersection Observer playground. Configure threshold, rootMargin visually. See intersection ratio in real-time. Export working JavaScript code.", "交互式交叉路口观察器演示环境。可直观地配置阈值和根边距。实时查看交叉路口比率。导出可运行的 JavaScript 代码。"],'h3_scroll_to_observe':["Scroll to observe", "滚动查看"],'h3_javascript':["JavaScript", "JavaScript"],'btn_default':["Default", "默认"],'btn_lazy_load':["Lazy Load", "懒加载"],'btn_infinite_scroll':["Infinite Scroll", "无限滚动"],'btn_animate_in':["Animate In", "动画"],'btn_sticky_header':["Sticky Header", "固定标题"],'btn_read_progress':["Read Progress", "阅读进度"],'btn_0_25':["0.25", "0.25"],'btn_0_5':["0.5", "0.5"],'btn_0_75':["0.75", "0.75"],'btn_1_0':["1.0", "1.0"],'btn_array':["Array", "大批"],'btn_copy':["Copy", "复制"],'label_target_element':["Target Element", "目标元素"],'label_value':["Value", "价值"],'label_top':["Top", "顶部"],'label_right':["Right", "正确的"],'label_bottom':["Bottom", "底部"],'label_left':["Left", "左边"],'footer_intersection_observer_pla':["Intersection Observer Playground — Dev Vault", "交叉路口观察者游乐场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_const':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_intersectionobserver':["IntersectionObserver", "交叉路口观察员"],'jtlword_foreach':["forEach", "forEach"],'jtlword_if':["if", "如果"],'jtlword_log':["log", "日志"],'jtlword_log_2':["log", "日志"],'jtlword_else':["else", "别的"],'jtlword_log_3':["log", "日志"],'jtlword_threshold':["threshold", "临界点"],'jtlword_rootmargin':["rootMargin", "根边距"],'jtlword_const_2':["const", "常量"],'jtlword_queryselector':["querySelector", "查询选择器"],'jtlword_observe':["observe", "观察"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const scrollViewport = document.getElementById('scrollViewport');
@@ -619,14 +631,32 @@ observer.observe(target);`;
   copyBtn.onclick = () => {
     const cfg = getConfig();
     navigator.clipboard.writeText(getPlainCode(cfg)).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 2000);
     });
   };
 
   // Init
   setupObserver();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

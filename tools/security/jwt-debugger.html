@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_jwt_debugger_decode_inspe" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,8 +61,10 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JWT Debugger</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_jwt_debugger">JWT Debugger</h1>
 <p class="sub">Decode, inspect &amp; build JWTs — nothing leaves your browser</p>
 
 <div class="tabs">
@@ -73,13 +75,13 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <!-- Decode tab -->
 <div id="tabDecode">
 <div class="section">
-<h3>Paste JWT</h3>
+<h3 ti="h3_paste_jwt">Paste JWT</h3>
 <div class="samples">
 <div class="sample" onclick="loadSample('basic')">Basic</div>
 <div class="sample" onclick="loadSample('expired')">Expired</div>
 <div class="sample" onclick="loadSample('admin')">Admin Role</div>
 </div>
-<textarea class="jwt-input" id="jwtInput" placeholder="Paste your JWT here (eyJhbGci...)" oninput="decode()"></textarea>
+<textarea class="jwt-input" id="jwtInput" tp="placeholder_paste_your_jwt_here_eyjhb" placeholder="Paste your JWT here (eyJhbGci...)" oninput="decode()"></textarea>
 </div>
 
 <div id="statusBar"></div>
@@ -91,7 +93,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section" id="claimsSection" style="display:none">
-<h3>Registered Claims</h3>
+<h3 ti="h3_registered_claims">Registered Claims</h3>
 <div class="claims" id="claimsList"></div>
 </div>
 </div>
@@ -99,41 +101,51 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <!-- Build tab -->
 <div id="tabBuild" style="display:none">
 <div class="section">
-<h3>Header</h3>
+<h3 ti="h3_header">Header</h3>
 <div class="field-row">
-<div class="field"><label>Algorithm</label><select id="bAlg"><option>HS256</option><option>HS384</option><option>HS512</option><option>RS256</option><option>ES256</option><option>none</option></select></div>
-<div class="field"><label>Type</label><input id="bTyp" value="JWT"></div>
+<div class="field"><label ti="label_algorithm">Algorithm</label><select id="bAlg"><option>HS256</option><option>HS384</option><option>HS512</option><option>RS256</option><option>ES256</option><option>none</option></select></div>
+<div class="field"><label ti="label_type">Type</label><input id="bTyp" value="JWT"></div>
 </div>
 </div>
 <div class="section">
-<h3>Payload</h3>
-<div class="field"><label>JSON Payload</label><textarea class="field" id="bPayload">{
+<h3 ti="h3_payload">Payload</h3>
+<div class="field"><label ti="label_json_payload">JSON Payload</label><textarea class="field" id="bPayload">{
   "sub": "1234567890",
   "name": "John Doe",
   "iat": 1516239022
 }</textarea></div>
 <div class="field-row">
-<div class="field"><label>Issued At (iat)</label><input id="bIat" type="datetime-local"></div>
-<div class="field"><label>Expiration (exp)</label><input id="bExp" type="datetime-local"></div>
+<div class="field"><label ti="label_issued_at_iat">Issued At (iat)</label><input id="bIat" type="datetime-local"></div>
+<div class="field"><label ti="label_expiration_exp">Expiration (exp)</label><input id="bExp" type="datetime-local"></div>
 </div>
-<button class="btn" onclick="setNowIat()" style="margin-bottom:10px">Set iat=now</button>
+<button class="btn" onclick="setNowIat()" style="margin-bottom:10px" ti="btn_set_iat_now">Set iat=now</button>
 </div>
 <div class="section">
-<h3>Result (unsigned)</h3>
+<h3 ti="h3_result_unsigned">Result (unsigned)</h3>
 <div class="output-area" id="buildOutput"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="buildJWT()">Build JWT</button>
-<button class="btn" onclick="copyBuild()">Copy</button>
+<button class="btn btn-primary" onclick="buildJWT()" ti="btn_build_jwt">Build JWT</button>
+<button class="btn" onclick="copyBuild()" ti="btn_copy">Copy</button>
 </div>
 <div class="info">Note: Signature verification requires a secret key. This tool builds unsigned/HS256-placeholder tokens for testing.</div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/base64/">Base64</a> | <a href="https://gokuscraper.github.io/dev-vault/json-formatter/">JSON Formatter</a> | <a href="https://gokuscraper.github.io/dev-vault/hash-gen/">Hash Generator</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/base64/" ti="link_base64">Base64</a> | <a href="https://gokuscraper.github.io/dev-vault/json-formatter/" ti="link_json_formatter">JSON Formatter</a> | <a href="https://gokuscraper.github.io/dev-vault/hash-gen/" ti="link_hash_generator">Hash Generator</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_jwt_debugger_decode_inspe':["JWT Debugger — Decode, Inspect & Build JSON Web Tokens", "JWT调试器 — 解码、检查和构建JSON Web令牌"],'metadesc_decode_and_inspect_jwt_to':["Decode and inspect JWT tokens. View header, payload, signature. Build new tokens. Verify expiration. All in your browser, nothing sent to server.", "解码并检查 JWT 令牌。查看令牌头、有效负载和签名。创建新令牌。验证令牌过期时间。所有操作均在浏览器中完成，无需向服务器发送任何数据。"],'h1_jwt_debugger':["JWT Debugger", "JWT调试器"],'h3_paste_jwt':["Paste JWT", "粘贴 JWT"],'h3_registered_claims':["Registered Claims", "已登记索赔"],'h3_header':["Header", "标题"],'h3_payload':["Payload", "有效载荷"],'h3_result_unsigned':["Result (unsigned)", "结果（无符号）"],'subtitle_decode_inspect_build_jwts':["Decode, inspect & build JWTs — nothing leaves your browser", "解码、检查和构建 JWT——所有数据都不会离开您的浏览器"],'btn_set_iat_now':["Set iat=now", "设置 iat=now"],'btn_build_jwt':["Build JWT", "构建 JWT"],'btn_copy':["Copy", "复制"],'placeholder_paste_your_jwt_here_eyjhb':["Paste your JWT here (eyJhbGci...)", "将您的 JWT 粘贴到此处（eyJhbGci...）"],'label_algorithm':["Algorithm", "算法"],'label_type':["Type", "类型"],'label_json_payload':["JSON Payload", "JSON 有效载荷"],'label_issued_at_iat':["Issued At (iat)", "发布地点 (iat)"],'label_expiration_exp':["Expiration (exp)", "到期日（exp）"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_base64':["Base64", "Base64"],'link_json_formatter':["JSON Formatter", "JSON格式化程序"],'link_hash_generator':["Hash Generator", "哈希生成器"],'jtc_error_invalid_json_in_pay':["Error: Invalid JSON in payload", "错误：有效负载中的 JSON 无效"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function b64UrlDecode(str){
   str=str.replace(/-/g,'+').replace(/_/g,'/');
@@ -252,7 +264,7 @@ function buildJWT(){
   try{
     payload=JSON.parse(document.getElementById('bPayload').value);
   }catch(e){
-    document.getElementById('buildOutput').textContent='Error: Invalid JSON in payload';
+    document.getElementById('buildOutput').textContent=T("jtc_error_invalid_json_in_pay");
     return;
   }
 
@@ -274,6 +286,24 @@ function showToast(msg){
   const t=document.getElementById('toast');t.textContent=msg||'Copied!';t.style.display='block';
   setTimeout(()=>t.style.display='none',1500);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_speech_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -400,6 +400,8 @@ input[type="range"]::-webkit-slider-thumb {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- ═══ Header ═══ -->
 <header class="app-header">
@@ -407,15 +409,15 @@ input[type="range"]::-webkit-slider-thumb {
   <div class="support-badges" id="supportBadges"></div>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- ═══ Tabs ═══ -->
   <nav class="tabs" id="tabs">
-    <button class="tab active" data-tab="recognition">🎙️ Recognition</button>
-    <button class="tab" data-tab="synthesis">🔊 Synthesis</button>
-    <button class="tab" data-tab="voices">📋 Voice Browser</button>
-    <button class="tab" data-tab="dictation">📝 Dictation</button>
-    <button class="tab" data-tab="roundtrip">🔁 Round-Trip</button>
-    <button class="tab" data-tab="langcomp">🌍 Lang Compare</button>
+    <button class="tab active" data-tab="recognition" ti="btn_recognition">🎙️ Recognition</button>
+    <button class="tab" data-tab="synthesis" ti="btn_synthesis">🔊 Synthesis</button>
+    <button class="tab" data-tab="voices" ti="btn_voice_browser">📋 Voice Browser</button>
+    <button class="tab" data-tab="dictation" ti="btn_dictation">📝 Dictation</button>
+    <button class="tab" data-tab="roundtrip" ti="btn_round_trip">🔁 Round-Trip</button>
+    <button class="tab" data-tab="langcomp" ti="btn_lang_compare">🌍 Lang Compare</button>
   </nav>
 
   <!-- ═══════════════════════════════════════════ -->
@@ -423,7 +425,7 @@ input[type="range"]::-webkit-slider-thumb {
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel active" id="panel-recognition">
     <div class="card">
-      <h2>🎙️ Speech Recognition (Speech-to-Text)</h2>
+      <h2 ti="h2_speech_recognition_speec">🎙️ Speech Recognition (Speech-to-Text)</h2>
       <p class="status-msg" id="recStatus">Press the mic button and start speaking.</p>
 
       <div class="control-row" style="margin-top:0.75rem;">
@@ -443,30 +445,30 @@ input[type="range"]::-webkit-slider-thumb {
           </select>
         </div>
         <div class="control-group">
-          <label>Mode</label>
+          <label ti="label_mode">Mode</label>
           <select id="recMode">
             <option value="single">Single result</option>
             <option value="continuous">Continuous</option>
           </select>
         </div>
         <button class="btn btn-icon btn-mic" id="recMicBtn" title="Start/stop recognition">🎤</button>
-        <button class="btn btn-sm" id="recClear">Clear</button>
+        <button class="btn btn-sm" id="recClear" ti="btn_clear" ti="btn_clear_2">Clear</button>
       </div>
 
       <div class="level-meter" id="recLevelMeter">
         <canvas id="recCanvas"></canvas>
       </div>
 
-      <h3>Transcript</h3>
+      <h3 ti="h3_transcript">Transcript</h3>
       <div class="transcript-box" id="recTranscript">
         <span class="interim"></span>
       </div>
     </div>
 
     <div class="card">
-      <h2>📄 Code Snippet</h2>
+      <h2 ti="h2_code_snippet" ti="h2_code_snippet_2" ti="h2_code_snippet_3" ti="h2_code_snippet_4" ti="h2_code_snippet_5" ti="h2_code_snippet_6">📄 Code Snippet</h2>
       <div class="code-block">
-        <button class="btn btn-sm copy-btn" onclick="copyCode(this)">📋 Copy</button>
+        <button class="btn btn-sm copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6">📋 Copy</button>
         <pre><code>// Speech Recognition — basic usage
 const recognition = new (window.SpeechRecognition
   || window.webkitSpeechRecognition)();
@@ -494,40 +496,40 @@ recognition.start();</code></pre>
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel" id="panel-synthesis">
     <div class="card">
-      <h2>🔊 Speech Synthesis (Text-to-Speech)</h2>
+      <h2 ti="h2_speech_synthesis_text_to">🔊 Speech Synthesis (Text-to-Speech)</h2>
 
-      <h3>Presets</h3>
+      <h3 ti="h3_presets" ti="h3_presets_2">Presets</h3>
       <div class="presets" id="synthPresets"></div>
 
       <div class="control-group" style="margin-bottom:0.75rem;">
-        <label>Text to speak</label>
-        <textarea id="synthText" placeholder="Type or select a preset...">Hello! Welcome to the Web Speech API playground. This is a test of text-to-speech synthesis.</textarea>
+        <label ti="label_text_to_speak">Text to speak</label>
+        <textarea id="synthText" tp="placeholder_type_or_select_a_preset" placeholder="Type or select a preset...">Hello! Welcome to the Web Speech API playground. This is a test of text-to-speech synthesis.</textarea>
       </div>
 
       <div class="control-row">
         <div class="control-group">
-          <label>Voice</label>
+          <label ti="label_voice">Voice</label>
           <select id="synthVoice" style="max-width:260px;"></select>
         </div>
       </div>
 
       <div class="control-row">
         <div class="control-group">
-          <label>Rate</label>
+          <label ti="label_rate">Rate</label>
           <div style="display:flex;align-items:center;gap:0.4rem;">
             <input type="range" id="synthRate" min="0.1" max="3" step="0.1" value="1">
             <span class="slider-val" id="synthRateVal">1.0</span>
           </div>
         </div>
         <div class="control-group">
-          <label>Pitch</label>
+          <label ti="label_pitch">Pitch</label>
           <div style="display:flex;align-items:center;gap:0.4rem;">
             <input type="range" id="synthPitch" min="0" max="2" step="0.1" value="1">
             <span class="slider-val" id="synthPitchVal">1.0</span>
           </div>
         </div>
         <div class="control-group">
-          <label>Volume</label>
+          <label ti="label_volume">Volume</label>
           <div style="display:flex;align-items:center;gap:0.4rem;">
             <input type="range" id="synthVolume" min="0" max="1" step="0.05" value="1">
             <span class="slider-val" id="synthVolumeVal">1.0</span>
@@ -536,10 +538,10 @@ recognition.start();</code></pre>
       </div>
 
       <div class="control-row" style="margin-top:0.5rem;">
-        <button class="btn btn-primary" id="synthSpeakBtn">▶ Speak</button>
-        <button class="btn" id="synthPauseBtn" disabled>⏸ Pause</button>
-        <button class="btn" id="synthResumeBtn" disabled>▶ Resume</button>
-        <button class="btn btn-danger" id="synthStopBtn" disabled>⏹ Stop</button>
+        <button class="btn btn-primary" id="synthSpeakBtn" ti="btn_speak">▶ Speak</button>
+        <button class="btn" id="synthPauseBtn" disabled ti="btn_pause">⏸ Pause</button>
+        <button class="btn" id="synthResumeBtn" disabled ti="btn_resume">▶ Resume</button>
+        <button class="btn btn-danger" id="synthStopBtn" disabled ti="btn_stop" ti="btn_stop_2" ti="btn_stop_3">⏹ Stop</button>
       </div>
       <p class="status-msg" id="synthStatus"></p>
     </div>
@@ -571,17 +573,17 @@ speechSynthesis.speak(utter);</code></pre>
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel" id="panel-voices">
     <div class="card">
-      <h2>📋 Voice Browser</h2>
+      <h2 ti="h2_voice_browser">📋 Voice Browser</h2>
       <div class="control-row">
         <div class="control-group">
-          <label>Filter by language</label>
+          <label ti="label_filter_by_language">Filter by language</label>
           <select id="voiceFilterLang">
             <option value="">All languages</option>
           </select>
         </div>
         <div class="control-group">
-          <label>Search</label>
-          <input type="text" id="voiceSearch" placeholder="Search voices...">
+          <label ti="label_search">Search</label>
+          <input type="text" id="voiceSearch" tp="placeholder_search_voices" placeholder="Search voices...">
         </div>
         <span class="status-msg" id="voiceCount"></span>
       </div>
@@ -589,11 +591,11 @@ speechSynthesis.speak(utter);</code></pre>
         <table class="voice-table">
           <thead>
             <tr>
-              <th>Name</th>
-              <th>Language</th>
-              <th>Type</th>
-              <th>Default</th>
-              <th>Preview</th>
+              <th ti="th_name">Name</th>
+              <th ti="th_language" ti="label_language" ti="label_language_2">Language</th>
+              <th ti="th_type">Type</th>
+              <th ti="th_default">Default</th>
+              <th ti="th_preview">Preview</th>
             </tr>
           </thead>
           <tbody id="voiceTableBody"></tbody>
@@ -628,10 +630,10 @@ listVoices();</code></pre>
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel" id="panel-dictation">
     <div class="card">
-      <h2>📝 Dictation Mode</h2>
+      <h2 ti="h2_dictation_mode">📝 Dictation Mode</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.75rem;">
-        Continuous speech recognition. Say <strong>"period"</strong>, <strong>"comma"</strong>,
-        <strong>"question mark"</strong>, <strong>"exclamation mark"</strong>, or <strong>"new line"</strong>
+        Continuous speech recognition. Say <strong ti="strong_period">"period"</strong>, <strong ti="strong_comma">"comma"</strong>,
+        <strong ti="strong_question_mark">"question mark"</strong>, <strong ti="strong_exclamation_mark">"exclamation mark"</strong>, or <strong ti="strong_new_line">"new line"</strong>
         to insert punctuation.
       </p>
 
@@ -649,14 +651,14 @@ listVoices();</code></pre>
         </div>
         <button class="btn btn-icon btn-mic" id="dictMicBtn" title="Start/stop dictation">🎤</button>
         <button class="btn btn-sm" id="dictClear">Clear</button>
-        <button class="btn btn-sm" id="dictCopy">📋 Copy text</button>
+        <button class="btn btn-sm" id="dictCopy" ti="btn_copy_text">📋 Copy text</button>
       </div>
 
       <div class="level-meter" id="dictLevelMeter">
         <canvas id="dictCanvas"></canvas>
       </div>
 
-      <textarea id="dictOutput" rows="8" placeholder="Dictated text will appear here..." style="min-height:150px;"></textarea>
+      <textarea id="dictOutput" rows="8" tp="placeholder_dictated_text_will_appear" placeholder="Dictated text will appear here..." style="min-height:150px;"></textarea>
       <p class="status-msg" id="dictStatus">Press the mic button to begin dictating.</p>
     </div>
 
@@ -697,7 +699,7 @@ recognition.start();</code></pre>
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel" id="panel-roundtrip">
     <div class="card">
-      <h2>🔁 Round-Trip Demo</h2>
+      <h2 ti="h2_round_trip_demo">🔁 Round-Trip Demo</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.75rem;">
         Speak → transcribe → read back in a different voice. Tests the full API loop.
       </p>
@@ -712,7 +714,7 @@ recognition.start();</code></pre>
 
       <div class="control-row">
         <div class="control-group">
-          <label>Input language</label>
+          <label ti="label_input_language">Input language</label>
           <select id="rtInputLang">
             <option value="en-US">English (US)</option>
             <option value="ja-JP">Japanese</option>
@@ -722,13 +724,13 @@ recognition.start();</code></pre>
           </select>
         </div>
         <div class="control-group">
-          <label>Output voice</label>
+          <label ti="label_output_voice">Output voice</label>
           <select id="rtOutputVoice" style="max-width:220px;"></select>
         </div>
       </div>
 
       <div class="control-row">
-        <button class="btn btn-primary" id="rtStartBtn">🎤 Start Round-Trip</button>
+        <button class="btn btn-primary" id="rtStartBtn" ti="btn_start_round_trip">🎤 Start Round-Trip</button>
         <button class="btn btn-danger" id="rtStopBtn" disabled>⏹ Stop</button>
       </div>
 
@@ -738,11 +740,11 @@ recognition.start();</code></pre>
 
       <div class="grid-2" style="margin-top:0.75rem;">
         <div>
-          <h3>Step 2: Transcribed text</h3>
+          <h3 ti="h3_step_2_transcribed_text">Step 2: Transcribed text</h3>
           <div class="transcript-box" id="rtTranscript" style="min-height:60px;"></div>
         </div>
         <div>
-          <h3>Step 3: Read back</h3>
+          <h3 ti="h3_step_3_read_back">Step 3: Read back</h3>
           <p class="status-msg" id="rtReadbackStatus">Waiting...</p>
         </div>
       </div>
@@ -780,7 +782,7 @@ async function roundTrip() {
   <!-- ═══════════════════════════════════════════ -->
   <section class="panel" id="panel-langcomp">
     <div class="card">
-      <h2>🌍 Language Comparison</h2>
+      <h2 ti="h2_language_comparison">🌍 Language Comparison</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.75rem;">
         Hear the same text spoken in multiple languages. Uses the best available voice per language.
       </p>
@@ -789,12 +791,12 @@ async function roundTrip() {
       <div class="presets" id="langPresets"></div>
 
       <div class="control-group" style="margin-bottom:0.75rem;">
-        <label>Text (will be spoken as-is in each language)</label>
+        <label ti="label_text_will_be_spoken_as_is">Text (will be spoken as-is in each language)</label>
         <input type="text" id="langText" value="Hello, how are you today?" style="width:100%;">
       </div>
 
       <div class="control-row" style="margin-bottom:0.75rem;">
-        <button class="btn btn-primary" id="langPlayAll">▶ Play All Sequentially</button>
+        <button class="btn btn-primary" id="langPlayAll" ti="btn_play_all_sequentially">▶ Play All Sequentially</button>
         <button class="btn btn-danger" id="langStopAll">⏹ Stop</button>
       </div>
 
@@ -832,6 +834,16 @@ speakInLanguages('Hello, how are you?');</code></pre>
   </section>
 </div>
 
+
+<script>var _LANG={'title_web_speech_api_playground':["Web Speech API Playground", "Web Speech API 实践场"],'metadesc_interactive_playground_fo':["Interactive playground for Web Speech API — SpeechRecognition and SpeechSynthesis in one page.", "Web Speech API 的交互式演示平台——语音识别和语音合成集成于一页。"],'h2_speech_recognition_speec':["🎙️ Speech Recognition (Speech-to-Text)", "🎙️ 语音识别（语音转文本）"],'h2_code_snippet':["📄 Code Snippet", "📄 代码片段"],'h2_speech_synthesis_text_to':["🔊 Speech Synthesis (Text-to-Speech)", "🔊 语音合成（文本转语音）"],'h2_code_snippet_2':["📄 Code Snippet", "📄 代码片段"],'h2_voice_browser':["📋 Voice Browser", "📋 语音浏览器"],'h2_code_snippet_3':["📄 Code Snippet", "📄 代码片段"],'h2_dictation_mode':["📝 Dictation Mode", "📝 语音输入模式"],'h2_code_snippet_4':["📄 Code Snippet", "📄 代码片段"],'h2_round_trip_demo':["🔁 Round-Trip Demo", "🔁 往返演示"],'h2_code_snippet_5':["📄 Code Snippet", "📄 代码片段"],'h2_language_comparison':["🌍 Language Comparison", "🌍 语言比较"],'h2_code_snippet_6':["📄 Code Snippet", "📄 代码片段"],'h3_transcript':["Transcript", "文字稿"],'h3_presets':["Presets", "预设"],'h3_step_2_transcribed_text':["Step 2: Transcribed text", "步骤 2：转录文本"],'h3_step_3_read_back':["Step 3: Read back", "步骤三：回顾"],'h3_presets_2':["Presets", "预设"],'btn_recognition':["🎙️ Recognition", "🎙️ 认可"],'btn_synthesis':["🔊 Synthesis", "🔊 合成"],'btn_voice_browser':["📋 Voice Browser", "📋 语音浏览器"],'btn_dictation':["📝 Dictation", "📝 听写"],'btn_round_trip':["🔁 Round-Trip", "🔁 往返"],'btn_lang_compare':["🌍 Lang Compare", "🌍 语言比较"],'btn_clear':["Clear", "清除"],'btn_copy':["📋 Copy", "📋 复制"],'btn_speak':["▶ Speak", "▶ 说话"],'btn_pause':["⏸ Pause", "⏸ 暂停"],'btn_resume':["▶ Resume", "▶ 简历"],'btn_stop':["⏹ Stop", "⏹ 停止"],'btn_copy_2':["📋 Copy", "📋 复制"],'btn_copy_3':["📋 Copy", "📋 复制"],'btn_clear_2':["Clear", "清除"],'btn_copy_text':["📋 Copy text", "📋 复制文本"],'btn_copy_4':["📋 Copy", "📋 复制"],'btn_start_round_trip':["🎤 Start Round-Trip", "🎤 开始往返之旅"],'btn_stop_2':["⏹ Stop", "⏹ 停止"],'btn_copy_5':["📋 Copy", "📋 复制"],'btn_play_all_sequentially':["▶ Play All Sequentially", "▶ 按顺序全部播放"],'btn_stop_3':["⏹ Stop", "⏹ 停止"],'btn_copy_6':["📋 Copy", "📋 复制"],'btn_play':["▶ Play", "▶ 播放"],'placeholder_type_or_select_a_preset':["Type or select a preset...", "输入或选择预设值……"],'placeholder_search_voices':["Search voices...", "搜索语音……"],'placeholder_dictated_text_will_appear':["Dictated text will appear here...", "语音输入的文本将显示在此处……"],'strong_period':["\"period\"", "“时期”"],'strong_comma':["\"comma\"", "“逗号”"],'strong_question_mark':["\"question mark\"", "“问号”"],'strong_exclamation_mark':["\"exclamation mark\"", "“感叹号”"],'strong_new_line':["\"new line\"", "换行符"],'th_name':["Name", "姓名"],'th_language':["Language", "语言"],'th_type':["Type", "类型"],'th_default':["Default", "默认"],'th_preview':["Preview", "预览"],'label_language':["Language", "语言"],'label_mode':["Mode", "模式"],'label_text_to_speak':["Text to speak", "文字转语音"],'label_voice':["Voice", "嗓音"],'label_rate':["Rate", "速度"],'label_pitch':["Pitch", "沥青"],'label_volume':["Volume", "体积"],'label_filter_by_language':["Filter by language", "按语言筛选"],'label_search':["Search", "搜索"],'label_language_2':["Language", "语言"],'label_input_language':["Input language", "输入语言"],'label_output_voice':["Output voice", "输出语音"],'label_text_will_be_spoken_as_is':["Text (will be spoken as-is in each language)", "文本（将按原样以每种语言朗读）"],'jtc_copied':["✅ Copied", "✅ 已复制"],'jtc_speechrecognition_is_not':["SpeechRecognition is not supported in this browser. Use Chrome or Edge.", "此浏览器不支持语音识别。请使用 Chrome 或 Edge 浏览器。"],'jtc_listening':["Listening...", "正在听……"],'jtc_stopped':["Stopped.", "停止。"],'jtc_speaking':["Speaking...", "请讲..."],'jtc_finished':["Finished.", "完成的。"],'jtc_paused':["Paused.", "暂停。"],'jtc_speaking_2':["Speaking...", "请讲..."],'jtc_stopped_2':["Stopped.", "停止。"],'jtc_speechrecognition_not_sup':["SpeechRecognition not supported. Use Chrome or Edge.", "不支持语音识别。请使用 Chrome 或 Edge 浏览器。"],'jtc_dictating_speak_naturally':["Dictating... speak naturally.", "口述……自然地说。"],'jtc_stopped_3':["Stopped.", "停止。"],'jtc_copied_2':["✅ Copied", "✅ 已复制"],'jtc_copy_text':["📋 Copy text", "📋 复制文本"],'jtc_speechrecognition_not_sup_2':["SpeechRecognition not supported.", "不支持语音识别。"],'jtc_waiting_for_speech':["Waiting for speech...", "等待发言……"],'jtc_no_speech_detected_try_ag':["No speech detected. Try again.", "未检测到语音。请重试。"],'jtc_step_1_listening_speak_no':["Step 1: Listening... speak now.", "第一步：倾听……现在开始说话。"],'jtc_step_3_reading_back':["Step 3: Reading back...", "步骤三：回顾……"],'jtc_round_trip_complete':["Round-trip complete!", "往返行程完成！"],'jtc_synthesis_error':["Synthesis error.", "合成错误。"],'jtc_stopped_4':["Stopped.", "停止。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ═══════════════════════════════════════════════════
 // Utilities
@@ -844,7 +856,7 @@ function copyCode(btn) {
   const code = btn.parentElement.querySelector('code').textContent;
   navigator.clipboard.writeText(code).then(() => {
     const orig = btn.textContent;
-    btn.textContent = '✅ Copied';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1500);
   });
 }
@@ -994,7 +1006,7 @@ let recListening = false;
 
 $('#recMicBtn').addEventListener('click', () => {
   if (!hasRecognition) {
-    $('#recStatus').textContent = 'SpeechRecognition is not supported in this browser. Use Chrome or Edge.';
+    $('#recStatus').textContent=T("jtc_speechrecognition_is_not");
     $('#recStatus').classList.add('error');
     return;
   }
@@ -1014,7 +1026,7 @@ $('#recMicBtn').addEventListener('click', () => {
   recRecognition.onstart = () => {
     recListening = true;
     $('#recMicBtn').classList.add('listening');
-    $('#recStatus').textContent = 'Listening...';
+    $('#recStatus').textContent=T("jtc_listening");
     $('#recStatus').classList.remove('error');
     recMeter.start();
   };
@@ -1062,7 +1074,7 @@ function stopRecognition() {
   if (recRecognition) { try { recRecognition.stop(); } catch(e) {} }
   $('#recMicBtn').classList.remove('listening');
   recMeter.stop();
-  $('#recStatus').textContent = 'Stopped.';
+  $('#recStatus').textContent=T("jtc_stopped");
 }
 
 $('#recClear').addEventListener('click', () => {
@@ -1119,12 +1131,12 @@ $('#synthSpeakBtn').addEventListener('click', () => {
   utter.volume = parseFloat($('#synthVolume').value);
 
   utter.onstart = () => {
-    $('#synthStatus').textContent = 'Speaking...';
+    $('#synthStatus').textContent=T("jtc_speaking");
     $('#synthPauseBtn').disabled = false;
     $('#synthStopBtn').disabled = false;
   };
   utter.onend = () => {
-    $('#synthStatus').textContent = 'Finished.';
+    $('#synthStatus').textContent=T("jtc_finished");
     $('#synthPauseBtn').disabled = true;
     $('#synthResumeBtn').disabled = true;
     $('#synthStopBtn').disabled = true;
@@ -1141,19 +1153,19 @@ $('#synthPauseBtn').addEventListener('click', () => {
   speechSynthesis.pause();
   $('#synthPauseBtn').disabled = true;
   $('#synthResumeBtn').disabled = false;
-  $('#synthStatus').textContent = 'Paused.';
+  $('#synthStatus').textContent=T("jtc_paused");
 });
 
 $('#synthResumeBtn').addEventListener('click', () => {
   speechSynthesis.resume();
   $('#synthResumeBtn').disabled = true;
   $('#synthPauseBtn').disabled = false;
-  $('#synthStatus').textContent = 'Speaking...';
+  $('#synthStatus').textContent=T("jtc_speaking");
 });
 
 $('#synthStopBtn').addEventListener('click', () => {
   speechSynthesis.cancel();
-  $('#synthStatus').textContent = 'Stopped.';
+  $('#synthStatus').textContent=T("jtc_stopped");
   $('#synthPauseBtn').disabled = true;
   $('#synthResumeBtn').disabled = true;
   $('#synthStopBtn').disabled = true;
@@ -1244,7 +1256,7 @@ let dictListening = false;
 
 $('#dictMicBtn').addEventListener('click', () => {
   if (!hasRecognition) {
-    $('#dictStatus').textContent = 'SpeechRecognition not supported. Use Chrome or Edge.';
+    $('#dictStatus').textContent=T("jtc_speechrecognition_not_sup");
     $('#dictStatus').classList.add('error');
     return;
   }
@@ -1265,7 +1277,7 @@ $('#dictMicBtn').addEventListener('click', () => {
   dictRecognition.onstart = () => {
     dictListening = true;
     $('#dictMicBtn').classList.add('listening');
-    $('#dictStatus').textContent = 'Dictating... speak naturally.';
+    $('#dictStatus').textContent=T("jtc_dictating_speak_naturally");
     $('#dictStatus').classList.remove('error');
     dictMeter.start();
     finalIdx = 0;
@@ -1312,15 +1324,15 @@ function stopDictation() {
   if (dictRecognition) { try { dictRecognition.stop(); } catch(e) {} }
   $('#dictMicBtn').classList.remove('listening');
   dictMeter.stop();
-  $('#dictStatus').textContent = 'Stopped.';
+  $('#dictStatus').textContent=T("jtc_stopped");
 }
 
 $('#dictClear').addEventListener('click', () => { $('#dictOutput').value = ''; });
 $('#dictCopy').addEventListener('click', () => {
   navigator.clipboard.writeText($('#dictOutput').value).then(() => {
     const btn = $('#dictCopy');
-    btn.textContent = '✅ Copied';
-    setTimeout(() => btn.textContent = '📋 Copy text', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy_text"), 1500);
   });
 });
 
@@ -1343,7 +1355,7 @@ function setRTStep(step) {
 
 $('#rtStartBtn').addEventListener('click', () => {
   if (!hasRecognition) {
-    $('#rtReadbackStatus').textContent = 'SpeechRecognition not supported.';
+    $('#rtReadbackStatus').textContent=T("jtc_speechrecognition_not_sup_2");
     $('#rtReadbackStatus').classList.add('error');
     return;
   }
@@ -1352,7 +1364,7 @@ $('#rtStartBtn').addEventListener('click', () => {
   $('#rtStartBtn').disabled = true;
   $('#rtStopBtn').disabled = false;
   $('#rtTranscript').textContent = '';
-  $('#rtReadbackStatus').textContent = 'Waiting for speech...';
+  $('#rtReadbackStatus').textContent=T("jtc_waiting_for_speech");
   setRTStep(1);
 
   const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
@@ -1386,19 +1398,19 @@ $('#rtStartBtn').addEventListener('click', () => {
 
   rtRecognition.onend = () => {
     if (rtActive && !$('#rtTranscript').querySelector('.final')?.textContent) {
-      $('#rtReadbackStatus').textContent = 'No speech detected. Try again.';
+      $('#rtReadbackStatus').textContent=T("jtc_no_speech_detected_try_ag");
       stopRT();
     }
   };
 
   rtRecognition.start();
-  $('#rtReadbackStatus').textContent = 'Step 1: Listening... speak now.';
+  $('#rtReadbackStatus').textContent=T("jtc_step_1_listening_speak_no");
 });
 
 function readBackRT(text) {
   if (!rtActive) return;
   setRTStep(3);
-  $('#rtReadbackStatus').textContent = 'Step 3: Reading back...';
+  $('#rtReadbackStatus').textContent=T("jtc_step_3_reading_back");
 
   speechSynthesis.cancel();
   const utter = new SpeechSynthesisUtterance(text);
@@ -1406,11 +1418,11 @@ function readBackRT(text) {
   if (allVoices[voiceIdx]) utter.voice = allVoices[voiceIdx];
 
   utter.onend = () => {
-    $('#rtReadbackStatus').textContent = 'Round-trip complete!';
+    $('#rtReadbackStatus').textContent=T("jtc_round_trip_complete");
     stopRT();
   };
   utter.onerror = () => {
-    $('#rtReadbackStatus').textContent = 'Synthesis error.';
+    $('#rtReadbackStatus').textContent=T("jtc_synthesis_error");
     stopRT();
   };
 
@@ -1428,7 +1440,7 @@ function stopRT() {
 
 $('#rtStopBtn').addEventListener('click', () => {
   stopRT();
-  $('#rtReadbackStatus').textContent = 'Stopped.';
+  $('#rtReadbackStatus').textContent=T("jtc_stopped");
 });
 
 // ═══════════════════════════════════════════════════
@@ -1479,7 +1491,7 @@ function renderLangList() {
       <span class="lang-flag">${lang.flag}</span>
       <span class="lang-name">${lang.name}</span>
       <span style="font-size:0.75rem;color:var(--text-dim);flex:1;">${voice ? voice.name : 'No voice available'}</span>
-      <button class="btn btn-sm" data-lang="${lang.code}" ${voice ? '' : 'disabled'}>▶ Play</button>
+      <button class="btn btn-sm" data-lang="${lang.code}" ${voice ? '' : 'disabled'} ti="btn_play">▶ Play</button>
     `;
     el.appendChild(item);
   });
@@ -1549,6 +1561,24 @@ speechSynthesis.onvoiceschanged = () => {
 // Also try immediately
 setTimeout(() => { loadVoices(); renderLangList(); }, 100);
 
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

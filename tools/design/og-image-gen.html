@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_og_image_generator_create" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -67,18 +67,28 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>OG Image Generator</h1>
-<p class="sub">Create Open Graph images (1200×630) with Canvas API</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_og_image_generator" ti="h1_og_image_generator" ti="h1_og_image_generator" ti="h1_og_image_generator" ti="h1_og_image_generator">OG Image Generator</h1>
+<p class="sub" ti="subtitle_create_open_graph_images" ti="subtitle_create_open_graph_images" ti="subtitle_create_open_graph_images" ti="subtitle_create_open_graph_images" ti="subtitle_create_open_graph_images">Create Open Graph images (1200×630) with Canvas API</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets" ti="h3_presets" ti="h3_presets" ti="h3_presets" ti="h3_presets">Presets</h3>
 <div class="presets">
-<button class="btn" onclick="applyPreset('blog')">Blog Post</button>
-<button class="btn" onclick="applyPreset('product')">Product Launch</button>
-<button class="btn" onclick="applyPreset('tutorial')">Tutorial</button>
-<button class="btn" onclick="applyPreset('devtool')">Dev Tool</button>
-<button class="btn" onclick="applyPreset('announce')">Announcement</button>
+<button class="btn" onclick="applyPreset('blog')" ti="btn_blog_post" ti="btn_blog_post" ti="btn_blog_post" ti="btn_blog_post" ti="btn_blog_post">Blog Post</button>
+<button class="btn" onclick="applyPreset('product')" ti="btn_product_launch" ti="btn_product_launch" ti="btn_product_launch" ti="btn_product_launch" ti="btn_product_launch">Product Launch</button>
+<button class="btn" onclick="applyPreset('tutorial')" ti="btn_tutorial" ti="btn_tutorial" ti="btn_tutorial" ti="btn_tutorial" ti="btn_tutorial">Tutorial</button>
+<button class="btn" onclick="applyPreset('devtool')" ti="btn_dev_tool" ti="btn_dev_tool" ti="btn_dev_tool" ti="btn_dev_tool" ti="btn_dev_tool">Dev Tool</button>
+<button class="btn" onclick="applyPreset('announce')" ti="btn_announcement" ti="btn_announcement" ti="btn_announcement" ti="btn_announcement" ti="btn_announcement">Announcement</button>
 </div>
 </div>
 
@@ -87,22 +97,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="actions">
-<button class="btn btn-primary" onclick="downloadPNG()">Download PNG</button>
-<button class="btn" onclick="copyToClipboard()">Copy to Clipboard</button>
+<button class="btn btn-primary" onclick="downloadPNG()" ti="btn_download_png" ti="btn_download_png" ti="btn_download_png" ti="btn_download_png" ti="btn_download_png">Download PNG</button>
+<button class="btn" onclick="copyToClipboard()" ti="btn_copy_to_clipboard" ti="btn_copy_to_clipboard" ti="btn_copy_to_clipboard" ti="btn_copy_to_clipboard" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
 </div>
 
 <div class="section">
-<h3>Background</h3>
+<h3 ti="h3_background" ti="label_background" ti="h3_background" ti="label_background" ti="h3_background" ti="label_background" ti="h3_background" ti="label_background" ti="h3_background" ti="label_background">Background</h3>
 <div class="field">
-<label>Type</label>
+<label ti="label_type" ti="label_type" ti="label_type" ti="label_type" ti="label_type">Type</label>
 <div class="btn-group">
-<button class="btn active" data-bg="solid" onclick="setBgType('solid',this)">Solid</button>
-<button class="btn" data-bg="gradient" onclick="setBgType('gradient',this)">Gradient</button>
+<button class="btn active" data-bg="solid" onclick="setBgType('solid',this)" ti="btn_solid" ti="btn_solid" ti="btn_solid" ti="btn_solid" ti="btn_solid">Solid</button>
+<button class="btn" data-bg="gradient" onclick="setBgType('gradient',this)" ti="btn_gradient" ti="btn_gradient" ti="btn_gradient" ti="btn_gradient" ti="btn_gradient">Gradient</button>
 </div>
 </div>
 <div id="bg-solid">
 <div class="field">
-<label>Color</label>
+<label ti="label_color" ti="label_color_3" ti="label_color_4" ti="label_color_5" ti="label_color" ti="label_color_3" ti="label_color_4" ti="label_color_5" ti="label_color" ti="label_color_3" ti="label_color_4" ti="label_color_5" ti="label_color" ti="label_color_3" ti="label_color_4" ti="label_color_5" ti="label_color" ti="label_color_3" ti="label_color_4" ti="label_color_5">Color</label>
 <div class="color-row">
 <input type="color" id="bgColor" value="#0a0a0a" oninput="render()">
 <input type="text" id="bgColorText" value="#0a0a0a" oninput="syncColor('bgColor',this.value)">
@@ -112,14 +122,14 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div id="bg-gradient" style="display:none">
 <div class="inline">
 <div class="field">
-<label>Color 1</label>
+<label ti="label_color_1" ti="label_color_1" ti="label_color_1" ti="label_color_1" ti="label_color_1">Color 1</label>
 <div class="color-row">
 <input type="color" id="gradColor1" value="#6366f1" oninput="render()">
 <input type="text" id="gradColor1Text" value="#6366f1" oninput="syncColor('gradColor1',this.value)">
 </div>
 </div>
 <div class="field">
-<label>Color 2</label>
+<label ti="label_color_2" ti="label_color_2" ti="label_color_2" ti="label_color_2" ti="label_color_2">Color 2</label>
 <div class="color-row">
 <input type="color" id="gradColor2" value="#3b82f6" oninput="render()">
 <input type="text" id="gradColor2Text" value="#3b82f6" oninput="syncColor('gradColor2',this.value)">
@@ -127,7 +137,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 <div class="field">
-<label>Direction</label>
+<label ti="label_direction" ti="label_direction" ti="label_direction" ti="label_direction" ti="label_direction">Direction</label>
 <select id="gradDir" onchange="render()">
 <option value="horizontal">Horizontal</option>
 <option value="vertical">Vertical</option>
@@ -135,22 +145,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field">
-<label>Gradient Presets</label>
+<label ti="label_gradient_presets" ti="label_gradient_presets" ti="label_gradient_presets" ti="label_gradient_presets" ti="label_gradient_presets">Gradient Presets</label>
 <div class="btn-group">
-<button class="btn" onclick="setGradient('#7c3aed','#3b82f6')">Purple-Blue</button>
-<button class="btn" onclick="setGradient('#f97316','#ec4899')">Sunset</button>
-<button class="btn" onclick="setGradient('#06b6d4','#3b82f6')">Ocean</button>
-<button class="btn" onclick="setGradient('#10b981','#059669')">Forest</button>
-<button class="btn" onclick="setGradient('#1e1e2e','#0a0a0a')">Dark</button>
+<button class="btn" onclick="setGradient('#7c3aed','#3b82f6')" ti="btn_purple_blue" ti="btn_purple_blue" ti="btn_purple_blue" ti="btn_purple_blue" ti="btn_purple_blue">Purple-Blue</button>
+<button class="btn" onclick="setGradient('#f97316','#ec4899')" ti="btn_sunset" ti="btn_sunset" ti="btn_sunset" ti="btn_sunset" ti="btn_sunset">Sunset</button>
+<button class="btn" onclick="setGradient('#06b6d4','#3b82f6')" ti="btn_ocean" ti="btn_ocean" ti="btn_ocean" ti="btn_ocean" ti="btn_ocean">Ocean</button>
+<button class="btn" onclick="setGradient('#10b981','#059669')" ti="btn_forest" ti="btn_forest" ti="btn_forest" ti="btn_forest" ti="btn_forest">Forest</button>
+<button class="btn" onclick="setGradient('#1e1e2e','#0a0a0a')" ti="btn_dark" ti="btn_dark" ti="btn_dark" ti="btn_dark" ti="btn_dark">Dark</button>
 </div>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3>Title</h3>
+<h3 ti="h3_title" ti="h3_title" ti="h3_title" ti="h3_title" ti="h3_title">Title</h3>
 <div class="field">
-<label>Text</label>
+<label ti="label_text" ti="label_text_2" ti="label_text" ti="label_text_2" ti="label_text" ti="label_text_2" ti="label_text" ti="label_text_2" ti="label_text" ti="label_text_2">Text</label>
 <input type="text" id="titleText" value="Your Title Here" oninput="render()">
 </div>
 <div class="inline">
@@ -171,7 +181,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Subtitle</h3>
+<h3 ti="h3_subtitle" ti="h3_subtitle" ti="h3_subtitle" ti="h3_subtitle" ti="h3_subtitle">Subtitle</h3>
 <div class="field">
 <label>Text</label>
 <input type="text" id="subText" value="A short description goes here" oninput="render()">
@@ -194,9 +204,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Typography</h3>
+<h3 ti="h3_typography" ti="h3_typography" ti="h3_typography" ti="h3_typography" ti="h3_typography">Typography</h3>
 <div class="field">
-<label>Font Family</label>
+<label ti="label_font_family" ti="label_font_family" ti="label_font_family" ti="label_font_family" ti="label_font_family">Font Family</label>
 <select id="fontFamily" onchange="render()">
 <option value="Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Inter</option>
 <option value="Roboto, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif">Roboto</option>
@@ -206,24 +216,24 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field">
-<label>Text Alignment</label>
+<label ti="label_text_alignment" ti="label_text_alignment" ti="label_text_alignment" ti="label_text_alignment" ti="label_text_alignment">Text Alignment</label>
 <div class="btn-group">
-<button class="btn" data-align="left" onclick="setAlign('left',this)">Left</button>
-<button class="btn active" data-align="center" onclick="setAlign('center',this)">Center</button>
-<button class="btn" data-align="right" onclick="setAlign('right',this)">Right</button>
+<button class="btn" data-align="left" onclick="setAlign('left',this)" ti="btn_left" ti="btn_left" ti="btn_left" ti="btn_left" ti="btn_left">Left</button>
+<button class="btn active" data-align="center" onclick="setAlign('center',this)" ti="btn_center" ti="btn_center" ti="btn_center" ti="btn_center" ti="btn_center">Center</button>
+<button class="btn" data-align="right" onclick="setAlign('right',this)" ti="btn_right" ti="btn_right" ti="btn_right" ti="btn_right" ti="btn_right">Right</button>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3>Badge</h3>
+<h3 ti="h3_badge" ti="h3_badge" ti="h3_badge" ti="h3_badge" ti="h3_badge">Badge</h3>
 <div class="inline">
 <div class="field">
-<label>Text (empty = no badge)</label>
-<input type="text" id="badgeText" value="" placeholder="DEV" oninput="render()" maxlength="4">
+<label ti="label_text_empty_no_badge" ti="label_text_empty_no_badge" ti="label_text_empty_no_badge" ti="label_text_empty_no_badge" ti="label_text_empty_no_badge">Text (empty = no badge)</label>
+<input type="text" id="badgeText" value="" tp="placeholder_dev" tp="placeholder_dev" tp="placeholder_dev" tp="placeholder_dev" tp="placeholder_dev" placeholder="DEV" oninput="render()" maxlength="4">
 </div>
 <div class="field">
-<label>Shape</label>
+<label ti="label_shape" ti="label_shape" ti="label_shape" ti="label_shape" ti="label_shape">Shape</label>
 <select id="badgeShape" onchange="render()">
 <option value="circle">Circle</option>
 <option value="square">Square</option>
@@ -239,7 +249,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 <div class="field">
-<label>Text Color</label>
+<label ti="label_text_color" ti="label_text_color" ti="label_text_color" ti="label_text_color" ti="label_text_color">Text Color</label>
 <div class="color-row">
 <input type="color" id="badgeFg" value="#000000" oninput="render()">
 <input type="text" id="badgeFgText" value="#000000" oninput="syncColor('badgeFg',this.value)">
@@ -247,7 +257,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 <div class="field">
-<label>Position</label>
+<label ti="label_position" ti="label_position" ti="label_position" ti="label_position" ti="label_position">Position</label>
 <select id="badgePos" onchange="render()">
 <option value="top-left">Top Left</option>
 <option value="top-right" selected>Top Right</option>
@@ -258,7 +268,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Border</h3>
+<h3 ti="h3_border" ti="h3_border" ti="h3_border" ti="h3_border" ti="h3_border">Border</h3>
 <div class="inline">
 <div class="field">
 <label>Thickness (<span id="borderWidthVal">0</span>px)</label>
@@ -277,9 +287,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Pattern Overlay</h3>
+<h3 ti="h3_pattern_overlay" ti="h3_pattern_overlay" ti="h3_pattern_overlay" ti="h3_pattern_overlay" ti="h3_pattern_overlay">Pattern Overlay</h3>
 <div class="field">
-<label>Pattern</label>
+<label ti="label_pattern" ti="label_pattern" ti="label_pattern" ti="label_pattern" ti="label_pattern">Pattern</label>
 <select id="pattern" onchange="render()">
 <option value="none">None</option>
 <option value="dots">Dot Grid</option>
@@ -294,12 +304,52 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/">Favicon Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/">Placeholder</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/" ti="link_meta_tags" ti="link_meta_tags" ti="link_meta_tags" ti="link_meta_tags" ti="link_meta_tags">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" ti="link_favicon_gen" ti="link_favicon_gen" ti="link_favicon_gen" ti="link_favicon_gen" ti="link_favicon_gen">Favicon Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" ti="link_placeholder" ti="link_placeholder" ti="link_placeholder" ti="link_placeholder" ti="link_placeholder">Placeholder</a></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+
+
+
+
+<script>var _LANG={'title_og_image_generator_create':["OG Image Generator — Create Open Graph Images with Canvas", "OG图像生成器 — 使用Canvas创建Open Graph图像"],'metadesc_create_open_graph_images':["Create Open Graph images (1200×630) visually. Gradient backgrounds, custom text, patterns. Download PNG. No signup required.", "以可视化方式创建 Open Graph 图像（1200×630）。支持渐变背景、自定义文本和图案。下载 PNG 文件。无需注册。"],'h1_og_image_generator':["OG Image Generator", "OG图像生成器"],'h3_presets':["Presets", "预设"],'h3_background':["Background", "背景"],'h3_title':["Title", "标题"],'h3_subtitle':["Subtitle", "字幕"],'h3_typography':["Typography", "排版"],'h3_badge':["Badge", "徽章"],'h3_border':["Border", "边界"],'h3_pattern_overlay':["Pattern Overlay", "图案叠加"],'subtitle_create_open_graph_images':["Create Open Graph images (1200×630) with Canvas API", "使用 Canvas API 创建 Open Graph 图像（1200×630）"],'btn_blog_post':["Blog Post", "博客文章"],'btn_product_launch':["Product Launch", "产品发布"],'btn_tutorial':["Tutorial", "教程"],'btn_dev_tool':["Dev Tool", "开发工具"],'btn_announcement':["Announcement", "公告"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_solid':["Solid", "坚硬的"],'btn_gradient':["Gradient", "坡度"],'btn_purple_blue':["Purple-Blue", "紫蓝色"],'btn_sunset':["Sunset", "日落"],'btn_ocean':["Ocean", "海洋"],'btn_forest':["Forest", "森林"],'btn_dark':["Dark", "黑暗的"],'btn_left':["Left", "左边"],'btn_center':["Center", "中心"],'btn_right':["Right", "正确的"],'placeholder_dev':["DEV", "开发"],'label_type':["Type", "类型"],'label_color':["Color", "颜色"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_direction':["Direction", "方向"],'label_gradient_presets':["Gradient Presets", "渐变预设"],'label_text':["Text", "文本"],'label_color_3':["Color", "颜色"],'label_text_2':["Text", "文本"],'label_color_4':["Color", "颜色"],'label_font_family':["Font Family", "字体系列"],'label_text_alignment':["Text Alignment", "文本对齐"],'label_text_empty_no_badge':["Text (empty = no badge)", "文本（留空 = 无徽章）"],'label_shape':["Shape", "形状"],'label_background':["Background", "背景"],'label_text_color':["Text Color", "文本颜色"],'label_position':["Position", "位置"],'label_color_5':["Color", "颜色"],'label_pattern':["Pattern", "图案"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_placeholder':["Placeholder", "占位符"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_og_image_generator_create':["OG Image Generator — Create Open Graph Images with Canvas", "OG图像生成器 — 使用Canvas创建Open Graph图像"],'metadesc_create_open_graph_images':["Create Open Graph images (1200×630) visually. Gradient backgrounds, custom text, patterns. Download PNG. No signup required.", "以可视化方式创建 Open Graph 图像（1200×630）。支持渐变背景、自定义文本和图案。下载 PNG 文件。无需注册。"],'h1_og_image_generator':["OG Image Generator", "OG图像生成器"],'h3_presets':["Presets", "预设"],'h3_background':["Background", "背景"],'h3_title':["Title", "标题"],'h3_subtitle':["Subtitle", "字幕"],'h3_typography':["Typography", "排版"],'h3_badge':["Badge", "徽章"],'h3_border':["Border", "边界"],'h3_pattern_overlay':["Pattern Overlay", "图案叠加"],'subtitle_create_open_graph_images':["Create Open Graph images (1200×630) with Canvas API", "使用 Canvas API 创建 Open Graph 图像（1200×630）"],'btn_blog_post':["Blog Post", "博客文章"],'btn_product_launch':["Product Launch", "产品发布"],'btn_tutorial':["Tutorial", "教程"],'btn_dev_tool':["Dev Tool", "开发工具"],'btn_announcement':["Announcement", "公告"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_solid':["Solid", "坚硬的"],'btn_gradient':["Gradient", "坡度"],'btn_purple_blue':["Purple-Blue", "紫蓝色"],'btn_sunset':["Sunset", "日落"],'btn_ocean':["Ocean", "海洋"],'btn_forest':["Forest", "森林"],'btn_dark':["Dark", "黑暗的"],'btn_left':["Left", "左边"],'btn_center':["Center", "中心"],'btn_right':["Right", "正确的"],'placeholder_dev':["DEV", "开发"],'label_type':["Type", "类型"],'label_color':["Color", "颜色"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_direction':["Direction", "方向"],'label_gradient_presets':["Gradient Presets", "渐变预设"],'label_text':["Text", "文本"],'label_color_3':["Color", "颜色"],'label_text_2':["Text", "文本"],'label_color_4':["Color", "颜色"],'label_font_family':["Font Family", "字体系列"],'label_text_alignment':["Text Alignment", "文本对齐"],'label_text_empty_no_badge':["Text (empty = no badge)", "文本（留空 = 无徽章）"],'label_shape':["Shape", "形状"],'label_background':["Background", "背景"],'label_text_color':["Text Color", "文本颜色"],'label_position':["Position", "位置"],'label_color_5':["Color", "颜色"],'label_pattern':["Pattern", "图案"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_placeholder':["Placeholder", "占位符"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_og_image_generator_create':["OG Image Generator — Create Open Graph Images with Canvas", "OG图像生成器 — 使用Canvas创建Open Graph图像"],'metadesc_create_open_graph_images':["Create Open Graph images (1200×630) visually. Gradient backgrounds, custom text, patterns. Download PNG. No signup required.", "以可视化方式创建 Open Graph 图像（1200×630）。支持渐变背景、自定义文本和图案。下载 PNG 文件。无需注册。"],'h1_og_image_generator':["OG Image Generator", "OG图像生成器"],'h3_presets':["Presets", "预设"],'h3_background':["Background", "背景"],'h3_title':["Title", "标题"],'h3_subtitle':["Subtitle", "字幕"],'h3_typography':["Typography", "排版"],'h3_badge':["Badge", "徽章"],'h3_border':["Border", "边界"],'h3_pattern_overlay':["Pattern Overlay", "图案叠加"],'subtitle_create_open_graph_images':["Create Open Graph images (1200×630) with Canvas API", "使用 Canvas API 创建 Open Graph 图像（1200×630）"],'btn_blog_post':["Blog Post", "博客文章"],'btn_product_launch':["Product Launch", "产品发布"],'btn_tutorial':["Tutorial", "教程"],'btn_dev_tool':["Dev Tool", "开发工具"],'btn_announcement':["Announcement", "公告"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_solid':["Solid", "坚硬的"],'btn_gradient':["Gradient", "坡度"],'btn_purple_blue':["Purple-Blue", "紫蓝色"],'btn_sunset':["Sunset", "日落"],'btn_ocean':["Ocean", "海洋"],'btn_forest':["Forest", "森林"],'btn_dark':["Dark", "黑暗的"],'btn_left':["Left", "左边"],'btn_center':["Center", "中心"],'btn_right':["Right", "正确的"],'placeholder_dev':["DEV", "开发"],'label_type':["Type", "类型"],'label_color':["Color", "颜色"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_direction':["Direction", "方向"],'label_gradient_presets':["Gradient Presets", "渐变预设"],'label_text':["Text", "文本"],'label_color_3':["Color", "颜色"],'label_text_2':["Text", "文本"],'label_color_4':["Color", "颜色"],'label_font_family':["Font Family", "字体系列"],'label_text_alignment':["Text Alignment", "文本对齐"],'label_text_empty_no_badge':["Text (empty = no badge)", "文本（留空 = 无徽章）"],'label_shape':["Shape", "形状"],'label_background':["Background", "背景"],'label_text_color':["Text Color", "文本颜色"],'label_position':["Position", "位置"],'label_color_5':["Color", "颜色"],'label_pattern':["Pattern", "图案"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_placeholder':["Placeholder", "占位符"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_og_image_generator_create':["OG Image Generator — Create Open Graph Images with Canvas", "OG图像生成器 — 使用Canvas创建Open Graph图像"],'metadesc_create_open_graph_images':["Create Open Graph images (1200×630) visually. Gradient backgrounds, custom text, patterns. Download PNG. No signup required.", "以可视化方式创建 Open Graph 图像（1200×630）。支持渐变背景、自定义文本和图案。下载 PNG 文件。无需注册。"],'h1_og_image_generator':["OG Image Generator", "OG图像生成器"],'h3_presets':["Presets", "预设"],'h3_background':["Background", "背景"],'h3_title':["Title", "标题"],'h3_subtitle':["Subtitle", "字幕"],'h3_typography':["Typography", "排版"],'h3_badge':["Badge", "徽章"],'h3_border':["Border", "边界"],'h3_pattern_overlay':["Pattern Overlay", "图案叠加"],'subtitle_create_open_graph_images':["Create Open Graph images (1200×630) with Canvas API", "使用 Canvas API 创建 Open Graph 图像（1200×630）"],'btn_blog_post':["Blog Post", "博客文章"],'btn_product_launch':["Product Launch", "产品发布"],'btn_tutorial':["Tutorial", "教程"],'btn_dev_tool':["Dev Tool", "开发工具"],'btn_announcement':["Announcement", "公告"],'btn_download_png':["Download PNG", "下载PNG"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_solid':["Solid", "坚硬的"],'btn_gradient':["Gradient", "坡度"],'btn_purple_blue':["Purple-Blue", "紫蓝色"],'btn_sunset':["Sunset", "日落"],'btn_ocean':["Ocean", "海洋"],'btn_forest':["Forest", "森林"],'btn_dark':["Dark", "黑暗的"],'btn_left':["Left", "左边"],'btn_center':["Center", "中心"],'btn_right':["Right", "正确的"],'placeholder_dev':["DEV", "开发"],'label_type':["Type", "类型"],'label_color':["Color", "颜色"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_direction':["Direction", "方向"],'label_gradient_presets':["Gradient Presets", "渐变预设"],'label_text':["Text", "文本"],'label_color_3':["Color", "颜色"],'label_text_2':["Text", "文本"],'label_color_4':["Color", "颜色"],'label_font_family':["Font Family", "字体系列"],'label_text_alignment':["Text Alignment", "文本对齐"],'label_text_empty_no_badge':["Text (empty = no badge)", "文本（留空 = 无徽章）"],'label_shape':["Shape", "形状"],'label_background':["Background", "背景"],'label_text_color':["Text Color", "文本颜色"],'label_position':["Position", "位置"],'label_color_5':["Color", "颜色"],'label_pattern':["Pattern", "图案"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_placeholder':["Placeholder", "占位符"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const W=1200,H=630;
 const cv=document.getElementById('cv');
@@ -626,6 +676,96 @@ document.querySelectorAll('input[type="color"]').forEach(el=>{
 });
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

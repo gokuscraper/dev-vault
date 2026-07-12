@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_document_picture_in_pictu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -558,9 +558,11 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>Document Picture-in-Picture API</h1>
+  <h1 ti="h1_document_picture_in_pictu">Document Picture-in-Picture API</h1>
   <p>Open any HTML content in an always-on-top Picture-in-Picture window. Beyond video -- put controls, tools, and widgets in floating windows.</p>
   <span class="badge" id="apiBadge">Checking API support...</span>
   <div id="supportBanner"></div>
@@ -568,31 +570,31 @@ body {
 
 <nav class="nav">
   <div class="nav-inner">
-    <a href="#basic">Basic PiP</a>
-    <a href="#music">Music Player</a>
-    <a href="#timer">Timer</a>
+    <a href="#basic" ti="link_basic_pip">Basic PiP</a>
+    <a href="#music" ti="link_music_player">Music Player</a>
+    <a href="#timer" ti="link_timer">Timer</a>
     <a href="#notes">Notes</a>
-    <a href="#conference">Conference</a>
-    <a href="#customize">Customization</a>
-    <a href="#events">Events</a>
-    <a href="#compat">Compatibility</a>
+    <a href="#conference" ti="link_conference">Conference</a>
+    <a href="#customize" ti="link_customization">Customization</a>
+    <a href="#events" ti="link_events">Events</a>
+    <a href="#compat" ti="link_compatibility">Compatibility</a>
   </div>
 </nav>
 
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- 1. Basic PiP Window -->
   <div class="card" id="basic">
     <div class="card-header">
       <div class="icon" style="background:rgba(108,138,255,0.15);color:var(--accent);">&#x1F5BC;</div>
-      <h2>Basic PiP Window</h2>
+      <h2 ti="h2_basic_pip_window">Basic PiP Window</h2>
       <span class="tag">Beginner</span>
     </div>
     <div class="card-body">
       <p>Open a PiP window with custom HTML content. The simplest use case: move any DOM element into an always-on-top floating window.</p>
       <div class="controls-row">
         <div class="control-group">
-          <label>Content</label>
+          <label ti="label_content">Content</label>
           <select id="basicContent">
             <option value="hello">Hello World</option>
             <option value="counter">Live Counter</option>
@@ -602,14 +604,14 @@ body {
         </div>
       </div>
       <div id="customHtmlWrap" style="display:none;margin-bottom:0.75rem;">
-        <textarea class="notes-area" id="customHtml" rows="3" placeholder="<h1 style='color:#6c8aff'>My PiP!</h1>">&lt;div style="padding:2rem;text-align:center;"&gt;
+        <textarea class="notes-area" id="customHtml" rows="3" placeholder="<h1 style='color:#6c8aff' ti="h1_my_pip">My PiP!</h1>">&lt;div style="padding:2rem;text-align:center;"&gt;
   &lt;h2 style="color:#6c8aff"&gt;Custom PiP Content&lt;/h2&gt;
   &lt;p&gt;You can put anything here.&lt;/p&gt;
 &lt;/div&gt;</textarea>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="openBasicPip()">Open PiP Window</button>
-        <button class="btn btn-outline" onclick="closeCurrentPip('basic')">Close PiP</button>
+        <button class="btn btn-primary" onclick="openBasicPip()" ti="btn_open_pip_window">Open PiP Window</button>
+        <button class="btn btn-outline" onclick="closeCurrentPip('basic')" ti="btn_close_pip">Close PiP</button>
       </div>
       <div class="status" id="basicStatus">
         <span class="status-dot" id="basicDot"></span>
@@ -617,7 +619,7 @@ body {
       </div>
       <details class="code-block">
         <summary>View Code</summary>
-        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+        <button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8">Copy</button>
         <pre><code>// Request a Document PiP window
 const pipWindow = await documentPictureInPicture
   .requestWindow({
@@ -646,7 +648,7 @@ pipWindow.addEventListener('pagehide', () =&gt; {
   <div class="card" id="music">
     <div class="card-header">
       <div class="icon" style="background:rgba(78,205,196,0.15);color:var(--accent2);">&#x1F3B5;</div>
-      <h2>Music Player PiP</h2>
+      <h2 ti="h2_music_player_pip">Music Player PiP</h2>
       <span class="tag">Practical</span>
     </div>
     <div class="card-body">
@@ -665,8 +667,8 @@ pipWindow.addEventListener('pagehide', () =&gt; {
         <button class="btn btn-outline btn-sm" id="musicPrev" onclick="musicAction('prev')">&#x23EE; Prev</button>
         <button class="btn btn-green btn-sm" id="musicPlay" onclick="musicAction('toggle')">&#x25B6; Play</button>
         <button class="btn btn-outline btn-sm" id="musicNext" onclick="musicAction('next')">&#x23ED; Next</button>
-        <button class="btn btn-green" onclick="openMusicPip()">Open Player PiP</button>
-        <button class="btn btn-outline" onclick="closeCurrentPip('music')">Close</button>
+        <button class="btn btn-green" onclick="openMusicPip()" ti="btn_open_player_pip">Open Player PiP</button>
+        <button class="btn btn-outline" onclick="closeCurrentPip('music')" ti="btn_close" ti="btn_close_2" ti="btn_close_3" ti="btn_close_4" ti="btn_close_5" ti="btn_close_6">Close</button>
       </div>
       <div class="status" id="musicStatus">
         <span class="status-dot" id="musicDot"></span>
@@ -708,17 +710,17 @@ pipWindow.document.body.append(player);</code></pre>
   <div class="card" id="timer">
     <div class="card-header">
       <div class="icon" style="background:rgba(255,107,157,0.15);color:var(--accent3);">&#x23F1;</div>
-      <h2>Timer / Stopwatch PiP</h2>
+      <h2 ti="h2_timer_stopwatch_pip">Timer / Stopwatch PiP</h2>
       <span class="tag">Practical</span>
     </div>
     <div class="card-body">
       <p>An always-on-top timer or stopwatch. Perfect for presentations, cooking, or time-boxed work sessions.</p>
       <div class="timer-display" id="timerDisplay">00:00:00</div>
       <div class="btn-group" style="justify-content:center;">
-        <button class="btn btn-outline btn-sm" onclick="timerAction('reset')">Reset</button>
+        <button class="btn btn-outline btn-sm" onclick="timerAction('reset')" ti="btn_reset" ti="btn_reset_2">Reset</button>
         <button class="btn btn-pink btn-sm" id="timerToggle" onclick="timerAction('toggle')">&#x25B6; Start</button>
-        <button class="btn btn-outline btn-sm" onclick="timerAction('lap')">Lap</button>
-        <button class="btn btn-pink" onclick="openTimerPip()">Open Timer PiP</button>
+        <button class="btn btn-outline btn-sm" onclick="timerAction('lap')" ti="btn_lap" ti="btn_lap_2">Lap</button>
+        <button class="btn btn-pink" onclick="openTimerPip()" ti="btn_open_timer_pip">Open Timer PiP</button>
         <button class="btn btn-outline" onclick="closeCurrentPip('timer')">Close</button>
       </div>
       <div id="lapList" style="margin-top:0.5rem;font-size:0.82rem;color:var(--text2);"></div>
@@ -763,17 +765,17 @@ pipWindow.addEventListener('pagehide', () =&gt; clearInterval(interval));</code>
   <div class="card" id="notes">
     <div class="card-header">
       <div class="icon" style="background:rgba(255,209,102,0.15);color:var(--accent4);">&#x1F4DD;</div>
-      <h2>Floating Notes PiP</h2>
+      <h2 ti="h2_floating_notes_pip">Floating Notes PiP</h2>
       <span class="tag">Productivity</span>
     </div>
     <div class="card-body">
       <p>A floating notepad that stays on top. Take quick notes while working in other windows. Content syncs back when closed.</p>
-      <textarea class="notes-area" id="notesContent" placeholder="Type your notes here... They'll appear in the PiP window and sync back when closed.">Meeting notes:
+      <textarea class="notes-area" id="notesContent" tp="placeholder_type_your_notes_here_they" placeholder="Type your notes here... They'll appear in the PiP window and sync back when closed.">Meeting notes:
 - Discuss API integration
 - Review design mockups
 - Set next sprint goals</textarea>
       <div class="btn-group">
-        <button class="btn btn-yellow" onclick="openNotesPip()">Open Notes PiP</button>
+        <button class="btn btn-yellow" onclick="openNotesPip()" ti="btn_open_notes_pip">Open Notes PiP</button>
         <button class="btn btn-outline" onclick="closeCurrentPip('notes')">Close</button>
       </div>
       <div class="status" id="notesStatus">
@@ -814,7 +816,7 @@ pipWindow.addEventListener('pagehide', () =&gt; {
   <div class="card" id="conference">
     <div class="card-header">
       <div class="icon" style="background:rgba(167,139,250,0.15);color:var(--accent5);">&#x1F3A5;</div>
-      <h2>Video Conference Controls PiP</h2>
+      <h2 ti="h2_video_conference_controls">Video Conference Controls PiP</h2>
       <span class="tag">Advanced</span>
     </div>
     <div class="card-body">
@@ -842,7 +844,7 @@ pipWindow.addEventListener('pagehide', () =&gt; {
         </div>
       </div>
       <div class="btn-group" style="justify-content:center;margin-top:1rem;">
-        <button class="btn btn-purple" onclick="openConferencePip()">Open Controls PiP</button>
+        <button class="btn btn-purple" onclick="openConferencePip()" ti="btn_open_controls_pip">Open Controls PiP</button>
         <button class="btn btn-outline" onclick="closeCurrentPip('conference')">Close</button>
       </div>
       <div class="status" id="confStatus">
@@ -887,22 +889,22 @@ pipWindow.document.body.append(controls);</code></pre>
   <div class="card" id="customize">
     <div class="card-header">
       <div class="icon" style="background:rgba(108,138,255,0.15);color:var(--accent);">&#x2699;</div>
-      <h2>Window Customization</h2>
+      <h2 ti="h2_window_customization">Window Customization</h2>
       <span class="tag">API Options</span>
     </div>
     <div class="card-body">
       <p>Control window dimensions and placement. The API accepts width, height, and preferInitialWindowPlacement options.</p>
       <div class="controls-row">
         <div class="control-group">
-          <label>Width (px)</label>
+          <label ti="label_width_px">Width (px)</label>
           <input type="number" id="customWidth" value="400" min="100" max="1200">
         </div>
         <div class="control-group">
-          <label>Height (px)</label>
+          <label ti="label_height_px">Height (px)</label>
           <input type="number" id="customHeight" value="300" min="100" max="800">
         </div>
         <div class="control-group">
-          <label>Placement</label>
+          <label ti="label_placement">Placement</label>
           <select id="customPlacement">
             <option value="">Default</option>
             <option value="enterpictureinpicture">PiP Position</option>
@@ -910,11 +912,11 @@ pipWindow.document.body.append(controls);</code></pre>
         </div>
       </div>
       <div class="btn-group">
-        <button class="btn btn-primary" onclick="openCustomPip()">Open Custom PiP</button>
+        <button class="btn btn-primary" onclick="openCustomPip()" ti="btn_open_custom_pip">Open Custom PiP</button>
         <button class="btn btn-outline" onclick="closeCurrentPip('custom')">Close</button>
       </div>
       <div class="pip-preview" id="customPreview">
-        Window will be <strong>400 x 300</strong> pixels
+        Window will be <strong ti="strong_400_x_300">400 x 300</strong> pixels
       </div>
       <details class="code-block">
         <summary>View Code</summary>
@@ -946,15 +948,15 @@ if (existing) {
   <div class="card" id="events">
     <div class="card-header">
       <div class="icon" style="background:rgba(78,205,196,0.15);color:var(--accent2);">&#x1F4E1;</div>
-      <h2>Event Handling</h2>
+      <h2 ti="h2_event_handling">Event Handling</h2>
       <span class="tag">API Events</span>
     </div>
     <div class="card-body">
       <p>Monitor PiP window lifecycle events: <code>enter</code> on the API object, plus <code>pagehide</code> and <code>resize</code> on the PiP window.</p>
       <div class="btn-group">
-        <button class="btn btn-green" onclick="openEventPip()">Open Monitored PiP</button>
+        <button class="btn btn-green" onclick="openEventPip()" ti="btn_open_monitored_pip">Open Monitored PiP</button>
         <button class="btn btn-outline" onclick="closeCurrentPip('events')">Close</button>
-        <button class="btn btn-outline btn-sm" onclick="clearEventLog()">Clear Log</button>
+        <button class="btn btn-outline btn-sm" onclick="clearEventLog()" ti="btn_clear_log">Clear Log</button>
       </div>
       <div class="event-log" id="eventLog">
         <div class="event-entry"><span class="event-time">[--:--:--]</span> Waiting for events...</div>
@@ -991,14 +993,14 @@ if (documentPictureInPicture.window) {
   <div class="card" id="compat">
     <div class="card-header">
       <div class="icon" style="background:rgba(255,209,102,0.15);color:var(--accent4);">&#x1F310;</div>
-      <h2>Browser Compatibility</h2>
+      <h2 ti="h2_browser_compatibility">Browser Compatibility</h2>
       <span class="tag">Reference</span>
     </div>
     <div class="card-body">
       <p>The Document Picture-in-Picture API is relatively new. It extends the existing video PiP API to support arbitrary HTML content.</p>
       <table class="compat-table">
         <thead>
-          <tr><th>Browser</th><th>Support</th><th>Since</th><th>Notes</th></tr>
+          <tr><th ti="th_browser">Browser</th><th ti="th_support">Support</th><th ti="th_since">Since</th><th ti="th_notes" ti="link_notes">Notes</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -1040,7 +1042,7 @@ if (documentPictureInPicture.window) {
         </tbody>
       </table>
       <div style="margin-top:1rem;">
-        <p><strong>Key limitations:</strong></p>
+        <p><strong ti="strong_key_limitations">Key limitations:</strong></p>
         <ul style="margin-top:0.5rem;padding-left:1.5rem;color:var(--text2);font-size:0.85rem;line-height:1.8;">
           <li>Desktop Chromium browsers only (Chrome 116+, Edge 116+, Opera 102+)</li>
           <li>Requires user gesture to open (click, keyboard, etc.)</li>
@@ -1080,6 +1082,16 @@ if (document.pictureInPictureEnabled) {
   <p>Document Picture-in-Picture API Playground | <a href="https://developer.chrome.com/docs/web-platform/document-picture-in-picture" target="_blank" rel="noopener">Chrome Docs</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/API/Document_Picture-in-Picture_API" target="_blank" rel="noopener">MDN</a> | <a href="https://github.com/gokuscraper/document-pip-api" target="_blank" rel="noopener">Source</a></p>
 </footer>
 
+
+<script>var _LANG={'title_document_picture_in_pictu':["Document Picture-in-Picture API Playground", "文档画中画 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Document Picture-in-Picture API. Open any HTML content in always-on-top PiP windows. Chrome 116+.", "用于演示文档画中画 API 的交互式示例。可在始终置顶的画中画窗口中打开任何 HTML 内容。Chrome 116+。"],'h1_document_picture_in_pictu':["Document Picture-in-Picture API", "文档画中画 API"],'h1_my_pip':["My PiP!", "我的画中画！"],'h1_hello_from_pip':["Hello from PiP!", "来自PiP的问候！"],'h2_basic_pip_window':["Basic PiP Window", "基本画中画窗口"],'h2_music_player_pip':["Music Player PiP", "音乐播放器画中画"],'h2_timer_stopwatch_pip':["Timer / Stopwatch PiP", "计时器/秒表画中画"],'h2_floating_notes_pip':["Floating Notes PiP", "浮动笔记画中画"],'h2_video_conference_controls':["Video Conference Controls PiP", "视频会议控制画中画"],'h2_window_customization':["Window Customization", "窗口自定义"],'h2_event_handling':["Event Handling", "事件处理"],'h2_browser_compatibility':["Browser Compatibility", "浏览器兼容性"],'h2_custom_pip_window':["Custom PiP Window", "自定义画中画窗口"],'h3_event_monitor':["Event Monitor", "事件监视器"],'btn_open_pip_window':["Open PiP Window", "打开画中画窗口"],'btn_close_pip':["Close PiP", "关闭画中画"],'btn_copy':["Copy", "复制"],'btn_prev':["⏮ Prev", "⏮ 上一页"],'btn_play':["▶ Play", "▶ 播放"],'btn_next':["⏭ Next", "⏭ 下一页"],'btn_open_player_pip':["Open Player PiP", "Open Player PiP"],'btn_close':["Close", "关闭"],'btn_copy_2':["Copy", "复制"],'btn_reset':["Reset", "重置"],'btn_start':["▶ Start", "▶ 开始"],'btn_lap':["Lap", "圈速"],'btn_open_timer_pip':["Open Timer PiP", "打开定时器画中画"],'btn_close_2':["Close", "关闭"],'btn_copy_3':["Copy", "复制"],'btn_open_notes_pip':["Open Notes PiP", "打开笔记画中画"],'btn_close_3':["Close", "关闭"],'btn_copy_4':["Copy", "复制"],'btn_open_controls_pip':["Open Controls PiP", "开放控制画中画"],'btn_close_4':["Close", "关闭"],'btn_copy_5':["Copy", "复制"],'btn_open_custom_pip':["Open Custom PiP", "打开自定义画中画"],'btn_close_5':["Close", "关闭"],'btn_copy_6':["Copy", "复制"],'btn_open_monitored_pip':["Open Monitored PiP", "开放监控画中画"],'btn_close_6':["Close", "关闭"],'btn_clear_log':["Clear Log", "清除日志"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_musicplaying':["${musicPlaying ? '⏸' : '▶'}", "${musicPlaying ? &#39;⏸&#39; : &#39;▶&#39;}"],'btn_reset_2':["Reset", "重置"],'btn_timerrunning_pause_start':["${timerRunning ? '⏸ Pause' : '▶ Start'}", "${timerRunning ? &#39;⏸ 暂停&#39; : &#39;▶ 开始&#39;}"],'btn_lap_2':["Lap", "圈速"],'placeholder_type_your_notes_here_they':["Type your notes here... They'll appear in the PiP window and sync back when closed.", "请在此处输入您的笔记……它们将显示在画中画窗口中，并在关闭窗口时同步回来。"],'placeholder_type_your_notes':["Type your notes...", "输入你的笔记……"],'strong_400_x_300':["400 x 300", "400 x 300"],'strong_key_limitations':["Key limitations:", "主要局限性："],'strong_document_picture_in_pictu':["Document Picture-in-Picture API is supported in this browser.", "此浏览器支持文档画中画 API。"],'strong_document_picture_in_pictu_2':["Document Picture-in-Picture API is not supported in this browser.", "此浏览器不支持文档画中画 API。"],'strong_winput_value_x_hinput_va':["${wInput.value} x ${hInput.value}", "${wInput.value} x ${hInput.value}"],'th_browser':["Browser", "浏览器"],'th_support':["Support", "支持"],'th_since':["Since", "自从"],'th_notes':["Notes", "笔记"],'label_content':["Content", "内容"],'label_width_px':["Width (px)", "宽度（像素）"],'label_height_px':["Height (px)", "高度（像素）"],'label_placement':["Placement", "放置"],'link_basic_pip':["Basic PiP", "基本画中画"],'link_music_player':["Music Player", "音乐播放器"],'link_timer':["Timer", "定时器"],'link_notes':["Notes", "笔记"],'link_conference':["Conference", "会议"],'link_customization':["Customization", "定制"],'link_events':["Events", "活动"],'link_compatibility':["Compatibility", "兼容性"],'jtc_api_available':["API Available", "API可用"],'jtc_api_not_available':["API Not Available", "API不可用"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_document_picture_in_pictu':["Document Picture-in-Picture API is not supported in this browser.\\nPlease use Chrome 116+ or Edge 116+.", "此浏览器不支持文档画中画 API。\\n请使用 Chrome 116+ 或 Edge 116+。"],'jtlword_reset':["Reset", "重置"],'jtlword_lap':["Lap", "圈速"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ============================================================
 // State management
@@ -1115,15 +1127,15 @@ const confState = { mic: true, cam: true, screen: false, hand: false };
   const badge = document.getElementById('apiBadge');
   const banner = document.getElementById('supportBanner');
   if (isApiSupported) {
-    badge.textContent = 'API Available';
+    badge.textContent=T("jtc_api_available");
     badge.style.color = 'var(--accent2)';
     banner.className = 'support-banner supported';
-    banner.innerHTML = '<strong>Document Picture-in-Picture API is supported in this browser.</strong> All demos are fully functional. Click any "Open PiP" button to try.';
+    banner.innerHTML = '<strong ti="strong_document_picture_in_pictu">Document Picture-in-Picture API is supported in this browser.</strong> All demos are fully functional. Click any "Open PiP" button to try.';
   } else {
-    badge.textContent = 'API Not Available';
+    badge.textContent=T("jtc_api_not_available");
     badge.style.color = 'var(--accent3)';
     banner.className = 'support-banner unsupported';
-    banner.innerHTML = '<strong>Document Picture-in-Picture API is not supported in this browser.</strong> Please use Chrome 116+, Edge 116+, or Opera 102+. Code examples are still viewable.';
+    banner.innerHTML = '<strong ti="strong_document_picture_in_pictu_2">Document Picture-in-Picture API is not supported in this browser.</strong> Please use Chrome 116+, Edge 116+, or Opera 102+. Code examples are still viewable.';
     document.querySelectorAll('.btn-primary, .btn-green, .btn-pink, .btn-yellow, .btn-purple').forEach(b => {
       if (b.textContent.includes('PiP')) b.disabled = true;
     });
@@ -1138,7 +1150,7 @@ const confState = { mic: true, cam: true, screen: false, hand: false };
   const wInput = document.getElementById('customWidth');
   const hInput = document.getElementById('customHeight');
   const updatePreview = () => {
-    document.getElementById('customPreview').innerHTML = `Window will be <strong>${wInput.value} x ${hInput.value}</strong> pixels`;
+    document.getElementById('customPreview').innerHTML = `Window will be <strong ti="strong_winput_value_x_hinput_va">${wInput.value} x ${hInput.value}</strong> pixels`;
   };
   wInput.addEventListener('input', updatePreview);
   hInput.addEventListener('input', updatePreview);
@@ -1156,7 +1168,7 @@ const confState = { mic: true, cam: true, screen: false, hand: false };
 // ============================================================
 function checkApi() {
   if (!isApiSupported) {
-    alert('Document Picture-in-Picture API is not supported in this browser.\nPlease use Chrome 116+ or Edge 116+.');
+    T("jalert_document_picture_in_pictu");
     return false;
   }
   return true;
@@ -1207,8 +1219,8 @@ function clearEventLog() {
 function copyCode(btn) {
   const pre = btn.parentElement.querySelector('pre');
   navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1241,7 +1253,7 @@ async function openBasicPip() {
   const body = pipWin.document.body;
 
   if (content === 'hello') {
-    body.innerHTML = '<div><h1>Hello from PiP!</h1><p>This is custom HTML in a Document Picture-in-Picture window.</p></div>';
+    body.innerHTML = '<div><h1 ti="h1_hello_from_pip">Hello from PiP!</h1><p>This is custom HTML in a Document Picture-in-Picture window.</p></div>';
   } else if (content === 'counter') {
     body.innerHTML = '<div><p>Live Counter</p><div class="counter" id="cnt">0</div><p>Updates every second</p></div>';
     let count = 0;
@@ -1486,7 +1498,7 @@ async function openNotesPip() {
       <span class="title">Floating Notes</span>
       <span class="char-count" id="charCount">${mainArea.value.length} chars</span>
     </div>
-    <textarea id="pipNotes" placeholder="Type your notes...">${mainArea.value}</textarea>`;
+    <textarea id="pipNotes" tp="placeholder_type_your_notes" placeholder="Type your notes...">${mainArea.value}</textarea>`;
 
   const pipArea = pipWin.document.getElementById('pipNotes');
   const charCount = pipWin.document.getElementById('charCount');
@@ -1629,7 +1641,7 @@ async function openCustomPip() {
 
   pipWin.document.body.innerHTML = `
     <div>
-      <h2>Custom PiP Window</h2>
+      <h2 ti="h2_custom_pip_window">Custom PiP Window</h2>
       <div class="dim" id="pipDim">${pipWin.innerWidth} x ${pipWin.innerHeight}</div>
       <p>Requested: ${w} x ${h}</p>
       ${placement ? `<p>Placement: ${placement}</p>` : ''}
@@ -1673,7 +1685,7 @@ async function openEventPip() {
   `);
 
   pipWin.document.body.innerHTML = `
-    <h3>Event Monitor</h3>
+    <h3 ti="h3_event_monitor">Event Monitor</h3>
     <div class="info">This PiP window logs events both here and on the main page. Try resizing this window.</div>
     <div class="log" id="pipLog"></div>`;
 
@@ -1714,5 +1726,23 @@ async function openEventPip() {
 }
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

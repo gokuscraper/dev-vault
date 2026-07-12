@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_eventtarget_patterns_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -224,8 +224,10 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>EventTarget Patterns Playground</h1>
+  <h1 ti="title_eventtarget_patterns_play" ti="h1_eventtarget_patterns_play">EventTarget Patterns Playground</h1>
   <p>Interactive demos of the EventTarget API, CustomEvent, delegation, and advanced patterns</p>
 </header>
 <div class="layout">
@@ -233,6 +235,16 @@
   <main id="main"></main>
 </div>
 
+
+<script>var _LANG={'title_eventtarget_patterns_play':["EventTarget Patterns Playground", "事件目标模式游乐场"],'h1_eventtarget_patterns_play':["EventTarget Patterns Playground", "事件目标模式游乐场"],'h2_custom_eventtarget':["Custom EventTarget", "自定义事件目标"],'h2_customevent_with_detail_d':["CustomEvent with Detail Data", "带有详细数据的自定义事件"],'h2_event_delegation':["Event Delegation", "活动委托"],'h2_listener_options':["Listener Options", "监听器选项"],'h2_event_composition':["Event Composition", "事件组成"],'h2_abortsignal_for_listener':["AbortSignal for Listener Cleanup", "监听器清理的中止信号"],'h2_event_bus_pub_sub_pattern':["Event Bus / Pub-Sub Pattern", "事件总线/发布/订阅模式"],'h2_dispatchevent_return_valu':["dispatchEvent Return Value", "dispatchEvent 返回值"],'h3_basic_custom_eventtarget':["Basic Custom EventTarget", "基本自定义事件目标"],'h3_timer_eventtarget':["Timer EventTarget", "定时器事件目标"],'h3_structured_detail_data':["Structured Detail Data", "结构化详细数据"],'h3_event_detail_immutability':["Event Detail Immutability", "事件细节不可变性"],'h3_interactive_delegation_de':["Interactive Delegation Demo", "交互式委托演示"],'h3_event_target_vs_event_cur':["Event.target vs Event.currentTarget", "Event.target 与 Event.currentTarget"],'h3_once_option':["once Option", "一次选项"],'h3_capture_option':["capture Option", "捕获选项"],'h3_passive_option':["passive Option", "被动期权"],'h3_signal_option_abortsignal':["signal Option (AbortSignal)", "信号选项（中止信号）"],'h3_bubbles_composed_cancelab':["bubbles, composed, cancelable", "气泡，组成，可取消"],'h3_shadow_dom_composed':["Shadow DOM & composed", "Shadow DOM 和组合"],'h3_multi_listener_cleanup':["Multi-Listener Cleanup", "多监听器清理"],'h3_component_lifecycle_patte':["Component Lifecycle Pattern", "组件生命周期模式"],'h3_simple_event_bus':["Simple Event Bus", "简易事件总线"],'h3_typed_event_bus_with_wild':["Typed Event Bus with Wildcard", "带通配符的类型化事件总线"],'h3_vetoable_events':["Vetoable Events", "可否决事件"],'h3_validation_pattern':["Validation Pattern", "验证模式"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear':["Clear", "清除"],'btn_start_timer':["Start Timer", "启动计时器"],'btn_stop_timer':["Stop Timer", "停止计时器"],'btn_clear_2':["Clear", "清除"],'btn_dispatch_event':["Dispatch Event", "调度事件"],'btn_clear_3':["Clear", "清除"],'btn_test_mutability':["Test Mutability", "测试变异性"],'btn_clear_4':["Clear", "清除"],'btn_add_item':["Add Item", "添加项目"],'btn_clear_5':["Clear", "清除"],'btn_deep_button':["deep button", "深按钮"],'btn_click_me_once_true':["Click me (once: true)", "点击我（点击一次：正确）"],'btn_reset':["Reset", "重置"],'btn_clear_6':["Clear", "清除"],'btn_test_capture_vs_bubble':["Test Capture vs Bubble", "测试捕获与气泡"],'btn_clear_7':["Clear", "清除"],'btn_test_passive':["Test Passive", "被动测试"],'btn_clear_8':["Clear", "清除"],'btn_dispatch':["Dispatch", "派遣"],'btn_clear_9':["Clear", "清除"],'btn_test_shadow_dom':["Test Shadow DOM", "测试 Shadow DOM"],'btn_clear_10':["Clear", "清除"],'btn_attach_listeners':["Attach Listeners", "附加监听器"],'btn_abort_all':["Abort All", "全部中止"],'btn_clear_11':["Clear", "清除"],'btn_simulate_lifecycle':["Simulate Lifecycle", "模拟生命周期"],'btn_clear_12':["Clear", "清除"],'btn_publish':["Publish", "发布"],'btn_clear_13':["Clear", "清除"],'btn_run_demo_2':["Run Demo", "运行演示"],'btn_clear_14':["Clear", "清除"],'btn_dispatch_beforesave':["Dispatch \"beforeSave\"", "发送“保存前”"],'btn_clear_15':["Clear", "清除"],'btn_submit_form':["Submit Form", "提交表单"],'btn_clear_16':["Clear", "清除"],'placeholder_leave_empty_to_trigger_ve':["leave empty to trigger veto", "留空以触发否决"],'label_event_type':["Event type:", "事件类型："],'label_user_id':["User ID:", "用户身份："],'label_action':["Action:", "行动："],'label_event':["Event:", "事件："],'label_data':["Data:", "数据："],'label_name':["Name:", "姓名："],'jtc_shadow_child':["shadow child", "影子孩子"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const sections = [
   { id: 'custom-target', title: 'Custom EventTarget' },
@@ -276,11 +288,11 @@ sections.forEach((s, i) => {
 // ===================== SECTION 1: Custom EventTarget =====================
 main.innerHTML += `
 <div id="custom-target" class="section active">
-  <h2>Custom EventTarget</h2>
+  <h2 ti="h2_custom_eventtarget">Custom EventTarget</h2>
   <p>Create your own event-emitting objects by extending EventTarget. No DOM needed.</p>
 
   <div class="card">
-    <h3>Basic Custom EventTarget</h3>
+    <h3 ti="h3_basic_custom_eventtarget">Basic Custom EventTarget</h3>
     <span class="tag tag-api">EventTarget</span>
     <pre>class DataStore extends EventTarget {
   #data = new Map();
@@ -296,14 +308,14 @@ main.innerHTML += `
   get(key) { return this.#data.get(key); }
 }</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoCustomTarget()">Run Demo</button>
-      <button class="secondary-btn" onclick="clearLog(document.getElementById('out-custom-target'))">Clear</button>
+      <button class="run-btn" onclick="demoCustomTarget()" ti="btn_run_demo" ti="btn_run_demo_2">Run Demo</button>
+      <button class="secondary-btn" onclick="clearLog(document.getElementById('out-custom-target'))" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8" ti="btn_clear_9" ti="btn_clear_10" ti="btn_clear_11" ti="btn_clear_12" ti="btn_clear_13" ti="btn_clear_14" ti="btn_clear_15" ti="btn_clear_16">Clear</button>
     </div>
     <div class="output" id="out-custom-target"></div>
   </div>
 
   <div class="card">
-    <h3>Timer EventTarget</h3>
+    <h3 ti="h3_timer_eventtarget">Timer EventTarget</h3>
     <span class="tag tag-api">EventTarget</span>
     <span class="tag tag-pattern">Observable</span>
     <pre>class Timer extends EventTarget {
@@ -320,8 +332,8 @@ main.innerHTML += `
   }
 }</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoTimer('start')">Start Timer</button>
-      <button class="secondary-btn" onclick="demoTimer('stop')">Stop Timer</button>
+      <button class="run-btn" onclick="demoTimer('start')" ti="btn_start_timer">Start Timer</button>
+      <button class="secondary-btn" onclick="demoTimer('stop')" ti="btn_stop_timer">Stop Timer</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-timer'))">Clear</button>
     </div>
     <div class="output" id="out-timer"></div>
@@ -388,11 +400,11 @@ function demoTimer(action) {
 // ===================== SECTION 2: CustomEvent + detail =====================
 main.innerHTML += `
 <div id="custom-event" class="section">
-  <h2>CustomEvent with Detail Data</h2>
+  <h2 ti="h2_customevent_with_detail_d">CustomEvent with Detail Data</h2>
   <p>Pass arbitrary data through events using the detail property.</p>
 
   <div class="card">
-    <h3>Structured Detail Data</h3>
+    <h3 ti="h3_structured_detail_data">Structured Detail Data</h3>
     <span class="tag tag-api">CustomEvent</span>
     <pre>const event = new CustomEvent('user:action', {
   detail: {
@@ -403,11 +415,11 @@ main.innerHTML += `
   }
 });</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Event type:</label>
+      <label ti="label_event_type">Event type:</label>
       <input type="text" id="ce-type" value="user:action" style="width:150px">
-      <label>User ID:</label>
+      <label ti="label_user_id">User ID:</label>
       <input type="number" id="ce-uid" value="42" style="width:80px">
-      <label>Action:</label>
+      <label ti="label_action">Action:</label>
       <select id="ce-action">
         <option>purchase</option>
         <option>login</option>
@@ -416,14 +428,14 @@ main.innerHTML += `
       </select>
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoCustomEvent()">Dispatch Event</button>
+      <button class="run-btn" onclick="demoCustomEvent()" ti="btn_dispatch_event">Dispatch Event</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-ce'))">Clear</button>
     </div>
     <div class="output" id="out-ce"></div>
   </div>
 
   <div class="card">
-    <h3>Event Detail Immutability</h3>
+    <h3 ti="h3_event_detail_immutability">Event Detail Immutability</h3>
     <span class="tag tag-pattern">Best Practice</span>
     <pre>// detail is NOT frozen by default - listeners can mutate it
 const evt = new CustomEvent('data', { detail: { count: 0 } });
@@ -432,7 +444,7 @@ const safe = new CustomEvent('data', {
   detail: Object.freeze({ count: 0 })
 });</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoImmutability()">Test Mutability</button>
+      <button class="run-btn" onclick="demoImmutability()" ti="btn_test_mutability">Test Mutability</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-immut'))">Clear</button>
     </div>
     <div class="output" id="out-immut"></div>
@@ -482,11 +494,11 @@ function demoImmutability() {
 // ===================== SECTION 3: Event Delegation =====================
 main.innerHTML += `
 <div id="delegation" class="section">
-  <h2>Event Delegation</h2>
+  <h2 ti="h2_event_delegation">Event Delegation</h2>
   <p>Handle events from many child elements with a single parent listener.</p>
 
   <div class="card">
-    <h3>Interactive Delegation Demo</h3>
+    <h3 ti="h3_interactive_delegation_de">Interactive Delegation Demo</h3>
     <span class="tag tag-pattern">Delegation</span>
     <pre>// One listener on the parent handles all children
 container.addEventListener('click', (e) => {
@@ -504,14 +516,14 @@ container.addEventListener('click', (e) => {
       <div class="demo-box" data-action="share" data-id="5">Share</div>
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="addDelegatedItem()">Add Item</button>
+      <button class="run-btn" onclick="addDelegatedItem()" ti="btn_add_item">Add Item</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-deleg'))">Clear</button>
     </div>
     <div class="output" id="out-deleg"></div>
   </div>
 
   <div class="card">
-    <h3>Event.target vs Event.currentTarget</h3>
+    <h3 ti="h3_event_target_vs_event_cur">Event.target vs Event.currentTarget</h3>
     <span class="tag tag-api">Event</span>
     <pre>// target: element that triggered the event
 // currentTarget: element the listener is attached to
@@ -525,7 +537,7 @@ parent.addEventListener('click', (e) => {
         <span style="color:var(--text-muted);font-size:0.8rem">outer div</span>
         <div style="background:var(--bg);padding:0.5rem;border-radius:4px;margin-top:0.5rem;border:1px solid var(--border)" data-name="inner">
           <span style="color:var(--text-muted);font-size:0.8rem">inner div</span>
-          <button class="secondary-btn" data-name="button" style="margin-top:0.5rem;margin-left:0">deep button</button>
+          <button class="secondary-btn" data-name="button" style="margin-top:0.5rem;margin-left:0" ti="btn_deep_button">deep button</button>
         </div>
       </div>
     </div>
@@ -567,51 +579,51 @@ document.getElementById('target-demo').addEventListener('click', (e) => {
 // ===================== SECTION 4: Listener Options =====================
 main.innerHTML += `
 <div id="options" class="section">
-  <h2>Listener Options</h2>
+  <h2 ti="h2_listener_options">Listener Options</h2>
   <p>Explore once, signal, passive, and capture options for addEventListener.</p>
 
   <div class="card">
-    <h3>once Option</h3>
+    <h3 ti="h3_once_option">once Option</h3>
     <span class="tag tag-api">once</span>
     <pre>// Listener is automatically removed after first invocation
 button.addEventListener('click', handler, { once: true });</pre>
     <div class="btn-row">
-      <button class="run-btn" id="once-btn">Click me (once: true)</button>
-      <button class="secondary-btn" onclick="resetOnce()">Reset</button>
+      <button class="run-btn" id="once-btn" ti="btn_click_me_once_true">Click me (once: true)</button>
+      <button class="secondary-btn" onclick="resetOnce()" ti="btn_reset">Reset</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-once'))">Clear</button>
     </div>
     <div class="output" id="out-once"></div>
   </div>
 
   <div class="card">
-    <h3>capture Option</h3>
+    <h3 ti="h3_capture_option">capture Option</h3>
     <span class="tag tag-api">capture</span>
     <pre>// capture: true -> listener fires during capture phase (parent first)
 // capture: false (default) -> listener fires during bubble phase (child first)
 parent.addEventListener('click', handler, { capture: true });</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoCaptureVsBubble()">Test Capture vs Bubble</button>
+      <button class="run-btn" onclick="demoCaptureVsBubble()" ti="btn_test_capture_vs_bubble">Test Capture vs Bubble</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-capture'))">Clear</button>
     </div>
     <div class="output" id="out-capture"></div>
   </div>
 
   <div class="card">
-    <h3>passive Option</h3>
+    <h3 ti="h3_passive_option">passive Option</h3>
     <span class="tag tag-api">passive</span>
     <pre>// passive: true tells the browser the listener won't call preventDefault()
 // This allows optimizations (smoother scrolling)
 el.addEventListener('touchmove', handler, { passive: true });
 // Calling preventDefault() in a passive listener is a no-op + console warning</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoPassive()">Test Passive</button>
+      <button class="run-btn" onclick="demoPassive()" ti="btn_test_passive">Test Passive</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-passive'))">Clear</button>
     </div>
     <div class="output" id="out-passive"></div>
   </div>
 
   <div class="card">
-    <h3>signal Option (AbortSignal)</h3>
+    <h3 ti="h3_signal_option_abortsignal">signal Option (AbortSignal)</h3>
     <span class="tag tag-api">signal</span>
     <pre>const controller = new AbortController();
 el.addEventListener('click', handler, { signal: controller.signal });
@@ -677,11 +689,11 @@ function demoPassive() {
 // ===================== SECTION 5: Event Composition =====================
 main.innerHTML += `
 <div id="composition" class="section">
-  <h2>Event Composition</h2>
+  <h2 ti="h2_event_composition">Event Composition</h2>
   <p>Control how events propagate through the DOM with bubbles, composed, and cancelable.</p>
 
   <div class="card">
-    <h3>bubbles, composed, cancelable</h3>
+    <h3 ti="h3_bubbles_composed_cancelab">bubbles, composed, cancelable</h3>
     <span class="tag tag-api">Event</span>
     <pre>new Event('custom', {
   bubbles: true,     // propagates up the DOM tree
@@ -694,21 +706,21 @@ main.innerHTML += `
       <label><input type="checkbox" id="comp-cancelable" checked> cancelable</label>
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoComposition()">Dispatch</button>
+      <button class="run-btn" onclick="demoComposition()" ti="btn_dispatch">Dispatch</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-comp'))">Clear</button>
     </div>
     <div class="output" id="out-comp"></div>
   </div>
 
   <div class="card">
-    <h3>Shadow DOM & composed</h3>
+    <h3 ti="h3_shadow_dom_composed">Shadow DOM & composed</h3>
     <span class="tag tag-api">composed</span>
     <span class="tag tag-pattern">Shadow DOM</span>
     <pre>// composed: false (default) - event stays inside shadow root
 // composed: true - event crosses shadow DOM boundary
 // Built-in events (click, input) are composed: true by default</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoShadowComposed()">Test Shadow DOM</button>
+      <button class="run-btn" onclick="demoShadowComposed()" ti="btn_test_shadow_dom">Test Shadow DOM</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-shadow'))">Clear</button>
     </div>
     <div class="output" id="out-shadow"></div>
@@ -753,7 +765,7 @@ function demoShadowComposed() {
   const host = document.createElement('div');
   const shadow = host.attachShadow({ mode: 'open' });
   const inner = document.createElement('button');
-  inner.textContent = 'shadow child';
+  inner.textContent=T("jtc_shadow_child");
   shadow.appendChild(inner);
   document.body.appendChild(host);
 
@@ -777,11 +789,11 @@ function demoShadowComposed() {
 // ===================== SECTION 6: AbortSignal Cleanup =====================
 main.innerHTML += `
 <div id="abort-signal" class="section">
-  <h2>AbortSignal for Listener Cleanup</h2>
+  <h2 ti="h2_abortsignal_for_listener">AbortSignal for Listener Cleanup</h2>
   <p>Use AbortController to remove multiple listeners at once - cleaner than manual removeEventListener.</p>
 
   <div class="card">
-    <h3>Multi-Listener Cleanup</h3>
+    <h3 ti="h3_multi_listener_cleanup">Multi-Listener Cleanup</h3>
     <span class="tag tag-api">AbortController</span>
     <span class="tag tag-pattern">Cleanup</span>
     <pre>const controller = new AbortController();
@@ -795,15 +807,15 @@ el.addEventListener('scroll', onScroll, { signal });
 // Remove ALL at once
 controller.abort();</pre>
     <div class="btn-row">
-      <button class="run-btn" id="abort-attach-btn" onclick="demoAbortAttach()">Attach Listeners</button>
-      <button class="run-btn" style="background:var(--error)" onclick="demoAbortCleanup()">Abort All</button>
+      <button class="run-btn" id="abort-attach-btn" onclick="demoAbortAttach()" ti="btn_attach_listeners">Attach Listeners</button>
+      <button class="run-btn" style="background:var(--error)" onclick="demoAbortCleanup()" ti="btn_abort_all">Abort All</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-abort'))">Clear</button>
     </div>
     <div class="output" id="out-abort"></div>
   </div>
 
   <div class="card">
-    <h3>Component Lifecycle Pattern</h3>
+    <h3 ti="h3_component_lifecycle_patte">Component Lifecycle Pattern</h3>
     <span class="tag tag-pattern">Lifecycle</span>
     <pre>class Component {
   #controller = new AbortController();
@@ -820,7 +832,7 @@ controller.abort();</pre>
   }
 }</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoComponentLifecycle()">Simulate Lifecycle</button>
+      <button class="run-btn" onclick="demoComponentLifecycle()" ti="btn_simulate_lifecycle">Simulate Lifecycle</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-lifecycle'))">Clear</button>
     </div>
     <div class="output" id="out-lifecycle"></div>
@@ -896,11 +908,11 @@ function demoComponentLifecycle() {
 // ===================== SECTION 7: Event Bus / Pub-Sub =====================
 main.innerHTML += `
 <div id="event-bus" class="section">
-  <h2>Event Bus / Pub-Sub Pattern</h2>
+  <h2 ti="h2_event_bus_pub_sub_pattern">Event Bus / Pub-Sub Pattern</h2>
   <p>Use EventTarget as a lightweight pub-sub system for decoupled communication.</p>
 
   <div class="card">
-    <h3>Simple Event Bus</h3>
+    <h3 ti="h3_simple_event_bus">Simple Event Bus</h3>
     <span class="tag tag-pattern">Pub-Sub</span>
     <pre>const bus = new EventTarget();
 
@@ -914,7 +926,7 @@ bus.dispatchEvent(new CustomEvent('user:login', {
   detail: { username: 'alice' }
 }));</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Event:</label>
+      <label ti="label_event">Event:</label>
       <select id="bus-event">
         <option value="user:login">user:login</option>
         <option value="user:logout">user:logout</option>
@@ -922,18 +934,18 @@ bus.dispatchEvent(new CustomEvent('user:login', {
         <option value="cart:remove">cart:remove</option>
         <option value="notification">notification</option>
       </select>
-      <label>Data:</label>
+      <label ti="label_data">Data:</label>
       <input type="text" id="bus-data" value="alice" style="width:120px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoBusPublish()">Publish</button>
+      <button class="run-btn" onclick="demoBusPublish()" ti="btn_publish">Publish</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-bus'))">Clear</button>
     </div>
     <div class="output" id="out-bus"></div>
   </div>
 
   <div class="card">
-    <h3>Typed Event Bus with Wildcard</h3>
+    <h3 ti="h3_typed_event_bus_with_wild">Typed Event Bus with Wildcard</h3>
     <span class="tag tag-pattern">Advanced</span>
     <pre>class TypedBus extends EventTarget {
   emit(type, data) {
@@ -995,11 +1007,11 @@ function demoTypedBus() {
 // ===================== SECTION 8: dispatchEvent Return =====================
 main.innerHTML += `
 <div id="dispatch-return" class="section">
-  <h2>dispatchEvent Return Value</h2>
+  <h2 ti="h2_dispatchevent_return_valu">dispatchEvent Return Value</h2>
   <p>dispatchEvent returns false if preventDefault() was called - enabling "vetoable" events.</p>
 
   <div class="card">
-    <h3>Vetoable Events</h3>
+    <h3 ti="h3_vetoable_events">Vetoable Events</h3>
     <span class="tag tag-api">dispatchEvent</span>
     <span class="tag tag-pattern">Veto</span>
     <pre>// dispatchEvent() returns:
@@ -1017,14 +1029,14 @@ if (allowed) {
       <label><input type="checkbox" id="veto-check"> Veto the event (call preventDefault)</label>
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoVeto()">Dispatch "beforeSave"</button>
+      <button class="run-btn" onclick="demoVeto()" ti="btn_dispatch_beforesave">Dispatch "beforeSave"</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-veto'))">Clear</button>
     </div>
     <div class="output" id="out-veto"></div>
   </div>
 
   <div class="card">
-    <h3>Validation Pattern</h3>
+    <h3 ti="h3_validation_pattern">Validation Pattern</h3>
     <span class="tag tag-pattern">Validation</span>
     <pre>class Form extends EventTarget {
   submit(data) {
@@ -1041,11 +1053,11 @@ if (allowed) {
   }
 }</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Name:</label>
-      <input type="text" id="form-name" value="" placeholder="leave empty to trigger veto" style="width:200px">
+      <label ti="label_name">Name:</label>
+      <input type="text" id="form-name" value="" tp="placeholder_leave_empty_to_trigger_ve" placeholder="leave empty to trigger veto" style="width:200px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoValidation()">Submit Form</button>
+      <button class="run-btn" onclick="demoValidation()" ti="btn_submit_form">Submit Form</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-validate'))">Clear</button>
     </div>
     <div class="output" id="out-validate"></div>
@@ -1108,6 +1120,24 @@ function demoValidation() {
   const result = form.submit({ name, ts: Date.now() });
   log(out, `Result: ${result ? 'SUBMITTED' : 'VETOED'}`, result ? '' : 'warn');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

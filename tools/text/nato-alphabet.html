@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_text_to_nato_alphabet" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,18 +25,44 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Text to NATO Alphabet</h1>
-  <p class="desc">Convert text to the NATO phonetic alphabet for clear communication</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_text_to_nato_alphabet" ti="h1_text_to_nato_alphabet" ti="title_text_to_nato_alphabet" ti="h1_text_to_nato_alphabet" ti="title_text_to_nato_alphabet" ti="h1_text_to_nato_alphabet">Text to NATO Alphabet</h1>
+  <p class="desc" ti="subtitle_convert_text_to_the_nato" ti="subtitle_convert_text_to_the_nato" ti="subtitle_convert_text_to_the_nato">Convert text to the NATO phonetic alphabet for clear communication</p>
   <div class="card">
-    <label>Text to convert</label>
+    <label ti="label_text_to_convert" ti="label_text_to_convert" ti="label_text_to_convert">Text to convert</label>
     <input type="text" id="inputText" value="Hello World" spellcheck="false">
     <div class="result-box" id="output"></div>
     <div class="flex-center">
-      <button id="copyBtn">Copy</button>
+      <button id="copyBtn" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_text_to_nato_alphabet':["Text to NATO Alphabet", "文本转北约字母表"],'metadesc_convert_text_to_the_nato':["Convert text to the NATO phonetic alphabet (Alpha, Bravo, Charlie...). Useful for spelling things over the phone or radio.", "将文本转换为北约音标字母（Alpha、Bravo、Charlie……）。方便在电话或无线电中拼写单词。"],'h1_text_to_nato_alphabet':["Text to NATO Alphabet", "文本转北约字母表"],'subtitle_convert_text_to_the_nato':["Convert text to the NATO phonetic alphabet for clear communication", "将文本转换为北约音标字母，以便清晰沟通。"],'btn_copy':["Copy", "复制"],'label_text_to_convert':["Text to convert", "要转换的文本"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_text_to_nato_alphabet':["Text to NATO Alphabet", "文本转北约字母表"],'metadesc_convert_text_to_the_nato':["Convert text to the NATO phonetic alphabet (Alpha, Bravo, Charlie...). Useful for spelling things over the phone or radio.", "将文本转换为北约音标字母（Alpha、Bravo、Charlie……）。方便在电话或无线电中拼写单词。"],'h1_text_to_nato_alphabet':["Text to NATO Alphabet", "文本转北约字母表"],'subtitle_convert_text_to_the_nato':["Convert text to the NATO phonetic alphabet for clear communication", "将文本转换为北约音标字母，以便清晰沟通。"],'btn_copy':["Copy", "复制"],'label_text_to_convert':["Text to convert", "要转换的文本"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const nato = {
   a:'Alpha', b:'Bravo', c:'Charlie', d:'Delta', e:'Echo', f:'Foxtrot', g:'Golf',
@@ -71,6 +97,60 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(result);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

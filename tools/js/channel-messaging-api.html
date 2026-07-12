@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_channel_messaging_api_pla" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -247,57 +247,59 @@ textarea { resize: vertical; min-height: 60px; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Channel Messaging API Playground</h1>
+  <h1 ti="title_channel_messaging_api_pla" ti="h1_channel_messaging_api_pla">Channel Messaging API Playground</h1>
   <p>Explore MessageChannel, MessagePort, iframe & worker communication</p>
 </header>
 
 <div class="tabs" id="tabs">
-  <button class="tab active" data-panel="basics">MessageChannel Basics</button>
-  <button class="tab" data-panel="iframe">Iframe Communication</button>
-  <button class="tab" data-panel="worker">Worker Communication</button>
-  <button class="tab" data-panel="lifecycle">Port Lifecycle</button>
-  <button class="tab" data-panel="structured">Structured Clone</button>
-  <button class="tab" data-panel="flow">Message Flow</button>
-  <button class="tab" data-panel="comparison">Comparison</button>
+  <button class="tab active" data-panel="basics" ti="btn_messagechannel_basics">MessageChannel Basics</button>
+  <button class="tab" data-panel="iframe" ti="btn_iframe_communication">Iframe Communication</button>
+  <button class="tab" data-panel="worker" ti="btn_worker_communication">Worker Communication</button>
+  <button class="tab" data-panel="lifecycle" ti="btn_port_lifecycle">Port Lifecycle</button>
+  <button class="tab" data-panel="structured" ti="btn_structured_clone">Structured Clone</button>
+  <button class="tab" data-panel="flow" ti="btn_message_flow">Message Flow</button>
+  <button class="tab" data-panel="comparison" ti="btn_comparison">Comparison</button>
 </div>
 
 <main>
   <!-- Panel 1: MessageChannel Basics -->
   <div class="panel active" id="panel-basics">
-    <h2>MessageChannel / MessagePort Basics</h2>
-    <p class="desc">A MessageChannel creates two linked MessagePort objects. Messages sent on one port are received on the other. This enables direct, private communication between contexts.</p>
+    <h2 ti="h2_messagechannel_messagepor">MessageChannel / MessagePort Basics</h2>
+    <p class="desc" ti="subtitle_a_messagechannel_creates">A MessageChannel creates two linked MessagePort objects. Messages sent on one port are received on the other. This enables direct, private communication between contexts.</p>
 
     <div id="support-check">
       <span class="support-badge" id="mc-support">Checking...</span>
     </div>
 
-    <h3>Create a Channel & Send Messages</h3>
+    <h3 ti="h3_create_a_channel_send_mes">Create a Channel & Send Messages</h3>
     <div class="grid2">
       <div class="port-box">
         <h4><span class="status-dot closed" id="dot1"></span> Port 1</h4>
-        <input type="text" id="msg1" placeholder="Type a message to send via Port 1..." />
+        <input type="text" id="msg1" tp="placeholder_type_a_message_to_send_vi" placeholder="Type a message to send via Port 1..." />
         <div class="btn-row">
-          <button onclick="sendFromPort1()">Send from Port 1</button>
+          <button onclick="sendFromPort1()" ti="btn_send_from_port_1">Send from Port 1</button>
         </div>
         <div class="log-area" id="log1"><div class="entry system">Port 1 log...</div></div>
       </div>
       <div class="port-box">
         <h4><span class="status-dot closed" id="dot2"></span> Port 2</h4>
-        <input type="text" id="msg2" placeholder="Type a message to send via Port 2..." />
+        <input type="text" id="msg2" tp="placeholder_type_a_message_to_send_vi_2" placeholder="Type a message to send via Port 2..." />
         <div class="btn-row">
-          <button onclick="sendFromPort2()">Send from Port 2</button>
+          <button onclick="sendFromPort2()" ti="btn_send_from_port_2">Send from Port 2</button>
         </div>
         <div class="log-area" id="log2"><div class="entry system">Port 2 log...</div></div>
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="createChannel()">Create New Channel</button>
-      <button class="danger" onclick="closeChannel()">Close Both Ports</button>
+      <button class="success" onclick="createChannel()" ti="btn_create_new_channel">Create New Channel</button>
+      <button class="danger" onclick="closeChannel()" ti="btn_close_both_ports">Close Both Ports</button>
     </div>
 
-    <h3>How it Works</h3>
+    <h3 ti="h3_how_it_works">How it Works</h3>
     <div class="code-block">const channel = new MessageChannel();
 const port1 = channel.port1;
 const port2 = channel.port2;
@@ -311,19 +313,19 @@ port2.postMessage('Hello from Port 2');  // Port 1 receives this</div>
 
   <!-- Panel 2: Iframe Communication -->
   <div class="panel" id="panel-iframe">
-    <h2>Iframe Communication via Ports</h2>
-    <p class="desc">MessageChannel enables secure, direct communication with iframes. Transfer one port to the iframe via postMessage, then use the channel for ongoing private communication - no origin checks needed on every message.</p>
+    <h2 ti="h2_iframe_communication_via">Iframe Communication via Ports</h2>
+    <p class="desc" ti="subtitle_messagechannel_enables_se">MessageChannel enables secure, direct communication with iframes. Transfer one port to the iframe via postMessage, then use the channel for ongoing private communication - no origin checks needed on every message.</p>
 
     <div class="btn-row">
-      <button class="success" onclick="setupIframeChannel()">Establish Channel with Iframe</button>
+      <button class="success" onclick="setupIframeChannel()" ti="btn_establish_channel_with_if">Establish Channel with Iframe</button>
     </div>
 
     <div class="grid2">
       <div class="port-box">
         <h4>Parent Window</h4>
-        <input type="text" id="iframe-msg" placeholder="Send message to iframe..." />
+        <input type="text" id="iframe-msg" tp="placeholder_send_message_to_iframe" placeholder="Send message to iframe..." />
         <div class="btn-row">
-          <button onclick="sendToIframe()">Send to Iframe</button>
+          <button onclick="sendToIframe()" ti="btn_send_to_iframe">Send to Iframe</button>
         </div>
         <div class="log-area" id="iframe-parent-log"><div class="entry system">Parent log...</div></div>
       </div>
@@ -336,7 +338,7 @@ port2.postMessage('Hello from Port 2');  // Port 1 receives this</div>
       </div>
     </div>
 
-    <h3>The Pattern</h3>
+    <h3 ti="h3_the_pattern">The Pattern</h3>
     <div class="code-block">// Parent: create channel, send port2 to iframe
 const channel = new MessageChannel();
 iframe.contentWindow.postMessage('init', '*', [channel.port2]);
@@ -354,21 +356,21 @@ window.onmessage = (e) => {
 
   <!-- Panel 3: Worker Communication -->
   <div class="panel" id="panel-worker">
-    <h2>Worker Communication via Ports</h2>
-    <p class="desc">Transfer a MessagePort to a Web Worker for direct, typed communication. This avoids the global onmessage handler and enables multiple independent channels to the same worker.</p>
+    <h2 ti="h2_worker_communication_via">Worker Communication via Ports</h2>
+    <p class="desc" ti="subtitle_transfer_a_messageport_to">Transfer a MessagePort to a Web Worker for direct, typed communication. This avoids the global onmessage handler and enables multiple independent channels to the same worker.</p>
 
     <div class="btn-row">
-      <button class="success" onclick="setupWorkerChannel()">Create Worker + Channel</button>
-      <button class="danger" onclick="terminateWorker()">Terminate Worker</button>
+      <button class="success" onclick="setupWorkerChannel()" ti="btn_create_worker_channel">Create Worker + Channel</button>
+      <button class="danger" onclick="terminateWorker()" ti="btn_terminate_worker">Terminate Worker</button>
     </div>
 
     <div class="grid2">
       <div class="port-box">
         <h4>Main Thread</h4>
-        <input type="text" id="worker-msg" placeholder="Send to worker..." />
+        <input type="text" id="worker-msg" tp="placeholder_send_to_worker" placeholder="Send to worker..." />
         <div class="btn-row">
-          <button onclick="sendToWorker()">Send to Worker</button>
-          <button onclick="sendCompute()">Request Computation</button>
+          <button onclick="sendToWorker()" ti="btn_send_to_worker">Send to Worker</button>
+          <button onclick="sendCompute()" ti="btn_request_computation">Request Computation</button>
         </div>
         <div class="log-area" id="worker-main-log"><div class="entry system">Main thread log...</div></div>
       </div>
@@ -378,85 +380,85 @@ window.onmessage = (e) => {
       </div>
     </div>
 
-    <h3>Multi-Channel Worker</h3>
-    <p class="desc">Send multiple ports for separate concerns (e.g., one for data, one for control signals).</p>
+    <h3 ti="h3_multi_channel_worker">Multi-Channel Worker</h3>
+    <p class="desc" ti="subtitle_send_multiple_ports_for_s">Send multiple ports for separate concerns (e.g., one for data, one for control signals).</p>
     <div class="btn-row">
-      <button onclick="setupMultiChannel()">Setup Data + Control Channels</button>
-      <button onclick="sendDataChannel()">Send Data</button>
-      <button onclick="sendControlChannel()">Send Control Signal</button>
+      <button onclick="setupMultiChannel()" ti="btn_setup_data_control_channe">Setup Data + Control Channels</button>
+      <button onclick="sendDataChannel()" ti="btn_send_data">Send Data</button>
+      <button onclick="sendControlChannel()" ti="btn_send_control_signal">Send Control Signal</button>
     </div>
     <div class="log-area" id="multi-log"><div class="entry system">Multi-channel log...</div></div>
   </div>
 
   <!-- Panel 4: Port Lifecycle -->
   <div class="panel" id="panel-lifecycle">
-    <h2>Port Lifecycle: start, close, transfer</h2>
-    <p class="desc">Ports have distinct lifecycle states. Understanding start(), close(), and transfer semantics is crucial for correct usage.</p>
+    <h2 ti="h2_port_lifecycle_start_clos">Port Lifecycle: start, close, transfer</h2>
+    <p class="desc" ti="subtitle_ports_have_distinct_lifec">Ports have distinct lifecycle states. Understanding start(), close(), and transfer semantics is crucial for correct usage.</p>
 
-    <h3>start() behavior</h3>
-    <p class="desc">When using addEventListener (not onmessage), you must call port.start() explicitly. The onmessage setter calls start() implicitly.</p>
+    <h3 ti="h3_start_behavior">start() behavior</h3>
+    <p class="desc" ti="subtitle_when_using_addeventlisten">When using addEventListener (not onmessage), you must call port.start() explicitly. The onmessage setter calls start() implicitly.</p>
     <div class="btn-row">
-      <button onclick="demoExplicitStart()">Demo: addEventListener (needs start)</button>
-      <button onclick="demoImplicitStart()">Demo: onmessage (auto-start)</button>
+      <button onclick="demoExplicitStart()" ti="btn_demo_addeventlistener_nee">Demo: addEventListener (needs start)</button>
+      <button onclick="demoImplicitStart()" ti="btn_demo_onmessage_auto_start">Demo: onmessage (auto-start)</button>
     </div>
     <div class="log-area" id="start-log"><div class="entry system">Start behavior log...</div></div>
 
-    <h3>close() behavior</h3>
-    <p class="desc">Closing a port prevents further messages. The other port can still send, but messages are silently dropped.</p>
+    <h3 ti="h3_close_behavior">close() behavior</h3>
+    <p class="desc" ti="subtitle_closing_a_port_prevents_f">Closing a port prevents further messages. The other port can still send, but messages are silently dropped.</p>
     <div class="btn-row">
-      <button onclick="demoClose()">Demo: Close Port 1, Try Sending</button>
+      <button onclick="demoClose()" ti="btn_demo_close_port_1_try_sen">Demo: Close Port 1, Try Sending</button>
     </div>
     <div class="log-area" id="close-log"><div class="entry system">Close behavior log...</div></div>
 
-    <h3>Transfer behavior</h3>
-    <p class="desc">Ports are transferable. Once transferred, the original reference becomes neutered (unusable).</p>
+    <h3 ti="h3_transfer_behavior">Transfer behavior</h3>
+    <p class="desc" ti="subtitle_ports_are_transferable_on">Ports are transferable. Once transferred, the original reference becomes neutered (unusable).</p>
     <div class="btn-row">
-      <button onclick="demoTransfer()">Demo: Transfer & Neuter</button>
+      <button onclick="demoTransfer()" ti="btn_demo_transfer_neuter">Demo: Transfer & Neuter</button>
     </div>
     <div class="log-area" id="transfer-log"><div class="entry system">Transfer behavior log...</div></div>
   </div>
 
   <!-- Panel 5: Structured Clone -->
   <div class="panel" id="panel-structured">
-    <h2>Structured Clone Data Transfer</h2>
-    <p class="desc">MessagePort.postMessage uses the structured clone algorithm, supporting complex data types beyond JSON. Transferable objects can be moved (zero-copy) for performance.</p>
+    <h2 ti="h2_structured_clone_data_tra">Structured Clone Data Transfer</h2>
+    <p class="desc" ti="subtitle_messageport_postmessage_u">MessagePort.postMessage uses the structured clone algorithm, supporting complex data types beyond JSON. Transferable objects can be moved (zero-copy) for performance.</p>
 
-    <h3>Supported Types</h3>
+    <h3 ti="h3_supported_types">Supported Types</h3>
     <div class="btn-row">
-      <button onclick="cloneTest('string')">String</button>
-      <button onclick="cloneTest('number')">Number</button>
-      <button onclick="cloneTest('array')">Array</button>
-      <button onclick="cloneTest('object')">Object</button>
-      <button onclick="cloneTest('date')">Date</button>
-      <button onclick="cloneTest('regexp')">RegExp</button>
-      <button onclick="cloneTest('map')">Map</button>
-      <button onclick="cloneTest('set')">Set</button>
-      <button onclick="cloneTest('arraybuffer')">ArrayBuffer</button>
-      <button onclick="cloneTest('blob')">Blob</button>
-      <button onclick="cloneTest('error')">Error</button>
+      <button onclick="cloneTest('string')" ti="btn_string">String</button>
+      <button onclick="cloneTest('number')" ti="btn_number">Number</button>
+      <button onclick="cloneTest('array')" ti="btn_array">Array</button>
+      <button onclick="cloneTest('object')" ti="btn_object">Object</button>
+      <button onclick="cloneTest('date')" ti="btn_date">Date</button>
+      <button onclick="cloneTest('regexp')" ti="btn_regexp">RegExp</button>
+      <button onclick="cloneTest('map')" ti="btn_map">Map</button>
+      <button onclick="cloneTest('set')" ti="btn_set">Set</button>
+      <button onclick="cloneTest('arraybuffer')" ti="btn_arraybuffer">ArrayBuffer</button>
+      <button onclick="cloneTest('blob')" ti="btn_blob">Blob</button>
+      <button onclick="cloneTest('error')" ti="btn_error">Error</button>
     </div>
     <div class="log-area" id="clone-log"><div class="entry system">Clone test results...</div></div>
 
-    <h3>Transfer vs Clone</h3>
-    <p class="desc">Transferring an ArrayBuffer moves it (zero-copy, original becomes detached). Cloning copies the data.</p>
+    <h3 ti="h3_transfer_vs_clone">Transfer vs Clone</h3>
+    <p class="desc" ti="subtitle_transferring_an_arraybuff">Transferring an ArrayBuffer moves it (zero-copy, original becomes detached). Cloning copies the data.</p>
     <div class="btn-row">
-      <button onclick="demoTransferVsClone()">Demo: Transfer vs Clone ArrayBuffer</button>
+      <button onclick="demoTransferVsClone()" ti="btn_demo_transfer_vs_clone_ar">Demo: Transfer vs Clone ArrayBuffer</button>
     </div>
     <div class="log-area" id="transfer-clone-log"><div class="entry system">Transfer vs clone results...</div></div>
 
-    <h3>Non-Cloneable Types</h3>
+    <h3 ti="h3_non_cloneable_types">Non-Cloneable Types</h3>
     <div class="btn-row">
-      <button onclick="cloneFailTest('function')">Function (fails)</button>
-      <button onclick="cloneFailTest('symbol')">Symbol (fails)</button>
-      <button onclick="cloneFailTest('dom')">DOM Node (fails)</button>
+      <button onclick="cloneFailTest('function')" ti="btn_function_fails">Function (fails)</button>
+      <button onclick="cloneFailTest('symbol')" ti="btn_symbol_fails">Symbol (fails)</button>
+      <button onclick="cloneFailTest('dom')" ti="btn_dom_node_fails">DOM Node (fails)</button>
     </div>
     <div class="log-area" id="clone-fail-log"><div class="entry system">Non-cloneable test results...</div></div>
   </div>
 
   <!-- Panel 6: Event-driven Message Flow -->
   <div class="panel" id="panel-flow">
-    <h2>Event-Driven Message Flow Visualization</h2>
-    <p class="desc">Watch messages flow between ports in real time. Each message triggers events that propagate through the channel.</p>
+    <h2 ti="h2_event_driven_message_flow">Event-Driven Message Flow Visualization</h2>
+    <p class="desc" ti="subtitle_watch_messages_flow_betwe">Watch messages flow between ports in real time. Each message triggers events that propagate through the channel.</p>
 
     <div class="flow-viz" id="flow-diagram">
       <div class="flow-node" id="flow-sender">Sender</div>
@@ -473,29 +475,29 @@ window.onmessage = (e) => {
     <div class="btn-row">
       <button onclick="animateFlow('forward')">Send: Port 1 &rarr; Port 2</button>
       <button onclick="animateFlow('backward')">Send: Port 2 &rarr; Port 1</button>
-      <button onclick="animatePingPong()">Ping-Pong (5 rounds)</button>
+      <button onclick="animatePingPong()" ti="btn_ping_pong_5_rounds">Ping-Pong (5 rounds)</button>
     </div>
 
-    <h3>Message Event Properties</h3>
-    <p class="desc">Click to inspect the MessageEvent object received on a port.</p>
+    <h3 ti="h3_message_event_properties">Message Event Properties</h3>
+    <p class="desc" ti="subtitle_click_to_inspect_the_mess">Click to inspect the MessageEvent object received on a port.</p>
     <div class="btn-row">
-      <button onclick="inspectEvent()">Send & Inspect MessageEvent</button>
+      <button onclick="inspectEvent()" ti="btn_send_inspect_messageevent">Send & Inspect MessageEvent</button>
     </div>
     <div class="log-area" id="flow-log"><div class="entry system">Flow visualization log...</div></div>
   </div>
 
   <!-- Panel 7: Comparison -->
   <div class="panel" id="panel-comparison">
-    <h2>Channel Messaging vs BroadcastChannel vs postMessage</h2>
-    <p class="desc">Three messaging APIs serve different use cases. Here's how they compare.</p>
+    <h2 ti="h2_channel_messaging_vs_broa">Channel Messaging vs BroadcastChannel vs postMessage</h2>
+    <p class="desc" ti="subtitle_three_messaging_apis_serv">Three messaging APIs serve different use cases. Here's how they compare.</p>
 
     <table class="comparison-table">
       <thead>
         <tr>
-          <th>Feature</th>
-          <th>MessageChannel</th>
-          <th>BroadcastChannel</th>
-          <th>window.postMessage</th>
+          <th ti="th_feature">Feature</th>
+          <th ti="th_messagechannel">MessageChannel</th>
+          <th ti="th_broadcastchannel">BroadcastChannel</th>
+          <th ti="th_window_postmessage">window.postMessage</th>
         </tr>
       </thead>
       <tbody>
@@ -544,11 +546,11 @@ window.onmessage = (e) => {
       </tbody>
     </table>
 
-    <h3>Live Comparison Demo</h3>
-    <p class="desc">See all three APIs in action with the same message.</p>
-    <input type="text" id="compare-msg" placeholder="Message to send via all three..." value="Hello from all APIs!" />
+    <h3 ti="h3_live_comparison_demo">Live Comparison Demo</h3>
+    <p class="desc" ti="subtitle_see_all_three_apis_in_act">See all three APIs in action with the same message.</p>
+    <input type="text" id="compare-msg" tp="placeholder_message_to_send_via_all_t" placeholder="Message to send via all three..." value="Hello from all APIs!" />
     <div class="btn-row">
-      <button onclick="compareAPIs()">Send via All Three</button>
+      <button onclick="compareAPIs()" ti="btn_send_via_all_three">Send via All Three</button>
     </div>
     <div class="grid2">
       <div class="log-area" id="compare-mc-log"><div class="entry info">MessageChannel results...</div></div>
@@ -558,6 +560,16 @@ window.onmessage = (e) => {
   </div>
 </main>
 
+
+<script>var _LANG={'title_channel_messaging_api_pla':["Channel Messaging API Playground", "通道消息传递 API 测试平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Channel Messaging API - MessageChannel, MessagePort, iframe communication, and worker messaging demos.", "Channel Messaging API 的交互式演示平台 - MessageChannel、MessagePort、iframe 通信和 worker 消息传递演示。"],'h1_channel_messaging_api_pla':["Channel Messaging API Playground", "通道消息传递 API 测试平台"],'h2_messagechannel_messagepor':["MessageChannel / MessagePort Basics", "消息通道/消息端口基础知识"],'h2_iframe_communication_via':["Iframe Communication via Ports", "通过端口进行 Iframe 通信"],'h2_worker_communication_via':["Worker Communication via Ports", "通过端口进行工人通信"],'h2_port_lifecycle_start_clos':["Port Lifecycle: start, close, transfer", "端口生命周期：启动、关闭、传输"],'h2_structured_clone_data_tra':["Structured Clone Data Transfer", "结构化克隆数据传输"],'h2_event_driven_message_flow':["Event-Driven Message Flow Visualization", "事件驱动消息流可视化"],'h2_channel_messaging_vs_broa':["Channel Messaging vs BroadcastChannel vs postMessage", "频道消息传递 vs 广播频道 vs 帖子消息传递"],'h3_create_a_channel_send_mes':["Create a Channel & Send Messages", "创建频道并发送消息"],'h3_how_it_works':["How it Works", "工作原理"],'h3_the_pattern':["The Pattern", "模式"],'h3_multi_channel_worker':["Multi-Channel Worker", "多渠道工作者"],'h3_start_behavior':["start() behavior", "start() 行为"],'h3_close_behavior':["close() behavior", "close() 行为"],'h3_transfer_behavior':["Transfer behavior", "转移行为"],'h3_supported_types':["Supported Types", "支持的类型"],'h3_transfer_vs_clone':["Transfer vs Clone", "移植 vs 克隆"],'h3_non_cloneable_types':["Non-Cloneable Types", "不可克隆类型"],'h3_message_event_properties':["Message Event Properties", "消息事件属性"],'h3_live_comparison_demo':["Live Comparison Demo", "实时对比演示"],'subtitle_a_messagechannel_creates':["A MessageChannel creates two linked MessagePort objects. Messages sent on one port are received on the other. This enables direct, private communication between contexts.", "MessageChannel 会创建两个链接的 MessagePort 对象。在一个端口发送的消息会在另一个端口接收。这使得上下文之间能够进行直接的、私密的通信。"],'subtitle_messagechannel_enables_se':["MessageChannel enables secure, direct communication with iframes. Transfer one port to the iframe via postMessage, then use the channel for ongoing private communication - no origin checks needed on every message.", "MessageChannel 实现了与 iframe 的安全直接通信。通过 postMessage 将一个端口传输到 iframe，然后使用该通道进行持续的私密通信——无需对每条消息进行来源检查。"],'subtitle_transfer_a_messageport_to':["Transfer a MessagePort to a Web Worker for direct, typed communication. This avoids the global onmessage handler and enables multiple independent channels to the same worker.", "将 MessagePort 传递给 Web Worker 以实现直接的、类型化的通信。这样可以避免使用全局 onmessage 处理程序，并允许多个独立的通道连接到同一个 Worker。"],'subtitle_send_multiple_ports_for_s':["Send multiple ports for separate concerns (e.g., one for data, one for control signals).", "为不同的用途发送多个端口（例如，一个用于数据，一个用于控制信号）。"],'subtitle_ports_have_distinct_lifec':["Ports have distinct lifecycle states. Understanding start(), close(), and transfer semantics is crucial for correct usage.", "端口具有不同的生命周期状态。理解 start()、close() 和 transfer 的语义对于正确使用端口至关重要。"],'subtitle_when_using_addeventlisten':["When using addEventListener (not onmessage), you must call port.start() explicitly. The onmessage setter calls start() implicitly.", "使用 addEventListener（而非 onmessage）时，必须显式调用 port.start()。onmessage 的 setter 方法会隐式调用 start()。"],'subtitle_closing_a_port_prevents_f':["Closing a port prevents further messages. The other port can still send, but messages are silently dropped.", "关闭端口会阻止进一步的消息传输。其他端口仍然可以发送消息，但消息会被静默丢弃。"],'subtitle_ports_are_transferable_on':["Ports are transferable. Once transferred, the original reference becomes neutered (unusable).", "端口是可以转移的。一旦转移，原引用将失效（无法使用）。"],'subtitle_messageport_postmessage_u':["MessagePort.postMessage uses the structured clone algorithm, supporting complex data types beyond JSON. Transferable objects can be moved (zero-copy) for performance.", "MessagePort.postMessage 使用结构化克隆算法，支持 JSON 以外的复杂数据类型。可传输对象可以零拷贝移动，从而提升性能。"],'subtitle_transferring_an_arraybuff':["Transferring an ArrayBuffer moves it (zero-copy, original becomes detached). Cloning copies the data.", "传输 ArrayBuffer 会将其移动（零拷贝，原始数据会分离）。克隆操作会复制数据。"],'subtitle_watch_messages_flow_betwe':["Watch messages flow between ports in real time. Each message triggers events that propagate through the channel.", "实时观察端口间的消息流动。每条消息都会触发事件，这些事件会沿着通道传播。"],'subtitle_click_to_inspect_the_mess':["Click to inspect the MessageEvent object received on a port.", "单击以检查端口上接收到的 MessageEvent 对象。"],'subtitle_three_messaging_apis_serv':["Three messaging APIs serve different use cases. Here's how they compare.", "三种消息传递 API 服务于不同的使用场景。以下是它们的比较。"],'subtitle_see_all_three_apis_in_act':["See all three APIs in action with the same message.", "查看这三个 API 如何传递相同的消息。"],'btn_messagechannel_basics':["MessageChannel Basics", "消息通道基础知识"],'btn_iframe_communication':["Iframe Communication", "框架通信"],'btn_worker_communication':["Worker Communication", "员工沟通"],'btn_port_lifecycle':["Port Lifecycle", "端口生命周期"],'btn_structured_clone':["Structured Clone", "结构化克隆"],'btn_message_flow':["Message Flow", "消息流"],'btn_comparison':["Comparison", "比较"],'btn_send_from_port_1':["Send from Port 1", "从端口 1 发送"],'btn_send_from_port_2':["Send from Port 2", "从端口 2 发送"],'btn_create_new_channel':["Create New Channel", "创建新频道"],'btn_close_both_ports':["Close Both Ports", "关闭两个端口"],'btn_establish_channel_with_if':["Establish Channel with Iframe", "使用 Iframe 建立通道"],'btn_send_to_iframe':["Send to Iframe", "发送到 Iframe"],'btn_create_worker_channel':["Create Worker + Channel", "创建 Worker + Channel"],'btn_terminate_worker':["Terminate Worker", "终止工人合同"],'btn_send_to_worker':["Send to Worker", "发送给工人"],'btn_request_computation':["Request Computation", "请求计算"],'btn_setup_data_control_channe':["Setup Data + Control Channels", "设置数据 + 控制通道"],'btn_send_data':["Send Data", "发送数据"],'btn_send_control_signal':["Send Control Signal", "发送控制信号"],'btn_demo_addeventlistener_nee':["Demo: addEventListener (needs start)", "演示：添加事件监听器（需要启动）"],'btn_demo_onmessage_auto_start':["Demo: onmessage (auto-start)", "演示：onmessage（自动启动）"],'btn_demo_close_port_1_try_sen':["Demo: Close Port 1, Try Sending", "演示：关闭端口 1，尝试发送"],'btn_demo_transfer_neuter':["Demo: Transfer & Neuter", "演示：转移和绝育"],'btn_string':["String", "细绳"],'btn_number':["Number", "数字"],'btn_array':["Array", "大批"],'btn_object':["Object", "目的"],'btn_date':["Date", "日期"],'btn_regexp':["RegExp", "正则表达式"],'btn_map':["Map", "地图"],'btn_set':["Set", "放"],'btn_arraybuffer':["ArrayBuffer", "ArrayBuffer"],'btn_blob':["Blob", "布洛布"],'btn_error':["Error", "错误"],'btn_demo_transfer_vs_clone_ar':["Demo: Transfer vs Clone ArrayBuffer", "演示：传输与克隆数组缓冲区"],'btn_function_fails':["Function (fails)", "功能（失败）"],'btn_symbol_fails':["Symbol (fails)", "符号（失败）"],'btn_dom_node_fails':["DOM Node (fails)", "DOM节点（失败）"],'btn_send_port_1_port_2':["Send: Port 1 → Port 2", "发送：端口 1 → 端口 2"],'btn_send_port_2_port_1':["Send: Port 2 → Port 1", "发送：端口 2 → 端口 1"],'btn_ping_pong_5_rounds':["Ping-Pong (5 rounds)", "乒乓球（5回合）"],'btn_send_inspect_messageevent':["Send & Inspect MessageEvent", "发送和检查消息事件"],'btn_send_via_all_three':["Send via All Three", "通过所有三种方式发送"],'placeholder_type_a_message_to_send_vi':["Type a message to send via Port 1...", "输入要通过端口 1 发送的消息……"],'placeholder_type_a_message_to_send_vi_2':["Type a message to send via Port 2...", "输入要通过端口 2 发送的消息……"],'placeholder_send_message_to_iframe':["Send message to iframe...", "向 iframe 发送消息..."],'placeholder_send_to_worker':["Send to worker...", "发送给工人..."],'placeholder_message_to_send_via_all_t':["Message to send via all three...", "通过这三种方式发送消息……"],'th_feature':["Feature", "特征"],'th_messagechannel':["MessageChannel", "消息通道"],'th_broadcastchannel':["BroadcastChannel", "广播频道"],'th_window_postmessage':["window.postMessage", "window.postMessage"],'status_waiting_for_port':["Waiting for port...", "等待港口..."],'jtc_messagechannel_supported':["MessageChannel: Supported", "消息通道：已支持"],'jtc_messagechannel_not_suppor':["MessageChannel: Not Supported", "消息通道：不支持"],'jtc_connected':["Connected!", "已连接！"],'jtc_received':["Received:", "已收到："],'jtcpre_received':["Received: ", "已收到："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Tab navigation ---
 document.querySelectorAll('.tab').forEach(tab => {
@@ -587,10 +599,10 @@ const hasBroadcastChannel = typeof BroadcastChannel !== 'undefined';
 const badge = document.getElementById('mc-support');
 if (hasMessageChannel) {
   badge.className = 'support-badge yes';
-  badge.textContent = 'MessageChannel: Supported';
+  badge.textContent=T("jtc_messagechannel_supported");
 } else {
   badge.className = 'support-badge no';
-  badge.textContent = 'MessageChannel: Not Supported';
+  badge.textContent=T("jtc_messagechannel_not_suppor");
 }
 
 // --- Panel 1: Basics ---
@@ -649,18 +661,18 @@ function setupIframeChannel() {
   clearLog('iframe-child-log');
 
   const iframeHTML = `<!DOCTYPE html><html><body style="background:#111;color:#e0e0e0;font-family:system-ui;padding:10px;font-size:13px;">
-    <div id="status">Waiting for port...</div>
+    <div id="status" ti="status_waiting_for_port">Waiting for port...</div>
     <div id="msgs" style="margin-top:8px;"></div>
     <script>
       let port;
       window.addEventListener('message', (e) => {
         if (e.data === 'init' && e.ports[0]) {
           port = e.ports[0];
-          document.getElementById('status').textContent = 'Connected!';
+          document.getElementById('status').textContent=T("jtc_connected");
           document.getElementById('status').style.color = '#81c784';
           port.onmessage = (ev) => {
             const d = document.createElement('div');
-            d.textContent = 'Received: ' + ev.data;
+            d.textContent=T("jtcpre_received")+ ev.data;
             d.style.color = '#81c784';
             document.getElementById('msgs').appendChild(d);
             port.postMessage('Echo: ' + ev.data);
@@ -1161,6 +1173,24 @@ function compareAPIs() {
 
 // Auto-create channel on load
 createChannel();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

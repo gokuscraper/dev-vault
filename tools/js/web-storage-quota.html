@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_storage_quota_visuali" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,16 +81,18 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>Web Storage Quota Visualizer</h1>
+  <h1 ti="title_web_storage_quota_visuali" ti="h1_web_storage_quota_visuali">Web Storage Quota Visualizer</h1>
   <span>Test storage limits, see usage, learn strategies</span>
 </div>
 
 <div class="tabs">
-  <button class="tab active" data-tab="dashboard">Dashboard</button>
-  <button class="tab" data-tab="experiment">Experiments</button>
-  <button class="tab" data-tab="compare">Comparison</button>
+  <button class="tab active" data-tab="dashboard" ti="btn_dashboard">Dashboard</button>
+  <button class="tab" data-tab="experiment" ti="btn_experiments">Experiments</button>
+  <button class="tab" data-tab="compare" ti="btn_comparison">Comparison</button>
 </div>
 
 <!-- Dashboard -->
@@ -98,9 +100,9 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="dash-grid" id="dashGrid"></div>
 
   <div class="action-section">
-    <h3>Add Data</h3>
+    <h3 ti="h3_add_data">Add Data</h3>
     <div class="action-row">
-      <label>Storage</label>
+      <label ti="label_storage">Storage</label>
       <select class="input" id="addStorage">
         <option value="local">localStorage</option>
         <option value="session">sessionStorage</option>
@@ -116,27 +118,27 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
         <option value="524288">512 KB</option>
         <option value="1048576">1 MB</option>
       </select>
-      <button class="btn btn-primary" onclick="addData()">Add</button>
+      <button class="btn btn-primary" onclick="addData()" ti="btn_add">Add</button>
     </div>
     <div class="action-row">
-      <button class="btn-sm" onclick="fillStorage('local')">Fill localStorage</button>
-      <button class="btn-sm" onclick="fillStorage('session')">Fill sessionStorage</button>
-      <button class="btn btn-danger" onclick="clearStorage('local')" style="margin-left:auto">Clear Local</button>
-      <button class="btn btn-danger" onclick="clearStorage('session')">Clear Session</button>
+      <button class="btn-sm" onclick="fillStorage('local')" ti="btn_fill_localstorage">Fill localStorage</button>
+      <button class="btn-sm" onclick="fillStorage('session')" ti="btn_fill_sessionstorage">Fill sessionStorage</button>
+      <button class="btn btn-danger" onclick="clearStorage('local')" style="margin-left:auto" ti="btn_clear_local">Clear Local</button>
+      <button class="btn btn-danger" onclick="clearStorage('session')" ti="btn_clear_session">Clear Session</button>
     </div>
   </div>
 
   <div class="action-section">
-    <h3>Current Items</h3>
+    <h3 ti="h3_current_items">Current Items</h3>
     <div style="display:flex;gap:8px;margin-bottom:8px">
-      <button class="btn-sm" onclick="showItems('local')" id="btnItemsLocal">localStorage</button>
-      <button class="btn-sm" onclick="showItems('session')" id="btnItemsSession">sessionStorage</button>
+      <button class="btn-sm" onclick="showItems('local')" id="btnItemsLocal" ti="btn_localstorage" ti="th_localstorage">localStorage</button>
+      <button class="btn-sm" onclick="showItems('session')" id="btnItemsSession" ti="btn_sessionstorage" ti="th_sessionstorage">sessionStorage</button>
     </div>
     <div id="itemsTable"></div>
   </div>
 
   <div class="action-section">
-    <h3>Event Log</h3>
+    <h3 ti="h3_event_log">Event Log</h3>
     <div class="log-area" id="logArea"></div>
   </div>
 </div>
@@ -146,7 +148,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="experiment-card">
     <h4>Experiment 1: Find the Exact Limit</h4>
     <p>Binary search for the maximum single value size in localStorage. This will fill and clear storage repeatedly.</p>
-    <button class="btn btn-primary" id="btnExp1" onclick="findExactLimit()">Run Experiment</button>
+    <button class="btn btn-primary" id="btnExp1" onclick="findExactLimit()" ti="btn_run_experiment" ti="btn_run_experiment_2">Run Experiment</button>
     <div class="progress-text" id="exp1Result"></div>
   </div>
 
@@ -160,36 +162,36 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="experiment-card">
     <h4>Experiment 3: Storage Event Listener</h4>
     <p>Open this page in another tab and modify localStorage — watch the storage event fire here.</p>
-    <button class="btn btn-primary" onclick="startStorageListener()">Start Listening</button>
+    <button class="btn btn-primary" onclick="startStorageListener()" ti="btn_start_listening">Start Listening</button>
     <div class="log-area" id="storageEventLog" style="margin-top:8px;min-height:60px"></div>
   </div>
 
   <div class="experiment-card">
     <h4>Experiment 4: Quota Estimation (StorageManager API)</h4>
     <p>Use navigator.storage.estimate() to check total quota and current usage across all storage APIs.</p>
-    <button class="btn btn-primary" onclick="estimateQuota()">Check Quota</button>
+    <button class="btn btn-primary" onclick="estimateQuota()" ti="btn_check_quota">Check Quota</button>
     <div class="progress-text" id="exp4Result"></div>
   </div>
 
   <div class="experiment-card">
     <h4>Experiment 5: IndexedDB Size Test</h4>
     <p>Write increasing amounts of data to IndexedDB and measure actual storage consumption.</p>
-    <button class="btn btn-primary" id="btnExp5" onclick="testIndexedDB()">Run Test</button>
+    <button class="btn btn-primary" id="btnExp5" onclick="testIndexedDB()" ti="btn_run_test">Run Test</button>
     <div class="progress-text" id="exp5Result"></div>
   </div>
 </div>
 
 <!-- Comparison -->
 <div class="panel" id="panel-compare">
-  <h2 style="font-size:14px;margin-bottom:16px;color:var(--dim)">Storage API Comparison</h2>
+  <h2 style="font-size:14px;margin-bottom:16px;color:var(--dim)" ti="h2_storage_api_comparison">Storage API Comparison</h2>
   <table class="compare-table">
     <tr>
-      <th>Feature</th>
+      <th ti="th_feature">Feature</th>
       <th>localStorage</th>
       <th>sessionStorage</th>
-      <th>IndexedDB</th>
-      <th>Cache API</th>
-      <th>Cookies</th>
+      <th ti="th_indexeddb">IndexedDB</th>
+      <th ti="th_cache_api">Cache API</th>
+      <th ti="th_cookies">Cookies</th>
     </tr>
     <tr>
       <td class="api-name">Typical Limit</td>
@@ -265,9 +267,9 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
     </tr>
   </table>
 
-  <h2 style="font-size:14px;margin:24px 0 16px;color:var(--dim)">Quota Error Handling</h2>
+  <h2 style="font-size:14px;margin:24px 0 16px;color:var(--dim)" ti="h2_quota_error_handling">Quota Error Handling</h2>
   <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px;font-size:12px;line-height:1.8">
-    <p><strong>localStorage / sessionStorage:</strong></p>
+    <p><strong ti="strong_localstorage_sessionstora">localStorage / sessionStorage:</strong></p>
     <pre style="background:var(--bg);padding:12px;border-radius:6px;margin:8px 0;font-size:11px;color:var(--green);overflow-x:auto">try {
   localStorage.setItem(key, value);
 } catch (e) {
@@ -276,7 +278,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
     // Strategy: evict oldest items, compress, or use IndexedDB
   }
 }</pre>
-    <p style="margin-top:12px"><strong>IndexedDB:</strong></p>
+    <p style="margin-top:12px"><strong ti="strong_indexeddb">IndexedDB:</strong></p>
     <pre style="background:var(--bg);padding:12px;border-radius:6px;margin:8px 0;font-size:11px;color:var(--green);overflow-x:auto">const tx = db.transaction('store', 'readwrite');
 tx.oncomplete = () => console.log('saved');
 tx.onerror = (e) => {
@@ -284,7 +286,7 @@ tx.onerror = (e) => {
     // Request more storage or clean up
   }
 };</pre>
-    <p style="margin-top:12px"><strong>Storage Estimation:</strong></p>
+    <p style="margin-top:12px"><strong ti="strong_storage_estimation">Storage Estimation:</strong></p>
     <pre style="background:var(--bg);padding:12px;border-radius:6px;margin:8px 0;font-size:11px;color:var(--green);overflow-x:auto">if (navigator.storage && navigator.storage.estimate) {
   const { usage, quota } = await navigator.storage.estimate();
   const percentUsed = (usage / quota * 100).toFixed(2);
@@ -293,6 +295,16 @@ tx.onerror = (e) => {
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_storage_quota_visuali':["Web Storage Quota Visualizer", "Web 存储配额可视化工具"],'metadesc_interactive_web_storage_q':["Interactive web storage quota visualizer. Test localStorage, sessionStorage, and IndexedDB limits. See usage in real-time, simulate quota errors, learn storage strategies.", "交互式 Web 存储配额可视化工具。测试 localStorage、sessionStorage 和 IndexedDB 的配额限制。实时查看使用情况，模拟配额错误，学习存储策略。"],'h1_web_storage_quota_visuali':["Web Storage Quota Visualizer", "Web 存储配额可视化工具"],'h2_storage_api_comparison':["Storage API Comparison", "存储 API 比较"],'h2_quota_error_handling':["Quota Error Handling", "配额错误处理"],'h3_add_data':["Add Data", "添加数据"],'h3_current_items':["Current Items", "当前项目"],'h3_event_log':["Event Log", "事件日志"],'btn_dashboard':["Dashboard", "仪表板"],'btn_experiments':["Experiments", "实验"],'btn_comparison':["Comparison", "比较"],'btn_add':["Add", "添加"],'btn_fill_localstorage':["Fill localStorage", "填充本地存储"],'btn_fill_sessionstorage':["Fill sessionStorage", "填充会话存储"],'btn_clear_local':["Clear Local", "清晰本地"],'btn_clear_session':["Clear Session", "清除会话"],'btn_localstorage':["localStorage", "本地存储"],'btn_sessionstorage':["sessionStorage", "会话存储"],'btn_run_experiment':["Run Experiment", "运行实验"],'btn_run_experiment_2':["Run Experiment", "运行实验"],'btn_start_listening':["Start Listening", "开始收听"],'btn_check_quota':["Check Quota", "检查配额"],'btn_run_test':["Run Test", "运行测试"],'label_used':["Used", "用过的"],'label_est_limit':["Est. Limit", "估计限额"],'label_items':["Items", "项目"],'label_remaining':["Remaining", "其余的"],'label_checking':["Checking...", "检查..."],'label_browser':["Browser", "浏览器"],'label_used_2':["Used", "用过的"],'label_quota':["Quota", "配额"],'label_available':["Available", "可用的"],'label_persisted':["Persisted", "持续存在"],'strong_localstorage_sessionstora':["localStorage / sessionStorage:", "本地存储/会话存储："],'strong_indexeddb':["IndexedDB:", "IndexedDB："],'strong_storage_estimation':["Storage Estimation:", "存储容量估算："],'strong_maximum_single_value_size':["Maximum single value size: ~${formatBytes(maxWorked)}", "单个值的最大大小：~${formatBytes(maxWorked)}"],'strong_storage_quota':["Storage Quota:", "存储配额："],'strong_current_usage':["Current Usage:", "当前用法："],'strong_available':["Available:", "可用的："],'th_feature':["Feature", "特征"],'th_localstorage':["localStorage", "本地存储"],'th_sessionstorage':["sessionStorage", "会话存储"],'th_indexeddb':["IndexedDB", "IndexedDB"],'th_cache_api':["Cache API", "缓存 API"],'th_cookies':["Cookies", "曲奇饼"],'th_key':["Key", "钥匙"],'th_value_preview':["Value Preview", "价值预览"],'th_size':["Size", "尺寸"],'th_metric':["Metric", "指标"],'th_1000_1kb':["1000 × 1KB", "1000 × 1KB"],'th_1_1mb':["1 × 1MB", "1 × 1MB"],'th_size_2':["Size", "尺寸"],'th_write_time':["Write Time", "写作时间"],'th_speed':["Speed", "速度"],'th_status':["Status", "地位"],'label_storage':["Storage", "贮存"],'label_key':["Key", "钥匙"],'label_size':["Size", "尺寸"],'jtc_not_supported':["Not supported", "不支持"],'jtc_error':["Error", "错误"],'jtc_running_binary_search':["Running binary search...", "运行二分查找..."],'jtc_writing_1000_1kb_items':["Writing 1000 × 1KB items...", "正在写入 1000 个 1KB 的项目……"],'jtc_writing_1_1mb_item':["Writing 1 × 1MB item...", "正在写入 1 个 1MB 的文件..."],'jtc_opening_indexeddb':["Opening IndexedDB...", "正在打开 IndexedDB..."],'jtlword_used':["Used", "用过的"],'jtlword_quota':["Quota", "配额"],'jtlword_available':["Available", "可用的"],'jtlword_persisted':["Persisted", "持续存在"],'jtlword_key':["Key", "钥匙"],'jtlword_size':["Size", "尺寸"],'jtlword_metric':["Metric", "指标"],'jtlword_size_2':["Size", "尺寸"],'jtlword_speed':["Speed", "速度"],'jtlword_status':["Status", "地位"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(t => {
@@ -370,10 +382,10 @@ function renderStorageCard(name, used, limit, color, itemCount) {
       <span class="meter-text">${pct.toFixed(1)}%</span>
     </div>
     <div class="storage-stats">
-      <span class="stat-label">Used</span><span class="stat-value">${formatBytes(used)}</span>
-      <span class="stat-label">Est. Limit</span><span class="stat-value">${formatBytes(limit)}</span>
-      <span class="stat-label">Items</span><span class="stat-value">${itemCount}</span>
-      <span class="stat-label">Remaining</span><span class="stat-value" style="color:${pct > 90 ? 'var(--red)' : 'var(--green)'}">${formatBytes(Math.max(0, limit - used))}</span>
+      <span class="stat-label" ti="label_used" ti="label_used_2">Used</span><span class="stat-value">${formatBytes(used)}</span>
+      <span class="stat-label" ti="label_est_limit">Est. Limit</span><span class="stat-value">${formatBytes(limit)}</span>
+      <span class="stat-label" ti="label_items">Items</span><span class="stat-value">${itemCount}</span>
+      <span class="stat-label" ti="label_remaining">Remaining</span><span class="stat-value" style="color:${pct > 90 ? 'var(--red)' : 'var(--green)'}">${formatBytes(Math.max(0, limit - used))}</span>
     </div>
   </div>`;
 }
@@ -386,15 +398,15 @@ function renderQuotaCard() {
       <span class="meter-text" id="quotaText">Loading...</span>
     </div>
     <div class="storage-stats" id="quotaStats">
-      <span class="stat-label">Checking...</span><span class="stat-value">—</span>
+      <span class="stat-label" ti="label_checking">Checking...</span><span class="stat-value">—</span>
     </div>
   </div>`;
 }
 
 async function updateQuotaCard() {
   if (!navigator.storage || !navigator.storage.estimate) {
-    document.getElementById('quotaText').textContent = 'Not supported';
-    document.getElementById('quotaStats').innerHTML = '<span class="stat-label">Browser</span><span class="stat-value" style="color:var(--red)">Not supported</span>';
+    document.getElementById('quotaText').textContent=T("jtc_not_supported");
+    document.getElementById('quotaStats').innerHTML = '<span class="stat-label" ti="label_browser">Browser</span><span class="stat-value" style="color:var(--red)">Not supported</span>';
     return;
   }
 
@@ -405,9 +417,9 @@ async function updateQuotaCard() {
     document.getElementById('quotaText').textContent = pct.toFixed(2) + '%';
     document.getElementById('quotaStats').innerHTML = `
       <span class="stat-label">Used</span><span class="stat-value">${formatBytes(usage)}</span>
-      <span class="stat-label">Quota</span><span class="stat-value">${formatBytes(quota)}</span>
-      <span class="stat-label">Available</span><span class="stat-value" style="color:var(--green)">${formatBytes(quota - usage)}</span>
-      <span class="stat-label">Persisted</span><span class="stat-value" id="persistedStatus">—</span>
+      <span class="stat-label" ti="label_quota">Quota</span><span class="stat-value">${formatBytes(quota)}</span>
+      <span class="stat-label" ti="label_available">Available</span><span class="stat-value" style="color:var(--green)">${formatBytes(quota - usage)}</span>
+      <span class="stat-label" ti="label_persisted">Persisted</span><span class="stat-value" id="persistedStatus">—</span>
     `;
 
     if (navigator.storage.persisted) {
@@ -416,7 +428,7 @@ async function updateQuotaCard() {
       document.getElementById('persistedStatus').style.color = persisted ? 'var(--green)' : 'var(--orange)';
     }
   } catch (e) {
-    document.getElementById('quotaText').textContent = 'Error';
+    document.getElementById('quotaText').textContent=T("jtc_error");
   }
 }
 
@@ -488,7 +500,7 @@ function showItems(type) {
   items.sort((a, b) => b.size - a.size);
 
   table.innerHTML = `<table class="items-table">
-    <tr><th>Key</th><th>Value Preview</th><th style="text-align:right">Size</th><th></th></tr>
+    <tr><th ti="th_key" ti="label_key">Key</th><th ti="th_value_preview">Value Preview</th><th style="text-align:right" ti="th_size" ti="th_size_2" ti="label_size">Size</th><th></th></tr>
     ${items.slice(0, 50).map(item => `<tr>
       <td class="key">${esc(item.key)}</td>
       <td class="val">${esc(item.value.slice(0, 60))}</td>
@@ -505,7 +517,7 @@ async function findExactLimit() {
   const result = document.getElementById('exp1Result');
   btn.disabled = true;
 
-  result.textContent = 'Running binary search...';
+  result.textContent=T("jtc_running_binary_search");
   localStorage.clear();
 
   let lo = 0, hi = 20 * 1024 * 1024; // 0 to 20MB
@@ -529,7 +541,7 @@ async function findExactLimit() {
   }
 
   localStorage.clear();
-  result.innerHTML = `<strong style="color:var(--green)">Maximum single value size: ~${formatBytes(maxWorked)}</strong><br>
+  result.innerHTML = `<strong style="color:var(--green)" ti="strong_maximum_single_value_size">Maximum single value size: ~${formatBytes(maxWorked)}</strong><br>
     <span style="color:var(--dim)">This is per-value, not total storage. Your browser's localStorage limit is approximately ${formatBytes(maxWorked + 1024)}.</span>`;
   log(`Experiment 1: localStorage limit is ~${formatBytes(maxWorked)}`, 'success');
   btn.disabled = false;
@@ -544,7 +556,7 @@ async function compareItemSizes() {
   localStorage.clear();
 
   // Test 1: 1000 × 1KB
-  result.textContent = 'Writing 1000 × 1KB items...';
+  result.textContent=T("jtc_writing_1000_1kb_items");
   const t1Start = performance.now();
   for (let i = 0; i < 1000; i++) {
     localStorage.setItem(`small-${i}`, generateData(1024));
@@ -556,7 +568,7 @@ async function compareItemSizes() {
   await new Promise(r => setTimeout(r, 50));
 
   // Test 2: 1 × 1MB
-  result.textContent = 'Writing 1 × 1MB item...';
+  result.textContent=T("jtc_writing_1_1mb_item");
   const t2Start = performance.now();
   localStorage.setItem('large-0', generateData(1024 * 1024));
   const t2Time = performance.now() - t2Start;
@@ -567,7 +579,7 @@ async function compareItemSizes() {
   const overhead = t1Size - t2Size;
   result.innerHTML = `
     <table style="font-size:11px;margin-top:8px">
-      <tr><th style="padding:4px 12px;text-align:left">Metric</th><th style="padding:4px 12px">1000 × 1KB</th><th style="padding:4px 12px">1 × 1MB</th></tr>
+      <tr><th style="padding:4px 12px;text-align:left" ti="th_metric">Metric</th><th style="padding:4px 12px" ti="th_1000_1kb">1000 × 1KB</th><th style="padding:4px 12px" ti="th_1_1mb">1 × 1MB</th></tr>
       <tr><td style="padding:4px 12px">Total stored</td><td style="padding:4px 12px;text-align:center">${formatBytes(t1Size)}</td><td style="padding:4px 12px;text-align:center">${formatBytes(t2Size)}</td></tr>
       <tr><td style="padding:4px 12px">Write time</td><td style="padding:4px 12px;text-align:center">${t1Time.toFixed(1)}ms</td><td style="padding:4px 12px;text-align:center">${t2Time.toFixed(1)}ms</td></tr>
       <tr><td style="padding:4px 12px">Per-key overhead</td><td style="padding:4px 12px;text-align:center;color:var(--orange)" colspan="2">${formatBytes(Math.abs(overhead))} total (${formatBytes(Math.abs(overhead / 1000))} per key)</td></tr>
@@ -604,9 +616,9 @@ async function estimateQuota() {
   const pct = (usage / quota * 100).toFixed(4);
 
   result.innerHTML = `
-    <strong style="color:var(--cyan)">Storage Quota:</strong> ${formatBytes(quota)}<br>
-    <strong style="color:var(--cyan)">Current Usage:</strong> ${formatBytes(usage)} (${pct}%)<br>
-    <strong style="color:var(--cyan)">Available:</strong> ${formatBytes(quota - usage)}<br>
+    <strong style="color:var(--cyan)" ti="strong_storage_quota">Storage Quota:</strong> ${formatBytes(quota)}<br>
+    <strong style="color:var(--cyan)" ti="strong_current_usage">Current Usage:</strong> ${formatBytes(usage)} (${pct}%)<br>
+    <strong style="color:var(--cyan)" ti="strong_available">Available:</strong> ${formatBytes(quota - usage)}<br>
     <span style="color:var(--dim);font-size:10px">Note: This covers all storage APIs (IndexedDB, Cache API, etc.), not just localStorage.</span>`;
 }
 
@@ -615,7 +627,7 @@ async function testIndexedDB() {
   const result = document.getElementById('exp5Result');
   btn.disabled = true;
 
-  result.textContent = 'Opening IndexedDB...';
+  result.textContent=T("jtc_opening_indexeddb");
 
   const dbName = 'quota-test-db';
   const storeName = 'data';
@@ -668,7 +680,7 @@ async function testIndexedDB() {
   indexedDB.deleteDatabase(dbName);
 
   result.innerHTML = `<table style="font-size:11px;margin-top:8px">
-    <tr><th style="padding:4px 12px;text-align:left">Size</th><th style="padding:4px 12px">Write Time</th><th style="padding:4px 12px">Speed</th><th style="padding:4px 12px">Status</th></tr>
+    <tr><th style="padding:4px 12px;text-align:left">Size</th><th style="padding:4px 12px" ti="th_write_time">Write Time</th><th style="padding:4px 12px" ti="th_speed">Speed</th><th style="padding:4px 12px" ti="th_status">Status</th></tr>
     ${results.map(r => `<tr>
       <td style="padding:4px 12px">${r.size} MB</td>
       <td style="padding:4px 12px;text-align:center">${r.ok ? r.time.toFixed(0) + 'ms' : '—'}</td>
@@ -685,6 +697,24 @@ async function testIndexedDB() {
 refreshDashboard();
 updateQuotaCard();
 log('Dashboard loaded. Your browser storage is ready to explore.', 'info');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

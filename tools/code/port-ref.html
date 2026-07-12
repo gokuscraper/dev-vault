@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_port_ref_network_port_ref" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,14 +74,16 @@ footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);color
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>Port Ref</span> — Network Port Reference</h1>
   <p>120+ well-known ports. Search, filter, explore.</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
   <div class="search-area">
-    <input type="text" id="search" placeholder="Search port, service, or keyword..." autofocus>
-    <input type="text" id="range" class="range-input" placeholder="Range (e.g. 8000-9000)">
+    <input type="text" id="search" tp="placeholder_search_port_service_or_ke" placeholder="Search port, service, or keyword..." autofocus>
+    <input type="text" id="range" class="range-input" tp="placeholder_range_e_g_8000_9000" placeholder="Range (e.g. 8000-9000)">
   </div>
   <div class="categories" id="categories"></div>
   <div class="stats" id="stats"></div>
@@ -103,42 +105,52 @@ footer{text-align:center;padding:1.5rem;border-top:1px solid var(--border);color
   </div>
 
   <div class="debug-section" id="debug-section">
-    <h2>Is Port X Open? — Debugging Tips</h2>
+    <h2 ti="h2_is_port_x_open_debugging">Is Port X Open? — Debugging Tips</h2>
     <p>Common commands to check if a specific port is open or in use on your system.</p>
 
-    <h3>Check if a port is listening (Linux/macOS)</h3>
+    <h3 ti="h3_check_if_a_port_is_listen">Check if a port is listening (Linux/macOS)</h3>
     <pre>ss -tlnp | grep :PORT        # Linux — show TCP listeners
 netstat -tlnp | grep :PORT   # Linux (legacy)
 lsof -i :PORT                # macOS / Linux — who owns the port
 sudo lsof -iTCP:PORT -sTCP:LISTEN  # macOS — TCP listeners only</pre>
 
-    <h3>Check if a remote port is open</h3>
+    <h3 ti="h3_check_if_a_remote_port_is">Check if a remote port is open</h3>
     <pre>nc -zv HOST PORT              # Netcat — quick TCP check
 telnet HOST PORT              # Classic connectivity test
 curl -v telnet://HOST:PORT    # Curl-based check
 nmap -p PORT HOST             # Nmap — detailed port scan</pre>
 
-    <h3>Check from Windows</h3>
+    <h3 ti="h3_check_from_windows">Check from Windows</h3>
     <pre>netstat -an | findstr :PORT   # Show connections on a port
 Test-NetConnection HOST -Port PORT   # PowerShell
 tnc HOST -Port PORT           # PowerShell (short alias)</pre>
 
-    <h3>Docker port mapping</h3>
+    <h3 ti="h3_docker_port_mapping">Docker port mapping</h3>
     <pre>docker port CONTAINER         # Show all mapped ports
 docker ps --format "table {{.Names}}\t{{.Ports}}"  # List port mappings
 ss -tlnp | grep docker-proxy  # See what Docker is using on host</pre>
 
-    <h3>Common issues</h3>
-    <p><strong>Port already in use:</strong> Another process is bound to the port. Use <code>lsof -i :PORT</code> to find it, then <code>kill PID</code>.</p>
-    <p><strong>Connection refused:</strong> The port is not listening. Check if the service is running.</p>
-    <p><strong>Connection timed out:</strong> A firewall is blocking the port. Check <code>iptables -L</code> or cloud security groups.</p>
-    <p><strong>Ephemeral port conflicts:</strong> Ports 49152-65535 are used for outbound connections. Don't bind services there.</p>
+    <h3 ti="h3_common_issues">Common issues</h3>
+    <p><strong ti="strong_port_already_in_use">Port already in use:</strong> Another process is bound to the port. Use <code>lsof -i :PORT</code> to find it, then <code>kill PID</code>.</p>
+    <p><strong ti="strong_connection_refused">Connection refused:</strong> The port is not listening. Check if the service is running.</p>
+    <p><strong ti="strong_connection_timed_out">Connection timed out:</strong> A firewall is blocking the port. Check <code>iptables -L</code> or cloud security groups.</p>
+    <p><strong ti="strong_ephemeral_port_conflicts">Ephemeral port conflicts:</strong> Ports 49152-65535 are used for outbound connections. Don't bind services there.</p>
   </div>
 </div>
 <footer>
-  <strong>Port Ref</strong> — Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <strong ti="strong_port_ref">Port Ref</strong> — Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_port_ref_network_port_ref':["Port Ref — Network Port Reference", "端口参考 — 网络端口参考"],'metadesc_quick_reference_for_120_w':["Quick reference for 120+ well-known network ports. Search by port number, service name, or keyword. Filter by category.", "快速查找 120 多个常用网络端口。可按端口号、服务名称或关键字搜索。也可按类别筛选。"],'h2_is_port_x_open_debugging':["Is Port X Open? — Debugging Tips", "端口 X 是否打开？——调试技巧"],'h3_check_if_a_port_is_listen':["Check if a port is listening (Linux/macOS)", "检查端口是否正在监听（Linux/macOS）"],'h3_check_if_a_remote_port_is':["Check if a remote port is open", "检查远程端口是否打开"],'h3_check_from_windows':["Check from Windows", "从 Windows 检查"],'h3_docker_port_mapping':["Docker port mapping", "Docker端口映射"],'h3_common_issues':["Common issues", "常见问题"],'placeholder_search_port_service_or_ke':["Search port, service, or keyword...", "搜索端口、服务或关键字……"],'placeholder_range_e_g_8000_9000':["Range (e.g. 8000-9000)", "范围（例如 8000-9000）"],'strong_port_already_in_use':["Port already in use:", "端口已被占用："],'strong_connection_refused':["Connection refused:", "连接被拒绝："],'strong_connection_timed_out':["Connection timed out:", "连接超时："],'strong_ephemeral_port_conflicts':["Ephemeral port conflicts:", "短暂的港口冲突："],'strong_port_ref':["Port Ref", "端口参考"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PORTS = [
   // Web
@@ -492,6 +504,24 @@ rangeEl.addEventListener('input', () => { renderTable(); });
 loadFromURL();
 renderCategories();
 renderTable();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_fetch_api_advanced_patter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -132,8 +132,10 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Fetch API Advanced Patterns</h1>
+  <h1 ti="title_fetch_api_advanced_patter" ti="h1_fetch_api_advanced_patter">Fetch API Advanced Patterns</h1>
   <p>Request/Response inspection, streaming, AbortController, retry, deduplication, caching, and interceptors</p>
 </header>
 <div class="layout">
@@ -141,6 +143,16 @@
   <main id="main"></main>
 </div>
 
+
+<script>var _LANG={'title_fetch_api_advanced_patter':["Fetch API Advanced Patterns", "获取 API 高级模式"],'h1_fetch_api_advanced_patter':["Fetch API Advanced Patterns", "获取 API 高级模式"],'h2_request_response_objects':["Request & Response Objects", "请求和响应对象"],'h2_headers_manipulation':["Headers Manipulation", "头部操作"],'h2_streaming_response_body':["Streaming Response Body", "流媒体响应主体"],'h2_abortcontroller_integrati':["AbortController Integration", "中止控制器集成"],'h2_retry_with_exponential_ba':["Retry with Exponential Backoff", "使用指数退避重试"],'h2_request_deduplication':["Request Deduplication", "请求去重"],'h2_cache_api_integration':["Cache API Integration", "缓存 API 集成"],'h2_fetch_interceptor_pattern':["Fetch Interceptor Pattern", "获取拦截器模式"],'h3_request_object_inspector':["Request Object Inspector", "请求对象检查器"],'h3_response_object_inspector':["Response Object Inspector", "响应对象检查器"],'h3_headers_crud':["Headers CRUD", "标头 CRUD"],'h3_headers_guard':["Headers Guard", "头球卫"],'h3_simulated_stream_reading':["Simulated Stream Reading", "模拟流读取"],'h3_transformstream_pipeline':["TransformStream Pipeline", "转换流管道"],'h3_cancel_fetch_request':["Cancel Fetch Request", "取消获取请求"],'h3_fetch_with_timeout':["Fetch with Timeout", "使用超时获取"],'h3_abortsignal_any':["AbortSignal.any()", "中止信号.any()"],'h3_retry_implementation':["Retry Implementation", "重试实现"],'h3_dedup_implementation':["Dedup Implementation", "去重实施"],'h3_cache_api_basics':["Cache API Basics", "缓存 API 基础知识"],'h3_cache_first_pattern':["Cache-First Pattern", "缓存优先模式"],'h3_fetch_wrapper_interceptor':["Fetch Wrapper / Interceptor", "获取包装器/拦截器"],'h3_middleware_chain':["Middleware Chain", "中间件链"],'btn_inspect_request':["Inspect Request", "检查请求"],'btn_clear':["Clear", "清除"],'btn_json_response':["JSON Response", "JSON 响应"],'btn_error_response':["Error Response", "错误响应"],'btn_redirect':["Redirect", "重定向"],'btn_clear_2':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear_3':["Clear", "清除"],'btn_test_guards':["Test Guards", "测试保护人员"],'btn_clear_4':["Clear", "清除"],'btn_simulate_stream':["Simulate Stream", "模拟流"],'btn_clear_5':["Clear", "清除"],'btn_run_pipeline':["Run Pipeline", "运行管道"],'btn_clear_6':["Clear", "清除"],'btn_start_fetch_3s_delay':["Start Fetch (3s delay)", "开始获取（延迟3秒）"],'btn_cancel':["Cancel", "取消"],'btn_clear_7':["Clear", "清除"],'btn_test_timeout':["Test Timeout", "测试超时"],'btn_clear_8':["Clear", "清除"],'btn_test_signal_any':["Test Signal.any()", "测试信号.any()"],'btn_clear_9':["Clear", "清除"],'btn_simulate_retry':["Simulate Retry", "模拟重试"],'btn_clear_10':["Clear", "清除"],'btn_run_dedup_demo':["Run Dedup Demo", "运行去重复数据演示"],'btn_without_dedup':["Without Dedup", "无重复数据删除"],'btn_clear_11':["Clear", "清除"],'btn_put_in_cache':["Put in Cache", "放入缓存"],'btn_match_from_cache':["Match from Cache", "从缓存中匹配"],'btn_list_caches':["List Caches", "列出缓存"],'btn_delete':["Delete", "删除"],'btn_clear_12':["Clear", "清除"],'btn_test_cache_first':["Test Cache-First", "测试缓存优先"],'btn_clear_13':["Clear", "清除"],'btn_run_interceptor_demo':["Run Interceptor Demo", "运行拦截器演示"],'btn_clear_14':["Clear", "清除"],'btn_run_middleware_chain':["Run Middleware Chain", "运行中间件链"],'btn_clear_15':["Clear", "清除"],'label_method':["Method:", "方法："],'label_url':["URL:", "网址："],'label_timeout_ms':["Timeout (ms):", "超时时间（毫秒）："],'label_sim_delay_ms':["Sim delay (ms):", "仿真延迟（毫秒）："],'label_max_retries':["Max retries:", "最大重试次数："],'label_fail_rate':["Fail rate (%):", "失败率（%）："],'label_base_delay_ms':["Base delay (ms):", "基准延迟（毫秒）："],'label_concurrent_calls':["Concurrent calls:", "并发调用："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const sections = [
   { id: 'request-response', title: 'Request/Response' },
@@ -182,11 +194,11 @@ sections.forEach((s, i) => {
 // ========== SECTION 1: Request/Response ==========
 main.innerHTML += `
 <div id="request-response" class="section active">
-  <h2>Request & Response Objects</h2>
+  <h2 ti="h2_request_response_objects">Request & Response Objects</h2>
   <p>Inspect the structure of Request and Response objects - the building blocks of the Fetch API.</p>
 
   <div class="card">
-    <h3>Request Object Inspector</h3>
+    <h3 ti="h3_request_object_inspector">Request Object Inspector</h3>
     <span class="tag tag-api">Request</span>
     <pre>const req = new Request('https://api.example.com/data', {
   method: 'POST',
@@ -197,31 +209,31 @@ main.innerHTML += `
   cache: 'no-cache'
 });</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Method:</label>
+      <label ti="label_method">Method:</label>
       <select id="req-method">
         <option>GET</option><option selected>POST</option><option>PUT</option><option>DELETE</option><option>PATCH</option>
       </select>
-      <label>URL:</label>
+      <label ti="label_url">URL:</label>
       <input type="text" id="req-url" value="https://api.example.com/data" style="width:250px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoRequest()">Inspect Request</button>
-      <button class="secondary-btn" onclick="clearLog(document.getElementById('out-req'))">Clear</button>
+      <button class="run-btn" onclick="demoRequest()" ti="btn_inspect_request">Inspect Request</button>
+      <button class="secondary-btn" onclick="clearLog(document.getElementById('out-req'))" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8" ti="btn_clear_9" ti="btn_clear_10" ti="btn_clear_11" ti="btn_clear_12" ti="btn_clear_13" ti="btn_clear_14" ti="btn_clear_15">Clear</button>
     </div>
     <div class="output" id="out-req"></div>
   </div>
 
   <div class="card">
-    <h3>Response Object Inspector</h3>
+    <h3 ti="h3_response_object_inspector">Response Object Inspector</h3>
     <span class="tag tag-api">Response</span>
     <pre>// Create synthetic responses for testing
 const jsonRes = Response.json({ message: 'hello' }, { status: 200 });
 const errorRes = new Response('Not Found', { status: 404 });
 const redirectRes = Response.redirect('https://example.com', 301);</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoResponse('json')">JSON Response</button>
-      <button class="run-btn" onclick="demoResponse('error')">Error Response</button>
-      <button class="run-btn" onclick="demoResponse('redirect')">Redirect</button>
+      <button class="run-btn" onclick="demoResponse('json')" ti="btn_json_response">JSON Response</button>
+      <button class="run-btn" onclick="demoResponse('error')" ti="btn_error_response">Error Response</button>
+      <button class="run-btn" onclick="demoResponse('redirect')" ti="btn_redirect">Redirect</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-res'))">Clear</button>
     </div>
     <div class="output" id="out-res"></div>
@@ -287,11 +299,11 @@ function demoResponse(type) {
 // ========== SECTION 2: Headers ==========
 main.innerHTML += `
 <div id="headers" class="section">
-  <h2>Headers Manipulation</h2>
+  <h2 ti="h2_headers_manipulation">Headers Manipulation</h2>
   <p>The Headers API for reading, writing, and iterating HTTP headers.</p>
 
   <div class="card">
-    <h3>Headers CRUD</h3>
+    <h3 ti="h3_headers_crud">Headers CRUD</h3>
     <span class="tag tag-api">Headers</span>
     <pre>const headers = new Headers();
 headers.set('Content-Type', 'application/json');
@@ -301,14 +313,14 @@ headers.has('Content-Type');  // true
 headers.get('Accept');        // "application/json, text/plain"
 headers.delete('Accept');</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoHeaders()">Run Demo</button>
+      <button class="run-btn" onclick="demoHeaders()" ti="btn_run_demo">Run Demo</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-headers'))">Clear</button>
     </div>
     <div class="output" id="out-headers"></div>
   </div>
 
   <div class="card">
-    <h3>Headers Guard</h3>
+    <h3 ti="h3_headers_guard">Headers Guard</h3>
     <span class="tag tag-api">Guard</span>
     <pre>// Headers have a "guard" that restricts mutation:
 // "none" - no restrictions (new Headers())
@@ -317,7 +329,7 @@ headers.delete('Accept');</pre>
 // "immutable" - from Response.error() or Response.redirect()
 // "request-no-cors" - limited to CORS-safelisted headers</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoHeadersGuard()">Test Guards</button>
+      <button class="run-btn" onclick="demoHeadersGuard()" ti="btn_test_guards">Test Guards</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-guard'))">Clear</button>
     </div>
     <div class="output" id="out-guard"></div>
@@ -378,11 +390,11 @@ function demoHeadersGuard() {
 // ========== SECTION 3: Streaming ==========
 main.innerHTML += `
 <div id="streaming" class="section">
-  <h2>Streaming Response Body</h2>
+  <h2 ti="h2_streaming_response_body">Streaming Response Body</h2>
   <p>Read response bodies incrementally using ReadableStream for progress tracking and processing.</p>
 
   <div class="card">
-    <h3>Simulated Stream Reading</h3>
+    <h3 ti="h3_simulated_stream_reading">Simulated Stream Reading</h3>
     <span class="tag tag-api">ReadableStream</span>
     <pre>const response = await fetch(url);
 const reader = response.body.getReader();
@@ -397,14 +409,14 @@ while (true) {
 }</pre>
     <div class="progress-bar"><div class="progress-fill" id="stream-progress"></div></div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoStream()">Simulate Stream</button>
+      <button class="run-btn" onclick="demoStream()" ti="btn_simulate_stream">Simulate Stream</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-stream'))">Clear</button>
     </div>
     <div class="output" id="out-stream"></div>
   </div>
 
   <div class="card">
-    <h3>TransformStream Pipeline</h3>
+    <h3 ti="h3_transformstream_pipeline">TransformStream Pipeline</h3>
     <span class="tag tag-api">TransformStream</span>
     <span class="tag tag-pattern">Pipeline</span>
     <pre>// Chain transforms: bytes -> text -> JSON lines
@@ -420,7 +432,7 @@ const stream = response.body
   .pipeThrough(textDecoder)
   .pipeThrough(jsonParser);</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoTransformStream()">Run Pipeline</button>
+      <button class="run-btn" onclick="demoTransformStream()" ti="btn_run_pipeline">Run Pipeline</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-transform'))">Clear</button>
     </div>
     <div class="output" id="out-transform"></div>
@@ -514,11 +526,11 @@ async function demoTransformStream() {
 // ========== SECTION 4: AbortController ==========
 main.innerHTML += `
 <div id="abort" class="section">
-  <h2>AbortController Integration</h2>
+  <h2 ti="h2_abortcontroller_integrati">AbortController Integration</h2>
   <p>Cancel in-flight fetch requests with AbortController and implement timeouts.</p>
 
   <div class="card">
-    <h3>Cancel Fetch Request</h3>
+    <h3 ti="h3_cancel_fetch_request">Cancel Fetch Request</h3>
     <span class="tag tag-api">AbortController</span>
     <pre>const controller = new AbortController();
 
@@ -533,15 +545,15 @@ fetch(url, { signal: controller.signal })
 // Cancel after 2 seconds
 setTimeout(() => controller.abort(), 2000);</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoAbortFetch()">Start Fetch (3s delay)</button>
-      <button class="run-btn" style="background:var(--error);color:#fff" onclick="cancelAbortFetch()">Cancel</button>
+      <button class="run-btn" onclick="demoAbortFetch()" ti="btn_start_fetch_3s_delay">Start Fetch (3s delay)</button>
+      <button class="run-btn" style="background:var(--error);color:#fff" onclick="cancelAbortFetch()" ti="btn_cancel">Cancel</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-abort'))">Clear</button>
     </div>
     <div class="output" id="out-abort"></div>
   </div>
 
   <div class="card">
-    <h3>Fetch with Timeout</h3>
+    <h3 ti="h3_fetch_with_timeout">Fetch with Timeout</h3>
     <span class="tag tag-pattern">Timeout</span>
     <pre>async function fetchWithTimeout(url, options = {}, timeout = 5000) {
   const controller = new AbortController();
@@ -560,27 +572,27 @@ setTimeout(() => controller.abort(), 2000);</pre>
 // Modern: AbortSignal.timeout()
 fetch(url, { signal: AbortSignal.timeout(5000) });</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Timeout (ms):</label>
+      <label ti="label_timeout_ms">Timeout (ms):</label>
       <input type="number" id="timeout-ms" value="1000" style="width:100px">
-      <label>Sim delay (ms):</label>
+      <label ti="label_sim_delay_ms">Sim delay (ms):</label>
       <input type="number" id="sim-delay" value="2000" style="width:100px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoTimeout()">Test Timeout</button>
+      <button class="run-btn" onclick="demoTimeout()" ti="btn_test_timeout">Test Timeout</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-timeout'))">Clear</button>
     </div>
     <div class="output" id="out-timeout"></div>
   </div>
 
   <div class="card">
-    <h3>AbortSignal.any()</h3>
+    <h3 ti="h3_abortsignal_any">AbortSignal.any()</h3>
     <span class="tag tag-api">AbortSignal.any</span>
     <pre>// Combine multiple abort signals - aborts if ANY signal fires
 const userCancel = new AbortController();
 const timeout = AbortSignal.timeout(5000);
 const combined = AbortSignal.any([userCancel.signal, timeout]);</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoSignalAny()">Test Signal.any()</button>
+      <button class="run-btn" onclick="demoSignalAny()" ti="btn_test_signal_any">Test Signal.any()</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-any'))">Clear</button>
     </div>
     <div class="output" id="out-any"></div>
@@ -675,11 +687,11 @@ function demoSignalAny() {
 // ========== SECTION 5: Retry ==========
 main.innerHTML += `
 <div id="retry" class="section">
-  <h2>Retry with Exponential Backoff</h2>
+  <h2 ti="h2_retry_with_exponential_ba">Retry with Exponential Backoff</h2>
   <p>Automatic retry logic with exponential backoff, jitter, and configurable limits.</p>
 
   <div class="card">
-    <h3>Retry Implementation</h3>
+    <h3 ti="h3_retry_implementation">Retry Implementation</h3>
     <span class="tag tag-pattern">Retry</span>
     <pre>async function fetchWithRetry(url, options = {}, config = {}) {
   const { maxRetries = 3, baseDelay = 1000, maxDelay = 30000 } = config;
@@ -699,15 +711,15 @@ main.innerHTML += `
   }
 }</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Max retries:</label>
+      <label ti="label_max_retries">Max retries:</label>
       <input type="number" id="retry-max" value="3" style="width:60px">
-      <label>Fail rate (%):</label>
+      <label ti="label_fail_rate">Fail rate (%):</label>
       <input type="number" id="retry-fail" value="70" style="width:60px">
-      <label>Base delay (ms):</label>
+      <label ti="label_base_delay_ms">Base delay (ms):</label>
       <input type="number" id="retry-delay" value="300" style="width:80px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoRetry()">Simulate Retry</button>
+      <button class="run-btn" onclick="demoRetry()" ti="btn_simulate_retry">Simulate Retry</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-retry'))">Clear</button>
     </div>
     <div class="output" id="out-retry"></div>
@@ -748,11 +760,11 @@ async function demoRetry() {
 // ========== SECTION 6: Dedup ==========
 main.innerHTML += `
 <div id="dedup" class="section">
-  <h2>Request Deduplication</h2>
+  <h2 ti="h2_request_deduplication">Request Deduplication</h2>
   <p>Prevent redundant network requests by caching in-flight promises.</p>
 
   <div class="card">
-    <h3>Dedup Implementation</h3>
+    <h3 ti="h3_dedup_implementation">Dedup Implementation</h3>
     <span class="tag tag-pattern">Dedup</span>
     <pre>const inflight = new Map();
 
@@ -776,12 +788,12 @@ const [a, b, c] = await Promise.all([
   dedupFetch('/api/user'),
 ]);</pre>
     <div class="flex-row" style="margin-bottom:0.5rem">
-      <label>Concurrent calls:</label>
+      <label ti="label_concurrent_calls">Concurrent calls:</label>
       <input type="number" id="dedup-count" value="5" style="width:60px">
     </div>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoDedup()">Run Dedup Demo</button>
-      <button class="run-btn" onclick="demoDedupWithout()" style="background:var(--error);color:#fff">Without Dedup</button>
+      <button class="run-btn" onclick="demoDedup()" ti="btn_run_dedup_demo">Run Dedup Demo</button>
+      <button class="run-btn" onclick="demoDedupWithout()" style="background:var(--error);color:#fff" ti="btn_without_dedup">Without Dedup</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-dedup'))">Clear</button>
     </div>
     <div class="output" id="out-dedup"></div>
@@ -838,11 +850,11 @@ function demoDedupWithout() {
 // ========== SECTION 7: Cache API ==========
 main.innerHTML += `
 <div id="cache" class="section">
-  <h2>Cache API Integration</h2>
+  <h2 ti="h2_cache_api_integration">Cache API Integration</h2>
   <p>Use the Cache API directly from your page for application-level caching.</p>
 
   <div class="card">
-    <h3>Cache API Basics</h3>
+    <h3 ti="h3_cache_api_basics">Cache API Basics</h3>
     <span class="tag tag-api">Cache API</span>
     <pre>// Open (or create) a named cache
 const cache = await caches.open('my-cache-v1');
@@ -862,17 +874,17 @@ await cache.delete('/api/data');
 // List all caches
 const names = await caches.keys();</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoCacheAPI('put')">Put in Cache</button>
-      <button class="run-btn" onclick="demoCacheAPI('match')">Match from Cache</button>
-      <button class="run-btn" onclick="demoCacheAPI('list')">List Caches</button>
-      <button class="run-btn" onclick="demoCacheAPI('delete')" style="background:var(--error);color:#fff">Delete</button>
+      <button class="run-btn" onclick="demoCacheAPI('put')" ti="btn_put_in_cache">Put in Cache</button>
+      <button class="run-btn" onclick="demoCacheAPI('match')" ti="btn_match_from_cache">Match from Cache</button>
+      <button class="run-btn" onclick="demoCacheAPI('list')" ti="btn_list_caches">List Caches</button>
+      <button class="run-btn" onclick="demoCacheAPI('delete')" style="background:var(--error);color:#fff" ti="btn_delete">Delete</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-cache'))">Clear</button>
     </div>
     <div class="output" id="out-cache"></div>
   </div>
 
   <div class="card">
-    <h3>Cache-First Pattern</h3>
+    <h3 ti="h3_cache_first_pattern">Cache-First Pattern</h3>
     <span class="tag tag-pattern">Strategy</span>
     <pre>async function cacheFirst(request, cacheName = 'app-v1') {
   const cache = await caches.open(cacheName);
@@ -886,7 +898,7 @@ const names = await caches.keys();</pre>
   return response;
 }</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoCacheFirst()">Test Cache-First</button>
+      <button class="run-btn" onclick="demoCacheFirst()" ti="btn_test_cache_first">Test Cache-First</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-cache-first'))">Clear</button>
     </div>
     <div class="output" id="out-cache-first"></div>
@@ -960,11 +972,11 @@ async function demoCacheFirst() {
 // ========== SECTION 8: Interceptor ==========
 main.innerHTML += `
 <div id="interceptor" class="section">
-  <h2>Fetch Interceptor Pattern</h2>
+  <h2 ti="h2_fetch_interceptor_pattern">Fetch Interceptor Pattern</h2>
   <p>Wrap the global fetch to add logging, auth headers, error handling, and more.</p>
 
   <div class="card">
-    <h3>Fetch Wrapper / Interceptor</h3>
+    <h3 ti="h3_fetch_wrapper_interceptor">Fetch Wrapper / Interceptor</h3>
     <span class="tag tag-pattern">Interceptor</span>
     <pre>function createFetchInterceptor(interceptors = {}) {
   const originalFetch = globalThis.fetch;
@@ -991,14 +1003,14 @@ main.innerHTML += `
   };
 }</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoInterceptor()">Run Interceptor Demo</button>
+      <button class="run-btn" onclick="demoInterceptor()" ti="btn_run_interceptor_demo">Run Interceptor Demo</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-intercept'))">Clear</button>
     </div>
     <div class="output" id="out-intercept"></div>
   </div>
 
   <div class="card">
-    <h3>Middleware Chain</h3>
+    <h3 ti="h3_middleware_chain">Middleware Chain</h3>
     <span class="tag tag-pattern">Middleware</span>
     <pre>// Compose multiple middlewares
 const middlewares = [
@@ -1014,7 +1026,7 @@ const middlewares = [
   },
 ];</pre>
     <div class="btn-row">
-      <button class="run-btn" onclick="demoMiddleware()">Run Middleware Chain</button>
+      <button class="run-btn" onclick="demoMiddleware()" ti="btn_run_middleware_chain">Run Middleware Chain</button>
       <button class="secondary-btn" onclick="clearLog(document.getElementById('out-middleware'))">Clear</button>
     </div>
     <div class="output" id="out-middleware"></div>
@@ -1112,6 +1124,24 @@ function demoMiddleware() {
     log(out, `Final response: ${JSON.stringify(res)}`, 'warn');
   });
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mutationobserver_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -204,6 +204,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">Mo</span>
@@ -211,7 +217,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">Web API</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
@@ -221,37 +227,37 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <div class="section-title">Observer Config</div>
     <div class="control-group">
       <div class="toggle-row">
-        <label>childList</label>
+        <label ti="label_childlist" ti="label_childlist" ti="label_childlist">childList</label>
         <div class="toggle on" id="cfg-childList"></div>
       </div>
       <div class="toggle-hint">Watch added/removed child nodes</div>
 
       <div class="toggle-row">
-        <label>attributes</label>
+        <label ti="label_attributes" ti="label_attributes" ti="label_attributes">attributes</label>
         <div class="toggle on" id="cfg-attributes"></div>
       </div>
       <div class="toggle-hint">Watch attribute changes</div>
 
       <div class="toggle-row">
-        <label>characterData</label>
+        <label ti="label_characterdata" ti="label_characterdata" ti="label_characterdata">characterData</label>
         <div class="toggle" id="cfg-characterData"></div>
       </div>
       <div class="toggle-hint">Watch text content changes</div>
 
       <div class="toggle-row">
-        <label>subtree</label>
+        <label ti="label_subtree" ti="label_subtree" ti="label_subtree">subtree</label>
         <div class="toggle on" id="cfg-subtree"></div>
       </div>
       <div class="toggle-hint">Observe all descendants too</div>
 
       <div class="toggle-row">
-        <label>attributeOldValue</label>
+        <label ti="label_attributeoldvalue" ti="label_attributeoldvalue" ti="label_attributeoldvalue">attributeOldValue</label>
         <div class="toggle on" id="cfg-attributeOldValue"></div>
       </div>
       <div class="toggle-hint">Record previous attribute value</div>
 
       <div class="toggle-row">
-        <label>characterDataOldValue</label>
+        <label ti="label_characterdataoldvalue" ti="label_characterdataoldvalue" ti="label_characterdataoldvalue">characterDataOldValue</label>
         <div class="toggle" id="cfg-characterDataOldValue"></div>
       </div>
       <div class="toggle-hint">Record previous text value</div>
@@ -289,7 +295,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- DOM Preview -->
   <div class="preview-panel">
     <div class="panel-header">
-      <h3>Observed DOM Tree</h3>
+      <h3 ti="h3_observed_dom_tree" ti="h3_observed_dom_tree" ti="h3_observed_dom_tree">Observed DOM Tree</h3>
       <span style="font-family:var(--mono);font-size:0.7rem;color:var(--text-dim)" id="nodeCount">0 nodes</span>
     </div>
     <div class="dom-preview" id="domPreview"></div>
@@ -302,21 +308,41 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- Mutation Log / Code -->
   <div class="log-panel">
     <div class="tab-bar">
-      <button class="tab-btn active" data-tab="log">Mutation Log</button>
-      <button class="tab-btn" data-tab="code">Code</button>
+      <button class="tab-btn active" data-tab="log" ti="btn_mutation_log" ti="btn_mutation_log" ti="btn_mutation_log">Mutation Log</button>
+      <button class="tab-btn" data-tab="code" ti="btn_code" ti="btn_code" ti="btn_code">Code</button>
     </div>
     <div class="mutation-log" id="mutationLog">
       <div class="empty-state">Click actions on the left to trigger mutations</div>
     </div>
     <div class="code-area" id="codeArea"><pre id="codeContent"></pre></div>
     <div class="log-footer">
-      <button class="btn-outline" id="clearLogBtn">Clear Log</button>
-      <button class="btn-outline" id="copyBtn">Copy Code</button>
+      <button class="btn-outline" id="clearLogBtn" ti="btn_clear_log" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button>
+      <button class="btn-outline" id="copyBtn" ti="btn_copy_code" ti="btn_copy_code" ti="btn_copy_code">Copy Code</button>
       <span style="margin-left:auto;font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)" id="mutationCount">0 mutations</span>
     </div>
   </div>
 </div>
 
+
+
+<script>var _LANG={'title_mutationobserver_playgrou':["MutationObserver Playground — Dev Vault", "MutationObserver 游乐场 — 开发者宝库"],'metadesc_interactive_mutationobser':["Interactive MutationObserver playground. Watch DOM changes in real-time. Configure childList, attributes, characterData, subtree. Mutation log and code export.", "交互式 MutationObserver 演示环境。实时观察 DOM 变化。可配置 childList、attributes、characterData 和 subtree。支持 Mutation 日志和代码导出。"],'h3_observed_dom_tree':["Observed DOM Tree", "观察到的DOM树"],'btn_mutation_log':["Mutation Log", "变异日志"],'btn_code':["Code", "代码"],'btn_clear_log':["Clear Log", "清除日志"],'btn_copy_code':["Copy Code", "复制代码"],'label_childlist':["childList", "子列表"],'label_attributes':["attributes", "属性"],'label_characterdata':["characterData", "字符数据"],'label_subtree':["subtree", "子树"],'label_attributeoldvalue':["attributeOldValue", "attributeOldValue"],'label_characterdataoldvalue':["characterDataOldValue", "字符数据旧值"],'footer_mutationobserver_playgrou':["MutationObserver Playground — Dev Vault", "MutationObserver 游乐场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_edited_at':["Edited at", "编辑于"],'jtc_0_mutations':["0 mutations", "0 个突变"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_code':["Copy Code", "复制代码"],'jtcpre_edited_at':["Edited at ", "编辑于"],'jtlword_const':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_mutationobserver':["MutationObserver", "MutationObserver"],'jtlword_for':["for", "为了"],'jtlword_const_2':["const", "常量"],'jtlword_of':["of", "的"],'jtlword_switch':["switch", "转变"],'jtlword_case':["case", "案件"],'jtlword_foreach':["forEach", "forEach"],'jtlword_log':["log", "日志"],'jtlword_foreach_2':["forEach", "forEach"],'jtlword_log_2':["log", "日志"],'jtlword_break':["break", "休息"],'jtlword_case_2':["case", "案件"],'jtlword_log_3':["log", "日志"],'jtlword_getattribute':["getAttribute", "获取属性"],'jtlword_break_2':["break", "休息"],'jtlword_case_3':["case", "案件"],'jtlword_log_4':["log", "日志"],'jtlword_break_3':["break", "休息"],'jtlword_const_3':["const", "常量"],'jtlword_queryselector':["querySelector", "查询选择器"],'jtlword_observe':["observe", "观察"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_mutationobserver_playgrou':["MutationObserver Playground — Dev Vault", "MutationObserver 游乐场 — 开发者宝库"],'metadesc_interactive_mutationobser':["Interactive MutationObserver playground. Watch DOM changes in real-time. Configure childList, attributes, characterData, subtree. Mutation log and code export.", "交互式 MutationObserver 演示环境。实时观察 DOM 变化。可配置 childList、attributes、characterData 和 subtree。支持 Mutation 日志和代码导出。"],'h3_observed_dom_tree':["Observed DOM Tree", "观察到的DOM树"],'btn_mutation_log':["Mutation Log", "变异日志"],'btn_code':["Code", "代码"],'btn_clear_log':["Clear Log", "清除日志"],'btn_copy_code':["Copy Code", "复制代码"],'label_childlist':["childList", "子列表"],'label_attributes':["attributes", "属性"],'label_characterdata':["characterData", "字符数据"],'label_subtree':["subtree", "子树"],'label_attributeoldvalue':["attributeOldValue", "attributeOldValue"],'label_characterdataoldvalue':["characterDataOldValue", "字符数据旧值"],'footer_mutationobserver_playgrou':["MutationObserver Playground — Dev Vault", "MutationObserver 游乐场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_edited_at':["Edited at", "编辑于"],'jtc_0_mutations':["0 mutations", "0 个突变"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_code':["Copy Code", "复制代码"],'jtcpre_edited_at':["Edited at ", "编辑于"],'jtlword_const':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_mutationobserver':["MutationObserver", "MutationObserver"],'jtlword_for':["for", "为了"],'jtlword_const_2':["const", "常量"],'jtlword_of':["of", "的"],'jtlword_switch':["switch", "转变"],'jtlword_case':["case", "案件"],'jtlword_foreach':["forEach", "forEach"],'jtlword_log':["log", "日志"],'jtlword_foreach_2':["forEach", "forEach"],'jtlword_log_2':["log", "日志"],'jtlword_break':["break", "休息"],'jtlword_case_2':["case", "案件"],'jtlword_log_3':["log", "日志"],'jtlword_getattribute':["getAttribute", "获取属性"],'jtlword_break_2':["break", "休息"],'jtlword_case_3':["case", "案件"],'jtlword_log_4':["log", "日志"],'jtlword_break_3':["break", "休息"],'jtlword_const_3':["const", "常量"],'jtlword_queryselector':["querySelector", "查询选择器"],'jtlword_observe':["observe", "观察"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   // State
@@ -533,7 +559,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   document.getElementById('act-setText').onclick = () => {
     const first = sandbox.firstElementChild;
     if (first && first.firstChild) {
-      first.firstChild.textContent = 'Edited at ' + new Date().toLocaleTimeString();
+      first.firstChild.textContent=T("jtcpre_edited_at")+ new Date().toLocaleTimeString();
     }
   };
 
@@ -553,7 +579,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   document.getElementById('clearLogBtn').onclick = () => {
     mutCount = 0;
     mutationLog.innerHTML = '<div class="empty-state">Click actions on the left to trigger mutations</div>';
-    mutationCountEl.textContent = '0 mutations';
+    mutationCountEl.textContent=T("jtc_0_mutations");
   };
 
   // Tabs
@@ -652,15 +678,69 @@ ${opts.join('\n')}
     const text = codeContent.textContent;
     navigator.clipboard.writeText(text).then(() => {
       const btn = document.getElementById('copyBtn');
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy Code'; btn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { btn.textContent=T("jtc_copy_code"); btn.classList.remove('copied'); }, 2000);
     });
   };
 
   // Init
   initSandbox();
   setupObserver();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

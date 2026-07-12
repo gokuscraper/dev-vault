@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_package_json_generator_cr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,77 +47,127 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>package.json Generator</h1>
-<p class="sub">Create npm package configuration visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_package_json_generator" ti="h1_package_json_generator" ti="h1_package_json_generator" ti="h1_package_json_generator" ti="h1_package_json_generator">package.json Generator</h1>
+<p class="sub" ti="subtitle_create_npm_package_config" ti="subtitle_create_npm_package_config" ti="subtitle_create_npm_package_config" ti="subtitle_create_npm_package_config" ti="subtitle_create_npm_package_config">Create npm package configuration visually</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Basic Info</h3>
+<h3 ti="h3_basic_info" ti="h3_basic_info" ti="h3_basic_info" ti="h3_basic_info" ti="h3_basic_info">Basic Info</h3>
 <div class="row">
-<div class="col"><label>Name</label><input id="pName" oninput="gen()"></div>
-<div class="col" style="max-width:120px"><label>Version</label><input id="pVersion" value="1.0.0" oninput="gen()"></div>
-<div class="col"><label>Description</label><input id="pDesc" oninput="gen()"></div>
+<div class="col"><label ti="label_name" ti="label_name" ti="label_name" ti="label_name" ti="label_name">Name</label><input id="pName" oninput="gen()"></div>
+<div class="col" style="max-width:120px"><label ti="label_version" ti="label_version" ti="label_version" ti="label_version" ti="label_version">Version</label><input id="pVersion" value="1.0.0" oninput="gen()"></div>
+<div class="col"><label ti="label_description" ti="label_description" ti="label_description" ti="label_description" ti="label_description">Description</label><input id="pDesc" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Author</label><input id="pAuthor" oninput="gen()"></div>
-<div class="col" style="max-width:160px"><label>License</label>
+<div class="col"><label ti="label_author" ti="label_author" ti="label_author" ti="label_author" ti="label_author">Author</label><input id="pAuthor" oninput="gen()"></div>
+<div class="col" style="max-width:160px"><label ti="label_license" ti="label_license" ti="label_license" ti="label_license" ti="label_license">License</label>
 <select id="pLicense" onchange="gen()">
 <option>MIT</option><option>ISC</option><option>Apache-2.0</option><option>GPL-3.0-only</option><option>BSD-3-Clause</option><option>UNLICENSED</option>
 </select></div>
-<div class="col"><label>Repository URL</label><input id="pRepo" oninput="gen()" placeholder="https://github.com/user/repo"></div>
+<div class="col"><label ti="label_repository_url" ti="label_repository_url" ti="label_repository_url" ti="label_repository_url" ti="label_repository_url">Repository URL</label><input id="pRepo" oninput="gen()" tp="placeholder_https_github_com_user_rep" tp="placeholder_https_github_com_user_rep" tp="placeholder_https_github_com_user_rep" tp="placeholder_https_github_com_user_rep" tp="placeholder_https_github_com_user_rep" placeholder="https://github.com/user/repo"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Entry Points</h3>
+<h3 ti="h3_entry_points" ti="h3_entry_points" ti="h3_entry_points" ti="h3_entry_points" ti="h3_entry_points">Entry Points</h3>
 <div class="row">
-<div class="col"><label>main</label><input id="pMain" oninput="gen()" placeholder="index.js"></div>
-<div class="col"><label>module (ESM)</label><input id="pModule" oninput="gen()" placeholder="dist/index.mjs"></div>
-<div class="col"><label>types</label><input id="pTypes" oninput="gen()" placeholder="dist/index.d.ts"></div>
+<div class="col"><label ti="label_main" ti="label_main" ti="label_main" ti="label_main" ti="label_main">main</label><input id="pMain" oninput="gen()" tp="placeholder_index_js" tp="placeholder_index_js" tp="placeholder_index_js" tp="placeholder_index_js" tp="placeholder_index_js" placeholder="index.js"></div>
+<div class="col"><label ti="label_module_esm" ti="label_module_esm" ti="label_module_esm" ti="label_module_esm" ti="label_module_esm">module (ESM)</label><input id="pModule" oninput="gen()" tp="placeholder_dist_index_mjs" tp="placeholder_dist_index_mjs" tp="placeholder_dist_index_mjs" tp="placeholder_dist_index_mjs" tp="placeholder_dist_index_mjs" placeholder="dist/index.mjs"></div>
+<div class="col"><label ti="label_types" ti="label_types" ti="label_types" ti="label_types" ti="label_types">types</label><input id="pTypes" oninput="gen()" tp="placeholder_dist_index_d_ts" tp="placeholder_dist_index_d_ts" tp="placeholder_dist_index_d_ts" tp="placeholder_dist_index_d_ts" tp="placeholder_dist_index_d_ts" placeholder="dist/index.d.ts"></div>
 </div>
 <div class="row">
-<div class="col"><label>bin (CLI command)</label><input id="pBin" oninput="gen()" placeholder="cli.js"></div>
+<div class="col"><label ti="label_bin_cli_command" ti="label_bin_cli_command" ti="label_bin_cli_command" ti="label_bin_cli_command" ti="label_bin_cli_command">bin (CLI command)</label><input id="pBin" oninput="gen()" tp="placeholder_cli_js" tp="placeholder_cli_js" tp="placeholder_cli_js" tp="placeholder_cli_js" tp="placeholder_cli_js" placeholder="cli.js"></div>
 </div>
-<div class="check-row"><input type="checkbox" id="pESM" onchange="gen()"><label for="pESM">"type": "module" (ESM)</label></div>
-<div class="check-row"><input type="checkbox" id="pPrivate" onchange="gen()"><label for="pPrivate">"private": true</label></div>
+<div class="check-row"><input type="checkbox" id="pESM" onchange="gen()"><label for="pESM" ti="label_type_module_esm" ti="label_type_module_esm" ti="label_type_module_esm" ti="label_type_module_esm" ti="label_type_module_esm">"type": "module" (ESM)</label></div>
+<div class="check-row"><input type="checkbox" id="pPrivate" onchange="gen()"><label for="pPrivate" ti="label_private_true" ti="label_private_true" ti="label_private_true" ti="label_private_true" ti="label_private_true">"private": true</label></div>
 </div>
 
 <div class="section">
-<h3>Scripts</h3>
+<h3 ti="h3_scripts" ti="h3_scripts" ti="h3_scripts" ti="h3_scripts" ti="h3_scripts">Scripts</h3>
 <div id="scriptsList"></div>
-<button class="add-btn" onclick="addScript()">+ Add Script</button>
+<button class="add-btn" onclick="addScript()" ti="btn_add_script" ti="btn_add_script" ti="btn_add_script" ti="btn_add_script" ti="btn_add_script">+ Add Script</button>
 </div>
 
 <div class="section">
-<h3>Keywords</h3>
-<input id="pKeywords" oninput="gen()" placeholder="cli, tool, utility (comma-separated)">
+<h3 ti="h3_keywords" ti="h3_keywords" ti="h3_keywords" ti="h3_keywords" ti="h3_keywords">Keywords</h3>
+<input id="pKeywords" oninput="gen()" tp="placeholder_cli_tool_utility_comma_se" tp="placeholder_cli_tool_utility_comma_se" tp="placeholder_cli_tool_utility_comma_se" tp="placeholder_cli_tool_utility_comma_se" tp="placeholder_cli_tool_utility_comma_se" placeholder="cli, tool, utility (comma-separated)">
 </div>
 
 <div class="section">
-<h3>Engines</h3>
+<h3 ti="h3_engines" ti="h3_engines" ti="h3_engines" ti="h3_engines" ti="h3_engines">Engines</h3>
 <div class="row">
-<div class="col"><label>Node.js</label><input id="pNode" oninput="gen()" placeholder=">=18.0.0"></div>
-<div class="col"><label>npm</label><input id="pNpm" oninput="gen()" placeholder=">=9.0.0"></div>
+<div class="col"><label ti="label_node_js" ti="label_node_js" ti="label_node_js" ti="label_node_js" ti="label_node_js">Node.js</label><input id="pNode" oninput="gen()" tp="placeholder_18_0_0" tp="placeholder_18_0_0" tp="placeholder_18_0_0" tp="placeholder_18_0_0" tp="placeholder_18_0_0" placeholder=">=18.0.0"></div>
+<div class="col"><label ti="label_npm" ti="label_npm" ti="label_npm" ti="label_npm" ti="label_npm">npm</label><input id="pNpm" oninput="gen()" tp="placeholder_9_0_0" tp="placeholder_9_0_0" tp="placeholder_9_0_0" tp="placeholder_9_0_0" tp="placeholder_9_0_0" placeholder=">=9.0.0"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Files (published to npm)</h3>
-<input id="pFiles" oninput="gen()" placeholder="dist, README.md, LICENSE (comma-separated)">
+<h3 ti="h3_files_published_to_npm" ti="h3_files_published_to_npm" ti="h3_files_published_to_npm" ti="h3_files_published_to_npm" ti="h3_files_published_to_npm">Files (published to npm)</h3>
+<input id="pFiles" oninput="gen()" tp="placeholder_dist_readme_md_license_co" tp="placeholder_dist_readme_md_license_co" tp="placeholder_dist_readme_md_license_co" tp="placeholder_dist_readme_md_license_co" tp="placeholder_dist_readme_md_license_co" placeholder="dist, README.md, LICENSE (comma-separated)">
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/npm-health/">npm Health</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">.gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/">GH Actions Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/npm-health/" ti="link_npm_health" ti="link_npm_health" ti="link_npm_health" ti="link_npm_health" ti="link_npm_health">npm Health</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen" ti="link_gitignore_gen" ti="link_gitignore_gen" ti="link_gitignore_gen" ti="link_gitignore_gen">.gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen">GH Actions Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+
+
+<script>var _LANG={'title_package_json_generator_cr':["package.json Generator — Create npm Package Config Visually", "package.json 生成器 — 以可视化方式创建 npm 包配置"],'metadesc_generate_package_json_vis':["Generate package.json visually. Set name, version, scripts, dependencies, license, engines, exports. 6 project templates. No signup.", "可视化生成 package.json 文件。设置名称、版本、脚本、依赖项、许可证、引擎和导出项。提供 6 个项目模板。无需注册。"],'h1_package_json_generator':["package.json Generator", "package.json 生成器"],'h3_basic_info':["Basic Info", "基本信息"],'h3_entry_points':["Entry Points", "入口点"],'h3_scripts':["Scripts", "脚本"],'h3_keywords':["Keywords", "关键词"],'h3_engines':["Engines", "发动机"],'h3_files_published_to_npm':["Files (published to npm)", "文件（已发布到 npm）"],'subtitle_create_npm_package_config':["Create npm package configuration visually", "以可视化方式创建 npm 包配置"],'btn_add_script':["+ Add Script", "+ 添加脚本"],'btn_copy':["Copy", "复制"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo", "https://github.com/user/repo"],'placeholder_index_js':["index.js", "index.js"],'placeholder_dist_index_mjs':["dist/index.mjs", "dist/index.mjs"],'placeholder_dist_index_d_ts':["dist/index.d.ts", "dist/index.d.ts"],'placeholder_cli_js':["cli.js", "cli.js"],'placeholder_cli_tool_utility_comma_se':["cli, tool, utility (comma-separated)", "命令行工具、实用程序（逗号分隔）"],'placeholder_18_0_0':[">=18.0.0", "&gt;=18.0.0"],'placeholder_9_0_0':[">=9.0.0", "版本 &gt;=9.0.0"],'placeholder_dist_readme_md_license_co':["dist, README.md, LICENSE (comma-separated)", "分发、README.md、许可证（逗号分隔）"],'placeholder_script_name':["script name", "脚本名称"],'placeholder_command':["command", "命令"],'label_name':["Name", "姓名"],'label_version':["Version", "版本"],'label_description':["Description", "描述"],'label_author':["Author", "作者"],'label_license':["License", "执照"],'label_repository_url':["Repository URL", "存储库 URL"],'label_main':["main", "主要的"],'label_module_esm':["module (ESM)", "模块（ESM）"],'label_types':["types", "类型"],'label_bin_cli_command':["bin (CLI command)", "bin（CLI 命令）"],'label_type_module_esm':["\"type\": \"module\" (ESM)", "类型：模块（ESM）"],'label_private_true':["\"private\": true", "“私有”：真"],'label_node_js':["Node.js", "Node.js"],'label_npm':["npm", "npm"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_npm_health':["npm Health", "npm 健康"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_package_json_generator_cr':["package.json Generator — Create npm Package Config Visually", "package.json 生成器 — 以可视化方式创建 npm 包配置"],'metadesc_generate_package_json_vis':["Generate package.json visually. Set name, version, scripts, dependencies, license, engines, exports. 6 project templates. No signup.", "可视化生成 package.json 文件。设置名称、版本、脚本、依赖项、许可证、引擎和导出项。提供 6 个项目模板。无需注册。"],'h1_package_json_generator':["package.json Generator", "package.json 生成器"],'h3_basic_info':["Basic Info", "基本信息"],'h3_entry_points':["Entry Points", "入口点"],'h3_scripts':["Scripts", "脚本"],'h3_keywords':["Keywords", "关键词"],'h3_engines':["Engines", "发动机"],'h3_files_published_to_npm':["Files (published to npm)", "文件（已发布到 npm）"],'subtitle_create_npm_package_config':["Create npm package configuration visually", "以可视化方式创建 npm 包配置"],'btn_add_script':["+ Add Script", "+ 添加脚本"],'btn_copy':["Copy", "复制"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo", "https://github.com/user/repo"],'placeholder_index_js':["index.js", "index.js"],'placeholder_dist_index_mjs':["dist/index.mjs", "dist/index.mjs"],'placeholder_dist_index_d_ts':["dist/index.d.ts", "dist/index.d.ts"],'placeholder_cli_js':["cli.js", "cli.js"],'placeholder_cli_tool_utility_comma_se':["cli, tool, utility (comma-separated)", "命令行工具、实用程序（逗号分隔）"],'placeholder_18_0_0':[">=18.0.0", "&gt;=18.0.0"],'placeholder_9_0_0':[">=9.0.0", "版本 &gt;=9.0.0"],'placeholder_dist_readme_md_license_co':["dist, README.md, LICENSE (comma-separated)", "分发、README.md、许可证（逗号分隔）"],'placeholder_script_name':["script name", "脚本名称"],'placeholder_command':["command", "命令"],'label_name':["Name", "姓名"],'label_version':["Version", "版本"],'label_description':["Description", "描述"],'label_author':["Author", "作者"],'label_license':["License", "执照"],'label_repository_url':["Repository URL", "存储库 URL"],'label_main':["main", "主要的"],'label_module_esm':["module (ESM)", "模块（ESM）"],'label_types':["types", "类型"],'label_bin_cli_command':["bin (CLI command)", "bin（CLI 命令）"],'label_type_module_esm':["\"type\": \"module\" (ESM)", "类型：模块（ESM）"],'label_private_true':["\"private\": true", "“私有”：真"],'label_node_js':["Node.js", "Node.js"],'label_npm':["npm", "npm"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_npm_health':["npm Health", "npm 健康"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_package_json_generator_cr':["package.json Generator — Create npm Package Config Visually", "package.json 生成器 — 以可视化方式创建 npm 包配置"],'metadesc_generate_package_json_vis':["Generate package.json visually. Set name, version, scripts, dependencies, license, engines, exports. 6 project templates. No signup.", "可视化生成 package.json 文件。设置名称、版本、脚本、依赖项、许可证、引擎和导出项。提供 6 个项目模板。无需注册。"],'h1_package_json_generator':["package.json Generator", "package.json 生成器"],'h3_basic_info':["Basic Info", "基本信息"],'h3_entry_points':["Entry Points", "入口点"],'h3_scripts':["Scripts", "脚本"],'h3_keywords':["Keywords", "关键词"],'h3_engines':["Engines", "发动机"],'h3_files_published_to_npm':["Files (published to npm)", "文件（已发布到 npm）"],'subtitle_create_npm_package_config':["Create npm package configuration visually", "以可视化方式创建 npm 包配置"],'btn_add_script':["+ Add Script", "+ 添加脚本"],'btn_copy':["Copy", "复制"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo", "https://github.com/user/repo"],'placeholder_index_js':["index.js", "index.js"],'placeholder_dist_index_mjs':["dist/index.mjs", "dist/index.mjs"],'placeholder_dist_index_d_ts':["dist/index.d.ts", "dist/index.d.ts"],'placeholder_cli_js':["cli.js", "cli.js"],'placeholder_cli_tool_utility_comma_se':["cli, tool, utility (comma-separated)", "命令行工具、实用程序（逗号分隔）"],'placeholder_18_0_0':[">=18.0.0", "&gt;=18.0.0"],'placeholder_9_0_0':[">=9.0.0", "版本 &gt;=9.0.0"],'placeholder_dist_readme_md_license_co':["dist, README.md, LICENSE (comma-separated)", "分发、README.md、许可证（逗号分隔）"],'placeholder_script_name':["script name", "脚本名称"],'placeholder_command':["command", "命令"],'label_name':["Name", "姓名"],'label_version':["Version", "版本"],'label_description':["Description", "描述"],'label_author':["Author", "作者"],'label_license':["License", "执照"],'label_repository_url':["Repository URL", "存储库 URL"],'label_main':["main", "主要的"],'label_module_esm':["module (ESM)", "模块（ESM）"],'label_types':["types", "类型"],'label_bin_cli_command':["bin (CLI command)", "bin（CLI 命令）"],'label_type_module_esm':["\"type\": \"module\" (ESM)", "类型：模块（ESM）"],'label_private_true':["\"private\": true", "“私有”：真"],'label_node_js':["Node.js", "Node.js"],'label_npm':["npm", "npm"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_npm_health':["npm Health", "npm 健康"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_package_json_generator_cr':["package.json Generator — Create npm Package Config Visually", "package.json 生成器 — 以可视化方式创建 npm 包配置"],'metadesc_generate_package_json_vis':["Generate package.json visually. Set name, version, scripts, dependencies, license, engines, exports. 6 project templates. No signup.", "可视化生成 package.json 文件。设置名称、版本、脚本、依赖项、许可证、引擎和导出项。提供 6 个项目模板。无需注册。"],'h1_package_json_generator':["package.json Generator", "package.json 生成器"],'h3_basic_info':["Basic Info", "基本信息"],'h3_entry_points':["Entry Points", "入口点"],'h3_scripts':["Scripts", "脚本"],'h3_keywords':["Keywords", "关键词"],'h3_engines':["Engines", "发动机"],'h3_files_published_to_npm':["Files (published to npm)", "文件（已发布到 npm）"],'subtitle_create_npm_package_config':["Create npm package configuration visually", "以可视化方式创建 npm 包配置"],'btn_add_script':["+ Add Script", "+ 添加脚本"],'btn_copy':["Copy", "复制"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo", "https://github.com/user/repo"],'placeholder_index_js':["index.js", "index.js"],'placeholder_dist_index_mjs':["dist/index.mjs", "dist/index.mjs"],'placeholder_dist_index_d_ts':["dist/index.d.ts", "dist/index.d.ts"],'placeholder_cli_js':["cli.js", "cli.js"],'placeholder_cli_tool_utility_comma_se':["cli, tool, utility (comma-separated)", "命令行工具、实用程序（逗号分隔）"],'placeholder_18_0_0':[">=18.0.0", "&gt;=18.0.0"],'placeholder_9_0_0':[">=9.0.0", "版本 &gt;=9.0.0"],'placeholder_dist_readme_md_license_co':["dist, README.md, LICENSE (comma-separated)", "分发、README.md、许可证（逗号分隔）"],'placeholder_script_name':["script name", "脚本名称"],'placeholder_command':["command", "命令"],'label_name':["Name", "姓名"],'label_version':["Version", "版本"],'label_description':["Description", "描述"],'label_author':["Author", "作者"],'label_license':["License", "执照"],'label_repository_url':["Repository URL", "存储库 URL"],'label_main':["main", "主要的"],'label_module_esm':["module (ESM)", "模块（ESM）"],'label_types':["types", "类型"],'label_bin_cli_command':["bin (CLI command)", "bin（CLI 命令）"],'label_type_module_esm':["\"type\": \"module\" (ESM)", "类型：模块（ESM）"],'label_private_true':["\"private\": true", "“私有”：真"],'label_node_js':["Node.js", "Node.js"],'label_npm':["npm", "npm"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_npm_health':["npm Health", "npm 健康"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TEMPLATES = {
   'CLI Tool': {
@@ -200,8 +250,8 @@ function renderScripts(){
   const c=document.getElementById('scriptsList');c.innerHTML='';
   scripts.forEach((s,i)=>{
     const d=document.createElement('div');d.className='kv-row';
-    d.innerHTML=`<input style="max-width:140px" value="${esc(s.k)}" onchange="scripts[${i}].k=this.value;gen()" placeholder="script name">
-    <input value="${esc(s.v)}" onchange="scripts[${i}].v=this.value;gen()" placeholder="command">
+    d.innerHTML=`<input style="max-width:140px" value="${esc(s.k)}" onchange="scripts[${i}].k=this.value;gen()" tp="placeholder_script_name" tp="placeholder_script_name" tp="placeholder_script_name" tp="placeholder_script_name" tp="placeholder_script_name" placeholder="script name">
+    <input value="${esc(s.v)}" onchange="scripts[${i}].v=this.value;gen()" tp="placeholder_command" tp="placeholder_command" tp="placeholder_command" tp="placeholder_command" tp="placeholder_command" placeholder="command">
     <span class="rm" onclick="removeScript(${i})">✕</span>`;
     c.appendChild(d);
   });
@@ -266,6 +316,96 @@ function copyOut(){
 
 initPresets();
 loadPreset('CLI Tool');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

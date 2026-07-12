@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_sql_format_sql_query_form" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,45 +57,57 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>SQL Format</h1>
-<p class="subtitle">Format and beautify SQL queries. No upload, no server.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_sql_format">SQL Format</h1>
+<p class="subtitle" ti="subtitle_format_and_beautify_sql_q">Format and beautify SQL queries. No upload, no server.</p>
 
 <div class="options">
-  <div class="opt"><label>Indent</label><select id="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option></select></div>
+  <div class="opt"><label ti="label_indent">Indent</label><select id="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option></select></div>
   <div class="opt"><label><input type="checkbox" id="uppercase" checked> Uppercase keywords</label></div>
   <div class="opt"><label><input type="checkbox" id="lineBreakComma"> Comma on new line</label></div>
 </div>
 
 <div class="presets">
-  <button class="preset-btn" onclick="loadPreset('select')">SELECT</button>
-  <button class="preset-btn" onclick="loadPreset('join')">JOIN</button>
-  <button class="preset-btn" onclick="loadPreset('insert')">INSERT</button>
-  <button class="preset-btn" onclick="loadPreset('update')">UPDATE</button>
-  <button class="preset-btn" onclick="loadPreset('create')">CREATE TABLE</button>
-  <button class="preset-btn" onclick="loadPreset('subquery')">Subquery</button>
+  <button class="preset-btn" onclick="loadPreset('select')" ti="btn_select">SELECT</button>
+  <button class="preset-btn" onclick="loadPreset('join')" ti="btn_join">JOIN</button>
+  <button class="preset-btn" onclick="loadPreset('insert')" ti="btn_insert">INSERT</button>
+  <button class="preset-btn" onclick="loadPreset('update')" ti="btn_update">UPDATE</button>
+  <button class="preset-btn" onclick="loadPreset('create')" ti="btn_create_table">CREATE TABLE</button>
+  <button class="preset-btn" onclick="loadPreset('subquery')" ti="btn_subquery">Subquery</button>
 </div>
 
 <div class="editor">
-  <div class="pane"><h3>Input SQL</h3><textarea id="input" placeholder="Paste SQL query here..."></textarea></div>
-  <div class="pane"><h3>Formatted Output</h3><textarea id="output" readonly placeholder="Formatted SQL will appear here..."></textarea></div>
+  <div class="pane"><h3 ti="h3_input_sql">Input SQL</h3><textarea id="input" tp="placeholder_paste_sql_query_here" placeholder="Paste SQL query here..."></textarea></div>
+  <div class="pane"><h3 ti="h3_formatted_output">Formatted Output</h3><textarea id="output" readonly tp="placeholder_formatted_sql_will_appear" placeholder="Formatted SQL will appear here..."></textarea></div>
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="formatSQL()">Format</button>
-  <button class="btn" onclick="minifySQL()">Minify</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="formatSQL()" ti="btn_format">Format</button>
+  <button class="btn" onclick="minifySQL()" ti="btn_minify">Minify</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
 </div>
 
 <div class="stats" id="stats"></div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/sql-format">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/sql-format" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_sql_format_sql_query_form':["SQL Format — SQL Query Formatter & Beautifier", "SQL 格式化工具 — SQL 查询格式化和美化工具"],'metadesc_format_and_beautify_sql_q':["Format and beautify SQL queries. Uppercase keywords, custom indentation, minify. Supports SELECT, INSERT, UPDATE, DELETE, CREATE. Free.", "格式化并美化 SQL 查询语句。支持关键字大写、自定义缩进和语句压缩。支持 SELECT、INSERT、UPDATE、DELETE 和 CREATE 语句。免费。"],'h1_sql_format':["SQL Format", "SQL 格式"],'h3_input_sql':["Input SQL", "输入 SQL"],'h3_formatted_output':["Formatted Output", "格式化输出"],'subtitle_format_and_beautify_sql_q':["Format and beautify SQL queries. No upload, no server.", "格式化并美化 SQL 查询语句。无需上传，无需服务器。"],'btn_select':["SELECT", "选择"],'btn_join':["JOIN", "加入"],'btn_insert':["INSERT", "插入"],'btn_update':["UPDATE", "更新"],'btn_create_table':["CREATE TABLE", "创建表"],'btn_subquery':["Subquery", "子查询"],'btn_format':["Format", "格式"],'btn_minify':["Minify", "缩小"],'btn_copy':["Copy", "复制"],'btn_clear':["Clear", "清除"],'placeholder_paste_sql_query_here':["Paste SQL query here...", "请在此处粘贴 SQL 查询语句……"],'placeholder_formatted_sql_will_appear':["Formatted SQL will appear here...", "格式化的 SQL 将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'label_indent':["Indent", "缩进"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const KEYWORDS=['SELECT','FROM','WHERE','AND','OR','NOT','IN','EXISTS','BETWEEN','LIKE',
   'ORDER BY','GROUP BY','HAVING','LIMIT','OFFSET','INSERT INTO','VALUES','UPDATE','SET',
@@ -357,7 +369,7 @@ function copyOutput(){
   if(!v)return;
   navigator.clipboard.writeText(v);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -383,12 +395,30 @@ function loadPreset(key){
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/csv-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSV ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/markdown-table/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Markdown Table</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

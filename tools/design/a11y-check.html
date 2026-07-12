@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_accessibility_checker_wca" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -69,23 +69,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Accessibility Checker</h1>
-<p class="sub">WCAG compliance checklist with contrast calculator</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_accessibility_checker" ti="h1_accessibility_checker">Accessibility Checker</h1>
+<p class="sub" ti="subtitle_wcag_compliance_checklist" ti="subtitle_wcag_compliance_checklist">WCAG compliance checklist with contrast calculator</p>
 
 <div class="layout">
 <!-- LEFT COLUMN -->
 <div>
 <!-- Color Contrast Checker -->
 <div class="section">
-<h3>Color Contrast Checker</h3>
+<h3 ti="h3_color_contrast_checker" ti="h3_color_contrast_checker">Color Contrast Checker</h3>
 <div class="field-row">
 <div class="field">
-<label>Foreground Color</label>
+<label ti="label_foreground_color" ti="label_foreground_color">Foreground Color</label>
 <input type="color" id="fgColor" value="#000000">
 </div>
 <div class="field">
-<label>Hex</label>
+<label ti="label_hex" ti="label_hex_2" ti="label_hex" ti="label_hex_2">Hex</label>
 <input type="text" id="fgHex" value="#000000" maxlength="7">
 </div>
 </div>
@@ -94,7 +98,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 <div class="field-row">
 <div class="field">
-<label>Background Color</label>
+<label ti="label_background_color" ti="label_background_color">Background Color</label>
 <input type="color" id="bgColor" value="#ffffff">
 </div>
 <div class="field">
@@ -116,21 +120,21 @@ The quick brown fox jumps over the lazy dog. 0123456789
 
 <!-- Font Size Accessibility -->
 <div class="section">
-<h3>Font Size Accessibility</h3>
+<h3 ti="h3_font_size_accessibility" ti="h3_font_size_accessibility">Font Size Accessibility</h3>
 <div class="field">
-<label>Font Size (px)</label>
+<label ti="label_font_size_px" ti="label_font_size_px">Font Size (px)</label>
 <input type="number" id="fontSize" value="16" min="1" max="200">
 </div>
 <div class="result-row">
-<span class="result-label">Equivalent rem</span>
+<span class="result-label" ti="label_equivalent_rem" ti="label_equivalent_rem">Equivalent rem</span>
 <span id="fontRem">1rem</span>
 </div>
 <div class="result-row">
-<span class="result-label">Minimum readable (12px)</span>
+<span class="result-label" ti="label_minimum_readable_12px" ti="label_minimum_readable_12px">Minimum readable (12px)</span>
 <span id="fontMinBadge" class="badge badge-pass">PASS</span>
 </div>
 <div class="result-row">
-<span class="result-label">Recommended body (16px+)</span>
+<span class="result-label" ti="label_recommended_body_16px" ti="label_recommended_body_16px">Recommended body (16px+)</span>
 <span id="fontRecBadge" class="badge badge-pass">PASS</span>
 </div>
 <div id="fontWarn"></div>
@@ -138,9 +142,9 @@ The quick brown fox jumps over the lazy dog. 0123456789
 
 <!-- Touch Target Calculator -->
 <div class="section">
-<h3>Touch Target Calculator</h3>
+<h3 ti="h3_touch_target_calculator" ti="h3_touch_target_calculator">Touch Target Calculator</h3>
 <div class="field">
-<label>Target Size (px)</label>
+<label ti="label_target_size_px" ti="label_target_size_px">Target Size (px)</label>
 <input type="number" id="touchSize" value="44" min="1" max="500">
 </div>
 <div class="result-row">
@@ -162,7 +166,7 @@ The quick brown fox jumps over the lazy dog. 0123456789
 <div>
 <!-- WCAG Checklist -->
 <div class="section">
-<h3>WCAG Checklist</h3>
+<h3 ti="h3_wcag_checklist" ti="h3_wcag_checklist">WCAG Checklist</h3>
 <div class="progress-wrap">
 <div class="progress-text">
 <span id="progressLabel">0 / 16 completed</span>
@@ -173,41 +177,41 @@ The quick brown fox jumps over the lazy dog. 0123456789
 
 <div class="checklist-group">
 <h4>Perceivable</h4>
-<div class="checklist-item"><input type="checkbox" id="c1" onchange="updateProgress()"><label for="c1">Text alternatives for non-text content (images, icons, charts)</label></div>
-<div class="checklist-item"><input type="checkbox" id="c2" onchange="updateProgress()"><label for="c2">Captions and transcripts for audio/video content</label></div>
-<div class="checklist-item"><input type="checkbox" id="c3" onchange="updateProgress()"><label for="c3">Sufficient color contrast (minimum 4.5:1 for normal text)</label></div>
-<div class="checklist-item"><input type="checkbox" id="c4" onchange="updateProgress()"><label for="c4">Text can be resized up to 200% without loss of content</label></div>
+<div class="checklist-item"><input type="checkbox" id="c1" onchange="updateProgress()"><label for="c1" ti="label_text_alternatives_for_non" ti="label_text_alternatives_for_non">Text alternatives for non-text content (images, icons, charts)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c2" onchange="updateProgress()"><label for="c2" ti="label_captions_and_transcripts" ti="label_captions_and_transcripts">Captions and transcripts for audio/video content</label></div>
+<div class="checklist-item"><input type="checkbox" id="c3" onchange="updateProgress()"><label for="c3" ti="label_sufficient_color_contrast" ti="label_sufficient_color_contrast">Sufficient color contrast (minimum 4.5:1 for normal text)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c4" onchange="updateProgress()"><label for="c4" ti="label_text_can_be_resized_up_to" ti="label_text_can_be_resized_up_to">Text can be resized up to 200% without loss of content</label></div>
 </div>
 
 <div class="checklist-group">
 <h4>Operable</h4>
-<div class="checklist-item"><input type="checkbox" id="c5" onchange="updateProgress()"><label for="c5">All functionality available via keyboard (no mouse-only actions)</label></div>
-<div class="checklist-item"><input type="checkbox" id="c6" onchange="updateProgress()"><label for="c6">No strict time limits, or users can extend/disable them</label></div>
-<div class="checklist-item"><input type="checkbox" id="c7" onchange="updateProgress()"><label for="c7">No content that flashes more than 3 times per second</label></div>
-<div class="checklist-item"><input type="checkbox" id="c8" onchange="updateProgress()"><label for="c8">Clear navigation: skip links, page titles, focus order, link purpose</label></div>
+<div class="checklist-item"><input type="checkbox" id="c5" onchange="updateProgress()"><label for="c5" ti="label_all_functionality_availab" ti="label_all_functionality_availab">All functionality available via keyboard (no mouse-only actions)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c6" onchange="updateProgress()"><label for="c6" ti="label_no_strict_time_limits_or" ti="label_no_strict_time_limits_or">No strict time limits, or users can extend/disable them</label></div>
+<div class="checklist-item"><input type="checkbox" id="c7" onchange="updateProgress()"><label for="c7" ti="label_no_content_that_flashes_m" ti="label_no_content_that_flashes_m">No content that flashes more than 3 times per second</label></div>
+<div class="checklist-item"><input type="checkbox" id="c8" onchange="updateProgress()"><label for="c8" ti="label_clear_navigation_skip_lin" ti="label_clear_navigation_skip_lin">Clear navigation: skip links, page titles, focus order, link purpose</label></div>
 </div>
 
 <div class="checklist-group">
 <h4>Understandable</h4>
-<div class="checklist-item"><input type="checkbox" id="c9" onchange="updateProgress()"><label for="c9">Page language declared (lang attribute on html element)</label></div>
-<div class="checklist-item"><input type="checkbox" id="c10" onchange="updateProgress()"><label for="c10">Predictable navigation and consistent component behavior</label></div>
-<div class="checklist-item"><input type="checkbox" id="c11" onchange="updateProgress()"><label for="c11">Input assistance: labels, error messages, suggestions</label></div>
-<div class="checklist-item"><input type="checkbox" id="c12" onchange="updateProgress()"><label for="c12">Error prevention for legal/financial data (confirm, review, reverse)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c9" onchange="updateProgress()"><label for="c9" ti="label_page_language_declared_la" ti="label_page_language_declared_la">Page language declared (lang attribute on html element)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c10" onchange="updateProgress()"><label for="c10" ti="label_predictable_navigation_an" ti="label_predictable_navigation_an">Predictable navigation and consistent component behavior</label></div>
+<div class="checklist-item"><input type="checkbox" id="c11" onchange="updateProgress()"><label for="c11" ti="label_input_assistance_labels_e" ti="label_input_assistance_labels_e">Input assistance: labels, error messages, suggestions</label></div>
+<div class="checklist-item"><input type="checkbox" id="c12" onchange="updateProgress()"><label for="c12" ti="label_error_prevention_for_lega" ti="label_error_prevention_for_lega">Error prevention for legal/financial data (confirm, review, reverse)</label></div>
 </div>
 
 <div class="checklist-group">
 <h4>Robust</h4>
-<div class="checklist-item"><input type="checkbox" id="c13" onchange="updateProgress()"><label for="c13">Valid HTML with proper nesting and unique IDs</label></div>
-<div class="checklist-item"><input type="checkbox" id="c14" onchange="updateProgress()"><label for="c14">ARIA roles and properties used correctly</label></div>
-<div class="checklist-item"><input type="checkbox" id="c15" onchange="updateProgress()"><label for="c15">Name, role, value exposed to assistive technology</label></div>
-<div class="checklist-item"><input type="checkbox" id="c16" onchange="updateProgress()"><label for="c16">Status messages communicated without focus change (aria-live)</label></div>
+<div class="checklist-item"><input type="checkbox" id="c13" onchange="updateProgress()"><label for="c13" ti="label_valid_html_with_proper_ne" ti="label_valid_html_with_proper_ne">Valid HTML with proper nesting and unique IDs</label></div>
+<div class="checklist-item"><input type="checkbox" id="c14" onchange="updateProgress()"><label for="c14" ti="label_aria_roles_and_properties" ti="label_aria_roles_and_properties">ARIA roles and properties used correctly</label></div>
+<div class="checklist-item"><input type="checkbox" id="c15" onchange="updateProgress()"><label for="c15" ti="label_name_role_value_exposed_t" ti="label_name_role_value_exposed_t">Name, role, value exposed to assistive technology</label></div>
+<div class="checklist-item"><input type="checkbox" id="c16" onchange="updateProgress()"><label for="c16" ti="label_status_messages_communica" ti="label_status_messages_communica">Status messages communicated without focus change (aria-live)</label></div>
 </div>
 </div>
 
 <!-- ARIA Landmark Reference -->
 <div class="section">
 <div class="collapsible-header" id="ariaToggle" onclick="toggleAria()">
-<h3 style="margin-bottom:0">ARIA Landmark Reference</h3>
+<h3 style="margin-bottom:0" ti="h3_aria_landmark_reference" ti="h3_aria_landmark_reference">ARIA Landmark Reference</h3>
 <span class="arrow">&#9654;</span>
 </div>
 <div class="collapsible-body" id="ariaBody">
@@ -251,18 +255,28 @@ The quick brown fox jumps over the lazy dog. 0123456789
 <!-- Export -->
 <div class="section">
 <div class="export-wrap">
-<button class="btn btn-primary" onclick="exportReport()">Export Report</button>
+<button class="btn btn-primary" onclick="exportReport()" ti="btn_export_report" ti="btn_export_report">Export Report</button>
 </div>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/contrast-check/">Contrast Check</a> | <a href="https://gokuscraper.github.io/dev-vault/color-blind-sim/">Color Blind Sim</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/">Meta Tags</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/contrast-check/" ti="link_contrast_check" ti="link_contrast_check">Contrast Check</a> | <a href="https://gokuscraper.github.io/dev-vault/color-blind-sim/" ti="link_color_blind_sim" ti="link_color_blind_sim">Color Blind Sim</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/" ti="link_meta_tags" ti="link_meta_tags">Meta Tags</a></div>
 
 <div class="toast" id="toast">Report copied to clipboard!</div>
 </div>
 
+
+<script>var _LANG={'title_accessibility_checker_wca':["Accessibility Checker — WCAG Contrast & Compliance", "可访问性检查器 — WCAG 对比度与合规性"],'metadesc_check_wcag_accessibility':["Check WCAG accessibility compliance. Color contrast ratio calculator. Touch target sizes. Interactive checklist. ARIA landmark reference.", "检查 WCAG 无障碍合规性。色彩对比度计算器。触摸目标尺寸。交互式检查清单。ARIA 地标参考。"],'h1_accessibility_checker':["Accessibility Checker", "可访问性检查器"],'h3_color_contrast_checker':["Color Contrast Checker", "色彩对比度检查器"],'h3_font_size_accessibility':["Font Size Accessibility", "字体大小可访问性"],'h3_touch_target_calculator':["Touch Target Calculator", "触摸目标计算器"],'h3_wcag_checklist':["WCAG Checklist", "WCAG 检查清单"],'h3_aria_landmark_reference':["ARIA Landmark Reference", "ARIA 地标参考"],'subtitle_wcag_compliance_checklist':["WCAG compliance checklist with contrast calculator", "包含对比度计算器的 WCAG 合规检查清单"],'btn_swap':["⇅ Swap", "⇅ 交换"],'btn_export_report':["Export Report", "导出报告"],'label_equivalent_rem':["Equivalent rem", "等效 rem"],'label_minimum_readable_12px':["Minimum readable (12px)", "最小可读（12px）"],'label_recommended_body_16px':["Recommended body (16px+)", "推荐正文（16px+）"],'label_wcag_2_5_8_24_24_css_px':["WCAG 2.5.8 (24×24 CSS px)", "WCAG 2.5.8（24×24 CSS px）"],'label_apple_hig_44_44pt':["Apple HIG (44×44pt)", "Apple HIG（44×44pt）"],'label_material_48_48dp':["Material (48×48dp)", "Material（48×48dp）"],'label_foreground_color':["Foreground Color", "前景色"],'label_hex':["Hex", "Hex"],'label_background_color':["Background Color", "背景色"],'label_hex_2':["Hex", "Hex"],'label_font_size_px':["Font Size (px)", "字体大小（px）"],'label_target_size_px':["Target Size (px)", "目标大小（px）"],'label_text_alternatives_for_non':["Text alternatives for non-text content (images, icons, charts)", "非文本内容（图片、图标、图表）的文本替代"],'label_captions_and_transcripts':["Captions and transcripts for audio/video content", "音频/视频内容的字幕和文本记录"],'label_sufficient_color_contrast':["Sufficient color contrast (minimum 4.5:1 for normal text)", "足够的色彩对比度（普通文本至少 4.5:1）"],'label_text_can_be_resized_up_to':["Text can be resized up to 200% without loss of content", "文本可放大至 200% 而不丢失内容"],'label_all_functionality_availab':["All functionality available via keyboard (no mouse-only actions)", "所有功能均可通过键盘使用（无纯鼠标操作）"],'label_no_strict_time_limits_or':["No strict time limits, or users can extend/disable them", "无严格时间限制，或用户可以延长/禁用"],'label_no_content_that_flashes_m':["No content that flashes more than 3 times per second", "每秒闪烁不超过 3 次的内容"],'label_clear_navigation_skip_lin':["Clear navigation: skip links, page titles, focus order, link purpose", "清晰的导航：跳过链接、页面标题、焦点顺序、链接目的"],'label_page_language_declared_la':["Page language declared (lang attribute on html element)", "页面语言已声明（html 元素上的 lang 属性）"],'label_predictable_navigation_an':["Predictable navigation and consistent component behavior", "可预测的导航和一致的组件行为"],'label_input_assistance_labels_e':["Input assistance: labels, error messages, suggestions", "输入辅助：标签、错误消息、建议"],'label_error_prevention_for_lega':["Error prevention for legal/financial data (confirm, review, reverse)", "法律/财务数据的错误预防（确认、审查、撤销）"],'label_valid_html_with_proper_ne':["Valid HTML with proper nesting and unique IDs", "具有正确嵌套和唯一 ID 的有效 HTML"],'label_aria_roles_and_properties':["ARIA roles and properties used correctly", "正确使用的 ARIA 角色和属性"],'label_name_role_value_exposed_t':["Name, role, value exposed to assistive technology", "名称、角色、值暴露给辅助技术"],'label_status_messages_communica':["Status messages communicated without focus change (aria-live)", "状态消息在不改变焦点的情况下传达（aria-live）"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_contrast_check':["Contrast Check", "对比度检查"],'link_color_blind_sim':["Color Blind Sim", "色盲模拟"],'link_meta_tags':["Meta Tags", "Meta 标签"],'jtc_fail':["FAIL", "失败"],'jtc_pass':["PASS", "通过"],'jtc_pass_2':["PASS", "通过"],'jtc_fail_2':["FAIL", "失败"],'jtc_pass_3':["PASS", "通过"],'jtc_fail_3':["FAIL", "失败"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Color Contrast ---
 function linearize(c) {
@@ -364,17 +378,17 @@ function updateFont() {
   const warnEl = document.getElementById('fontWarn');
 
   if (px < 12) {
-    minEl.className = 'badge badge-fail'; minEl.textContent = 'FAIL';
+    minEl.className = 'badge badge-fail'; minEl.textContent=T("jtc_fail");
     warnEl.innerHTML = '<span class="warn">Font size below 12px may be unreadable for many users.</span>';
   } else {
-    minEl.className = 'badge badge-pass'; minEl.textContent = 'PASS';
+    minEl.className = 'badge badge-pass'; minEl.textContent=T("jtc_pass");
     warnEl.innerHTML = '';
   }
 
   if (px >= 16) {
-    recEl.className = 'badge badge-pass'; recEl.textContent = 'PASS';
+    recEl.className = 'badge badge-pass'; recEl.textContent=T("jtc_pass");
   } else {
-    recEl.className = 'badge badge-fail'; recEl.textContent = 'FAIL';
+    recEl.className = 'badge badge-fail'; recEl.textContent=T("jtc_fail");
   }
 }
 
@@ -391,9 +405,9 @@ function updateTouch() {
   checks.forEach(c => {
     const el = document.getElementById(c.id);
     if (size >= c.min) {
-      el.className = 'badge badge-pass'; el.textContent = 'PASS';
+      el.className = 'badge badge-pass'; el.textContent=T("jtc_pass");
     } else {
-      el.className = 'badge badge-fail'; el.textContent = 'FAIL';
+      el.className = 'badge badge-fail'; el.textContent=T("jtc_fail");
     }
   });
 }
@@ -493,6 +507,46 @@ function exportReport() {
 updateContrast();
 updateFont();
 updateTouch();
+</script>
+<script>var _LANG={'title_accessibility_checker_wca':["Accessibility Checker — WCAG Contrast & Compliance", "可访问性检查器 — WCAG 对比度与合规性"],'metadesc_check_wcag_accessibility':["Check WCAG accessibility compliance. Color contrast ratio calculator. Touch target sizes. Interactive checklist. ARIA landmark reference.", "检查 WCAG 无障碍合规性。色彩对比度计算器。触摸目标尺寸。交互式检查清单。ARIA 地标参考。"],'h1_accessibility_checker':["Accessibility Checker", "可访问性检查器"],'h3_color_contrast_checker':["Color Contrast Checker", "色彩对比度检查器"],'h3_font_size_accessibility':["Font Size Accessibility", "字体大小可访问性"],'h3_touch_target_calculator':["Touch Target Calculator", "触摸目标计算器"],'h3_wcag_checklist':["WCAG Checklist", "WCAG 检查清单"],'h3_aria_landmark_reference':["ARIA Landmark Reference", "ARIA 地标参考"],'subtitle_wcag_compliance_checklist':["WCAG compliance checklist with contrast calculator", "包含对比度计算器的 WCAG 合规检查清单"],'btn_swap':["⇅ Swap", "⇅ 交换"],'btn_export_report':["Export Report", "导出报告"],'label_equivalent_rem':["Equivalent rem", "等效 rem"],'label_minimum_readable_12px':["Minimum readable (12px)", "最小可读（12px）"],'label_recommended_body_16px':["Recommended body (16px+)", "推荐正文（16px+）"],'label_wcag_2_5_8_24_24_css_px':["WCAG 2.5.8 (24×24 CSS px)", "WCAG 2.5.8（24×24 CSS px）"],'label_apple_hig_44_44pt':["Apple HIG (44×44pt)", "Apple HIG（44×44pt）"],'label_material_48_48dp':["Material (48×48dp)", "Material（48×48dp）"],'label_foreground_color':["Foreground Color", "前景色"],'label_hex':["Hex", "Hex"],'label_background_color':["Background Color", "背景色"],'label_hex_2':["Hex", "Hex"],'label_font_size_px':["Font Size (px)", "字体大小（px）"],'label_target_size_px':["Target Size (px)", "目标大小（px）"],'label_text_alternatives_for_non':["Text alternatives for non-text content (images, icons, charts)", "非文本内容（图片、图标、图表）的文本替代"],'label_captions_and_transcripts':["Captions and transcripts for audio/video content", "音频/视频内容的字幕和文本记录"],'label_sufficient_color_contrast':["Sufficient color contrast (minimum 4.5:1 for normal text)", "足够的色彩对比度（普通文本至少 4.5:1）"],'label_text_can_be_resized_up_to':["Text can be resized up to 200% without loss of content", "文本可放大至 200% 而不丢失内容"],'label_all_functionality_availab':["All functionality available via keyboard (no mouse-only actions)", "所有功能均可通过键盘使用（无纯鼠标操作）"],'label_no_strict_time_limits_or':["No strict time limits, or users can extend/disable them", "无严格时间限制，或用户可以延长/禁用"],'label_no_content_that_flashes_m':["No content that flashes more than 3 times per second", "每秒闪烁不超过 3 次的内容"],'label_clear_navigation_skip_lin':["Clear navigation: skip links, page titles, focus order, link purpose", "清晰的导航：跳过链接、页面标题、焦点顺序、链接目的"],'label_page_language_declared_la':["Page language declared (lang attribute on html element)", "页面语言已声明（html 元素上的 lang 属性）"],'label_predictable_navigation_an':["Predictable navigation and consistent component behavior", "可预测的导航和一致的组件行为"],'label_input_assistance_labels_e':["Input assistance: labels, error messages, suggestions", "输入辅助：标签、错误消息、建议"],'label_error_prevention_for_lega':["Error prevention for legal/financial data (confirm, review, reverse)", "法律/财务数据的错误预防（确认、审查、撤销）"],'label_valid_html_with_proper_ne':["Valid HTML with proper nesting and unique IDs", "具有正确嵌套和唯一 ID 的有效 HTML"],'label_aria_roles_and_properties':["ARIA roles and properties used correctly", "正确使用的 ARIA 角色和属性"],'label_name_role_value_exposed_t':["Name, role, value exposed to assistive technology", "名称、角色、值暴露给辅助技术"],'label_status_messages_communica':["Status messages communicated without focus change (aria-live)", "状态消息在不改变焦点的情况下传达（aria-live）"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_contrast_check':["Contrast Check", "对比度检查"],'link_color_blind_sim':["Color Blind Sim", "色盲模拟"],'link_meta_tags':["Meta Tags", "Meta 标签"],'jtc_fail':["FAIL", "失败"],'jtc_pass':["PASS", "通过"],'jtc_pass_2':["PASS", "通过"],'jtc_fail_2':["FAIL", "失败"],'jtc_pass_3':["PASS", "通过"],'jtc_fail_3':["FAIL", "失败"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

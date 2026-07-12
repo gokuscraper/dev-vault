@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_array_methods_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,6 +81,10 @@ code { background: var(--surface-2); padding: 0.1rem 0.35rem; border-radius: 3px
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>Array Methods</span> Visualizer</h1>
   <p>Step-by-step visualization of JavaScript array operations</p>
@@ -88,9 +92,19 @@ code { background: var(--surface-2); padding: 0.1rem 0.35rem; border-radius: 3px
 <nav id="nav"></nav>
 <main id="main"></main>
 
+
+<script>var _LANG={'title_array_methods_visualizer':["Array Methods Visualizer", "数组方法可视化工具"],'metadesc_interactive_visualizer_fo':["Interactive visualizer for JavaScript array methods — map, filter, reduce, flatMap, groupBy, Set operations, and new ES2023/2024 methods.", "JavaScript 数组方法交互式可视化 — map、filter、reduce、flatMap、groupBy、Set 运算及 ES2023/2024 新方法。"],'h3_map_transform_each_elemen':["map() — Transform each element", "map() — 转换每个元素"],'h3_filter_keep_matching_elem':["filter() — Keep matching elements", "filter() — 保留匹配元素"],'h3_reduce_accumulate_to_sing':["reduce() — Accumulate to single value", "reduce() — 累积为单个值"],'h3_flatmap_map_flatten':["flatMap() — Map + Flatten", "flatMap() — 映射 + 展平"],'h3_array_methods_vs_for_loop':["Array Methods vs for Loop", "数组方法与 for 循环"],'h3_es2023_new_array_methods':["ES2023+ New Array Methods", "ES2023+ 新数组方法"],'h3_object_groupby_map_groupb':["Object.groupBy() / Map.groupBy()", "Object.groupBy() / Map.groupBy()"],'h3_mutable_vs_immutable_meth':["Mutable vs Immutable Methods", "可变与不可变方法"],'h3_performance_characteristi':["Performance Characteristics", "性能特征"],'h3_optimization_tips':["Optimization Tips", "优化建议"],'btn_visualize':["Visualize", "可视化"],'btn_visualize_2':["Visualize", "可视化"],'btn_visualize_3':["Visualize", "可视化"],'btn_visualize_4':["Visualize", "可视化"],'btn_run_all':["Run All", "全部运行"],'btn_run_demo':["Run Demo", "Run Demo"],'btn_run_demo_2':["Run Demo", "Run Demo"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'label_label':["${label}:", "${label}:"],'label_map_equivalent':["── map equivalent ──", "── map 等效 ──"],'label_filter_equivalent':["── filter equivalent ──", "── filter 等效 ──"],'label_reduce_equivalent':["── reduce equivalent ──", "── reduce 等效 ──"],'label_chaining_advantage':["── Chaining advantage ──", "── 链式优势 ──"],'label_polyfill_pattern':["Polyfill pattern:", "Polyfill 模式："],'th_operation':["Operation", "操作"],'th_mutating':["Mutating", "可变"],'th_immutable':["Immutable", "不可变"],'jtlword_visualize':["Visualize", "可视化"],'jtlword_visualize_2':["Visualize", "可视化"],'jtlword_visualize_3':["Visualize", "可视化"],'jtlword_visualize_4':["Visualize", "可视化"],'jtlword_es2024':["ES2024", "ES2024"],'jtlword_es2025':["ES2025", "ES2025"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function ln(label, value, cls='value') {
-  return `<span class="label">${label}: </span><span class="${cls}">${value}</span>\n`;
+  return `<span class="label" ti="label_label" ti="label_label">${label}: </span><span class="${cls}">${value}</span>\n`;
 }
 
 function arrViz(items, cls='normal') {
@@ -128,22 +142,22 @@ sec1.id = 'sec-classic';
 sec1.className = 'section active';
 sec1.innerHTML = `
 <div class="card">
-  <h3>map() — Transform each element</h3>
-  <button class="run" onclick="vizMap()">Visualize</button>
+  <h3 ti="h3_map_transform_each_elemen" ti="h3_map_transform_each_elemen">map() — Transform each element</h3>
+  <button class="run" onclick="vizMap()" ti="btn_visualize" ti="btn_visualize_2" ti="btn_visualize_3" ti="btn_visualize_4" ti="btn_visualize" ti="btn_visualize_2" ti="btn_visualize_3" ti="btn_visualize_4">Visualize</button>
   <div id="mapViz"></div>
 </div>
 <div class="card">
-  <h3>filter() — Keep matching elements</h3>
+  <h3 ti="h3_filter_keep_matching_elem" ti="h3_filter_keep_matching_elem">filter() — Keep matching elements</h3>
   <button class="run" onclick="vizFilter()">Visualize</button>
   <div id="filterViz"></div>
 </div>
 <div class="card">
-  <h3>reduce() — Accumulate to single value</h3>
+  <h3 ti="h3_reduce_accumulate_to_sing" ti="h3_reduce_accumulate_to_sing">reduce() — Accumulate to single value</h3>
   <button class="run" onclick="vizReduce()">Visualize</button>
   <div id="reduceViz"></div>
 </div>
 <div class="card">
-  <h3>flatMap() — Map + Flatten</h3>
+  <h3 ti="h3_flatmap_map_flatten" ti="h3_flatmap_map_flatten">flatMap() — Map + Flatten</h3>
   <button class="run" onclick="vizFlatMap()">Visualize</button>
   <div id="flatMapViz"></div>
 </div>`;
@@ -239,13 +253,13 @@ sec2.id = 'sec-forloop';
 sec2.className = 'section';
 sec2.innerHTML = `
 <div class="card">
-  <h3>Array Methods vs for Loop</h3>
+  <h3 ti="h3_array_methods_vs_for_loop" ti="h3_array_methods_vs_for_loop">Array Methods vs for Loop</h3>
   <p>Side-by-side comparison showing equivalent operations.</p>
   <div class="output" id="forOut"></div>
 </div>`;
 main.appendChild(sec2);
 
-document.getElementById('forOut').innerHTML = `<span class="label">── map equivalent ──</span>
+document.getElementById('forOut').innerHTML = `<span class="label" ti="label_map_equivalent" ti="label_map_equivalent">── map equivalent ──</span>
 
 <span class="warn">// for loop</span>
 const result = [];
@@ -256,7 +270,7 @@ for (let i = 0; i < arr.length; i++) {
 <span class="value">// Array method</span>
 const result = arr.map(x => x * 2);
 
-<span class="label">── filter equivalent ──</span>
+<span class="label" ti="label_filter_equivalent" ti="label_filter_equivalent">── filter equivalent ──</span>
 
 <span class="warn">// for loop</span>
 const result = [];
@@ -267,7 +281,7 @@ for (const item of arr) {
 <span class="value">// Array method</span>
 const result = arr.filter(x => x > 5);
 
-<span class="label">── reduce equivalent ──</span>
+<span class="label" ti="label_reduce_equivalent" ti="label_reduce_equivalent">── reduce equivalent ──</span>
 
 <span class="warn">// for loop</span>
 let sum = 0;
@@ -278,7 +292,7 @@ for (const n of arr) {
 <span class="value">// Array method</span>
 const sum = arr.reduce((acc, n) => acc + n, 0);
 
-<span class="label">── Chaining advantage ──</span>
+<span class="label" ti="label_chaining_advantage" ti="label_chaining_advantage">── Chaining advantage ──</span>
 
 <span class="warn">// for loop (nested, harder to read)</span>
 const result = [];
@@ -299,9 +313,9 @@ sec3.id = 'sec-newmethods';
 sec3.className = 'section';
 sec3.innerHTML = `
 <div class="card">
-  <h3>ES2023+ New Array Methods</h3>
+  <h3 ti="h3_es2023_new_array_methods" ti="h3_es2023_new_array_methods">ES2023+ New Array Methods</h3>
   <p>Interactive demos of recently added methods.</p>
-  <button class="run" onclick="runNewMethods()">Run All</button>
+  <button class="run" onclick="runNewMethods()" ti="btn_run_all" ti="btn_run_all">Run All</button>
   <div id="newOut"></div>
 </div>`;
 main.appendChild(sec3);
@@ -376,9 +390,9 @@ sec4.id = 'sec-groupby';
 sec4.className = 'section';
 sec4.innerHTML = `
 <div class="card">
-  <h3>Object.groupBy() / Map.groupBy()</h3>
+  <h3 ti="h3_object_groupby_map_groupb" ti="h3_object_groupby_map_groupb">Object.groupBy() / Map.groupBy()</h3>
   <p>Group array elements by a classifier function. <span class="badge badge-new">ES2024</span></p>
-  <button class="run" onclick="runGroupBy()">Run Demo</button>
+  <button class="run" onclick="runGroupBy()" ti="btn_run_demo" ti="btn_run_demo_2" ti="btn_run_demo" ti="btn_run_demo_2">Run Demo</button>
   <div id="groupOut"></div>
 </div>`;
 main.appendChild(sec4);
@@ -419,7 +433,7 @@ function runGroupBy() {
     html += '</div>';
   } else {
     html += '<div class="output"><span class="error">Object.groupBy() is not supported in this browser</span>\n\n';
-    html += '<span class="label">Polyfill pattern:</span>\n';
+    html += '<span class="label" ti="label_polyfill_pattern" ti="label_polyfill_pattern">Polyfill pattern:</span>\n';
     html += 'function groupBy(arr, fn) {\n  return arr.reduce((groups, item) => {\n    const key = fn(item);\n    (groups[key] ??= []).push(item);\n    return groups;\n  }, {});\n}';
     html += '</div>';
   }
@@ -515,9 +529,9 @@ sec6.id = 'sec-immutable';
 sec6.className = 'section';
 sec6.innerHTML = `
 <div class="card">
-  <h3>Mutable vs Immutable Methods</h3>
+  <h3 ti="h3_mutable_vs_immutable_meth" ti="h3_mutable_vs_immutable_meth">Mutable vs Immutable Methods</h3>
   <p>Some methods modify the original array; others return a new one.</p>
-  <button class="run" onclick="runMutability()">Run Comparison</button>
+  <button class="run" onclick="runMutability()" ti="btn_run_comparison" ti="btn_run_comparison">Run Comparison</button>
   <div id="mutOut"></div>
 </div>`;
 main.appendChild(sec6);
@@ -537,7 +551,7 @@ function runMutability() {
     { name: 'copyWithin()', mutable: true, immutable: '(manual)', category: 'Copy within' },
   ];
 
-  let html = '<table><thead><tr><th>Operation</th><th style="color:var(--red)">Mutating</th><th style="color:var(--green)">Immutable</th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th ti="th_operation" ti="th_operation">Operation</th><th style="color:var(--red)" ti="th_mutating" ti="th_mutating">Mutating</th><th style="color:var(--green)" ti="th_immutable" ti="th_immutable">Immutable</th></tr></thead><tbody>';
   for (const m of methods) {
     html += `<tr><td>${m.category}</td><td><code style="color:var(--red)">${m.name}</code></td><td><code style="color:var(--green)">${m.immutable}</code></td></tr>`;
   }
@@ -573,13 +587,13 @@ sec7.id = 'sec-perf';
 sec7.className = 'section';
 sec7.innerHTML = `
 <div class="card">
-  <h3>Performance Characteristics</h3>
+  <h3 ti="h3_performance_characteristi" ti="h3_performance_characteristi">Performance Characteristics</h3>
   <p>Benchmark array methods on different sizes.</p>
-  <button class="run" onclick="runPerfBench()">Run Benchmark</button>
+  <button class="run" onclick="runPerfBench()" ti="btn_run_benchmark" ti="btn_run_benchmark">Run Benchmark</button>
   <div class="output" id="perfOut"></div>
 </div>
 <div class="card">
-  <h3>Optimization Tips</h3>
+  <h3 ti="h3_optimization_tips" ti="h3_optimization_tips">Optimization Tips</h3>
   <div class="output"><span class="value">1. Avoid chaining filter().map() on huge arrays</span>
    // BAD: iterates twice
    arr.filter(x => x > 5).map(x => x * 2)
@@ -668,6 +682,46 @@ function runPerfBench() {
 
 // Auto-run first
 vizMap();
+</script>
+<script>var _LANG={'title_array_methods_visualizer':["Array Methods Visualizer", "数组方法可视化工具"],'metadesc_interactive_visualizer_fo':["Interactive visualizer for JavaScript array methods — map, filter, reduce, flatMap, groupBy, Set operations, and new ES2023/2024 methods.", "JavaScript 数组方法交互式可视化 — map、filter、reduce、flatMap、groupBy、Set 运算及 ES2023/2024 新方法。"],'h3_map_transform_each_elemen':["map() — Transform each element", "map() — 转换每个元素"],'h3_filter_keep_matching_elem':["filter() — Keep matching elements", "filter() — 保留匹配元素"],'h3_reduce_accumulate_to_sing':["reduce() — Accumulate to single value", "reduce() — 累积为单个值"],'h3_flatmap_map_flatten':["flatMap() — Map + Flatten", "flatMap() — 映射 + 展平"],'h3_array_methods_vs_for_loop':["Array Methods vs for Loop", "数组方法与 for 循环"],'h3_es2023_new_array_methods':["ES2023+ New Array Methods", "ES2023+ 新数组方法"],'h3_object_groupby_map_groupb':["Object.groupBy() / Map.groupBy()", "Object.groupBy() / Map.groupBy()"],'h3_mutable_vs_immutable_meth':["Mutable vs Immutable Methods", "可变与不可变方法"],'h3_performance_characteristi':["Performance Characteristics", "性能特征"],'h3_optimization_tips':["Optimization Tips", "优化建议"],'btn_visualize':["Visualize", "可视化"],'btn_visualize_2':["Visualize", "可视化"],'btn_visualize_3':["Visualize", "可视化"],'btn_visualize_4':["Visualize", "可视化"],'btn_run_all':["Run All", "全部运行"],'btn_run_demo':["Run Demo", "Run Demo"],'btn_run_demo_2':["Run Demo", "Run Demo"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'label_label':["${label}:", "${label}:"],'label_map_equivalent':["── map equivalent ──", "── map 等效 ──"],'label_filter_equivalent':["── filter equivalent ──", "── filter 等效 ──"],'label_reduce_equivalent':["── reduce equivalent ──", "── reduce 等效 ──"],'label_chaining_advantage':["── Chaining advantage ──", "── 链式优势 ──"],'label_polyfill_pattern':["Polyfill pattern:", "Polyfill 模式："],'th_operation':["Operation", "操作"],'th_mutating':["Mutating", "可变"],'th_immutable':["Immutable", "不可变"],'jtlword_visualize':["Visualize", "可视化"],'jtlword_visualize_2':["Visualize", "可视化"],'jtlword_visualize_3':["Visualize", "可视化"],'jtlword_visualize_4':["Visualize", "可视化"],'jtlword_es2024':["ES2024", "ES2024"],'jtlword_es2025':["ES2025", "ES2025"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

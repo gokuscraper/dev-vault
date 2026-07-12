@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_audio_visualizer_spectrum" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -84,18 +84,22 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Audio Visualizer</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_audio_visualizer" ti="h1_audio_visualizer">Audio Visualizer</h1>
   <p class="tagline">Spectrum Analyzer & Waveform</p>
 
   <div class="card">
     <div class="card-title">Audio Source</div>
     <div class="source-btns">
-      <button class="source-btn active" data-src="mic">Microphone</button>
-      <button class="source-btn" data-src="file">Audio File</button>
+      <button class="source-btn active" data-src="mic" ti="btn_microphone" ti="btn_microphone">Microphone</button>
+      <button class="source-btn" data-src="file" ti="btn_audio_file" ti="btn_audio_file">Audio File</button>
     </div>
     <div id="mic-panel">
-      <button id="mic-btn" class="action-btn btn-start">Start Microphone</button>
+      <button id="mic-btn" class="action-btn btn-start" ti="btn_start_microphone" ti="btn_start_microphone">Start Microphone</button>
       <p id="mic-error" class="error-msg"></p>
     </div>
     <div id="file-panel" class="hidden">
@@ -115,9 +119,9 @@ footer a:hover{text-decoration:underline}
   <div class="card">
     <div class="card-title">Visualization</div>
     <div class="viz-tabs">
-      <button class="viz-tab active" data-mode="bars">Frequency Bars</button>
-      <button class="viz-tab" data-mode="wave">Waveform</button>
-      <button class="viz-tab" data-mode="circle">Circular</button>
+      <button class="viz-tab active" data-mode="bars" ti="btn_frequency_bars" ti="btn_frequency_bars">Frequency Bars</button>
+      <button class="viz-tab" data-mode="wave" ti="btn_waveform" ti="btn_waveform">Waveform</button>
+      <button class="viz-tab" data-mode="circle" ti="btn_circular" ti="btn_circular">Circular</button>
     </div>
     <canvas id="canvas"></canvas>
   </div>
@@ -125,7 +129,7 @@ footer a:hover{text-decoration:underline}
   <div class="card">
     <div class="card-title">Controls</div>
     <div class="select-row">
-      <label>FFT Size</label>
+      <label ti="label_fft_size" ti="label_fft_size">FFT Size</label>
       <select id="fft-size">
         <option value="256">256</option>
         <option value="512">512</option>
@@ -135,31 +139,41 @@ footer a:hover{text-decoration:underline}
       </select>
     </div>
     <div class="slider-row">
-      <label>Smoothing</label>
+      <label ti="label_smoothing" ti="label_smoothing">Smoothing</label>
       <input type="range" id="smoothing" min="0" max="100" value="80">
       <span class="slider-val" id="smoothing-val">0.80</span>
     </div>
     <div class="slider-row">
-      <label>Gain</label>
+      <label ti="label_gain" ti="label_gain">Gain</label>
       <input type="range" id="gain" min="0" max="300" value="100">
       <span class="slider-val" id="gain-val">1.0x</span>
     </div>
     <div class="select-row">
-      <label>Color</label>
+      <label ti="label_color" ti="label_color">Color</label>
       <div class="color-btns">
-        <button class="color-btn active" data-theme="blue">Blue</button>
-        <button class="color-btn" data-theme="rainbow">Rainbow</button>
-        <button class="color-btn" data-theme="green">Green</button>
-        <button class="color-btn" data-theme="purple">Purple</button>
+        <button class="color-btn active" data-theme="blue" ti="btn_blue" ti="btn_blue">Blue</button>
+        <button class="color-btn" data-theme="rainbow" ti="btn_rainbow" ti="btn_rainbow">Rainbow</button>
+        <button class="color-btn" data-theme="green" ti="btn_green" ti="btn_green">Green</button>
+        <button class="color-btn" data-theme="purple" ti="btn_purple" ti="btn_purple">Purple</button>
       </div>
     </div>
   </div>
 
   <footer>
-    <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> &mdash; free browser tools for developers
-    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/tone-gen/">Tone Generator</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/noise-gen/">Noise Generator</a></div>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> &mdash; free browser tools for developers
+    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/tone-gen/" ti="link_tone_generator" ti="link_tone_generator">Tone Generator</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/noise-gen/" ti="link_noise_generator" ti="link_noise_generator">Noise Generator</a></div>
   </footer>
 </div>
+
+<script>var _LANG={'title_audio_visualizer_spectrum':["Audio Visualizer — Spectrum Analyzer & Waveform", "音频可视化 — 频谱分析仪与波形"],'metadesc_real_time_audio_visualize':["Real-time audio visualizer with spectrum analyzer, waveform oscilloscope, and circular display. Microphone or file input. No install, no tracking.", "实时音频可视化，带频谱分析仪、波形示波器和圆形显示。麦克风或文件输入。无需安装，无跟踪。"],'h1_audio_visualizer':["Audio Visualizer", "音频可视化"],'btn_microphone':["Microphone", "麦克风"],'btn_audio_file':["Audio File", "音频文件"],'btn_start_microphone':["Start Microphone", "启动麦克风"],'btn_frequency_bars':["Frequency Bars", "频率条"],'btn_waveform':["Waveform", "波形"],'btn_circular':["Circular", "圆形"],'btn_blue':["Blue", "蓝色"],'btn_rainbow':["Rainbow", "彩虹"],'btn_green':["Green", "绿色"],'btn_purple':["Purple", "紫色"],'label_fft_size':["FFT Size", "FFT 大小"],'label_smoothing':["Smoothing", "平滑"],'label_gain':["Gain", "增益"],'label_color':["Color", "颜色"],'link_dev_toolkit':["dev-toolkit", "dev-toolkit"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_noise_generator':["Noise Generator", "噪声发生器"],'jtc_start_microphone':["Start Microphone", "启动麦克风"],'jtc_start_microphone_2':["Start Microphone", "启动麦克风"],'jtc_stop_microphone':["Stop Microphone", "停止麦克风"],'jtc_microphone_access_denied':["Microphone access denied:", "麦克风访问被拒绝："],'jtcpre_microphone_access_denied':["Microphone access denied: ", "麦克风访问被拒绝："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -241,7 +255,7 @@ footer a:hover{text-decoration:underline}
   document.querySelectorAll('.source-btn').forEach(function(btn) {
     btn.addEventListener('click', function() {
       cleanUp();
-      micBtn.textContent = 'Start Microphone';
+      micBtn.textContent=T("jtc_start_microphone");
       micBtn.className = 'action-btn btn-start';
       playBtn.innerHTML = '&#9654;';
       playBtn.disabled = true;
@@ -276,7 +290,7 @@ footer a:hover{text-decoration:underline}
   micBtn.addEventListener('click', function() {
     if (isActive && currentSource === 'mic') {
       cleanUp();
-      micBtn.textContent = 'Start Microphone';
+      micBtn.textContent=T("jtc_start_microphone");
       micBtn.className = 'action-btn btn-start';
       micError.style.display = 'none';
       clearCanvas();
@@ -289,12 +303,12 @@ footer a:hover{text-decoration:underline}
       source = audioCtx.createMediaStreamSource(stream);
       source.connect(gainNode);
       isActive = true;
-      micBtn.textContent = 'Stop Microphone';
+      micBtn.textContent=T("jtc_stop_microphone");
       micBtn.className = 'action-btn btn-stop';
       micError.style.display = 'none';
       draw();
     }).catch(function(err) {
-      micError.textContent = 'Microphone access denied: ' + err.message;
+      micError.textContent=T("jtcpre_microphone_access_denied")+ err.message;
       micError.style.display = 'block';
     });
   });
@@ -536,6 +550,46 @@ footer a:hover{text-decoration:underline}
       ctx.stroke();
     }
   }
+})();
+</script>
+<script>var _LANG={'title_audio_visualizer_spectrum':["Audio Visualizer — Spectrum Analyzer & Waveform", "音频可视化 — 频谱分析仪与波形"],'metadesc_real_time_audio_visualize':["Real-time audio visualizer with spectrum analyzer, waveform oscilloscope, and circular display. Microphone or file input. No install, no tracking.", "实时音频可视化，带频谱分析仪、波形示波器和圆形显示。麦克风或文件输入。无需安装，无跟踪。"],'h1_audio_visualizer':["Audio Visualizer", "音频可视化"],'btn_microphone':["Microphone", "麦克风"],'btn_audio_file':["Audio File", "音频文件"],'btn_start_microphone':["Start Microphone", "启动麦克风"],'btn_frequency_bars':["Frequency Bars", "频率条"],'btn_waveform':["Waveform", "波形"],'btn_circular':["Circular", "圆形"],'btn_blue':["Blue", "蓝色"],'btn_rainbow':["Rainbow", "彩虹"],'btn_green':["Green", "绿色"],'btn_purple':["Purple", "紫色"],'label_fft_size':["FFT Size", "FFT 大小"],'label_smoothing':["Smoothing", "平滑"],'label_gain':["Gain", "增益"],'label_color':["Color", "颜色"],'link_dev_toolkit':["dev-toolkit", "dev-toolkit"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_noise_generator':["Noise Generator", "噪声发生器"],'jtc_start_microphone':["Start Microphone", "启动麦克风"],'jtc_start_microphone_2':["Start Microphone", "启动麦克风"],'jtc_stop_microphone':["Stop Microphone", "停止麦克风"],'jtc_microphone_access_denied':["Microphone access denied:", "麦克风访问被拒绝："],'jtcpre_microphone_access_denied':["Microphone access denied: ", "麦克风访问被拒绝："]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

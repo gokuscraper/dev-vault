@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_broadcast_channel_api_vis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,22 +79,24 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
-<h1>Broadcast Channel API Visualizer</h1>
+<h1 ti="title_broadcast_channel_api_vis" ti="h1_broadcast_channel_api_vis">Broadcast Channel API Visualizer</h1>
 <p>Explore cross-tab messaging, channel lifecycle, and message routing</p>
 </div>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
 <div style="margin-top:16px">
-<h3>Live Demo</h3>
+<h3 ti="h3_live_demo">Live Demo</h3>
 <div class="live-demo">
 <h4>Real BroadcastChannel</h4>
 <div class="input-row" style="margin-bottom:6px">
-<input id="liveMsg" placeholder="Type message..." style="width:100%">
+<input id="liveMsg" tp="placeholder_type_message" placeholder="Type message..." style="width:100%">
 </div>
-<button class="ctrl-btn primary" style="width:100%;margin-bottom:4px" onclick="sendLiveMessage()">Broadcast</button>
+<button class="ctrl-btn primary" style="width:100%;margin-bottom:4px" onclick="sendLiveMessage()" ti="btn_broadcast">Broadcast</button>
 <div id="liveLog" style="max-height:100px;overflow-y:auto;font-size:.7rem;color:#888"></div>
 <div class="live-status">Open this page in another tab to see real cross-tab messaging</div>
 </div>
@@ -104,11 +106,11 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <div class="controls">
 <button class="ctrl-btn primary" id="playBtn" onclick="play()">&#9654; Play</button>
 <button class="ctrl-btn" id="stepBtn" onclick="step()">Step &rarr;</button>
-<button class="ctrl-btn" onclick="resetScenario()">Reset</button>
+<button class="ctrl-btn" onclick="resetScenario()" ti="btn_reset">Reset</button>
 <span style="font-size:.75rem;color:#666;margin-left:8px" id="stepInfo">Step 0 / 0</span>
 </div>
 <div class="tabs-area">
-<h3>Simulated Browsing Contexts</h3>
+<h3 ti="h3_simulated_browsing_contex">Simulated Browsing Contexts</h3>
 <div id="tabGrid" class="tab-grid"></div>
 <div class="channel-hub">
 <div class="channel-pipe" id="channelPipe">
@@ -117,16 +119,26 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </div>
 </div>
 <div class="flow-log">
-<h3>Message Flow Log</h3>
+<h3 ti="h3_message_flow_log">Message Flow Log</h3>
 <div id="logArea"></div>
 </div>
 </div>
 <div class="ref-panel">
-<h3>Reference</h3>
+<h3 ti="h3_reference">Reference</h3>
 <div id="refContent"></div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_broadcast_channel_api_vis':["Broadcast Channel API Visualizer", "广播频道 API 可视化工具"],'metadesc_interactive_visualizer_fo':["Interactive visualizer for the BroadcastChannel API. Simulate cross-tab messaging, channel lifecycle, and message routing with visual diagrams.", "用于 BroadcastChannel API 的交互式可视化工具。通过可视化图表模拟交叉表消息传递、通道生命周期和消息路由。"],'h1_broadcast_channel_api_vis':["Broadcast Channel API Visualizer", "广播频道 API 可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_live_demo':["Live Demo", "在线演示"],'h3_simulated_browsing_contex':["Simulated Browsing Contexts", "模拟浏览环境"],'h3_message_flow_log':["Message Flow Log", "消息流日志"],'h3_reference':["Reference", "参考"],'btn_broadcast':["Broadcast", "播送"],'btn_play':["▶ Play", "▶ 播放"],'btn_step':["Step →", "步骤 →"],'btn_reset':["Reset", "重置"],'placeholder_type_message':["Type message...", "输入消息..."],'strong_same_origin':["same origin", "同源"],'strong_leader_election':["Leader Election", "领导人选举"],'strong_session_sync':["Session sync", "会话同步"],'strong_limitation':["Limitation:", "局限性："],'jtlword_code':["Code", "代码"],'jtlword_new':["new", "新的"],'jtlword_broadcastchannel':["BroadcastChannel", "广播频道"],'jtlword_name':["name", "姓名"],'jtlword_postmessage':["postMessage", "postMessage"],'jtlword_close':["close", "关闭"],'jtlword_onmessage':["onmessage", "onmessage"],'jtlword_onmessageerror':["onmessageerror", "onmessageerror"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -157,7 +169,7 @@ ch.<span class="fn">postMessage</span>({ theme: <span class="str">"dark"</span> 
 ch.<span class="fn">onmessage</span> = (e) <span class="op">=></span> {
   console.<span class="fn">log</span>(e.data); <span class="cm">// { theme: "dark" }</span>
 };`,
-    ref: '<p>BroadcastChannel connects all browsing contexts (tabs, iframes, workers) on the <strong>same origin</strong>.</p><p>The sender never receives its own message. Only other contexts listening on the same channel name get it.</p>'
+    ref: '<p>BroadcastChannel connects all browsing contexts (tabs, iframes, workers) on the <strong ti="strong_same_origin">same origin</strong>.</p><p>The sender never receives its own message. Only other contexts listening on the same channel name get it.</p>'
   },
   {
     name: 'Multiple Channels',
@@ -262,7 +274,7 @@ ch.<span class="fn">onmessage</span> = (e) <span class="op">=></span> {
     ch.<span class="fn">postMessage</span>({ type: <span class="str">"claim"</span>, id: tabId });
   }
 };`,
-    ref: '<p><strong>Leader Election</strong> is a classic pattern: only one tab handles expensive operations (WebSocket connections, background sync, polling).</p><p>When the leader tab closes, it broadcasts a "resign" message (or other tabs detect timeout) and a new election begins.</p><p>Libraries like <code>broadcast-channel</code> (npm) provide built-in leader election on top of this API.</p>'
+    ref: '<p><strong ti="strong_leader_election">Leader Election</strong> is a classic pattern: only one tab handles expensive operations (WebSocket connections, background sync, polling).</p><p>When the leader tab closes, it broadcasts a "resign" message (or other tabs detect timeout) and a new election begins.</p><p>Libraries like <code>broadcast-channel</code> (npm) provide built-in leader election on top of this API.</p>'
   },
   {
     name: 'Logout Sync',
@@ -301,7 +313,7 @@ session.<span class="fn">onmessage</span> = (e) <span class="op">=></span> {
   session.<span class="fn">postMessage</span>({ action: <span class="str">"logout"</span> });
   window.location.href = <span class="str">"/login"</span>;
 }`,
-    ref: '<p><strong>Session sync</strong> is the most common BroadcastChannel use case. Without it, logging out of one tab leaves other tabs in a stale authenticated state.</p><p>Also useful for login: when a user logs in on one tab, all others can refresh to show authenticated content.</p>'
+    ref: '<p><strong ti="strong_session_sync">Session sync</strong> is the most common BroadcastChannel use case. Without it, logging out of one tab leaves other tabs in a stale authenticated state.</p><p>Also useful for login: when a user logs in on one tab, all others can refresh to show authenticated content.</p>'
   },
   {
     name: 'Worker Communication',
@@ -337,7 +349,7 @@ bus.<span class="fn">onmessage</span> = (e) <span class="op">=></span> {
 
 <span class="cm">// Simpler than SharedWorker or</span>
 <span class="cm">// MessagePort for many-to-many</span>`,
-    ref: '<p>BroadcastChannel works in all execution contexts: windows, iframes, Web Workers, Service Workers, and Shared Workers.</p><p>It is a simpler alternative to SharedWorker or MessageChannel when you need many-to-many communication without caring about specific targets.</p><p><strong>Limitation:</strong> Messages are cloned via structured clone algorithm — no transferables like with <code>postMessage()</code>.</p>'
+    ref: '<p>BroadcastChannel works in all execution contexts: windows, iframes, Web Workers, Service Workers, and Shared Workers.</p><p>It is a simpler alternative to SharedWorker or MessageChannel when you need many-to-many communication without caring about specific targets.</p><p><strong ti="strong_limitation">Limitation:</strong> Messages are cloned via structured clone algorithm — no transferables like with <code>postMessage()</code>.</p>'
   },
 ];
 
@@ -596,6 +608,24 @@ function resetScenario() {
 // Init
 renderPresets();
 renderScenario();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

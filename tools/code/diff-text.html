@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_diff_text_compare_two_tex" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,21 +72,23 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Diff Text</h1>
-<p class="subtitle">Compare two texts. See additions, deletions, and changes highlighted.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_diff_text">Diff Text</h1>
+<p class="subtitle" ti="subtitle_compare_two_texts_see_add">Compare two texts. See additions, deletions, and changes highlighted.</p>
 
 <div class="input-grid">
   <div class="input-panel">
     <div class="input-label">Original</div>
-    <textarea id="textA" placeholder="Paste original text here...">The quick brown fox jumps over the lazy dog.
+    <textarea id="textA" tp="placeholder_paste_original_text_here" placeholder="Paste original text here...">The quick brown fox jumps over the lazy dog.
 She sells sea shells by the sea shore.
 Pack my box with five dozen liquor jugs.
 How vexingly quick daft zebras jump.</textarea>
   </div>
   <div class="input-panel">
     <div class="input-label">Modified</div>
-    <textarea id="textB" placeholder="Paste modified text here...">The quick brown cat jumps over the lazy dog.
+    <textarea id="textB" tp="placeholder_paste_modified_text_here" placeholder="Paste modified text here...">The quick brown cat jumps over the lazy dog.
 She sells sea shells on the sea shore.
 Pack my box with five dozen liquor jugs.
 The five boxing wizards jump quickly.
@@ -95,16 +97,16 @@ How vexingly quick daft zebras leap.</textarea>
 </div>
 
 <div class="toolbar">
-  <button class="btn primary" onclick="compare()">Compare</button>
-  <button class="btn" onclick="swap()">Swap</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="compare()" ti="btn_compare">Compare</button>
+  <button class="btn" onclick="swap()" ti="btn_swap">Swap</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
   <label class="toggle-label"><input type="checkbox" id="ignoreWs" onchange="compare()"> Ignore whitespace</label>
   <label class="toggle-label"><input type="checkbox" id="ignoreCase" onchange="compare()"> Ignore case</label>
 </div>
 
 <div class="mode-toggle">
-  <button class="mode-btn active" onclick="setMode('unified')" id="modeUnified">Unified</button>
-  <button class="mode-btn" onclick="setMode('inline')" id="modeInline">Word Diff</button>
+  <button class="mode-btn active" onclick="setMode('unified')" id="modeUnified" ti="btn_unified">Unified</button>
+  <button class="mode-btn" onclick="setMode('inline')" id="modeInline" ti="btn_word_diff">Word Diff</button>
 </div>
 
 <div class="stats-bar" id="statsBar"></div>
@@ -112,12 +114,22 @@ How vexingly quick daft zebras leap.</textarea>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/diff-text">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/word-count/">Word Count</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/regex-test/">Regex Test</a>
+  <a href="https://github.com/gokuscraper/diff-text" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count">Word Count</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/regex-test/" ti="link_regex_test">Regex Test</a>
 </footer>
 
+
+<script>var _LANG={'title_diff_text_compare_two_tex':["Diff Text — Compare Two Texts Side by Side", "文本差异比较 — 并排比较两段文本"],'metadesc_paste_two_texts_and_see_d':["Paste two texts and see differences highlighted. Line-by-line comparison with additions, deletions, and changes. Free, instant.", "粘贴两段文本，即可查看差异高亮显示。逐行比较，包括新增、删除和更改。免费，即时生效。"],'h1_diff_text':["Diff Text", "差异文本"],'subtitle_compare_two_texts_see_add':["Compare two texts. See additions, deletions, and changes highlighted.", "比较两段文本。注意图中高亮显示的新增内容、删除内容和更改之处。"],'btn_compare':["Compare", "比较"],'btn_swap':["Swap", "交换"],'btn_clear':["Clear", "清除"],'btn_unified':["Unified", "统一"],'btn_word_diff':["Word Diff", "词差"],'placeholder_paste_original_text_here':["Paste original text here...", "在此处粘贴原文……"],'placeholder_paste_modified_text_here':["Paste modified text here...", "在此处粘贴修改后的文本……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_word_count':["Word Count", "字数统计"],'link_json_format':["JSON Format", "JSON 格式"],'link_regex_test':["Regex Test", "正则表达式测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 let mode='unified';
@@ -275,12 +287,30 @@ function renderWordDiff(diff){
 compare();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-diff/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Diff</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

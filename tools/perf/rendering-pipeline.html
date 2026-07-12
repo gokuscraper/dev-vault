@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_browser_rendering_pipelin" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,9 +86,13 @@ header p{color:#888;font-size:0.85rem}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>Browser Rendering Pipeline Visualizer</h1>
+<h1 ti="title_browser_rendering_pipelin" ti="h1_browser_rendering_pipelin" ti="title_browser_rendering_pipelin" ti="h1_browser_rendering_pipelin">Browser Rendering Pipeline Visualizer</h1>
 <p>See which CSS properties trigger Layout, Paint, or Composite-only changes</p>
 </header>
 
@@ -105,25 +109,25 @@ header p{color:#888;font-size:0.85rem}
 </div>
 
 <div class="tabs">
-<button class="tab active" data-tab="tester">Property Tester</button>
-<button class="tab" data-tab="presets">Scenarios</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="tester" ti="btn_property_tester" ti="btn_property_tester">Property Tester</button>
+<button class="tab" data-tab="presets" ti="btn_scenarios" ti="btn_scenarios">Scenarios</button>
+<button class="tab" data-tab="reference" ti="btn_reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="tester">
-<input type="text" class="search-input" id="searchProp" placeholder="Search CSS properties... (e.g., transform, width, color)">
+<input type="text" class="search-input" id="searchProp" tp="placeholder_search_css_properties_e_g" tp="placeholder_search_css_properties_e_g" placeholder="Search CSS properties... (e.g., transform, width, color)">
 <div class="filter-row">
-<button class="filter-btn active f-layout" data-filter="layout">Layout (expensive)</button>
-<button class="filter-btn active f-paint" data-filter="paint">Paint (moderate)</button>
-<button class="filter-btn active f-composite" data-filter="composite">Composite (cheap)</button>
+<button class="filter-btn active f-layout" data-filter="layout" ti="btn_layout_expensive" ti="btn_layout_expensive">Layout (expensive)</button>
+<button class="filter-btn active f-paint" data-filter="paint" ti="btn_paint_moderate" ti="btn_paint_moderate">Paint (moderate)</button>
+<button class="filter-btn active f-composite" data-filter="composite" ti="btn_composite_cheap" ti="btn_composite_cheap">Composite (cheap)</button>
 </div>
 <div class="tester">
 <div class="prop-panel">
-<h3>CSS Properties</h3>
+<h3 ti="h3_css_properties" ti="h3_css_properties">CSS Properties</h3>
 <div class="prop-list" id="propList"></div>
 </div>
 <div class="detail-panel" id="detailPanel">
-<h3>Property Details</h3>
+<h3 ti="h3_property_details" ti="h3_property_details">Property Details</h3>
 <div id="propDetail">
 <div style="color:#555;padding:20px;text-align:center">Select a property to see its rendering cost</div>
 </div>
@@ -137,18 +141,18 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>The Rendering Pipeline</h3>
+<h3 ti="h3_the_rendering_pipeline" ti="h3_the_rendering_pipeline">The Rendering Pipeline</h3>
 <p>Every frame the browser displays goes through up to 5 stages:</p>
 <ul>
-<li><strong>JavaScript</strong>: Code that changes the DOM or CSSOM runs first</li>
-<li><strong>Style</strong>: Matched rules are recalculated (always happens if anything changed)</li>
-<li><strong>Layout (Reflow)</strong>: Geometry changes. Width, height, position, margin, padding. Most expensive step.</li>
-<li><strong>Paint (Repaint)</strong>: Visual changes. Color, background, shadow, border-style. Fills in pixels.</li>
-<li><strong>Composite</strong>: Layer composition. Transform, opacity. GPU-accelerated. Cheapest step.</li>
+<li><strong ti="strong_javascript" ti="strong_javascript">JavaScript</strong>: Code that changes the DOM or CSSOM runs first</li>
+<li><strong ti="strong_style" ti="strong_style">Style</strong>: Matched rules are recalculated (always happens if anything changed)</li>
+<li><strong ti="strong_layout_reflow" ti="strong_layout_reflow">Layout (Reflow)</strong>: Geometry changes. Width, height, position, margin, padding. Most expensive step.</li>
+<li><strong ti="strong_paint_repaint" ti="strong_paint_repaint">Paint (Repaint)</strong>: Visual changes. Color, background, shadow, border-style. Fills in pixels.</li>
+<li><strong ti="strong_composite" ti="strong_composite">Composite</strong>: Layer composition. Transform, opacity. GPU-accelerated. Cheapest step.</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Performance Tips</h3>
+<h3 ti="h3_performance_tips" ti="h3_performance_tips">Performance Tips</h3>
 <ul>
 <li>Prefer <code>transform</code> and <code>opacity</code> for animations — they skip Layout and Paint entirely</li>
 <li>Avoid animating <code>width</code>, <code>height</code>, <code>top</code>, <code>left</code> — they trigger Layout on every frame</li>
@@ -158,7 +162,7 @@ header p{color:#888;font-size:0.85rem}
 </ul>
 </div>
 <div class="ref-section">
-<h3>Forced Synchronous Layout</h3>
+<h3 ti="h3_forced_synchronous_layout" ti="h3_forced_synchronous_layout">Forced Synchronous Layout</h3>
 <p>The browser batches style/layout changes. But if you read a layout property after writing, the browser must calculate layout immediately:</p>
 <ul>
 <li><code>elem.style.width = '100px'; const w = elem.offsetWidth;</code> — forces layout between these two lines</li>
@@ -169,6 +173,26 @@ header p{color:#888;font-size:0.85rem}
 </div>
 </div>
 
+
+
+<script>var _LANG={'title_browser_rendering_pipelin':["Browser Rendering Pipeline Visualizer", "浏览器渲染管线可视化工具"],'metadesc_interactive_browser_rende':["Interactive browser rendering pipeline visualizer. See which CSS/JS changes trigger Layout, Paint, or Composite. Step through the pipeline: Parse → Style → Layout → Paint → Composite.", "交互式浏览器渲染管线可视化工具。查看哪些 CSS/JS 更改触发了布局、绘制或合成。逐步查看管线：解析 → 样式 → 布局 → 绘制 → 合成。"],'h1_browser_rendering_pipelin':["Browser Rendering Pipeline Visualizer", "浏览器渲染管线可视化工具"],'h3_css_properties':["CSS Properties", "CSS属性"],'h3_property_details':["Property Details", "房产详情"],'h3_the_rendering_pipeline':["The Rendering Pipeline", "渲染管线"],'h3_performance_tips':["Performance Tips", "性能提示"],'h3_forced_synchronous_layout':["Forced Synchronous Layout", "强制同步布局"],'btn_property_tester':["Property Tester", "属性测试器"],'btn_scenarios':["Scenarios", "场景"],'btn_reference':["Reference", "参考"],'btn_layout_expensive':["Layout (expensive)", "布局（昂贵）"],'btn_paint_moderate':["Paint (moderate)", "油漆（中等）"],'btn_composite_cheap':["Composite (cheap)", "复合材料（廉价）"],'placeholder_search_css_properties_e_g':["Search CSS properties... (e.g., transform, width, color)", "搜索 CSS 属性……（例如，transform、width、color）"],'strong_javascript':["JavaScript", "JavaScript"],'strong_style':["Style", "风格"],'strong_layout_reflow':["Layout (Reflow)", "布局（重排）"],'strong_paint_repaint':["Paint (Repaint)", "油漆（重新粉刷）"],'strong_composite':["Composite", "合成的"],'strong_costlabel':["${costLabel}", "${costLabel}"],'strong_skipped':["${skipped}", "${已跳过}"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_browser_rendering_pipelin':["Browser Rendering Pipeline Visualizer", "浏览器渲染管线可视化工具"],'metadesc_interactive_browser_rende':["Interactive browser rendering pipeline visualizer. See which CSS/JS changes trigger Layout, Paint, or Composite. Step through the pipeline: Parse → Style → Layout → Paint → Composite.", "交互式浏览器渲染管线可视化工具。查看哪些 CSS/JS 更改触发了布局、绘制或合成。逐步查看管线：解析 → 样式 → 布局 → 绘制 → 合成。"],'h1_browser_rendering_pipelin':["Browser Rendering Pipeline Visualizer", "浏览器渲染管线可视化工具"],'h3_css_properties':["CSS Properties", "CSS属性"],'h3_property_details':["Property Details", "房产详情"],'h3_the_rendering_pipeline':["The Rendering Pipeline", "渲染管线"],'h3_performance_tips':["Performance Tips", "性能提示"],'h3_forced_synchronous_layout':["Forced Synchronous Layout", "强制同步布局"],'btn_property_tester':["Property Tester", "属性测试器"],'btn_scenarios':["Scenarios", "场景"],'btn_reference':["Reference", "参考"],'btn_layout_expensive':["Layout (expensive)", "布局（昂贵）"],'btn_paint_moderate':["Paint (moderate)", "油漆（中等）"],'btn_composite_cheap':["Composite (cheap)", "复合材料（廉价）"],'placeholder_search_css_properties_e_g':["Search CSS properties... (e.g., transform, width, color)", "搜索 CSS 属性……（例如，transform、width、color）"],'strong_javascript':["JavaScript", "JavaScript"],'strong_style':["Style", "风格"],'strong_layout_reflow':["Layout (Reflow)", "布局（重排）"],'strong_paint_repaint':["Paint (Repaint)", "油漆（重新粉刷）"],'strong_composite':["Composite", "合成的"],'strong_costlabel':["${costLabel}", "${costLabel}"],'strong_skipped':["${skipped}", "${已跳过}"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // CSS property → trigger data
 // Sources: https://csstriggers.com (archived), Chrome DevTools documentation
@@ -311,8 +335,8 @@ function renderDetail(prop) {
         <div class="pipeline-path">${pathHTML}</div>
       </div>
       <div style="display:flex;gap:16px;font-size:0.8rem;margin-top:8px">
-        <div><span style="color:#888">Cost:</span> <strong>${costLabel}</strong></div>
-        <div><span style="color:#888">Skips:</span> <strong>${skipped}</strong></div>
+        <div><span style="color:#888">Cost:</span> <strong ti="strong_costlabel" ti="strong_costlabel">${costLabel}</strong></div>
+        <div><span style="color:#888">Skips:</span> <strong ti="strong_skipped" ti="strong_skipped">${skipped}</strong></div>
       </div>
     </div>
     ${prop.tip ? `<div class="tip-box"><h5>💡 Performance Tip</h5><p>${prop.tip}</p></div>` : ''}
@@ -413,6 +437,42 @@ SCENARIOS.forEach(s => {
 
 // Init
 renderPropList();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_tsconfig_json_generator_t" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,31 +48,33 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>tsconfig.json Generator</h1>
-<p class="sub">Build TypeScript configuration visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_tsconfig_json_generator">tsconfig.json Generator</h1>
+<p class="sub" ti="subtitle_build_typescript_configur">Build TypeScript configuration visually</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Compiler Options — Target & Module</h3>
+<h3 ti="h3_compiler_options_target_m">Compiler Options — Target & Module</h3>
 <div class="row">
-<div class="col"><label>target</label>
+<div class="col"><label ti="label_target">target</label>
 <select id="oTarget" onchange="gen()">
 <option>ES5</option><option>ES2015</option><option>ES2016</option><option>ES2017</option><option>ES2018</option><option>ES2019</option><option>ES2020</option><option>ES2021</option><option selected>ES2022</option><option>ES2023</option><option>ESNext</option>
 </select></div>
-<div class="col"><label>module</label>
+<div class="col"><label ti="label_module">module</label>
 <select id="oModule" onchange="gen()">
 <option>CommonJS</option><option>AMD</option><option>UMD</option><option>ES2015</option><option>ES2020</option><option>ES2022</option><option selected>ESNext</option><option>Node16</option><option>NodeNext</option><option>None</option><option>Preserve</option>
 </select></div>
-<div class="col"><label>moduleResolution</label>
+<div class="col"><label ti="label_moduleresolution">moduleResolution</label>
 <select id="oModRes" onchange="gen()">
 <option>node</option><option>classic</option><option selected>bundler</option><option>node16</option><option>nodenext</option>
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>lib (comma-sep)</label><input id="oLib" oninput="gen()" placeholder="ES2022, DOM, DOM.Iterable"></div>
-<div class="col"><label>jsx</label>
+<div class="col"><label ti="label_lib_comma_sep">lib (comma-sep)</label><input id="oLib" oninput="gen()" tp="placeholder_es2022_dom_dom_iterable" placeholder="ES2022, DOM, DOM.Iterable"></div>
+<div class="col"><label ti="label_jsx">jsx</label>
 <select id="oJsx" onchange="gen()">
 <option value="">None</option><option>preserve</option><option>react</option><option>react-jsx</option><option>react-jsxdev</option><option>react-native</option>
 </select></div>
@@ -80,80 +82,90 @@ input:focus,select:focus{border-color:#3b82f6}
 </div>
 
 <div class="section">
-<h3>Strict Checks</h3>
+<h3 ti="h3_strict_checks">Strict Checks</h3>
 <div class="row">
 <div class="col">
-<div class="check-row"><input type="checkbox" id="oStrict" checked onchange="gen()"><label for="oStrict">strict (enables all below)</label></div>
-<div class="check-row"><input type="checkbox" id="oNoImplicitAny" onchange="gen()"><label for="oNoImplicitAny">noImplicitAny</label></div>
-<div class="check-row"><input type="checkbox" id="oStrictNull" onchange="gen()"><label for="oStrictNull">strictNullChecks</label></div>
-<div class="check-row"><input type="checkbox" id="oStrictFunc" onchange="gen()"><label for="oStrictFunc">strictFunctionTypes</label></div>
+<div class="check-row"><input type="checkbox" id="oStrict" checked onchange="gen()"><label for="oStrict" ti="label_strict_enables_all_below">strict (enables all below)</label></div>
+<div class="check-row"><input type="checkbox" id="oNoImplicitAny" onchange="gen()"><label for="oNoImplicitAny" ti="label_noimplicitany">noImplicitAny</label></div>
+<div class="check-row"><input type="checkbox" id="oStrictNull" onchange="gen()"><label for="oStrictNull" ti="label_strictnullchecks">strictNullChecks</label></div>
+<div class="check-row"><input type="checkbox" id="oStrictFunc" onchange="gen()"><label for="oStrictFunc" ti="label_strictfunctiontypes">strictFunctionTypes</label></div>
 </div>
 <div class="col">
-<div class="check-row"><input type="checkbox" id="oNoUnused" checked onchange="gen()"><label for="oNoUnused">noUnusedLocals</label></div>
-<div class="check-row"><input type="checkbox" id="oNoUnusedP" checked onchange="gen()"><label for="oNoUnusedP">noUnusedParameters</label></div>
-<div class="check-row"><input type="checkbox" id="oNoFallthrough" checked onchange="gen()"><label for="oNoFallthrough">noFallthroughCasesInSwitch</label></div>
-<div class="check-row"><input type="checkbox" id="oExactOptional" checked onchange="gen()"><label for="oExactOptional">exactOptionalPropertyTypes</label></div>
+<div class="check-row"><input type="checkbox" id="oNoUnused" checked onchange="gen()"><label for="oNoUnused" ti="label_nounusedlocals">noUnusedLocals</label></div>
+<div class="check-row"><input type="checkbox" id="oNoUnusedP" checked onchange="gen()"><label for="oNoUnusedP" ti="label_nounusedparameters">noUnusedParameters</label></div>
+<div class="check-row"><input type="checkbox" id="oNoFallthrough" checked onchange="gen()"><label for="oNoFallthrough" ti="label_nofallthroughcasesinswitc">noFallthroughCasesInSwitch</label></div>
+<div class="check-row"><input type="checkbox" id="oExactOptional" checked onchange="gen()"><label for="oExactOptional" ti="label_exactoptionalpropertytype">exactOptionalPropertyTypes</label></div>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3>Output</h3>
+<h3 ti="h3_output">Output</h3>
 <div class="row">
-<div class="col"><label>outDir</label><input id="oOutDir" oninput="gen()" placeholder="dist"></div>
-<div class="col"><label>rootDir</label><input id="oRootDir" oninput="gen()" placeholder="src"></div>
+<div class="col"><label ti="label_outdir">outDir</label><input id="oOutDir" oninput="gen()" tp="placeholder_dist" placeholder="dist"></div>
+<div class="col"><label ti="label_rootdir">rootDir</label><input id="oRootDir" oninput="gen()" tp="placeholder_src" placeholder="src"></div>
 </div>
 <div class="row">
 <div class="col">
-<div class="check-row"><input type="checkbox" id="oDecl" checked onchange="gen()"><label for="oDecl">declaration</label></div>
-<div class="check-row"><input type="checkbox" id="oDeclMap" onchange="gen()"><label for="oDeclMap">declarationMap</label></div>
-<div class="check-row"><input type="checkbox" id="oSourceMap" checked onchange="gen()"><label for="oSourceMap">sourceMap</label></div>
+<div class="check-row"><input type="checkbox" id="oDecl" checked onchange="gen()"><label for="oDecl" ti="label_declaration">declaration</label></div>
+<div class="check-row"><input type="checkbox" id="oDeclMap" onchange="gen()"><label for="oDeclMap" ti="label_declarationmap">declarationMap</label></div>
+<div class="check-row"><input type="checkbox" id="oSourceMap" checked onchange="gen()"><label for="oSourceMap" ti="label_sourcemap">sourceMap</label></div>
 </div>
 <div class="col">
-<div class="check-row"><input type="checkbox" id="oEmitDecl" onchange="gen()"><label for="oEmitDecl">emitDeclarationOnly</label></div>
-<div class="check-row"><input type="checkbox" id="oNoEmit" onchange="gen()"><label for="oNoEmit">noEmit</label></div>
-<div class="check-row"><input type="checkbox" id="oIncremental" onchange="gen()"><label for="oIncremental">incremental</label></div>
+<div class="check-row"><input type="checkbox" id="oEmitDecl" onchange="gen()"><label for="oEmitDecl" ti="label_emitdeclarationonly">emitDeclarationOnly</label></div>
+<div class="check-row"><input type="checkbox" id="oNoEmit" onchange="gen()"><label for="oNoEmit" ti="label_noemit">noEmit</label></div>
+<div class="check-row"><input type="checkbox" id="oIncremental" onchange="gen()"><label for="oIncremental" ti="label_incremental">incremental</label></div>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3>Interop & Resolution</h3>
-<div class="check-row"><input type="checkbox" id="oEsInterop" checked onchange="gen()"><label for="oEsInterop">esModuleInterop</label></div>
-<div class="check-row"><input type="checkbox" id="oSynDefault" onchange="gen()"><label for="oSynDefault">allowSyntheticDefaultImports</label></div>
-<div class="check-row"><input type="checkbox" id="oResolveJson" checked onchange="gen()"><label for="oResolveJson">resolveJsonModule</label></div>
-<div class="check-row"><input type="checkbox" id="oIsolated" checked onchange="gen()"><label for="oIsolated">isolatedModules</label></div>
-<div class="check-row"><input type="checkbox" id="oSkipLib" checked onchange="gen()"><label for="oSkipLib">skipLibCheck</label></div>
-<div class="check-row"><input type="checkbox" id="oForceConsistent" checked onchange="gen()"><label for="oForceConsistent">forceConsistentCasingInFileNames</label></div>
-<div class="check-row"><input type="checkbox" id="oVerbatim" onchange="gen()"><label for="oVerbatim">verbatimModuleSyntax</label></div>
+<h3 ti="h3_interop_resolution">Interop & Resolution</h3>
+<div class="check-row"><input type="checkbox" id="oEsInterop" checked onchange="gen()"><label for="oEsInterop" ti="label_esmoduleinterop">esModuleInterop</label></div>
+<div class="check-row"><input type="checkbox" id="oSynDefault" onchange="gen()"><label for="oSynDefault" ti="label_allowsyntheticdefaultimpo">allowSyntheticDefaultImports</label></div>
+<div class="check-row"><input type="checkbox" id="oResolveJson" checked onchange="gen()"><label for="oResolveJson" ti="label_resolvejsonmodule">resolveJsonModule</label></div>
+<div class="check-row"><input type="checkbox" id="oIsolated" checked onchange="gen()"><label for="oIsolated" ti="label_isolatedmodules">isolatedModules</label></div>
+<div class="check-row"><input type="checkbox" id="oSkipLib" checked onchange="gen()"><label for="oSkipLib" ti="label_skiplibcheck">skipLibCheck</label></div>
+<div class="check-row"><input type="checkbox" id="oForceConsistent" checked onchange="gen()"><label for="oForceConsistent" ti="label_forceconsistentcasinginfi">forceConsistentCasingInFileNames</label></div>
+<div class="check-row"><input type="checkbox" id="oVerbatim" onchange="gen()"><label for="oVerbatim" ti="label_verbatimmodulesyntax">verbatimModuleSyntax</label></div>
 </div>
 
 <div class="section">
-<h3>Path Aliases</h3>
-<div class="row"><div class="col"><label>baseUrl</label><input id="oBaseUrl" oninput="gen()" placeholder="."></div></div>
+<h3 ti="h3_path_aliases">Path Aliases</h3>
+<div class="row"><div class="col"><label ti="label_baseurl">baseUrl</label><input id="oBaseUrl" oninput="gen()" placeholder="."></div></div>
 <div id="pathsList"></div>
-<button class="add-btn" onclick="addPath()">+ Add Path Alias</button>
+<button class="add-btn" onclick="addPath()" ti="btn_add_path_alias">+ Add Path Alias</button>
 <p class="hint">e.g., @/* → src/*</p>
 </div>
 
 <div class="section">
-<h3>Include / Exclude</h3>
+<h3 ti="h3_include_exclude">Include / Exclude</h3>
 <div class="row">
-<div class="col"><label>include</label><input id="oInclude" oninput="gen()" placeholder="src/**/*.ts, src/**/*.tsx"></div>
-<div class="col"><label>exclude</label><input id="oExclude" oninput="gen()" placeholder="node_modules, dist"></div>
+<div class="col"><label ti="label_include">include</label><input id="oInclude" oninput="gen()" tp="placeholder_src_ts_src_tsx" placeholder="src/**/*.ts, src/**/*.tsx"></div>
+<div class="col"><label ti="label_exclude">exclude</label><input id="oExclude" oninput="gen()" tp="placeholder_node_modules_dist" placeholder="node_modules, dist"></div>
 </div>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/">GH Actions Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/" ti="link_package_json_gen">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/" ti="link_gh_actions_gen">GH Actions Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_tsconfig_json_generator_t':["tsconfig.json Generator — TypeScript Config Builder", "tsconfig.json 生成器 — TypeScript 配置构建器"],'metadesc_generate_tsconfig_json_vi':["Generate tsconfig.json visually. Strict mode, ESM, path aliases, JSX. 8 project presets. No signup.", "可视化生成 tsconfig.json 文件。支持严格模式、ESM、路径别名和 JSX。提供 8 个项目预设。无需注册。"],'h1_tsconfig_json_generator':["tsconfig.json Generator", "tsconfig.json 生成器"],'h3_compiler_options_target_m':["Compiler Options — Target & Module", "编译器选项 — 目标和模块"],'h3_strict_checks':["Strict Checks", "严格检查"],'h3_output':["Output", "输出"],'h3_interop_resolution':["Interop & Resolution", "互操作性和分辨率"],'h3_path_aliases':["Path Aliases", "路径别名"],'h3_include_exclude':["Include / Exclude", "包含/排除"],'subtitle_build_typescript_configur':["Build TypeScript configuration visually", "以可视化方式构建 TypeScript 配置"],'btn_add_path_alias':["+ Add Path Alias", "+ 添加路径别名"],'btn_copy':["Copy", "复制"],'placeholder_es2022_dom_dom_iterable':["ES2022, DOM, DOM.Iterable", "ES2022、DOM、DOM.Iterable"],'placeholder_dist':["dist", "分布"],'placeholder_src':["src", "来源"],'placeholder_src_ts_src_tsx':["src/**/*.ts, src/**/*.tsx", "src/**/*.ts，src/**/*.tsx"],'placeholder_node_modules_dist':["node_modules, dist", "node_modules，dist"],'placeholder_x':["@/*", "@/*"],'placeholder_src_2':["src/*", "src/*"],'label_target':["target", "目标"],'label_module':["module", "模块"],'label_moduleresolution':["moduleResolution", "模块分辨率"],'label_lib_comma_sep':["lib (comma-sep)", "lib（逗号分隔）"],'label_jsx':["jsx", "jsx"],'label_strict_enables_all_below':["strict (enables all below)", "严格模式（启用以下所有选项）"],'label_noimplicitany':["noImplicitAny", "noImplicitAny"],'label_strictnullchecks':["strictNullChecks", "严格空值检查"],'label_strictfunctiontypes':["strictFunctionTypes", "严格函数类型"],'label_nounusedlocals':["noUnusedLocals", "没有未使用的本地变量"],'label_nounusedparameters':["noUnusedParameters", "没有未使用的参数"],'label_nofallthroughcasesinswitc':["noFallthroughCasesInSwitch", "noFallthroughCasesInSwitch"],'label_exactoptionalpropertytype':["exactOptionalPropertyTypes", "精确可选属性类型"],'label_outdir':["outDir", "输出目录"],'label_rootdir':["rootDir", "根目录"],'label_declaration':["declaration", "宣言"],'label_declarationmap':["declarationMap", "声明映射"],'label_sourcemap':["sourceMap", "源地图"],'label_emitdeclarationonly':["emitDeclarationOnly", "仅发出声明"],'label_noemit':["noEmit", "不发射"],'label_incremental':["incremental", "增量"],'label_esmoduleinterop':["esModuleInterop", "esModuleInterop"],'label_allowsyntheticdefaultimpo':["allowSyntheticDefaultImports", "允许合成默认导入"],'label_resolvejsonmodule':["resolveJsonModule", "resolveJsonModule"],'label_isolatedmodules':["isolatedModules", "隔离模块"],'label_skiplibcheck':["skipLibCheck", "跳过库检查"],'label_forceconsistentcasinginfi':["forceConsistentCasingInFileNames", "强制文件名大小写一致"],'label_verbatimmodulesyntax':["verbatimModuleSyntax", "verbatim模块语法"],'label_baseurl':["baseUrl", "基本网址"],'label_include':["include", "包括"],'label_exclude':["exclude", "排除"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_package_json_gen':["package.json Gen", "package.json 生成"],'link_json_format':["JSON Format", "JSON 格式"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = {
   'Node.js (ESM)': {target:'ES2022',module:'NodeNext',modRes:'nodenext',lib:'',jsx:'',strict:true,outDir:'dist',rootDir:'src',decl:true,sourceMap:true,noEmit:false,esInterop:true,resolveJson:true,isolated:true,skipLib:true,forceCase:true,include:'src/**/*.ts',exclude:'node_modules, dist',noUnused:true,noUnusedP:true,noFallthrough:true,exactOptional:false,baseUrl:'',paths:[],verbatim:true,declMap:false,emitDecl:false,incremental:false,noImplicitAny:false,strictNull:false,strictFunc:false,synDefault:false},
@@ -222,9 +234,9 @@ function renderPaths(){
   const c=document.getElementById('pathsList');c.innerHTML='';
   paths.forEach((p,i)=>{
     const d=document.createElement('div');d.className='kv-row';
-    d.innerHTML=`<input style="max-width:120px" value="${esc(p.k)}" onchange="paths[${i}].k=this.value;gen()" placeholder="@/*">
+    d.innerHTML=`<input style="max-width:120px" value="${esc(p.k)}" onchange="paths[${i}].k=this.value;gen()" tp="placeholder_x" placeholder="@/*">
     <span style="color:#666">→</span>
-    <input value="${esc(p.v)}" onchange="paths[${i}].v=this.value;gen()" placeholder="src/*">
+    <input value="${esc(p.v)}" onchange="paths[${i}].v=this.value;gen()" tp="placeholder_src_2" placeholder="src/*">
     <span class="rm" onclick="removePath(${i})">✕</span>`;
     c.appendChild(d);
   });
@@ -289,6 +301,24 @@ function copyOut(){
 
 initPresets();
 loadPreset('Node.js (ESM)');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

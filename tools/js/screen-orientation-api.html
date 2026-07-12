@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_screen_orientation_api_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -527,13 +527,17 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Screen Orientation API Playground</h1>
+  <h1 ti="title_screen_orientation_api_pl" ti="h1_screen_orientation_api_pl" ti="title_screen_orientation_api_pl" ti="h1_screen_orientation_api_pl">Screen Orientation API Playground</h1>
   <p>Explore orientation types, angles, lock modes, and real-time change events</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- API Support -->
   <div class="support-banner" id="supportBanner">
@@ -552,27 +556,27 @@
       </div>
       <div class="orientation-info">
         <div class="info-row">
-          <span class="label">orientation.type</span>
+          <span class="label" ti="label_orientation_type" ti="label_orientation_type">orientation.type</span>
           <span class="value" id="infoType">--</span>
         </div>
         <div class="info-row">
-          <span class="label">orientation.angle</span>
+          <span class="label" ti="label_orientation_angle" ti="label_orientation_angle">orientation.angle</span>
           <span class="value" id="infoAngle">--</span>
         </div>
         <div class="info-row">
-          <span class="label">window.innerWidth</span>
+          <span class="label" ti="label_window_innerwidth" ti="label_window_innerwidth">window.innerWidth</span>
           <span class="value" id="infoWidth">--</span>
         </div>
         <div class="info-row">
-          <span class="label">window.innerHeight</span>
+          <span class="label" ti="label_window_innerheight" ti="label_window_innerheight">window.innerHeight</span>
           <span class="value" id="infoHeight">--</span>
         </div>
         <div class="info-row">
-          <span class="label">devicePixelRatio</span>
+          <span class="label" ti="label_devicepixelratio" ti="label_devicepixelratio">devicePixelRatio</span>
           <span class="value" id="infoDPR">--</span>
         </div>
         <div class="info-row">
-          <span class="label">screen.width x height</span>
+          <span class="label" ti="label_screen_width_x_height" ti="label_screen_width_x_height">screen.width x height</span>
           <span class="value" id="infoScreen">--</span>
         </div>
       </div>
@@ -614,18 +618,18 @@
         Lock requires fullscreen on most browsers. Click a lock type then enter fullscreen.
       </p>
       <div class="lock-controls">
-        <button onclick="lockOrientation('any')">any</button>
-        <button onclick="lockOrientation('natural')">natural</button>
-        <button onclick="lockOrientation('landscape')">landscape</button>
-        <button onclick="lockOrientation('portrait')">portrait</button>
-        <button onclick="lockOrientation('portrait-primary')">portrait-primary</button>
-        <button onclick="lockOrientation('portrait-secondary')">portrait-secondary</button>
-        <button onclick="lockOrientation('landscape-primary')">landscape-primary</button>
-        <button onclick="lockOrientation('landscape-secondary')">landscape-secondary</button>
+        <button onclick="lockOrientation('any')" ti="btn_any" ti="btn_any">any</button>
+        <button onclick="lockOrientation('natural')" ti="btn_natural" ti="btn_natural">natural</button>
+        <button onclick="lockOrientation('landscape')" ti="btn_landscape" ti="btn_landscape">landscape</button>
+        <button onclick="lockOrientation('portrait')" ti="btn_portrait" ti="btn_portrait">portrait</button>
+        <button onclick="lockOrientation('portrait-primary')" ti="btn_portrait_primary" ti="btn_portrait_primary">portrait-primary</button>
+        <button onclick="lockOrientation('portrait-secondary')" ti="btn_portrait_secondary" ti="btn_portrait_secondary">portrait-secondary</button>
+        <button onclick="lockOrientation('landscape-primary')" ti="btn_landscape_primary" ti="btn_landscape_primary">landscape-primary</button>
+        <button onclick="lockOrientation('landscape-secondary')" ti="btn_landscape_secondary" ti="btn_landscape_secondary">landscape-secondary</button>
       </div>
       <div class="controls-row">
-        <button class="primary" onclick="enterFullscreen()">Enter Fullscreen</button>
-        <button onclick="unlockOrientation()">Unlock</button>
+        <button class="primary" onclick="enterFullscreen()" ti="btn_enter_fullscreen" ti="btn_enter_fullscreen">Enter Fullscreen</button>
+        <button onclick="unlockOrientation()" ti="btn_unlock" ti="btn_unlock">Unlock</button>
       </div>
       <div class="lock-status" id="lockStatus">No lock active</div>
       <p class="simulate-note">On desktop, orientation lock may not be available. Use mobile or DevTools device emulation.</p>
@@ -635,7 +639,7 @@
     <div class="card">
       <h2><span class="icon">&#x1F4DD;</span> Orientation Change Events</h2>
       <div class="controls-row" style="margin-bottom:0.75rem">
-        <button onclick="clearTimeline()">Clear</button>
+        <button onclick="clearTimeline()" ti="btn_clear" ti="btn_clear">Clear</button>
         <span style="font-size:0.8rem;color:var(--text-dim)">Events: <strong id="eventCount">0</strong></span>
       </div>
       <div class="timeline" id="timeline">
@@ -682,7 +686,7 @@
     <h2><span class="icon">&#x1F4BB;</span> Mobile vs Desktop Behavior</h2>
     <div class="platform-grid">
       <div class="platform-card">
-        <h3>Mobile Devices</h3>
+        <h3 ti="h3_mobile_devices" ti="h3_mobile_devices">Mobile Devices</h3>
         <ul>
           <li>Physical accelerometer drives orientation.type</li>
           <li>orientation.lock() works in fullscreen</li>
@@ -693,7 +697,7 @@
         </ul>
       </div>
       <div class="platform-card">
-        <h3>Desktop Browsers</h3>
+        <h3 ti="h3_desktop_browsers" ti="h3_desktop_browsers">Desktop Browsers</h3>
         <ul>
           <li>Orientation based on window dimensions</li>
           <li>orientation.lock() usually throws NotSupportedError</li>
@@ -743,6 +747,26 @@ screen.orientation.<span class="fn">unlock</span>();
   Screen Orientation API Playground &mdash; No external dependencies
 </footer>
 
+
+
+<script>var _LANG={'title_screen_orientation_api_pl':["Screen Orientation API Playground", "屏幕方向 API 测试平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Screen Orientation API. Explore orientation types, angles, lock modes, and change events in real time.", "屏幕方向 API 的交互式演示环境。实时探索方向类型、角度、锁定模式和更改事件。"],'h1_screen_orientation_api_pl':["Screen Orientation API Playground", "屏幕方向 API 测试平台"],'h3_mobile_devices':["Mobile Devices", "移动设备"],'h3_desktop_browsers':["Desktop Browsers", "桌面浏览器"],'btn_any':["any", "任何"],'btn_natural':["natural", "自然的"],'btn_landscape':["landscape", "景观"],'btn_portrait':["portrait", "肖像"],'btn_portrait_primary':["portrait-primary", "人像-主要"],'btn_portrait_secondary':["portrait-secondary", "人像辅助"],'btn_landscape_primary':["landscape-primary", "景观-主要"],'btn_landscape_secondary':["landscape-secondary", "景观次要"],'btn_enter_fullscreen':["Enter Fullscreen", "进入全屏模式"],'btn_unlock':["Unlock", "开锁"],'btn_clear':["Clear", "清除"],'label_orientation_type':["orientation.type", "方向类型"],'label_orientation_angle':["orientation.angle", "方向角"],'label_window_innerwidth':["window.innerWidth", "window.innerWidth"],'label_window_innerheight':["window.innerHeight", "window.innerHeight"],'label_devicepixelratio':["devicePixelRatio", "设备像素比"],'label_screen_width_x_height':["screen.width x height", "屏幕宽度 x 高度"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_screen_orientation_api_pl':["Screen Orientation API Playground", "屏幕方向 API 测试平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Screen Orientation API. Explore orientation types, angles, lock modes, and change events in real time.", "屏幕方向 API 的交互式演示环境。实时探索方向类型、角度、锁定模式和更改事件。"],'h1_screen_orientation_api_pl':["Screen Orientation API Playground", "屏幕方向 API 测试平台"],'h3_mobile_devices':["Mobile Devices", "移动设备"],'h3_desktop_browsers':["Desktop Browsers", "桌面浏览器"],'btn_any':["any", "任何"],'btn_natural':["natural", "自然的"],'btn_landscape':["landscape", "景观"],'btn_portrait':["portrait", "肖像"],'btn_portrait_primary':["portrait-primary", "人像-主要"],'btn_portrait_secondary':["portrait-secondary", "人像辅助"],'btn_landscape_primary':["landscape-primary", "景观-主要"],'btn_landscape_secondary':["landscape-secondary", "景观次要"],'btn_enter_fullscreen':["Enter Fullscreen", "进入全屏模式"],'btn_unlock':["Unlock", "开锁"],'btn_clear':["Clear", "清除"],'label_orientation_type':["orientation.type", "方向类型"],'label_orientation_angle':["orientation.angle", "方向角"],'label_window_innerwidth':["window.innerWidth", "window.innerWidth"],'label_window_innerheight':["window.innerHeight", "window.innerHeight"],'label_devicepixelratio':["devicePixelRatio", "设备像素比"],'label_screen_width_x_height':["screen.width x height", "屏幕宽度 x 高度"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -929,6 +953,42 @@ screen.orientation.<span class="fn">unlock</span>();
   previousAngle = getAngle();
   updateDisplay();
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

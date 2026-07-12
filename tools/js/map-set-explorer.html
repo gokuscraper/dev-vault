@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_map_set_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -103,20 +103,26 @@ footer a { color: var(--accent); text-decoration: none; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Map & Set Explorer</h1>
+  <h1 ti="title_map_set_explorer" ti="h1_map_set_explorer" ti="title_map_set_explorer" ti="h1_map_set_explorer" ti="title_map_set_explorer" ti="h1_map_set_explorer">Map & Set Explorer</h1>
   <p>Interactive playground for Map, Set, WeakMap, WeakSet, and set algebra operations</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
   <div class="sidebar">
-    <h3>Collections</h3>
+    <h3 ti="h3_collections" ti="h3_collections" ti="h3_collections">Collections</h3>
     <div class="nav-item active" data-section="map-ops">Map Operations</div>
     <div class="nav-item" data-section="set-ops">Set Operations</div>
     <div class="nav-item" data-section="set-algebra">Set Algebra</div>
-    <h3>Weak</h3>
+    <h3 ti="h3_weak" ti="h3_weak" ti="h3_weak">Weak</h3>
     <div class="nav-item" data-section="weak-collections">WeakMap & WeakSet</div>
     <div class="nav-item" data-section="weakref-demo">WeakRef & Registry</div>
-    <h3>Patterns</h3>
+    <h3 ti="h3_patterns" ti="h3_patterns" ti="h3_patterns">Patterns</h3>
     <div class="nav-item" data-section="iteration">Iteration Patterns</div>
     <div class="nav-item" data-section="map-vs-obj">Map vs Object</div>
     <div class="nav-item" data-section="benchmarks">Benchmarks</div>
@@ -125,37 +131,37 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Map Operations -->
     <div class="section active" id="map-ops">
-      <h2 class="section-title">Map Operations</h2>
+      <h2 class="section-title" ti="h2_map_operations" ti="h2_map_operations" ti="h2_map_operations">Map Operations</h2>
       <div class="section-desc">Create, read, update, and delete entries in a Map. Maps preserve insertion order and allow any value as a key — including objects, functions, and NaN.</div>
       <div class="split">
         <div class="panel">
           <div class="panel-header">Controls</div>
           <div class="panel-body">
             <div class="input-row">
-              <label>Key:</label>
-              <input id="map-key" placeholder="key" value="name" style="flex:1">
+              <label ti="label_key" ti="label_key" ti="label_key">Key:</label>
+              <input id="map-key" tp="placeholder_key" tp="placeholder_key" tp="placeholder_key" placeholder="key" value="name" style="flex:1">
             </div>
             <div class="input-row">
-              <label>Value:</label>
-              <input id="map-val" placeholder="value" value="Alice" style="flex:1">
+              <label ti="label_value" ti="label_value_2" ti="label_value" ti="label_value_2" ti="label_value" ti="label_value_2">Value:</label>
+              <input id="map-val" tp="placeholder_value" tp="placeholder_value_2" tp="placeholder_value" tp="placeholder_value_2" tp="placeholder_value" tp="placeholder_value_2" placeholder="value" value="Alice" style="flex:1">
             </div>
             <div class="btn-group">
-              <button class="btn run" onclick="mapOp('set')">set()</button>
-              <button class="btn primary" onclick="mapOp('get')">get()</button>
-              <button class="btn" onclick="mapOp('has')">has()</button>
-              <button class="btn danger" onclick="mapOp('delete')">delete()</button>
-              <button class="btn danger" onclick="mapOp('clear')">clear()</button>
+              <button class="btn run" onclick="mapOp('set')" ti="btn_set" ti="btn_set" ti="btn_set">set()</button>
+              <button class="btn primary" onclick="mapOp('get')" ti="btn_get" ti="btn_get" ti="btn_get">get()</button>
+              <button class="btn" onclick="mapOp('has')" ti="btn_has" ti="btn_has_2" ti="btn_has" ti="btn_has_2" ti="btn_has" ti="btn_has_2">has()</button>
+              <button class="btn danger" onclick="mapOp('delete')" ti="btn_delete" ti="btn_delete_2" ti="btn_delete" ti="btn_delete_2" ti="btn_delete" ti="btn_delete_2">delete()</button>
+              <button class="btn danger" onclick="mapOp('clear')" ti="btn_clear" ti="btn_clear_3" ti="btn_clear" ti="btn_clear_3" ti="btn_clear" ti="btn_clear_3">clear()</button>
             </div>
             <div class="input-row">
-              <label>Size:</label>
+              <label ti="label_size" ti="label_size_2" ti="label_size" ti="label_size_2" ti="label_size" ti="label_size_2">Size:</label>
               <span id="map-size" style="font-family:var(--font-mono);color:var(--accent)">0</span>
             </div>
             <h4 style="font-size:.82rem;color:var(--text-muted);margin-top:.8rem">Quick Fill</h4>
             <div class="btn-group" style="margin-top:.4rem">
-              <button class="btn" onclick="mapQuickFill('strings')">String Keys</button>
-              <button class="btn" onclick="mapQuickFill('numbers')">Number Keys</button>
-              <button class="btn" onclick="mapQuickFill('objects')">Object Keys</button>
-              <button class="btn" onclick="mapQuickFill('mixed')">Mixed Keys</button>
+              <button class="btn" onclick="mapQuickFill('strings')" ti="btn_string_keys" ti="btn_string_keys" ti="btn_string_keys">String Keys</button>
+              <button class="btn" onclick="mapQuickFill('numbers')" ti="btn_number_keys" ti="btn_number_keys" ti="btn_number_keys">Number Keys</button>
+              <button class="btn" onclick="mapQuickFill('objects')" ti="btn_object_keys" ti="btn_object_keys" ti="btn_object_keys">Object Keys</button>
+              <button class="btn" onclick="mapQuickFill('mixed')" ti="btn_mixed_keys" ti="btn_mixed_keys" ti="btn_mixed_keys">Mixed Keys</button>
             </div>
           </div>
         </div>
@@ -172,7 +178,7 @@ footer a { color: var(--accent); text-decoration: none; }
       <div class="panel">
         <div class="panel-header">
           <span>Operation Log</span>
-          <button class="btn" onclick="clearLog('map-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+          <button class="btn" onclick="clearLog('map-log')" style="padding:.2rem .5rem;font-size:.72rem" ti="btn_clear_2" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8" ti="btn_clear_2" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8" ti="btn_clear_2" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7" ti="btn_clear_8">Clear</button>
         </div>
         <div id="map-log" class="log"></div>
       </div>
@@ -180,7 +186,7 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Set Operations -->
     <div class="section" id="set-ops">
-      <h2 class="section-title">Set Operations</h2>
+      <h2 class="section-title" ti="h2_set_operations" ti="h2_set_operations" ti="h2_set_operations">Set Operations</h2>
       <div class="section-desc">Sets store unique values of any type. Duplicate additions are silently ignored. Iteration order matches insertion order.</div>
       <div class="split">
         <div class="panel">
@@ -191,7 +197,7 @@ footer a { color: var(--accent); text-decoration: none; }
               <input id="set-val" placeholder="value" value="apple" style="flex:1">
             </div>
             <div class="btn-group">
-              <button class="btn run" onclick="setOp('add')">add()</button>
+              <button class="btn run" onclick="setOp('add')" ti="btn_add" ti="btn_add" ti="btn_add">add()</button>
               <button class="btn primary" onclick="setOp('has')">has()</button>
               <button class="btn danger" onclick="setOp('delete')">delete()</button>
               <button class="btn danger" onclick="setOp('clear')">clear()</button>
@@ -202,9 +208,9 @@ footer a { color: var(--accent); text-decoration: none; }
             </div>
             <h4 style="font-size:.82rem;color:var(--text-muted);margin-top:.8rem">Quick Fill</h4>
             <div class="btn-group" style="margin-top:.4rem">
-              <button class="btn" onclick="setQuickFill('fruits')">Fruits</button>
-              <button class="btn" onclick="setQuickFill('numbers')">Numbers</button>
-              <button class="btn" onclick="setQuickFill('duplicates')">With Duplicates</button>
+              <button class="btn" onclick="setQuickFill('fruits')" ti="btn_fruits" ti="btn_fruits" ti="btn_fruits">Fruits</button>
+              <button class="btn" onclick="setQuickFill('numbers')" ti="btn_numbers" ti="btn_numbers" ti="btn_numbers">Numbers</button>
+              <button class="btn" onclick="setQuickFill('duplicates')" ti="btn_with_duplicates" ti="btn_with_duplicates" ti="btn_with_duplicates">With Duplicates</button>
             </div>
           </div>
         </div>
@@ -229,15 +235,15 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Set Algebra -->
     <div class="section" id="set-algebra">
-      <h2 class="section-title">Set Algebra</h2>
+      <h2 class="section-title" ti="h2_set_algebra" ti="h2_set_algebra" ti="h2_set_algebra">Set Algebra</h2>
       <div class="section-desc">ES2025 Set methods: <code>union()</code>, <code>intersection()</code>, <code>difference()</code>, <code>symmetricDifference()</code>, <code>isSubsetOf()</code>, <code>isSupersetOf()</code>, <code>isDisjointFrom()</code>. These return new Sets without mutating the originals.</div>
       <div class="split">
         <div class="panel">
           <div class="panel-header">Set A</div>
           <div class="panel-body">
             <div class="input-row">
-              <input id="set-a-input" placeholder="comma-separated values" value="1,2,3,4,5" style="flex:1">
-              <button class="btn primary" onclick="updateAlgebraSets()">Apply</button>
+              <input id="set-a-input" tp="placeholder_comma_separated_values" tp="placeholder_comma_separated_values_2" tp="placeholder_comma_separated_values" tp="placeholder_comma_separated_values_2" tp="placeholder_comma_separated_values" tp="placeholder_comma_separated_values_2" placeholder="comma-separated values" value="1,2,3,4,5" style="flex:1">
+              <button class="btn primary" onclick="updateAlgebraSets()" ti="btn_apply" ti="btn_apply_2" ti="btn_apply" ti="btn_apply_2" ti="btn_apply" ti="btn_apply_2">Apply</button>
             </div>
             <div id="set-a-vis" class="set-vis"></div>
           </div>
@@ -257,13 +263,13 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="panel-header">Operations</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="setAlgebra('union')">A.union(B)</button>
-            <button class="btn run" onclick="setAlgebra('intersection')">A.intersection(B)</button>
-            <button class="btn run" onclick="setAlgebra('difference')">A.difference(B)</button>
-            <button class="btn run" onclick="setAlgebra('symmetricDifference')">A.symmetricDifference(B)</button>
-            <button class="btn primary" onclick="setAlgebra('isSubsetOf')">A.isSubsetOf(B)</button>
-            <button class="btn primary" onclick="setAlgebra('isSupersetOf')">A.isSupersetOf(B)</button>
-            <button class="btn primary" onclick="setAlgebra('isDisjointFrom')">A.isDisjointFrom(B)</button>
+            <button class="btn run" onclick="setAlgebra('union')" ti="btn_a_union_b" ti="btn_a_union_b" ti="btn_a_union_b">A.union(B)</button>
+            <button class="btn run" onclick="setAlgebra('intersection')" ti="btn_a_intersection_b" ti="btn_a_intersection_b" ti="btn_a_intersection_b">A.intersection(B)</button>
+            <button class="btn run" onclick="setAlgebra('difference')" ti="btn_a_difference_b" ti="btn_a_difference_b" ti="btn_a_difference_b">A.difference(B)</button>
+            <button class="btn run" onclick="setAlgebra('symmetricDifference')" ti="btn_a_symmetricdifference_b" ti="btn_a_symmetricdifference_b" ti="btn_a_symmetricdifference_b">A.symmetricDifference(B)</button>
+            <button class="btn primary" onclick="setAlgebra('isSubsetOf')" ti="btn_a_issubsetof_b" ti="btn_a_issubsetof_b" ti="btn_a_issubsetof_b">A.isSubsetOf(B)</button>
+            <button class="btn primary" onclick="setAlgebra('isSupersetOf')" ti="btn_a_issupersetof_b" ti="btn_a_issupersetof_b" ti="btn_a_issupersetof_b">A.isSupersetOf(B)</button>
+            <button class="btn primary" onclick="setAlgebra('isDisjointFrom')" ti="btn_a_isdisjointfrom_b" ti="btn_a_isdisjointfrom_b" ti="btn_a_isdisjointfrom_b">A.isDisjointFrom(B)</button>
           </div>
           <div id="algebra-result" class="set-vis" style="margin-top:.5rem"></div>
         </div>
@@ -279,15 +285,15 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Weak Collections -->
     <div class="section" id="weak-collections">
-      <h2 class="section-title">WeakMap & WeakSet</h2>
+      <h2 class="section-title" ti="h2_weakmap_weakset" ti="h2_weakmap_weakset" ti="h2_weakmap_weakset">WeakMap & WeakSet</h2>
       <div class="section-desc">Weak collections hold objects without preventing garbage collection. Keys must be objects (or non-registered symbols). They are not iterable and have no <code>size</code> property — useful for metadata without memory leaks.</div>
       <div class="panel">
         <div class="panel-header">WeakMap Demo</div>
         <div class="panel-body">
           <div class="code" id="weakmap-code"></div>
           <div class="btn-group" style="margin-top:.8rem">
-            <button class="btn run" onclick="runWeakMapDemo()">Run Demo</button>
-            <button class="btn" onclick="clearLog('weak-log')">Clear Log</button>
+            <button class="btn run" onclick="runWeakMapDemo()" ti="btn_run_demo" ti="btn_run_demo_2" ti="btn_run_demo_3" ti="btn_run_demo_4" ti="btn_run_demo" ti="btn_run_demo_2" ti="btn_run_demo_3" ti="btn_run_demo_4" ti="btn_run_demo" ti="btn_run_demo_2" ti="btn_run_demo_3" ti="btn_run_demo_4">Run Demo</button>
+            <button class="btn" onclick="clearLog('weak-log')" ti="btn_clear_log" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button>
           </div>
         </div>
       </div>
@@ -311,7 +317,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="panel-header">Comparison</div>
         <div class="panel-body">
           <table class="compare-table">
-            <tr><th>Feature</th><th>Map</th><th>WeakMap</th><th>Set</th><th>WeakSet</th></tr>
+            <tr><th ti="th_feature" ti="th_feature_2" ti="th_feature" ti="th_feature_2" ti="th_feature" ti="th_feature_2">Feature</th><th ti="th_map" ti="th_map_2" ti="th_map" ti="th_map_2" ti="th_map" ti="th_map_2">Map</th><th ti="th_weakmap" ti="th_weakmap" ti="th_weakmap">WeakMap</th><th ti="th_set" ti="th_set" ti="th_set">Set</th><th ti="th_weakset" ti="th_weakset" ti="th_weakset">WeakSet</th></tr>
             <tr><td>Key types</td><td>Any</td><td>Objects only</td><td>Any</td><td>Objects only</td></tr>
             <tr><td>Iterable</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td></tr>
             <tr><td>.size</td><td>Yes</td><td>No</td><td>Yes</td><td>No</td></tr>
@@ -325,17 +331,17 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- WeakRef & FinalizationRegistry -->
     <div class="section" id="weakref-demo">
-      <h2 class="section-title">WeakRef & FinalizationRegistry</h2>
+      <h2 class="section-title" ti="h2_weakref_finalizationregis" ti="h2_weakref_finalizationregis" ti="h2_weakref_finalizationregis">WeakRef & FinalizationRegistry</h2>
       <div class="section-desc">WeakRef holds a weak reference to an object — <code>deref()</code> returns the object or <code>undefined</code> if GC'd. FinalizationRegistry runs a callback after GC. Note: GC timing is non-deterministic.</div>
       <div class="panel">
         <div class="panel-header">Interactive Demo</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="weakRefCreate()">1. Create Object + WeakRef</button>
-            <button class="btn primary" onclick="weakRefDeref()">2. deref()</button>
-            <button class="btn danger" onclick="weakRefDrop()">3. Drop Strong Reference</button>
-            <button class="btn" onclick="weakRefDeref()">4. deref() Again</button>
-            <button class="btn" onclick="weakRefReset()">Reset</button>
+            <button class="btn run" onclick="weakRefCreate()" ti="btn_1_create_object_weakref" ti="btn_1_create_object_weakref" ti="btn_1_create_object_weakref">1. Create Object + WeakRef</button>
+            <button class="btn primary" onclick="weakRefDeref()" ti="btn_2_deref" ti="btn_2_deref" ti="btn_2_deref">2. deref()</button>
+            <button class="btn danger" onclick="weakRefDrop()" ti="btn_3_drop_strong_reference" ti="btn_3_drop_strong_reference" ti="btn_3_drop_strong_reference">3. Drop Strong Reference</button>
+            <button class="btn" onclick="weakRefDeref()" ti="btn_4_deref_again" ti="btn_4_deref_again" ti="btn_4_deref_again">4. deref() Again</button>
+            <button class="btn" onclick="weakRefReset()" ti="btn_reset" ti="btn_reset" ti="btn_reset">Reset</button>
           </div>
           <div id="weakref-state" style="margin-top:.8rem;font-family:var(--font-mono);font-size:.8rem"></div>
         </div>
@@ -345,7 +351,7 @@ footer a { color: var(--accent); text-decoration: none; }
         <div class="panel-body">
           <div class="code" id="weakref-cache-code"></div>
           <div class="btn-group" style="margin-top:.8rem">
-            <button class="btn run" onclick="runWeakRefCache()">Run Cache Demo</button>
+            <button class="btn run" onclick="runWeakRefCache()" ti="btn_run_cache_demo" ti="btn_run_cache_demo" ti="btn_run_cache_demo">Run Cache Demo</button>
           </div>
         </div>
       </div>
@@ -360,20 +366,20 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Iteration Patterns -->
     <div class="section" id="iteration">
-      <h2 class="section-title">Iteration Patterns</h2>
+      <h2 class="section-title" ti="h2_iteration_patterns" ti="h2_iteration_patterns" ti="h2_iteration_patterns">Iteration Patterns</h2>
       <div class="section-desc">Maps and Sets implement the iterable protocol. Maps provide <code>entries()</code>, <code>keys()</code>, <code>values()</code>, and <code>forEach()</code>. The default iterator for Map yields <code>[key, value]</code> pairs.</div>
       <div class="panel">
         <div class="panel-header">Map Iteration</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="iterDemo('entries')">entries()</button>
-            <button class="btn run" onclick="iterDemo('keys')">keys()</button>
-            <button class="btn run" onclick="iterDemo('values')">values()</button>
-            <button class="btn run" onclick="iterDemo('forEach')">forEach()</button>
-            <button class="btn run" onclick="iterDemo('forOf')">for...of</button>
-            <button class="btn run" onclick="iterDemo('destructure')">Destructuring</button>
-            <button class="btn run" onclick="iterDemo('spread')">Spread</button>
-            <button class="btn run" onclick="iterDemo('arrayFrom')">Array.from()</button>
+            <button class="btn run" onclick="iterDemo('entries')" ti="btn_entries" ti="btn_entries" ti="btn_entries">entries()</button>
+            <button class="btn run" onclick="iterDemo('keys')" ti="btn_keys" ti="btn_keys" ti="btn_keys">keys()</button>
+            <button class="btn run" onclick="iterDemo('values')" ti="btn_values" ti="btn_values" ti="btn_values">values()</button>
+            <button class="btn run" onclick="iterDemo('forEach')" ti="btn_foreach" ti="btn_foreach" ti="btn_foreach">forEach()</button>
+            <button class="btn run" onclick="iterDemo('forOf')" ti="btn_for_of" ti="btn_for_of" ti="btn_for_of">for...of</button>
+            <button class="btn run" onclick="iterDemo('destructure')" ti="btn_destructuring" ti="btn_destructuring" ti="btn_destructuring">Destructuring</button>
+            <button class="btn run" onclick="iterDemo('spread')" ti="btn_spread" ti="btn_spread" ti="btn_spread">Spread</button>
+            <button class="btn run" onclick="iterDemo('arrayFrom')" ti="btn_array_from" ti="btn_array_from" ti="btn_array_from">Array.from()</button>
           </div>
         </div>
       </div>
@@ -394,13 +400,13 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Map vs Object -->
     <div class="section" id="map-vs-obj">
-      <h2 class="section-title">Map vs Object</h2>
+      <h2 class="section-title" ti="h2_map_vs_object" ti="h2_map_vs_object" ti="h2_map_vs_object">Map vs Object</h2>
       <div class="section-desc">Maps and Objects both store key-value pairs, but differ in key types, iteration order guarantees, prototype pollution, and performance characteristics.</div>
       <div class="panel">
         <div class="panel-header">Comparison</div>
         <div class="panel-body">
           <table class="compare-table">
-            <tr><th>Feature</th><th>Map</th><th>Object</th></tr>
+            <tr><th>Feature</th><th>Map</th><th ti="th_object" ti="th_object" ti="th_object">Object</th></tr>
             <tr><td>Key types</td><td>Any value (objects, functions, primitives)</td><td>Strings and Symbols only</td></tr>
             <tr><td>Key order</td><td>Insertion order (guaranteed)</td><td>Complex (integers first, then strings, then symbols)</td></tr>
             <tr><td>Size</td><td><code>.size</code> property</td><td><code>Object.keys(o).length</code></td></tr>
@@ -434,19 +440,19 @@ footer a { color: var(--accent); text-decoration: none; }
 
     <!-- Benchmarks -->
     <div class="section" id="benchmarks">
-      <h2 class="section-title">Performance Benchmarks</h2>
+      <h2 class="section-title" ti="h2_performance_benchmarks" ti="h2_performance_benchmarks" ti="h2_performance_benchmarks">Performance Benchmarks</h2>
       <div class="section-desc">Compare Map vs Object and Set vs Array performance for common operations. Results depend on browser engine and current load.</div>
       <div class="panel">
         <div class="panel-header">Map vs Object</div>
         <div class="panel-body">
           <div class="input-row">
-            <label>Items:</label>
+            <label ti="label_items" ti="label_items" ti="label_items">Items:</label>
             <select id="bench-size">
               <option value="1000">1,000</option>
               <option value="10000" selected>10,000</option>
               <option value="100000">100,000</option>
             </select>
-            <button class="btn run" onclick="runBenchmark('map-obj')">Run Benchmark</button>
+            <button class="btn run" onclick="runBenchmark('map-obj')" ti="btn_run_benchmark" ti="btn_run_benchmark_2" ti="btn_run_benchmark" ti="btn_run_benchmark_2" ti="btn_run_benchmark" ti="btn_run_benchmark_2">Run Benchmark</button>
           </div>
           <div id="bench-map-obj" style="margin-top:.8rem"></div>
         </div>
@@ -464,8 +470,28 @@ footer a { color: var(--accent); text-decoration: none; }
 
   </div>
 </div>
-<footer>Map & Set Explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a></footer>
+<footer>Map & Set Explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a></footer>
 
+
+
+<script>var _LANG={'title_map_set_explorer':["Map & Set Explorer", "地图和设置浏览器"],'metadesc_interactive_javascript_ma':["Interactive JavaScript Map, Set, WeakMap, WeakSet playground — explore operations, set algebra, iteration patterns, and performance benchmarks", "交互式 JavaScript Map、Set、WeakMap、WeakSet 演示平台 — 探索运算、集合代数、迭代模式和性能基准测试"],'h1_map_set_explorer':["Map & Set Explorer", "地图和设置浏览器"],'h2_map_operations':["Map Operations", "地图操作"],'h2_set_operations':["Set Operations", "集合运算"],'h2_set_algebra':["Set Algebra", "集合代数"],'h2_weakmap_weakset':["WeakMap & WeakSet", "弱映射和弱集"],'h2_weakref_finalizationregis':["WeakRef & FinalizationRegistry", "弱引用和最终化注册表"],'h2_iteration_patterns':["Iteration Patterns", "迭代模式"],'h2_map_vs_object':["Map vs Object", "地图与对象"],'h2_performance_benchmarks':["Performance Benchmarks", "性能基准"],'h3_collections':["Collections", "收藏"],'h3_weak':["Weak", "虚弱的"],'h3_patterns':["Patterns", "模式"],'btn_set':["set()", "放（）"],'btn_get':["get()", "得到（）"],'btn_has':["has()", "有（）"],'btn_delete':["delete()", "删除（）"],'btn_clear':["clear()", "清除（）"],'btn_string_keys':["String Keys", "字符串键"],'btn_number_keys':["Number Keys", "数字键"],'btn_object_keys':["Object Keys", "对象键"],'btn_mixed_keys':["Mixed Keys", "混合调"],'btn_clear_2':["Clear", "清除"],'btn_add':["add()", "添加（）"],'btn_has_2':["has()", "有（）"],'btn_delete_2':["delete()", "删除（）"],'btn_clear_3':["clear()", "清除（）"],'btn_fruits':["Fruits", "水果"],'btn_numbers':["Numbers", "数字"],'btn_with_duplicates':["With Duplicates", "包含重复项"],'btn_clear_4':["Clear", "清除"],'btn_apply':["Apply", "申请"],'btn_apply_2':["Apply", "申请"],'btn_a_union_b':["A.union(B)", "A.工会(B)"],'btn_a_intersection_b':["A.intersection(B)", "A.交叉(B)"],'btn_a_difference_b':["A.difference(B)", "A.差异(B)"],'btn_a_symmetricdifference_b':["A.symmetricDifference(B)", "A.对称差分(B)"],'btn_a_issubsetof_b':["A.isSubsetOf(B)", "A.isSubsetOf(B)"],'btn_a_issupersetof_b':["A.isSupersetOf(B)", "A.isSupersetOf(B)"],'btn_a_isdisjointfrom_b':["A.isDisjointFrom(B)", "A.isDisjointFrom(B)"],'btn_clear_5':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear_log':["Clear Log", "清除日志"],'btn_run_demo_2':["Run Demo", "运行演示"],'btn_clear_6':["Clear", "清除"],'btn_1_create_object_weakref':["1. Create Object + WeakRef", "1. 创建对象 + 弱引用"],'btn_2_deref':["2. deref()", "2. 解引用()"],'btn_3_drop_strong_reference':["3. Drop Strong Reference", "3. 放弃强有力的参考"],'btn_4_deref_again':["4. deref() Again", "4. 再次使用 deref()"],'btn_reset':["Reset", "重置"],'btn_run_cache_demo':["Run Cache Demo", "运行缓存演示"],'btn_clear_7':["Clear", "清除"],'btn_entries':["entries()", "entries()"],'btn_keys':["keys()", "keys()"],'btn_values':["values()", "values()"],'btn_foreach':["forEach()", "forEach()"],'btn_for_of':["for...of", "为了……"],'btn_destructuring':["Destructuring", "解构"],'btn_spread':["Spread", "传播"],'btn_array_from':["Array.from()", "Array.from()"],'btn_clear_8':["Clear", "清除"],'btn_run_demo_3':["Run Demo", "运行演示"],'btn_run_demo_4':["Run Demo", "运行演示"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'btn_run_benchmark_2':["Run Benchmark", "运行基准测试"],'label_r_label':["${r.label}", "${r.label}"],'placeholder_key':["key", "钥匙"],'placeholder_value':["value", "价值"],'placeholder_value_2':["value", "价值"],'placeholder_comma_separated_values':["comma-separated values", "逗号分隔值"],'placeholder_comma_separated_values_2':["comma-separated values", "逗号分隔值"],'th_feature':["Feature", "特征"],'th_map':["Map", "地图"],'th_weakmap':["WeakMap", "弱图"],'th_set':["Set", "放"],'th_weakset':["WeakSet", "弱集"],'th_feature_2':["Feature", "特征"],'th_map_2':["Map", "地图"],'th_object':["Object", "目的"],'label_key':["Key:", "钥匙："],'label_value':["Value:", "价值："],'label_size':["Size:", "尺寸："],'label_value_2':["Value:", "价值："],'label_size_2':["Size:", "尺寸："],'label_items':["Items:", "项目："],'link_dev_toolkit':["dev-toolkit", "开发工具包"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_map_set_explorer':["Map & Set Explorer", "地图和设置浏览器"],'metadesc_interactive_javascript_ma':["Interactive JavaScript Map, Set, WeakMap, WeakSet playground — explore operations, set algebra, iteration patterns, and performance benchmarks", "交互式 JavaScript Map、Set、WeakMap、WeakSet 演示平台 — 探索运算、集合代数、迭代模式和性能基准测试"],'h1_map_set_explorer':["Map & Set Explorer", "地图和设置浏览器"],'h2_map_operations':["Map Operations", "地图操作"],'h2_set_operations':["Set Operations", "集合运算"],'h2_set_algebra':["Set Algebra", "集合代数"],'h2_weakmap_weakset':["WeakMap & WeakSet", "弱映射和弱集"],'h2_weakref_finalizationregis':["WeakRef & FinalizationRegistry", "弱引用和最终化注册表"],'h2_iteration_patterns':["Iteration Patterns", "迭代模式"],'h2_map_vs_object':["Map vs Object", "地图与对象"],'h2_performance_benchmarks':["Performance Benchmarks", "性能基准"],'h3_collections':["Collections", "收藏"],'h3_weak':["Weak", "虚弱的"],'h3_patterns':["Patterns", "模式"],'btn_set':["set()", "放（）"],'btn_get':["get()", "得到（）"],'btn_has':["has()", "有（）"],'btn_delete':["delete()", "删除（）"],'btn_clear':["clear()", "清除（）"],'btn_string_keys':["String Keys", "字符串键"],'btn_number_keys':["Number Keys", "数字键"],'btn_object_keys':["Object Keys", "对象键"],'btn_mixed_keys':["Mixed Keys", "混合调"],'btn_clear_2':["Clear", "清除"],'btn_add':["add()", "添加（）"],'btn_has_2':["has()", "有（）"],'btn_delete_2':["delete()", "删除（）"],'btn_clear_3':["clear()", "清除（）"],'btn_fruits':["Fruits", "水果"],'btn_numbers':["Numbers", "数字"],'btn_with_duplicates':["With Duplicates", "包含重复项"],'btn_clear_4':["Clear", "清除"],'btn_apply':["Apply", "申请"],'btn_apply_2':["Apply", "申请"],'btn_a_union_b':["A.union(B)", "A.工会(B)"],'btn_a_intersection_b':["A.intersection(B)", "A.交叉(B)"],'btn_a_difference_b':["A.difference(B)", "A.差异(B)"],'btn_a_symmetricdifference_b':["A.symmetricDifference(B)", "A.对称差分(B)"],'btn_a_issubsetof_b':["A.isSubsetOf(B)", "A.isSubsetOf(B)"],'btn_a_issupersetof_b':["A.isSupersetOf(B)", "A.isSupersetOf(B)"],'btn_a_isdisjointfrom_b':["A.isDisjointFrom(B)", "A.isDisjointFrom(B)"],'btn_clear_5':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear_log':["Clear Log", "清除日志"],'btn_run_demo_2':["Run Demo", "运行演示"],'btn_clear_6':["Clear", "清除"],'btn_1_create_object_weakref':["1. Create Object + WeakRef", "1. 创建对象 + 弱引用"],'btn_2_deref':["2. deref()", "2. 解引用()"],'btn_3_drop_strong_reference':["3. Drop Strong Reference", "3. 放弃强有力的参考"],'btn_4_deref_again':["4. deref() Again", "4. 再次使用 deref()"],'btn_reset':["Reset", "重置"],'btn_run_cache_demo':["Run Cache Demo", "运行缓存演示"],'btn_clear_7':["Clear", "清除"],'btn_entries':["entries()", "entries()"],'btn_keys':["keys()", "keys()"],'btn_values':["values()", "values()"],'btn_foreach':["forEach()", "forEach()"],'btn_for_of':["for...of", "为了……"],'btn_destructuring':["Destructuring", "解构"],'btn_spread':["Spread", "传播"],'btn_array_from':["Array.from()", "Array.from()"],'btn_clear_8':["Clear", "清除"],'btn_run_demo_3':["Run Demo", "运行演示"],'btn_run_demo_4':["Run Demo", "运行演示"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'btn_run_benchmark_2':["Run Benchmark", "运行基准测试"],'label_r_label':["${r.label}", "${r.label}"],'placeholder_key':["key", "钥匙"],'placeholder_value':["value", "价值"],'placeholder_value_2':["value", "价值"],'placeholder_comma_separated_values':["comma-separated values", "逗号分隔值"],'placeholder_comma_separated_values_2':["comma-separated values", "逗号分隔值"],'th_feature':["Feature", "特征"],'th_map':["Map", "地图"],'th_weakmap':["WeakMap", "弱图"],'th_set':["Set", "放"],'th_weakset':["WeakSet", "弱集"],'th_feature_2':["Feature", "特征"],'th_map_2':["Map", "地图"],'th_object':["Object", "目的"],'label_key':["Key:", "钥匙："],'label_value':["Value:", "价值："],'label_size':["Size:", "尺寸："],'label_value_2':["Value:", "价值："],'label_size_2':["Size:", "尺寸："],'label_items':["Items:", "项目："],'link_dev_toolkit':["dev-toolkit", "开发工具包"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Navigation ---
 const navItems = document.querySelectorAll('.nav-item');
@@ -968,12 +994,66 @@ function renderBenchmark(containerId, results) {
   const colors = ['#00d4ff', '#c792ea', '#4caf50', '#ff9800', '#ff5370', '#82aaff', '#c3e88d', '#f78c6c'];
   el.innerHTML = results.map((r, i) =>
     `<div class="bench-bar">
-      <span class="label">${r.label}</span>
+      <span class="label" ti="label_r_label" ti="label_r_label" ti="label_r_label">${r.label}</span>
       <div class="bar" style="width:${(r.time / max * 100)}%;background:${colors[i % colors.length]};min-width:2px"></div>
       <span class="value">${r.time.toFixed(2)}ms</span>
     </div>`
   ).join('');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

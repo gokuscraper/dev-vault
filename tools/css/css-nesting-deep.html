@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_nesting_deep_dive_pla" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -81,36 +81,38 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span style="color:var(--accent)">{</span> CSS Nesting <span class="accent">Deep Dive</span> <span style="color:var(--accent)">}</span></h1>
-  <span class="badge">Baseline <strong>2024</strong> — All major browsers</span>
+  <span class="badge">Baseline <strong ti="strong_2024">2024</strong> — All major browsers</span>
 </header>
 
 <nav id="nav">
-  <button class="active" data-section="ampersand">& Selector</button>
-  <button data-section="media">@media + Nesting</button>
-  <button data-section="layer">@layer + Nesting</button>
-  <button data-section="specificity">Specificity</button>
-  <button data-section="vs-sass">vs Sass</button>
-  <button data-section="migration">Sass Migration</button>
-  <button data-section="performance">Performance</button>
-  <button data-section="lint">Lint Checker</button>
+  <button class="active" data-section="ampersand" ti="btn_selector">& Selector</button>
+  <button data-section="media" ti="btn_media_nesting">@media + Nesting</button>
+  <button data-section="layer" ti="btn_layer_nesting">@layer + Nesting</button>
+  <button data-section="specificity" ti="btn_specificity">Specificity</button>
+  <button data-section="vs-sass" ti="btn_vs_sass">vs Sass</button>
+  <button data-section="migration" ti="btn_sass_migration">Sass Migration</button>
+  <button data-section="performance" ti="btn_performance">Performance</button>
+  <button data-section="lint" ti="btn_lint_checker">Lint Checker</button>
 </nav>
 
 <!-- Section 1: & Selector -->
 <section class="section active" id="sec-ampersand">
-  <h2>Nesting with & Selector</h2>
+  <h2 ti="h2_nesting_with_selector">Nesting with & Selector</h2>
   <p class="desc">The <code>&</code> represents the parent selector in nested CSS. It's required for pseudo-classes, pseudo-elements, and compound selectors, but optional for descendant selectors (as of the relaxed syntax).</p>
   <div class="demo-card">
     <h3>Interactive & Patterns <span class="tag">live editor</span></h3>
     <div class="controls">
-      <label>Preset:</label>
-      <button class="btn" onclick="loadAmpersandPreset('basic')">Basic</button>
-      <button class="btn" onclick="loadAmpersandPreset('pseudo')">Pseudo</button>
-      <button class="btn" onclick="loadAmpersandPreset('compound')">Compound</button>
-      <button class="btn" onclick="loadAmpersandPreset('suffix')">& Suffix</button>
-      <button class="btn" onclick="loadAmpersandPreset('complex')">Complex</button>
+      <label ti="label_preset">Preset:</label>
+      <button class="btn" onclick="loadAmpersandPreset('basic')" ti="btn_basic">Basic</button>
+      <button class="btn" onclick="loadAmpersandPreset('pseudo')" ti="btn_pseudo">Pseudo</button>
+      <button class="btn" onclick="loadAmpersandPreset('compound')" ti="btn_compound">Compound</button>
+      <button class="btn" onclick="loadAmpersandPreset('suffix')" ti="btn_suffix">& Suffix</button>
+      <button class="btn" onclick="loadAmpersandPreset('complex')" ti="btn_complex">Complex</button>
     </div>
     <div class="editor-area">
       <div style="display:flex;flex-direction:column">
@@ -156,15 +158,15 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 2: @media + Nesting -->
 <section class="section" id="sec-media">
-  <h2>@media Inside Nesting</h2>
+  <h2 ti="h2_media_inside_nesting">@media Inside Nesting</h2>
   <p class="desc">Nest <code>@media</code> queries inside selectors to co-locate responsive styles with their components. Much cleaner than separate media query blocks at the bottom.</p>
   <div class="demo-card">
     <h3>Nested Media Queries <span class="tag">@media</span></h3>
     <div class="controls">
-      <label>Viewport:</label>
-      <button class="btn" onclick="setPreviewWidth(375)" id="mobileBtn">Mobile (375px)</button>
-      <button class="btn" onclick="setPreviewWidth(768)" id="tabletBtn">Tablet (768px)</button>
-      <button class="btn" onclick="setPreviewWidth(1024)" id="desktopBtn">Desktop (1024px)</button>
+      <label ti="label_viewport">Viewport:</label>
+      <button class="btn" onclick="setPreviewWidth(375)" id="mobileBtn" ti="btn_mobile_375px">Mobile (375px)</button>
+      <button class="btn" onclick="setPreviewWidth(768)" id="tabletBtn" ti="btn_tablet_768px">Tablet (768px)</button>
+      <button class="btn" onclick="setPreviewWidth(1024)" id="desktopBtn" ti="btn_desktop_1024px">Desktop (1024px)</button>
       <span style="color:var(--text-dim);font-size:12px" id="widthLabel">Width: 1024px</span>
     </div>
     <div class="editor-area">
@@ -210,7 +212,7 @@ footer a:hover{text-decoration:underline}
         </div>
       </div>
     </div>
-    <div class="code-block" style="margin-top:12px"><button class="copy-btn" onclick="copyCode(this)">Copy</button>/* Before: scattered media queries */
+    <div class="code-block" style="margin-top:12px"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button>/* Before: scattered media queries */
 .grid { display: grid; grid-template-columns: repeat(3,1fr); }
 @media (max-width: 768px) {
   .grid { grid-template-columns: repeat(2,1fr); }
@@ -230,8 +232,8 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 3: @layer + Nesting -->
 <section class="section" id="sec-layer">
-  <h2>@layer + Nesting</h2>
-  <p class="desc">Combine CSS cascade layers with nesting for powerful, maintainable architecture. Layer order determines precedence regardless of specificity.</p>
+  <h2 ti="h2_layer_nesting">@layer + Nesting</h2>
+  <p class="desc" ti="subtitle_combine_css_cascade_layer">Combine CSS cascade layers with nesting for powerful, maintainable architecture. Layer order determines precedence regardless of specificity.</p>
   <div class="demo-card">
     <h3>Layer + Nesting Demo <span class="tag">@layer</span></h3>
     <div class="editor-area">
@@ -300,15 +302,15 @@ footer a:hover{text-decoration:underline}
     <div style="margin-top:16px;display:grid;grid-template-columns:repeat(3,1fr);gap:12px">
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">Layer 1 (lowest)</div>
-        <strong style="color:var(--accent);font-size:14px">base</strong>
+        <strong style="color:var(--accent);font-size:14px" ti="strong_base">base</strong>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">Layer 2</div>
-        <strong style="color:var(--green);font-size:14px">components</strong>
+        <strong style="color:var(--green);font-size:14px" ti="strong_components">components</strong>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
         <div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">Layer 3 (highest)</div>
-        <strong style="color:var(--purple);font-size:14px">overrides</strong>
+        <strong style="color:var(--purple);font-size:14px" ti="strong_overrides">overrides</strong>
       </div>
     </div>
   </div>
@@ -316,18 +318,18 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 4: Specificity Visualization -->
 <section class="section" id="sec-specificity">
-  <h2>Specificity Visualization</h2>
+  <h2 ti="h2_specificity_visualization">Specificity Visualization</h2>
   <p class="desc">Native CSS nesting uses the specificity of the most specific argument in <code>:is()</code> wrapping. This section visualizes how nesting affects specificity differently from Sass.</p>
   <div class="demo-card">
     <h3>Specificity Calculator <span class="tag">interactive</span></h3>
     <div class="controls">
       <div class="ctrl-group" style="flex:1;min-width:300px">
-        <label>Enter a CSS selector:</label>
+        <label ti="label_enter_a_css_selector">Enter a CSS selector:</label>
         <input type="text" id="specInput" value=".card .title" oninput="calcSpecificity()" style="width:100%;padding:8px 12px">
       </div>
-      <button class="btn" onclick="addSpecExample('.card:hover .title')">Example 1</button>
-      <button class="btn" onclick="addSpecExample('#main .card > .title')">Example 2</button>
-      <button class="btn" onclick="addSpecExample('.card:is(.featured, #promo) .title')">Nested :is()</button>
+      <button class="btn" onclick="addSpecExample('.card:hover .title')" ti="btn_example_1">Example 1</button>
+      <button class="btn" onclick="addSpecExample('#main .card  ti="btn_title_example_2"> .title')">Example 2</button>
+      <button class="btn" onclick="addSpecExample('.card:is(.featured, #promo) .title')" ti="btn_nested_is">Nested :is()</button>
     </div>
     <div id="specResult" style="margin-top:12px"></div>
     <div style="margin-top:20px;padding:16px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
@@ -356,24 +358,24 @@ footer a:hover{text-decoration:underline}
       </div>
     </div>
     <div style="margin-top:12px;padding:12px;background:rgba(234,179,8,.05);border:1px solid rgba(234,179,8,.2);border-radius:var(--radius);font-size:12px;color:var(--yellow)">
-      <strong>Key difference from Sass:</strong> In native CSS nesting, type selectors used as parent get wrapped in <code>:is()</code>, making their specificity equal to a class selector. <code>article { & p {} }</code> has specificity (0,1,1) not (0,0,2).
+      <strong ti="strong_key_difference_from_sass">Key difference from Sass:</strong> In native CSS nesting, type selectors used as parent get wrapped in <code>:is()</code>, making their specificity equal to a class selector. <code>article { & p {} }</code> has specificity (0,1,1) not (0,0,2).
     </div>
   </div>
 </section>
 
 <!-- Section 5: Nesting vs Sass -->
 <section class="section" id="sec-vs-sass">
-  <h2>Nesting vs Sass Nesting</h2>
-  <p class="desc">Native CSS nesting and Sass nesting look similar but have important differences. Understanding these prevents bugs during migration.</p>
+  <h2 ti="h2_nesting_vs_sass_nesting">Nesting vs Sass Nesting</h2>
+  <p class="desc" ti="subtitle_native_css_nesting_and_sa">Native CSS nesting and Sass nesting look similar but have important differences. Understanding these prevents bugs during migration.</p>
   <div class="demo-card">
     <h3>Key Differences <span class="tag">comparison</span></h3>
     <div style="overflow-x:auto">
       <table style="width:100%;border-collapse:collapse;font-size:13px">
         <thead>
           <tr style="border-bottom:2px solid var(--border)">
-            <th style="text-align:left;padding:12px;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Feature</th>
-            <th style="text-align:left;padding:12px;color:var(--purple);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Native CSS</th>
-            <th style="text-align:left;padding:12px;color:var(--orange);font-size:11px;text-transform:uppercase;letter-spacing:.5px">Sass/SCSS</th>
+            <th style="text-align:left;padding:12px;color:var(--text-dim);font-size:11px;text-transform:uppercase;letter-spacing:.5px" ti="th_feature">Feature</th>
+            <th style="text-align:left;padding:12px;color:var(--purple);font-size:11px;text-transform:uppercase;letter-spacing:.5px" ti="th_native_css">Native CSS</th>
+            <th style="text-align:left;padding:12px;color:var(--orange);font-size:11px;text-transform:uppercase;letter-spacing:.5px" ti="th_sass_scss">Sass/SCSS</th>
           </tr>
         </thead>
         <tbody>
@@ -452,15 +454,15 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 6: Sass → Native Migration -->
 <section class="section" id="sec-migration">
-  <h2>Sass to Native Migration Tool</h2>
-  <p class="desc">Paste your SCSS and get a converted native CSS nesting version. Handles common patterns but flags &-concatenation (which requires manual refactoring).</p>
+  <h2 ti="h2_sass_to_native_migration">Sass to Native Migration Tool</h2>
+  <p class="desc" ti="subtitle_paste_your_scss_and_get_a">Paste your SCSS and get a converted native CSS nesting version. Handles common patterns but flags &-concatenation (which requires manual refactoring).</p>
   <div class="demo-card">
     <h3>Migration Converter <span class="tag">Sass → CSS</span></h3>
     <div class="editor-area">
       <div style="display:flex;flex-direction:column">
         <div class="panel-label" style="display:flex;justify-content:space-between;align-items:center">
           SCSS Input
-          <button class="btn" onclick="loadSassExample()" style="padding:4px 10px;font-size:11px">Load Example</button>
+          <button class="btn" onclick="loadSassExample()" style="padding:4px 10px;font-size:11px" ti="btn_load_example" ti="btn_load_example_2">Load Example</button>
         </div>
         <textarea id="sassInput" oninput="migrateSass()" style="height:350px">.nav {
   display: flex;
@@ -496,13 +498,13 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 7: Performance Impact -->
 <section class="section" id="sec-performance">
-  <h2>Performance Impact</h2>
-  <p class="desc">Does nesting CSS rules affect performance? The browser unrolls nested rules into flat selectors internally. Deep nesting can increase selector complexity and matching time.</p>
+  <h2 ti="h2_performance_impact">Performance Impact</h2>
+  <p class="desc" ti="subtitle_does_nesting_css_rules_af">Does nesting CSS rules affect performance? The browser unrolls nested rules into flat selectors internally. Deep nesting can increase selector complexity and matching time.</p>
   <div class="demo-card">
     <h3>Nesting Depth vs Selector Complexity <span class="tag">analysis</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Nesting Depth</label>
+        <label ti="label_nesting_depth">Nesting Depth</label>
         <input type="range" id="perfDepth" min="1" max="8" value="3" oninput="updatePerfDemo()">
       </div>
       <span style="font-size:14px;font-weight:700;color:var(--accent)" id="perfDepthVal">3</span>
@@ -533,8 +535,8 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 8: Lint Checker -->
 <section class="section" id="sec-lint">
-  <h2>Lint Checker</h2>
-  <p class="desc">Paste your nested CSS and check for common mistakes, anti-patterns, and browser compatibility issues.</p>
+  <h2 ti="h2_lint_checker">Lint Checker</h2>
+  <p class="desc" ti="subtitle_paste_your_nested_css_and">Paste your nested CSS and check for common mistakes, anti-patterns, and browser compatibility issues.</p>
   <div class="demo-card">
     <h3>CSS Nesting Linter <span class="tag">static analysis</span></h3>
     <div class="editor-area" style="grid-template-columns:1fr 1fr">
@@ -586,11 +588,21 @@ footer a:hover{text-decoration:underline}
 </section>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — CSS Nesting Deep Dive Playground
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> — CSS Nesting Deep Dive Playground
 </footer>
 
 <div class="toast" id="toast">Copied to clipboard!</div>
 
+
+<script>var _LANG={'title_css_nesting_deep_dive_pla':["CSS Nesting Deep Dive Playground — Dev Vault", "CSS嵌套深度解析练习场 — 开发者宝库"],'metadesc_advanced_css_nesting_patt':["Advanced CSS nesting patterns: @media inside nesting, @layer + nesting, specificity visualization, Sass migration, lint checker. Baseline 2024.", "高级 CSS 嵌套模式：@media 嵌套、@layer + 嵌套、优先级可视化、Sass 迁移、代码检查器。基准 2024。"],'h2_nesting_with_selector':["Nesting with & Selector", "嵌套与 &amp; 选择器"],'h2_media_inside_nesting':["@media Inside Nesting", "@media Inside Nesting"],'h2_layer_nesting':["@layer + Nesting", "@layer + 嵌套"],'h2_specificity_visualization':["Specificity Visualization", "特异性可视化"],'h2_nesting_vs_sass_nesting':["Nesting vs Sass Nesting", "嵌套与 Sass 嵌套"],'h2_sass_to_native_migration':["Sass to Native Migration Tool", "Sass 到 Native 的迁移工具"],'h2_performance_impact':["Performance Impact", "绩效影响"],'h2_lint_checker':["Lint Checker", "绒毛检查器"],'subtitle_combine_css_cascade_layer':["Combine CSS cascade layers with nesting for powerful, maintainable architecture. Layer order determines precedence regardless of specificity.", "将 CSS 层叠层与嵌套结合使用，可构建强大且易于维护的架构。层顺序决定优先级，与样式特异性无关。"],'subtitle_native_css_nesting_and_sa':["Native CSS nesting and Sass nesting look similar but have important differences. Understanding these prevents bugs during migration.", "原生 CSS 嵌套和 Sass 嵌套看起来很相似，但实际上存在重要的区别。理解这些区别有助于避免迁移过程中出现错误。"],'subtitle_paste_your_scss_and_get_a':["Paste your SCSS and get a converted native CSS nesting version. Handles common patterns but flags &-concatenation (which requires manual refactoring).", "粘贴你的 SCSS 代码，即可获得转换后的原生 CSS 嵌套版本。支持常见模式，但会标记 &amp; 连接（这需要手动重构）。"],'subtitle_does_nesting_css_rules_af':["Does nesting CSS rules affect performance? The browser unrolls nested rules into flat selectors internally. Deep nesting can increase selector complexity and matching time.", "嵌套 CSS 规则会影响性能吗？浏览器内部会将嵌套规则展开为扁平的选择器。深度嵌套会增加选择器的复杂性和匹配时间。"],'subtitle_paste_your_nested_css_and':["Paste your nested CSS and check for common mistakes, anti-patterns, and browser compatibility issues.", "粘贴您的嵌套 CSS 代码，并检查常见错误、反模式和浏览器兼容性问题。"],'btn_selector':["& Selector", "和选择器"],'btn_media_nesting':["@media + Nesting", "@media + 嵌套"],'btn_layer_nesting':["@layer + Nesting", "@layer + 嵌套"],'btn_specificity':["Specificity", "特异性"],'btn_vs_sass':["vs Sass", "对阵 Sass"],'btn_sass_migration':["Sass Migration", "Sass 迁移"],'btn_performance':["Performance", "表现"],'btn_lint_checker':["Lint Checker", "绒毛检查器"],'btn_basic':["Basic", "基本的"],'btn_pseudo':["Pseudo", "伪"],'btn_compound':["Compound", "化合物"],'btn_suffix':["& Suffix", "＆ 后缀"],'btn_complex':["Complex", "复杂的"],'btn_mobile_375px':["Mobile (375px)", "移动端（375像素）"],'btn_tablet_768px':["Tablet (768px)", "平板电脑（768像素）"],'btn_desktop_1024px':["Desktop (1024px)", "桌面（1024像素）"],'btn_copy':["Copy", "复制"],'btn_example_1':["Example 1", "例 1"],'btn_title_example_2':[".title')\">Example 2", ".title&#39;)&quot;&gt;示例 2"],'btn_nested_is':["Nested :is()", "嵌套：is()"],'btn_load_example':["Load Example", "加载示例"],'btn_load_example_2':["Load Example", "加载示例"],'btn_default':["Default", "默认"],'btn_primary':["Primary", "基本的"],'btn_danger':["Danger", "危险"],'btn_disabled':["Disabled", "已禁用"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'strong_2024':["2024", "2024"],'strong_base':["base", "根据"],'strong_components':["components", "成分"],'strong_overrides':["overrides", "覆盖"],'strong_key_difference_from_sass':["Key difference from Sass:", "与 Sass 的主要区别："],'th_feature':["Feature", "特征"],'th_native_css':["Native CSS", "原生 CSS"],'th_sass_scss':["Sass/SCSS", "Sass/SCSS"],'label_preset':["Preset:", "预设："],'label_viewport':["Viewport:", "视口："],'label_enter_a_css_selector':["Enter a CSS selector:", "输入 CSS 选择器："],'label_nesting_depth':["Nesting Depth", "嵌套深度"],'footer_css_nesting_deep_dive_pla':["CSS Nesting Deep Dive Playground — Dev Vault", "CSS嵌套深度解析练习场 — 开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* Navigation */
 document.getElementById('nav').addEventListener('click', e => {
@@ -717,7 +729,7 @@ setPreviewWidth(1024);
 /* Section 3: @layer Preview */
 function updateLayerPreview() {
   const css = document.getElementById('layerInput').value;
-  const html = `<div style="display:flex;gap:12px;flex-wrap:wrap;padding:20px"><button class="btn">Default</button><button class="btn primary">Primary</button><button class="btn danger">Danger</button><button class="btn primary disabled">Disabled</button></div>`;
+  const html = `<div style="display:flex;gap:12px;flex-wrap:wrap;padding:20px"><button class="btn" ti="btn_default">Default</button><button class="btn primary" ti="btn_primary">Primary</button><button class="btn danger" ti="btn_danger">Danger</button><button class="btn primary disabled" ti="btn_disabled">Disabled</button></div>`;
   const doc = `<!DOCTYPE html><html><head><style>*{box-sizing:border-box;margin:0}body{background:#0f172a;font-family:sans-serif}${css}</style></head><body>${html}</body></html>`;
   document.getElementById('layerPreview').srcdoc = doc;
 }
@@ -962,6 +974,24 @@ function runLint() {
   `).join('');
 }
 runLint();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

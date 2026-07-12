@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_github_profile_card_gener" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,22 +44,24 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>GitHub Profile Card</h1>
-  <p class="subtitle">Enter a GitHub username. Get a shareable card.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_github_profile_card">GitHub Profile Card</h1>
+  <p class="subtitle" ti="subtitle_enter_a_github_username_g">Enter a GitHub username. Get a shareable card.</p>
 
   <div class="input-row">
-    <input type="text" id="username" placeholder="e.g. torvalds" autocomplete="off">
-    <button class="gen-btn" id="genBtn" onclick="generate()">Generate</button>
+    <input type="text" id="username" tp="placeholder_e_g_torvalds" placeholder="e.g. torvalds" autocomplete="off">
+    <button class="gen-btn" id="genBtn" onclick="generate()" ti="btn_generate">Generate</button>
   </div>
 
   <div class="themes" id="themes">
-    <button class="active" onclick="setTheme('dark',this)">Dark</button>
-    <button onclick="setTheme('midnight',this)">Midnight</button>
-    <button onclick="setTheme('ocean',this)">Ocean</button>
-    <button onclick="setTheme('forest',this)">Forest</button>
-    <button onclick="setTheme('sunset',this)">Sunset</button>
-    <button onclick="setTheme('light',this)">Light</button>
+    <button class="active" onclick="setTheme('dark',this)" ti="btn_dark">Dark</button>
+    <button onclick="setTheme('midnight',this)" ti="btn_midnight">Midnight</button>
+    <button onclick="setTheme('ocean',this)" ti="btn_ocean">Ocean</button>
+    <button onclick="setTheme('forest',this)" ti="btn_forest">Forest</button>
+    <button onclick="setTheme('sunset',this)" ti="btn_sunset">Sunset</button>
+    <button onclick="setTheme('light',this)" ti="btn_light">Light</button>
   </div>
 
   <div class="error" id="error"></div>
@@ -70,16 +72,26 @@ footer a{color:var(--accent);text-decoration:none}
   </div>
 
   <div class="actions" id="actions">
-    <button onclick="downloadCard()">⬇ Download PNG</button>
-    <button onclick="copyToClipboard()">📋 Copy to Clipboard</button>
+    <button onclick="downloadCard()" ti="btn_download_png">⬇ Download PNG</button>
+    <button onclick="copyToClipboard()" ti="btn_copy_to_clipboard">📋 Copy to Clipboard</button>
   </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 57+ free browser-based developer tools<br>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> — 57+ free browser-based developer tools<br>
   Data from <a href="https://api.github.com" target="_blank">GitHub API</a>
 </footer>
 
+
+<script>var _LANG={'title_github_profile_card_gener':["GitHub Profile Card — Generate Shareable Dev Cards", "GitHub个人资料卡 — 生成可共享的开发者卡片"],'metadesc_generate_a_beautiful_prof':["Generate a beautiful profile card from your GitHub username. Download as PNG for social media, portfolios, or READMEs.", "根据您的 GitHub 用户名生成精美的个人简介卡片。可下载 PNG 格式文件，用于社交媒体、作品集或 README 文件。"],'h1_github_profile_card':["GitHub Profile Card", "GitHub个人资料卡"],'subtitle_enter_a_github_username_g':["Enter a GitHub username. Get a shareable card.", "输入GitHub用户名，即可获得可分享的卡片。"],'btn_generate':["Generate", "产生"],'btn_dark':["Dark", "黑暗的"],'btn_midnight':["Midnight", "午夜"],'btn_ocean':["Ocean", "海洋"],'btn_forest':["Forest", "森林"],'btn_sunset':["Sunset", "日落"],'btn_light':["Light", "光"],'btn_download_png':["⬇ Download PNG", "⬇ 下载 PNG"],'btn_copy_to_clipboard':["📋 Copy to Clipboard", "📋 复制到剪贴板"],'placeholder_e_g_torvalds':["e.g. torvalds", "例如托瓦尔兹"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["✅ Copied!", "✅ 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -358,7 +370,7 @@ async function copyToClipboard() {
     await navigator.clipboard.write([new ClipboardItem({ 'image/png': blob })]);
     const btn = $('actions').querySelectorAll('button')[1];
     const orig = btn.textContent;
-    btn.textContent = '✅ Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 2000);
   } catch {
     showError('Copy failed. Try downloading instead.');
@@ -376,12 +388,30 @@ if (params.get('u')) {
 $('username').addEventListener('keydown', e => { if (e.key === 'Enter') generate(); });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Stats</a>
 <a href="https://gokuscraper.github.io/dev-vault/repo-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Repo Compare</a>
 <a href="https://gokuscraper.github.io/dev-vault/devto-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Devto Stats</a>
 <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

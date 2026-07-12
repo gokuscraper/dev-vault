@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_speech_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -234,6 +234,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">Sp</span>
@@ -241,14 +243,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">Speech</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="main-tabs">
-  <button class="main-tab active" data-tab="synthesis">Synthesis (TTS)</button>
-  <button class="main-tab" data-tab="recognition">Recognition (STT)</button>
-  <button class="main-tab" data-tab="code">Code</button>
+  <button class="main-tab active" data-tab="synthesis" ti="btn_synthesis_tts">Synthesis (TTS)</button>
+  <button class="main-tab" data-tab="recognition" ti="btn_recognition_stt">Recognition (STT)</button>
+  <button class="main-tab" data-tab="code" ti="btn_code">Code</button>
 </div>
 
 <!-- Synthesis -->
@@ -257,11 +259,11 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <div class="section-title">Voice</div>
     <div class="control-group">
       <div class="control-row">
-        <label>Language</label>
+        <label ti="label_language" ti="label_language_2">Language</label>
         <select id="synth-lang"></select>
       </div>
       <div class="control-row">
-        <label>Voice</label>
+        <label ti="label_voice">Voice</label>
         <select id="synth-voice"></select>
       </div>
     </div>
@@ -269,17 +271,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <div class="section-title">Parameters</div>
     <div class="control-group">
       <div class="control-row">
-        <label>Rate</label>
+        <label ti="label_rate">Rate</label>
         <input type="range" id="synth-rate" min="0.1" max="3" step="0.1" value="1">
         <span class="val-display" id="val-rate">1.0</span>
       </div>
       <div class="control-row">
-        <label>Pitch</label>
+        <label ti="label_pitch">Pitch</label>
         <input type="range" id="synth-pitch" min="0" max="2" step="0.1" value="1">
         <span class="val-display" id="val-pitch">1.0</span>
       </div>
       <div class="control-row">
-        <label>Volume</label>
+        <label ti="label_volume">Volume</label>
         <input type="range" id="synth-volume" min="0" max="1" step="0.1" value="1">
         <span class="val-display" id="val-volume">1.0</span>
       </div>
@@ -316,12 +318,12 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
       <span class="speaking-text">Speaking...</span>
     </div>
     <div class="text-input-area">
-      <textarea id="synthText" placeholder="Type or paste text to speak...">Hello! Welcome to the Web Speech API playground. You can test text-to-speech synthesis with different voices and parameters.</textarea>
+      <textarea id="synthText" tp="placeholder_type_or_paste_text_to_spe" placeholder="Type or paste text to speak...">Hello! Welcome to the Web Speech API playground. You can test text-to-speech synthesis with different voices and parameters.</textarea>
     </div>
     <div class="synth-action-bar">
       <button class="btn-primary" id="speakBtn">&#9654; Speak</button>
-      <button class="btn-outline" id="pauseBtn">Pause</button>
-      <button class="btn-outline" id="stopBtn">Stop</button>
+      <button class="btn-outline" id="pauseBtn" ti="btn_pause">Pause</button>
+      <button class="btn-outline" id="stopBtn" ti="btn_stop">Stop</button>
       <span class="char-count" id="synthCharCount">0 chars</span>
     </div>
     <div class="info-bar">
@@ -356,15 +358,15 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
         </select>
       </div>
       <div class="toggle-row">
-        <label>Continuous</label>
+        <label ti="label_continuous">Continuous</label>
         <div class="toggle on" id="recog-continuous"></div>
       </div>
       <div class="toggle-row">
-        <label>Interim</label>
+        <label ti="label_interim">Interim</label>
         <div class="toggle on" id="recog-interim"></div>
       </div>
       <div class="control-row">
-        <label>Max results</label>
+        <label ti="label_max_results">Max results</label>
         <select id="recog-maxalt">
           <option value="1">1</option>
           <option value="3">3</option>
@@ -388,8 +390,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
       <div style="color:var(--text-dim);text-align:center;font-size:0.9rem;">Transcribed text will appear here</div>
     </div>
     <div class="recog-footer">
-      <button class="btn-outline" id="clearTranscriptBtn">Clear</button>
-      <button class="btn-outline" id="copyTranscriptBtn">Copy Text</button>
+      <button class="btn-outline" id="clearTranscriptBtn" ti="btn_clear">Clear</button>
+      <button class="btn-outline" id="copyTranscriptBtn" ti="btn_copy_text">Copy Text</button>
       <span style="margin-left:auto;font-family:var(--mono);font-size:0.75rem;color:var(--text-dim)" id="wordCount">0 words</span>
     </div>
     <div class="info-bar">
@@ -403,20 +405,30 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 <div class="main-content code-layout" id="tab-code">
   <div class="code-panel" style="border-right:1px solid var(--border)">
     <div class="code-panel-header">
-      <h3>Synthesis Code</h3>
-      <button class="btn-outline" id="copySynthCode">Copy</button>
+      <h3 ti="h3_synthesis_code">Synthesis Code</h3>
+      <button class="btn-outline" id="copySynthCode" ti="btn_copy" ti="btn_copy_2">Copy</button>
     </div>
     <div class="code-area"><pre id="synthCode"></pre></div>
   </div>
   <div class="code-panel">
     <div class="code-panel-header">
-      <h3>Recognition Code</h3>
+      <h3 ti="h3_recognition_code">Recognition Code</h3>
       <button class="btn-outline" id="copyRecogCode">Copy</button>
     </div>
     <div class="code-area"><pre id="recogCode"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_speech_api_playground':["Web Speech API Playground — Dev Vault", "Web Speech API Playground — 开发者宝库"],'metadesc_interactive_web_speech_ap':["Interactive Web Speech API playground. Text-to-speech synthesis and speech recognition in one tool. All voice parameters, real-time transcription, code export.", "交互式 Web Speech API 演示平台。集文本转语音合成和语音识别于一体的工具。支持所有语音参数、实时转录和代码导出。"],'h3_synthesis_code':["Synthesis Code", "合成代码"],'h3_recognition_code':["Recognition Code", "识别码"],'btn_synthesis_tts':["Synthesis (TTS)", "合成（TTS）"],'btn_recognition_stt':["Recognition (STT)", "识别（STT）"],'btn_code':["Code", "代码"],'btn_speak':["▶ Speak", "▶ 说话"],'btn_pause':["Pause", "暂停"],'btn_stop':["Stop", "停止"],'btn_clear':["Clear", "清除"],'btn_copy_text':["Copy Text", "复制文本"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'placeholder_type_or_paste_text_to_spe':["Type or paste text to speak...", "输入或粘贴文本即可朗读……"],'label_language':["Language", "语言"],'label_voice':["Voice", "嗓音"],'label_rate':["Rate", "速度"],'label_pitch':["Pitch", "沥青"],'label_volume':["Volume", "体积"],'label_language_2':["Language", "语言"],'label_continuous':["Continuous", "连续的"],'label_interim':["Interim", "临时"],'label_max_results':["Max results", "最大结果"],'footer_web_speech_api_playground':["Web Speech API Playground — Dev Vault", "Web Speech API Playground — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_speechrecognition_not_sup':["SpeechRecognition not supported in this browser", "此浏览器不支持语音识别。"],'jtc_listening':["Listening...", "正在听……"],'jtc_microphone_permission_den':["Microphone permission denied", "麦克风权限被拒绝"],'jtc_click_to_start_listening':["Click to start listening", "点击开始收听"],'jtc_0_words':["0 words", "0 个字"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_text':["Copy Text", "复制文本"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_const':["const", "常量"],'jtlword_const_2':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_speechsynthesisutterance':["SpeechSynthesisUtterance", "语音合成话语"],'jtlword_const_3':["const", "常量"],'jtlword_getvoices':["getVoices", "获取语​​音"],'jtlword_const_4':["const", "常量"],'jtlword_find':["find", "寻找"],'jtlword_if':["if", "如果"],'jtlword_onstart':["onstart", "启动"],'jtlword_log':["log", "日志"],'jtlword_onend':["onend", "结束"],'jtlword_log_2':["log", "日志"],'jtlword_onerror':["onerror", "错误"],'jtlword_error':["error", "错误"],'jtlword_speak':["speak", "说话"],'jtlword_const_5':["const", "常量"],'jtlword_const_6':["const", "常量"],'jtlword_new_2':["new", "新的"],'jtlword_speechrecognition':["SpeechRecognition", "语音识别"],'jtlword_onresult':["onresult", "结果"],'jtlword_for':["for", "为了"],'jtlword_let':["let", "让"],'jtlword_const_7':["const", "常量"],'jtlword_if_2':["if", "如果"],'jtlword_log_3':["log", "日志"],'jtlword_log_4':["log", "日志"],'jtlword_else':["else", "别的"],'jtlword_log_5':["log", "日志"],'jtlword_onstart_2':["onstart", "启动"],'jtlword_log_6':["log", "日志"],'jtlword_onend_2':["onend", "结束"],'jtlword_log_7':["log", "日志"],'jtlword_onerror_2':["onerror", "错误"],'jtlword_error_2':["error", "错误"],'jtlword_onspeechstart':["onspeechstart", "onspeechstart"],'jtlword_log_8':["log", "日志"],'jtlword_start':["start", "开始"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   // ===== TAB SWITCHING =====
@@ -568,7 +580,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   function startRecognition() {
     if (!SpeechRecognition) {
-      micStatus.textContent = 'SpeechRecognition not supported in this browser';
+      micStatus.textContent=T("jtc_speechrecognition_not_sup");
       return;
     }
 
@@ -581,7 +593,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     recognition.onstart = () => {
       isRecording = true;
       micBtn.classList.add('recording');
-      micStatus.textContent = 'Listening...';
+      micStatus.textContent=T("jtc_listening");
       logEvent('start');
     };
 
@@ -626,14 +638,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     recognition.onerror = (e) => {
       logEvent('error', e.error);
       if (e.error === 'not-allowed') {
-        micStatus.textContent = 'Microphone permission denied';
+        micStatus.textContent=T("jtc_microphone_permission_den");
       }
     };
 
     recognition.onend = () => {
       isRecording = false;
       micBtn.classList.remove('recording');
-      micStatus.textContent = 'Click to start listening';
+      micStatus.textContent=T("jtc_click_to_start_listening");
       logEvent('end');
     };
 
@@ -657,14 +669,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   clearTranscriptBtn.onclick = () => {
     fullTranscript = '';
     transcriptArea.innerHTML = '<div style="color:var(--text-dim);text-align:center;font-size:0.9rem;">Transcribed text will appear here</div>';
-    wordCountEl.textContent = '0 words';
+    wordCountEl.textContent=T("jtc_0_words");
   };
 
   copyTranscriptBtn.onclick = () => {
     navigator.clipboard.writeText(fullTranscript.trim()).then(() => {
-      copyTranscriptBtn.textContent = 'Copied!';
+      copyTranscriptBtn.textContent=T("jtc_copied");
       copyTranscriptBtn.classList.add('copied');
-      setTimeout(() => { copyTranscriptBtn.textContent = 'Copy Text'; copyTranscriptBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyTranscriptBtn.textContent=T("jtc_copy_text"); copyTranscriptBtn.classList.remove('copied'); }, 2000);
     });
   };
 
@@ -758,9 +770,9 @@ recognition.<span class="fn">start</span>();
     btn.onclick = () => {
       const code = document.getElementById(codeId).textContent;
       navigator.clipboard.writeText(code).then(() => {
-        btn.textContent = 'Copied!';
+        btn.textContent=T("jtc_copied");
         btn.classList.add('copied');
-        setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 2000);
+        setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 2000);
       });
     };
   }
@@ -768,6 +780,24 @@ recognition.<span class="fn">start</span>();
   setupCopyBtn('copyRecogCode', 'recogCode');
 
   renderAllCode();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

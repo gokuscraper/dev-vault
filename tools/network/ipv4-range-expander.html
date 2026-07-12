@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ipv4_range_expander" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,30 +27,42 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>IPv4 Range Expander</h1>
-  <p class="desc">Find the minimal CIDR notation for a given start and end IPv4 address</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_ipv4_range_expander" ti="h1_ipv4_range_expander">IPv4 Range Expander</h1>
+  <p class="desc" ti="subtitle_find_the_minimal_cidr_not">Find the minimal CIDR notation for a given start and end IPv4 address</p>
 
   <div class="card">
-    <label for="startIp">Start address</label>
+    <label for="startIp" ti="label_start_address">Start address</label>
     <input type="text" id="startIp" value="192.168.1.1" spellcheck="false">
-    <label for="endIp">End address</label>
+    <label for="endIp" ti="label_end_address">End address</label>
     <input type="text" id="endIp" value="192.168.6.255" spellcheck="false">
     <div class="error" id="ipError">Invalid IPv4 address</div>
   </div>
 
   <div class="alert" id="invalidRange">
     <p>The end address is lower than the start address.</p>
-    <button id="switchBtn">Switch start and end</button>
+    <button id="switchBtn" ti="btn_switch_start_and_end">Switch start and end</button>
   </div>
 
   <div class="card" id="resultCard" style="display:none">
     <table>
-      <thead><tr><th></th><th>Old value</th><th>New value</th></tr></thead>
+      <thead><tr><th></th><th ti="th_old_value">Old value</th><th ti="th_new_value">New value</th></tr></thead>
       <tbody id="resultBody"></tbody>
     </table>
   </div>
 </div>
+
+<script>var _LANG={'title_ipv4_range_expander':["IPv4 Range Expander", "IPv4 范围扩展器"],'metadesc_convert_an_ipv4_range_sta':["Convert an IPv4 range (start-end) into the minimal CIDR notation. Calculate network address, broadcast, and size.", "将 IPv4 地址范围（起始地址-结束地址）转换为最小 CIDR 表示法。计算网络地址、广播地址和地址大小。"],'h1_ipv4_range_expander':["IPv4 Range Expander", "IPv4 范围扩展器"],'subtitle_find_the_minimal_cidr_not':["Find the minimal CIDR notation for a given start and end IPv4 address", "找到给定起始和结束 IPv4 地址的最小 CIDR 表示法"],'btn_switch_start_and_end':["Switch start and end", "开关开始和结束"],'th_old_value':["Old value", "旧价值"],'th_new_value':["New value", "新价值"],'label_start_address':["Start address", "起始地址"],'label_end_address':["End address", "结束地址"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function isValidIpv4(ip) {
   return /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)\.){3}(25[0-5]|(2[0-4]|1\d|[1-9]|)\d)$/.test(ip.trim());
@@ -131,6 +143,24 @@ document.getElementById('switchBtn').addEventListener('click', () => {
   update();
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

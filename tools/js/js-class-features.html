@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_javascript_class_features" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,28 +215,30 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>JavaScript Class Features</h1>
+  <h1 ti="h1_javascript_class_features">JavaScript Class Features</h1>
   <p>Interactive playground for modern class syntax: private fields, static blocks, decorators, and more</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab active" data-tab="private-fields">Private Fields</button>
-    <button class="tab" data-tab="private-methods">Private Methods</button>
-    <button class="tab" data-tab="static-blocks">Static Blocks</button>
-    <button class="tab" data-tab="class-fields">Class Fields</button>
-    <button class="tab" data-tab="accessor">Auto-Accessor</button>
-    <button class="tab" data-tab="hasown">hasOwn()</button>
-    <button class="tab" data-tab="brand">Private Brand Check</button>
-    <button class="tab" data-tab="inheritance">Inheritance</button>
+    <button class="tab active" data-tab="private-fields" ti="btn_private_fields">Private Fields</button>
+    <button class="tab" data-tab="private-methods" ti="btn_private_methods">Private Methods</button>
+    <button class="tab" data-tab="static-blocks" ti="btn_static_blocks">Static Blocks</button>
+    <button class="tab" data-tab="class-fields" ti="btn_class_fields">Class Fields</button>
+    <button class="tab" data-tab="accessor" ti="btn_auto_accessor">Auto-Accessor</button>
+    <button class="tab" data-tab="hasown" ti="btn_hasown">hasOwn()</button>
+    <button class="tab" data-tab="brand" ti="btn_private_brand_check">Private Brand Check</button>
+    <button class="tab" data-tab="inheritance" ti="btn_inheritance">Inheritance</button>
   </div>
 
   <!-- Private Fields -->
   <div class="panel active" id="panel-private-fields">
     <div class="card">
-      <h2>Private Fields (#field)</h2>
+      <h2 ti="h2_private_fields_field">Private Fields (#field)</h2>
       <p>Private fields are truly private — not accessible outside the class body. They use the <code class="inline-code">#</code> prefix and are checked at the syntax level.</p>
 
 <pre><span class="kw">class</span> <span class="typ">BankAccount</span> {
@@ -265,12 +267,12 @@ acct.<span class="priv">#balance</span>;    <span class="cmt">// SyntaxError: Pr
 acct[<span class="str">'#balance'</span>]; <span class="cmt">// undefined (it's not a string key!)</span></pre>
 
       <div class="highlight-box">
-        <strong>Key difference from conventions:</strong> Unlike the <code class="inline-code">_underscore</code> convention, <code class="inline-code">#private</code> fields are enforced by the engine. They cannot be accessed via reflection, proxies, or bracket notation.
+        <strong ti="strong_key_difference_from_conve">Key difference from conventions:</strong> Unlike the <code class="inline-code">_underscore</code> convention, <code class="inline-code">#private</code> fields are enforced by the engine. They cannot be accessed via reflection, proxies, or bracket notation.
       </div>
 
-      <h3>Interactive Demo</h3>
+      <h3 ti="h3_interactive_demo" ti="h3_interactive_demo_2" ti="h3_interactive_demo_3" ti="h3_interactive_demo_4" ti="h3_interactive_demo_5" ti="h3_interactive_demo_6" ti="h3_interactive_demo_7" ti="h3_interactive_demo_8">Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoPrivateFields()">Run Private Fields Demo</button>
+        <button class="btn" onclick="demoPrivateFields()" ti="btn_run_private_fields_demo">Run Private Fields Demo</button>
         <div class="output" id="private-fields-output"></div>
       </div>
     </div>
@@ -279,7 +281,7 @@ acct[<span class="str">'#balance'</span>]; <span class="cmt">// undefined (it's 
   <!-- Private Methods -->
   <div class="panel" id="panel-private-methods">
     <div class="card">
-      <h2>Private Methods (#method())</h2>
+      <h2 ti="h2_private_methods_method">Private Methods (#method())</h2>
       <p>Methods can also be private. They follow the same rules as private fields — only accessible within the class body.</p>
 
 <pre><span class="kw">class</span> <span class="typ">Validator</span> {
@@ -309,9 +311,9 @@ acct[<span class="str">'#balance'</span>]; <span class="cmt">// undefined (it's 
   }
 }</pre>
 
-      <h3>Types of Private Members</h3>
+      <h3 ti="h3_types_of_private_members">Types of Private Members</h3>
       <table>
-        <thead><tr><th>Type</th><th>Syntax</th><th>Access</th></tr></thead>
+        <thead><tr><th ti="th_type">Type</th><th ti="th_syntax">Syntax</th><th ti="th_access">Access</th></tr></thead>
         <tbody>
           <tr><td>Private field</td><td><code>#field = value</code></td><td>Instance only</td></tr>
           <tr><td>Private method</td><td><code>#method() { }</code></td><td>Instance only</td></tr>
@@ -324,7 +326,7 @@ acct[<span class="str">'#balance'</span>]; <span class="cmt">// undefined (it's 
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoPrivateMethods()">Run Private Methods Demo</button>
+        <button class="btn" onclick="demoPrivateMethods()" ti="btn_run_private_methods_demo">Run Private Methods Demo</button>
         <div class="output" id="private-methods-output"></div>
       </div>
     </div>
@@ -333,7 +335,7 @@ acct[<span class="str">'#balance'</span>]; <span class="cmt">// undefined (it's 
   <!-- Static Blocks -->
   <div class="panel" id="panel-static-blocks">
     <div class="card">
-      <h2>Static Initialization Blocks</h2>
+      <h2 ti="h2_static_initialization_blo">Static Initialization Blocks</h2>
       <p>Static blocks run once when the class is evaluated. They have access to private static members and can perform complex initialization.</p>
 
 <pre><span class="kw">class</span> <span class="typ">Config</span> {
@@ -372,7 +374,7 @@ getPrivate(<span class="kw">new</span> <span class="typ">Secret</span>()); <span
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoStaticBlocks()">Run Static Blocks Demo</button>
+        <button class="btn" onclick="demoStaticBlocks()" ti="btn_run_static_blocks_demo">Run Static Blocks Demo</button>
         <div class="output" id="static-blocks-output"></div>
       </div>
     </div>
@@ -381,7 +383,7 @@ getPrivate(<span class="kw">new</span> <span class="typ">Secret</span>()); <span
   <!-- Class Fields -->
   <div class="panel" id="panel-class-fields">
     <div class="card">
-      <h2>Class Fields (Public & Private)</h2>
+      <h2 ti="h2_class_fields_public_priva">Class Fields (Public & Private)</h2>
       <p>Class fields allow you to declare properties directly in the class body, with or without default values.</p>
 
 <pre><span class="kw">class</span> <span class="typ">User</span> {
@@ -434,7 +436,7 @@ u1.createdAt === u2.createdAt; <span class="cmt">// false (new Date() per instan
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoClassFields()">Run Class Fields Demo</button>
+        <button class="btn" onclick="demoClassFields()" ti="btn_run_class_fields_demo">Run Class Fields Demo</button>
         <div class="output" id="class-fields-output"></div>
       </div>
     </div>
@@ -443,7 +445,7 @@ u1.createdAt === u2.createdAt; <span class="cmt">// false (new Date() per instan
   <!-- Auto-Accessor -->
   <div class="panel" id="panel-accessor">
     <div class="card">
-      <h2>Auto-Accessor (accessor keyword)</h2>
+      <h2 ti="h2_auto_accessor_accessor_ke">Auto-Accessor (accessor keyword)</h2>
       <p>The <code class="inline-code">accessor</code> keyword creates a field with automatic getter and setter, backed by a private storage slot.</p>
 
 <pre><span class="kw">class</span> <span class="typ">ReactiveElement</span> {
@@ -462,7 +464,7 @@ el.name;           <span class="cmt">// 'default' (via auto getter)</span>
 el.name = <span class="str">'test'</span>; <span class="cmt">// (via auto setter)</span></pre>
 
       <div class="highlight-box">
-        <strong>Why auto-accessor?</strong> It's the foundation for decorators. A decorator can intercept the getter/setter to add reactivity, validation, logging, etc. Without <code class="inline-code">accessor</code>, decorators can only wrap methods, not fields.
+        <strong ti="strong_why_auto_accessor">Why auto-accessor?</strong> It's the foundation for decorators. A decorator can intercept the getter/setter to add reactivity, validation, logging, etc. Without <code class="inline-code">accessor</code>, decorators can only wrap methods, not fields.
       </div>
 
 <pre><span class="cmt">// With a decorator (Stage 3)</span>
@@ -485,7 +487,7 @@ el.name = <span class="str">'test'</span>; <span class="cmt">// (via auto setter
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoAccessor()">Run Auto-Accessor Demo</button>
+        <button class="btn" onclick="demoAccessor()" ti="btn_run_auto_accessor_demo">Run Auto-Accessor Demo</button>
         <div class="output" id="accessor-output"></div>
       </div>
     </div>
@@ -494,7 +496,7 @@ el.name = <span class="str">'test'</span>; <span class="cmt">// (via auto setter
   <!-- hasOwn -->
   <div class="panel" id="panel-hasown">
     <div class="card">
-      <h2>Object.hasOwn() vs hasOwnProperty()</h2>
+      <h2 ti="h2_object_hasown_vs_hasownpr">Object.hasOwn() vs hasOwnProperty()</h2>
       <p><code class="inline-code">Object.hasOwn()</code> is the modern replacement for <code class="inline-code">obj.hasOwnProperty()</code>. It's safer and simpler.</p>
 
       <div class="comparison">
@@ -537,7 +539,7 @@ Object.<span class="fn">hasOwn</span>(obj, <span class="str">'key'</span>);</pre
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoHasOwn()">Run hasOwn() Demo</button>
+        <button class="btn" onclick="demoHasOwn()" ti="btn_run_hasown_demo">Run hasOwn() Demo</button>
         <div class="output" id="hasown-output"></div>
       </div>
     </div>
@@ -546,7 +548,7 @@ Object.<span class="fn">hasOwn</span>(obj, <span class="str">'key'</span>);</pre
   <!-- Private Brand Check -->
   <div class="panel" id="panel-brand">
     <div class="card">
-      <h2>Private Field Brand Check (#field in obj)</h2>
+      <h2 ti="h2_private_field_brand_check">Private Field Brand Check (#field in obj)</h2>
       <p>The <code class="inline-code">in</code> operator can check if an object has a specific private field. This is called a "brand check" — it verifies the object was created by the class.</p>
 
 <pre><span class="kw">class</span> <span class="typ">Color</span> {
@@ -577,12 +579,12 @@ Object.<span class="fn">hasOwn</span>(obj, <span class="str">'key'</span>);</pre
 <span class="typ">Color</span>.<span class="fn">isColor</span>(<span class="num">42</span>);                     <span class="cmt">// false (no error!)</span></pre>
 
       <div class="highlight-box">
-        <strong>vs instanceof:</strong> <code class="inline-code">instanceof</code> checks the prototype chain and can be fooled with <code class="inline-code">Symbol.hasInstance</code>. The <code class="inline-code">#field in obj</code> check is unforgeable — it verifies the private slot actually exists.
+        <strong ti="strong_vs_instanceof">vs instanceof:</strong> <code class="inline-code">instanceof</code> checks the prototype chain and can be fooled with <code class="inline-code">Symbol.hasInstance</code>. The <code class="inline-code">#field in obj</code> check is unforgeable — it verifies the private slot actually exists.
       </div>
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoBrandCheck()">Run Brand Check Demo</button>
+        <button class="btn" onclick="demoBrandCheck()" ti="btn_run_brand_check_demo">Run Brand Check Demo</button>
         <div class="output" id="brand-output"></div>
       </div>
     </div>
@@ -591,8 +593,8 @@ Object.<span class="fn">hasOwn</span>(obj, <span class="str">'key'</span>);</pre
   <!-- Inheritance -->
   <div class="panel" id="panel-inheritance">
     <div class="card">
-      <h2>Inheritance with Private Members</h2>
-      <p>Private fields are <strong>not inherited</strong> by subclasses. Each class owns its own private fields — even subclasses cannot access parent's private fields.</p>
+      <h2 ti="h2_inheritance_with_private">Inheritance with Private Members</h2>
+      <p>Private fields are <strong ti="strong_not_inherited">not inherited</strong> by subclasses. Each class owns its own private fields — even subclasses cannot access parent's private fields.</p>
 
 <pre><span class="kw">class</span> <span class="typ">Animal</span> {
   <span class="priv">#name</span>;
@@ -631,18 +633,28 @@ dog.<span class="fn">learn</span>(<span class="str">'sit'</span>);
 dog.<span class="fn">showTricks</span>(); <span class="cmt">// "sit"</span></pre>
 
       <div class="highlight-box">
-        <strong>Key rule:</strong> Private fields belong to the class that declares them. A subclass method cannot read <code class="inline-code">#name</code> from the parent — only the parent's methods can. Use protected-like patterns with accessors if subclasses need access.
+        <strong ti="strong_key_rule">Key rule:</strong> Private fields belong to the class that declares them. A subclass method cannot read <code class="inline-code">#name</code> from the parent — only the parent's methods can. Use protected-like patterns with accessors if subclasses need access.
       </div>
 
       <h3>Interactive Demo</h3>
       <div class="demo-area">
-        <button class="btn" onclick="demoInheritance()">Run Inheritance Demo</button>
+        <button class="btn" onclick="demoInheritance()" ti="btn_run_inheritance_demo">Run Inheritance Demo</button>
         <div class="output" id="inheritance-output"></div>
       </div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_javascript_class_features':["JavaScript Class Features Playground", "JavaScript 类特性演示场"],'metadesc_interactive_playground_fo':["Interactive playground for modern JavaScript class features: private fields, private methods, static blocks, auto-accessor, hasOwn, and private brand checks.", "现代 JavaScript 类特性的交互式演示：私有字段、私有方法、静态块、自动访问器、hasOwn 和私有品牌检查。"],'h1_javascript_class_features':["JavaScript Class Features", "JavaScript 类特性"],'h2_private_fields_field':["Private Fields (#field)", "私有字段（#字段）"],'h2_private_methods_method':["Private Methods (#method())", "私有方法（#method()）"],'h2_static_initialization_blo':["Static Initialization Blocks", "静态初始化块"],'h2_class_fields_public_priva':["Class Fields (Public & Private)", "类字段（公共和私有）"],'h2_auto_accessor_accessor_ke':["Auto-Accessor (accessor keyword)", "自动访问器（访问器关键字）"],'h2_object_hasown_vs_hasownpr':["Object.hasOwn() vs hasOwnProperty()", "Object.hasOwn() 与 hasOwnProperty()"],'h2_private_field_brand_check':["Private Field Brand Check (#field in obj)", "私有字段品牌检查（对象中的字段号）"],'h2_inheritance_with_private':["Inheritance with Private Members", "与私人成员的继承"],'h3_interactive_demo':["Interactive Demo", "交互式演示"],'h3_types_of_private_members':["Types of Private Members", "私人会员类型"],'h3_interactive_demo_2':["Interactive Demo", "交互式演示"],'h3_interactive_demo_3':["Interactive Demo", "交互式演示"],'h3_interactive_demo_4':["Interactive Demo", "交互式演示"],'h3_interactive_demo_5':["Interactive Demo", "交互式演示"],'h3_interactive_demo_6':["Interactive Demo", "交互式演示"],'h3_interactive_demo_7':["Interactive Demo", "交互式演示"],'h3_interactive_demo_8':["Interactive Demo", "交互式演示"],'btn_private_fields':["Private Fields", "私人领域"],'btn_private_methods':["Private Methods", "私有方法"],'btn_static_blocks':["Static Blocks", "静态块"],'btn_class_fields':["Class Fields", "类字段"],'btn_auto_accessor':["Auto-Accessor", "自动访问器"],'btn_hasown':["hasOwn()", "hasOwn()"],'btn_private_brand_check':["Private Brand Check", "私人品牌核查"],'btn_inheritance':["Inheritance", "遗产"],'btn_run_private_fields_demo':["Run Private Fields Demo", "运行私有字段演示"],'btn_run_private_methods_demo':["Run Private Methods Demo", "运行私有方法演示"],'btn_run_static_blocks_demo':["Run Static Blocks Demo", "运行静态块演示"],'btn_run_class_fields_demo':["Run Class Fields Demo", "运行类字段演示"],'btn_run_auto_accessor_demo':["Run Auto-Accessor Demo", "运行自动访问器演示"],'btn_run_hasown_demo':["Run hasOwn() Demo", "运行 hasOwn() 演示"],'btn_run_brand_check_demo':["Run Brand Check Demo", "运行品牌检查演示"],'btn_run_inheritance_demo':["Run Inheritance Demo", "运行继承演示"],'strong_key_difference_from_conve':["Key difference from conventions:", "与传统做法的主要区别："],'strong_why_auto_accessor':["Why auto-accessor?", "为什么需要自动访问器？"],'strong_vs_instanceof':["vs instanceof:", "vs instanceof："],'strong_not_inherited':["not inherited", "非继承所得。"],'strong_key_rule':["Key rule:", "关键规则："],'th_type':["Type", "类型"],'th_syntax':["Syntax", "句法"],'th_access':["Access", "使用权"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Tab switching
   document.querySelectorAll('.tab').forEach(tab => {
@@ -1120,6 +1132,24 @@ dog.<span class="fn">showTricks</span>(); <span class="cmt">// "sit"</span></pre
     log(out, `  buddy instanceof Dog: ${buddy instanceof Dog}`, '');
     log(out, `  buddy instanceof Animal: ${buddy instanceof Animal}`, '');
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

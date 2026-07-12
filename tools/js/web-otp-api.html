@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_otp_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -350,13 +350,15 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Web OTP API Playground</h1>
+  <h1 ti="title_web_otp_api_playground" ti="h1_web_otp_api_playground">Web OTP API Playground</h1>
   <p>Auto-read SMS OTP codes in the browser for seamless phone number verification</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Support Detection -->
   <div id="supportBanner" class="support-banner"></div>
 
@@ -394,10 +396,10 @@
     </div>
 
     <div style="display:flex;justify-content:center;gap:0.75rem;flex-wrap:wrap;">
-      <button class="btn" id="startListenBtn" onclick="startListening()">Start Listening</button>
-      <button class="btn btn-danger btn-sm" id="abortBtn" onclick="abortListening()" disabled>Abort</button>
-      <button class="btn btn-secondary btn-sm" onclick="simulateOtp()">Simulate OTP</button>
-      <button class="btn btn-secondary btn-sm" onclick="resetOtp()">Reset</button>
+      <button class="btn" id="startListenBtn" onclick="startListening()" ti="btn_start_listening">Start Listening</button>
+      <button class="btn btn-danger btn-sm" id="abortBtn" onclick="abortListening()" disabled ti="btn_abort">Abort</button>
+      <button class="btn btn-secondary btn-sm" onclick="simulateOtp()" ti="btn_simulate_otp">Simulate OTP</button>
+      <button class="btn btn-secondary btn-sm" onclick="resetOtp()" ti="btn_reset">Reset</button>
     </div>
 
     <div id="otpCodePreview" class="code-block" style="margin-top:1rem;">
@@ -419,17 +421,17 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
       </p>
 
       <div class="form-group">
-        <label>Your domain</label>
+        <label ti="label_your_domain">Your domain</label>
         <input type="text" id="smsDomain" value="example.com" oninput="updateSmsPreview()">
       </div>
 
       <div class="form-group">
-        <label>OTP code</label>
+        <label ti="label_otp_code">OTP code</label>
         <input type="text" id="smsCode" value="123456" maxlength="8" oninput="updateSmsPreview()">
       </div>
 
       <div class="form-group">
-        <label>Custom message (optional)</label>
+        <label ti="label_custom_message_optional">Custom message (optional)</label>
         <input type="text" id="smsMessage" value="Your verification code is" oninput="updateSmsPreview()">
       </div>
 
@@ -442,7 +444,7 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
       </div>
 
       <div style="margin-top:1rem;font-size:0.82rem;color:var(--text-dim);">
-        <strong>Format rules:</strong>
+        <strong ti="strong_format_rules">Format rules:</strong>
         <ul style="padding-left:1.5rem;margin-top:0.5rem;">
           <li>Last line must be: <code>@domain #code</code></li>
           <li><code>@</code> prefix identifies the domain origin</li>
@@ -461,12 +463,12 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
       </p>
 
       <div class="form-group">
-        <label>Timeout (seconds)</label>
+        <label ti="label_timeout_seconds">Timeout (seconds)</label>
         <input type="number" id="abortTimeout" value="60" min="5" max="300">
       </div>
 
       <div style="display:flex;gap:0.5rem;margin-bottom:1rem;">
-        <button class="btn btn-sm" onclick="startWithTimeout()">Start with Timeout</button>
+        <button class="btn btn-sm" onclick="startWithTimeout()" ti="btn_start_with_timeout">Start with Timeout</button>
       </div>
 
       <div id="timeoutDisplay" style="text-align:center;font-size:0.85rem;color:var(--text-dim);margin-bottom:1rem;">
@@ -506,7 +508,7 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
     <div class="grid-2">
       <div class="autocomplete-demo">
         <div style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.75rem;">With autocomplete attribute</div>
-        <input type="text" inputmode="numeric" autocomplete="one-time-code" placeholder="------" maxlength="6" id="otpInput1">
+        <input type="text" inputmode="numeric" autocomplete="one-time-code" tp="placeholder_x" tp="placeholder_x_2" placeholder="------" maxlength="6" id="otpInput1">
         <div class="hint">autocomplete="one-time-code" inputmode="numeric"</div>
       </div>
 
@@ -575,7 +577,7 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
     <div class="card">
       <h2>&#x1F30D; Browser Support</h2>
       <table>
-        <thead><tr><th>Browser</th><th>Version</th><th>Status</th></tr></thead>
+        <thead><tr><th ti="th_browser">Browser</th><th ti="th_version">Version</th><th ti="th_status">Status</th></tr></thead>
         <tbody>
           <tr><td>Chrome (Android)</td><td>84+</td><td style="color:var(--success);">Supported</td></tr>
           <tr><td>Edge (Android)</td><td>84+</td><td style="color:var(--success);">Supported</td></tr>
@@ -587,7 +589,7 @@ console.log(otp.code); <span class="comment">// e.g. "123456"</span></div>
         </tbody>
       </table>
       <div style="margin-top:0.75rem;font-size:0.82rem;color:var(--text-dim);">
-        <strong>Note:</strong> Safari supports <code>autocomplete="one-time-code"</code> for auto-fill from Messages,
+        <strong ti="strong_note">Note:</strong> Safari supports <code>autocomplete="one-time-code"</code> for auto-fill from Messages,
         but does not implement the Web OTP API (<code>navigator.credentials.get({otp})</code>).
       </div>
     </div>
@@ -626,13 +628,23 @@ ac.abort();</div>
   <!-- Event Log -->
   <div class="card">
     <h2>&#x1F4DC; Event Log</h2>
-    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;">Clear</button>
+    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;" ti="btn_clear">Clear</button>
     <div id="eventLog" class="log-area">
       <div class="log-entry info"><span class="time">[--:--:--]</span> <span class="msg">Playground initialized.</span></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_otp_api_playground':["Web OTP API Playground", "Web OTP API 演示平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Web OTP API - auto-read SMS OTP codes in the browser for seamless verification.", "Web OTP API 的交互式演示平台 - 在浏览器中自动读取短信 OTP 代码，实现无缝验证。"],'h1_web_otp_api_playground':["Web OTP API Playground", "Web OTP API 演示平台"],'h2_otp_credential_demo':["🔐 OTP Credential Demo", "🔐 OTP凭证演示"],'h2_sms_format_requirements':["📩 SMS Format Requirements", "📩 短信格式要求"],'h2_abortcontroller_integrat':["⏱️ AbortController Integration", "⏱️ AbortController 集成"],'h2_autocomplete_one_time_co':["📝 autocomplete=\"one-time-code\" Demo", "📝 自动完成“一次性代码”演示"],'h2_security_considerations':["🛡️ Security Considerations", "🛡️ 安全注意事项"],'h2_browser_support':["🌍 Browser Support", "🌍 浏览器支持"],'h2_api_quick_reference':["📖 API Quick Reference", "📖 API 快速参考"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_start_listening':["Start Listening", "开始收听"],'btn_abort':["Abort", "中止"],'btn_simulate_otp':["Simulate OTP", "模拟一次性密码"],'btn_reset':["Reset", "重置"],'btn_start_with_timeout':["Start with Timeout", "以超时开始"],'btn_clear':["Clear", "清除"],'placeholder_x':["------", "------"],'placeholder_x_2':["------", "------"],'strong_format_rules':["Format rules:", "格式规则："],'strong_note':["Note:", "笔记："],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_status':["Status", "地位"],'label_your_domain':["Your domain", "您的域名"],'label_otp_code':["OTP code", "一次性密码"],'label_custom_message_optional':["Custom message (optional)", "自定义消息（可选）"],'label_timeout_seconds':["Timeout (seconds)", "超时时间（秒）"],'jtc_timed_out':["Timed out.", "超时。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   /* ===== State ===== */
   let abortController = null;
@@ -782,7 +794,7 @@ ac.abort();</div>
       if (remaining <= 0) {
         clearCountdown();
         abortListening();
-        display.textContent = 'Timed out.';
+        display.textContent=T("jtc_timed_out");
       }
     }, 1000);
 
@@ -839,6 +851,24 @@ ac.abort();</div>
   function esc(s) {
     return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

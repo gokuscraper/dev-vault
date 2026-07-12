@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_set_operations_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,47 +56,49 @@ td code{color:#66bb6a;font-size:.72rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Set Operations Playground</h1>
+<h1 ti="title_js_set_operations_playgro" ti="h1_js_set_operations_playgro">JS Set Operations Playground</h1>
 <p>ES2025 Set methods: intersection, union, difference, symmetricDifference, and set relations</p>
 </header>
 <div class="app">
 <div class="main">
 <div class="inputs">
 <div class="input-group">
-<h3 class="set-a">Set A</h3>
+<h3 class="set-a" ti="h3_set_a">Set A</h3>
 <input id="setAInput" value="1, 2, 3, 4, 5" oninput="update()">
 <div class="hint">Comma-separated values (numbers or strings)</div>
 </div>
 <div class="input-group">
-<h3 class="set-b">Set B</h3>
+<h3 class="set-b" ti="h3_set_b">Set B</h3>
 <input id="setBInput" value="3, 4, 5, 6, 7" oninput="update()">
 <div class="hint">Comma-separated values</div>
 </div>
 </div>
 <div class="ops" id="opsBar">
-<button class="active" onclick="setOp('intersection',this)">intersection()</button>
-<button onclick="setOp('union',this)">union()</button>
-<button onclick="setOp('difference',this)">difference()</button>
-<button onclick="setOp('symmetricDifference',this)">symmetricDifference()</button>
-<button class="bool" onclick="setOp('isSubsetOf',this)">isSubsetOf()</button>
-<button class="bool" onclick="setOp('isSupersetOf',this)">isSupersetOf()</button>
-<button class="bool" onclick="setOp('isDisjointFrom',this)">isDisjointFrom()</button>
+<button class="active" onclick="setOp('intersection',this)" ti="btn_intersection">intersection()</button>
+<button onclick="setOp('union',this)" ti="btn_union">union()</button>
+<button onclick="setOp('difference',this)" ti="btn_difference">difference()</button>
+<button onclick="setOp('symmetricDifference',this)" ti="btn_symmetricdifference">symmetricDifference()</button>
+<button class="bool" onclick="setOp('isSubsetOf',this)" ti="btn_issubsetof">isSubsetOf()</button>
+<button class="bool" onclick="setOp('isSupersetOf',this)" ti="btn_issupersetof">isSupersetOf()</button>
+<button class="bool" onclick="setOp('isDisjointFrom',this)" ti="btn_isdisjointfrom">isDisjointFrom()</button>
 </div>
 <div class="venn-area" id="vennArea"></div>
 <div class="result-area">
-<h3>Result</h3>
+<h3 ti="h3_result">Result</h3>
 <div class="result-code" id="resultCode"></div>
 <div class="result-set" id="resultSet"></div>
 </div>
 </div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details"></div>
 <div class="detail-box">
 <h4>All Set Methods <span class="badge badge-new">ES2025</span></h4>
 <table>
-<tr><th>Method</th><th>Returns</th><th>Description</th></tr>
+<tr><th ti="th_method">Method</th><th ti="th_returns">Returns</th><th ti="th_description">Description</th></tr>
 <tr><td><code>.intersection(B)</code></td><td>Set</td><td>Elements in both A and B</td></tr>
 <tr><td><code>.union(B)</code></td><td>Set</td><td>All elements from A and B</td></tr>
 <tr><td><code>.difference(B)</code></td><td>Set</td><td>Elements in A but not B</td></tr>
@@ -109,7 +111,7 @@ td code{color:#66bb6a;font-size:.72rem}
 <div class="detail-box">
 <h4>Browser Support</h4>
 <table>
-<tr><th>Browser</th><th>Since</th></tr>
+<tr><th ti="th_browser">Browser</th><th ti="th_since">Since</th></tr>
 <tr><td>Chrome</td><td>122+</td></tr>
 <tr><td>Firefox</td><td>127+</td></tr>
 <tr><td>Safari</td><td>17+</td></tr>
@@ -128,6 +130,16 @@ td code{color:#66bb6a;font-size:.72rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_js_set_operations_playgro':["JS Set Operations Playground", "JS 集合操作练习场"],'metadesc_interactive_playground_fo':["Interactive playground for ES2025 Set methods: intersection, union, difference, symmetricDifference, isSubsetOf, isSupersetOf, isDisjointFrom", "ES2025 集合方法的交互式演示：交集、并集、差集、对称差集、isSubsetOf、isSupersetOf、isDisjointFrom"],'h1_js_set_operations_playgro':["JS Set Operations Playground", "JS 集合操作练习场"],'h3_set_a':["Set A", "A组"],'h3_set_b':["Set B", "B组"],'h3_result':["Result", "结果"],'h3_details':["Details", "细节"],'btn_intersection':["intersection()", "路口（）"],'btn_union':["union()", "联盟（）"],'btn_difference':["difference()", "不同之处（）"],'btn_symmetricdifference':["symmetricDifference()", "symmetricDifference()"],'btn_issubsetof':["isSubsetOf()", "isSubsetOf()"],'btn_issupersetof':["isSupersetOf()", "isSupersetOf()"],'btn_isdisjointfrom':["isDisjointFrom()", "isDisjointFrom()"],'th_method':["Method", "方法"],'th_returns':["Returns", "返回"],'th_description':["Description", "描述"],'th_browser':["Browser", "浏览器"],'th_since':["Since", "自从"],'jtlword_const':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_const_2':["const", "常量"],'jtlword_new_2':["new", "新的"],'jtlword_const_3':["const", "常量"],'jtlword_new_3':["new", "新的"],'jtlword_const_4':["const", "常量"],'jtlword_new_4':["new", "新的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentOp='intersection';
 
@@ -266,6 +278,24 @@ function renderVenn(a,b,result,isBool){
 }
 
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

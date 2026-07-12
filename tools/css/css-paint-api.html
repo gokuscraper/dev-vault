@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_paint_api_houdini_pai" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,22 +93,24 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1><span class="icon">🎨</span> CSS Paint API Playground</h1>
   <div class="links">
     <span class="badge" id="supportBadge" style="background:rgba(245,158,11,0.15); color:var(--orange); border:1px solid rgba(245,158,11,0.3);">Checking...</span>
-    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault">Dev Vault</a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/API/CSS_Painting_API" target="_blank">MDN Docs</a>
   </div>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" data-tab="builder">Worklet Builder</button>
-  <button class="tab" data-tab="gallery">Pattern Gallery</button>
-  <button class="tab" data-tab="properties">Custom Properties</button>
-  <button class="tab" data-tab="animation">Animation</button>
-  <button class="tab" data-tab="reference">API Reference</button>
+  <button class="tab active" data-tab="builder" ti="btn_worklet_builder">Worklet Builder</button>
+  <button class="tab" data-tab="gallery" ti="btn_pattern_gallery">Pattern Gallery</button>
+  <button class="tab" data-tab="properties" ti="btn_custom_properties">Custom Properties</button>
+  <button class="tab" data-tab="animation" ti="btn_animation">Animation</button>
+  <button class="tab" data-tab="reference" ti="btn_api_reference">API Reference</button>
 </nav>
 
 <main class="container">
@@ -122,13 +124,13 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
     <div class="grid-2">
       <div>
         <div class="card">
-          <h2>📝 Paint Worklet Code</h2>
+          <h2 ti="h2_paint_worklet_code">📝 Paint Worklet Code</h2>
           <div class="form-group">
-            <label>Paint Name</label>
+            <label ti="label_paint_name">Paint Name</label>
             <input type="text" id="paintName" value="myPaint" oninput="updatePreview()">
           </div>
           <div class="form-group">
-            <label>Paint Function (ctx, geom, properties)</label>
+            <label ti="label_paint_function_ctx_geom_p">Paint Function (ctx, geom, properties)</label>
             <textarea id="paintCode" oninput="updatePreview()">// ctx = CanvasRenderingContext2D
 // geom = { width, height }
 // properties = CSS custom properties
@@ -147,38 +149,38 @@ for (let x = 0; x < w; x += size * 2) {
 }</textarea>
           </div>
           <div class="btn-group">
-            <button class="btn purple" onclick="updatePreview()">Run Paint</button>
-            <button class="btn secondary" onclick="copyWorkletCode()">Copy Full Worklet</button>
+            <button class="btn purple" onclick="updatePreview()" ti="btn_run_paint">Run Paint</button>
+            <button class="btn secondary" onclick="copyWorkletCode()" ti="btn_copy_full_worklet">Copy Full Worklet</button>
           </div>
         </div>
 
         <div class="card">
-          <h2>🎛️ Custom Properties Input</h2>
+          <h2 ti="h2_custom_properties_input">🎛️ Custom Properties Input</h2>
           <div id="propInputs"></div>
           <div class="btn-group">
-            <button class="btn secondary" onclick="addPropInput()">+ Add Property</button>
+            <button class="btn secondary" onclick="addPropInput()" ti="btn_add_property">+ Add Property</button>
           </div>
         </div>
       </div>
 
       <div>
         <div class="card">
-          <h2>👁️ Live Preview</h2>
+          <h2 ti="h2_live_preview">👁️ Live Preview</h2>
           <div class="canvas-preview">
             <canvas id="previewCanvas" width="500" height="300"></canvas>
           </div>
         </div>
 
         <div class="card">
-          <h2>📋 Full Worklet Code</h2>
+          <h2 ti="h2_full_worklet_code">📋 Full Worklet Code</h2>
           <div style="position:relative;">
             <pre id="fullWorkletCode" style="max-height:300px; overflow-y:auto;"></pre>
-            <button class="copy-btn" onclick="copyWorkletCode()">Copy</button>
+            <button class="copy-btn" onclick="copyWorkletCode()" ti="btn_copy">Copy</button>
           </div>
         </div>
 
         <div class="card">
-          <h2>📝 CSS Usage</h2>
+          <h2 ti="h2_css_usage">📝 CSS Usage</h2>
           <pre id="cssUsage"></pre>
         </div>
       </div>
@@ -188,18 +190,18 @@ for (let x = 0; x < w; x += size * 2) {
   <!-- Pattern Gallery -->
   <div class="panel" id="panel-gallery">
     <div class="card">
-      <h2>🖼️ Built-in Pattern Gallery</h2>
+      <h2 ti="h2_built_in_pattern_gallery">🖼️ Built-in Pattern Gallery</h2>
       <p>Click a pattern to load its code into the worklet builder. Each pattern demonstrates different Canvas 2D techniques.</p>
     </div>
 
     <div class="pattern-grid" id="patternGrid"></div>
 
     <div class="card" style="margin-top:16px;">
-      <h2>👁️ Selected Pattern Preview</h2>
+      <h2 ti="h2_selected_pattern_preview">👁️ Selected Pattern Preview</h2>
       <div class="canvas-preview">
         <canvas id="galleryCanvas" width="600" height="300"></canvas>
       </div>
-      <h3>Pattern Code</h3>
+      <h3 ti="h3_pattern_code">Pattern Code</h3>
       <pre id="galleryCode"></pre>
     </div>
   </div>
@@ -207,15 +209,15 @@ for (let x = 0; x < w; x += size * 2) {
   <!-- Custom Properties -->
   <div class="panel" id="panel-properties">
     <div class="card">
-      <h2>🎨 CSS Custom Properties as Paint Inputs</h2>
+      <h2 ti="h2_css_custom_properties_as">🎨 CSS Custom Properties as Paint Inputs</h2>
       <p>Paint worklets can read CSS custom properties via <code>inputProperties</code>. This allows CSS to control paint parameters without JavaScript.</p>
     </div>
 
     <div class="grid-2">
       <div class="card">
-        <h2>Interactive Demo</h2>
+        <h2 ti="h2_interactive_demo">Interactive Demo</h2>
         <div class="form-group">
-          <label>--dot-color</label>
+          <label ti="label_dot_color">--dot-color</label>
           <input type="color" id="propColor" value="#3b82f6" oninput="updatePropDemo()">
         </div>
         <div class="form-group">
@@ -242,7 +244,7 @@ for (let x = 0; x < w; x += size * 2) {
       </div>
 
       <div class="card">
-        <h2>📝 Worklet Code</h2>
+        <h2 ti="h2_worklet_code">📝 Worklet Code</h2>
         <pre>class DotPainter {
   static get inputProperties() {
     return [
@@ -280,7 +282,7 @@ for (let x = 0; x < w; x += size * 2) {
 
 registerPaint('dots', DotPainter);</pre>
 
-        <h3>CSS Usage</h3>
+        <h3 ti="h3_css_usage">CSS Usage</h3>
         <pre>.element {
   --dot-color: #3b82f6;
   --dot-size: 8;
@@ -295,15 +297,15 @@ registerPaint('dots', DotPainter);</pre>
   <!-- Animation -->
   <div class="panel" id="panel-animation">
     <div class="card">
-      <h2>🎬 Animation with CSS Custom Properties</h2>
+      <h2 ti="h2_animation_with_css_custo">🎬 Animation with CSS Custom Properties</h2>
       <p>By registering custom properties with <code>@property</code> and using CSS transitions/animations, you can animate paint worklet parameters smoothly.</p>
     </div>
 
     <div class="grid-2">
       <div class="card">
-        <h2>Interactive Animation</h2>
+        <h2 ti="h2_interactive_animation">Interactive Animation</h2>
         <div class="form-group">
-          <label>Animation Type</label>
+          <label ti="label_animation_type">Animation Type</label>
           <select id="animType" onchange="updateAnimation()">
             <option value="wave">Wave</option>
             <option value="pulse">Pulse</option>
@@ -316,12 +318,12 @@ registerPaint('dots', DotPainter);</pre>
           <input type="range" id="animSpeed" min="1" max="50" value="10" oninput="document.getElementById('animSpeedVal').textContent=(this.value/10).toFixed(1);">
         </div>
         <div class="form-group">
-          <label>Primary Color</label>
+          <label ti="label_primary_color">Primary Color</label>
           <input type="color" id="animColor" value="#3b82f6" oninput="updateAnimation()">
         </div>
         <div class="btn-group">
-          <button class="btn purple" onclick="startAnimation()" id="animStartBtn">Start</button>
-          <button class="btn secondary" onclick="stopAnimation()">Stop</button>
+          <button class="btn purple" onclick="startAnimation()" id="animStartBtn" ti="btn_start">Start</button>
+          <button class="btn secondary" onclick="stopAnimation()" ti="btn_stop">Stop</button>
         </div>
         <div class="canvas-preview" style="margin-top:12px;">
           <canvas id="animCanvas" width="500" height="250"></canvas>
@@ -329,9 +331,9 @@ registerPaint('dots', DotPainter);</pre>
       </div>
 
       <div class="card">
-        <h2>📝 Code</h2>
+        <h2 ti="h2_code">📝 Code</h2>
         <pre id="animCode"></pre>
-        <h3>@property Registration</h3>
+        <h3 ti="h3_property_registration">@property Registration</h3>
         <pre>/* Register for smooth CSS animation */
 @property --wave-offset {
   syntax: '&lt;number&gt;';
@@ -357,12 +359,12 @@ registerPaint('dots', DotPainter);</pre>
   <!-- API Reference -->
   <div class="panel" id="panel-reference">
     <div class="card">
-      <h2>📚 CSS Paint API Reference</h2>
+      <h2 ti="h2_css_paint_api_reference">📚 CSS Paint API Reference</h2>
       <p>The CSS Paint API (part of CSS Houdini) lets you programmatically generate images for CSS properties that expect images, such as <code>background-image</code>, <code>border-image</code>, and <code>mask-image</code>.</p>
     </div>
 
     <div class="card">
-      <h2>registerPaint()</h2>
+      <h2 ti="h2_registerpaint" ti="th_registerpaint">registerPaint()</h2>
       <pre>// paint-worklet.js
 class MyPainter {
   // Declare which CSS properties this worklet reads
@@ -429,10 +431,10 @@ CSS.paintWorklet.addModule(URL.createObjectURL(blob));</pre>
     </div>
 
     <div class="card">
-      <h2>⚠️ Browser Support</h2>
+      <h2 ti="h2_browser_support">⚠️ Browser Support</h2>
       <div style="overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
-          <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left; padding:10px;">Browser</th><th style="text-align:center; padding:10px;">CSS.paintWorklet</th><th style="text-align:center; padding:10px;">registerPaint()</th><th style="text-align:center; padding:10px;">inputProperties</th></tr></thead>
+          <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left; padding:10px;" ti="th_browser">Browser</th><th style="text-align:center; padding:10px;" ti="th_css_paintworklet">CSS.paintWorklet</th><th style="text-align:center; padding:10px;">registerPaint()</th><th style="text-align:center; padding:10px;" ti="th_inputproperties">inputProperties</th></tr></thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Chrome 65+</td><td style="text-align:center; color:var(--green);">Yes</td><td style="text-align:center; color:var(--green);">Yes</td><td style="text-align:center; color:var(--green);">Yes</td></tr>
             <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Edge 79+</td><td style="text-align:center; color:var(--green);">Yes</td><td style="text-align:center; color:var(--green);">Yes</td><td style="text-align:center; color:var(--green);">Yes</td></tr>
@@ -446,7 +448,7 @@ CSS.paintWorklet.addModule(URL.createObjectURL(blob));</pre>
     </div>
 
     <div class="card">
-      <h2>PaintRenderingContext2D</h2>
+      <h2 ti="h2_paintrenderingcontext2d">PaintRenderingContext2D</h2>
       <p>The paint context is a subset of CanvasRenderingContext2D. Available methods:</p>
       <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px, 1fr)); gap:8px; margin-top:12px;">
         <div style="background:var(--bg-input); padding:8px 12px; border-radius:var(--radius); font-family:var(--mono); font-size:0.8rem;">fillRect()</div>
@@ -475,6 +477,16 @@ CSS.paintWorklet.addModule(URL.createObjectURL(blob));</pre>
   Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — Free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_css_paint_api_houdini_pai':["CSS Paint API (Houdini Paint) Playground — Dev Vault", "CSS Paint API（Houdini Paint）练习场 — 开发者宝库"],'metadesc_interactive_css_paint_api':["Interactive CSS Paint API playground. Build custom paint worklets, explore registerPaint(), create patterns with ctx2d, animate with CSS custom properties.", "交互式 CSS Paint API 演示。构建自定义绘制工作区，探索 registerPaint()，使用 ctx2d 创建图案，使用 CSS 自定义属性实现动画。"],'h2_paint_worklet_code':["📝 Paint Worklet Code", "📝 油漆工作台代码"],'h2_custom_properties_input':["🎛️ Custom Properties Input", "🎛️自定义属性输入"],'h2_live_preview':["👁️ Live Preview", "👁️ 实时预览"],'h2_full_worklet_code':["📋 Full Worklet Code", "📋完整工作区代码"],'h2_css_usage':["📝 CSS Usage", "📝 CSS 用法"],'h2_built_in_pattern_gallery':["🖼️ Built-in Pattern Gallery", "🖼️ 内置图案库"],'h2_selected_pattern_preview':["👁️ Selected Pattern Preview", "👁️ 选定图案预览"],'h2_css_custom_properties_as':["🎨 CSS Custom Properties as Paint Inputs", "🎨 CSS 自定义属性作为绘制输入"],'h2_interactive_demo':["Interactive Demo", "交互式演示"],'h2_worklet_code':["📝 Worklet Code", "📝 工作区代码"],'h2_animation_with_css_custo':["🎬 Animation with CSS Custom Properties", "🎬 使用 CSS 自定义属性实现动画"],'h2_interactive_animation':["Interactive Animation", "互动动画"],'h2_code':["📝 Code", "📝 代码"],'h2_css_paint_api_reference':["📚 CSS Paint API Reference", "📚 CSS Paint API 参考"],'h2_registerpaint':["registerPaint()", "registerPaint()"],'h2_registration_usage':["Registration & Usage", "注册与使用"],'h2_browser_support':["⚠️ Browser Support", "⚠️浏览器支持"],'h2_paintrenderingcontext2d':["PaintRenderingContext2D", "PaintRenderingContext2D"],'h3_pattern_code':["Pattern Code", "模式代码"],'h3_css_usage':["CSS Usage", "CSS 用法"],'h3_property_registration':["@property Registration", "@property 注册"],'btn_worklet_builder':["Worklet Builder", "工作单元构建器"],'btn_pattern_gallery':["Pattern Gallery", "图案库"],'btn_custom_properties':["Custom Properties", "自定义属性"],'btn_animation':["Animation", "动画片"],'btn_api_reference':["API Reference", "API 参考"],'btn_run_paint':["Run Paint", "奔跑吧，油漆"],'btn_copy_full_worklet':["Copy Full Worklet", "复制完整工作表"],'btn_add_property':["+ Add Property", "+ 添加属性"],'btn_copy':["Copy", "复制"],'btn_start':["Start", "开始"],'btn_stop':["Stop", "停止"],'th_browser':["Browser", "浏览器"],'th_css_paintworklet':["CSS.paintWorklet", "CSS.paintWorklet"],'th_registerpaint':["registerPaint()", "registerPaint()"],'th_inputproperties':["inputProperties", "输入属性"],'label_paint_name':["Paint Name", "油漆名称"],'label_paint_function_ctx_geom_p':["Paint Function (ctx, geom, properties)", "绘制函数（ctx、geom、properties）"],'label_dot_color':["--dot-color", "--dot-color"],'label_animation_type':["Animation Type", "动画类型"],'label_primary_color':["Primary Color", "原色"],'label_name':["Name", "姓名"],'label_value':["Value", "价值"],'footer_css_paint_api_houdini_pai':["CSS Paint API (Houdini Paint) Playground — Dev Vault", "CSS Paint API（Houdini Paint）练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab Navigation ===
 document.querySelectorAll('.tab').forEach(tab => {
@@ -506,8 +518,8 @@ function addPropInput() {
 function renderPropInputs() {
   document.getElementById('propInputs').innerHTML = propInputs.map((p, i) => `
     <div style="display:flex; gap:8px; margin-bottom:8px; align-items:end;">
-      <div style="flex:1;"><label>Name</label><input type="text" value="${p.name}" onchange="propInputs[${i}].name=this.value;"></div>
-      <div style="flex:1;"><label>Value</label><input type="text" value="${p.value}" onchange="propInputs[${i}].value=this.value;"></div>
+      <div style="flex:1;"><label ti="label_name">Name</label><input type="text" value="${p.name}" onchange="propInputs[${i}].name=this.value;"></div>
+      <div style="flex:1;"><label ti="label_value">Value</label><input type="text" value="${p.value}" onchange="propInputs[${i}].value=this.value;"></div>
       <button class="btn secondary" style="padding:10px;" onclick="propInputs.splice(${i},1); renderPropInputs();">✕</button>
     </div>
   `).join('');
@@ -883,6 +895,24 @@ buildPatternGrid();
 selectPattern(0);
 updatePropDemo();
 updatePreview();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

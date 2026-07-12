@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_view_transitions_api_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -775,7 +775,9 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
   <header>
     <h1><span>View Transitions</span> API Playground</h1>
     <p>Experiment with the View Transitions API. Click elements in the demo to trigger smooth animated transitions between DOM states.</p>
@@ -864,12 +866,12 @@ footer a:hover { text-decoration: underline; }
 
     <div class="main-area">
       <div class="toolbar">
-        <button class="toolbar-btn primary" id="triggerBtn">Trigger Transition</button>
+        <button class="toolbar-btn primary" id="triggerBtn" ti="btn_trigger_transition">Trigger Transition</button>
         <button class="toolbar-btn" id="recordBtn">
           <span style="color:#dc2626;">&#9679;</span> Record (Slow-mo)
         </button>
         <div class="toolbar-spacer"></div>
-        <button class="toolbar-btn" id="resetBtn">Reset</button>
+        <button class="toolbar-btn" id="resetBtn" ti="btn_reset">Reset</button>
       </div>
 
       <div class="demo-area" id="demoArea">
@@ -881,10 +883,10 @@ footer a:hover { text-decoration: underline; }
       <div class="code-panel">
         <div class="code-header">
           <div class="code-tabs">
-            <button class="code-tab active" data-tab="js">JavaScript</button>
-            <button class="code-tab" data-tab="css">CSS</button>
+            <button class="code-tab active" data-tab="js" ti="btn_javascript">JavaScript</button>
+            <button class="code-tab" data-tab="css" ti="btn_css">CSS</button>
           </div>
-          <button class="copy-btn" id="copyBtn">Copy</button>
+          <button class="copy-btn" id="copyBtn" ti="btn_copy">Copy</button>
         </div>
         <div class="code-body">
           <pre id="codeContent"></pre>
@@ -897,6 +899,16 @@ footer a:hover { text-decoration: underline; }
   </footer>
 </div>
 
+
+<script>var _LANG={'title_view_transitions_api_play':["View Transitions API Playground — Dev Vault", "查看过渡 API 测试平台 — 开发者宝库"],'metadesc_interactive_view_transiti':["Interactive View Transitions API playground. Smooth DOM animations. Card morphs, list reorders, theme toggles.", "交互式视图过渡 API 演示。流畅的 DOM 动画。卡片变形、列表重新排序、主题切换。"],'h3_view_transitions_api':["View Transitions API", "查看转换 API"],'h3_how_to_use':["How to Use", "如何使用"],'h3_browser_support':["Browser Support", "浏览器支持"],'h3_light_light_dark_mode':["' + (light ? 'Light' : 'Dark') + ' Mode", "&#39; + (light ? &#39;Light&#39; : &#39;Dark&#39;) + &#39; 模式"],'btn_trigger_transition':["Trigger Transition", "触发转换"],'btn_reset':["Reset", "重置"],'btn_javascript':["JavaScript", "JavaScript"],'btn_css':["CSS", "CSS"],'btn_copy':["Copy", "复制"],'btn_switch_to_light_dark_ligh':["Switch to ' + (light ? 'Dark' : 'Light') + '", "切换到&#39; + (light ? &#39;Dark&#39; : &#39;Light&#39;) + &#39;"],'btn_t_title':["' + t.title + '", "&#39; + t.title + &#39;"],'footer_view_transitions_api_play':["View Transitions API Playground — Dev Vault", "查看过渡 API 测试平台 — 开发者宝库"],'jtc_view_transitions_api_is_s':["View Transitions API is supported in this browser.", "此浏览器支持视图过渡 API。"],'jtc_view_transitions_api_is_n':["View Transitions API is not supported. Transitions will apply instantly without animation. Use Chrome 111+ or Edge 111+.", "View Transitions API 不受支持。过渡效果将立即生效，没有动画。请使用 Chrome 111 或更高版本或 Edge 111 或更高版本。"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -907,10 +919,10 @@ footer a:hover { text-decoration: underline; }
 
   if (hasViewTransitions) {
     supportBanner.classList.add('supported');
-    supportText.textContent = 'View Transitions API is supported in this browser.';
+    supportText.textContent=T("jtc_view_transitions_api_is_s");
   } else {
     supportBanner.classList.add('unsupported');
-    supportText.textContent = 'View Transitions API is not supported. Transitions will apply instantly without animation. Use Chrome 111+ or Edge 111+.';
+    supportText.textContent=T("jtc_view_transitions_api_is_n");
   }
 
   const demoArea = document.getElementById('demoArea');
@@ -1043,8 +1055,8 @@ footer a:hover { text-decoration: underline; }
   copyBtn.addEventListener('click', function() {
     const text = codeContent.textContent;
     navigator.clipboard.writeText(text).then(function() {
-      copyBtn.textContent = 'Copied!';
-      setTimeout(function() { copyBtn.textContent = 'Copy'; }, 1500);
+      copyBtn.textContent=T("jtc_copied");
+      setTimeout(function() { copyBtn.textContent=T("jtc_copy"); }, 1500);
     });
   });
 
@@ -1088,15 +1100,15 @@ footer a:hover { text-decoration: underline; }
   const tabData = [
     {
       title: 'Overview',
-      content: '<h3>View Transitions API</h3><p>The View Transitions API provides a mechanism for easily creating animated transitions between different DOM states, while also updating the DOM contents in a single step.</p><p>It works by capturing snapshots of the old and new states, then animating between them using CSS animations under the hood.</p>'
+      content: '<h3 ti="h3_view_transitions_api">View Transitions API</h3><p>The View Transitions API provides a mechanism for easily creating animated transitions between different DOM states, while also updating the DOM contents in a single step.</p><p>It works by capturing snapshots of the old and new states, then animating between them using CSS animations under the hood.</p>'
     },
     {
       title: 'Usage',
-      content: '<h3>How to Use</h3><p>Call <code style="background:#1e1e1e;padding:2px 6px;border-radius:3px;font-size:13px;">document.startViewTransition(callback)</code> with a callback that updates the DOM. The browser handles snapshotting and animation automatically.</p><p>Use the <code style="background:#1e1e1e;padding:2px 6px;border-radius:3px;font-size:13px;">view-transition-name</code> CSS property to create named transitions for individual elements.</p>'
+      content: '<h3 ti="h3_how_to_use">How to Use</h3><p>Call <code style="background:#1e1e1e;padding:2px 6px;border-radius:3px;font-size:13px;">document.startViewTransition(callback)</code> with a callback that updates the DOM. The browser handles snapshotting and animation automatically.</p><p>Use the <code style="background:#1e1e1e;padding:2px 6px;border-radius:3px;font-size:13px;">view-transition-name</code> CSS property to create named transitions for individual elements.</p>'
     },
     {
       title: 'Stats',
-      content: '<h3>Browser Support</h3><div class="stat-grid"><div class="stat-box"><div class="stat-num">111+</div><div class="stat-label">Chrome</div></div><div class="stat-box"><div class="stat-num">111+</div><div class="stat-label">Edge</div></div><div class="stat-box"><div class="stat-num">--</div><div class="stat-label">Firefox</div></div></div><p style="margin-top:16px;">Same-document view transitions shipped in Chrome and Edge 111. Cross-document transitions are available in Chrome 126+.</p>'
+      content: '<h3 ti="h3_browser_support">Browser Support</h3><div class="stat-grid"><div class="stat-box"><div class="stat-num">111+</div><div class="stat-label">Chrome</div></div><div class="stat-box"><div class="stat-num">111+</div><div class="stat-label">Edge</div></div><div class="stat-box"><div class="stat-num">--</div><div class="stat-label">Firefox</div></div></div><p style="margin-top:16px;">Same-document view transitions shipped in Chrome and Edge 111. Cross-document transitions are available in Chrome 126+.</p>'
     }
   ];
 
@@ -1213,8 +1225,8 @@ footer a:hover { text-decoration: underline; }
     var light = presetState.lightMode;
     var cls = light ? 'theme-demo light-mode' : 'theme-demo';
     var html = '<div class="' + cls + '" style="view-transition-name:demo-content;">' +
-      '<div class="theme-header"><h3>' + (light ? 'Light' : 'Dark') + ' Mode</h3>' +
-      '<button class="theme-toggle-btn" id="themeBtn">Switch to ' + (light ? 'Dark' : 'Light') + '</button></div>' +
+      '<div class="theme-header"><h3 ti="h3_light_light_dark_mode">' + (light ? 'Light' : 'Dark') + ' Mode</h3>' +
+      '<button class="theme-toggle-btn" id="themeBtn" ti="btn_switch_to_light_dark_ligh">Switch to ' + (light ? 'Dark' : 'Light') + '</button></div>' +
       '<div class="theme-cards">';
     for (var i = 0; i < 3; i++) {
       html += '<div class="theme-card"><h4>Component ' + (i + 1) + '</h4>' +
@@ -1280,7 +1292,7 @@ footer a:hover { text-decoration: underline; }
     var active = presetState.activeTab;
     var html = '<div class="tab-demo"><div class="tab-bar">';
     tabData.forEach(function(t, i) {
-      html += '<button class="tab-btn' + (i === active ? ' active' : '') + '" data-index="' + i + '">' + t.title + '</button>';
+      html += '<button class="tab-btn' + (i === active ? ' active' : '') + '" data-index="' + i + '" ti="btn_t_title">' + t.title + '</button>';
     });
     html += '</div><div class="tab-content" style="view-transition-name:demo-content;">' + tabData[active].content + '</div></div>';
     demoArea.innerHTML = html + slowmoHTML();
@@ -1508,6 +1520,24 @@ footer a:hover { text-decoration: underline; }
   // Init
   applyTransitionStyles();
   loadPreset(currentPreset);
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

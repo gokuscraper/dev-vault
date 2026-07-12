@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_media_query_visual_bu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -141,22 +141,24 @@ select{cursor:pointer}
 </style>
 </head>
 <body>
-<div class="container">
-  <a class="back" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-  <h1>CSS Media Query</h1>
-  <p class="subtitle">Build media queries visually — device presets, framework breakpoints, live preview</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <a class="back" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
+  <h1 ti="h1_css_media_query">CSS Media Query</h1>
+  <p class="subtitle" ti="subtitle_build_media_queries_visua">Build media queries visually — device presets, framework breakpoints, live preview</p>
 
   <!-- Query Type + NOT -->
   <div class="card">
     <div class="card-title">Media Type</div>
     <div style="display:flex;align-items:center;gap:8px;flex-wrap:wrap">
       <div class="type-row" style="margin:0;flex:1;min-width:0" id="typeRow">
-        <button class="type-btn active" data-type="screen">screen</button>
-        <button class="type-btn" data-type="print">print</button>
-        <button class="type-btn" data-type="all">all</button>
-        <button class="type-btn" data-type="speech">speech</button>
+        <button class="type-btn active" data-type="screen" ti="btn_screen">screen</button>
+        <button class="type-btn" data-type="print" ti="btn_print">print</button>
+        <button class="type-btn" data-type="all" ti="btn_all">all</button>
+        <button class="type-btn" data-type="speech" ti="btn_speech">speech</button>
       </div>
-      <button class="not-toggle" id="notToggle">NOT</button>
+      <button class="not-toggle" id="notToggle" ti="btn_not">NOT</button>
     </div>
   </div>
 
@@ -167,7 +169,7 @@ select{cursor:pointer}
       <span class="tag tag-blue" id="condCount">0 conditions</span>
     </div>
     <div class="conditions-list" id="conditionsList"></div>
-    <button class="add-condition-btn" id="addCondBtn">+ Add Condition</button>
+    <button class="add-condition-btn" id="addCondBtn" ti="btn_add_condition">+ Add Condition</button>
   </div>
 
   <!-- Presets -->
@@ -225,7 +227,7 @@ select{cursor:pointer}
   <div class="card">
     <div class="card-title">Generated CSS</div>
     <div class="output-block" id="outputBlock">
-      <button class="copy-btn" id="copyBtn">Copy</button>
+      <button class="copy-btn" id="copyBtn" ti="btn_copy">Copy</button>
       <span id="outputCode"></span>
     </div>
   </div>
@@ -235,6 +237,16 @@ select{cursor:pointer}
 /* inject media query for preview */
 </style>
 
+
+<script>var _LANG={'title_css_media_query_visual_bu':["CSS Media Query — Visual Builder", "CSS 媒体查询 — 可视化构建器"],'metadesc_build_css_media_queries_v':["Build CSS media queries visually. Device presets, framework breakpoints, live preview, AND/OR combinators. Free, instant, no dependencies.", "以可视化方式构建 CSS 媒体查询。支持设备预设、框架断点、实时预览和 AND/OR 组合器。免费、即时、无依赖。"],'h1_css_media_query':["CSS Media Query", "CSS 媒体查询"],'subtitle_build_media_queries_visua':["Build media queries visually — device presets, framework breakpoints, live preview", "以可视化方式构建媒体查询——设备预设、框架断点、实时预览"],'btn_screen':["screen", "屏幕"],'btn_print':["print", "打印"],'btn_all':["all", "全部"],'btn_speech':["speech", "演讲"],'btn_not':["NOT", "不是"],'btn_add_condition':["+ Add Condition", "+ 添加条件"],'btn_copy':["Copy", "复制"],'strong_match':["MATCH", "匹配"],'strong_no_match':["NO MATCH", "未匹配"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_query_matches_current_vie':["Query MATCHES current viewport", "查询与当前视口匹配"],'jtc_query_does_not_match_curr':["Query does NOT match current viewport", "查询结果与当前视口不匹配"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───────────────────────────────────────────────────────────────────
 const state = {
@@ -423,13 +435,13 @@ function updateMatchUI(matched) {
   if (matched) {
     box.className = 'preview-box matched';
     dot.className = 'dot green';
-    txt.textContent = 'Query MATCHES current viewport';
-    lbl.innerHTML  = '<strong style="color:var(--green)">MATCH</strong> — this viewport satisfies the query';
+    txt.textContent=T("jtc_query_matches_current_vie");
+    lbl.innerHTML  = '<strong style="color:var(--green)" ti="strong_match">MATCH</strong> — this viewport satisfies the query';
   } else {
     box.className = 'preview-box unmatched';
     dot.className = 'dot red';
-    txt.textContent = 'Query does NOT match current viewport';
-    lbl.innerHTML  = '<strong style="color:var(--red)">NO MATCH</strong> — resize or change conditions to match';
+    txt.textContent=T("jtc_query_does_not_match_curr");
+    lbl.innerHTML  = '<strong style="color:var(--red)" ti="strong_no_match">NO MATCH</strong> — resize or change conditions to match';
   }
 }
 
@@ -708,9 +720,9 @@ document.getElementById('copyBtn').onclick = () => {
   const css = `@media ${q} {\n  .element {\n    /* your styles here */\n  }\n}`;
   navigator.clipboard.writeText(css).then(() => {
     const btn = document.getElementById('copyBtn');
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.className   = 'copy-btn copied';
-    setTimeout(() => { btn.textContent = 'Copy'; btn.className = 'copy-btn'; }, 1800);
+    setTimeout(() => { btn.textContent=T("jtc_copy"); btn.className = 'copy-btn'; }, 1800);
   });
 };
 
@@ -754,12 +766,30 @@ renderPresets();
 addCondition({ feat:'min-width', val:'768', unit:'px' });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

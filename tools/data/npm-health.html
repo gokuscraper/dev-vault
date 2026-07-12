@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_npm_health_package_health" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,13 +87,23 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>npm Health</h1>
-<p class="subtitle">Check any npm package's health. Maintenance, popularity, freshness.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_npm_health" ti="h1_npm_health" ti="h1_npm_health" ti="h1_npm_health" ti="h1_npm_health">npm Health</h1>
+<p class="subtitle" ti="subtitle_check_any_npm_package_s_h" ti="subtitle_check_any_npm_package_s_h" ti="subtitle_check_any_npm_package_s_h" ti="subtitle_check_any_npm_package_s_h" ti="subtitle_check_any_npm_package_s_h">Check any npm package's health. Maintenance, popularity, freshness.</p>
 
 <div class="input-row">
-  <input type="text" id="pkgName" placeholder="package name (e.g. express)" autocomplete="off">
-  <button id="checkBtn" onclick="check()">Check</button>
+  <input type="text" id="pkgName" tp="placeholder_package_name_e_g_express" tp="placeholder_package_name_e_g_express" tp="placeholder_package_name_e_g_express" tp="placeholder_package_name_e_g_express" tp="placeholder_package_name_e_g_express" placeholder="package name (e.g. express)" autocomplete="off">
+  <button id="checkBtn" onclick="check()" ti="btn_check" ti="btn_check" ti="btn_check" ti="btn_check" ti="btn_check">Check</button>
 </div>
 <div id="error"></div>
 
@@ -103,12 +113,12 @@ footer a:hover{color:#999}
   <div class="stats-grid" id="statsGrid"></div>
 
   <div class="section">
-    <h2>Health Checks</h2>
+    <h2 ti="h2_health_checks" ti="h2_health_checks" ti="h2_health_checks" ti="h2_health_checks" ti="h2_health_checks">Health Checks</h2>
     <div class="checks" id="checkList"></div>
   </div>
 
   <div class="section">
-    <h2>Weekly Downloads (Last 6 Months)</h2>
+    <h2 ti="h2_weekly_downloads_last_6_m" ti="h2_weekly_downloads_last_6_m" ti="h2_weekly_downloads_last_6_m" ti="h2_weekly_downloads_last_6_m" ti="h2_weekly_downloads_last_6_m">Weekly Downloads (Last 6 Months)</h2>
     <div class="dl-chart" id="dlChart"></div>
   </div>
 
@@ -123,11 +133,51 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/npm-health">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/readme-score/">README Score</a> ·
+  <a href="https://github.com/gokuscraper/npm-health" ti="link_github" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats" ti="link_gh_stats" ti="link_gh_stats" ti="link_gh_stats" ti="link_gh_stats">gh-stats</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/readme-score/" ti="link_readme_score" ti="link_readme_score" ti="link_readme_score" ti="link_readme_score" ti="link_readme_score">README Score</a> ·
 </footer>
 
+
+
+
+
+<script>var _LANG={'title_npm_health_package_health':["npm Health — Package Health Check", "npm 健康 — 包健康检查"],'metadesc_check_the_health_of_any_n':["Check the health of any npm package. Downloads, maintenance, dependencies, update frequency. Free, instant, no signup.", "检查任何 npm 包的健康状况。包括下载量、维护情况、依赖项和更新频率。免费、即时、无需注册。"],'h1_npm_health':["npm Health", "npm 健康"],'h2_health_checks':["Health Checks", "健康检查"],'h2_weekly_downloads_last_6_m':["Weekly Downloads (Last 6 Months)", "每周下载量（过去 6 个月）"],'h2_esc_pkgname_esc_latest':["${esc(pkgName)}@${esc(latest)}", "${esc(pkgName)}@${esc(latest)}"],'h3_insights_for_esc_pkgname':["Insights for ${esc(pkgName)}", "关于 ${esc(pkgName)} 的见解"],'subtitle_check_any_npm_package_s_h':["Check any npm package's health. Maintenance, popularity, freshness.", "检查任何 npm 包的健康状况。包括维护情况、受欢迎程度和更新频率。"],'btn_check':["Check", "查看"],'placeholder_package_name_e_g_express':["package name (e.g. express)", "软件包名称（例如 express）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_readme_score':["README Score", "自述文件评分"],'jtc_checking':["Checking...", "检查..."],'jtc_check':["Check", "查看"],'jtlword_versions':["Versions", "版本"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_age':["Age", "年龄"],'jtlword_grade':["Grade", "年级"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_health_package_health':["npm Health — Package Health Check", "npm 健康 — 包健康检查"],'metadesc_check_the_health_of_any_n':["Check the health of any npm package. Downloads, maintenance, dependencies, update frequency. Free, instant, no signup.", "检查任何 npm 包的健康状况。包括下载量、维护情况、依赖项和更新频率。免费、即时、无需注册。"],'h1_npm_health':["npm Health", "npm 健康"],'h2_health_checks':["Health Checks", "健康检查"],'h2_weekly_downloads_last_6_m':["Weekly Downloads (Last 6 Months)", "每周下载量（过去 6 个月）"],'h2_esc_pkgname_esc_latest':["${esc(pkgName)}@${esc(latest)}", "${esc(pkgName)}@${esc(latest)}"],'h3_insights_for_esc_pkgname':["Insights for ${esc(pkgName)}", "关于 ${esc(pkgName)} 的见解"],'subtitle_check_any_npm_package_s_h':["Check any npm package's health. Maintenance, popularity, freshness.", "检查任何 npm 包的健康状况。包括维护情况、受欢迎程度和更新频率。"],'btn_check':["Check", "查看"],'placeholder_package_name_e_g_express':["package name (e.g. express)", "软件包名称（例如 express）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_readme_score':["README Score", "自述文件评分"],'jtc_checking':["Checking...", "检查..."],'jtc_check':["Check", "查看"],'jtlword_versions':["Versions", "版本"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_age':["Age", "年龄"],'jtlword_grade':["Grade", "年级"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_health_package_health':["npm Health — Package Health Check", "npm 健康 — 包健康检查"],'metadesc_check_the_health_of_any_n':["Check the health of any npm package. Downloads, maintenance, dependencies, update frequency. Free, instant, no signup.", "检查任何 npm 包的健康状况。包括下载量、维护情况、依赖项和更新频率。免费、即时、无需注册。"],'h1_npm_health':["npm Health", "npm 健康"],'h2_health_checks':["Health Checks", "健康检查"],'h2_weekly_downloads_last_6_m':["Weekly Downloads (Last 6 Months)", "每周下载量（过去 6 个月）"],'h2_esc_pkgname_esc_latest':["${esc(pkgName)}@${esc(latest)}", "${esc(pkgName)}@${esc(latest)}"],'h3_insights_for_esc_pkgname':["Insights for ${esc(pkgName)}", "关于 ${esc(pkgName)} 的见解"],'subtitle_check_any_npm_package_s_h':["Check any npm package's health. Maintenance, popularity, freshness.", "检查任何 npm 包的健康状况。包括维护情况、受欢迎程度和更新频率。"],'btn_check':["Check", "查看"],'placeholder_package_name_e_g_express':["package name (e.g. express)", "软件包名称（例如 express）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_readme_score':["README Score", "自述文件评分"],'jtc_checking':["Checking...", "检查..."],'jtc_check':["Check", "查看"],'jtlword_versions':["Versions", "版本"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_age':["Age", "年龄"],'jtlword_grade':["Grade", "年级"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_health_package_health':["npm Health — Package Health Check", "npm 健康 — 包健康检查"],'metadesc_check_the_health_of_any_n':["Check the health of any npm package. Downloads, maintenance, dependencies, update frequency. Free, instant, no signup.", "检查任何 npm 包的健康状况。包括下载量、维护情况、依赖项和更新频率。免费、即时、无需注册。"],'h1_npm_health':["npm Health", "npm 健康"],'h2_health_checks':["Health Checks", "健康检查"],'h2_weekly_downloads_last_6_m':["Weekly Downloads (Last 6 Months)", "每周下载量（过去 6 个月）"],'h2_esc_pkgname_esc_latest':["${esc(pkgName)}@${esc(latest)}", "${esc(pkgName)}@${esc(latest)}"],'h3_insights_for_esc_pkgname':["Insights for ${esc(pkgName)}", "关于 ${esc(pkgName)} 的见解"],'subtitle_check_any_npm_package_s_h':["Check any npm package's health. Maintenance, popularity, freshness.", "检查任何 npm 包的健康状况。包括维护情况、受欢迎程度和更新频率。"],'btn_check':["Check", "查看"],'placeholder_package_name_e_g_express':["package name (e.g. express)", "软件包名称（例如 express）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_readme_score':["README Score", "自述文件评分"],'jtc_checking':["Checking...", "检查..."],'jtc_check':["Check", "查看"],'jtlword_versions':["Versions", "版本"],'jtlword_dependencies':["Dependencies", "依赖关系"],'jtlword_age':["Age", "年龄"],'jtlword_grade':["Grade", "年级"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 const REG='https://registry.npmjs.org';
@@ -139,7 +189,7 @@ async function check(){
   const pkg=$('pkgName').value.trim();
   if(!pkg)return;
   $('checkBtn').disabled=true;
-  $('checkBtn').textContent='Checking...';
+  $('checkBtn').textContent=T("jtc_checking");
   $('error').style.display='none';
   $('results').style.display='none';
 
@@ -161,7 +211,7 @@ async function check(){
     $('error').style.display='block';
   }finally{
     $('checkBtn').disabled=false;
-    $('checkBtn').textContent='Check';
+    $('checkBtn').textContent=T("jtc_check");
   }
 }
 
@@ -196,7 +246,7 @@ function render(pkgName,meta,dlRange,dlPoint){
   $('pkgHeader').innerHTML=`
     <div class="pkg-icon">${pkgName.startsWith('@')?'@':'📦'}</div>
     <div class="pkg-info">
-      <h2>${esc(pkgName)}@${esc(latest)}</h2>
+      <h2 ti="h2_esc_pkgname_esc_latest" ti="h2_esc_pkgname_esc_latest" ti="h2_esc_pkgname_esc_latest" ti="h2_esc_pkgname_esc_latest" ti="h2_esc_pkgname_esc_latest">${esc(pkgName)}@${esc(latest)}</h2>
       ${desc?`<div class="desc">${esc(desc)}</div>`:''}
       <div class="meta">
         <span>${esc(typeof license==='object'?license.type:license)}</span>
@@ -331,7 +381,7 @@ function render(pkgName,meta,dlRange,dlPoint){
     }
   }
 
-  $('insights').innerHTML=`<h3>Insights for ${esc(pkgName)}</h3><ul>${ins.map(i=>`<li>${i}</li>`).join('')}</ul>`;
+  $('insights').innerHTML=`<h3 ti="h3_insights_for_esc_pkgname" ti="h3_insights_for_esc_pkgname" ti="h3_insights_for_esc_pkgname" ti="h3_insights_for_esc_pkgname" ti="h3_insights_for_esc_pkgname">Insights for ${esc(pkgName)}</h3><ul>${ins.map(i=>`<li>${i}</li>`).join('')}</ul>`;
 
   // Share
   const shareText=`${pkgName} scored ${pct}/100 (${grade}) on npm Health Check!`;
@@ -347,12 +397,102 @@ const params=new URLSearchParams(location.search);
 if(params.get('pkg')){$('pkgName').value=params.get('pkg');check()}
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/npm-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">npm Compare</a>
 <a href="https://gokuscraper.github.io/dev-vault/dep-tree/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Dep Tree</a>
 <a href="https://gokuscraper.github.io/dev-vault/dep-changelog/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Dep Changelog</a>
 <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Stats</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

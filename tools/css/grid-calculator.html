@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_grid_calculator_css_grid" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -87,32 +87,34 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Grid Calculator</h1>
-<p class="sub">CSS Grid Layout Generator with Visual Preview</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_grid_calculator">Grid Calculator</h1>
+<p class="sub" ti="subtitle_css_grid_layout_generator">CSS Grid Layout Generator with Visual Preview</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets" id="presets">
-<button class="preset" onclick="applyPreset('holyGrail')">Holy Grail</button>
-<button class="preset" onclick="applyPreset('dashboard')">Dashboard</button>
-<button class="preset" onclick="applyPreset('blog')">Blog</button>
-<button class="preset" onclick="applyPreset('gallery')">Gallery</button>
-<button class="preset" onclick="applyPreset('magazine')">Magazine</button>
+<button class="preset" onclick="applyPreset('holyGrail')" ti="btn_holy_grail">Holy Grail</button>
+<button class="preset" onclick="applyPreset('dashboard')" ti="btn_dashboard">Dashboard</button>
+<button class="preset" onclick="applyPreset('blog')" ti="btn_blog">Blog</button>
+<button class="preset" onclick="applyPreset('gallery')" ti="btn_gallery">Gallery</button>
+<button class="preset" onclick="applyPreset('magazine')" ti="btn_magazine">Magazine</button>
 </div>
 </div>
 
 <div class="layout">
 <div class="left-col">
 <div class="section">
-<h3>Grid Configuration</h3>
+<h3 ti="h3_grid_configuration">Grid Configuration</h3>
 <div class="field-row">
 <div class="field">
-<label>Columns</label>
+<label ti="label_columns">Columns</label>
 <input type="number" id="cols" value="12" min="1" max="24" onchange="update()">
 </div>
 <div class="field">
-<label>Column Sizing</label>
+<label ti="label_column_sizing">Column Sizing</label>
 <select id="colSizing" onchange="update()">
 <option value="1fr">1fr (equal)</option>
 <option value="px">px (fixed)</option>
@@ -124,16 +126,16 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 <div class="field" id="customColField" style="display:none">
-<label>Custom Column Template</label>
-<input type="text" id="customColTemplate" placeholder="e.g. 200px 1fr 1fr 200px" onchange="update()">
+<label ti="label_custom_column_template">Custom Column Template</label>
+<input type="text" id="customColTemplate" tp="placeholder_e_g_200px_1fr_1fr_200px" placeholder="e.g. 200px 1fr 1fr 200px" onchange="update()">
 </div>
 <div class="field-row">
 <div class="field">
-<label>Rows</label>
+<label ti="label_rows">Rows</label>
 <input type="number" id="rows" value="3" min="1" max="24" onchange="update()">
 </div>
 <div class="field">
-<label>Row Sizing</label>
+<label ti="label_row_sizing">Row Sizing</label>
 <select id="rowSizing" onchange="update()">
 <option value="auto">auto</option>
 <option value="1fr">1fr (equal)</option>
@@ -144,47 +146,47 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 </div>
 <div class="field" id="customRowField" style="display:none">
-<label>Custom Row Template</label>
-<input type="text" id="customRowTemplate" placeholder="e.g. 60px 1fr 80px" onchange="update()">
+<label ti="label_custom_row_template">Custom Row Template</label>
+<input type="text" id="customRowTemplate" tp="placeholder_e_g_60px_1fr_80px" placeholder="e.g. 60px 1fr 80px" onchange="update()">
 </div>
 <div class="field-row">
 <div class="field">
-<label>Column Gap (px)</label>
+<label ti="label_column_gap_px">Column Gap (px)</label>
 <input type="number" id="colGap" value="16" min="0" onchange="update()">
 </div>
 <div class="field">
-<label>Row Gap (px)</label>
+<label ti="label_row_gap_px">Row Gap (px)</label>
 <input type="number" id="rowGap" value="16" min="0" onchange="update()">
 </div>
 </div>
 <div class="field">
-<label>Container Width (px)</label>
+<label ti="label_container_width_px">Container Width (px)</label>
 <input type="number" id="containerWidth" value="1200" min="100" onchange="update()">
 </div>
 </div>
 
 <div class="section">
-<h3>Grid Areas Editor</h3>
+<h3 ti="h3_grid_areas_editor">Grid Areas Editor</h3>
 <p style="font-size:0.72rem;color:#666;margin-bottom:8px">Click a cell in the preview, then type an area name below. Cells with the same name merge into one area.</p>
 <div class="area-input-wrap">
-<input type="text" id="areaNameInput" placeholder="Select a cell, then type area name + Enter" onkeydown="if(event.key==='Enter')assignArea()">
+<input type="text" id="areaNameInput" tp="placeholder_select_a_cell_then_type_a" placeholder="Select a cell, then type area name + Enter" onkeydown="if(event.key==='Enter')assignArea()">
 </div>
 <div class="area-legend" id="areaLegend"></div>
 </div>
 
 <div class="section">
-<h3>Responsive Breakpoints</h3>
+<h3 ti="h3_responsive_breakpoints">Responsive Breakpoints</h3>
 <div class="presets" style="margin-bottom:8px">
-<button class="preset" onclick="addBreakpoint('mobile',480,1)">+ Mobile</button>
-<button class="preset" onclick="addBreakpoint('tablet',768,6)">+ Tablet</button>
-<button class="preset" onclick="addBreakpoint('desktop',1024,12)">+ Desktop</button>
-<button class="preset" onclick="addBreakpoint('wide',1440,12)">+ Wide</button>
+<button class="preset" onclick="addBreakpoint('mobile',480,1)" ti="btn_mobile">+ Mobile</button>
+<button class="preset" onclick="addBreakpoint('tablet',768,6)" ti="btn_tablet">+ Tablet</button>
+<button class="preset" onclick="addBreakpoint('desktop',1024,12)" ti="btn_desktop">+ Desktop</button>
+<button class="preset" onclick="addBreakpoint('wide',1440,12)" ti="btn_wide">+ Wide</button>
 </div>
 <div class="bp-list" id="bpList"></div>
 </div>
 
 <div class="section">
-<h3>Column Width Calculator</h3>
+<h3 ti="h3_column_width_calculator">Column Width Calculator</h3>
 <p style="font-size:0.72rem;color:#666;margin-bottom:8px">Exact pixel widths based on container, columns, and gap.</p>
 <div id="widthCalc"></div>
 </div>
@@ -192,7 +194,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <div class="right-col">
 <div class="section">
-<h3>Visual Preview</h3>
+<h3 ti="h3_visual_preview">Visual Preview</h3>
 <p class="span-info" id="spanInfo">Click a cell to select start, click another for end to create a span. Click a selected cell to deselect.</p>
 <div class="grid-preview-wrap">
 <div class="grid-preview" id="gridPreview"></div>
@@ -201,27 +203,37 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Output</h3>
+<h3 ti="h3_output">Output</h3>
 <div class="tabs" id="outputTabs">
-<button class="tab active" onclick="setTab('css')">CSS Grid</button>
-<button class="tab" onclick="setTab('responsive')">Responsive</button>
-<button class="tab" onclick="setTab('html')">HTML</button>
+<button class="tab active" onclick="setTab('css')" ti="btn_css_grid" ti="link_css_grid">CSS Grid</button>
+<button class="tab" onclick="setTab('responsive')" ti="btn_responsive">Responsive</button>
+<button class="tab" onclick="setTab('html')" ti="btn_html">HTML</button>
 </div>
 <div class="output-area" id="outputArea"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyCSS()">Copy CSS</button>
-<button class="btn" onclick="resetAll()">Reset</button>
+<button class="btn btn-primary" onclick="copyCSS()" ti="btn_copy_css">Copy CSS</button>
+<button class="btn" onclick="resetAll()" ti="btn_reset">Reset</button>
 </div>
 </div>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-grid/">CSS Grid</a> | <a href="https://gokuscraper.github.io/dev-vault/css-flex/">CSS Flex</a> | <a href="https://gokuscraper.github.io/dev-vault/css-media/">CSS Media</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-grid/">CSS Grid</a> | <a href="https://gokuscraper.github.io/dev-vault/css-flex/" ti="link_css_flex">CSS Flex</a> | <a href="https://gokuscraper.github.io/dev-vault/css-media/" ti="link_css_media">CSS Media</a></div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_grid_calculator_css_grid':["Grid Calculator — CSS Grid Layout Generator", "网格计算器 — CSS 网格布局生成器"],'metadesc_calculate_css_grid_layout':["Calculate CSS grid layouts visually. Column widths, gaps, areas. Responsive breakpoints. Holy Grail, dashboard, gallery presets. Copy CSS.", "可视化计算 CSS 网格布局。列宽、间距、区域。响应式断点。Holy Grail、仪表盘、图库预设。复制 CSS。"],'h1_grid_calculator':["Grid Calculator", "网格计算器"],'h3_presets':["Presets", "预设"],'h3_grid_configuration':["Grid Configuration", "网格配置"],'h3_grid_areas_editor':["Grid Areas Editor", "网格区域编辑器"],'h3_responsive_breakpoints':["Responsive Breakpoints", "响应式断点"],'h3_column_width_calculator':["Column Width Calculator", "列宽计算器"],'h3_visual_preview':["Visual Preview", "视觉预览"],'h3_output':["Output", "输出"],'subtitle_css_grid_layout_generator':["CSS Grid Layout Generator with Visual Preview", "带可视化预览的 CSS 网格布局生成器"],'btn_holy_grail':["Holy Grail", "圣杯"],'btn_dashboard':["Dashboard", "仪表板"],'btn_blog':["Blog", "博客"],'btn_gallery':["Gallery", "画廊"],'btn_magazine':["Magazine", "杂志"],'btn_mobile':["+ Mobile", "+ 移动端"],'btn_tablet':["+ Tablet", "+ 平板电脑"],'btn_desktop':["+ Desktop", "+ 桌面"],'btn_wide':["+ Wide", "+ 宽"],'btn_css_grid':["CSS Grid", "CSS Grid"],'btn_responsive':["Responsive", "响应式"],'btn_html':["HTML", "HTML"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_reset':["Reset", "重置"],'placeholder_e_g_200px_1fr_1fr_200px':["e.g. 200px 1fr 1fr 200px", "例如 200px 1fr 1fr 200px"],'placeholder_e_g_60px_1fr_80px':["e.g. 60px 1fr 80px", "例如 60px 1fr 80px"],'placeholder_select_a_cell_then_type_a':["Select a cell, then type area name + Enter", "选择一个单元格，然后输入区域名称 + Enter 键。"],'th_col':["Col", "上校"],'th_width_px':["Width (px)", "宽度（像素）"],'th_of_container':["% of container", "容器百分比"],'label_columns':["Columns", "列"],'label_column_sizing':["Column Sizing", "列尺寸"],'label_custom_column_template':["Custom Column Template", "自定义列模板"],'label_rows':["Rows", "行"],'label_row_sizing':["Row Sizing", "行尺寸"],'label_custom_row_template':["Custom Row Template", "自定义行模板"],'label_column_gap_px':["Column Gap (px)", "列间距（像素）"],'label_row_gap_px':["Row Gap (px)", "行间距（像素）"],'label_container_width_px':["Container Width (px)", "容器宽度（像素）"],'label_max_width':["max-width:", "最大宽度："],'label_cols':["cols:", "列："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_css_grid':["CSS Grid", "CSS Grid"],'link_css_flex':["CSS Flex", "CSS Flex"],'link_css_media':["CSS Media", "CSS媒体"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // State
 let state = {
@@ -455,7 +467,7 @@ function renderWidthCalc() {
   const { cols, colGap, containerWidth } = state;
   const totalGap = colGap * (cols - 1);
 
-  let html = `<table class="width-table"><tr><th>Col</th><th>Width (px)</th><th>% of container</th></tr>`;
+  let html = `<table class="width-table"><tr><th ti="th_col">Col</th><th ti="th_width_px">Width (px)</th><th ti="th_of_container">% of container</th></tr>`;
   widths.forEach((w, i) => {
     html += `<tr><td>${i+1}</td><td>${w}px</td><td>${(w/containerWidth*100).toFixed(1)}%</td></tr>`;
   });
@@ -572,7 +584,7 @@ function copyCSS() {
   navigator.clipboard.writeText(text).then(() => {
     const toast = $('toast');
     toast.style.display = 'block';
-    toast.textContent = 'Copied!';
+    toast.textContent=T("jtc_copied");
     setTimeout(() => toast.style.display = 'none', 1500);
   });
 }
@@ -601,9 +613,9 @@ function renderBreakpoints() {
   list.innerHTML = state.breakpoints.map((bp, i) => `
     <div class="bp-item">
       <span class="bp-name">${bp.name}</span>
-      <label style="font-size:0.68rem;color:#666">max-width:</label>
+      <label style="font-size:0.68rem;color:#666" ti="label_max_width">max-width:</label>
       <input type="number" value="${bp.width}" onchange="updateBreakpoint(${i},'width',this.value)">
-      <label style="font-size:0.68rem;color:#666">cols:</label>
+      <label style="font-size:0.68rem;color:#666" ti="label_cols">cols:</label>
       <input type="number" value="${bp.cols}" min="1" max="24" onchange="updateBreakpoint(${i},'cols',this.value)">
       <button class="bp-remove" onclick="removeBreakpoint(${i})">✕</button>
     </div>
@@ -744,6 +756,24 @@ function update() {
 
 // Init
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

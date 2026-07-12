@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mac_address_lookup" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,11 +27,17 @@ button:hover:not(:disabled){background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>MAC Address Lookup</h1>
-  <p class="desc">Look up the vendor/manufacturer from a MAC address</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_mac_address_lookup" ti="h1_mac_address_lookup" ti="title_mac_address_lookup" ti="h1_mac_address_lookup" ti="title_mac_address_lookup" ti="h1_mac_address_lookup">MAC Address Lookup</h1>
+  <p class="desc" ti="subtitle_look_up_the_vendor_manufa" ti="subtitle_look_up_the_vendor_manufa" ti="subtitle_look_up_the_vendor_manufa">Look up the vendor/manufacturer from a MAC address</p>
   <div class="card">
-    <label for="macInput">MAC address</label>
+    <label for="macInput" ti="label_mac_address" ti="label_mac_address" ti="label_mac_address">MAC address</label>
     <input type="text" id="macInput" value="20:37:06:12:34:56" spellcheck="false">
     <div class="loading" id="loadingMsg">Loading OUI database...</div>
     <div class="error-msg" id="errorMsg">Invalid MAC address format</div>
@@ -41,10 +47,30 @@ button:hover:not(:disabled){background:#252525;border-color:#3b82f6}
       OUI database could not be loaded. You can try again later.
     </div>
     <div class="flex-center">
-      <button id="copyBtn" disabled>Copy vendor info</button>
+      <button id="copyBtn" disabled ti="btn_copy_vendor_info" ti="btn_copy_vendor_info" ti="btn_copy_vendor_info">Copy vendor info</button>
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_mac_address_lookup':["MAC Address Lookup", "MAC地址查询"],'metadesc_look_up_the_vendor_manufa':["Look up the vendor/manufacturer of a MAC address. Uses the IEEE OUI database.", "查找 MAC 地址的供应商/制造商。使用 IEEE OUI 数据库。"],'h1_mac_address_lookup':["MAC Address Lookup", "MAC地址查询"],'subtitle_look_up_the_vendor_manufa':["Look up the vendor/manufacturer from a MAC address", "通过 MAC 地址查找供应商/制造商"],'btn_copy_vendor_info':["Copy vendor info", "复制供应商信息"],'label_mac_address':["MAC address", "MAC地址"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_mac_address_lookup':["MAC Address Lookup", "MAC地址查询"],'metadesc_look_up_the_vendor_manufa':["Look up the vendor/manufacturer of a MAC address. Uses the IEEE OUI database.", "查找 MAC 地址的供应商/制造商。使用 IEEE OUI 数据库。"],'h1_mac_address_lookup':["MAC Address Lookup", "MAC地址查询"],'subtitle_look_up_the_vendor_manufa':["Look up the vendor/manufacturer from a MAC address", "通过 MAC 地址查找供应商/制造商"],'btn_copy_vendor_info':["Copy vendor info", "复制供应商信息"],'label_mac_address':["MAC address", "MAC地址"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let ouiDb = null;
 
@@ -108,6 +134,60 @@ document.getElementById('copyBtn').addEventListener('click', () => {
 });
 
 loadOuiDb();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

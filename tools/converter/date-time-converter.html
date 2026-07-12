@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_date_time_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,11 +26,13 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Date Time Converter</h1>
-  <p class="desc">Convert between date and time formats</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_date_time_converter" ti="h1_date_time_converter">Date Time Converter</h1>
+  <p class="desc" ti="subtitle_convert_between_date_and">Convert between date and time formats</p>
   <div class="card">
-    <label>Input format</label>
+    <label ti="label_input_format">Input format</label>
     <select id="inFmt">
       <option value="datetime-local">Local date & time</option>
       <option value="unix">Unix timestamp (seconds)</option>
@@ -41,10 +43,20 @@ button:hover{background:#252525;border-color:#3b82f6}
     <input type="text" id="input" value="2026-07-09T12:00:00" spellcheck="false">
     <div class="output-grid" id="outputs"></div>
     <div class="flex-center">
-      <button id="nowBtn">Now</button>
+      <button id="nowBtn" ti="btn_now">Now</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_date_time_converter':["Date Time Converter", "日期时间转换器"],'metadesc_convert_between_date_and':["Convert between date and time formats: Unix timestamp, ISO 8601, RFC 2822, UTC, local time, relative time, and more.", "转换日期和时间格式：Unix 时间戳、ISO 8601、RFC 2822、UTC、本地时间、相对时间等。"],'h1_date_time_converter':["Date Time Converter", "日期时间转换器"],'subtitle_convert_between_date_and':["Convert between date and time formats", "在日期和时间格式之间进行转换"],'btn_now':["Now", "现在"],'label_input_format':["Input format", "输入格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function parseDate(text, fmt) {
   switch(fmt) {
@@ -101,6 +113,24 @@ document.getElementById('nowBtn').addEventListener('click', () => {
   update();
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

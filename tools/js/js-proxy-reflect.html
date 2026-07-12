@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_proxy_reflect_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,15 +73,17 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Proxy & Reflect Playground</h1>
+<h1 ti="title_js_proxy_reflect_playgrou" ti="h1_js_proxy_reflect_playgrou">JS Proxy & Reflect Playground</h1>
 <p>Watch Proxy traps intercept operations in real-time</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div id="presets"></div>
-<h3 style="margin-top:1.5rem">Active Traps</h3>
+<h3 style="margin-top:1.5rem" ti="h3_active_traps">Active Traps</h3>
 <div id="trapCards"></div>
 </div>
 <div class="main">
@@ -113,7 +115,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="tab-reference" class="tab-content hidden">
 <h4 style="color:#00d4ff;margin-bottom:.5rem">All Proxy Traps (13 total)</h4>
 <table class="ref-table">
-<tr><th>Trap</th><th>Intercepts</th><th>Reflect Method</th></tr>
+<tr><th ti="th_trap">Trap</th><th ti="th_intercepts">Intercepts</th><th ti="th_reflect_method">Reflect Method</th></tr>
 <tr><td><code>get</code></td><td>Property read: <code>obj.prop</code>, <code>obj['prop']</code></td><td><code>Reflect.get()</code></td></tr>
 <tr><td><code>set</code></td><td>Property write: <code>obj.prop = val</code></td><td><code>Reflect.set()</code></td></tr>
 <tr><td><code>has</code></td><td><code>prop in obj</code></td><td><code>Reflect.has()</code></td></tr>
@@ -130,7 +132,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .5rem">Proxy Invariants</h4>
 <table class="ref-table">
-<tr><th>Rule</th><th>When</th></tr>
+<tr><th ti="th_rule">Rule</th><th ti="th_when">When</th></tr>
 <tr><td><code>get</code> must return property value</td><td>If target property is non-writable, non-configurable data</td></tr>
 <tr><td><code>set</code> cannot change value</td><td>If target property is non-writable, non-configurable</td></tr>
 <tr><td><code>has</code> cannot hide property</td><td>If target property is non-configurable or target not extensible</td></tr>
@@ -139,7 +141,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .5rem">Common Patterns</h4>
 <table class="ref-table">
-<tr><th>Pattern</th><th>Traps Used</th></tr>
+<tr><th ti="th_pattern">Pattern</th><th ti="th_traps_used">Traps Used</th></tr>
 <tr><td>Validation</td><td><code>set</code> — validate values before assignment</td></tr>
 <tr><td>Default Values</td><td><code>get</code> — return defaults for missing properties</td></tr>
 <tr><td>Logging / Debugging</td><td><code>get</code>, <code>set</code> — log all access</td></tr>
@@ -151,15 +153,25 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 </div>
 <div class="controls">
-<button class="btn run" id="btnRun">▶ Run</button>
-<button class="btn" id="btnStep">Step →</button>
-<button class="btn" id="btnReset">⟲ Reset</button>
+<button class="btn run" id="btnRun" ti="btn_run">▶ Run</button>
+<button class="btn" id="btnStep" ti="btn_step">Step →</button>
+<button class="btn" id="btnReset" ti="btn_reset">⟲ Reset</button>
 <span class="step-info" id="stepInfo">Select a preset and click Run</span>
 </div>
 </div>
 </div>
-<footer>JS Proxy & Reflect Playground · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>JS Proxy & Reflect Playground · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+<script>var _LANG={'title_js_proxy_reflect_playgrou':["JS Proxy & Reflect Playground", "JS 代理和反射练习场"],'metadesc_interactive_javascript_pr':["Interactive JavaScript Proxy and Reflect API playground — watch trap interception in real-time with 8 presets covering get, set, apply, construct, and more", "交互式 JavaScript 代理和 Reflect API 演示——实时观察陷阱拦截，8 个预设涵盖 get、set、apply、construct 等方法。"],'h1_js_proxy_reflect_playgrou':["JS Proxy & Reflect Playground", "JS 代理和反射练习场"],'h3_presets':["Presets", "预设"],'h3_active_traps':["Active Traps", "主动陷阱"],'btn_run':["▶ Run", "▶ 跑"],'btn_step':["Step →", "步骤 →"],'btn_reset':["⟲ Reset", "⟲ 重置"],'th_trap':["Trap", "陷阱"],'th_intercepts':["Intercepts", "拦截"],'th_reflect_method':["Reflect Method", "反思法"],'th_rule':["Rule", "规则"],'th_when':["When", "什么时候"],'th_pattern':["Pattern", "图案"],'th_traps_used':["Traps Used", "使用的陷阱"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_click_run_or_step_to_exec':["Click Run or Step to execute", "点击“运行”或“单步执行”按钮"],'jtc_all_steps_completed':["All steps completed", "所有步骤已完成"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -506,7 +518,7 @@ function resetLog() {
   stepIdx = -1;
   executed = [];
   document.getElementById('logArea').innerHTML = '';
-  document.getElementById('stepInfo').textContent = 'Click Run or Step to execute';
+  document.getElementById('stepInfo').textContent=T("jtc_click_run_or_step_to_exec");
 }
 
 function executeStep(idx) {
@@ -673,7 +685,7 @@ function runAll() {
 function stepForward() {
   stepIdx++;
   if (stepIdx >= currentPreset.usage.length) {
-    document.getElementById('stepInfo').textContent = 'All steps completed';
+    document.getElementById('stepInfo').textContent=T("jtc_all_steps_completed");
     return;
   }
   executeStep(stepIdx);
@@ -681,6 +693,24 @@ function stepForward() {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

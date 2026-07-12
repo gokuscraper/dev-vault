@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_encode_decode_multi_tool" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,19 +106,21 @@ textarea.has-error{border-color:var(--red)}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Encode / Decode Multi-Tool</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_encode_decode_multi_tool">Encode / Decode Multi-Tool</h1>
   <p class="subtitle">7 formats &mdash; bidirectional conversion, auto-detect, copy &amp; swap</p>
 
   <!-- Tab selector -->
   <div class="tabs" id="tabs">
-    <button class="tab active" data-type="url">URL</button>
-    <button class="tab" data-type="base64">Base64</button>
-    <button class="tab" data-type="html">HTML Entity</button>
-    <button class="tab" data-type="hex">Hex</button>
-    <button class="tab" data-type="binary">Binary</button>
-    <button class="tab" data-type="rot13">ROT13</button>
-    <button class="tab" data-type="unicode">Unicode Escape</button>
+    <button class="tab active" data-type="url" ti="btn_url">URL</button>
+    <button class="tab" data-type="base64" ti="btn_base64">Base64</button>
+    <button class="tab" data-type="html" ti="btn_html_entity">HTML Entity</button>
+    <button class="tab" data-type="hex" ti="btn_hex">Hex</button>
+    <button class="tab" data-type="binary" ti="btn_binary">Binary</button>
+    <button class="tab" data-type="rot13" ti="btn_rot13">ROT13</button>
+    <button class="tab" data-type="unicode" ti="btn_unicode_escape">Unicode Escape</button>
   </div>
 
   <!-- Per-format options -->
@@ -145,16 +147,16 @@ textarea.has-error{border-color:var(--red)}
   <!-- Direction + action controls -->
   <div class="controls">
     <div class="direction" id="directionToggle">
-      <button class="active" data-dir="encode">Encode</button>
-      <button data-dir="decode">Decode</button>
+      <button class="active" data-dir="encode" ti="btn_encode">Encode</button>
+      <button data-dir="decode" ti="btn_decode">Decode</button>
     </div>
-    <button class="btn" id="btnSample">Sample</button>
+    <button class="btn" id="btnSample" ti="btn_sample">Sample</button>
     <label class="btn" id="autoLabel" style="cursor:pointer;user-select:none">
       <input type="checkbox" id="chkAuto" style="accent-color:var(--accent)"> Auto-detect
     </label>
     <span class="spacer"></span>
-    <button class="btn" id="btnClear">Clear</button>
-    <button class="btn btn-green" id="btnCopy">Copy Output</button>
+    <button class="btn" id="btnClear" ti="btn_clear">Clear</button>
+    <button class="btn btn-green" id="btnCopy" ti="btn_copy_output">Copy Output</button>
   </div>
 
   <!-- Auto-detect bar -->
@@ -169,7 +171,7 @@ textarea.has-error{border-color:var(--red)}
       <span>Input</span>
       <span class="char-count" id="inputCount">0 chars</span>
     </div>
-    <textarea id="inputArea" rows="8" placeholder="Paste or type text here..."></textarea>
+    <textarea id="inputArea" rows="8" tp="placeholder_paste_or_type_text_here" placeholder="Paste or type text here..."></textarea>
   </div>
 
   <!-- Swap -->
@@ -183,7 +185,7 @@ textarea.has-error{border-color:var(--red)}
       <span>Output</span>
       <span class="char-count" id="outputCount">0 chars</span>
     </div>
-    <textarea id="outputArea" class="output-area" rows="8" readonly placeholder="Result will appear here..."></textarea>
+    <textarea id="outputArea" class="output-area" rows="8" readonly tp="placeholder_result_will_appear_here" placeholder="Result will appear here..."></textarea>
   </div>
 </div>
 
@@ -194,6 +196,16 @@ textarea.has-error{border-color:var(--red)}
   &mdash; free browser-based developer tools, no install needed
 </footer>
 
+
+<script>var _LANG={'title_encode_decode_multi_tool':["Encode/Decode Multi-Tool — URL, Base64, HTML, Hex, Binary, ROT13, Unicode", "编码/解码多功能工具 — URL、Base64、HTML、十六进制、二进制、ROT13、Unicode"],'metadesc_all_in_one_encoder_decode':["All-in-one encoder/decoder. Supports URL, Base64, HTML entities, Hex, Binary, ROT13, and Unicode escape formats with auto-detect and bidirectional conversion.", "一体化编码器/解码器。支持 URL、Base64、HTML 实体、十六进制、二进制、ROT13 和 Unicode 转义格式，并具备自动检测和双向转换功能。"],'h1_encode_decode_multi_tool':["Encode / Decode Multi-Tool", "编码/解码多功能工具"],'subtitle_7_formats_bidirectional_c':["7 formats — bidirectional conversion, auto-detect, copy & swap", "7 种格式——双向转换、自动检测、复制和交换"],'btn_url':["URL", "URL"],'btn_base64':["Base64", "Base64"],'btn_html_entity':["HTML Entity", "HTML实体"],'btn_hex':["Hex", "十六进制"],'btn_binary':["Binary", "二进制"],'btn_rot13':["ROT13", "ROT13"],'btn_unicode_escape':["Unicode Escape", "Unicode 转义"],'btn_encode':["Encode", "编码"],'btn_decode':["Decode", "解码"],'btn_sample':["Sample", "样本"],'btn_clear':["Clear", "清除"],'btn_copy_output':["Copy Output", "复制输出"],'btn_swap':["⇅  Swap", "⇅ 交换"],'label_detected':["⚠ Detected:", "⚠ 检测到："],'placeholder_paste_or_type_text_here':["Paste or type text here...", "在此粘贴或输入文本……"],'placeholder_result_will_appear_here':["Result will appear here...", "结果将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jalert_xss_friends':["XSS & friends", "XSS 和朋友们"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function () {
   'use strict';
@@ -439,7 +451,7 @@ textarea.has-error{border-color:var(--red)}
   const SAMPLES = {
     url:     'https://example.com/search?q=hello world&lang=日本語',
     base64:  'Hello, World! 🌍',
-    html:    '<script>alert("XSS & friends")<\/script>',
+    html:    '<script>T("jalert_xss_friends")<\/script>',
     hex:     'Hello',
     binary:  'Hi',
     rot13:   'The Quick Brown Fox Jumps Over The Lazy Dog',
@@ -521,12 +533,30 @@ textarea.has-error{border-color:var(--red)}
 })();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/base64-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Base64 Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/hash-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Hash Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/data-uri/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Data Uri</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-escape/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Escape</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

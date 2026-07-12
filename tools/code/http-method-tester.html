@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_http_method_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -46,14 +46,16 @@ pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;f
 </style>
 </head>
 <body>
-<h1>HTTP Method Explorer</h1>
-<p class="subtitle">Interactive reference for HTTP methods, status codes, and REST patterns</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_http_method_explorer" ti="h1_http_method_explorer">HTTP Method Explorer</h1>
+<p class="subtitle" ti="subtitle_interactive_reference_for">Interactive reference for HTTP methods, status codes, and REST patterns</p>
 
 <div class="section">
-<h2>Comparison Table</h2>
+<h2 ti="h2_comparison_table">Comparison Table</h2>
 <div style="overflow-x:auto">
 <table>
-<thead><tr><th>Method</th><th>Safe</th><th>Idempotent</th><th>Cacheable</th><th>Request Body</th><th>Response Body</th><th>Use Case</th></tr></thead>
+<thead><tr><th ti="th_method">Method</th><th ti="th_safe">Safe</th><th ti="th_idempotent">Idempotent</th><th ti="th_cacheable">Cacheable</th><th ti="th_request_body">Request Body</th><th ti="th_response_body">Response Body</th><th ti="th_use_case">Use Case</th></tr></thead>
 <tbody>
 <tr><td class="mc-get">GET</td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge no">No</span></td><td><span class="badge yes">Yes</span></td><td>Retrieve resource</td></tr>
 <tr><td class="mc-post">POST</td><td><span class="badge no">No</span></td><td><span class="badge no">No</span></td><td><span class="badge cond">Cond</span></td><td><span class="badge yes">Yes</span></td><td><span class="badge yes">Yes</span></td><td>Create resource</td></tr>
@@ -69,23 +71,33 @@ pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;f
 </div>
 
 <div class="section">
-<h2>Method Details</h2>
+<h2 ti="h2_method_details">Method Details</h2>
 <div class="methods-nav" id="methodNav"></div>
 <div id="methodDetails"></div>
 </div>
 
 <div class="section">
-<h2>Explore</h2>
+<h2 ti="h2_explore">Explore</h2>
 <div class="tabs">
-<button class="active" onclick="showTab('statusCodes',this)">Status Codes</button>
-<button onclick="showTab('restPatterns',this)">REST Patterns</button>
-<button onclick="showTab('corsExplain',this)">CORS & Preflight</button>
+<button class="active" onclick="showTab('statusCodes',this)" ti="btn_status_codes">Status Codes</button>
+<button onclick="showTab('restPatterns',this)" ti="btn_rest_patterns">REST Patterns</button>
+<button onclick="showTab('corsExplain',this)" ti="btn_cors_preflight">CORS & Preflight</button>
 </div>
 <div class="tab-content active" id="statusCodes"></div>
 <div class="tab-content" id="restPatterns"></div>
 <div class="tab-content" id="corsExplain"></div>
 </div>
 
+
+<script>var _LANG={'title_http_method_explorer':["HTTP Method Explorer", "HTTP 方法浏览器"],'h1_http_method_explorer':["HTTP Method Explorer", "HTTP 方法浏览器"],'h2_comparison_table':["Comparison Table", "对比表"],'h2_method_details':["Method Details", "方法详情"],'h2_explore':["Explore", "探索"],'h3_name':["${name}", "${name}"],'h3_semantics':["Semantics", "语义学"],'h3_properties':["Properties", "特性"],'h3_request_example':["Request Example", "请求示例"],'h3_response_example':["Response Example", "回答示例"],'h3_restful_resource_patterns':["RESTful Resource Patterns", "RESTful资源模式"],'h3_nested_resources':["Nested Resources", "嵌套资源"],'h3_filtering_sorting_paginat':["Filtering, Sorting, Pagination", "筛选、排序、分页"],'h3_bulk_operations':["Bulk Operations", "散装作业"],'h3_actions_rpc_style':["Actions (RPC-style)", "操作（RPC 风格）"],'h3_versioning':["Versioning", "版本控制"],'h3_cors_preflight_flow':["CORS Preflight Flow", "CORS 飞行前流程"],'h3_simple_requests_no_prefli':["Simple Requests (No Preflight)", "简单请求（无需预检）"],'h3_credentialed_requests':["Credentialed Requests", "凭证请求"],'subtitle_interactive_reference_for':["Interactive reference for HTTP methods, status codes, and REST patterns", "HTTP 方法、状态码和 REST 模式的交互式参考"],'btn_status_codes':["Status Codes", "状态码"],'btn_rest_patterns':["REST Patterns", "REST模式"],'btn_cors_preflight':["CORS & Preflight", "CORS 和飞行前检查"],'strong_s_name':["${s.name}", "${s.name}"],'strong_1_browser_detects_cross_o':["1. Browser detects cross-origin request", "1. 浏览器检测到跨域请求"],'strong_2_browser_sends_options_p':["2. Browser sends OPTIONS preflight", "2. 浏览器发送 OPTIONS 预检请求"],'strong_3_server_responds_with_al':["3. Server responds with allowed origins/methods/headers", "3. 服务器响应允许的来源/方法/标头"],'strong_4_if_allowed_browser_send':["4. If allowed, browser sends actual request", "4. 如果允许，浏览器发送实际请求"],'strong_5_server_includes_cors_he':["5. Server includes CORS headers in response", "5. 服务器在响应中包含 CORS 标头"],'th_method':["Method", "方法"],'th_safe':["Safe", "安全的"],'th_idempotent':["Idempotent", "幂等"],'th_cacheable':["Cacheable", "可缓存"],'th_request_body':["Request Body", "请求正文"],'th_response_body':["Response Body", "回复机构"],'th_use_case':["Use Case", "用例"],'jtlword_semantics':["Semantics", "语义学"],'jtlword_properties':["Properties", "特性"],'jtlword_safe':["Safe", "安全的"],'jtlword_yes':["Yes", "是的"],'jtlword_no':["No", "不"],'jtlword_idempotent':["Idempotent", "幂等"],'jtlword_yes_2':["Yes", "是的"],'jtlword_no_2':["No", "不"],'jtlword_cacheable':["Cacheable", "可缓存"],'jtlword_versioning':["Versioning", "版本控制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const methods = {
   GET: {
@@ -197,11 +209,11 @@ function showMethod(name, btn) {
   const m = methods[name];
   details.innerHTML = `
     <div class="method-detail active">
-      <h3 class="${m.color}">${name}</h3>
+      <h3 class="${m.color}" ti="h3_name">${name}</h3>
       <p>${m.desc}</p>
-      <h3>Semantics</h3>
+      <h3 ti="h3_semantics">Semantics</h3>
       <p style="color:#aaa;font-size:0.9rem">${m.semantics}</p>
-      <h3>Properties</h3>
+      <h3 ti="h3_properties">Properties</h3>
       <table style="width:auto">
         <tr><td>Safe</td><td>${m.safe?'<span class="badge yes">Yes</span>':'<span class="badge no">No</span>'}</td></tr>
         <tr><td>Idempotent</td><td>${m.idempotent?'<span class="badge yes">Yes</span>':'<span class="badge no">No</span>'}</td></tr>
@@ -209,9 +221,9 @@ function showMethod(name, btn) {
         <tr><td>Request Body</td><td>${m.body}</td></tr>
         <tr><td>Response Body</td><td>${typeof m.responseBody==='string'?m.responseBody:m.responseBody?'Yes':'No'}</td></tr>
       </table>
-      <h3>Request Example</h3>
+      <h3 ti="h3_request_example">Request Example</h3>
       <pre><span class="req">${m.example.req}</span></pre>
-      <h3>Response Example</h3>
+      <h3 ti="h3_response_example">Response Example</h3>
       <pre><span class="res">${m.example.res}</span></pre>
     </div>`;
 }
@@ -219,48 +231,48 @@ showMethod('GET', nav.querySelector('button'));
 
 // Status codes
 document.getElementById('statusCodes').innerHTML = '<div class="status-grid">' +
-  statusCodes.map(s => `<div class="status-card"><span class="status-code s${s.cat}">${s.code}</span> <strong>${s.name}</strong><br><span style="color:#888;font-size:0.82rem">${s.desc}</span></div>`).join('') + '</div>';
+  statusCodes.map(s => `<div class="status-card"><span class="status-code s${s.cat}">${s.code}</span> <strong ti="strong_s_name">${s.name}</strong><br><span style="color:#888;font-size:0.82rem">${s.desc}</span></div>`).join('') + '</div>';
 
 // REST patterns
 document.getElementById('restPatterns').innerHTML = `
-<h3>RESTful Resource Patterns</h3>
+<h3 ti="h3_restful_resource_patterns">RESTful Resource Patterns</h3>
 <div class="rest-pattern"><code>GET    /users</code> &mdash; List all users (collection)</div>
 <div class="rest-pattern"><code>GET    /users/:id</code> &mdash; Get single user (resource)</div>
 <div class="rest-pattern"><code>POST   /users</code> &mdash; Create new user</div>
 <div class="rest-pattern"><code>PUT    /users/:id</code> &mdash; Replace user entirely</div>
 <div class="rest-pattern"><code>PATCH  /users/:id</code> &mdash; Update user partially</div>
 <div class="rest-pattern"><code>DELETE /users/:id</code> &mdash; Delete user</div>
-<h3>Nested Resources</h3>
+<h3 ti="h3_nested_resources">Nested Resources</h3>
 <div class="rest-pattern"><code>GET    /users/:id/posts</code> &mdash; List user's posts</div>
 <div class="rest-pattern"><code>POST   /users/:id/posts</code> &mdash; Create post for user</div>
 <div class="rest-pattern"><code>GET    /users/:id/posts/:pid</code> &mdash; Get specific post</div>
-<h3>Filtering, Sorting, Pagination</h3>
+<h3 ti="h3_filtering_sorting_paginat">Filtering, Sorting, Pagination</h3>
 <div class="rest-pattern"><code>GET /users?status=active&sort=name&page=2&limit=20</code></div>
-<h3>Bulk Operations</h3>
+<h3 ti="h3_bulk_operations">Bulk Operations</h3>
 <div class="rest-pattern"><code>POST   /users/bulk</code> &mdash; Create multiple (non-standard but common)</div>
 <div class="rest-pattern"><code>PATCH  /users/bulk</code> &mdash; Update multiple</div>
 <div class="rest-pattern"><code>DELETE /users/bulk</code> &mdash; Delete multiple (body contains IDs)</div>
-<h3>Actions (RPC-style)</h3>
+<h3 ti="h3_actions_rpc_style">Actions (RPC-style)</h3>
 <div class="rest-pattern"><code>POST /users/:id/activate</code> &mdash; When CRUD doesn't fit</div>
 <div class="rest-pattern"><code>POST /orders/:id/cancel</code> &mdash; Action on resource</div>
-<h3>Versioning</h3>
+<h3 ti="h3_versioning">Versioning</h3>
 <div class="rest-pattern"><code>GET /v2/users</code> &mdash; URL path versioning (most common)</div>
 <div class="rest-pattern"><code>Accept: application/vnd.api+json;version=2</code> &mdash; Header versioning</div>`;
 
 // CORS
 document.getElementById('corsExplain').innerHTML = `
-<h3>CORS Preflight Flow</h3>
+<h3 ti="h3_cors_preflight_flow">CORS Preflight Flow</h3>
 <p style="color:#aaa;font-size:0.9rem;margin-bottom:12px">When a browser makes a cross-origin request that is not "simple", it first sends an OPTIONS preflight request to check if the actual request is permitted.</p>
 <div class="cors-flow">
-  <div class="cors-step"><strong>1. Browser detects cross-origin request</strong><br>Non-simple conditions: custom headers, methods other than GET/HEAD/POST, Content-Type other than form types</div>
-  <div class="cors-step"><strong>2. Browser sends OPTIONS preflight</strong><br><code>Origin: https://app.example.com</code><br><code>Access-Control-Request-Method: POST</code><br><code>Access-Control-Request-Headers: Content-Type, Authorization</code></div>
-  <div class="cors-step"><strong>3. Server responds with allowed origins/methods/headers</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br><code>Access-Control-Allow-Methods: GET, POST, PUT, DELETE</code><br><code>Access-Control-Allow-Headers: Content-Type, Authorization</code><br><code>Access-Control-Max-Age: 86400</code></div>
-  <div class="cors-step"><strong>4. If allowed, browser sends actual request</strong><br>The real POST/PUT/DELETE with the actual payload</div>
-  <div class="cors-step"><strong>5. Server includes CORS headers in response</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br>Without this header, browser blocks the response from JS</div>
+  <div class="cors-step"><strong ti="strong_1_browser_detects_cross_o">1. Browser detects cross-origin request</strong><br>Non-simple conditions: custom headers, methods other than GET/HEAD/POST, Content-Type other than form types</div>
+  <div class="cors-step"><strong ti="strong_2_browser_sends_options_p">2. Browser sends OPTIONS preflight</strong><br><code>Origin: https://app.example.com</code><br><code>Access-Control-Request-Method: POST</code><br><code>Access-Control-Request-Headers: Content-Type, Authorization</code></div>
+  <div class="cors-step"><strong ti="strong_3_server_responds_with_al">3. Server responds with allowed origins/methods/headers</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br><code>Access-Control-Allow-Methods: GET, POST, PUT, DELETE</code><br><code>Access-Control-Allow-Headers: Content-Type, Authorization</code><br><code>Access-Control-Max-Age: 86400</code></div>
+  <div class="cors-step"><strong ti="strong_4_if_allowed_browser_send">4. If allowed, browser sends actual request</strong><br>The real POST/PUT/DELETE with the actual payload</div>
+  <div class="cors-step"><strong ti="strong_5_server_includes_cors_he">5. Server includes CORS headers in response</strong><br><code>Access-Control-Allow-Origin: https://app.example.com</code><br>Without this header, browser blocks the response from JS</div>
 </div>
-<h3>Simple Requests (No Preflight)</h3>
+<h3 ti="h3_simple_requests_no_prefli">Simple Requests (No Preflight)</h3>
 <p style="color:#aaa;font-size:0.9rem">Methods: GET, HEAD, POST. Headers: Accept, Accept-Language, Content-Language, Content-Type (only application/x-www-form-urlencoded, multipart/form-data, text/plain).</p>
-<h3>Credentialed Requests</h3>
+<h3 ti="h3_credentialed_requests">Credentialed Requests</h3>
 <p style="color:#aaa;font-size:0.9rem">When <code>credentials: 'include'</code> is set, the server must respond with a specific origin (not <code>*</code>) and <code>Access-Control-Allow-Credentials: true</code>.</p>`;
 
 function showTab(id, btn) {
@@ -269,6 +281,24 @@ function showTab(id, btn) {
   document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
   document.getElementById(id).classList.add('active');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

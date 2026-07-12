@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_advanced_clipboard_api_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,6 +107,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>Advanced <span>Clipboard API</span> Playground</h1>
@@ -115,7 +117,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
 <div class="support-bar" id="supportBar"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="grid">
 
     <!-- 1. Multi-MIME Writer -->
@@ -129,24 +131,24 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         <div class="presets" id="writerPresets"></div>
 
         <div class="field">
-          <label>text/plain</label>
+          <label ti="label_text_plain">text/plain</label>
           <textarea id="writePlain" rows="2">Hello from Clipboard API!</textarea>
         </div>
         <div class="field">
-          <label>text/html</label>
+          <label ti="label_text_html">text/html</label>
           <textarea id="writeHtml" rows="2">&lt;b style="color:#58a6ff"&gt;Hello&lt;/b&gt; from &lt;em&gt;Clipboard API&lt;/em&gt;!</textarea>
         </div>
         <div class="field">
-          <label>image/png (draw below or leave blank)</label>
+          <label ti="label_image_png_draw_below_or_l">image/png (draw below or leave blank)</label>
         </div>
 
         <div class="btn-row">
-          <button class="primary" onclick="writeMultiMime()">Write to Clipboard</button>
+          <button class="primary" onclick="writeMultiMime()" ti="btn_write_to_clipboard">Write to Clipboard</button>
         </div>
         <div class="output" id="writerOutput"></div>
 
         <div class="code-block">
-          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7">Copy</button>
 <pre>const item = new ClipboardItem({
   'text/plain': new Blob([plainText], {type: 'text/plain'}),
   'text/html': new Blob([htmlText], {type: 'text/html'}),
@@ -166,8 +168,8 @@ await navigator.clipboard.write([item]);</pre>
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:12px">Read the clipboard and inspect all available MIME types, blob sizes, and content previews.</p>
 
         <div class="btn-row">
-          <button class="primary" onclick="inspectClipboard()">Read Clipboard</button>
-          <button onclick="clearOutput('inspectorOutput')">Clear</button>
+          <button class="primary" onclick="inspectClipboard()" ti="btn_read_clipboard">Read Clipboard</button>
+          <button onclick="clearOutput('inspectorOutput')" ti="btn_clear">Clear</button>
         </div>
         <div class="output" id="inspectorOutput"></div>
         <div class="preview-box" id="inspectorPreview" style="display:none"></div>
@@ -197,9 +199,9 @@ for (const item of items) {
           <canvas id="drawCanvas" width="400" height="180"></canvas>
         </div>
         <div class="btn-row">
-          <button onclick="clearCanvas()">Clear Canvas</button>
-          <button class="primary" onclick="copyCanvas()">Copy Canvas</button>
-          <button class="success" onclick="pasteImage()">Paste Image</button>
+          <button onclick="clearCanvas()" ti="btn_clear_canvas">Clear Canvas</button>
+          <button class="primary" onclick="copyCanvas()" ti="btn_copy_canvas">Copy Canvas</button>
+          <button class="success" onclick="pasteImage()" ti="btn_paste_image">Paste Image</button>
           <label class="drop-zone" style="padding:6px 12px;border:1px solid var(--border);border-radius:var(--radius);font-size:.8rem;cursor:pointer">
             Upload <input type="file" accept="image/*" onchange="loadImage(event)">
           </label>
@@ -233,13 +235,13 @@ img.src = URL.createObjectURL(blob);</pre>
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:12px">Copy formatted HTML to clipboard. Paste and compare rendered output vs raw HTML source.</p>
 
         <div class="field">
-          <label>HTML to copy</label>
+          <label ti="label_html_to_copy">HTML to copy</label>
           <textarea id="richHtml" rows="3">&lt;h3 style="color:#58a6ff"&gt;Clipboard API&lt;/h3&gt;&lt;ul&gt;&lt;li&gt;Multi-MIME&lt;/li&gt;&lt;li style="color:#3fb950"&gt;Images&lt;/li&gt;&lt;li style="color:#bc8cff"&gt;Custom formats&lt;/li&gt;&lt;/ul&gt;</textarea>
         </div>
 
         <div class="btn-row">
-          <button class="primary" onclick="copyRichText()">Copy Rich Text</button>
-          <button class="success" onclick="pasteRichText()">Paste & Compare</button>
+          <button class="primary" onclick="copyRichText()" ti="btn_copy_rich_text">Copy Rich Text</button>
+          <button class="success" onclick="pasteRichText()" ti="btn_paste_compare">Paste & Compare</button>
         </div>
 
         <div class="tabs" id="richTabs">
@@ -278,17 +280,17 @@ const html = await blob.text();  // raw source</pre>
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:12px">Write and read custom formats using the "web " prefix. Apps can define their own clipboard types.</p>
 
         <div class="field">
-          <label>Format name (auto-prefixed with "web ")</label>
+          <label ti="label_format_name_auto_prefixed">Format name (auto-prefixed with "web ")</label>
           <input type="text" id="customFormat" value="application/x-playground-data">
         </div>
         <div class="field">
-          <label>Data (JSON or text)</label>
+          <label ti="label_data_json_or_text">Data (JSON or text)</label>
           <textarea id="customData" rows="3">{"tool": "clipboard-playground", "version": 1, "items": ["alpha", "beta"]}</textarea>
         </div>
 
         <div class="btn-row">
-          <button class="primary" onclick="writeCustomFormat()">Write Custom</button>
-          <button class="success" onclick="readCustomFormat()">Read Custom</button>
+          <button class="primary" onclick="writeCustomFormat()" ti="btn_write_custom">Write Custom</button>
+          <button class="success" onclick="readCustomFormat()" ti="btn_read_custom">Read Custom</button>
         </div>
         <div class="output" id="customOutput"></div>
 
@@ -317,10 +319,10 @@ const blob = await item.getType(type);</pre>
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:12px">Check which MIME types your browser supports for clipboard read/write operations.</p>
 
         <div class="field">
-          <label>Test a custom type</label>
+          <label ti="label_test_a_custom_type">Test a custom type</label>
           <div style="display:flex;gap:8px">
             <input type="text" id="testMimeInput" value="image/svg+xml" style="flex:1">
-            <button onclick="testSingleMime()">Test</button>
+            <button onclick="testSingleMime()" ti="btn_test">Test</button>
           </div>
         </div>
 
@@ -347,13 +349,13 @@ if (typeof ClipboardItem.supports === 'function') {
         <p style="font-size:.85rem;color:var(--text2);margin-bottom:12px">Select text below and copy (Ctrl+C). The copy event is intercepted to customize what gets placed on the clipboard.</p>
 
         <div class="field">
-          <label>Interception mode</label>
+          <label ti="label_interception_mode">Interception mode</label>
           <div class="btn-row" style="margin-top:0">
-            <button class="preset-btn active" data-mode="uppercase" onclick="setInterceptMode(this,'uppercase')">UPPERCASE</button>
-            <button class="preset-btn" data-mode="wrap" onclick="setInterceptMode(this,'wrap-attribution')">+ Attribution</button>
-            <button class="preset-btn" data-mode="markdown" onclick="setInterceptMode(this,'markdown')">As Markdown</button>
-            <button class="preset-btn" data-mode="reverse" onclick="setInterceptMode(this,'reverse')">Reverse</button>
-            <button class="preset-btn" data-mode="redact" onclick="setInterceptMode(this,'redact')">Redact Emails</button>
+            <button class="preset-btn active" data-mode="uppercase" onclick="setInterceptMode(this,'uppercase')" ti="btn_uppercase">UPPERCASE</button>
+            <button class="preset-btn" data-mode="wrap" onclick="setInterceptMode(this,'wrap-attribution')" ti="btn_attribution">+ Attribution</button>
+            <button class="preset-btn" data-mode="markdown" onclick="setInterceptMode(this,'markdown')" ti="btn_as_markdown">As Markdown</button>
+            <button class="preset-btn" data-mode="reverse" onclick="setInterceptMode(this,'reverse')" ti="btn_reverse">Reverse</button>
+            <button class="preset-btn" data-mode="redact" onclick="setInterceptMode(this,'redact')" ti="btn_redact_emails">Redact Emails</button>
           </div>
         </div>
 
@@ -387,6 +389,16 @@ This text is selectable. Try selecting a portion and pressing Ctrl+C / Cmd+C to 
   Advanced Clipboard API Playground &mdash; No external dependencies. Vanilla JS + CSS.
 </footer>
 
+
+<script>var _LANG={'title_advanced_clipboard_api_pl':["Advanced Clipboard API Playground", "高级剪贴板 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the advanced Clipboard API — multi-MIME writing, image copy/paste, rich text, custom formats, and more.", "高级剪贴板 API 的交互式游乐场——多 MIME 写入、图像复制/粘贴、富文本、自定义格式等等。"],'btn_write_to_clipboard':["Write to Clipboard", "写入剪贴板"],'btn_copy':["Copy", "复制"],'btn_read_clipboard':["Read Clipboard", "读取剪贴板"],'btn_clear':["Clear", "清除"],'btn_copy_2':["Copy", "复制"],'btn_clear_canvas':["Clear Canvas", "透明画布"],'btn_copy_canvas':["Copy Canvas", "复制画布"],'btn_paste_image':["Paste Image", "粘贴图片"],'btn_copy_3':["Copy", "复制"],'btn_copy_rich_text':["Copy Rich Text", "复制富文本"],'btn_paste_compare':["Paste & Compare", "粘贴并比较"],'btn_copy_4':["Copy", "复制"],'btn_write_custom':["Write Custom", "编写自定义"],'btn_read_custom':["Read Custom", "读取自定义"],'btn_copy_5':["Copy", "复制"],'btn_test':["Test", "测试"],'btn_copy_6':["Copy", "复制"],'btn_uppercase':["UPPERCASE", "大写"],'btn_attribution':["+ Attribution", "+ 归属"],'btn_as_markdown':["As Markdown", "Markdown"],'btn_reverse':["Reverse", "撤销"],'btn_redact_emails':["Redact Emails", "编辑电子邮件"],'btn_copy_7':["Copy", "复制"],'btn_p_name':["${p.name}", "${p.name}"],'th_name':["Name", "姓名"],'th_age':["Age", "年龄"],'label_text_plain':["text/plain", "text/纯文本"],'label_text_html':["text/html", "text/html"],'label_image_png_draw_below_or_l':["image/png (draw below or leave blank)", "图片/png（请在下方绘制或留空）"],'label_html_to_copy':["HTML to copy", "要复制的HTML代码"],'label_format_name_auto_prefixed':["Format name (auto-prefixed with \"web \")", "格式名称（自动添加前缀“web”）"],'label_data_json_or_text':["Data (JSON or text)", "数据（JSON 或文本）"],'label_test_a_custom_type':["Test a custom type", "测试自定义类型"],'label_interception_mode':["Interception mode", "拦截模式"],'jtc_no_text_html_found_in_cli':["No text/html found in clipboard.", "剪贴板中未找到文本/html文件。"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Toast ===
 function toast(msg, isError) {
@@ -422,7 +434,7 @@ checkSupport();
 const writerPresets = [
   { name: 'Greeting', plain: 'Hello, World!', html: '<b style="color:#58a6ff">Hello</b>, World!' },
   { name: 'Code Snippet', plain: 'const x = 42;', html: '<pre style="background:#161b22;color:#e6edf3;padding:8px;border-radius:6px"><code>const x = 42;</code></pre>' },
-  { name: 'Table', plain: 'Name\tAge\nAlice\t30\nBob\t25', html: '<table border="1" style="border-collapse:collapse"><tr><th style="padding:4px 8px">Name</th><th style="padding:4px 8px">Age</th></tr><tr><td style="padding:4px 8px">Alice</td><td style="padding:4px 8px">30</td></tr><tr><td style="padding:4px 8px">Bob</td><td style="padding:4px 8px">25</td></tr></table>' },
+  { name: 'Table', plain: 'Name\tAge\nAlice\t30\nBob\t25', html: '<table border="1" style="border-collapse:collapse"><tr><th style="padding:4px 8px" ti="th_name">Name</th><th style="padding:4px 8px" ti="th_age">Age</th></tr><tr><td style="padding:4px 8px">Alice</td><td style="padding:4px 8px">30</td></tr><tr><td style="padding:4px 8px">Bob</td><td style="padding:4px 8px">25</td></tr></table>' },
   { name: 'Link', plain: 'https://developer.mozilla.org', html: '<a href="https://developer.mozilla.org" style="color:#58a6ff">MDN Web Docs</a> - Clipboard API reference' },
   { name: 'Styled List', plain: '1. Alpha\n2. Beta\n3. Gamma', html: '<ol style="color:#e6edf3;font-family:sans-serif"><li style="color:#58a6ff">Alpha</li><li style="color:#3fb950">Beta</li><li style="color:#bc8cff">Gamma</li></ol>' },
 ];
@@ -430,7 +442,7 @@ const writerPresets = [
 (function renderWriterPresets() {
   const wrap = document.getElementById('writerPresets');
   wrap.innerHTML = writerPresets.map((p, i) =>
-    `<button class="preset-btn${i === 0 ? ' active' : ''}" onclick="applyWriterPreset(${i}, this)">${p.name}</button>`
+    `<button class="preset-btn${i === 0 ? ' active' : ''}" onclick="applyWriterPreset(${i}, this)" ti="btn_p_name">${p.name}</button>`
   ).join('');
 })();
 
@@ -654,7 +666,7 @@ async function pasteRichText() {
         return;
       }
     }
-    document.getElementById('richSource').textContent = 'No text/html found in clipboard.';
+    document.getElementById('richSource').textContent=T("jtc_no_text_html_found_in_cli");
   } catch (e) {
     toast(e.message, true);
   }
@@ -802,8 +814,8 @@ function formatSize(bytes) {
 function copyCode(btn) {
   const code = btn.parentElement.querySelector('pre').textContent;
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -841,5 +853,23 @@ document.addEventListener('paste', async (e) => {
 });
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

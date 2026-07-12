@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_structured_clone_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,9 +59,11 @@ textarea:focus{outline:none;border-color:#60a5fa}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Structured Clone Playground</h1>
-<p class="subtitle">Test what survives <code>structuredClone()</code> &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_structured_clone_playgrou" ti="h1_structured_clone_playgrou">Structured Clone Playground</h1>
+<p class="subtitle">Test what survives <code>structuredClone()</code> &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a></p>
 
 <div class="tabs">
 <div class="tab active" data-tab="test">Quick Tests</div>
@@ -73,10 +75,10 @@ textarea:focus{outline:none;border-color:#60a5fa}
 <!-- Quick Tests Panel -->
 <div class="panel active" id="panel-test">
 <div class="card">
-<h3>What Survives structuredClone()?</h3>
+<h3 ti="h3_what_survives_structuredc">What Survives structuredClone()?</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:12px">Click any test to run it. Green = survives, Red = lost/throws, Yellow = partially preserved.</p>
 <div style="margin-bottom:12px">
-<button class="primary" onclick="runAllTests()">Run All Tests</button>
+<button class="primary" onclick="runAllTests()" ti="btn_run_all_tests">Run All Tests</button>
 </div>
 <div class="stat-grid" id="test-stats">
 <div class="stat"><div class="value" style="color:#4ade80" id="stat-pass">-</div><div class="label">Survives</div></div>
@@ -91,7 +93,7 @@ textarea:focus{outline:none;border-color:#60a5fa}
 <!-- Custom Input Panel -->
 <div class="panel" id="panel-custom">
 <div class="card">
-<h3>Custom Object Test</h3>
+<h3 ti="h3_custom_object_test">Custom Object Test</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:8px">Enter a JS expression that returns an object. It will be cloned and compared.</p>
 <textarea id="custom-input">({
   name: "test",
@@ -107,7 +109,7 @@ textarea:focus{outline:none;border-color:#60a5fa}
   undef: undefined
 })</textarea>
 <div style="margin-top:8px">
-<button class="primary" onclick="runCustomTest()">Clone & Compare</button>
+<button class="primary" onclick="runCustomTest()" ti="btn_clone_compare">Clone & Compare</button>
 </div>
 </div>
 <div id="custom-result"></div>
@@ -116,9 +118,9 @@ textarea:focus{outline:none;border-color:#60a5fa}
 <!-- Compatibility Table Panel -->
 <div class="panel" id="panel-compat">
 <div class="card">
-<h3>structuredClone Compatibility Reference</h3>
+<h3 ti="h3_structuredclone_compatibi">structuredClone Compatibility Reference</h3>
 <table class="compat-table">
-<thead><tr><th>Type</th><th>Cloneable?</th><th>Notes</th></tr></thead>
+<thead><tr><th ti="th_type">Type</th><th ti="th_cloneable">Cloneable?</th><th ti="th_notes">Notes</th></tr></thead>
 <tbody id="compat-body"></tbody>
 </table>
 </div>
@@ -127,8 +129,8 @@ textarea:focus{outline:none;border-color:#60a5fa}
 <!-- Code Panel -->
 <div class="panel" id="panel-code">
 <div class="card">
-<h3>Basic Usage</h3>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Deep clone any structured-cloneable value
+<h3 ti="h3_basic_usage">Basic Usage</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>// Deep clone any structured-cloneable value
 const original = {
   name: "test",
   nested: { deep: { value: 42 } },
@@ -149,7 +151,7 @@ console.log(clone.map.get("key"));             // "value"</div>
 </div>
 
 <div class="card">
-<h3>Transfer (Move, Not Copy)</h3>
+<h3 ti="h3_transfer_move_not_copy">Transfer (Move, Not Copy)</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Transfer ownership of ArrayBuffer (zero-copy)
 const buffer = new ArrayBuffer(1024);
 console.log(buffer.byteLength); // 1024
@@ -163,7 +165,7 @@ console.log(buffer.byteLength); // 0 — original is neutered!
 </div>
 
 <div class="card">
-<h3>What Throws</h3>
+<h3 ti="h3_what_throws">What Throws</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// These all throw DataCloneError:
 
 structuredClone(() => {});           // Function
@@ -185,7 +187,7 @@ function safeClone(obj) {
 </div>
 
 <div class="card">
-<h3>vs JSON.parse(JSON.stringify())</h3>
+<h3 ti="h3_vs_json_parse_json_string">vs JSON.parse(JSON.stringify())</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const obj = {
   date: new Date(),
   map: new Map([["a", 1]]),
@@ -213,10 +215,20 @@ const scClone = structuredClone(obj);
 
 <div class="footer">
 Structured Clone Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash;
-<a href="https://developer.mozilla.org/en-US/docs/Web/API/structuredClone">MDN Docs</a>
+<a href="https://developer.mozilla.org/en-US/docs/Web/API/structuredClone" ti="link_mdn_docs">MDN Docs</a>
 </div>
 </div>
 
+
+<script>var _LANG={'title_structured_clone_playgrou':["Structured Clone Playground", "结构化克隆游乐场"],'metadesc_interactive_structuredclo':["Interactive structuredClone() playground. Test what survives deep cloning. Visual diff of original vs clone. Functions, DOM, symbols, getters — see what", "交互式 structuredClone() 测试环境。测试深度克隆后哪些内容会保留下来。可视化原始版本与克隆版本之间的差异。函数、DOM、符号、getter——看看会发生什么。"],'h1_structured_clone_playgrou':["Structured Clone Playground", "结构化克隆游乐场"],'h3_what_survives_structuredc':["What Survives structuredClone()?", "结构化克隆（structuredClone()）之后哪些内容会存活？"],'h3_custom_object_test':["Custom Object Test", "自定义对象测试"],'h3_structuredclone_compatibi':["structuredClone Compatibility Reference", "结构化克隆兼容性参考"],'h3_basic_usage':["Basic Usage", "基本用法"],'h3_transfer_move_not_copy':["Transfer (Move, Not Copy)", "转移（移动，而非复制）"],'h3_what_throws':["What Throws", "什么会抛掷"],'h3_vs_json_parse_json_string':["vs JSON.parse(JSON.stringify())", "与 JSON.parse(JSON.stringify())"],'h3_eval_error':["Eval Error", "评估错误"],'btn_run_all_tests':["Run All Tests", "运行所有测试"],'btn_clone_compare':["Clone & Compare", "克隆与比较"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'strong_esc_test_name':["${esc(test.name)}", "${esc(test.name)}"],'th_type':["Type", "类型"],'th_cloneable':["Cloneable?", "可克隆吗？"],'th_notes':["Notes", "笔记"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_docs':["MDN Docs", "MDN 文档"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_datacloneerror':["DataCloneError", "数据克隆错误"],'jtlword_original':["Original", "原来的"],'jtlword_clone':["Clone", "克隆"],'jtlword_yes':["Yes", "是的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(tab => {
@@ -300,7 +312,7 @@ function runAllTests() {
 
     html += `<div class="card" style="padding:10px">
       <div style="display:flex;justify-content:space-between;align-items:center">
-        <div><strong>${esc(test.name)}</strong> <span style="color:#888;font-size:.78rem">${esc(test.desc)}</span></div>
+        <div><strong ti="strong_esc_test_name">${esc(test.name)}</strong> <span style="color:#888;font-size:.78rem">${esc(test.desc)}</span></div>
         <span class="badge ${badgeClass}">${badge}</span>
       </div>
       ${note}${error}
@@ -346,7 +358,7 @@ function runCustomTest() {
       <div style="margin-top:8px;font-size:.78rem;color:#888">Deep equal: ${deepEqual(original, clone) ? '<span style="color:#4ade80">Yes</span>' : '<span style="color:#fbbf24">Differences detected</span>'}</div>
     </div>`;
   } catch (e) {
-    el.innerHTML = `<div class="card"><h3>Eval Error</h3><div style="color:#f87171">${esc(e.message)}</div></div>`;
+    el.innerHTML = `<div class="card"><h3 ti="h3_eval_error">Eval Error</h3><div style="color:#f87171">${esc(e.message)}</div></div>`;
   }
 }
 
@@ -460,8 +472,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const code = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -472,6 +484,24 @@ function esc(s) {
 initCompat();
 // Auto-run tests
 runAllTests();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cors_preflight_flow_visua" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,15 +78,23 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>CORS Preflight Flow Visualizer</h1>
+<h1 ti="title_cors_preflight_flow_visua" ti="h1_cors_preflight_flow_visua" ti="title_cors_preflight_flow_visua" ti="h1_cors_preflight_flow_visua" ti="title_cors_preflight_flow_visua" ti="h1_cors_preflight_flow_visua" ti="title_cors_preflight_flow_visua" ti="h1_cors_preflight_flow_visua">CORS Preflight Flow Visualizer</h1>
 <p>Interactive step-through of the browser's Cross-Origin Resource Sharing decision algorithm</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios" ti="h3_scenarios" ti="h3_scenarios" ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
-<h3 style="margin-top:1.5rem">Quick Reference</h3>
+<h3 style="margin-top:1.5rem" ti="h3_quick_reference" ti="h3_quick_reference" ti="h3_quick_reference" ti="h3_quick_reference">Quick Reference</h3>
 <div style="font-size:.78rem;color:#888;line-height:1.6">
 <p><span class="tag simple">Simple</span> GET/HEAD/POST with safe headers</p>
 <p style="margin-top:.3rem"><span class="tag preflight">Preflight</span> OPTIONS sent first</p>
@@ -109,7 +117,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="tab-reference" class="tab-content hidden">
 <h4 style="color:#00d4ff;margin-bottom:1rem">CORS Decision Rules</h4>
 <table class="ref-table">
-<tr><th>Condition</th><th>Result</th></tr>
+<tr><th ti="th_condition" ti="th_condition" ti="th_condition" ti="th_condition">Condition</th><th ti="th_result" ti="th_result" ti="th_result" ti="th_result">Result</th></tr>
 <tr><td>Same-origin request</td><td><span class="tag simple">No CORS needed</span></td></tr>
 <tr><td>Cross-origin GET/HEAD/POST with only <a href="#safe" style="color:#ffb74d">safe headers</a></td><td><span class="tag simple">Simple Request</span></td></tr>
 <tr><td>PUT / DELETE / PATCH</td><td><span class="tag preflight">Preflight Required</span></td></tr>
@@ -120,7 +128,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 id="safe" style="color:#00d4ff;margin:1.5rem 0 .8rem">CORS-Safe Request Headers</h4>
 <table class="ref-table">
-<tr><th>Header</th><th>Allowed Values</th></tr>
+<tr><th ti="th_header" ti="th_header_2" ti="th_header" ti="th_header_2" ti="th_header" ti="th_header_2" ti="th_header" ti="th_header_2">Header</th><th ti="th_allowed_values" ti="th_allowed_values" ti="th_allowed_values" ti="th_allowed_values">Allowed Values</th></tr>
 <tr><td><code>Accept</code></td><td>Any value</td></tr>
 <tr><td><code>Accept-Language</code></td><td>Any value</td></tr>
 <tr><td><code>Content-Language</code></td><td>Any value</td></tr>
@@ -129,7 +137,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">Response Headers</h4>
 <table class="ref-table">
-<tr><th>Header</th><th>Purpose</th></tr>
+<tr><th>Header</th><th ti="th_purpose" ti="th_purpose" ti="th_purpose" ti="th_purpose">Purpose</th></tr>
 <tr><td><code>Access-Control-Allow-Origin</code></td><td>Origin allowed (<code>*</code> or specific origin)</td></tr>
 <tr><td><code>Access-Control-Allow-Methods</code></td><td>Methods allowed for preflight</td></tr>
 <tr><td><code>Access-Control-Allow-Headers</code></td><td>Headers allowed for preflight</td></tr>
@@ -139,15 +147,45 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 </div>
 <div class="controls">
-<button class="btn" id="btnReset" title="Reset">⟲ Reset</button>
-<button class="btn primary" id="btnStep">Step →</button>
-<button class="btn" id="btnAutoPlay">▶ Auto</button>
+<button class="btn" id="btnReset" title="Reset" ti="btn_reset" ti="btn_reset" ti="btn_reset" ti="btn_reset">⟲ Reset</button>
+<button class="btn primary" id="btnStep" ti="btn_step" ti="btn_step" ti="btn_step" ti="btn_step">Step →</button>
+<button class="btn" id="btnAutoPlay" ti="btn_auto" ti="btn_auto" ti="btn_auto" ti="btn_auto">▶ Auto</button>
 <span class="step-info">Step <span class="step-counter" id="stepCounter">0/0</span></span>
 </div>
 </div>
 </div>
-<footer>CORS Preflight Flow Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>CORS Preflight Flow Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+
+
+<script>var _LANG={'title_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'metadesc_interactive_visualization':["Interactive visualization of the browser", "浏览器的交互式可视化"],'h1_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_quick_reference':["Quick Reference", "快速参考"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'label_steps_i_1_answer_toupper':["${steps[i - 1].answer.toUpperCase()}", "${steps[i - 1].answer.toUpperCase()}"],'th_condition':["Condition", "健康）状况"],'th_result':["Result", "结果"],'th_header':["Header", "标题"],'th_allowed_values':["Allowed Values", "允许值"],'th_header_2':["Header", "标题"],'th_purpose':["Purpose", "目的"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'metadesc_interactive_visualization':["Interactive visualization of the browser", "浏览器的交互式可视化"],'h1_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_quick_reference':["Quick Reference", "快速参考"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'label_steps_i_1_answer_toupper':["${steps[i - 1].answer.toUpperCase()}", "${steps[i - 1].answer.toUpperCase()}"],'th_condition':["Condition", "健康）状况"],'th_result':["Result", "结果"],'th_header':["Header", "标题"],'th_allowed_values':["Allowed Values", "允许值"],'th_header_2':["Header", "标题"],'th_purpose':["Purpose", "目的"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'metadesc_interactive_visualization':["Interactive visualization of the browser", "浏览器的交互式可视化"],'h1_cors_preflight_flow_visua':["CORS Preflight Flow Visualizer", "CORS 飞行前流程可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_quick_reference':["Quick Reference", "快速参考"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'label_steps_i_1_answer_toupper':["${steps[i - 1].answer.toUpperCase()}", "${steps[i - 1].answer.toUpperCase()}"],'th_condition':["Condition", "健康）状况"],'th_result':["Result", "结果"],'th_header':["Header", "标题"],'th_allowed_values':["Allowed Values", "允许值"],'th_header_2':["Header", "标题"],'th_purpose':["Purpose", "目的"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS = [
   {
@@ -354,7 +392,7 @@ function renderFlow() {
       if (steps[i - 1].answer) {
         const lbl = document.createElement('div');
         lbl.className = 'flow-label';
-        lbl.innerHTML = `<span class="flow-branch-label ${steps[i - 1].answer === 'yes' ? 'yes' : 'no'}">${steps[i - 1].answer.toUpperCase()}</span>`;
+        lbl.innerHTML = `<span class="flow-branch-label ${steps[i - 1].answer === 'yes' ? 'yes' : 'no'}" ti="label_steps_i_1_answer_toupper" ti="label_steps_i_1_answer_toupper" ti="label_steps_i_1_answer_toupper" ti="label_steps_i_1_answer_toupper">${steps[i - 1].answer.toUpperCase()}</span>`;
         area.appendChild(lbl);
       }
     }
@@ -398,7 +436,7 @@ function resetFlow() {
 
 function toggleAuto() {
   if (autoTimer) { stopAuto(); return; }
-  document.getElementById('btnAutoPlay').textContent = '⏸ Pause';
+  document.getElementById('btnAutoPlay').textContent=T("jtc_pause");
   autoTimer = setInterval(() => {
     if (currentStep >= steps.length - 1) { stopAuto(); return; }
     stepForward();
@@ -408,7 +446,7 @@ function toggleAuto() {
 function stopAuto() {
   clearInterval(autoTimer);
   autoTimer = null;
-  document.getElementById('btnAutoPlay').textContent = '▶ Auto';
+  document.getElementById('btnAutoPlay').textContent=T("jtc_auto");
 }
 
 function updateCounter() {
@@ -466,6 +504,78 @@ function renderHeaders() {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

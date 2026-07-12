@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_urlpattern_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,16 +72,18 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
-<h1>URLPattern API Playground</h1>
+<h1 ti="title_urlpattern_api_playground" ti="h1_urlpattern_api_playground">URLPattern API Playground</h1>
 <p>Test URL pattern matching with wildcards, named groups, regex, and routing patterns</p>
 </div>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div id="presets"></div>
 <div class="syntax-ref" style="margin-top:16px">
-<h3 style="font-size:.75rem;text-transform:uppercase;color:#666;margin-bottom:8px;letter-spacing:1px">Syntax</h3>
+<h3 style="font-size:.75rem;text-transform:uppercase;color:#666;margin-bottom:8px;letter-spacing:1px" ti="h3_syntax">Syntax</h3>
 <div class="syntax-row"><span class="syn-pattern">:name</span><span class="syn-desc">Named group</span></div>
 <div class="syntax-row"><span class="syn-pattern">:name(\\d+)</span><span class="syn-desc">Named + regex</span></div>
 <div class="syntax-row"><span class="syn-pattern">*</span><span class="syn-desc">Wildcard (any)</span></div>
@@ -93,38 +95,48 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </div>
 <div class="main">
 <div class="section">
-<h3>Pattern</h3>
+<h3 ti="h3_pattern">Pattern</h3>
 <div class="input-group">
-<label>URLPattern (string or component-based)</label>
-<input type="text" id="patternInput" placeholder="e.g. /users/:id/posts/:postId" spellcheck="false">
+<label ti="label_urlpattern_string_or_comp">URLPattern (string or component-based)</label>
+<input type="text" id="patternInput" tp="placeholder_e_g_users_id_posts_postid" placeholder="e.g. /users/:id/posts/:postId" spellcheck="false">
 </div>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
 <div class="input-group" style="margin:0">
-<label>Base URL (optional)</label>
-<input type="text" id="baseUrlInput" placeholder="https://example.com" spellcheck="false">
+<label ti="label_base_url_optional">Base URL (optional)</label>
+<input type="text" id="baseUrlInput" tp="placeholder_https_example_com" placeholder="https://example.com" spellcheck="false">
 </div>
 <div class="input-group" style="margin:0">
-<label>Test URL</label>
-<input type="text" id="testUrlInput" placeholder="e.g. /users/42/posts/100" spellcheck="false">
+<label ti="label_test_url">Test URL</label>
+<input type="text" id="testUrlInput" tp="placeholder_e_g_users_42_posts_100" placeholder="e.g. /users/42/posts/100" spellcheck="false">
 </div>
 </div>
-<button class="btn primary" onclick="runMatch()" style="margin-top:8px">Test Match</button>
+<button class="btn primary" onclick="runMatch()" style="margin-top:8px" ti="btn_test_match">Test Match</button>
 <div id="matchResult"></div>
 </div>
 <div class="section">
-<h3>Pattern Components</h3>
+<h3 ti="h3_pattern_components">Pattern Components</h3>
 <div class="component-grid" id="componentGrid"></div>
 </div>
 <div class="section">
-<h3>Batch Test</h3>
+<h3 ti="h3_batch_test">Batch Test</h3>
 <div class="test-urls" id="testUrls"></div>
 </div>
 </div>
 <div class="ref-panel">
-<h3>Reference</h3>
+<h3 ti="h3_reference">Reference</h3>
 <div id="refContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_urlpattern_api_playground':["URLPattern API Playground", "URL模式API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the URLPattern API. Test URL pattern matching with wildcards, named groups, regex, and routing patterns.", "URLPattern API 的交互式演示环境。测试使用通配符、命名组、正则表达式和路由模式进行 URL 模式匹配。"],'h1_urlpattern_api_playground':["URLPattern API Playground", "URL模式API Playground"],'h3_presets':["Presets", "预设"],'h3_syntax':["Syntax", "句法"],'h3_pattern':["Pattern", "图案"],'h3_pattern_components':["Pattern Components", "模式组件"],'h3_batch_test':["Batch Test", "批量测试"],'h3_reference':["Reference", "参考"],'btn_test_match':["Test Match", "测试赛"],'placeholder_e_g_users_id_posts_postid':["e.g. /users/:id/posts/:postId", "例如 /users/:id/posts/:postId"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_e_g_users_42_posts_100':["e.g. /users/42/posts/100", "例如 /users/42/posts/100"],'strong_note':["Note:", "笔记："],'th_group':["Group", "团体"],'th_value':["Value", "价值"],'label_urlpattern_string_or_comp':["URLPattern (string or component-based)", "URL模式（字符串或基于组件的）"],'label_base_url_optional':["Base URL (optional)", "基本网址（可选）"],'label_test_url':["Test URL", "测试网址"],'jtlword_code':["Code", "代码"],'jtlword_api':["API", "API"],'jtlword_new':["new", "新的"],'jtlword_urlpattern':["URLPattern", "URL模式"],'jtlword_new_2':["new", "新的"],'jtlword_urlpattern_2':["URLPattern", "URL模式"],'jtlword_test':["test", "测试"],'jtlword_exec':["exec", "执行官"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -258,7 +270,7 @@ r.pathname.groups.resource <span class="cm">// "users" or undefined</span>`,
 r.search.groups.query   <span class="cm">// "javascript"</span>
 r.search.groups.page    <span class="cm">// "3"</span>
 r.hash.groups.section   <span class="cm">// "results"</span>`,
-    ref: '<p>URLPattern can match against search (query string) and hash components.</p><p>Named groups in search go to <code>result.search.groups</code>, hash groups to <code>result.hash.groups</code>.</p><p><strong>Note:</strong> Query parameter order matters in the pattern.</p>'
+    ref: '<p>URLPattern can match against search (query string) and hash components.</p><p>Named groups in search go to <code>result.search.groups</code>, hash groups to <code>result.hash.groups</code>.</p><p><strong ti="strong_note">Note:</strong> Query parameter order matters in the pattern.</p>'
   },
   {
     name: 'Router Pattern',
@@ -374,7 +386,7 @@ function runMatch() {
       resultEl.innerHTML = `
         <div class="match-result success">
           <div class="match-label success">✓ Match</div>
-          ${groupsHtml ? `<table class="groups-table"><tr><th>Group</th><th>Value</th></tr>${groupsHtml}</table>` : '<div style="font-size:.75rem;color:#888">No named groups captured</div>'}
+          ${groupsHtml ? `<table class="groups-table"><tr><th ti="th_group">Group</th><th ti="th_value">Value</th></tr>${groupsHtml}</table>` : '<div style="font-size:.75rem;color:#888">No named groups captured</div>'}
         </div>`;
     } else {
       resultEl.innerHTML = `<div class="match-result fail"><div class="match-label fail">✕ No Match</div><div style="font-size:.75rem;color:#888;margin-top:4px">The URL does not match the pattern</div></div>`;
@@ -467,6 +479,24 @@ function escHtml(s) {
 // Init
 renderPresets();
 selectPreset(0);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

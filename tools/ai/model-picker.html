@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_model_picker_which_ai_mod" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -87,6 +87,12 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="hero">
   <h1>Model <span>Picker</span></h1>
   <p>4 questions. Your ideal AI model. No signup required.</p>
@@ -107,6 +113,26 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   <a href="https://gokuscraper.github.io/dev-vault/ai-roi-calc/" target="_blank">AI ROI</a> (vs human cost) ·
 </div>
 
+
+
+<script>var _LANG={'title_model_picker_which_ai_mod':["Model Picker — Which AI Model Should You Use?", "模型选择器——您应该使用哪种人工智能模型？"],'metadesc_answer_4_questions_get_a':["Answer 4 questions, get a personalized AI model recommendation. Compare Claude, GPT, Gemini, DeepSeek, and more.", "回答 4 个问题，即可获得个性化 AI 模型推荐。比较 Claude、GPT、Gemini、DeepSeek 等模型。"],'btn_back':["Back", "后退"],'btn_see_results':["See Results", "查看结果"],'btn_next':["Next", "下一个"],'btn_start_over':["Start Over", "重新开始"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_model_picker_which_ai_mod':["Model Picker — Which AI Model Should You Use?", "模型选择器——您应该使用哪种人工智能模型？"],'metadesc_answer_4_questions_get_a':["Answer 4 questions, get a personalized AI model recommendation. Compare Claude, GPT, Gemini, DeepSeek, and more.", "回答 4 个问题，即可获得个性化 AI 模型推荐。比较 Claude、GPT、Gemini、DeepSeek 等模型。"],'btn_back':["Back", "后退"],'btn_see_results':["See Results", "查看结果"],'btn_next':["Next", "下一个"],'btn_start_over':["Start Over", "重新开始"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const MODELS = [
   {name:'Claude Opus 4.6',provider:'Anthropic',input:5,output:25,ctx:200,quality:91,coding:95,writing:92,analysis:90,speed:60},
@@ -196,10 +222,10 @@ function renderQuestion() {
       `).join('')}
     </div>
     <div class="nav">
-      <button class="btn" onclick="prevQ()" ${currentQ === 0 ? 'disabled' : ''}>Back</button>
+      <button class="btn" onclick="prevQ()" ${currentQ === 0 ? 'disabled' : ''} ti="btn_back" ti="btn_back" ti="btn_back">Back</button>
       ${currentQ === QUESTIONS.length - 1
-        ? `<button class="btn primary" onclick="showResults()" ${!answers[currentQ] ? 'disabled' : ''}>See Results</button>`
-        : `<button class="btn" onclick="nextQ()" ${!answers[currentQ] ? 'disabled' : ''}>Next</button>`
+        ? `<button class="btn primary" onclick="showResults()" ${!answers[currentQ] ? 'disabled' : ''} ti="btn_see_results" ti="btn_see_results" ti="btn_see_results">See Results</button>`
+        : `<button class="btn" onclick="nextQ()" ${!answers[currentQ] ? 'disabled' : ''} ti="btn_next" ti="btn_next" ti="btn_next">Next</button>`
       }
     </div>
   `;
@@ -332,7 +358,7 @@ function showResults() {
       <div class="share-text" onclick="navigator.clipboard.writeText(this.textContent)">${ucLabel} use case → ${top3[0].name} is my best match (score: ${top3[0].score}) via gokuscraper.github.io/dev-vault/model-picker</div>
       <div style="font-size:.72rem;color:var(--dim);margin-top:6px">Click to copy</div>
     </div>
-    <div class="restart"><button class="btn" onclick="restart()">Start Over</button></div>
+    <div class="restart"><button class="btn" onclick="restart()" ti="btn_start_over" ti="btn_start_over" ti="btn_start_over">Start Over</button></div>
   `;
 
   resultsEl.innerHTML = html;
@@ -347,6 +373,60 @@ function restart() {
 }
 
 renderQuestion();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

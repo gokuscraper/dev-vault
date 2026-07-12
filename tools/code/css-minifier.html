@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_minifier" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -354,15 +354,17 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <div class="header-left">
-    <a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
+    <a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
     <span style="color:var(--border)">|</span>
     <span class="title">CSS Minifier</span>
     <div class="mode-toggle">
-      <button class="mode-btn active" id="btnMinify" onclick="setMode('minify')">Minify</button>
-      <button class="mode-btn" id="btnBeautify" onclick="setMode('beautify')">Beautify</button>
+      <button class="mode-btn active" id="btnMinify" onclick="setMode('minify')" ti="btn_minify">Minify</button>
+      <button class="mode-btn" id="btnBeautify" onclick="setMode('beautify')" ti="btn_beautify">Beautify</button>
     </div>
     <select class="indent-select" id="indentSelect" onchange="processNow()">
       <option value="2">2 spaces</option>
@@ -375,10 +377,10 @@
     </label>
   </div>
   <div class="samples-group">
-    <span class="samples-label">Samples:</span>
-    <button class="sample-btn" onclick="loadSample('reset')">Reset/Normalize</button>
-    <button class="sample-btn" onclick="loadSample('component')">Component</button>
-    <button class="sample-btn" onclick="loadSample('responsive')">Responsive</button>
+    <span class="samples-label" ti="label_samples">Samples:</span>
+    <button class="sample-btn" onclick="loadSample('reset')" ti="btn_reset_normalize">Reset/Normalize</button>
+    <button class="sample-btn" onclick="loadSample('component')" ti="btn_component">Component</button>
+    <button class="sample-btn" onclick="loadSample('responsive')" ti="btn_responsive">Responsive</button>
   </div>
 </div>
 
@@ -414,14 +416,14 @@
       <div class="panel-header">
         <span class="panel-title">INPUT CSS</span>
         <div class="panel-actions">
-          <button class="btn" onclick="clearInput()">Clear</button>
+          <button class="btn" onclick="clearInput()" ti="btn_clear">Clear</button>
         </div>
       </div>
       <div class="textarea-wrap">
         <textarea
           class="panel-textarea"
           id="inputArea"
-          placeholder="Paste your CSS here…"
+          tp="placeholder_paste_your_css_here" placeholder="Paste your CSS here…"
           spellcheck="false"
           oninput="scheduleProcess()"
         ></textarea>
@@ -433,15 +435,15 @@
       <div class="panel-header">
         <span class="panel-title" id="outputLabel">MINIFIED OUTPUT</span>
         <div class="panel-actions">
-          <button class="btn" id="copyBtn" onclick="copyOutput()">Copy</button>
-          <button class="btn btn-primary" onclick="downloadOutput()">Download .css</button>
+          <button class="btn" id="copyBtn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+          <button class="btn btn-primary" onclick="downloadOutput()" ti="btn_download_css">Download .css</button>
         </div>
       </div>
       <div class="textarea-wrap">
         <textarea
           class="panel-textarea"
           id="outputArea"
-          placeholder="Output will appear here…"
+          tp="placeholder_output_will_appear_here" placeholder="Output will appear here…"
           readonly
           spellcheck="false"
         ></textarea>
@@ -452,9 +454,19 @@
 </div>
 
 <div class="footer">
-  CSS Minifier · Part of <a href="https://gokuscraper.github.io/dev-vault/" style="color:var(--accent);text-decoration:none;">Dev Vault</a>
+  CSS Minifier · Part of <a href="https://gokuscraper.github.io/dev-vault/" style="color:var(--accent);text-decoration:none;" ti="footer_dev_vault">Dev Vault</a>
 </div>
 
+
+<script>var _LANG={'title_css_minifier':["CSS Minifier", "CSS 压缩器"],'metadesc_minify_css_instantly_in_y':["Minify CSS instantly in your browser. Remove whitespace, comments, and redundant code to reduce file size. No server upload required.", "在浏览器中即时压缩 CSS 文件。移除空格、注释和冗余代码，从而减小文件大小。无需上传到服务器。"],'btn_minify':["Minify", "缩小"],'btn_beautify':["Beautify", "美化"],'btn_reset_normalize':["Reset/Normalize", "重置/标准化"],'btn_component':["Component", "成分"],'btn_responsive':["Responsive", "响应式"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_download_css':["Download .css", "下载 .css 文件"],'label_samples':["Samples:", "示例："],'placeholder_paste_your_css_here':["Paste your CSS here…", "把你的CSS代码粘贴到这里……"],'placeholder_output_will_appear_here':["Output will appear here…", "输出结果将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_error':["Error:", "错误："],'jtc_copied':["Copied!", "已复制！"],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // ─── State ───────────────────────────────────────────────────────────────────
   let currentMode = 'minify';
@@ -1143,7 +1155,7 @@ select {
       updateStats(input, output);
       errorBanner.classList.remove('visible');
     } catch (err) {
-      errorBanner.textContent = 'Error: ' + err.message;
+      errorBanner.textContent=T("jtcpre_error")+ err.message;
       errorBanner.classList.add('visible');
     }
   }
@@ -1163,7 +1175,7 @@ select {
     navigator.clipboard.writeText(output).then(() => {
       const btn = document.getElementById('copyBtn');
       const orig = btn.textContent;
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('success');
       setTimeout(() => {
         btn.textContent = orig;
@@ -1199,12 +1211,30 @@ select {
   document.getElementById('mergeLabel').style.display = '';
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/html-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/js-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JS Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-reset/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Reset</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

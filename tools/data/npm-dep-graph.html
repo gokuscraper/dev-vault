@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_npm_dep_graph_dependency" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -276,11 +276,21 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1><span>npm</span> Dep Graph</h1>
   <div class="controls">
-    <input type="text" id="pkg-input" placeholder="Enter package name (e.g. express, react, lodash)" autocomplete="off">
+    <input type="text" id="pkg-input" tp="placeholder_enter_package_name_e_g_ex" tp="placeholder_enter_package_name_e_g_ex" tp="placeholder_enter_package_name_e_g_ex" tp="placeholder_enter_package_name_e_g_ex" tp="placeholder_enter_package_name_e_g_ex" placeholder="Enter package name (e.g. express, react, lodash)" autocomplete="off">
     <label>
       Depth
       <select id="depth-select">
@@ -289,32 +299,32 @@ body {
         <option value="3">3</option>
       </select>
     </label>
-    <button class="btn" id="fetch-btn">Visualize</button>
-    <button class="btn btn-secondary" id="export-btn" disabled>Export SVG</button>
+    <button class="btn" id="fetch-btn" ti="btn_visualize" ti="btn_visualize" ti="btn_visualize" ti="btn_visualize" ti="btn_visualize">Visualize</button>
+    <button class="btn btn-secondary" id="export-btn" disabled ti="btn_export_svg" ti="btn_export_svg" ti="btn_export_svg" ti="btn_export_svg" ti="btn_export_svg">Export SVG</button>
   </div>
 </div>
 
 <div class="main">
   <div class="stats-panel">
     <div class="stat-card">
-      <h3>Unique Packages</h3>
+      <h3 ti="h3_unique_packages" ti="h3_unique_packages" ti="h3_unique_packages" ti="h3_unique_packages" ti="h3_unique_packages">Unique Packages</h3>
       <div class="value" id="stat-unique">—</div>
     </div>
     <div class="stat-card">
-      <h3>Total Edges</h3>
+      <h3 ti="h3_total_edges" ti="h3_total_edges" ti="h3_total_edges" ti="h3_total_edges" ti="h3_total_edges">Total Edges</h3>
       <div class="value" id="stat-edges">—</div>
     </div>
     <div class="stat-card">
-      <h3>Max Depth</h3>
+      <h3 ti="h3_max_depth" ti="h3_max_depth" ti="h3_max_depth" ti="h3_max_depth" ti="h3_max_depth">Max Depth</h3>
       <div class="value" id="stat-depth">—</div>
     </div>
     <div class="stat-card">
-      <h3>Tree Size</h3>
+      <h3 ti="h3_tree_size" ti="h3_tree_size" ti="h3_tree_size" ti="h3_tree_size" ti="h3_tree_size">Tree Size</h3>
       <div class="value" id="stat-size">—</div>
       <div class="sub">Total nodes including duplicates</div>
     </div>
     <div class="stat-card">
-      <h3>Depth Legend</h3>
+      <h3 ti="h3_depth_legend" ti="h3_depth_legend" ti="h3_depth_legend" ti="h3_depth_legend" ti="h3_depth_legend">Depth Legend</h3>
       <div class="legend">
         <div class="legend-item"><div class="legend-dot" style="background:var(--depth0)"></div> Root (depth 0)</div>
         <div class="legend-item"><div class="legend-dot" style="background:var(--depth1)"></div> Depth 1</div>
@@ -349,11 +359,51 @@ body {
 
 <div class="footer">
   Data from <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm registry</a> |
-  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">Dev Vault</a>
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener" ti="footer_dev_vault" ti="footer_dev_vault" ti="footer_dev_vault" ti="footer_dev_vault" ti="footer_dev_vault">Dev Vault</a>
 </div>
 
 <div id="svg-export"></div>
 
+
+
+
+
+<script>var _LANG={'title_npm_dep_graph_dependency':["npm Dep Graph — Dependency Visualizer", "npm 依赖关系图 — 依赖关系可视化工具"],'metadesc_visualize_npm_package_dep':["Visualize npm package dependency trees as interactive force-directed graphs. Explore nested dependencies up to 3 levels deep.", "将 npm 包依赖关系树可视化为交互式力导向图。探索最多三层嵌套的依赖关系。"],'h3_unique_packages':["Unique Packages", "独特套餐"],'h3_total_edges':["Total Edges", "总边数"],'h3_max_depth':["Max Depth", "最大深度"],'h3_tree_size':["Tree Size", "树的大小"],'h3_depth_legend':["Depth Legend", "深度图例"],'btn_visualize':["Visualize", "可视化"],'btn_export_svg':["Export SVG", "导出 SVG"],'placeholder_enter_package_name_e_g_ex':["Enter package name (e.g. express, react, lodash)", "请输入软件包名称（例如 express、react、lodash）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_none':["(none)", "（没有任何）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_dep_graph_dependency':["npm Dep Graph — Dependency Visualizer", "npm 依赖关系图 — 依赖关系可视化工具"],'metadesc_visualize_npm_package_dep':["Visualize npm package dependency trees as interactive force-directed graphs. Explore nested dependencies up to 3 levels deep.", "将 npm 包依赖关系树可视化为交互式力导向图。探索最多三层嵌套的依赖关系。"],'h3_unique_packages':["Unique Packages", "独特套餐"],'h3_total_edges':["Total Edges", "总边数"],'h3_max_depth':["Max Depth", "最大深度"],'h3_tree_size':["Tree Size", "树的大小"],'h3_depth_legend':["Depth Legend", "深度图例"],'btn_visualize':["Visualize", "可视化"],'btn_export_svg':["Export SVG", "导出 SVG"],'placeholder_enter_package_name_e_g_ex':["Enter package name (e.g. express, react, lodash)", "请输入软件包名称（例如 express、react、lodash）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_none':["(none)", "（没有任何）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_dep_graph_dependency':["npm Dep Graph — Dependency Visualizer", "npm 依赖关系图 — 依赖关系可视化工具"],'metadesc_visualize_npm_package_dep':["Visualize npm package dependency trees as interactive force-directed graphs. Explore nested dependencies up to 3 levels deep.", "将 npm 包依赖关系树可视化为交互式力导向图。探索最多三层嵌套的依赖关系。"],'h3_unique_packages':["Unique Packages", "独特套餐"],'h3_total_edges':["Total Edges", "总边数"],'h3_max_depth':["Max Depth", "最大深度"],'h3_tree_size':["Tree Size", "树的大小"],'h3_depth_legend':["Depth Legend", "深度图例"],'btn_visualize':["Visualize", "可视化"],'btn_export_svg':["Export SVG", "导出 SVG"],'placeholder_enter_package_name_e_g_ex':["Enter package name (e.g. express, react, lodash)", "请输入软件包名称（例如 express、react、lodash）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_none':["(none)", "（没有任何）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_dep_graph_dependency':["npm Dep Graph — Dependency Visualizer", "npm 依赖关系图 — 依赖关系可视化工具"],'metadesc_visualize_npm_package_dep':["Visualize npm package dependency trees as interactive force-directed graphs. Explore nested dependencies up to 3 levels deep.", "将 npm 包依赖关系树可视化为交互式力导向图。探索最多三层嵌套的依赖关系。"],'h3_unique_packages':["Unique Packages", "独特套餐"],'h3_total_edges':["Total Edges", "总边数"],'h3_max_depth':["Max Depth", "最大深度"],'h3_tree_size':["Tree Size", "树的大小"],'h3_depth_legend':["Depth Legend", "深度图例"],'btn_visualize':["Visualize", "可视化"],'btn_export_svg':["Export SVG", "导出 SVG"],'placeholder_enter_package_name_e_g_ex':["Enter package name (e.g. express, react, lodash)", "请输入软件包名称（例如 express、react、lodash）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_none':["(none)", "（没有任何）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   'use strict';
@@ -809,7 +859,7 @@ body {
     const deps = Object.entries(node.deps);
     if (deps.length === 0) {
       const li = document.createElement('li');
-      li.textContent = '(none)';
+      li.textContent=T("jtc_none");
       li.style.cursor = 'default';
       list.appendChild(li);
     } else {
@@ -941,6 +991,96 @@ body {
   } else {
     resizeCanvas();
   }
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

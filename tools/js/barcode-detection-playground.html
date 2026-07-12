@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_barcode_detection_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,9 +68,13 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Barcode Detection Playground</h1>
-<p class="subtitle">Browser-native barcode scanning via BarcodeDetector API &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_barcode_detection_playgro" ti="h1_barcode_detection_playgro" ti="title_barcode_detection_playgro" ti="h1_barcode_detection_playgro">Barcode Detection Playground</h1>
+<p class="subtitle">Browser-native barcode scanning via BarcodeDetector API &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a></p>
 
 <div id="support-check"></div>
 
@@ -85,22 +89,22 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 <!-- Camera Panel -->
 <div class="panel active" id="panel-camera">
 <div class="card">
-<h3>Live Camera Scanner</h3>
+<h3 ti="h3_live_camera_scanner" ti="h3_live_camera_scanner">Live Camera Scanner</h3>
 <div class="row" style="margin-bottom:12px">
 <div class="col">
-<label>Camera</label>
+<label ti="label_camera" ti="label_camera">Camera</label>
 <select id="camera-select"><option>Loading cameras...</option></select>
 </div>
 <div class="col">
-<label>Format Filter</label>
+<label ti="label_format_filter" ti="label_format_filter">Format Filter</label>
 <select id="format-filter">
 <option value="all">All Formats</option>
 </select>
 </div>
 </div>
 <div style="display:flex;gap:8px;margin-bottom:12px">
-<button class="primary" id="btn-start" onclick="startCamera()">Start Camera</button>
-<button id="btn-stop" onclick="stopCamera()" disabled>Stop</button>
+<button class="primary" id="btn-start" onclick="startCamera()" ti="btn_start_camera" ti="btn_start_camera">Start Camera</button>
+<button id="btn-stop" onclick="stopCamera()" disabled ti="btn_stop" ti="btn_stop">Stop</button>
 </div>
 <div class="video-container">
 <video id="video" autoplay playsinline muted></video>
@@ -114,7 +118,7 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 </div>
 
 <div class="card">
-<h3>Detection Results</h3>
+<h3 ti="h3_detection_results" ti="h3_detection_results">Detection Results</h3>
 <div id="camera-results">
 <div class="empty">Start camera to begin scanning</div>
 </div>
@@ -124,7 +128,7 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 <!-- Image Upload Panel -->
 <div class="panel" id="panel-image">
 <div class="card">
-<h3>Scan from Image</h3>
+<h3 ti="h3_scan_from_image" ti="h3_scan_from_image">Scan from Image</h3>
 <div class="drop-zone" id="drop-zone" onclick="document.getElementById('file-input').click()">
 <p>Drop an image here or click to upload</p>
 <p style="font-size:.75rem;color:#555;margin-top:4px">Supports PNG, JPG, GIF, WebP, SVG</p>
@@ -135,18 +139,18 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 </div>
 
 <div class="card">
-<h3>Image Detection Results</h3>
+<h3 ti="h3_image_detection_results" ti="h3_image_detection_results">Image Detection Results</h3>
 <div id="image-results">
 <div class="empty">Upload an image to detect barcodes</div>
 </div>
 </div>
 
 <div class="card">
-<h3>Test Images</h3>
+<h3 ti="h3_test_images" ti="h3_test_images">Test Images</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:10px">Generate test barcodes to try detection.</p>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
-<button onclick="generateTestQR()">Generate QR Code</button>
-<button onclick="generateTestBarcode()">Generate Barcode (Code 128)</button>
+<button onclick="generateTestQR()" ti="btn_generate_qr_code" ti="btn_generate_qr_code">Generate QR Code</button>
+<button onclick="generateTestBarcode()" ti="btn_generate_barcode_code_128" ti="btn_generate_barcode_code_128">Generate Barcode (Code 128)</button>
 </div>
 <canvas id="test-canvas" style="margin-top:12px;display:none;background:#fff;border-radius:8px"></canvas>
 </div>
@@ -155,7 +159,7 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 <!-- Formats Panel -->
 <div class="panel" id="panel-formats">
 <div class="card">
-<h3>Supported Barcode Formats</h3>
+<h3 ti="h3_supported_barcode_formats" ti="h3_supported_barcode_formats">Supported Barcode Formats</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:12px">Formats supported by your browser's BarcodeDetector implementation.</p>
 <div class="format-grid" id="format-grid">
 <div class="empty">Checking format support...</div>
@@ -163,7 +167,7 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 </div>
 
 <div class="card">
-<h3>Format Reference</h3>
+<h3 ti="h3_format_reference" ti="h3_format_reference">Format Reference</h3>
 <div id="format-reference"></div>
 </div>
 </div>
@@ -171,7 +175,7 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 <!-- History Panel -->
 <div class="panel" id="panel-history">
 <div class="card">
-<h3>Scan History <button onclick="clearHistory()" style="float:right;font-size:.72rem">Clear</button></h3>
+<h3>Scan History <button onclick="clearHistory()" style="float:right;font-size:.72rem" ti="btn_clear" ti="btn_clear">Clear</button></h3>
 <div id="history-list">
 <div class="empty">No scans yet</div>
 </div>
@@ -181,8 +185,8 @@ video,canvas{width:100%;height:100%;object-fit:contain}
 <!-- Code Panel -->
 <div class="panel" id="panel-code">
 <div class="card">
-<h3>Basic Detection</h3>
-<div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Check browser support
+<h3 ti="h3_basic_detection" ti="h3_basic_detection">Basic Detection</h3>
+<div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>// Check browser support
 if ('BarcodeDetector' in window) {
   console.log('BarcodeDetector is supported!');
 }
@@ -201,7 +205,7 @@ const qrDetector = new BarcodeDetector({
 </div>
 
 <div class="card">
-<h3>Detect from Image</h3>
+<h3 ti="h3_detect_from_image" ti="h3_detect_from_image">Detect from Image</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const detector = new BarcodeDetector();
 const img = document.querySelector('img');
 
@@ -216,7 +220,7 @@ for (const barcode of barcodes) {
 </div>
 
 <div class="card">
-<h3>Live Camera Scanning</h3>
+<h3 ti="h3_live_camera_scanning" ti="h3_live_camera_scanning">Live Camera Scanning</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const video = document.querySelector('video');
 const detector = new BarcodeDetector({ formats: ['qr_code', 'ean_13'] });
 
@@ -243,7 +247,7 @@ video.addEventListener('loadeddata', scanFrame);</div>
 </div>
 
 <div class="card">
-<h3>Draw Bounding Boxes</h3>
+<h3 ti="h3_draw_bounding_boxes" ti="h3_draw_bounding_boxes">Draw Bounding Boxes</h3>
 <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>const canvas = document.querySelector('canvas');
 const ctx = canvas.getContext('2d');
 
@@ -280,10 +284,20 @@ function drawDetections(barcodes) {
 
 <div class="footer">
   Barcode Detection Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash;
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/BarcodeDetector">MDN Docs</a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/BarcodeDetector" ti="link_mdn_docs" ti="link_mdn_docs">MDN Docs</a>
 </div>
 </div>
 
+
+<script>var _LANG={'title_barcode_detection_playgro':["Barcode Detection Playground", "条码检测演练场"],'metadesc_interactive_barcode_detec':["Interactive Barcode Detection API playground. Scan QR codes, UPC, EAN, Code 128, and more using your camera or uploaded images. No server, all in-browser.", "交互式条码检测 API 演练场。使用摄像头或上传图片扫描 QR 码、UPC、EAN、Code 128 等。无需服务器，全在浏览器中。"],'h1_barcode_detection_playgro':["Barcode Detection Playground", "条码检测演练场"],'h3_live_camera_scanner':["Live Camera Scanner", "实时摄像头扫描"],'h3_detection_results':["Detection Results", "检测结果"],'h3_scan_from_image':["Scan from Image", "从图片扫描"],'h3_image_detection_results':["Image Detection Results", "图片检测结果"],'h3_test_images':["Test Images", "测试图片"],'h3_supported_barcode_formats':["Supported Barcode Formats", "支持的条码格式"],'h3_format_reference':["Format Reference", "格式参考"],'h3_basic_detection':["Basic Detection", "基础检测"],'h3_detect_from_image':["Detect from Image", "从图片检测"],'h3_live_camera_scanning':["Live Camera Scanning", "实时摄像头扫描"],'h3_draw_bounding_boxes':["Draw Bounding Boxes", "绘制边界框"],'btn_start_camera':["Start Camera", "启动摄像头"],'btn_stop':["Stop", "停止"],'btn_generate_qr_code':["Generate QR Code", "生成二维码"],'btn_generate_barcode_code_128':["Generate Barcode (Code 128)", "生成条码（Code 128）"],'btn_clear':["Clear", "清空"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'strong_not_supported':["not supported", "not supported"],'label_camera':["Camera", "摄像头"],'label_format_filter':["Format Filter", "格式过滤"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'footer_dev_vault_2':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault_2':["Dev Vault", "Dev Vault"],'link_mdn_docs':["MDN Docs", "MDN 文档"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_supported':["Supported", "支持"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let detector = null;
 let stream = null;
@@ -326,7 +340,7 @@ async function init() {
 
   if (!('BarcodeDetector' in window)) {
     supportEl.innerHTML = `<div class="warn">
-      BarcodeDetector API is <strong>not supported</strong> in this browser.
+      BarcodeDetector API is <strong ti="strong_not_supported" ti="strong_not_supported">not supported</strong> in this browser.
       Currently supported in Chrome 83+, Edge 83+, Opera 69+, and Android WebView.
       Firefox and Safari do not support it yet.
       <br><br>You can still explore the code examples and format reference.
@@ -662,8 +676,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const code = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -672,6 +686,46 @@ function escHtml(s) {
 }
 
 init();
+</script>
+<script>var _LANG={'title_barcode_detection_playgro':["Barcode Detection Playground", "条码检测演练场"],'metadesc_interactive_barcode_detec':["Interactive Barcode Detection API playground. Scan QR codes, UPC, EAN, Code 128, and more using your camera or uploaded images. No server, all in-browser.", "交互式条码检测 API 演练场。使用摄像头或上传图片扫描 QR 码、UPC、EAN、Code 128 等。无需服务器，全在浏览器中。"],'h1_barcode_detection_playgro':["Barcode Detection Playground", "条码检测演练场"],'h3_live_camera_scanner':["Live Camera Scanner", "实时摄像头扫描"],'h3_detection_results':["Detection Results", "检测结果"],'h3_scan_from_image':["Scan from Image", "从图片扫描"],'h3_image_detection_results':["Image Detection Results", "图片检测结果"],'h3_test_images':["Test Images", "测试图片"],'h3_supported_barcode_formats':["Supported Barcode Formats", "支持的条码格式"],'h3_format_reference':["Format Reference", "格式参考"],'h3_basic_detection':["Basic Detection", "基础检测"],'h3_detect_from_image':["Detect from Image", "从图片检测"],'h3_live_camera_scanning':["Live Camera Scanning", "实时摄像头扫描"],'h3_draw_bounding_boxes':["Draw Bounding Boxes", "绘制边界框"],'btn_start_camera':["Start Camera", "启动摄像头"],'btn_stop':["Stop", "停止"],'btn_generate_qr_code':["Generate QR Code", "生成二维码"],'btn_generate_barcode_code_128':["Generate Barcode (Code 128)", "生成条码（Code 128）"],'btn_clear':["Clear", "清空"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'strong_not_supported':["not supported", "not supported"],'label_camera':["Camera", "摄像头"],'label_format_filter':["Format Filter", "格式过滤"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'footer_dev_vault_2':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault_2':["Dev Vault", "Dev Vault"],'link_mdn_docs':["MDN Docs", "MDN 文档"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_supported':["Supported", "支持"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

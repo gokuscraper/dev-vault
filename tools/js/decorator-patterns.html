@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_javascript_decorators_pla" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -352,35 +352,37 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>JavaScript Decorators Playground</h1>
+  <h1 ti="title_javascript_decorators_pla" ti="h1_javascript_decorators_pla">JavaScript Decorators Playground</h1>
   <p>Explore the TC39 Stage 3 Decorators proposal with interactive examples, common patterns, and the Metadata API</p>
 </header>
 
 <div class="status-banner" id="statusBanner"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab-btn active" data-tab="overview">Overview</button>
-    <button class="tab-btn" data-tab="class-dec">Class</button>
-    <button class="tab-btn" data-tab="method-dec">Method</button>
-    <button class="tab-btn" data-tab="field-dec">Field</button>
-    <button class="tab-btn" data-tab="accessor-dec">Accessor</button>
-    <button class="tab-btn" data-tab="auto-accessor">Auto-accessor</button>
-    <button class="tab-btn" data-tab="metadata">Metadata</button>
-    <button class="tab-btn" data-tab="patterns">Patterns</button>
+    <button class="tab-btn active" data-tab="overview" ti="btn_overview">Overview</button>
+    <button class="tab-btn" data-tab="class-dec" ti="btn_class">Class</button>
+    <button class="tab-btn" data-tab="method-dec" ti="btn_method">Method</button>
+    <button class="tab-btn" data-tab="field-dec" ti="btn_field">Field</button>
+    <button class="tab-btn" data-tab="accessor-dec" ti="btn_accessor">Accessor</button>
+    <button class="tab-btn" data-tab="auto-accessor" ti="btn_auto_accessor">Auto-accessor</button>
+    <button class="tab-btn" data-tab="metadata" ti="btn_metadata">Metadata</button>
+    <button class="tab-btn" data-tab="patterns" ti="btn_patterns">Patterns</button>
   </div>
 
   <!-- Overview Panel -->
   <div class="panel active" id="panel-overview">
     <div class="card">
       <div class="card-header">
-        <h3>What are Decorators?</h3>
+        <h3 ti="h3_what_are_decorators">What are Decorators?</h3>
         <span class="badge badge-stage3">Stage 3</span>
       </div>
       <div class="card-body">
-        <p class="desc">Decorators are a proposal for extending JavaScript classes. They allow you to annotate and modify classes and their members at definition time. The Stage 3 proposal (TC39) introduces a standardized decorator syntax that differs significantly from the legacy (experimental) TypeScript/Babel decorators.</p>
+        <p class="desc" ti="subtitle_decorators_are_a_proposal">Decorators are a proposal for extending JavaScript classes. They allow you to annotate and modify classes and their members at definition time. The Stage 3 proposal (TC39) introduces a standardized decorator syntax that differs significantly from the legacy (experimental) TypeScript/Babel decorators.</p>
 
         <div class="grid-2">
           <div>
@@ -404,7 +406,7 @@
           <div>
             <h4 style="color: var(--accent); margin-bottom: 0.75rem;">Decorator Types</h4>
             <table class="comparison-table">
-              <tr><th>Type</th><th>Receives</th><th>Returns</th></tr>
+              <tr><th ti="th_type">Type</th><th ti="th_receives">Receives</th><th ti="th_returns">Returns</th></tr>
               <tr><td>Class</td><td>Class constructor</td><td>New class or void</td></tr>
               <tr><td>Method</td><td>Function</td><td>New function or void</td></tr>
               <tr><td>Getter/Setter</td><td>Function</td><td>New function or void</td></tr>
@@ -443,8 +445,8 @@
   <div class="panel" id="panel-class-dec">
     <div class="card">
       <div class="card-header">
-        <h3>Class Decorators</h3>
-        <button class="run-btn" onclick="runDemo('class1')">Run</button>
+        <h3 ti="h3_class_decorators">Class Decorators</h3>
+        <button class="run-btn" onclick="runDemo('class1')" ti="btn_run" ti="btn_run_2" ti="btn_run_3" ti="btn_run_4" ti="btn_run_5" ti="btn_run_6" ti="btn_run_7" ti="btn_run_8" ti="btn_run_9" ti="btn_run_10" ti="btn_run_11">Run</button>
       </div>
       <div class="card-body">
         <p class="desc">Class decorators receive the class constructor and a context object with <code>kind: "class"</code>. They can return a new class (subclass) or modify the class via <code>addInitializer</code>.</p>
@@ -491,7 +493,7 @@ console.<span class="fn">log</span>(<span class="str">"URL:"</span>, db1.url);</
 
     <div class="card">
       <div class="card-header">
-        <h3>Class with addInitializer</h3>
+        <h3 ti="h3_class_with_addinitializer">Class with addInitializer</h3>
         <button class="run-btn" onclick="runDemo('class2')">Run</button>
       </div>
       <div class="card-body">
@@ -526,7 +528,7 @@ console.<span class="fn">log</span>(<span class="str">"UserService found:"</span
   <div class="panel" id="panel-method-dec">
     <div class="card">
       <div class="card-header">
-        <h3>Method Decorators</h3>
+        <h3 ti="h3_method_decorators">Method Decorators</h3>
         <button class="run-btn" onclick="runDemo('method1')">Run</button>
       </div>
       <div class="card-body">
@@ -638,7 +640,7 @@ proc.<span class="fn">processV1</span>(<span class="str">"again"</span>); <span 
   <div class="panel" id="panel-field-dec">
     <div class="card">
       <div class="card-header">
-        <h3>Field Decorators</h3>
+        <h3 ti="h3_field_decorators">Field Decorators</h3>
         <button class="run-btn" onclick="runDemo('field1')">Run</button>
       </div>
       <div class="card-body">
@@ -693,7 +695,7 @@ console.<span class="fn">log</span>(<span class="str">`id: ${cfg.id} (${typeof c
 
     <div class="card">
       <div class="card-header">
-        <h3>Validation Field Decorators</h3>
+        <h3 ti="h3_validation_field_decorato">Validation Field Decorators</h3>
         <button class="run-btn" onclick="runDemo('field2')">Run</button>
       </div>
       <div class="card-body">
@@ -819,7 +821,7 @@ console.<span class="fn">log</span>(<span class="str">`Age after bad set: ${user
   <div class="panel" id="panel-auto-accessor">
     <div class="card">
       <div class="card-header">
-        <h3>Auto-accessor Keyword</h3>
+        <h3 ti="h3_auto_accessor_keyword">Auto-accessor Keyword</h3>
         <button class="run-btn" onclick="runDemo('autoacc1')">Run</button>
       </div>
       <div class="card-body">
@@ -886,7 +888,7 @@ console.<span class="fn">log</span>(<span class="str">`value: ${s.value}`</span>
   <div class="panel" id="panel-metadata">
     <div class="card">
       <div class="card-header">
-        <h3>Decorator Metadata API</h3>
+        <h3 ti="h3_decorator_metadata_api">Decorator Metadata API</h3>
         <button class="run-btn" onclick="runDemo('meta1')">Run</button>
       </div>
       <div class="card-body">
@@ -939,7 +941,7 @@ console.<span class="fn">log</span>(<span class="str">"Routes:"</span>, JSON.<sp
 
     <div class="card">
       <div class="card-header">
-        <h3>Metadata Inheritance</h3>
+        <h3 ti="h3_metadata_inheritance">Metadata Inheritance</h3>
         <button class="run-btn" onclick="runDemo('meta2')">Run</button>
       </div>
       <div class="card-body">
@@ -976,10 +978,10 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
   <div class="panel" id="panel-patterns">
     <div class="card">
       <div class="card-header">
-        <h3>Common Decorator Patterns</h3>
+        <h3 ti="h3_common_decorator_patterns">Common Decorator Patterns</h3>
       </div>
       <div class="card-body">
-        <p class="desc">Click a pattern to see its implementation and run it interactively.</p>
+        <p class="desc" ti="subtitle_click_a_pattern_to_see_it">Click a pattern to see its implementation and run it interactively.</p>
 
         <div class="pattern-grid">
           <div class="pattern-card" onclick="showPattern('logging')">
@@ -1012,7 +1014,7 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
 
     <div class="card" id="pattern-detail" style="display: none;">
       <div class="card-header">
-        <h3 id="pattern-title">Pattern</h3>
+        <h3 id="pattern-title" ti="h3_pattern">Pattern</h3>
         <button class="run-btn" onclick="runDemo('pattern')">Run</button>
       </div>
       <div class="card-body">
@@ -1023,14 +1025,14 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
 
     <div class="card">
       <div class="card-header">
-        <h3>Interactive Decorator Builder</h3>
+        <h3 ti="h3_interactive_decorator_bui">Interactive Decorator Builder</h3>
       </div>
       <div class="card-body">
-        <p class="desc">Select a decorator type and customize it. The generated code will appear below.</p>
+        <p class="desc" ti="subtitle_select_a_decorator_type_a">Select a decorator type and customize it. The generated code will appear below.</p>
 
         <div class="grid-2">
           <div>
-            <span class="label">Decorator Target</span>
+            <span class="label" ti="label_decorator_target">Decorator Target</span>
             <select class="styled" id="decTarget" onchange="updateBuilder()">
               <option value="method">Method</option>
               <option value="class">Class</option>
@@ -1041,7 +1043,7 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
             </select>
           </div>
           <div>
-            <span class="label">Behavior</span>
+            <span class="label" ti="label_behavior">Behavior</span>
             <select class="styled" id="decBehavior" onchange="updateBuilder()">
               <option value="wrap">Wrap (modify behavior)</option>
               <option value="replace">Replace (return new)</option>
@@ -1052,7 +1054,7 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
         </div>
 
         <div class="interactive-area" style="margin-top: 1rem;">
-          <span class="label">Generated Decorator Template</span>
+          <span class="label" ti="label_generated_decorator_templ">Generated Decorator Template</span>
           <div class="code-block" id="builderOutput" style="margin-bottom: 0;"></div>
         </div>
       </div>
@@ -1068,6 +1070,16 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
   </p>
 </footer>
 
+
+<script>var _LANG={'title_javascript_decorators_pla':["JavaScript Decorators Playground", "JavaScript 装饰器游乐场"],'h1_javascript_decorators_pla':["JavaScript Decorators Playground", "JavaScript 装饰器游乐场"],'h3_what_are_decorators':["What are Decorators?", "什么是装饰器？"],'h3_browser_runtime_support':["Browser & Runtime Support", "浏览器和运行时支持"],'h3_class_decorators':["Class Decorators", "班级装饰师"],'h3_class_with_addinitializer':["Class with addInitializer", "带有 addInitializer 的类"],'h3_method_decorators':["Method Decorators", "方法装饰器"],'h3_timing_retry_decorators':["Timing & Retry Decorators", "计时和重试装饰师"],'h3_field_decorators':["Field Decorators", "野战装饰师"],'h3_validation_field_decorato':["Validation Field Decorators", "验证字段装饰器"],'h3_getter_setter_decorators':["Getter & Setter Decorators", "Getter &amp; Setter 装饰公司"],'h3_auto_accessor_keyword':["Auto-accessor Keyword", "自动访问关键字"],'h3_decorator_metadata_api':["Decorator Metadata API", "装饰器元数据 API"],'h3_metadata_inheritance':["Metadata Inheritance", "元数据继承"],'h3_common_decorator_patterns':["Common Decorator Patterns", "常见的装饰模式"],'h3_pattern':["Pattern", "图案"],'h3_interactive_decorator_bui':["Interactive Decorator Builder", "交互式装饰器构建器"],'subtitle_decorators_are_a_proposal':["Decorators are a proposal for extending JavaScript classes. They allow you to annotate and modify classes and their members at definition time. The Stage 3 proposal (TC39) introduces a standardized decorator syntax that differs significantly from the legacy (experimental) TypeScript/Babel decorators.", "装饰器是扩展 JavaScript 类的一种提案。它允许你在定义类及其成员时对其进行注解和修改。第三阶段提案（TC39）引入了一种标准化的装饰器语法，这与传统的（实验性的）TypeScript/Babel 装饰器有显著区别。"],'subtitle_click_a_pattern_to_see_it':["Click a pattern to see its implementation and run it interactively.", "点击图案即可查看其实现方式并以交互方式运行。"],'subtitle_select_a_decorator_type_a':["Select a decorator type and customize it. The generated code will appear below.", "选择一种装饰器类型并进行自定义。生成的代码将显示在下方。"],'btn_overview':["Overview", "概述"],'btn_class':["Class", "班级"],'btn_method':["Method", "方法"],'btn_field':["Field", "场地"],'btn_accessor':["Accessor", "访问器"],'btn_auto_accessor':["Auto-accessor", "自动访问器"],'btn_metadata':["Metadata", "元数据"],'btn_patterns':["Patterns", "模式"],'btn_run':["Run", "跑步"],'btn_run_2':["Run", "跑步"],'btn_run_3':["Run", "跑步"],'btn_run_4':["Run", "跑步"],'btn_run_5':["Run", "跑步"],'btn_run_6':["Run", "跑步"],'btn_run_7':["Run", "跑步"],'btn_run_8':["Run", "跑步"],'btn_run_9':["Run", "跑步"],'btn_run_10':["Run", "跑步"],'btn_run_11':["Run", "跑步"],'label_decorator_target':["Decorator Target", "装饰目标"],'label_behavior':["Behavior", "行为"],'label_generated_decorator_templ':["Generated Decorator Template", "生成的装饰器模板"],'th_type':["Type", "类型"],'th_receives':["Receives", "接收"],'th_returns':["Returns", "返回"],'jtc_native_decorators_are_sup':["Native decorators are supported in this browser. All demos will run natively.", "此浏览器支持原生装饰器。所有演示都将以原生方式运行。"],'jtc_native_decorators_are_not':["Native decorators are NOT supported in this browser. Demos use simulated execution to illustrate behavior.", "此浏览器不支持原生装饰器。演示程序使用模拟执行来展示行为。"],'jtc_click':["Click", "点击"],'jtc_demo_not_available':["Demo not available", "暂无演示版"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -1087,11 +1099,11 @@ console.<span class="fn">log</span>(<span class="str">"Child inherits Base metad
 
   if (decoratorsSupported) {
     banner.className = 'status-banner supported';
-    banner.textContent = 'Native decorators are supported in this browser. All demos will run natively.';
+    banner.textContent=T("jtc_native_decorators_are_sup");
     supportEl.innerHTML = '<span style="color:var(--success)">This browser supports native TC39 decorators.</span> All examples below execute natively.';
   } else {
     banner.className = 'status-banner unsupported';
-    banner.textContent = 'Native decorators are NOT supported in this browser. Demos use simulated execution to illustrate behavior.';
+    banner.textContent=T("jtc_native_decorators_are_not");
     supportEl.innerHTML = '<span style="color:var(--warning)">This browser does not support native TC39 decorators yet.</span> Demos below use simulated execution to show expected behavior. Try Chrome 124+ or Node.js 22+ for native support.';
   }
 
@@ -1781,7 +1793,7 @@ function deepFreeze(value, { kind, name }) {
 
     const fn = demos[id];
     if (!fn) {
-      outputEl.textContent = 'Demo not available';
+      outputEl.textContent=T("jtc_demo_not_available");
       return;
     }
 
@@ -2030,6 +2042,24 @@ function deepFreeze(value, { kind, name }) {
 
   // Initialize builder
   updateBuilder();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

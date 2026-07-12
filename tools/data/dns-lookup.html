@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_dns_lookup_query_dns_reco" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,22 +79,24 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>DNS Lookup</h1>
-<p class="subtitle">Query DNS records for any domain using Google DNS.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_dns_lookup">DNS Lookup</h1>
+<p class="subtitle" ti="subtitle_query_dns_records_for_any">Query DNS records for any domain using Google DNS.</p>
 
 <div class="search-row">
-  <input type="text" id="domain" placeholder="Enter domain (e.g., github.com)" onkeydown="if(event.key==='Enter')lookupAll()">
-  <button class="btn primary" onclick="lookupAll()">Lookup</button>
+  <input type="text" id="domain" tp="placeholder_enter_domain_e_g_github_c" placeholder="Enter domain (e.g., github.com)" onkeydown="if(event.key==='Enter')lookupAll()">
+  <button class="btn primary" onclick="lookupAll()" ti="btn_lookup">Lookup</button>
 </div>
 
 <div class="type-row" id="typeRow"></div>
 
 <div class="quick-domains">
-  <button class="quick-btn" onclick="setDomain('google.com')">google.com</button>
-  <button class="quick-btn" onclick="setDomain('github.com')">github.com</button>
-  <button class="quick-btn" onclick="setDomain('cloudflare.com')">cloudflare.com</button>
-  <button class="quick-btn" onclick="setDomain('example.com')">example.com</button>
+  <button class="quick-btn" onclick="setDomain('google.com')" ti="btn_google_com">google.com</button>
+  <button class="quick-btn" onclick="setDomain('github.com')" ti="btn_github_com">github.com</button>
+  <button class="quick-btn" onclick="setDomain('cloudflare.com')" ti="btn_cloudflare_com">cloudflare.com</button>
+  <button class="quick-btn" onclick="setDomain('example.com')" ti="btn_example_com">example.com</button>
 </div>
 
 <div id="loading" class="loading" style="display:none">Querying DNS...</div>
@@ -107,7 +109,7 @@ footer a:hover{color:#999}
   </div>
   <div class="summary" id="summary"></div>
   <table class="record-table">
-    <thead><tr><th>Type</th><th>Name</th><th>Value</th><th>TTL</th></tr></thead>
+    <thead><tr><th ti="th_type">Type</th><th ti="th_name">Name</th><th ti="th_value">Value</th><th ti="th_ttl">TTL</th></tr></thead>
     <tbody id="recordBody"></tbody>
   </table>
   <div class="raw-output" onclick="copyRaw()">
@@ -119,10 +121,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/dns-lookup">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/dns-lookup" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_dns_lookup_query_dns_reco':["DNS Lookup — Query DNS Records Online", "DNS 查询 — 在线查询 DNS 记录"],'metadesc_look_up_dns_records_for_a':["Look up DNS records for any domain. A, AAAA, CNAME, MX, NS, TXT, SOA. Uses Google DNS API. Free.", "查找任何域名的 DNS 记录。支持 A、AAAA、CNAME、MX、NS、TXT 和 SOA 记录。使用 Google DNS API。免费。"],'h1_dns_lookup':["DNS Lookup", "DNS 查询"],'subtitle_query_dns_records_for_any':["Query DNS records for any domain using Google DNS.", "使用 Google DNS 查询任何域名的 DNS 记录。"],'btn_lookup':["Lookup", "抬头"],'btn_google_com':["google.com", "google.com"],'btn_github_com':["github.com", "github.com"],'btn_cloudflare_com':["cloudflare.com", "cloudflare.com"],'btn_example_com':["example.com", "example.com"],'btn_all':["ALL", "全部"],'btn_t':["${t}", "${t}"],'placeholder_enter_domain_e_g_github_c':["Enter domain (e.g., github.com)", "输入域名（例如，github.com）"],'strong_related_tools':["Related Tools", "相关工具"],'th_type':["Type", "类型"],'th_name':["Name", "姓名"],'th_value':["Value", "价值"],'th_ttl':["TTL", "TTL"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_no_dns_records_found_for':["No DNS records found for this domain.", "未找到该域名的DNS记录。"],'jtc_dns_lookup_failed_check_t':["DNS lookup failed. Check the domain and try again.", "DNS 查询失败。请检查域名并重试。"],'jtc_copied':["Copied!", "已复制！"],'jtlword_all':["ALL", "全部"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TYPES=['A','AAAA','CNAME','MX','NS','TXT','SOA'];
 let selectedTypes=new Set(TYPES);
@@ -130,8 +142,8 @@ let allRecords=[];
 
 function renderTypes(){
   document.getElementById('typeRow').innerHTML=
-    `<button class="type-btn ${selectedTypes.size===TYPES.length?'active':''}" onclick="toggleAll()">ALL</button>`+
-    TYPES.map(t=>`<button class="type-btn ${selectedTypes.has(t)?'active':''}" onclick="toggleType('${t}')">${t}</button>`).join('');
+    `<button class="type-btn ${selectedTypes.size===TYPES.length?'active':''}" onclick="toggleAll()" ti="btn_all">ALL</button>`+
+    TYPES.map(t=>`<button class="type-btn ${selectedTypes.has(t)?'active':''}" onclick="toggleType('${t}')" ti="btn_t">${t}</button>`).join('');
 }
 
 function toggleType(t){
@@ -176,13 +188,13 @@ async function lookupAll(){
     allRecords=results.flat();
     document.getElementById('resDomain').textContent=domain;
     if(allRecords.length===0){
-      document.getElementById('error').textContent='No DNS records found for this domain.';
+      document.getElementById('error').textContent=T("jtc_no_dns_records_found_for");
       document.getElementById('error').style.display='block';
     }else{
       showResults();
     }
   }catch(e){
-    document.getElementById('error').textContent='DNS lookup failed. Check the domain and try again.';
+    document.getElementById('error').textContent=T("jtc_dns_lookup_failed_check_t");
     document.getElementById('error').style.display='block';
   }
   document.getElementById('loading').style.display='none';
@@ -228,7 +240,7 @@ function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function copyRaw(){
   navigator.clipboard.writeText(document.getElementById('rawOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -236,12 +248,30 @@ function copyRaw(){
 renderTypes();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/ip-info/" style="color:#4da6ff;text-decoration:none;margin:0 8px">IP Info</a>
 <a href="https://gokuscraper.github.io/dev-vault/ssl-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SSL Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/subnet-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Subnet Calc</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

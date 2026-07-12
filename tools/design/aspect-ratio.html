@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_aspect_ratio_calculator_r" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,17 +64,19 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Aspect Ratio</h1>
-<p class="subtitle">Calculate aspect ratios and resize dimensions proportionally.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_aspect_ratio">Aspect Ratio</h1>
+<p class="subtitle" ti="subtitle_calculate_aspect_ratios_a">Calculate aspect ratios and resize dimensions proportionally.</p>
 
 <div class="calc">
-  <h2>Calculate Ratio</h2>
+  <h2 ti="h2_calculate_ratio">Calculate Ratio</h2>
   <div class="dim-row">
-    <label>Width</label>
+    <label ti="label_width">Width</label>
     <input type="number" id="w" value="1920" min="1" oninput="calc()">
     <span class="x">×</span>
-    <label>Height</label>
+    <label ti="label_height">Height</label>
     <input type="number" id="h" value="1080" min="1" oninput="calc()">
   </div>
   <div class="result-bar">
@@ -87,32 +89,42 @@ footer a:hover{color:#999}
 </div>
 
 <div class="resize">
-  <h2>Resize (Lock Ratio)</h2>
+  <h2 ti="h2_resize_lock_ratio">Resize (Lock Ratio)</h2>
   <div class="dim-row">
-    <label>New W</label>
+    <label ti="label_new_w">New W</label>
     <input type="number" id="newW" value="1280" min="1" oninput="resizeW()">
     <span class="x">→</span>
-    <label>New H</label>
+    <label ti="label_new_h">New H</label>
     <input type="number" id="newH" value="720" min="1" oninput="resizeH()">
   </div>
   <div class="btn-row">
-    <button class="btn" onclick="copyDim()">Copy dimensions</button>
-    <button class="btn" onclick="swapDim()">Swap W↔H</button>
+    <button class="btn" onclick="copyDim()" ti="btn_copy_dimensions">Copy dimensions</button>
+    <button class="btn" onclick="swapDim()" ti="btn_swap_w_h">Swap W↔H</button>
   </div>
 </div>
 
 <div class="presets">
-  <h3>Common Ratios</h3>
+  <h3 ti="h3_common_ratios">Common Ratios</h3>
   <div class="preset-grid" id="presetGrid"></div>
 </div>
 
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/aspect-ratio">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/aspect-ratio" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_aspect_ratio_calculator_r':["Aspect Ratio — Calculator & Resizer", "宽高比 — 计算器与调整器"],'metadesc_calculate_aspect_ratios_r':["Calculate aspect ratios, resize dimensions proportionally. Common presets for video, social media, print. Free.", "计算宽高比，按比例调整尺寸。视频、社交媒体、打印的常用预设。免费。"],'h1_aspect_ratio':["Aspect Ratio", "宽高比"],'h2_calculate_ratio':["Calculate Ratio", "计算比例"],'h2_resize_lock_ratio':["Resize (Lock Ratio)", "调整大小（锁定比例）"],'h3_common_ratios':["Common Ratios", "常用比例"],'subtitle_calculate_aspect_ratios_a':["Calculate aspect ratios and resize dimensions proportionally.", "计算宽高比并按比例调整尺寸。"],'btn_copy_dimensions':["Copy dimensions", "复制尺寸"],'btn_swap_w_h':["Swap W↔H", "交换 W↔H"],'strong_related_tools':["Related Tools", "相关工具"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'label_new_w':["New W", "新宽度"],'label_new_h':["New H", "新高度"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "Dev Vault"],'jtc_copied':["Copied", "已复制"],'jtcpre_copied':["Copied ", "已复制 "]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS=[
   {name:'HD (720p)',w:1280,h:720},
@@ -187,7 +199,7 @@ function copyDim(){
   const h=document.getElementById('newH').value;
   navigator.clipboard.writeText(w+'×'+h);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied '+w+'×'+h;
+  el.className='copied';el.textContent=T("jtcpre_copied")+w+'×'+h;
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -210,12 +222,30 @@ document.getElementById('presetGrid').innerHTML=PRESETS.map((p,i)=>{
 calc();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/image-resize/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Image Resize</a>
 <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

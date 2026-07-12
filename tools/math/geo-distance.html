@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_geo_distance_calculator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -38,19 +38,21 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Geo Distance Calculator</h1>
-<p class="subtitle">Calculate distance between two GPS coordinates.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_geo_distance_calculator" ti="h1_geo_distance_calculator">Geo Distance Calculator</h1>
+<p class="subtitle" ti="subtitle_calculate_distance_betwee">Calculate distance between two GPS coordinates.</p>
 
 <div class="card">
-  <h3>Point A</h3>
+  <h3 ti="h3_point_a">Point A</h3>
   <div class="coord-row">
-    <input id="lat1" type="number" step="any" placeholder="Latitude" value="48.8566" oninput="calc()">
-    <input id="lng1" type="number" step="any" placeholder="Longitude" value="2.3522" oninput="calc()">
+    <input id="lat1" type="number" step="any" tp="placeholder_latitude" tp="placeholder_latitude_2" placeholder="Latitude" value="48.8566" oninput="calc()">
+    <input id="lng1" type="number" step="any" tp="placeholder_longitude" tp="placeholder_longitude_2" placeholder="Longitude" value="2.3522" oninput="calc()">
   </div>
-  <button class="geo-btn" onclick="useMyLocation('A')">📍 Use my location</button>
+  <button class="geo-btn" onclick="useMyLocation('A')" ti="btn_use_my_location" ti="btn_use_my_location_2">📍 Use my location</button>
 
-  <h3>Point B</h3>
+  <h3 ti="h3_point_b">Point B</h3>
   <div class="coord-row">
     <input id="lat2" type="number" step="any" placeholder="Latitude" value="51.5074" oninput="calc()">
     <input id="lng2" type="number" step="any" placeholder="Longitude" value="-0.1278" oninput="calc()">
@@ -59,23 +61,33 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <div class="dist-row"><span class="dist-label">Kilometers</span><span class="dist-val" id="dKm" onclick="copyVal('dKm')">—</span></div>
-  <div class="dist-row"><span class="dist-label">Miles</span><span class="dist-val" id="dMile" onclick="copyVal('dMile')">—</span></div>
-  <div class="dist-row"><span class="dist-label">Meters</span><span class="dist-val" id="dMeter" onclick="copyVal('dMeter')">—</span></div>
-  <div class="dist-row"><span class="dist-label">Nautical Miles</span><span class="dist-val" id="dNmi" onclick="copyVal('dNmi')">—</span></div>
+  <div class="dist-row"><span class="dist-label" ti="label_kilometers">Kilometers</span><span class="dist-val" id="dKm" onclick="copyVal('dKm')">—</span></div>
+  <div class="dist-row"><span class="dist-label" ti="label_miles">Miles</span><span class="dist-val" id="dMile" onclick="copyVal('dMile')">—</span></div>
+  <div class="dist-row"><span class="dist-label" ti="label_meters">Meters</span><span class="dist-val" id="dMeter" onclick="copyVal('dMeter')">—</span></div>
+  <div class="dist-row"><span class="dist-label" ti="label_nautical_miles">Nautical Miles</span><span class="dist-val" id="dNmi" onclick="copyVal('dNmi')">—</span></div>
 </div>
 
 <div class="card">
-  <h3>Your Position</h3>
-  <div class="dist-row"><span class="dist-label">Latitude</span><span class="dist-val" id="myLat">—</span></div>
-  <div class="dist-row"><span class="dist-label">Longitude</span><span class="dist-val" id="myLng">—</span></div>
+  <h3 ti="h3_your_position">Your Position</h3>
+  <div class="dist-row"><span class="dist-label" ti="label_latitude">Latitude</span><span class="dist-val" id="myLat">—</span></div>
+  <div class="dist-row"><span class="dist-label" ti="label_longitude">Longitude</span><span class="dist-val" id="myLng">—</span></div>
 </div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_geo_distance_calculator':["Geo Distance Calculator", "地理距离计算器"],'metadesc_calculate_the_distance_be':["Calculate the distance between two GPS coordinates using the Haversine formula. Kilometers, miles, meters, nautical miles.", "使用半正矢公式计算两个GPS坐标之间的距离。单位可以是公里、英里、米、海里。"],'h1_geo_distance_calculator':["Geo Distance Calculator", "地理距离计算器"],'h3_point_a':["Point A", "A点"],'h3_point_b':["Point B", "B点"],'h3_your_position':["Your Position", "您的职位"],'subtitle_calculate_distance_betwee':["Calculate distance between two GPS coordinates.", "计算两个GPS坐标之间的距离。"],'btn_use_my_location':["📍 Use my location", "📍 使用我的位置"],'btn_use_my_location_2':["📍 Use my location", "📍 使用我的位置"],'label_kilometers':["Kilometers", "公里"],'label_miles':["Miles", "迈尔斯"],'label_meters':["Meters", "仪表"],'label_nautical_miles':["Nautical Miles", "海里"],'label_latitude':["Latitude", "纬度"],'label_longitude':["Longitude", "经度"],'placeholder_latitude':["Latitude", "纬度"],'placeholder_longitude':["Longitude", "经度"],'placeholder_latitude_2':["Latitude", "纬度"],'placeholder_longitude_2':["Longitude", "经度"],'link_github':["GitHub", "GitHub"],'jtc_copied':["Copied!", "已复制！"],'jalert_geolocation_not_supported':["Geolocation not supported", "不支持地理位置定位"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function toRad(deg) { return deg * Math.PI / 180; }
 
@@ -114,14 +126,14 @@ function copyVal(id) {
   navigator.clipboard.writeText(val).then(() => {
     const t = document.createElement('div');
     t.className = 'copy-toast';
-    t.textContent = 'Copied!';
+    t.textContent=T("jtc_copied");
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 1500);
   });
 }
 
 function useMyLocation(point) {
-  if (!navigator.geolocation) { alert('Geolocation not supported'); return; }
+  if (!navigator.geolocation) { T("jalert_geolocation_not_supported"); return; }
   navigator.geolocation.getCurrentPosition(pos => {
     if (point === 'A') {
       document.getElementById('lat1').value = pos.coords.latitude;
@@ -143,6 +155,24 @@ if (navigator.geolocation) {
 }
 
 calc();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

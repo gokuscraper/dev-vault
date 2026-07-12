@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_offscreencanvas_web_worke" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -87,10 +87,20 @@ select{font-size:.85rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <div>
-    <h1>OffscreenCanvas + Web Workers</h1>
+    <h1 ti="h1_offscreencanvas_web_worke" ti="h1_offscreencanvas_web_worke" ti="h1_offscreencanvas_web_worke" ti="h1_offscreencanvas_web_worke" ti="h1_offscreencanvas_web_worke">OffscreenCanvas + Web Workers</h1>
     <div class="subtitle">Interactive performance comparison playground</div>
   </div>
   <div class="browser-support" id="browserSupport"></div>
@@ -100,12 +110,12 @@ select{font-size:.85rem}
   <!-- Controls -->
   <div class="controls">
     <div class="control-group">
-      <label>Particles:</label>
+      <label ti="label_particles" ti="label_particles" ti="label_particles" ti="label_particles" ti="label_particles">Particles:</label>
       <input type="range" id="particleSlider" min="100" max="10000" step="100" value="1000">
       <span class="value" id="particleValue">1000</span>
     </div>
     <div class="control-group">
-      <label>Animation:</label>
+      <label ti="label_animation" ti="label_animation" ti="label_animation" ti="label_animation" ti="label_animation">Animation:</label>
       <select id="animationType">
         <option value="particles">Particles</option>
         <option value="fractal">Fractal</option>
@@ -113,11 +123,11 @@ select{font-size:.85rem}
       </select>
     </div>
     <div class="control-group presets">
-      <label>Presets:</label>
-      <button data-preset="light" class="active">Light</button>
-      <button data-preset="heavy">Heavy Particles</button>
-      <button data-preset="blocking">With Blocking</button>
-      <button data-preset="fractal">Fractal</button>
+      <label ti="label_presets" ti="label_presets" ti="label_presets" ti="label_presets" ti="label_presets">Presets:</label>
+      <button data-preset="light" class="active" ti="btn_light" ti="btn_light" ti="btn_light" ti="btn_light" ti="btn_light">Light</button>
+      <button data-preset="heavy" ti="btn_heavy_particles" ti="btn_heavy_particles" ti="btn_heavy_particles" ti="btn_heavy_particles" ti="btn_heavy_particles">Heavy Particles</button>
+      <button data-preset="blocking" ti="btn_with_blocking" ti="btn_with_blocking" ti="btn_with_blocking" ti="btn_with_blocking" ti="btn_with_blocking">With Blocking</button>
+      <button data-preset="fractal" ti="btn_fractal" ti="btn_fractal" ti="btn_fractal" ti="btn_fractal" ti="btn_fractal">Fractal</button>
     </div>
   </div>
 
@@ -146,23 +156,23 @@ select{font-size:.85rem}
   <!-- Metrics row -->
   <div class="metrics-row">
     <div class="metric-card">
-      <h3>Main Thread Blocker</h3>
+      <h3 ti="h3_main_thread_blocker" ti="h3_main_thread_blocker" ti="h3_main_thread_blocker" ti="h3_main_thread_blocker" ti="h3_main_thread_blocker">Main Thread Blocker</h3>
       <div class="blocker-section">
-        <button class="danger" id="blockBtn">Block 500ms</button>
-        <button class="danger" id="blockHeavyBtn">Block 2000ms</button>
+        <button class="danger" id="blockBtn" ti="btn_block_500ms" ti="btn_block_500ms" ti="btn_block_500ms" ti="btn_block_500ms" ti="btn_block_500ms">Block 500ms</button>
+        <button class="danger" id="blockHeavyBtn" ti="btn_block_2000ms" ti="btn_block_2000ms" ti="btn_block_2000ms" ti="btn_block_2000ms" ti="btn_block_2000ms">Block 2000ms</button>
         <div class="blocker-status" id="blockerStatus">Idle</div>
       </div>
     </div>
     <div class="metric-card">
-      <h3>Input Latency Test</h3>
+      <h3 ti="h3_input_latency_test" ti="h3_input_latency_test" ti="h3_input_latency_test" ti="h3_input_latency_test" ti="h3_input_latency_test">Input Latency Test</h3>
       <div class="latency-section">
         <div style="font-size:.8rem;color:var(--text2)">Type below while animation runs:</div>
-        <input type="text" class="latency-input" id="latencyInput" placeholder="Type here to measure input latency...">
+        <input type="text" class="latency-input" id="latencyInput" tp="placeholder_type_here_to_measure_inpu" tp="placeholder_type_here_to_measure_inpu" tp="placeholder_type_here_to_measure_inpu" tp="placeholder_type_here_to_measure_inpu" tp="placeholder_type_here_to_measure_inpu" placeholder="Type here to measure input latency...">
         <div class="latency-result" id="latencyResult">Waiting for input...</div>
       </div>
     </div>
     <div class="metric-card">
-      <h3>Frame Stats</h3>
+      <h3 ti="h3_frame_stats" ti="h3_frame_stats" ti="h3_frame_stats" ti="h3_frame_stats" ti="h3_frame_stats">Frame Stats</h3>
       <div style="font-size:.85rem">
         <div>Main avg: <span id="mainAvg" style="color:var(--warn)">--</span>ms</div>
         <div>Worker avg: <span id="workerAvg" style="color:var(--accent2)">--</span>ms</div>
@@ -181,8 +191,8 @@ select{font-size:.85rem}
   <!-- Code Snippets -->
   <div class="code-section">
     <div class="code-header" onclick="toggleCode('code1')">
-      <h3>OffscreenCanvas + Worker Setup</h3>
-      <div><button class="copy-btn" onclick="event.stopPropagation();copyCode('code1',this)">Copy</button> <span class="toggle" id="code1Toggle">Show</span></div>
+      <h3 ti="h3_offscreencanvas_worker_se" ti="h3_offscreencanvas_worker_se" ti="h3_offscreencanvas_worker_se" ti="h3_offscreencanvas_worker_se" ti="h3_offscreencanvas_worker_se">OffscreenCanvas + Worker Setup</h3>
+      <div><button class="copy-btn" onclick="event.stopPropagation();copyCode('code1',this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button> <span class="toggle" id="code1Toggle">Show</span></div>
     </div>
     <div class="code-body" id="code1">
       <pre>// Main thread: transfer canvas control to worker
@@ -211,7 +221,7 @@ self.onmessage = (e) => {
 
   <div class="code-section">
     <div class="code-header" onclick="toggleCode('code2')">
-      <h3>Blob URL Worker (Single-File Embedding)</h3>
+      <h3 ti="h3_blob_url_worker_single_fi" ti="h3_blob_url_worker_single_fi" ti="h3_blob_url_worker_single_fi" ti="h3_blob_url_worker_single_fi" ti="h3_blob_url_worker_single_fi">Blob URL Worker (Single-File Embedding)</h3>
       <div><button class="copy-btn" onclick="event.stopPropagation();copyCode('code2',this)">Copy</button> <span class="toggle" id="code2Toggle">Show</span></div>
     </div>
     <div class="code-body" id="code2">
@@ -270,6 +280,46 @@ const supportsTransfer = typeof HTMLCanvasElement.prototype
   OffscreenCanvas + Web Workers Playground &mdash; No external dependencies. Pure vanilla JS.
 </div>
 
+
+
+
+
+<script>var _LANG={'title_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers Playground", "OffscreenCanvas + Web Workers Playground"],'h1_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers", "OffscreenCanvas + Web Workers"],'h3_main_thread_blocker':["Main Thread Blocker", "主线程阻塞器"],'h3_input_latency_test':["Input Latency Test", "输入延迟测试"],'h3_frame_stats':["Frame Stats", "帧统计"],'h3_offscreencanvas_worker_se':["OffscreenCanvas + Worker Setup", "OffscreenCanvas + Worker 设置"],'h3_blob_url_worker_single_fi':["Blob URL Worker (Single-File Embedding)", "Blob URL 工作器（单文件嵌入）"],'h3_feature_detection_fallbac':["Feature Detection & Fallback", "特征检测与回退"],'btn_light':["Light", "光"],'btn_heavy_particles':["Heavy Particles", "重粒子"],'btn_with_blocking':["With Blocking", "阻塞"],'btn_fractal':["Fractal", "分形"],'btn_block_500ms':["Block 500ms", "500毫秒"],'btn_block_2000ms':["Block 2000ms", "块 2000 毫秒"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'placeholder_type_here_to_measure_inpu':["Type here to measure input latency...", "在此输入以测量输入延迟……"],'label_particles':["Particles:", "粒子："],'label_animation':["Animation:", "动画片："],'label_presets':["Presets:", "预设："],'jtc_n_a':["N/A", "不适用"],'jtc_500':["500", "500"],'jtc_8000':["8000", "8000"],'jtc_3000':["3000", "3000"],'jtc_1000':["1000", "1000"],'jtc_idle':["Idle", "闲置的"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_your_browser_does_not_sup':["Your browser does not support OffscreenCanvas + transferControlToOffscreen. The worker canvas will not render.", "您的浏览器不支持 OffscreenCanvas + transferControlToOffscreen。工作画布将不会渲染。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers Playground", "OffscreenCanvas + Web Workers Playground"],'h1_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers", "OffscreenCanvas + Web Workers"],'h3_main_thread_blocker':["Main Thread Blocker", "主线程阻塞器"],'h3_input_latency_test':["Input Latency Test", "输入延迟测试"],'h3_frame_stats':["Frame Stats", "帧统计"],'h3_offscreencanvas_worker_se':["OffscreenCanvas + Worker Setup", "OffscreenCanvas + Worker 设置"],'h3_blob_url_worker_single_fi':["Blob URL Worker (Single-File Embedding)", "Blob URL 工作器（单文件嵌入）"],'h3_feature_detection_fallbac':["Feature Detection & Fallback", "特征检测与回退"],'btn_light':["Light", "光"],'btn_heavy_particles':["Heavy Particles", "重粒子"],'btn_with_blocking':["With Blocking", "阻塞"],'btn_fractal':["Fractal", "分形"],'btn_block_500ms':["Block 500ms", "500毫秒"],'btn_block_2000ms':["Block 2000ms", "块 2000 毫秒"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'placeholder_type_here_to_measure_inpu':["Type here to measure input latency...", "在此输入以测量输入延迟……"],'label_particles':["Particles:", "粒子："],'label_animation':["Animation:", "动画片："],'label_presets':["Presets:", "预设："],'jtc_n_a':["N/A", "不适用"],'jtc_500':["500", "500"],'jtc_8000':["8000", "8000"],'jtc_3000':["3000", "3000"],'jtc_1000':["1000", "1000"],'jtc_idle':["Idle", "闲置的"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_your_browser_does_not_sup':["Your browser does not support OffscreenCanvas + transferControlToOffscreen. The worker canvas will not render.", "您的浏览器不支持 OffscreenCanvas + transferControlToOffscreen。工作画布将不会渲染。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers Playground", "OffscreenCanvas + Web Workers Playground"],'h1_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers", "OffscreenCanvas + Web Workers"],'h3_main_thread_blocker':["Main Thread Blocker", "主线程阻塞器"],'h3_input_latency_test':["Input Latency Test", "输入延迟测试"],'h3_frame_stats':["Frame Stats", "帧统计"],'h3_offscreencanvas_worker_se':["OffscreenCanvas + Worker Setup", "OffscreenCanvas + Worker 设置"],'h3_blob_url_worker_single_fi':["Blob URL Worker (Single-File Embedding)", "Blob URL 工作器（单文件嵌入）"],'h3_feature_detection_fallbac':["Feature Detection & Fallback", "特征检测与回退"],'btn_light':["Light", "光"],'btn_heavy_particles':["Heavy Particles", "重粒子"],'btn_with_blocking':["With Blocking", "阻塞"],'btn_fractal':["Fractal", "分形"],'btn_block_500ms':["Block 500ms", "500毫秒"],'btn_block_2000ms':["Block 2000ms", "块 2000 毫秒"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'placeholder_type_here_to_measure_inpu':["Type here to measure input latency...", "在此输入以测量输入延迟……"],'label_particles':["Particles:", "粒子："],'label_animation':["Animation:", "动画片："],'label_presets':["Presets:", "预设："],'jtc_n_a':["N/A", "不适用"],'jtc_500':["500", "500"],'jtc_8000':["8000", "8000"],'jtc_3000':["3000", "3000"],'jtc_1000':["1000", "1000"],'jtc_idle':["Idle", "闲置的"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_your_browser_does_not_sup':["Your browser does not support OffscreenCanvas + transferControlToOffscreen. The worker canvas will not render.", "您的浏览器不支持 OffscreenCanvas + transferControlToOffscreen。工作画布将不会渲染。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers Playground", "OffscreenCanvas + Web Workers Playground"],'h1_offscreencanvas_web_worke':["OffscreenCanvas + Web Workers", "OffscreenCanvas + Web Workers"],'h3_main_thread_blocker':["Main Thread Blocker", "主线程阻塞器"],'h3_input_latency_test':["Input Latency Test", "输入延迟测试"],'h3_frame_stats':["Frame Stats", "帧统计"],'h3_offscreencanvas_worker_se':["OffscreenCanvas + Worker Setup", "OffscreenCanvas + Worker 设置"],'h3_blob_url_worker_single_fi':["Blob URL Worker (Single-File Embedding)", "Blob URL 工作器（单文件嵌入）"],'h3_feature_detection_fallbac':["Feature Detection & Fallback", "特征检测与回退"],'btn_light':["Light", "光"],'btn_heavy_particles':["Heavy Particles", "重粒子"],'btn_with_blocking':["With Blocking", "阻塞"],'btn_fractal':["Fractal", "分形"],'btn_block_500ms':["Block 500ms", "500毫秒"],'btn_block_2000ms':["Block 2000ms", "块 2000 毫秒"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'placeholder_type_here_to_measure_inpu':["Type here to measure input latency...", "在此输入以测量输入延迟……"],'label_particles':["Particles:", "粒子："],'label_animation':["Animation:", "动画片："],'label_presets':["Presets:", "预设："],'jtc_n_a':["N/A", "不适用"],'jtc_500':["500", "500"],'jtc_8000':["8000", "8000"],'jtc_3000':["3000", "3000"],'jtc_1000':["1000", "1000"],'jtc_idle':["Idle", "闲置的"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jalert_your_browser_does_not_sup':["Your browser does not support OffscreenCanvas + transferControlToOffscreen. The worker canvas will not render.", "您的浏览器不支持 OffscreenCanvas + transferControlToOffscreen。工作画布将不会渲染。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ============================================================
 // Browser support detection
@@ -299,7 +349,7 @@ const supportsTransfer = typeof HTMLCanvasElement.prototype
   el.appendChild(runtimeBadge);
 
   if (!supported) {
-    alert('Your browser does not support OffscreenCanvas + transferControlToOffscreen. The worker canvas will not render.');
+    T("jalert_your_browser_does_not_sup");
   }
 })();
 
@@ -609,7 +659,7 @@ function setupWorker() {
     };
   } catch (err) {
     console.error('OffscreenCanvas setup failed:', err);
-    document.getElementById('workerFps').textContent = 'N/A';
+    document.getElementById('workerFps').textContent=T("jtc_n_a");
   }
 }
 
@@ -679,20 +729,20 @@ document.querySelectorAll('[data-preset]').forEach(btn => {
     const preset = btn.dataset.preset;
     switch (preset) {
       case 'light':
-        particleSlider.value = 500; particleValue.textContent = '500';
+        particleSlider.value = 500; particleValue.textContent=T("jtc_500");
         animSelect.value = 'particles';
         break;
       case 'heavy':
-        particleSlider.value = 8000; particleValue.textContent = '8000';
+        particleSlider.value = 8000; particleValue.textContent=T("jtc_8000");
         animSelect.value = 'particles';
         break;
       case 'blocking':
-        particleSlider.value = 3000; particleValue.textContent = '3000';
+        particleSlider.value = 3000; particleValue.textContent=T("jtc_3000");
         animSelect.value = 'particles';
         setTimeout(() => blockMainThread(1000), 300);
         break;
       case 'fractal':
-        particleSlider.value = 1000; particleValue.textContent = '1000';
+        particleSlider.value = 1000; particleValue.textContent=T("jtc_1000");
         animSelect.value = 'fractal';
         break;
     }
@@ -721,7 +771,7 @@ function blockMainThread(ms) {
     }
     status.textContent = `Blocked ${ms}ms — done`;
     status.style.color = 'var(--accent2)';
-    setTimeout(() => { status.textContent = 'Idle'; status.style.color = 'var(--text2)'; }, 2000);
+    setTimeout(() => { status.textContent=T("jtc_idle"); status.style.color = 'var(--text2)'; }, 2000);
   }, 50);
 }
 
@@ -823,9 +873,9 @@ function toggleCode(id) {
 function copyCode(id, btn) {
   const pre = document.getElementById(id).querySelector('pre');
   navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+    setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1500);
   });
 }
 
@@ -852,6 +902,96 @@ window.addEventListener('resize', () => {
   const tlRect = tlWrap.getBoundingClientRect();
   document.getElementById('timelineCanvas').width = Math.floor(tlRect.width);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

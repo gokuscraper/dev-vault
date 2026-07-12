@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_badging_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -419,33 +419,37 @@ input:focus, select:focus { border-color: var(--accent); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Badging API Playground</h1>
+  <h1 ti="title_badging_api_playground" ti="h1_badging_api_playground" ti="title_badging_api_playground" ti="h1_badging_api_playground">Badging API Playground</h1>
   <p>Set app badges on PWA icons and browser tabs to show notification counts</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <span class="support-icon" id="supportIcon">...</span>
     <div class="support-text">
-      <h3 id="supportTitle">Checking Badging API support...</h3>
+      <h3 id="supportTitle" ti="h3_checking_badging_api_supp" ti="h3_checking_badging_api_supp">Checking Badging API support...</h3>
       <p id="supportDesc">Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="badge">Badge Counter</button>
-    <button class="tab-btn" data-tab="api">API Methods</button>
-    <button class="tab-btn" data-tab="favicon">Favicon Fallback</button>
-    <button class="tab-btn" data-tab="usecases">Use Cases</button>
-    <button class="tab-btn" data-tab="pwa">PWA Setup</button>
+    <button class="tab-btn active" data-tab="badge" ti="btn_badge_counter" ti="btn_badge_counter">Badge Counter</button>
+    <button class="tab-btn" data-tab="api" ti="btn_api_methods" ti="btn_api_methods">API Methods</button>
+    <button class="tab-btn" data-tab="favicon" ti="btn_favicon_fallback" ti="btn_favicon_fallback">Favicon Fallback</button>
+    <button class="tab-btn" data-tab="usecases" ti="btn_use_cases" ti="btn_use_cases">Use Cases</button>
+    <button class="tab-btn" data-tab="pwa" ti="btn_pwa_setup" ti="btn_pwa_setup">PWA Setup</button>
   </div>
 
   <!-- Tab 1: Badge Counter -->
   <div class="tab-panel active" id="tab-badge">
     <div class="card">
-      <h2>Interactive Badge Counter</h2>
+      <h2 ti="h2_interactive_badge_counter" ti="h2_interactive_badge_counter">Interactive Badge Counter</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Use the controls to set, increment, decrement, and clear the app badge.
         The badge is shown on the app icon visualization below, and if your browser
@@ -465,7 +469,7 @@ input:focus, select:focus { border-color: var(--accent); }
           <div class="counter-display" id="counterDisplay">0</div>
           <div class="counter-buttons">
             <button class="counter-btn danger" id="decBtn">-</button>
-            <button class="counter-btn secondary" id="clearBadgeBtn" style="font-size:0.8rem;border-radius:4px;width:auto;padding:0 12px;">Clear</button>
+            <button class="counter-btn secondary" id="clearBadgeBtn" style="font-size:0.8rem;border-radius:4px;width:auto;padding:0 12px;" ti="btn_clear" ti="btn_clear_2" ti="btn_clear" ti="btn_clear_2">Clear</button>
             <button class="counter-btn" id="incBtn">+</button>
           </div>
         </div>
@@ -477,14 +481,14 @@ input:focus, select:focus { border-color: var(--accent); }
 
       <div class="form-row">
         <div class="form-group">
-          <label>Set Specific Count</label>
+          <label ti="label_set_specific_count" ti="label_set_specific_count">Set Specific Count</label>
           <input type="number" id="badgeCount" value="5" min="0" max="999">
         </div>
         <div class="form-group" style="justify-content:end;">
-          <button id="setBadgeBtn">Set Badge</button>
+          <button id="setBadgeBtn" ti="btn_set_badge" ti="btn_set_badge">Set Badge</button>
         </div>
         <div class="form-group" style="justify-content:end;">
-          <button id="flagBadgeBtn" class="secondary">Set Flag (no count)</button>
+          <button id="flagBadgeBtn" class="secondary" ti="btn_set_flag_no_count" ti="btn_set_flag_no_count">Set Flag (no count)</button>
         </div>
       </div>
 
@@ -495,12 +499,12 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 2: API Methods -->
   <div class="tab-panel" id="tab-api">
     <div class="card">
-      <h2>Badging API Methods</h2>
+      <h2 ti="h2_badging_api_methods" ti="h2_badging_api_methods">Badging API Methods</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Badging API provides two simple methods for controlling the app badge.
       </p>
 
-      <h3>navigator.setAppBadge(count)</h3>
+      <h3 ti="h3_navigator_setappbadge_cou" ti="h3_navigator_setappbadge_cou">navigator.setAppBadge(count)</h3>
       <div class="code-block"><span class="cm">// Set badge with a count</span>
 <span class="kw">await</span> navigator.<span class="fn">setAppBadge</span>(<span class="num">42</span>);
 
@@ -516,14 +520,14 @@ input:focus, select:focus { border-color: var(--accent); }
   console.<span class="fn">error</span>(<span class="str">'Badge not supported:'</span>, e);
 }</div>
 
-      <h3>navigator.clearBadge()</h3>
+      <h3 ti="h3_navigator_clearbadge" ti="h3_navigator_clearbadge">navigator.clearBadge()</h3>
       <div class="code-block"><span class="cm">// Remove the badge entirely</span>
 <span class="kw">await</span> navigator.<span class="fn">clearBadge</span>();
 
 <span class="cm">// Equivalent to:</span>
 <span class="kw">await</span> navigator.<span class="fn">setAppBadge</span>(<span class="num">0</span>);</div>
 
-      <h3>Badge State Visualization</h3>
+      <h3 ti="h3_badge_state_visualization" ti="h3_badge_state_visualization">Badge State Visualization</h3>
       <div class="state-grid">
         <div class="state-card active" id="stateNone" onclick="setBadgeState('none')">
           <div class="state-icon">&#x1F7E2;</div>
@@ -542,12 +546,12 @@ input:focus, select:focus { border-color: var(--accent); }
         </div>
       </div>
 
-      <h3>Try It</h3>
+      <h3 ti="h3_try_it" ti="h3_try_it">Try It</h3>
       <div class="form-row">
-        <button onclick="trySetBadge(1)">Set Badge (1)</button>
-        <button onclick="trySetBadge(5)">Set Badge (5)</button>
-        <button onclick="trySetBadge(99)">Set Badge (99)</button>
-        <button onclick="trySetBadge()" class="secondary">Set Flag</button>
+        <button onclick="trySetBadge(1)" ti="btn_set_badge_1" ti="btn_set_badge_1">Set Badge (1)</button>
+        <button onclick="trySetBadge(5)" ti="btn_set_badge_5" ti="btn_set_badge_5">Set Badge (5)</button>
+        <button onclick="trySetBadge(99)" ti="btn_set_badge_99" ti="btn_set_badge_99">Set Badge (99)</button>
+        <button onclick="trySetBadge()" class="secondary" ti="btn_set_flag" ti="btn_set_flag">Set Flag</button>
         <button onclick="tryClearBadge()" class="danger">Clear</button>
       </div>
       <div class="log-area" id="apiLog"></div>
@@ -557,7 +561,7 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 3: Favicon Fallback -->
   <div class="tab-panel" id="tab-favicon">
     <div class="card">
-      <h2>Favicon Badge Fallback</h2>
+      <h2 ti="h2_favicon_badge_fallback" ti="h2_favicon_badge_fallback">Favicon Badge Fallback</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         For browsers that don't support the Badging API (or non-PWA contexts),
         you can draw a badge directly on the favicon using Canvas.
@@ -566,19 +570,19 @@ input:focus, select:focus { border-color: var(--accent); }
 
       <div class="form-row">
         <div class="form-group">
-          <label>Badge Count</label>
+          <label ti="label_badge_count" ti="label_badge_count">Badge Count</label>
           <input type="number" id="faviconCount" value="3" min="0" max="999">
         </div>
         <div class="form-group">
-          <label>Badge Color</label>
+          <label ti="label_badge_color" ti="label_badge_color">Badge Color</label>
           <input type="color" id="faviconColor" value="#f44336">
         </div>
         <div class="form-group">
-          <label>Text Color</label>
+          <label ti="label_text_color" ti="label_text_color">Text Color</label>
           <input type="color" id="faviconTextColor" value="#ffffff">
         </div>
         <div class="form-group">
-          <label>Base Icon</label>
+          <label ti="label_base_icon" ti="label_base_icon">Base Icon</label>
           <select id="faviconBase">
             <option value="bell">Bell</option>
             <option value="mail">Mail</option>
@@ -589,8 +593,8 @@ input:focus, select:focus { border-color: var(--accent); }
       </div>
 
       <div class="form-row">
-        <button id="setFaviconBadgeBtn">Set Favicon Badge</button>
-        <button id="clearFaviconBadgeBtn" class="secondary">Clear Favicon Badge</button>
+        <button id="setFaviconBadgeBtn" ti="btn_set_favicon_badge" ti="btn_set_favicon_badge">Set Favicon Badge</button>
+        <button id="clearFaviconBadgeBtn" class="secondary" ti="btn_clear_favicon_badge" ti="btn_clear_favicon_badge">Clear Favicon Badge</button>
       </div>
 
       <div class="favicon-area">
@@ -608,12 +612,12 @@ input:focus, select:focus { border-color: var(--accent); }
             The favicon is updated dynamically via a data URL.
           </p>
           <p style="font-size:0.85rem;color:var(--text-dim);">
-            Current badge: <strong id="currentFaviconBadge" style="color:var(--accent);">None</strong>
+            Current badge: <strong id="currentFaviconBadge" style="color:var(--accent);" ti="strong_none" ti="strong_none">None</strong>
           </p>
         </div>
       </div>
 
-      <h3>Implementation Code</h3>
+      <h3 ti="h3_implementation_code" ti="h3_implementation_code">Implementation Code</h3>
       <div class="code-block"><span class="kw">function</span> <span class="fn">setFaviconBadge</span>(count, color = <span class="str">'#f44336'</span>) {
   <span class="kw">const</span> canvas = document.<span class="fn">createElement</span>(<span class="str">'canvas'</span>);
   canvas.width = <span class="num">64</span>;
@@ -654,7 +658,7 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 4: Use Cases -->
   <div class="tab-panel" id="tab-usecases">
     <div class="card">
-      <h2>Real-World Use Cases</h2>
+      <h2 ti="h2_real_world_use_cases" ti="h2_real_world_use_cases">Real-World Use Cases</h2>
 
       <div class="usecase-grid">
         <div class="usecase-card">
@@ -667,7 +671,7 @@ input:focus, select:focus { border-color: var(--accent); }
             </div>
             <span class="usecase-text">3 unread emails</span>
           </div>
-          <button onclick="animateUseCase('ucMail', [3,4,5,6,5,4,3,2,1,0])" style="margin-top:0.75rem;width:100%;">Animate</button>
+          <button onclick="animateUseCase('ucMail', [3,4,5,6,5,4,3,2,1,0])" style="margin-top:0.75rem;width:100%;" ti="btn_animate" ti="btn_animate_2" ti="btn_animate_3" ti="btn_animate_4" ti="btn_animate" ti="btn_animate_2" ti="btn_animate_3" ti="btn_animate_4">Animate</button>
         </div>
 
         <div class="usecase-card">
@@ -739,13 +743,13 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 5: PWA Setup -->
   <div class="tab-panel" id="tab-pwa">
     <div class="card">
-      <h2>PWA Manifest Requirements</h2>
+      <h2 ti="h2_pwa_manifest_requirements" ti="h2_pwa_manifest_requirements">PWA Manifest Requirements</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Badging API works best with installed PWAs. Here's the minimal manifest
         configuration needed to make your app installable and support badges.
       </p>
 
-      <h3>manifest.json</h3>
+      <h3 ti="h3_manifest_json" ti="h3_manifest_json">manifest.json</h3>
       <div class="manifest-block">{
   "name": "My App",
   "short_name": "MyApp",
@@ -767,12 +771,12 @@ input:focus, select:focus { border-color: var(--accent); }
   ]
 }</div>
 
-      <h3>HTML Setup</h3>
+      <h3 ti="h3_html_setup" ti="h3_html_setup">HTML Setup</h3>
       <div class="code-block">&lt;!-- In your HTML &lt;head&gt; --&gt;
 &lt;link rel=<span class="str">"manifest"</span> href=<span class="str">"/manifest.json"</span>&gt;
 &lt;meta name=<span class="str">"theme-color"</span> content=<span class="str">"#ff5722"</span>&gt;</div>
 
-      <h3>Service Worker (Required for PWA)</h3>
+      <h3 ti="h3_service_worker_required_f" ti="h3_service_worker_required_f">Service Worker (Required for PWA)</h3>
       <div class="code-block"><span class="cm">// Register service worker for installability</span>
 <span class="kw">if</span> (<span class="str">'serviceWorker'</span> <span class="kw">in</span> navigator) {
   navigator.serviceWorker.<span class="fn">register</span>(<span class="str">'/sw.js'</span>);
@@ -786,14 +790,14 @@ self.<span class="fn">addEventListener</span>(<span class="str">'push'</span>, (
   navigator.<span class="fn">setAppBadge</span>(data.unreadCount);
 });</div>
 
-      <h3>Browser Support</h3>
+      <h3 ti="h3_browser_support" ti="h3_browser_support">Browser Support</h3>
       <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin:0.75rem 0;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Browser</th>
-            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Version</th>
-            <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Support</th>
-            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Notes</th>
+            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_browser" ti="th_browser">Browser</th>
+            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_version" ti="th_version">Version</th>
+            <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_support" ti="th_support">Support</th>
+            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_notes" ti="th_notes">Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -809,6 +813,16 @@ self.<span class="fn">addEventListener</span>(<span class="str">'push'</span>, (
   </div>
 </div>
 
+
+<script>var _LANG={'title_badging_api_playground':["Badging API Playground", "Badging API 演练场"],'metadesc_interactive_playground_fo':["Interactive playground for the Badging API - set app badges, build badge counters, and explore favicon badge fallbacks.", "Badging API 交互式演练场 — 设置应用徽章、构建徽章计数器及探索 favicon 徽章回退。"],'h1_badging_api_playground':["Badging API Playground", "Badging API 演练场"],'h2_interactive_badge_counter':["Interactive Badge Counter", "交互式徽章计数器"],'h2_badging_api_methods':["Badging API Methods", "Badging API 方法"],'h2_favicon_badge_fallback':["Favicon Badge Fallback", "Favicon 徽章回退"],'h2_real_world_use_cases':["Real-World Use Cases", "实际使用场景"],'h2_pwa_manifest_requirements':["PWA Manifest Requirements", "PWA 清单要求"],'h3_checking_badging_api_supp':["Checking Badging API support...", "正在检查 Badging API 支持..."],'h3_navigator_setappbadge_cou':["navigator.setAppBadge(count)", "navigator.setAppBadge(count)"],'h3_navigator_clearbadge':["navigator.clearBadge()", "navigator.clearBadge()"],'h3_badge_state_visualization':["Badge State Visualization", "徽章状态可视化"],'h3_try_it':["Try It", "试试看"],'h3_implementation_code':["Implementation Code", "实现代码"],'h3_manifest_json':["manifest.json", "manifest.json"],'h3_html_setup':["HTML Setup", "HTML 设置"],'h3_service_worker_required_f':["Service Worker (Required for PWA)", "Service Worker (Required for PWA)"],'h3_browser_support':["Browser Support", "浏览器支持"],'btn_badge_counter':["Badge Counter", "徽章计数器"],'btn_api_methods':["API Methods", "API 方法"],'btn_favicon_fallback':["Favicon Fallback", "Favicon 回退"],'btn_use_cases':["Use Cases", "使用场景"],'btn_pwa_setup':["PWA Setup", "PWA 设置"],'btn_clear':["Clear", "清空"],'btn_set_badge':["Set Badge", "设置徽章"],'btn_set_flag_no_count':["Set Flag (no count)", "设置标记（无计数）"],'btn_set_badge_1':["Set Badge (1)", "设置徽章（1）"],'btn_set_badge_5':["Set Badge (5)", "设置徽章（5）"],'btn_set_badge_99':["Set Badge (99)", "设置徽章（99）"],'btn_set_flag':["Set Flag", "设置标记"],'btn_clear_2':["Clear", "清空"],'btn_set_favicon_badge':["Set Favicon Badge", "设置 Favicon 徽章"],'btn_clear_favicon_badge':["Clear Favicon Badge", "清除 Favicon 徽章"],'btn_animate':["Animate", "动画"],'btn_animate_2':["Animate", "动画"],'btn_animate_3':["Animate", "动画"],'btn_animate_4':["Animate", "动画"],'strong_none':["None", "None"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_support':["Support", "支持"],'th_notes':["Notes", "备注"],'label_set_specific_count':["Set Specific Count", "设置特定计数"],'label_badge_count':["Badge Count", "徽章计数"],'label_badge_color':["Badge Color", "徽章颜色"],'label_text_color':["Text Color", "文字颜色"],'label_base_icon':["Base Icon", "基础图标"],'jtc_u2705':["\\u2705", "\\u2705"],'jtc_badging_api_is_supported':["Badging API is supported!", "Badging API 受支持！"],'jtc_navigator_setappbadge_and':["navigator.setAppBadge() and navigator.clearBadge() are available.", "navigator.setAppBadge() 和 navigator.clearBadge() 可用。"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_badging_api_is_not_suppor':["Badging API is not supported in this browser", "此浏览器不支持 Badging API"],'jtc_the_visual_demo_and_favic':["The visual demo and favicon fallback still work. Try Chrome 81+ or Edge 84+ for native badge support.", "视觉演示和 favicon 回退仍然有效。使用 Chrome 81+ 或 Edge 84+ 以获得原生徽章支持。"],'jtc_u2022':["\\u2022", "\\u2022"],'jtc_none':["None", "None"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab System ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -841,14 +855,14 @@ const hasBadging = 'setAppBadge' in navigator;
 
   if (hasBadging) {
     banner.classList.add('supported');
-    icon.textContent = '\u2705';
-    title.textContent = 'Badging API is supported!';
-    desc.textContent = 'navigator.setAppBadge() and navigator.clearBadge() are available.';
+    icon.textContent=T("jtc_u2705");
+    title.textContent=T("jtc_badging_api_is_supported");
+    desc.textContent=T("jtc_navigator_setappbadge_and");
   } else {
     banner.classList.add('unsupported');
-    icon.textContent = '\u26A0\uFE0F';
-    title.textContent = 'Badging API is not supported in this browser';
-    desc.textContent = 'The visual demo and favicon fallback still work. Try Chrome 81+ or Edge 84+ for native badge support.';
+    icon.textContent=T("jtc_u26a0_ufe0f");
+    title.textContent=T("jtc_badging_api_is_not_suppor");
+    desc.textContent=T("jtc_the_visual_demo_and_favic");
   }
 })();
 
@@ -914,7 +928,7 @@ document.getElementById('flagBadgeBtn').addEventListener('click', () => {
     dot.classList.add('visible', 'flag-only');
     dot.textContent = '';
   });
-  document.getElementById('counterDisplay').textContent = '\u2022';
+  document.getElementById('counterDisplay').textContent=T("jtc_u2022");
 
   if (hasBadging) {
     navigator.setAppBadge().catch(() => {});
@@ -1073,7 +1087,7 @@ document.getElementById('clearFaviconBadgeBtn').addEventListener('click', () => 
   canvas.height = 64;
   drawFavicon(canvas, 0, '#f44336', '#ffffff', document.getElementById('faviconBase').value);
   document.getElementById('favicon').href = canvas.toDataURL();
-  document.getElementById('currentFaviconBadge').textContent = 'None';
+  document.getElementById('currentFaviconBadge').textContent=T("jtc_none");
 });
 
 // Init previews
@@ -1090,6 +1104,46 @@ async function animateUseCase(badgeId, values) {
   const el = document.getElementById(badgeId);
   if (!el.textContent) el.style.display = 'none';
 }
+</script>
+<script>var _LANG={'title_badging_api_playground':["Badging API Playground", "Badging API 演练场"],'metadesc_interactive_playground_fo':["Interactive playground for the Badging API - set app badges, build badge counters, and explore favicon badge fallbacks.", "Badging API 交互式演练场 — 设置应用徽章、构建徽章计数器及探索 favicon 徽章回退。"],'h1_badging_api_playground':["Badging API Playground", "Badging API 演练场"],'h2_interactive_badge_counter':["Interactive Badge Counter", "交互式徽章计数器"],'h2_badging_api_methods':["Badging API Methods", "Badging API 方法"],'h2_favicon_badge_fallback':["Favicon Badge Fallback", "Favicon 徽章回退"],'h2_real_world_use_cases':["Real-World Use Cases", "实际使用场景"],'h2_pwa_manifest_requirements':["PWA Manifest Requirements", "PWA 清单要求"],'h3_checking_badging_api_supp':["Checking Badging API support...", "正在检查 Badging API 支持..."],'h3_navigator_setappbadge_cou':["navigator.setAppBadge(count)", "navigator.setAppBadge(count)"],'h3_navigator_clearbadge':["navigator.clearBadge()", "navigator.clearBadge()"],'h3_badge_state_visualization':["Badge State Visualization", "徽章状态可视化"],'h3_try_it':["Try It", "试试看"],'h3_implementation_code':["Implementation Code", "实现代码"],'h3_manifest_json':["manifest.json", "manifest.json"],'h3_html_setup':["HTML Setup", "HTML 设置"],'h3_service_worker_required_f':["Service Worker (Required for PWA)", "Service Worker (Required for PWA)"],'h3_browser_support':["Browser Support", "浏览器支持"],'btn_badge_counter':["Badge Counter", "徽章计数器"],'btn_api_methods':["API Methods", "API 方法"],'btn_favicon_fallback':["Favicon Fallback", "Favicon 回退"],'btn_use_cases':["Use Cases", "使用场景"],'btn_pwa_setup':["PWA Setup", "PWA 设置"],'btn_clear':["Clear", "清空"],'btn_set_badge':["Set Badge", "设置徽章"],'btn_set_flag_no_count':["Set Flag (no count)", "设置标记（无计数）"],'btn_set_badge_1':["Set Badge (1)", "设置徽章（1）"],'btn_set_badge_5':["Set Badge (5)", "设置徽章（5）"],'btn_set_badge_99':["Set Badge (99)", "设置徽章（99）"],'btn_set_flag':["Set Flag", "设置标记"],'btn_clear_2':["Clear", "清空"],'btn_set_favicon_badge':["Set Favicon Badge", "设置 Favicon 徽章"],'btn_clear_favicon_badge':["Clear Favicon Badge", "清除 Favicon 徽章"],'btn_animate':["Animate", "动画"],'btn_animate_2':["Animate", "动画"],'btn_animate_3':["Animate", "动画"],'btn_animate_4':["Animate", "动画"],'strong_none':["None", "None"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_support':["Support", "支持"],'th_notes':["Notes", "备注"],'label_set_specific_count':["Set Specific Count", "设置特定计数"],'label_badge_count':["Badge Count", "徽章计数"],'label_badge_color':["Badge Color", "徽章颜色"],'label_text_color':["Text Color", "文字颜色"],'label_base_icon':["Base Icon", "基础图标"],'jtc_u2705':["\\u2705", "\\u2705"],'jtc_badging_api_is_supported':["Badging API is supported!", "Badging API 受支持！"],'jtc_navigator_setappbadge_and':["navigator.setAppBadge() and navigator.clearBadge() are available.", "navigator.setAppBadge() 和 navigator.clearBadge() 可用。"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_badging_api_is_not_suppor':["Badging API is not supported in this browser", "此浏览器不支持 Badging API"],'jtc_the_visual_demo_and_favic':["The visual demo and favicon fallback still work. Try Chrome 81+ or Edge 84+ for native badge support.", "视觉演示和 favicon 回退仍然有效。使用 Chrome 81+ 或 Edge 84+ 以获得原生徽章支持。"],'jtc_u2022':["\\u2022", "\\u2022"],'jtc_none':["None", "None"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

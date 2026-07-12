@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_icon_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,16 +56,18 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Icon Generator</h1>
-<p class="subtitle">Generate app icons in multiple sizes from a single image.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_icon_generator" ti="h1_icon_generator">Icon Generator</h1>
+<p class="subtitle" ti="subtitle_generate_app_icons_in_mul">Generate app icons in multiple sizes from a single image.</p>
 
 <div class="card">
-  <h3>Presets</h3>
+  <h3 ti="h3_presets">Presets</h3>
   <div class="preset-row">
-    <button class="preset-btn" data-preset="pwa" onclick="togglePreset('pwa')">📱 PWA (72-512)</button>
-    <button class="preset-btn" data-preset="android" onclick="togglePreset('android')">🤖 Android (48-512)</button>
-    <button class="preset-btn" data-preset="ios" onclick="togglePreset('ios')">🍎 iOS (20-1024)</button>
+    <button class="preset-btn" data-preset="pwa" onclick="togglePreset('pwa')" ti="btn_pwa_72_512">📱 PWA (72-512)</button>
+    <button class="preset-btn" data-preset="android" onclick="togglePreset('android')" ti="btn_android_48_512">🤖 Android (48-512)</button>
+    <button class="preset-btn" data-preset="ios" onclick="togglePreset('ios')" ti="btn_ios_20_1024">🍎 iOS (20-1024)</button>
   </div>
   
   <div class="opt-row">
@@ -75,16 +77,16 @@ footer a:hover{color:#999}
   
   <div class="checkbox-row">
     <input type="checkbox" id="includeManifest" checked>
-    <label for="includeManifest">Include site.webmanifest (PWA)</label>
+    <label for="includeManifest" ti="label_include_site_webmanifest">Include site.webmanifest (PWA)</label>
   </div>
   
   <div class="label">Selected Sizes</div>
   <div class="size-tags" id="sizeTags"></div>
   
   <div style="display:flex;gap:8px;margin:8px 0">
-    <input id="customSize" type="number" min="16" max="2048" placeholder="Custom size" style="width:120px;flex:none">
-    <button class="btn" onclick="addCustomSize()">Add Size</button>
-    <button class="btn" onclick="clearSizes()">Clear All</button>
+    <input id="customSize" type="number" min="16" max="2048" tp="placeholder_custom_size" placeholder="Custom size" style="width:120px;flex:none">
+    <button class="btn" onclick="addCustomSize()" ti="btn_add_size">Add Size</button>
+    <button class="btn" onclick="clearSizes()" ti="btn_clear_all">Clear All</button>
   </div>
 </div>
 
@@ -99,23 +101,33 @@ footer a:hover{color:#999}
   <div id="previewSection" style="display:none">
     <div class="preview"><img id="previewImg"></div>
     <div class="btn-row" style="justify-content:center">
-      <button class="btn primary" onclick="generateIcons()">Generate Icons</button>
-      <button class="btn green" id="downloadZipBtn" style="display:none" onclick="downloadZip()">⬇ Download ZIP</button>
+      <button class="btn primary" onclick="generateIcons()" ti="btn_generate_icons">Generate Icons</button>
+      <button class="btn green" id="downloadZipBtn" style="display:none" onclick="downloadZip()" ti="btn_download_zip">⬇ Download ZIP</button>
     </div>
   </div>
 </div>
 
 <div class="card" id="resultsCard" style="display:none">
-  <h3>Generated Icons</h3>
+  <h3 ti="h3_generated_icons">Generated Icons</h3>
   <div class="icon-grid" id="iconGrid"></div>
 </div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
+
+<script>var _LANG={'title_icon_generator':["Icon Generator", "图标生成器"],'metadesc_generate_app_icons_in_mul':["Generate app icons in multiple sizes from a single image. PWA, Android, iOS presets. Download as ZIP.", "从单张图片生成多种尺寸的应用图标。支持 PWA、Android 和 iOS 预设。可下载 ZIP 文件。"],'h1_icon_generator':["Icon Generator", "图标生成器"],'h3_presets':["Presets", "预设"],'h3_generated_icons':["Generated Icons", "生成的图标"],'subtitle_generate_app_icons_in_mul':["Generate app icons in multiple sizes from a single image.", "从单张图片生成多种尺寸的应用图标。"],'btn_pwa_72_512':["📱 PWA (72-512)", "📱 PWA (72-512)"],'btn_android_48_512':["🤖 Android (48-512)", "🤖 Android (48-512)"],'btn_ios_20_1024':["🍎 iOS (20-1024)", "🍎 iOS (20-1024)"],'btn_add_size':["Add Size", "增加尺寸"],'btn_clear_all':["Clear All", "全部清除"],'btn_generate_icons':["Generate Icons", "生成图标"],'btn_download_zip':["⬇ Download ZIP", "⬇ 下载 ZIP 文件"],'placeholder_custom_size':["Custom size", "定制尺寸"],'label_include_site_webmanifest':["Include site.webmanifest (PWA)", "包含 site.webmanifest（PWA）"],'link_github':["GitHub", "GitHub"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = {
   pwa: [72, 96, 128, 144, 152, 192, 384, 512],
@@ -283,6 +295,24 @@ async function downloadZip() {
 
 // Default: select PWA preset
 togglePreset('pwa');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

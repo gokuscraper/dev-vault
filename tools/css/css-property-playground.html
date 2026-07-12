@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_property_playground_d" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -254,6 +254,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">@p</span>
@@ -261,13 +263,13 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">Houdini</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="layout">
   <div class="sidebar">
-    <h2>Examples</h2>
+    <h2 ti="h2_examples">Examples</h2>
     <div class="preset-list" id="presetList">
       <button class="preset-btn active" data-preset="gradient">
         <span class="p-icon">G</span>
@@ -295,7 +297,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
       </button>
     </div>
 
-    <h2>Syntax Types</h2>
+    <h2 ti="h2_syntax_types">Syntax Types</h2>
     <div class="syntax-ref">
       <dl>
         <dt><code>&lt;angle&gt;</code></dt><dd>0deg, 45deg, 1turn</dd>
@@ -309,7 +311,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     </div>
 
     <div style="margin-top:16px;">
-      <h2>Browser Support</h2>
+      <h2 ti="h2_browser_support">Browser Support</h2>
       <div class="syntax-ref" style="display:flex;flex-direction:column;gap:4px;">
         <span><span class="tag tag-green">All major browsers</span></span>
         <span style="color:var(--text-dim);font-size:0.75rem;margin-top:4px;">Baseline 2024. Chrome 85+, Firefox 128+, Safari 15.4+</span>
@@ -319,10 +321,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   <div class="center-panel">
     <div class="panel-header">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <div class="btn-group">
-        <button class="btn btn-primary" id="triggerBtn">Trigger</button>
-        <button class="btn btn-outline" id="resetBtn">Reset</button>
+        <button class="btn btn-primary" id="triggerBtn" ti="btn_trigger">Trigger</button>
+        <button class="btn btn-outline" id="resetBtn" ti="btn_reset">Reset</button>
       </div>
     </div>
     <div class="preview-container" id="previewContainer"></div>
@@ -331,13 +333,23 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   <div class="code-panel">
     <div class="panel-header">
-      <h3>Generated CSS</h3>
-      <button class="btn btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
+      <button class="btn btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output"><pre id="codeContent"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_property_playground_d':["CSS @property Playground — Dev Vault", "CSS @property Playground — 开发库"],'metadesc_interactive_css_property':["Interactive CSS @property playground. Create typed custom properties with animation. Gradient angles, color transitions, counters — impossible without @property.", "交互式 CSS @property 示例。创建带动画效果的自定义属性。渐变角度、颜色过渡、计数器——没有 @property 就无法实现。"],'h2_examples':["Examples", "示例"],'h2_syntax_types':["Syntax Types", "语法类型"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_live_preview':["Live Preview", "实时预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'btn_trigger':["Trigger", "扳机"],'btn_reset':["Reset", "重置"],'btn_copy':["Copy", "复制"],'footer_css_property_playground_d':["CSS @property Playground — Dev Vault", "CSS @property Playground — 开发库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const previewContainer = document.getElementById('previewContainer');
@@ -548,13 +560,31 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(presets[currentPreset].css).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 2000);
     });
   });
 
   loadPreset('gradient');
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

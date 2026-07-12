@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_typography_scale_generato" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -70,35 +70,37 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Typography Scale Generator</h1>
-<p class="sub">Create harmonious type scales with modular ratios</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_typography_scale_generato">Typography Scale Generator</h1>
+<p class="sub" ti="subtitle_create_harmonious_type_sc">Create harmonious type scales with modular ratios</p>
 
 <div class="presets">
   <span style="font-size:0.75rem;color:#888;line-height:2;margin-right:4px">Presets:</span>
-  <button class="preset" onclick="applyPreset('blog')">Blog / Article</button>
-  <button class="preset" onclick="applyPreset('dashboard')">Dashboard</button>
-  <button class="preset" onclick="applyPreset('landing')">Landing Page</button>
-  <button class="preset" onclick="applyPreset('docs')">Documentation</button>
+  <button class="preset" onclick="applyPreset('blog')" ti="btn_blog_article">Blog / Article</button>
+  <button class="preset" onclick="applyPreset('dashboard')" ti="btn_dashboard">Dashboard</button>
+  <button class="preset" onclick="applyPreset('landing')" ti="btn_landing_page">Landing Page</button>
+  <button class="preset" onclick="applyPreset('docs')" ti="btn_documentation">Documentation</button>
 </div>
 
 <div class="layout">
   <!-- Left column: Controls + Preview -->
   <div>
     <div class="section">
-      <h3>Scale Settings</h3>
+      <h3 ti="h3_scale_settings">Scale Settings</h3>
       <div class="field-row">
         <div class="field">
-          <label>Base Font Size (px)</label>
+          <label ti="label_base_font_size_px">Base Font Size (px)</label>
           <input type="number" id="baseSize" value="16" min="8" max="48" step="1" oninput="generate()">
         </div>
         <div class="field">
-          <label>Base Line Height</label>
+          <label ti="label_base_line_height">Base Line Height</label>
           <input type="number" id="baseLH" value="1.5" min="1" max="3" step="0.05" oninput="generate()">
         </div>
       </div>
       <div class="field">
-        <label>Scale Ratio</label>
+        <label ti="label_scale_ratio">Scale Ratio</label>
         <select id="ratioSelect" onchange="onRatioChange()">
           <option value="1.067">Minor Second (1.067)</option>
           <option value="1.125">Major Second (1.125)</option>
@@ -113,24 +115,24 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
       </div>
       <div class="custom-ratio-wrap" id="customRatioWrap">
         <div class="field">
-          <label>Custom Ratio</label>
+          <label ti="label_custom_ratio">Custom Ratio</label>
           <input type="number" id="customRatio" value="1.333" min="1.01" max="3" step="0.001" oninput="generate()">
         </div>
       </div>
       <div class="field-row">
         <div class="field">
-          <label>Steps Above Base</label>
+          <label ti="label_steps_above_base">Steps Above Base</label>
           <input type="number" id="stepsAbove" value="6" min="1" max="12" step="1" oninput="generate()">
         </div>
         <div class="field">
-          <label>Steps Below Base</label>
+          <label ti="label_steps_below_base">Steps Below Base</label>
           <input type="number" id="stepsBelow" value="2" min="0" max="6" step="1" oninput="generate()">
         </div>
       </div>
     </div>
 
     <div class="section">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <div class="preview-scroll" id="preview"></div>
     </div>
   </div>
@@ -138,31 +140,41 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
   <!-- Right column: Output + Visualization -->
   <div>
     <div class="section">
-      <h3>Scale Visualization</h3>
+      <h3 ti="h3_scale_visualization">Scale Visualization</h3>
       <div class="chart-wrap" id="chart"></div>
     </div>
 
     <div class="section">
-      <h3>Output</h3>
+      <h3 ti="h3_output">Output</h3>
       <div class="tabs">
-        <button class="tab active" onclick="switchTab('css',this)">CSS Vars</button>
-        <button class="tab" onclick="switchTab('scss',this)">SCSS</button>
-        <button class="tab" onclick="switchTab('tailwind',this)">Tailwind</button>
-        <button class="tab" onclick="switchTab('classes',this)">CSS Classes</button>
+        <button class="tab active" onclick="switchTab('css',this)" ti="btn_css_vars">CSS Vars</button>
+        <button class="tab" onclick="switchTab('scss',this)" ti="btn_scss">SCSS</button>
+        <button class="tab" onclick="switchTab('tailwind',this)" ti="btn_tailwind">Tailwind</button>
+        <button class="tab" onclick="switchTab('classes',this)" ti="btn_css_classes">CSS Classes</button>
       </div>
       <div class="output-area" id="output"></div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="copyOutput()">Copy</button>
+        <button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy">Copy</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/font-pair/">Font Pair</a> | <a href="https://gokuscraper.github.io/dev-vault/font-preview/">Font Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/">Spacing Calc</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/font-pair/" ti="link_font_pair">Font Pair</a> | <a href="https://gokuscraper.github.io/dev-vault/font-preview/" ti="link_font_preview">Font Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" ti="link_spacing_calc">Spacing Calc</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_typography_scale_generato':["Typography Scale Generator — Modular Type Scale for Web", "字体缩放生成器 — 适用于网页的模块化字体缩放工具"],'metadesc_generate_harmonious_typog':["Generate harmonious typography scales. Modular ratios from Minor Second to Golden Ratio. CSS vars, SCSS, Tailwind config. Live preview.", "生成和谐的字体比例。模块化比例，从次小二度到黄金分割。支持 CSS 变量、SCSS 和 Tailwind 配置。提供实时预览。"],'h1_typography_scale_generato':["Typography Scale Generator", "字体缩放生成器"],'h3_scale_settings':["Scale Settings", "缩放设置"],'h3_live_preview':["Live Preview", "实时预览"],'h3_scale_visualization':["Scale Visualization", "尺度可视化"],'h3_output':["Output", "输出"],'subtitle_create_harmonious_type_sc':["Create harmonious type scales with modular ratios", "利用模块化比例创建和谐的字体比例"],'btn_blog_article':["Blog / Article", "博客/文章"],'btn_dashboard':["Dashboard", "仪表板"],'btn_landing_page':["Landing Page", "着陆页"],'btn_documentation':["Documentation", "文档"],'btn_css_vars':["CSS Vars", "CSS变量"],'btn_scss':["SCSS", "SCSS"],'btn_tailwind':["Tailwind", "顺风"],'btn_css_classes':["CSS Classes", "CSS类"],'btn_copy':["Copy", "复制"],'label_d_name':["${d.name}", "${d.name}"],'label_base_font_size_px':["Base Font Size (px)", "基本字体大小（像素）"],'label_base_line_height':["Base Line Height", "基线高度"],'label_scale_ratio':["Scale Ratio", "比例尺"],'label_custom_ratio':["Custom Ratio", "自定义比例"],'label_steps_above_base':["Steps Above Base", "高于基座的台阶"],'label_steps_below_base':["Steps Below Base", "基座以下的台阶"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_font_pair':["Font Pair", "字体对"],'link_font_preview':["Font Preview", "字体预览"],'link_spacing_calc':["Spacing Calc", "间距计算"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const NAMES_ABOVE = ['base','lg','xl','2xl','3xl','4xl','5xl','6xl','7xl','8xl','9xl','10xl','11xl'];
 const NAMES_BELOW = ['sm','xs','2xs','3xs','4xs','5xs','6xs'];
@@ -256,7 +268,7 @@ function renderChart() {
     const h = Math.max((d.px / maxPx) * 180, 4);
     const cls = d.step === 0 ? ' base-bar' : '';
     return `<div class="chart-bar${cls}" style="height:${h}px" title="${d.name}: ${d.px.toFixed(1)}px">
-      <span class="bar-label">${d.name}</span>
+      <span class="bar-label" ti="label_d_name">${d.name}</span>
     </div>`;
   }).join('');
 }
@@ -347,6 +359,24 @@ function applyPreset(name) {
 }
 
 generate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

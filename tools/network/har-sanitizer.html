@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_har_sanitizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,9 +45,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>HAR Sanitizer</h1>
-<p class="subtitle">Remove sensitive information from HAR files before sharing.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_har_sanitizer" ti="h1_har_sanitizer">HAR Sanitizer</h1>
+<p class="subtitle" ti="subtitle_remove_sensitive_informat">Remove sensitive information from HAR files before sharing.</p>
 
 <div class="card">
   <div class="upload-zone" id="uploadZone" onclick="document.getElementById('fileInput').click()">
@@ -63,7 +65,7 @@ footer a:hover{color:#999}
     <div id="itemsContainer"></div>
     
     <div class="btn-row">
-      <button class="btn primary" onclick="sanitizeAndDownload()">🛡 Sanitize & Download</button>
+      <button class="btn primary" onclick="sanitizeAndDownload()" ti="btn_sanitize_download">🛡 Sanitize & Download</button>
     </div>
   </div>
   
@@ -75,10 +77,20 @@ footer a:hover{color:#999}
 <div class="info-text">HAR files can contain sensitive data like cookies, auth tokens, and passwords. This tool helps you redact them before sharing.</div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_har_sanitizer':["HAR Sanitizer", "HAR消毒剂"],'metadesc_sanitize_har_files_by_rem':["Sanitize HAR files by removing sensitive cookies, headers, query parameters, and POST body params. Free browser tool.", "通过移除敏感的 cookie、标头、查询参数和 POST 请求体参数来清理 HAR 文件。免费浏览器工具。"],'h1_har_sanitizer':["HAR Sanitizer", "HAR消毒剂"],'subtitle_remove_sensitive_informat':["Remove sensitive information from HAR files before sharing.", "分享HAR文件前，请先移除敏感信息。"],'btn_sanitize_download':["🛡 Sanitize & Download", "🛡 消毒并下载"],'link_github':["GitHub", "GitHub"],'jtc_select_all':["☐ Select All", "☐ 全选"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const defaultSensitiveItems = [
   'Authorization', 'authorization', 'Cookie', 'cookie', 'Set-Cookie',
@@ -212,7 +224,7 @@ function renderItems() {
     
     const selectAll = document.createElement('span');
     selectAll.className = 'select-all';
-    selectAll.textContent = '☐ Select All';
+    selectAll.textContent=T("jtc_select_all");
     selectAll.onclick = function() {
       const allChecked = items.every(i => checkedItems[group.key][i]);
       items.forEach(i => { checkedItems[group.key][i] = !allChecked; });
@@ -315,6 +327,24 @@ const zone = document.getElementById('uploadZone');
 zone.addEventListener('dragover', e => { e.preventDefault(); zone.classList.add('dragover'); });
 zone.addEventListener('dragleave', () => zone.classList.remove('dragover'));
 zone.addEventListener('drop', e => { e.preventDefault(); zone.classList.remove('dragover'); loadFile(e.dataTransfer.files[0]); });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mermaid_exporter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -35,9 +35,15 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Mermaid Exporter</h1>
-<p class="subtitle">Render Mermaid diagrams and export as SVG, PNG, or JPG.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_mermaid_exporter" ti="h1_mermaid_exporter" ti="title_mermaid_exporter" ti="h1_mermaid_exporter" ti="title_mermaid_exporter" ti="h1_mermaid_exporter">Mermaid Exporter</h1>
+<p class="subtitle" ti="subtitle_render_mermaid_diagrams_a" ti="subtitle_render_mermaid_diagrams_a" ti="subtitle_render_mermaid_diagrams_a">Render Mermaid diagrams and export as SVG, PNG, or JPG.</p>
 
 <div class="card">
   <textarea id="mermaidInput" oninput="renderDiagram()">graph TD
@@ -51,18 +57,38 @@ B -- No --> D[Fix it!]</textarea>
   </div>
   
   <div class="btn-row">
-    <button class="btn primary" onclick="exportSvg()">Export SVG</button>
-    <button class="btn" onclick="exportPng()">Export PNG</button>
-    <button class="btn" onclick="exportJpg()">Export JPG</button>
+    <button class="btn primary" onclick="exportSvg()" ti="btn_export_svg" ti="btn_export_svg" ti="btn_export_svg">Export SVG</button>
+    <button class="btn" onclick="exportPng()" ti="btn_export_png" ti="btn_export_png" ti="btn_export_png">Export PNG</button>
+    <button class="btn" onclick="exportJpg()" ti="btn_export_jpg" ti="btn_export_jpg" ti="btn_export_jpg">Export JPG</button>
   </div>
 </div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github" ti="link_github" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_mermaid_exporter':["Mermaid Exporter", "美人鱼出口商"],'metadesc_render_mermaid_diagrams_a':["Render Mermaid diagrams and export as SVG, PNG, or JPG. Free browser tool.", "渲染美人鱼图案并导出为 SVG、PNG 或 JPG 格式。免费浏览器工具。"],'h1_mermaid_exporter':["Mermaid Exporter", "美人鱼出口商"],'subtitle_render_mermaid_diagrams_a':["Render Mermaid diagrams and export as SVG, PNG, or JPG.", "渲染美人鱼图并导出为 SVG、PNG 或 JPG 格式。"],'btn_export_svg':["Export SVG", "导出 SVG"],'btn_export_png':["Export PNG", "导出PNG"],'btn_export_jpg':["Export JPG", "导出 JPG"],'link_github':["GitHub", "GitHub"],'jtc_invalid_mermaid_syntax':["Invalid Mermaid syntax:", "无效的美人鱼语法："],'jtcpre_invalid_mermaid_syntax':["Invalid Mermaid syntax: ", "无效的美人鱼语法："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+
+<script>var _LANG={'title_mermaid_exporter':["Mermaid Exporter", "美人鱼出口商"],'metadesc_render_mermaid_diagrams_a':["Render Mermaid diagrams and export as SVG, PNG, or JPG. Free browser tool.", "渲染美人鱼图案并导出为 SVG、PNG 或 JPG 格式。免费浏览器工具。"],'h1_mermaid_exporter':["Mermaid Exporter", "美人鱼出口商"],'subtitle_render_mermaid_diagrams_a':["Render Mermaid diagrams and export as SVG, PNG, or JPG.", "渲染美人鱼图并导出为 SVG、PNG 或 JPG 格式。"],'btn_export_svg':["Export SVG", "导出 SVG"],'btn_export_png':["Export PNG", "导出PNG"],'btn_export_jpg':["Export JPG", "导出 JPG"],'link_github':["GitHub", "GitHub"],'jtc_invalid_mermaid_syntax':["Invalid Mermaid syntax:", "无效的美人鱼语法："],'jtcpre_invalid_mermaid_syntax':["Invalid Mermaid syntax: ", "无效的美人鱼语法："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 mermaid.initialize({ startOnLoad: false, theme: 'default' });
 
@@ -82,7 +108,7 @@ async function renderDiagram() {
     currentSvg = svg;
     error.style.display = 'none';
   } catch(e) {
-    error.textContent = 'Invalid Mermaid syntax: ' + (e.message || e.str || e);
+    error.textContent=T("jtcpre_invalid_mermaid_syntax")+ (e.message || e.str || e);
     error.style.display = 'block';
     currentSvg = '';
   }
@@ -142,6 +168,60 @@ function download(data, filename, mime) {
 }
 
 renderDiagram();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

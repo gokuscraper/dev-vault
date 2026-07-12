@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_async_await_execution_vis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -95,26 +95,28 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>Async/Await Execution Visualizer</h1>
+<h1 ti="title_async_await_execution_vis" ti="h1_async_await_execution_vis">Async/Await Execution Visualizer</h1>
 <p>Watch async functions suspend at await, promises resolve, and microtasks drain — step by step</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" data-tab="visualizer">Visualizer</button>
-<button class="tab" data-tab="desugar">Desugar</button>
-<button class="tab" data-tab="presets">Presets</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="visualizer" ti="btn_visualizer">Visualizer</button>
+<button class="tab" data-tab="desugar" ti="btn_desugar">Desugar</button>
+<button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+<button class="tab" data-tab="reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="visualizer">
 <div class="controls">
-<button class="btn success" id="runBtn">▶ Run</button>
-<button class="btn" id="stepBtn">⏭ Step</button>
-<button class="btn danger" id="resetBtn">↺ Reset</button>
+<button class="btn success" id="runBtn" ti="btn_run">▶ Run</button>
+<button class="btn" id="stepBtn" ti="btn_step">⏭ Step</button>
+<button class="btn danger" id="resetBtn" ti="btn_reset">↺ Reset</button>
 <div class="speed-control">
-<label>Speed:</label>
+<label ti="label_speed">Speed:</label>
 <input type="range" id="speed" min="200" max="2000" value="800" step="100">
 <span id="speedLabel">800ms</span>
 </div>
@@ -122,7 +124,7 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 
 <div class="split">
 <div class="code-panel">
-<h3>Code</h3>
+<h3 ti="h3_code">Code</h3>
 <textarea id="codeInput">async function fetchUser() {
   console.log('1: start fetchUser');
   const data = await fetch('/user');
@@ -194,7 +196,7 @@ console.log('B: after call');
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>How async/await Works</h3>
+<h3 ti="h3_how_async_await_works">How async/await Works</h3>
 <ul>
 <li><code>async function</code> always returns a Promise</li>
 <li><code>await expr</code> wraps <code>expr</code> in <code>Promise.resolve()</code> and suspends the function</li>
@@ -203,7 +205,7 @@ console.log('B: after call');
 </ul>
 </div>
 <div class="ref-section">
-<h3>Execution Order Rules</h3>
+<h3 ti="h3_execution_order_rules">Execution Order Rules</h3>
 <ul>
 <li>Synchronous code runs to completion first</li>
 <li>Microtasks (Promise callbacks, <code>await</code> continuations) drain between each macrotask</li>
@@ -212,7 +214,7 @@ console.log('B: after call');
 </ul>
 </div>
 <div class="ref-section">
-<h3>Common Gotchas</h3>
+<h3 ti="h3_common_gotchas">Common Gotchas</h3>
 <ul>
 <li><code>await</code> in a loop = sequential execution. Use <code>Promise.all()</code> for parallel.</li>
 <li>Forgetting <code>await</code> = fire-and-forget. The promise runs but errors are swallowed.</li>
@@ -221,17 +223,27 @@ console.log('B: after call');
 </ul>
 </div>
 <div class="ref-section">
-<h3>Promise States</h3>
+<h3 ti="h3_promise_states">Promise States</h3>
 <ul>
-<li><strong>Pending</strong>: Initial state, not yet settled</li>
-<li><strong>Fulfilled</strong>: Operation completed successfully</li>
-<li><strong>Rejected</strong>: Operation failed with an error</li>
+<li><strong ti="strong_pending">Pending</strong>: Initial state, not yet settled</li>
+<li><strong ti="strong_fulfilled">Fulfilled</strong>: Operation completed successfully</li>
+<li><strong ti="strong_rejected">Rejected</strong>: Operation failed with an error</li>
 <li>Once settled, a promise never changes state again</li>
 </ul>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_async_await_execution_vis':["Async/Await Execution Visualizer", "异步/等待执行可视化工具"],'metadesc_interactive_async_await_a':["Interactive async/await and Promise execution visualizer. See how async functions desugar to promises. Watch microtask queue, promise states, and await suspension step by step.", "交互式 async/await 和 Promise 执行可视化工具。查看异步函数如何脱糖为 Promise。逐步观察微任务队列、Promise 状态和 await 挂起过程。"],'h1_async_await_execution_vis':["Async/Await Execution Visualizer", "异步/等待执行可视化工具"],'h3_code':["Code", "代码"],'h3_how_async_await_works':["How async/await Works", "async/await 的工作原理"],'h3_execution_order_rules':["Execution Order Rules", "执行顺序规则"],'h3_common_gotchas':["Common Gotchas", "常见陷阱"],'h3_promise_states':["Promise States", "应许之州"],'btn_visualizer':["Visualizer", "可视化工具"],'btn_desugar':["Desugar", "脱糖"],'btn_presets':["Presets", "预设"],'btn_reference':["Reference", "参考"],'btn_run':["▶ Run", "▶ 跑"],'btn_step':["⏭ Step", "⏭ 步骤"],'btn_reset':["↺ Reset", "↺ 重置"],'strong_pending':["Pending", "待办的"],'strong_fulfilled':["Fulfilled", "已完成"],'strong_rejected':["Rejected", "已拒绝"],'label_speed':["Speed:", "速度："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -507,6 +519,24 @@ PRESETS.forEach(p => {
   });
   presetGrid.appendChild(card);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_minifier" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -367,16 +367,18 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
+  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
   <span class="header-title">JS Minifier</span>
 </header>
 
 <div class="controls">
   <div class="mode-toggle">
-    <button class="mode-btn active" id="btn-minify" onclick="setMode('minify')">Minify</button>
-    <button class="mode-btn" id="btn-beautify" onclick="setMode('beautify')">Beautify</button>
+    <button class="mode-btn active" id="btn-minify" onclick="setMode('minify')" ti="btn_minify">Minify</button>
+    <button class="mode-btn" id="btn-beautify" onclick="setMode('beautify')" ti="btn_beautify">Beautify</button>
   </div>
 
   <div class="separator"></div>
@@ -393,7 +395,7 @@
   </div>
 
   <div id="beautify-options" class="option-group" style="display:none;gap:12px;flex-wrap:wrap;">
-    <span class="indent-label">Indent:</span>
+    <span class="indent-label" ti="label_indent">Indent:</span>
     <select class="indent-select" id="opt-indent" onchange="scheduleProcess()">
       <option value="2">2 spaces</option>
       <option value="4">4 spaces</option>
@@ -402,24 +404,24 @@
   </div>
 
   <div class="samples-group">
-    <span class="samples-label">Samples:</span>
-    <button class="sample-btn" onclick="loadSample('es6')">ES6 Module</button>
-    <button class="sample-btn" onclick="loadSample('react')">React Component</button>
-    <button class="sample-btn" onclick="loadSample('node')">Node.js Server</button>
+    <span class="samples-label" ti="label_samples">Samples:</span>
+    <button class="sample-btn" onclick="loadSample('es6')" ti="btn_es6_module">ES6 Module</button>
+    <button class="sample-btn" onclick="loadSample('react')" ti="btn_react_component">React Component</button>
+    <button class="sample-btn" onclick="loadSample('node')" ti="btn_node_js_server">Node.js Server</button>
   </div>
 </div>
 
 <div class="main">
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-label">Input</span>
+      <span class="panel-label" ti="label_input">Input</span>
       <div class="panel-actions">
-        <button class="action-btn" onclick="clearInput()">Clear</button>
+        <button class="action-btn" onclick="clearInput()" ti="btn_clear">Clear</button>
       </div>
     </div>
     <textarea
       id="input"
-      placeholder="Paste your JavaScript here..."
+      tp="placeholder_paste_your_javascript_her" placeholder="Paste your JavaScript here..."
       spellcheck="false"
       autocomplete="off"
       oninput="scheduleProcess()"
@@ -428,10 +430,10 @@
 
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-label">Output</span>
+      <span class="panel-label" ti="label_output">Output</span>
       <div class="panel-actions">
-        <button class="action-btn" id="btn-copy" onclick="copyOutput()">Copy</button>
-        <button class="action-btn" onclick="downloadOutput()">Download</button>
+        <button class="action-btn" id="btn-copy" onclick="copyOutput()" ti="btn_copy">Copy</button>
+        <button class="action-btn" onclick="downloadOutput()" ti="btn_download">Download</button>
       </div>
     </div>
     <div class="output-area" id="output">
@@ -442,26 +444,36 @@
 
 <div class="stats-bar" id="stats-bar">
   <div class="stat-item">
-    <span class="stat-label">Original:</span>
+    <span class="stat-label" ti="label_original">Original:</span>
     <span class="stat-value" id="stat-original">—</span>
   </div>
   <div class="stat-separator"></div>
   <div class="stat-item">
-    <span class="stat-label">Output:</span>
+    <span class="stat-label" ti="label_output_2">Output:</span>
     <span class="stat-value" id="stat-output">—</span>
   </div>
   <div class="stat-separator"></div>
   <div class="stat-item">
-    <span class="stat-label">Savings:</span>
+    <span class="stat-label" ti="label_savings">Savings:</span>
     <span class="stat-value" id="stat-savings">—</span>
   </div>
   <div class="stat-separator"></div>
   <div class="stat-item">
-    <span class="stat-label">Lines:</span>
+    <span class="stat-label" ti="label_lines">Lines:</span>
     <span class="stat-value" id="stat-lines">—</span>
   </div>
 </div>
 
+
+<script>var _LANG={'title_js_minifier':["JS Minifier", "JS压缩器"],'metadesc_minify_javascript_in_your':["Minify JavaScript in your browser. Strip whitespace, comments, and shorten variable names to reduce bundle size. No server upload needed.", "在浏览器中压缩 JavaScript 代码。去除空格、注释并缩短变量名，以减小压缩包大小。无需上传到服务器。"],'h2_displayname':["{displayName}", "{displayName}"],'btn_minify':["Minify", "缩小"],'btn_beautify':["Beautify", "美化"],'btn_es6_module':["ES6 Module", "ES6 模块"],'btn_react_component':["React Component", "React 组件"],'btn_node_js_server':["Node.js Server", "Node.js 服务器"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_setisediting_true_edit_pr':["setIsEditing(true)}>Edit Profile", "setIsEditing(true)}&gt;编辑个人资料"],'label_indent':["Indent:", "缩进："],'label_samples':["Samples:", "示例："],'label_input':["Input", "输入"],'label_output':["Output", "输出"],'label_original':["Original:", "原来的："],'label_output_2':["Output:", "输出："],'label_savings':["Savings:", "节省："],'label_lines':["Lines:", "行数："],'placeholder_paste_your_javascript_her':["Paste your JavaScript here...", "请在此处粘贴您的 JavaScript 代码……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_0_bytes_0':["0 bytes (0%)", "0 字节 (0%)"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───────────────────────────────────────────────────────────────────
 let currentMode = 'minify';
@@ -556,7 +568,7 @@ function updateStats(input, output) {
     savEl.textContent = `+${formatBytes(Math.abs(savedBytes))} (${Math.abs(savedPct)}%)`;
     savEl.className = 'stat-value yellow';
   } else {
-    savEl.textContent = '0 bytes (0%)';
+    savEl.textContent=T("jtc_0_bytes_0");
     savEl.className = 'stat-value';
   }
 
@@ -996,7 +1008,7 @@ function copyOutput() {
   navigator.clipboard.writeText(currentOutput).then(() => {
     const btn = document.getElementById('btn-copy');
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('success');
     setTimeout(() => {
       btn.textContent = orig;
@@ -1145,11 +1157,11 @@ function UserProfile({ userId, onUpdate }) {
         alt={displayName}
         className="avatar"
       />
-      <h2>{displayName}</h2>
+      <h2 ti="h2_displayname">{displayName}</h2>
       {isEditing ? (
         <EditForm user={user} onSave={handleSave} onCancel={() => setIsEditing(false)} />
       ) : (
-        <button onClick={() => setIsEditing(true)}>Edit Profile</button>
+        <button onClick={() = ti="btn_setisediting_true_edit_pr"> setIsEditing(true)}>Edit Profile</button>
       )}
     </div>
   );
@@ -1266,12 +1278,30 @@ function loadSample(name) {
 </script>
 
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_reading_time_calculator_e" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,14 +51,16 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>Reading Time Calculator</h1>
-<p class="subtitle">Estimate read duration, speaking time, and readability for any text</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="h1_reading_time_calculator">Reading Time Calculator</h1>
+<p class="subtitle" ti="subtitle_estimate_read_duration_sp">Estimate read duration, speaking time, and readability for any text</p>
 
 <div class="card">
-<textarea id="input" placeholder="Paste your article, blog post, or any text here..."></textarea>
+<textarea id="input" tp="placeholder_paste_your_article_blog_p" placeholder="Paste your article, blog post, or any text here..."></textarea>
 <div class="controls">
 <div class="slider-wrap">
-<label for="wpm">Reading speed:</label>
+<label for="wpm" ti="label_reading_speed">Reading speed:</label>
 <input type="range" id="wpm" min="100" max="400" value="238">
 <span class="wpm-val"><span id="wpmVal">238</span> WPM</span>
 </div>
@@ -68,34 +70,44 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <div class="card">
-<h2>Results</h2>
+<h2 ti="h2_results">Results</h2>
 <div class="grid" id="stats"></div>
 </div>
 
 <div class="card">
-<h2>Complexity Analysis</h2>
+<h2 ti="h2_complexity_analysis">Complexity Analysis</h2>
 <div class="complexity" id="complexity"></div>
 </div>
 
 <div class="card">
-<h2>Content Breakdown</h2>
+<h2 ti="h2_content_breakdown">Content Breakdown</h2>
 <div class="breakdown" id="breakdown"></div>
 </div>
 
 <div class="card">
-<h2>Reading Badge</h2>
+<h2 ti="h2_reading_badge">Reading Badge</h2>
 <div class="badge-row">
 <span class="badge-preview" id="badge"></span>
-<button class="btn" id="copyBtn" onclick="copyBadge()">Copy Badge</button>
+<button class="btn" id="copyBtn" onclick="copyBadge()" ti="btn_copy_badge">Copy Badge</button>
 <span class="copied" id="copied">Copied!</span>
 </div>
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/">word-count</a> · <a href="https://gokuscraper.github.io/dev-vault/char-count/">char-count</a> · <a href="https://gokuscraper.github.io/dev-vault/text-transform/">text-transform</a></div>
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count">word-count</a> · <a href="https://gokuscraper.github.io/dev-vault/char-count/" ti="link_char_count">char-count</a> · <a href="https://gokuscraper.github.io/dev-vault/text-transform/" ti="link_text_transform">text-transform</a></div>
 </footer>
 
+
+<script>var _LANG={'title_reading_time_calculator_e':["Reading Time Calculator — Estimate Read Duration", "阅读时间计算器——预估阅读时长"],'metadesc_estimate_reading_time_spe':["Estimate reading time, speaking time, word count, and readability scores for any text. Supports Markdown/HTML stripping and complexity analysis.", "估算任何文本的阅读时间、朗读时间、字数和可读性评分。支持 Markdown/HTML 代码剥离和复杂度分析。"],'h1_reading_time_calculator':["Reading Time Calculator", "阅读时间计算器"],'h2_results':["Results", "结果"],'h2_complexity_analysis':["Complexity Analysis", "复杂性分析"],'h2_content_breakdown':["Content Breakdown", "内容细分"],'h2_reading_badge':["Reading Badge", "阅读徽章"],'subtitle_estimate_read_duration_sp':["Estimate read duration, speaking time, and readability for any text", "估算任何文本的阅读时长、朗读时长和可读性"],'btn_copy_badge':["Copy Badge", "复制徽章"],'placeholder_paste_your_article_blog_p':["Paste your article, blog post, or any text here...", "请将您的文章、博客帖子或任何文本粘贴到此处……"],'label_reading_speed':["Reading speed:", "阅读速度："],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_word_count':["word-count", "字数统计"],'link_char_count':["char-count", "字符数"],'link_text_transform':["text-transform", "文本转换"],'jtc_paste_text_to_generate_ba':["Paste text to generate badge", "粘贴文本以生成徽章"],'jtlword_words':["Words", "字"],'jtlword_characters':["Characters", "人物"],'jtlword_sentences':["Sentences", "句子"],'jtlword_paragraphs':["Paragraphs", "段落"],'jtlword_words_2':["Words", "字"],'jtlword_characters_2':["Characters", "人物"],'jtlword_sentences_2':["Sentences", "句子"],'jtlword_paragraphs_2':["Paragraphs", "段落"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const input=document.getElementById('input'),wpmSlider=document.getElementById('wpm'),wpmVal=document.getElementById('wpmVal'),stripMd=document.getElementById('stripMd'),stripHtml=document.getElementById('stripHtml');
 
@@ -188,7 +200,7 @@ function render(){
     statsEl.innerHTML=`<div class="stat ${e}"><div class="value">--</div><div class="label">Reading Time</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Speaking Time</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Words</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Characters</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Chars (no spaces)</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Sentences</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Paragraphs</div></div><div class="stat ${e}"><div class="value">--</div><div class="label">Avg Word Length</div></div>`;
     compEl.innerHTML=`<div class="item"><div class="score" style="color:#555">--</div><div class="desc">Flesch Reading Ease</div></div><div class="item"><div class="score" style="color:#555">--</div><div class="desc">Flesch-Kincaid Grade</div></div>`;
     breakEl.innerHTML='';
-    badgeEl.textContent='Paste text to generate badge';
+    badgeEl.textContent=T("jtc_paste_text_to_generate_ba");
     return;
   }
 
@@ -241,6 +253,24 @@ wpmSlider.addEventListener('input',render);
 stripMd.addEventListener('change',render);
 stripHtml.addEventListener('change',render);
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cron_expression_builder_v" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,9 +50,17 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Cron Expression Builder</h1>
-<p class="sub">Build crontab schedules visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_cron_expression_builder" ti="h1_cron_expression_builder" ti="h1_cron_expression_builder" ti="h1_cron_expression_builder">Cron Expression Builder</h1>
+<p class="sub" ti="subtitle_build_crontab_schedules_v" ti="subtitle_build_crontab_schedules_v" ti="subtitle_build_crontab_schedules_v" ti="subtitle_build_crontab_schedules_v">Build crontab schedules visually</p>
 
 <div class="presets" id="presetBtns"></div>
 
@@ -62,7 +70,7 @@ input:focus,select:focus{border-color:#3b82f6}
 </div>
 
 <div class="section">
-<h3>Fields</h3>
+<h3 ti="h3_fields" ti="h3_fields" ti="h3_fields" ti="h3_fields">Fields</h3>
 <div class="field-grid">
 <div class="field-box"><div class="flabel">Minute</div><input id="f0" value="*" oninput="update()"></div>
 <div class="field-box"><div class="flabel">Hour</div><input id="f1" value="*" oninput="update()"></div>
@@ -71,7 +79,7 @@ input:focus,select:focus{border-color:#3b82f6}
 <div class="field-box"><div class="flabel">Weekday</div><input id="f4" value="*" oninput="update()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Quick set: Minute</label><select onchange="document.getElementById('f0').value=this.value;update()">
+<div class="col"><label ti="label_quick_set_minute" ti="label_quick_set_minute" ti="label_quick_set_minute" ti="label_quick_set_minute">Quick set: Minute</label><select onchange="document.getElementById('f0').value=this.value;update()">
 <option value="*">Every minute (*)</option>
 <option value="0">:00</option>
 <option value="15">:15</option>
@@ -82,7 +90,7 @@ input:focus,select:focus{border-color:#3b82f6}
 <option value="*/15">Every 15 min</option>
 <option value="*/30">Every 30 min</option>
 </select></div>
-<div class="col"><label>Quick set: Hour</label><select onchange="document.getElementById('f1').value=this.value;update()">
+<div class="col"><label ti="label_quick_set_hour" ti="label_quick_set_hour" ti="label_quick_set_hour" ti="label_quick_set_hour">Quick set: Hour</label><select onchange="document.getElementById('f1').value=this.value;update()">
 <option value="*">Every hour (*)</option>
 <option value="0">0 (midnight)</option>
 <option value="6">6 AM</option>
@@ -95,18 +103,18 @@ input:focus,select:focus{border-color:#3b82f6}
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>Quick set: Day of Month</label><select onchange="document.getElementById('f2').value=this.value;update()">
+<div class="col"><label ti="label_quick_set_day_of_month" ti="label_quick_set_day_of_month" ti="label_quick_set_day_of_month" ti="label_quick_set_day_of_month">Quick set: Day of Month</label><select onchange="document.getElementById('f2').value=this.value;update()">
 <option value="*">Every day (*)</option>
 <option value="1">1st</option>
 <option value="15">15th</option>
 <option value="1,15">1st & 15th</option>
 </select></div>
-<div class="col"><label>Quick set: Month</label><select onchange="document.getElementById('f3').value=this.value;update()">
+<div class="col"><label ti="label_quick_set_month" ti="label_quick_set_month" ti="label_quick_set_month" ti="label_quick_set_month">Quick set: Month</label><select onchange="document.getElementById('f3').value=this.value;update()">
 <option value="*">Every month (*)</option>
 <option value="1">January</option>
 <option value="1,4,7,10">Quarterly</option>
 </select></div>
-<div class="col"><label>Quick set: Weekday</label><select onchange="document.getElementById('f4').value=this.value;update()">
+<div class="col"><label ti="label_quick_set_weekday" ti="label_quick_set_weekday" ti="label_quick_set_weekday" ti="label_quick_set_weekday">Quick set: Weekday</label><select onchange="document.getElementById('f4').value=this.value;update()">
 <option value="*">Every day (*)</option>
 <option value="1-5">Mon-Fri</option>
 <option value="0,6">Sat-Sun</option>
@@ -121,15 +129,45 @@ input:focus,select:focus{border-color:#3b82f6}
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/">GH Actions Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/dependabot-gen/">Dependabot Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen" ti="link_gh_actions_gen">GH Actions Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/" ti="link_dockerfile_gen" ti="link_dockerfile_gen" ti="link_dockerfile_gen" ti="link_dockerfile_gen">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/dependabot-gen/" ti="link_dependabot_gen" ti="link_dependabot_gen" ti="link_dependabot_gen" ti="link_dependabot_gen">Dependabot Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+
+<script>var _LANG={'title_cron_expression_builder_v':["Cron Expression Builder — Visual Crontab Generator", "Cron 表达式生成器 — 可视化 Crontab 生成器"],'metadesc_build_cron_expressions_vi':["Build cron expressions visually. See next 5 run times. Human-readable explanation. Presets for common schedules. No signup.", "以可视化方式构建 cron 表达式。查看接下来 5 次运行时间。提供易于理解的解释。预设常用计划任务。无需注册。"],'h1_cron_expression_builder':["Cron Expression Builder", "定时任务表达式生成器"],'h3_fields':["Fields", "田野"],'subtitle_build_crontab_schedules_v':["Build crontab schedules visually", "以可视化方式构建 crontab 计划任务"],'btn_copy':["Copy", "复制"],'label_quick_set_minute':["Quick set: Minute", "快速设置：分钟"],'label_quick_set_hour':["Quick set: Hour", "快速设置：小时"],'label_quick_set_day_of_month':["Quick set: Day of Month", "快速设置：月份中的日期"],'label_quick_set_month':["Quick set: Month", "快速设置：月份"],'label_quick_set_weekday':["Quick set: Weekday", "快速设置：工作日"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_dependabot_gen':["Dependabot Gen", "Dependabot Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cron_expression_builder_v':["Cron Expression Builder — Visual Crontab Generator", "Cron 表达式生成器 — 可视化 Crontab 生成器"],'metadesc_build_cron_expressions_vi':["Build cron expressions visually. See next 5 run times. Human-readable explanation. Presets for common schedules. No signup.", "以可视化方式构建 cron 表达式。查看接下来 5 次运行时间。提供易于理解的解释。预设常用计划任务。无需注册。"],'h1_cron_expression_builder':["Cron Expression Builder", "定时任务表达式生成器"],'h3_fields':["Fields", "田野"],'subtitle_build_crontab_schedules_v':["Build crontab schedules visually", "以可视化方式构建 crontab 计划任务"],'btn_copy':["Copy", "复制"],'label_quick_set_minute':["Quick set: Minute", "快速设置：分钟"],'label_quick_set_hour':["Quick set: Hour", "快速设置：小时"],'label_quick_set_day_of_month':["Quick set: Day of Month", "快速设置：月份中的日期"],'label_quick_set_month':["Quick set: Month", "快速设置：月份"],'label_quick_set_weekday':["Quick set: Weekday", "快速设置：工作日"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_dependabot_gen':["Dependabot Gen", "Dependabot Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cron_expression_builder_v':["Cron Expression Builder — Visual Crontab Generator", "Cron 表达式生成器 — 可视化 Crontab 生成器"],'metadesc_build_cron_expressions_vi':["Build cron expressions visually. See next 5 run times. Human-readable explanation. Presets for common schedules. No signup.", "以可视化方式构建 cron 表达式。查看接下来 5 次运行时间。提供易于理解的解释。预设常用计划任务。无需注册。"],'h1_cron_expression_builder':["Cron Expression Builder", "定时任务表达式生成器"],'h3_fields':["Fields", "田野"],'subtitle_build_crontab_schedules_v':["Build crontab schedules visually", "以可视化方式构建 crontab 计划任务"],'btn_copy':["Copy", "复制"],'label_quick_set_minute':["Quick set: Minute", "快速设置：分钟"],'label_quick_set_hour':["Quick set: Hour", "快速设置：小时"],'label_quick_set_day_of_month':["Quick set: Day of Month", "快速设置：月份中的日期"],'label_quick_set_month':["Quick set: Month", "快速设置：月份"],'label_quick_set_weekday':["Quick set: Weekday", "快速设置：工作日"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_dependabot_gen':["Dependabot Gen", "Dependabot Gen"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS=[
   {name:'Every minute',v:['*','*','*','*','*']},
@@ -298,6 +336,78 @@ function copyOut(){
 
 initPresets();
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

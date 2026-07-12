@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_zoom_property_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -611,6 +611,8 @@ select:focus { border-color: var(--accent); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1>
@@ -622,21 +624,21 @@ select:focus { border-color: var(--accent); }
     </span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
-    <a href="https://github.com/gokuscraper/css-zoom-property">GitHub</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a>
+    <a href="https://github.com/gokuscraper/css-zoom-property" ti="link_github">GitHub</a>
   </div>
 </header>
 
 <nav class="nav" id="nav">
-  <button class="nav-btn active" data-target="basic">Basic Demo</button>
-  <button class="nav-btn" data-target="comparison">zoom vs scale()</button>
-  <button class="nav-btn" data-target="responsive">Responsive Zoom</button>
-  <button class="nav-btn" data-target="pagezoom">Page Zoom</button>
-  <button class="nav-btn" data-target="nested">Nested Zoom</button>
-  <button class="nav-btn" data-target="print">Print Zoom</button>
-  <button class="nav-btn" data-target="calculator">Calculator</button>
-  <button class="nav-btn" data-target="codegen">Code Generator</button>
-  <button class="nav-btn" data-target="compat">Browser Support</button>
+  <button class="nav-btn active" data-target="basic" ti="btn_basic_demo">Basic Demo</button>
+  <button class="nav-btn" data-target="comparison" ti="btn_zoom_vs_scale">zoom vs scale()</button>
+  <button class="nav-btn" data-target="responsive" ti="btn_responsive_zoom">Responsive Zoom</button>
+  <button class="nav-btn" data-target="pagezoom" ti="btn_page_zoom">Page Zoom</button>
+  <button class="nav-btn" data-target="nested" ti="btn_nested_zoom">Nested Zoom</button>
+  <button class="nav-btn" data-target="print" ti="btn_print_zoom">Print Zoom</button>
+  <button class="nav-btn" data-target="calculator" ti="btn_calculator">Calculator</button>
+  <button class="nav-btn" data-target="codegen" ti="btn_code_generator">Code Generator</button>
+  <button class="nav-btn" data-target="compat" ti="btn_browser_support">Browser Support</button>
 </nav>
 
 <main class="main">
@@ -645,21 +647,21 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="basic">
     <div class="section-header">
       <div class="section-icon" style="background: var(--accent-glow); color: var(--accent);">&#x1F50D;</div>
-      <h2 class="section-title">Basic Demo</h2>
+      <h2 class="section-title" ti="h2_basic_demo">Basic Demo</h2>
     </div>
     <p class="section-desc">
-      The CSS <code>zoom</code> property scales an element and <strong>affects layout</strong> &mdash; surrounding content reflows to accommodate the scaled size. This is the key difference from <code>transform: scale()</code>.
+      The CSS <code>zoom</code> property scales an element and <strong ti="strong_affects_layout">affects layout</strong> &mdash; surrounding content reflows to accommodate the scaled size. This is the key difference from <code>transform: scale()</code>.
     </p>
 
     <div class="card">
       <div class="card-title">Zoom Level</div>
       <div class="control-row">
-        <label>zoom</label>
+        <label ti="label_zoom">zoom</label>
         <input type="range" id="basicZoom" min="0.25" max="3" step="0.05" value="1">
         <span class="range-value" id="basicZoomVal">1.00</span>
       </div>
       <div class="demo-area" style="margin-top: 16px;">
-        <span class="demo-label">Live Preview</span>
+        <span class="demo-label" ti="label_live_preview">Live Preview</span>
         <div class="flow-container">
           <div class="flow-item">Before</div>
           <div class="flow-item">Before</div>
@@ -681,7 +683,7 @@ select:focus { border-color: var(--accent); }
     </div>
 
     <div class="info-box">
-      <strong>Key insight:</strong> Unlike <code>transform: scale()</code>, <code>zoom</code> changes the element's <em>used size</em> in layout. Siblings, parents, and scroll containers all respond to the zoomed dimensions.
+      <strong ti="strong_key_insight">Key insight:</strong> Unlike <code>transform: scale()</code>, <code>zoom</code> changes the element's <em>used size</em> in layout. Siblings, parents, and scroll containers all respond to the zoomed dimensions.
     </div>
   </section>
 
@@ -689,7 +691,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="comparison">
     <div class="section-header">
       <div class="section-icon" style="background: var(--green-glow); color: var(--green);">&#x2194;</div>
-      <h2 class="section-title">zoom vs transform: scale()</h2>
+      <h2 class="section-title" ti="h2_zoom_vs_transform_scale">zoom vs transform: scale()</h2>
     </div>
     <p class="section-desc">
       Side-by-side comparison. Both visually scale the element, but <code>zoom</code> causes layout reflow while <code>transform: scale()</code> only paints at a different size &mdash; leaving a "ghost" of the original dimensions in layout.
@@ -697,7 +699,7 @@ select:focus { border-color: var(--accent); }
 
     <div class="card">
       <div class="control-row">
-        <label>Scale factor</label>
+        <label ti="label_scale_factor">Scale factor</label>
         <input type="range" id="compSlider" min="0.5" max="2.5" step="0.05" value="1.5">
         <span class="range-value" id="compSliderVal">1.50</span>
       </div>
@@ -741,7 +743,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="responsive">
     <div class="section-header">
       <div class="section-icon" style="background: var(--orange-glow); color: var(--orange);">&#x1F4F1;</div>
-      <h2 class="section-title">Responsive Zoom</h2>
+      <h2 class="section-title" ti="h2_responsive_zoom">Responsive Zoom</h2>
     </div>
     <p class="section-desc">
       Use <code>zoom</code> as a lightweight alternative to media queries for proportional scaling. Everything inside scales proportionally &mdash; fonts, padding, margins &mdash; without rewriting every value.
@@ -749,7 +751,7 @@ select:focus { border-color: var(--accent); }
 
     <div class="card">
       <div class="control-row">
-        <label>Viewport</label>
+        <label ti="label_viewport">Viewport</label>
         <select id="responsivePreset">
           <option value="1">Desktop (zoom: 1)</option>
           <option value="0.85">Tablet (zoom: 0.85)</option>
@@ -797,7 +799,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="pagezoom">
     <div class="section-header">
       <div class="section-icon" style="background: var(--blue-glow); color: var(--blue);">&#x1F50E;</div>
-      <h2 class="section-title">Page Zoom Simulation</h2>
+      <h2 class="section-title" ti="h2_page_zoom_simulation">Page Zoom Simulation</h2>
     </div>
     <p class="section-desc">
       Zoom an entire section like browser zoom (Ctrl +/-). Unlike <code>transform: scale()</code>, the container's bounding box expands, so no scroll or overflow issues.
@@ -805,14 +807,14 @@ select:focus { border-color: var(--accent); }
 
     <div class="card">
       <div class="control-row">
-        <label>Page zoom</label>
+        <label ti="label_page_zoom">Page zoom</label>
         <input type="range" id="pageZoomSlider" min="0.5" max="2" step="0.1" value="1">
         <span class="range-value" id="pageZoomVal">100%</span>
       </div>
 
       <div class="demo-area" style="margin-top: 16px; overflow: auto;">
         <div class="page-zoom-area" id="pageZoomArea" style="zoom: 1;">
-          <h3>Article Title</h3>
+          <h3 ti="h3_article_title">Article Title</h3>
           <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
           <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
           <span class="fake-btn">Read More</span>
@@ -829,25 +831,25 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="nested">
     <div class="section-header">
       <div class="section-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--cyan);">&#x1F4E6;</div>
-      <h2 class="section-title">Nested Zoom</h2>
+      <h2 class="section-title" ti="h2_nested_zoom">Nested Zoom</h2>
     </div>
     <p class="section-desc">
-      When <code>zoom</code> is applied to nested elements, the values <strong>multiply</strong>. A child at <code>zoom: 1.5</code> inside a parent at <code>zoom: 2</code> renders at an effective <code>3&times;</code> scale.
+      When <code>zoom</code> is applied to nested elements, the values <strong ti="strong_multiply">multiply</strong>. A child at <code>zoom: 1.5</code> inside a parent at <code>zoom: 2</code> renders at an effective <code>3&times;</code> scale.
     </p>
 
     <div class="card">
       <div class="control-row">
-        <label>Outer zoom</label>
+        <label ti="label_outer_zoom">Outer zoom</label>
         <input type="range" id="nestedOuter" min="0.5" max="2" step="0.1" value="1.5">
         <span class="range-value" id="nestedOuterVal">1.50</span>
       </div>
       <div class="control-row">
-        <label>Inner zoom</label>
+        <label ti="label_inner_zoom">Inner zoom</label>
         <input type="range" id="nestedInner" min="0.5" max="2" step="0.1" value="1.5">
         <span class="range-value" id="nestedInnerVal">1.50</span>
       </div>
       <div class="control-row">
-        <label>Effective</label>
+        <label ti="label_effective">Effective</label>
         <span class="range-value" id="nestedEffective" style="color: var(--green); font-size: 1rem; font-weight: 700;">2.25x</span>
       </div>
 
@@ -868,7 +870,7 @@ select:focus { border-color: var(--accent); }
     </div>
 
     <div class="info-box">
-      <strong>Compounding formula:</strong> effective zoom = outer &times; inner. This applies recursively through any depth of nesting.
+      <strong ti="strong_compounding_formula">Compounding formula:</strong> effective zoom = outer &times; inner. This applies recursively through any depth of nesting.
     </div>
   </section>
 
@@ -876,7 +878,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="print">
     <div class="section-header">
       <div class="section-icon" style="background: rgba(239, 68, 68, 0.15); color: var(--red);">&#x1F5A8;</div>
-      <h2 class="section-title">Print Zoom</h2>
+      <h2 class="section-title" ti="h2_print_zoom">Print Zoom</h2>
     </div>
     <p class="section-desc">
       <code>zoom</code> can be used in <code>@media print</code> to scale content for printing without changing the screen layout. This is useful for fitting more content on a page or enlarging for readability.
@@ -884,7 +886,7 @@ select:focus { border-color: var(--accent); }
 
     <div class="card">
       <div class="control-row">
-        <label>Print zoom</label>
+        <label ti="label_print_zoom">Print zoom</label>
         <input type="range" id="printZoom" min="0.5" max="1.5" step="0.05" value="0.8">
         <span class="range-value" id="printZoomVal">0.80</span>
       </div>
@@ -893,7 +895,7 @@ select:focus { border-color: var(--accent); }
         <div>
           <h4 style="font-size: 0.85rem; margin-bottom: 8px; color: var(--text-secondary);">Screen (zoom: 1)</h4>
           <div class="print-preview">
-            <span class="print-label">Screen</span>
+            <span class="print-label" ti="label_screen">Screen</span>
             <h5>Quarterly Report</h5>
             <p>Revenue grew 24% year-over-year, driven by strong performance in the enterprise segment. Customer acquisition costs decreased by 15%.</p>
             <p style="margin-top: 8px;">Key metrics show sustained growth across all regions with particular strength in APAC markets.</p>
@@ -902,7 +904,7 @@ select:focus { border-color: var(--accent); }
         <div>
           <h4 style="font-size: 0.85rem; margin-bottom: 8px; color: var(--text-secondary);">Print (zoom: <span id="printZoomLabel">0.80</span>)</h4>
           <div class="print-preview" id="printPreview" style="zoom: 0.8;">
-            <span class="print-label">Print</span>
+            <span class="print-label" ti="label_print">Print</span>
             <h5>Quarterly Report</h5>
             <p>Revenue grew 24% year-over-year, driven by strong performance in the enterprise segment. Customer acquisition costs decreased by 15%.</p>
             <p style="margin-top: 8px;">Key metrics show sustained growth across all regions with particular strength in APAC markets.</p>
@@ -922,7 +924,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="calculator">
     <div class="section-header">
       <div class="section-icon" style="background: var(--accent-glow); color: var(--accent);">&#x1F4CA;</div>
-      <h2 class="section-title">Interactive Calculator</h2>
+      <h2 class="section-title" ti="h2_interactive_calculator">Interactive Calculator</h2>
     </div>
     <p class="section-desc">
       Enter an element's original dimensions and a zoom value to see the computed layout dimensions.
@@ -930,20 +932,20 @@ select:focus { border-color: var(--accent); }
 
     <div class="card">
       <div class="control-row">
-        <label>Width (px)</label>
+        <label ti="label_width_px">Width (px)</label>
         <input type="number" id="calcWidth" value="200" min="1">
       </div>
       <div class="control-row">
-        <label>Height (px)</label>
+        <label ti="label_height_px">Height (px)</label>
         <input type="number" id="calcHeight" value="100" min="1">
       </div>
       <div class="control-row">
-        <label>Font size</label>
+        <label ti="label_font_size">Font size</label>
         <input type="number" id="calcFont" value="16" min="1">
         <span style="font-size: 0.8rem; color: var(--text-dim);">px</span>
       </div>
       <div class="control-row">
-        <label>Zoom</label>
+        <label ti="label_zoom_2">Zoom</label>
         <input type="range" id="calcZoom" min="0.1" max="4" step="0.05" value="1.5">
         <span class="range-value" id="calcZoomVal">1.50</span>
       </div>
@@ -976,7 +978,7 @@ select:focus { border-color: var(--accent); }
       </div>
 
       <div class="demo-area" style="margin-top: 16px; overflow: auto; min-height: 120px;">
-        <span class="demo-label">Visual preview</span>
+        <span class="demo-label" ti="label_visual_preview">Visual preview</span>
         <div style="display: flex; align-items: flex-start; gap: 16px;">
           <div id="calcPreviewOrig" style="width: 100px; height: 50px; background: var(--bg-input); border: 1px dashed var(--border); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: var(--text-dim); flex-shrink: 0;">Original</div>
           <div id="calcPreviewZoomed" style="width: 100px; height: 50px; background: linear-gradient(135deg, var(--accent), #a78bfa); border-radius: 4px; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #fff; font-weight: 600; zoom: 1.5; flex-shrink: 0;">Zoomed</div>
@@ -989,7 +991,7 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="codegen">
     <div class="section-header">
       <div class="section-icon" style="background: var(--green-glow); color: var(--green);">&#x1F4DD;</div>
-      <h2 class="section-title">Code Generator</h2>
+      <h2 class="section-title" ti="h2_code_generator">Code Generator</h2>
     </div>
     <p class="section-desc">
       Generate ready-to-use CSS with zoom values. Includes fallback patterns for older browsers.
@@ -998,15 +1000,15 @@ select:focus { border-color: var(--accent); }
     <div class="card">
       <div class="code-gen-controls">
         <div class="code-gen-group">
-          <label>Selector</label>
+          <label ti="label_selector">Selector</label>
           <input type="text" id="cgenSelector" value=".my-element" style="background: var(--bg-input); border: 1px solid var(--border); border-radius: var(--radius); color: var(--text); font-family: var(--mono); font-size: 0.85rem; padding: 6px 10px; width: 100%;">
         </div>
         <div class="code-gen-group">
-          <label>Zoom value</label>
+          <label ti="label_zoom_value">Zoom value</label>
           <input type="number" id="cgenZoom" value="1.5" step="0.05" min="0.1" max="10" style="width: 100%;">
         </div>
         <div class="code-gen-group">
-          <label>Include fallback</label>
+          <label ti="label_include_fallback">Include fallback</label>
           <select id="cgenFallback" style="width: 100%;">
             <option value="none">No fallback</option>
             <option value="scale">transform: scale() fallback</option>
@@ -1014,7 +1016,7 @@ select:focus { border-color: var(--accent); }
           </select>
         </div>
         <div class="code-gen-group">
-          <label>Include print</label>
+          <label ti="label_include_print">Include print</label>
           <select id="cgenPrint" style="width: 100%;">
             <option value="no">No</option>
             <option value="yes">Yes</option>
@@ -1023,7 +1025,7 @@ select:focus { border-color: var(--accent); }
       </div>
 
       <div class="code-block" id="cgenOutput" style="position: relative;"><!-- filled by JS --></div>
-      <button class="copy-btn" onclick="copyCode('cgenOutput')" style="position: relative; margin-top: 8px;">Copy CSS</button>
+      <button class="copy-btn" onclick="copyCode('cgenOutput')" style="position: relative; margin-top: 8px;" ti="btn_copy_css">Copy CSS</button>
     </div>
   </section>
 
@@ -1031,20 +1033,20 @@ select:focus { border-color: var(--accent); }
   <section class="section" id="compat">
     <div class="section-header">
       <div class="section-icon" style="background: rgba(6, 182, 212, 0.15); color: var(--cyan);">&#x1F310;</div>
-      <h2 class="section-title">Browser Support</h2>
+      <h2 class="section-title" ti="h2_browser_support">Browser Support</h2>
     </div>
     <p class="section-desc">
-      <code>zoom</code> is now part of <strong>Interop 2025</strong> and standardized in CSS. It has been supported in Chromium and WebKit for years, and Firefox added support in version 126 (June 2024).
+      <code>zoom</code> is now part of <strong ti="strong_interop_2025">Interop 2025</strong> and standardized in CSS. It has been supported in Chromium and WebKit for years, and Firefox added support in version 126 (June 2024).
     </p>
 
     <div class="card">
       <table class="compat-table">
         <thead>
           <tr>
-            <th>Browser</th>
-            <th>Version</th>
-            <th>Status</th>
-            <th>Notes</th>
+            <th ti="th_browser">Browser</th>
+            <th ti="th_version">Version</th>
+            <th ti="th_status">Status</th>
+            <th ti="th_notes">Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -1119,7 +1121,7 @@ select:focus { border-color: var(--accent); }
     <div class="info-box">
       <strong>Important differences from <code>transform: scale()</code>:</strong><br>
       1. <code>zoom</code> affects layout &mdash; the element's box size changes for its siblings<br>
-      2. <code>zoom</code> is <strong>not animatable</strong> via CSS transitions/animations (use <code>transform</code> for animations)<br>
+      2. <code>zoom</code> is <strong ti="strong_not_animatable">not animatable</strong> via CSS transitions/animations (use <code>transform</code> for animations)<br>
       3. <code>zoom: normal</code> resets to the initial zoom (equivalent to <code>zoom: 1</code>)<br>
       4. <code>zoom</code> values compound when nested (multiplicative)
     </div>
@@ -1128,9 +1130,19 @@ select:focus { border-color: var(--accent); }
 </main>
 
 <footer class="footer">
-  CSS zoom Property Playground &mdash; Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> by <a href="https://github.com/gokuscraper">gokuscraper</a>
+  CSS zoom Property Playground &mdash; Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> by <a href="https://github.com/gokuscraper" ti="link_gokuscraper">gokuscraper</a>
 </footer>
 
+
+<script>var _LANG={'title_css_zoom_property_playgro':["CSS zoom Property Playground — Dev Vault", "CSS 缩放属性练习场 — 开发者宝库"],'metadesc_interactive_css_zoom_prop':["Interactive CSS zoom property playground. Compare zoom vs transform:scale(), explore layout reflow, nested zoom, responsive scaling, and generate code. Interop 2025.", "交互式 CSS 缩放属性演示。比较 `zoom` 和 `transform:scale()`，探索布局重排、嵌套缩放、响应式缩放，并生成代码。Interop 2025。"],'h2_basic_demo':["Basic Demo", "基本演示"],'h2_zoom_vs_transform_scale':["zoom vs transform: scale()", "缩放与变换：scale()"],'h2_responsive_zoom':["Responsive Zoom", "响应式缩放"],'h2_page_zoom_simulation':["Page Zoom Simulation", "页面缩放模拟"],'h2_nested_zoom':["Nested Zoom", "嵌套缩放"],'h2_print_zoom':["Print Zoom", "打印缩放"],'h2_interactive_calculator':["Interactive Calculator", "交互式计算器"],'h2_code_generator':["Code Generator", "代码生成器"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_article_title':["Article Title", "文章标题"],'btn_basic_demo':["Basic Demo", "基本演示"],'btn_zoom_vs_scale':["zoom vs scale()", "缩放与缩放()"],'btn_responsive_zoom':["Responsive Zoom", "响应式缩放"],'btn_page_zoom':["Page Zoom", "页面缩放"],'btn_nested_zoom':["Nested Zoom", "嵌套缩放"],'btn_print_zoom':["Print Zoom", "打印缩放"],'btn_calculator':["Calculator", "计算器"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_browser_support':["Browser Support", "浏览器支持"],'btn_copy_css':["Copy CSS", "复制 CSS"],'label_live_preview':["Live Preview", "实时预览"],'label_screen':["Screen", "屏幕"],'label_print':["Print", "打印"],'label_visual_preview':["Visual preview", "视觉预览"],'strong_affects_layout':["affects layout", "影响布局"],'strong_key_insight':["Key insight:", "关键见解："],'strong_multiply':["multiply", "乘"],'strong_compounding_formula':["Compounding formula:", "复合公式："],'strong_interop_2025':["Interop 2025", "Interop 2025"],'strong_not_animatable':["not animatable", "不可动画"],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_status':["Status", "地位"],'th_notes':["Notes", "笔记"],'label_zoom':["zoom", "飞涨"],'label_scale_factor':["Scale factor", "比例因子"],'label_viewport':["Viewport", "视口"],'label_page_zoom':["Page zoom", "页面缩放"],'label_outer_zoom':["Outer zoom", "外圈缩放"],'label_inner_zoom':["Inner zoom", "内部缩放"],'label_effective':["Effective", "有效的"],'label_print_zoom':["Print zoom", "打印缩放"],'label_width_px':["Width (px)", "宽度（像素）"],'label_height_px':["Height (px)", "高度（像素）"],'label_font_size':["Font size", "字体大小"],'label_zoom_2':["Zoom", "飞涨"],'label_selector':["Selector", "选择器"],'label_zoom_value':["Zoom value", "缩放值"],'label_include_fallback':["Include fallback", "包含备用方案"],'label_include_print':["Include print", "包括打印"],'footer_css_zoom_property_playgro':["CSS zoom Property Playground — Dev Vault", "CSS 缩放属性练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_gokuscraper':["gokuscraper", "悟空摩天大楼"],'jtc_copied':["Copied!", "已复制！"],'jtlword_px':["px", "像素"],'jtlword_px_2':["px", "像素"],'jtlword_px_3':["px", "像素"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Navigation ===
 document.querySelectorAll('.nav-btn').forEach(btn => {
@@ -1364,11 +1376,29 @@ function copyCode(id) {
   navigator.clipboard.writeText(text).then(() => {
     const btn = el.closest('.card').querySelector('.copy-btn') || event.target;
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1500);
   });
 }
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

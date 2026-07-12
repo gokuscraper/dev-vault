@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_network_information_api_p" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -133,12 +133,22 @@ canvas { display: block; width: 100%; height: 100%; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Network Information API Playground</h1>
+  <h1 ti="title_network_information_api_p" ti="h1_network_information_api_p" ti="title_network_information_api_p" ti="h1_network_information_api_p" ti="title_network_information_api_p" ti="h1_network_information_api_p" ti="title_network_information_api_p" ti="h1_network_information_api_p" ti="title_network_information_api_p" ti="h1_network_information_api_p">Network Information API Playground</h1>
   <p>Connection type detection, adaptive loading, bandwidth estimation, and network-aware patterns</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="no-support" class="no-support" style="display:none;">
     Your browser does not support the Network Information API.<br>
     This API is available in Chromium-based browsers (Chrome 61+, Edge 79+, Opera 48+).<br>
@@ -153,7 +163,7 @@ canvas { display: block; width: 100%; height: 100%; }
   <div id="main-content">
     <!-- Connection Hero -->
     <div class="card">
-      <h2>📡 Connection Status</h2>
+      <h2 ti="h2_connection_status" ti="h2_connection_status" ti="h2_connection_status" ti="h2_connection_status" ti="h2_connection_status">📡 Connection Status</h2>
       <div class="conn-hero">
         <div class="conn-type-badge" id="conn-badge">--</div>
         <div class="conn-details" id="conn-details"></div>
@@ -163,37 +173,37 @@ canvas { display: block; width: 100%; height: 100%; }
 
     <!-- Gauges -->
     <div class="card">
-      <h2>📊 Connection Metrics Visualization</h2>
+      <h2 ti="h2_connection_metrics_visua" ti="h2_connection_metrics_visua" ti="h2_connection_metrics_visua" ti="h2_connection_metrics_visua" ti="h2_connection_metrics_visua">📊 Connection Metrics Visualization</h2>
       <div class="gauge-section" id="gauges"></div>
     </div>
 
     <div class="two-col">
       <!-- Bandwidth Chart -->
       <div class="card">
-        <h2>📈 Bandwidth Over Time</h2>
+        <h2 ti="h2_bandwidth_over_time" ti="h2_bandwidth_over_time" ti="h2_bandwidth_over_time" ti="h2_bandwidth_over_time" ti="h2_bandwidth_over_time">📈 Bandwidth Over Time</h2>
         <div class="chart-wrap"><canvas id="chart"></canvas></div>
         <p style="margin-top:0.5rem;font-size:0.8rem;color:var(--text-dim);">Polls every 5 seconds. Data resets on page reload.</p>
       </div>
 
       <!-- Event Timeline -->
       <div class="card">
-        <h2>📋 Connection Change Timeline</h2>
+        <h2 ti="h2_connection_change_timeli" ti="h2_connection_change_timeli" ti="h2_connection_change_timeli" ti="h2_connection_change_timeli" ti="h2_connection_change_timeli">📋 Connection Change Timeline</h2>
         <div class="timeline" id="timeline"></div>
       </div>
     </div>
 
     <!-- Adaptive Loading Demo -->
     <div class="card">
-      <h2>🎯 Adaptive Loading Recommendations</h2>
+      <h2 ti="h2_adaptive_loading_recomme" ti="h2_adaptive_loading_recomme" ti="h2_adaptive_loading_recomme" ti="h2_adaptive_loading_recomme" ti="h2_adaptive_loading_recomme">🎯 Adaptive Loading Recommendations</h2>
       <p style="color:var(--text-dim);margin-bottom:1rem;font-size:0.9rem;">Based on your current connection, here's what your app should do:</p>
       <div class="adaptive-demo" id="adaptive-demo"></div>
     </div>
 
     <!-- Network-Aware Image Loading -->
     <div class="card">
-      <h2>🖼️ Network-Aware Image Loading</h2>
+      <h2 ti="h2_network_aware_image_load" ti="h2_network_aware_image_load" ti="h2_network_aware_image_load" ti="h2_network_aware_image_load" ti="h2_network_aware_image_load">🖼️ Network-Aware Image Loading</h2>
       <div class="img-demo">
-        <h3>Recommended image variant for current connection:</h3>
+        <h3 ti="h3_recommended_image_variant" ti="h3_recommended_image_variant" ti="h3_recommended_image_variant" ti="h3_recommended_image_variant" ti="h3_recommended_image_variant">Recommended image variant for current connection:</h3>
         <p style="color:var(--text-dim);font-size:0.85rem;" id="img-recommendation"></p>
         <div class="img-variants" id="img-variants">
           <div class="img-variant" data-quality="low">
@@ -214,10 +224,10 @@ canvas { display: block; width: 100%; height: 100%; }
 
     <!-- Adaptive Patterns -->
     <div class="card">
-      <h2>💡 Adaptive Loading Patterns</h2>
+      <h2 ti="h2_adaptive_loading_pattern" ti="h2_adaptive_loading_pattern" ti="h2_adaptive_loading_pattern" ti="h2_adaptive_loading_pattern" ti="h2_adaptive_loading_pattern">💡 Adaptive Loading Patterns</h2>
       <div class="patterns">
         <div class="pattern">
-          <h3>Connection-Aware Fetch</h3>
+          <h3 ti="h3_connection_aware_fetch" ti="h3_connection_aware_fetch" ti="h3_connection_aware_fetch" ti="h3_connection_aware_fetch" ti="h3_connection_aware_fetch">Connection-Aware Fetch</h3>
           <p>Adjust API payloads based on connection quality.</p>
           <code>const conn = navigator.connection;
 const fields = conn.effectiveType === '4g'
@@ -226,7 +236,7 @@ const fields = conn.effectiveType === '4g'
 fetch(`/api/data?fields=${fields}`);</code>
         </div>
         <div class="pattern">
-          <h3>Lazy Loading Strategy</h3>
+          <h3 ti="h3_lazy_loading_strategy" ti="h3_lazy_loading_strategy" ti="h3_lazy_loading_strategy" ti="h3_lazy_loading_strategy" ti="h3_lazy_loading_strategy">Lazy Loading Strategy</h3>
           <p>Adjust intersection observer margins based on bandwidth.</p>
           <code>const margin = conn.effectiveType === '4g'
   ? '200px'  // prefetch early
@@ -236,7 +246,7 @@ const obs = new IntersectionObserver(
 );</code>
         </div>
         <div class="pattern">
-          <h3>Video Quality Selection</h3>
+          <h3 ti="h3_video_quality_selection" ti="h3_video_quality_selection" ti="h3_video_quality_selection" ti="h3_video_quality_selection" ti="h3_video_quality_selection">Video Quality Selection</h3>
           <p>Choose appropriate stream quality for current conditions.</p>
           <code>function getVideoQuality() {
   const dl = navigator.connection.downlink;
@@ -247,7 +257,7 @@ const obs = new IntersectionObserver(
 }</code>
         </div>
         <div class="pattern">
-          <h3>Save Data Respect</h3>
+          <h3 ti="h3_save_data_respect" ti="h3_save_data_respect" ti="h3_save_data_respect" ti="h3_save_data_respect" ti="h3_save_data_respect">Save Data Respect</h3>
           <p>Honor the user's data-saving preference.</p>
           <code>if (navigator.connection.saveData) {
   // Skip non-essential resources
@@ -259,7 +269,7 @@ const obs = new IntersectionObserver(
 }</code>
         </div>
         <div class="pattern">
-          <h3>Prefetch Control</h3>
+          <h3 ti="h3_prefetch_control" ti="h3_prefetch_control" ti="h3_prefetch_control" ti="h3_prefetch_control" ti="h3_prefetch_control">Prefetch Control</h3>
           <p>Only prefetch resources on fast connections.</p>
           <code>if (conn.effectiveType === '4g' &&
     !conn.saveData) {
@@ -270,7 +280,7 @@ const obs = new IntersectionObserver(
 }</code>
         </div>
         <div class="pattern">
-          <h3>Font Loading Strategy</h3>
+          <h3 ti="h3_font_loading_strategy" ti="h3_font_loading_strategy" ti="h3_font_loading_strategy" ti="h3_font_loading_strategy" ti="h3_font_loading_strategy">Font Loading Strategy</h3>
           <p>Use system fonts on slow connections to avoid FOUT.</p>
           <code>const useWebFonts =
   conn.effectiveType === '4g' ||
@@ -285,6 +295,46 @@ if (useWebFonts) {
   </div>
 </div>
 
+
+
+
+
+<script>var _LANG={'title_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'metadesc_interactive_network_infor':["Interactive Network Information API explorer — connection properties, adaptive loading, bandwidth estimation, and network-aware patterns.", "交互式网络信息 API 浏览器 — 连接属性、自适应加载、带宽估算和网络感知模式。"],'h1_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'h2_connection_status':["📡 Connection Status", "📡 连接状态"],'h2_connection_metrics_visua':["📊 Connection Metrics Visualization", "📊 连接指标可视化"],'h2_bandwidth_over_time':["📈 Bandwidth Over Time", "📈 带宽随时间变化"],'h2_connection_change_timeli':["📋 Connection Change Timeline", "📋 连接变更时间表"],'h2_adaptive_loading_recomme':["🎯 Adaptive Loading Recommendations", "🎯 自适应加载建议"],'h2_network_aware_image_load':["🖼️ Network-Aware Image Loading", "🖼️ 网络感知图像加载"],'h2_adaptive_loading_pattern':["💡 Adaptive Loading Patterns", "💡 自适应加载模式"],'h2_online_status_basic':["🌐 Online Status (Basic)", "🌐 在线状态（基本）"],'h3_recommended_image_variant':["Recommended image variant for current connection:", "当前连接推荐使用的图像版本："],'h3_connection_aware_fetch':["Connection-Aware Fetch", "连接感知获取"],'h3_lazy_loading_strategy':["Lazy Loading Strategy", "延迟加载策略"],'h3_video_quality_selection':["Video Quality Selection", "视频质量选择"],'h3_save_data_respect':["Save Data Respect", "保存数据尊重"],'h3_prefetch_control':["Prefetch Control", "预取控制"],'h3_font_loading_strategy':["Font Loading Strategy", "字体加载策略"],'h3_f_name':["${f.name}", "${f.name}"],'label_type':["Type:", "类型："],'label_effective':["Effective:", "有效的："],'label_downlink':["Downlink:", "下行链路："],'label_rtt':["RTT:", "RTT："],'label_save_data':["Save Data:", "保存数据："],'label_online':["Online:", "在线的："],'jtlword_online':["Online", "在线的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'metadesc_interactive_network_infor':["Interactive Network Information API explorer — connection properties, adaptive loading, bandwidth estimation, and network-aware patterns.", "交互式网络信息 API 浏览器 — 连接属性、自适应加载、带宽估算和网络感知模式。"],'h1_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'h2_connection_status':["📡 Connection Status", "📡 连接状态"],'h2_connection_metrics_visua':["📊 Connection Metrics Visualization", "📊 连接指标可视化"],'h2_bandwidth_over_time':["📈 Bandwidth Over Time", "📈 带宽随时间变化"],'h2_connection_change_timeli':["📋 Connection Change Timeline", "📋 连接变更时间表"],'h2_adaptive_loading_recomme':["🎯 Adaptive Loading Recommendations", "🎯 自适应加载建议"],'h2_network_aware_image_load':["🖼️ Network-Aware Image Loading", "🖼️ 网络感知图像加载"],'h2_adaptive_loading_pattern':["💡 Adaptive Loading Patterns", "💡 自适应加载模式"],'h2_online_status_basic':["🌐 Online Status (Basic)", "🌐 在线状态（基本）"],'h3_recommended_image_variant':["Recommended image variant for current connection:", "当前连接推荐使用的图像版本："],'h3_connection_aware_fetch':["Connection-Aware Fetch", "连接感知获取"],'h3_lazy_loading_strategy':["Lazy Loading Strategy", "延迟加载策略"],'h3_video_quality_selection':["Video Quality Selection", "视频质量选择"],'h3_save_data_respect':["Save Data Respect", "保存数据尊重"],'h3_prefetch_control':["Prefetch Control", "预取控制"],'h3_font_loading_strategy':["Font Loading Strategy", "字体加载策略"],'h3_f_name':["${f.name}", "${f.name}"],'label_type':["Type:", "类型："],'label_effective':["Effective:", "有效的："],'label_downlink':["Downlink:", "下行链路："],'label_rtt':["RTT:", "RTT："],'label_save_data':["Save Data:", "保存数据："],'label_online':["Online:", "在线的："],'jtlword_online':["Online", "在线的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'metadesc_interactive_network_infor':["Interactive Network Information API explorer — connection properties, adaptive loading, bandwidth estimation, and network-aware patterns.", "交互式网络信息 API 浏览器 — 连接属性、自适应加载、带宽估算和网络感知模式。"],'h1_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'h2_connection_status':["📡 Connection Status", "📡 连接状态"],'h2_connection_metrics_visua':["📊 Connection Metrics Visualization", "📊 连接指标可视化"],'h2_bandwidth_over_time':["📈 Bandwidth Over Time", "📈 带宽随时间变化"],'h2_connection_change_timeli':["📋 Connection Change Timeline", "📋 连接变更时间表"],'h2_adaptive_loading_recomme':["🎯 Adaptive Loading Recommendations", "🎯 自适应加载建议"],'h2_network_aware_image_load':["🖼️ Network-Aware Image Loading", "🖼️ 网络感知图像加载"],'h2_adaptive_loading_pattern':["💡 Adaptive Loading Patterns", "💡 自适应加载模式"],'h2_online_status_basic':["🌐 Online Status (Basic)", "🌐 在线状态（基本）"],'h3_recommended_image_variant':["Recommended image variant for current connection:", "当前连接推荐使用的图像版本："],'h3_connection_aware_fetch':["Connection-Aware Fetch", "连接感知获取"],'h3_lazy_loading_strategy':["Lazy Loading Strategy", "延迟加载策略"],'h3_video_quality_selection':["Video Quality Selection", "视频质量选择"],'h3_save_data_respect':["Save Data Respect", "保存数据尊重"],'h3_prefetch_control':["Prefetch Control", "预取控制"],'h3_font_loading_strategy':["Font Loading Strategy", "字体加载策略"],'h3_f_name':["${f.name}", "${f.name}"],'label_type':["Type:", "类型："],'label_effective':["Effective:", "有效的："],'label_downlink':["Downlink:", "下行链路："],'label_rtt':["RTT:", "RTT："],'label_save_data':["Save Data:", "保存数据："],'label_online':["Online:", "在线的："],'jtlword_online':["Online", "在线的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'metadesc_interactive_network_infor':["Interactive Network Information API explorer — connection properties, adaptive loading, bandwidth estimation, and network-aware patterns.", "交互式网络信息 API 浏览器 — 连接属性、自适应加载、带宽估算和网络感知模式。"],'h1_network_information_api_p':["Network Information API Playground", "网络信息 API 游乐场"],'h2_connection_status':["📡 Connection Status", "📡 连接状态"],'h2_connection_metrics_visua':["📊 Connection Metrics Visualization", "📊 连接指标可视化"],'h2_bandwidth_over_time':["📈 Bandwidth Over Time", "📈 带宽随时间变化"],'h2_connection_change_timeli':["📋 Connection Change Timeline", "📋 连接变更时间表"],'h2_adaptive_loading_recomme':["🎯 Adaptive Loading Recommendations", "🎯 自适应加载建议"],'h2_network_aware_image_load':["🖼️ Network-Aware Image Loading", "🖼️ 网络感知图像加载"],'h2_adaptive_loading_pattern':["💡 Adaptive Loading Patterns", "💡 自适应加载模式"],'h2_online_status_basic':["🌐 Online Status (Basic)", "🌐 在线状态（基本）"],'h3_recommended_image_variant':["Recommended image variant for current connection:", "当前连接推荐使用的图像版本："],'h3_connection_aware_fetch':["Connection-Aware Fetch", "连接感知获取"],'h3_lazy_loading_strategy':["Lazy Loading Strategy", "延迟加载策略"],'h3_video_quality_selection':["Video Quality Selection", "视频质量选择"],'h3_save_data_respect':["Save Data Respect", "保存数据尊重"],'h3_prefetch_control':["Prefetch Control", "预取控制"],'h3_font_loading_strategy':["Font Loading Strategy", "字体加载策略"],'h3_f_name':["${f.name}", "${f.name}"],'label_type':["Type:", "类型："],'label_effective':["Effective:", "有效的："],'label_downlink':["Downlink:", "下行链路："],'label_rtt':["RTT:", "RTT："],'label_save_data':["Save Data:", "保存数据："],'label_online':["Online:", "在线的："],'jtlword_online':["Online", "在线的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -305,7 +355,7 @@ if (useWebFonts) {
     const mainContent = document.getElementById('main-content');
     mainContent.innerHTML = `
       <div class="card">
-        <h2>🌐 Online Status (Basic)</h2>
+        <h2 ti="h2_online_status_basic" ti="h2_online_status_basic" ti="h2_online_status_basic" ti="h2_online_status_basic" ti="h2_online_status_basic">🌐 Online Status (Basic)</h2>
         <div class="info-grid">
           <div class="info-item"><div class="label">Online</div><div class="value">${navigator.onLine ? 'Yes' : 'No'}</div></div>
         </div>
@@ -358,12 +408,12 @@ if (useWebFonts) {
 
     // Details
     connDetails.innerHTML = `
-      <div class="detail-row"><span class="detail-label">Type:</span><span class="detail-value">${type}</span></div>
-      <div class="detail-row"><span class="detail-label">Effective:</span><span class="detail-value">${et}</span></div>
-      <div class="detail-row"><span class="detail-label">Downlink:</span><span class="detail-value">${dl} Mbps</span></div>
-      <div class="detail-row"><span class="detail-label">RTT:</span><span class="detail-value">${rtt} ms</span></div>
-      <div class="detail-row"><span class="detail-label">Save Data:</span><span class="detail-value">${saveData ? 'Enabled' : 'Disabled'}</span></div>
-      <div class="detail-row"><span class="detail-label">Online:</span><span class="detail-value">${navigator.onLine ? 'Yes' : 'No'}</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_type" ti="label_type" ti="label_type" ti="label_type" ti="label_type">Type:</span><span class="detail-value">${type}</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_effective" ti="label_effective" ti="label_effective" ti="label_effective" ti="label_effective">Effective:</span><span class="detail-value">${et}</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_downlink" ti="label_downlink" ti="label_downlink" ti="label_downlink" ti="label_downlink">Downlink:</span><span class="detail-value">${dl} Mbps</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_rtt" ti="label_rtt" ti="label_rtt" ti="label_rtt" ti="label_rtt">RTT:</span><span class="detail-value">${rtt} ms</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_save_data" ti="label_save_data" ti="label_save_data" ti="label_save_data" ti="label_save_data">Save Data:</span><span class="detail-value">${saveData ? 'Enabled' : 'Disabled'}</span></div>
+      <div class="detail-row"><span class="detail-label" ti="label_online" ti="label_online" ti="label_online" ti="label_online" ti="label_online">Online:</span><span class="detail-value">${navigator.onLine ? 'Yes' : 'No'}</span></div>
     `;
 
     // Info grid
@@ -448,7 +498,7 @@ if (useWebFonts) {
     adaptiveEl.innerHTML = features.map(f => `
       <div class="adaptive-card ${f.rec === 'yes' ? 'active' : ''}">
         <div class="icon">${f.icon}</div>
-        <h3>${f.name}</h3>
+        <h3 ti="h3_f_name" ti="h3_f_name" ti="h3_f_name" ti="h3_f_name" ti="h3_f_name">${f.name}</h3>
         <p>${f.desc}</p>
         <span class="recommendation rec-${f.rec}">${f.rec === 'yes' ? 'Recommended' : f.rec === 'maybe' ? 'Conditional' : 'Skip'}</span>
       </div>
@@ -541,6 +591,96 @@ if (useWebFonts) {
 
   setTimeout(drawChart, 100);
   window.addEventListener('resize', drawChart);
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

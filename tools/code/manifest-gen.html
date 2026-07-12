@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_app_manifest_generato" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,36 +56,42 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Web App Manifest Generator</h1>
-<p class="sub">Create manifest.json / manifest.webmanifest for Progressive Web Apps</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_web_app_manifest_generato" ti="h1_web_app_manifest_generato" ti="h1_web_app_manifest_generato">Web App Manifest Generator</h1>
+<p class="sub" ti="subtitle_create_manifest_json_mani" ti="subtitle_create_manifest_json_mani" ti="subtitle_create_manifest_json_mani">Create manifest.json / manifest.webmanifest for Progressive Web Apps</p>
 
 <div class="presets">
-  <button class="preset" onclick="applyPreset('simple')">Simple PWA</button>
-  <button class="preset" onclick="applyPreset('full')">Full PWA</button>
-  <button class="preset" onclick="applyPreset('game')">Game</button>
-  <button class="preset" onclick="applyPreset('news')">News App</button>
+  <button class="preset" onclick="applyPreset('simple')" ti="btn_simple_pwa" ti="btn_simple_pwa" ti="btn_simple_pwa">Simple PWA</button>
+  <button class="preset" onclick="applyPreset('full')" ti="btn_full_pwa" ti="btn_full_pwa" ti="btn_full_pwa">Full PWA</button>
+  <button class="preset" onclick="applyPreset('game')" ti="btn_game" ti="btn_game" ti="btn_game">Game</button>
+  <button class="preset" onclick="applyPreset('news')" ti="btn_news_app" ti="btn_news_app" ti="btn_news_app">News App</button>
 </div>
 
 <div class="layout">
 <div class="config-col">
 
   <div class="section">
-    <h3>App Info</h3>
-    <div class="field"><label>Name</label><input type="text" id="f-name" oninput="generate()" placeholder="My App"></div>
+    <h3 ti="h3_app_info" ti="h3_app_info" ti="h3_app_info">App Info</h3>
+    <div class="field"><label ti="label_name" ti="label_name_2" ti="label_name" ti="label_name_2" ti="label_name" ti="label_name_2">Name</label><input type="text" id="f-name" oninput="generate()" tp="placeholder_my_app" tp="placeholder_my_app" tp="placeholder_my_app" placeholder="My App"></div>
     <div class="field-row">
-      <div class="field"><label>Short Name</label><input type="text" id="f-short_name" oninput="generate()" placeholder="App"></div>
-      <div class="field"><label>ID (optional)</label><input type="text" id="f-id" oninput="generate()" placeholder="/"></div>
+      <div class="field"><label ti="label_short_name" ti="label_short_name_2" ti="label_short_name" ti="label_short_name_2" ti="label_short_name" ti="label_short_name_2">Short Name</label><input type="text" id="f-short_name" oninput="generate()" tp="placeholder_app" tp="placeholder_app" tp="placeholder_app" placeholder="App"></div>
+      <div class="field"><label ti="label_id_optional" ti="label_id_optional" ti="label_id_optional">ID (optional)</label><input type="text" id="f-id" oninput="generate()" placeholder="/"></div>
     </div>
-    <div class="field"><label>Description</label><textarea id="f-description" oninput="generate()" placeholder="A progressive web app" rows="2"></textarea></div>
+    <div class="field"><label ti="label_description" ti="label_description_2" ti="label_description" ti="label_description_2" ti="label_description" ti="label_description_2">Description</label><textarea id="f-description" oninput="generate()" tp="placeholder_a_progressive_web_app" tp="placeholder_a_progressive_web_app" tp="placeholder_a_progressive_web_app" placeholder="A progressive web app" rows="2"></textarea></div>
     <div class="field-row">
-      <div class="field"><label>Start URL</label><input type="text" id="f-start_url" value="/" oninput="generate()"></div>
-      <div class="field"><label>Scope</label><input type="text" id="f-scope" value="/" oninput="generate()"></div>
+      <div class="field"><label ti="label_start_url" ti="label_start_url" ti="label_start_url">Start URL</label><input type="text" id="f-start_url" value="/" oninput="generate()"></div>
+      <div class="field"><label ti="label_scope" ti="label_scope" ti="label_scope">Scope</label><input type="text" id="f-scope" value="/" oninput="generate()"></div>
     </div>
   </div>
 
   <div class="section">
-    <h3>Display</h3>
+    <h3 ti="h3_display" ti="label_display" ti="h3_display" ti="label_display" ti="h3_display" ti="label_display">Display</h3>
     <div class="field-row">
       <div class="field"><label>Display</label>
         <select id="f-display" onchange="generate()">
@@ -95,7 +101,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
           <option value="browser">browser</option>
         </select>
       </div>
-      <div class="field"><label>Orientation</label>
+      <div class="field"><label ti="label_orientation" ti="label_orientation" ti="label_orientation">Orientation</label>
         <select id="f-orientation" onchange="generate()">
           <option value="any" selected>any</option>
           <option value="portrait">portrait</option>
@@ -106,56 +112,56 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
       </div>
     </div>
     <div class="field-row">
-      <div class="field"><label>Direction</label>
+      <div class="field"><label ti="label_direction" ti="label_direction" ti="label_direction">Direction</label>
         <select id="f-dir" onchange="generate()">
           <option value="ltr" selected>ltr</option>
           <option value="rtl">rtl</option>
           <option value="auto">auto</option>
         </select>
       </div>
-      <div class="field"><label>Language</label><input type="text" id="f-lang" value="en" oninput="generate()"></div>
+      <div class="field"><label ti="label_language" ti="label_language" ti="label_language">Language</label><input type="text" id="f-lang" value="en" oninput="generate()"></div>
     </div>
   </div>
 
   <div class="section">
-    <h3>Theme</h3>
+    <h3 ti="h3_theme" ti="h3_theme" ti="h3_theme">Theme</h3>
     <div class="field-row">
-      <div class="field"><label>Theme Color</label>
+      <div class="field"><label ti="label_theme_color" ti="label_theme_color" ti="label_theme_color">Theme Color</label>
         <div class="field-row"><input type="color" id="f-theme_color" value="#4da6ff" oninput="syncColor('theme_color')"><input type="text" id="f-theme_color_text" value="#4da6ff" oninput="syncColorText('theme_color')"></div>
       </div>
-      <div class="field"><label>Background Color</label>
+      <div class="field"><label ti="label_background_color" ti="label_background_color" ti="label_background_color">Background Color</label>
         <div class="field-row"><input type="color" id="f-background_color" value="#ffffff" oninput="syncColor('background_color')"><input type="text" id="f-background_color_text" value="#ffffff" oninput="syncColorText('background_color')"></div>
       </div>
     </div>
   </div>
 
   <div class="section">
-    <h3>Icons</h3>
+    <h3 ti="h3_icons" ti="h3_icons" ti="h3_icons">Icons</h3>
     <div id="icons-list"></div>
-    <button class="add-btn" onclick="addIcon()">+ Add Icon</button>
+    <button class="add-btn" onclick="addIcon()" ti="btn_add_icon" ti="btn_add_icon" ti="btn_add_icon">+ Add Icon</button>
   </div>
 
   <div class="section">
-    <h3>Categories</h3>
-    <div class="field"><label>Comma-separated</label><input type="text" id="f-categories" oninput="generate()" placeholder="business, productivity, utilities"></div>
+    <h3 ti="h3_categories" ti="h3_categories" ti="h3_categories">Categories</h3>
+    <div class="field"><label ti="label_comma_separated" ti="label_comma_separated" ti="label_comma_separated">Comma-separated</label><input type="text" id="f-categories" oninput="generate()" tp="placeholder_business_productivity_uti" tp="placeholder_business_productivity_uti" tp="placeholder_business_productivity_uti" placeholder="business, productivity, utilities"></div>
   </div>
 
   <div class="section">
-    <h3>Screenshots (optional)</h3>
+    <h3 ti="h3_screenshots_optional" ti="h3_screenshots_optional" ti="h3_screenshots_optional">Screenshots (optional)</h3>
     <div id="screenshots-list"></div>
-    <button class="add-btn" onclick="addScreenshot()">+ Add Screenshot</button>
+    <button class="add-btn" onclick="addScreenshot()" ti="btn_add_screenshot" ti="btn_add_screenshot" ti="btn_add_screenshot">+ Add Screenshot</button>
   </div>
 
   <div class="section">
-    <h3>Shortcuts (optional)</h3>
+    <h3 ti="h3_shortcuts_optional" ti="h3_shortcuts_optional" ti="h3_shortcuts_optional">Shortcuts (optional)</h3>
     <div id="shortcuts-list"></div>
-    <button class="add-btn" onclick="addShortcut()">+ Add Shortcut</button>
+    <button class="add-btn" onclick="addShortcut()" ti="btn_add_shortcut" ti="btn_add_shortcut" ti="btn_add_shortcut">+ Add Shortcut</button>
   </div>
 
   <div class="section">
-    <h3>Related Applications (optional)</h3>
+    <h3 ti="h3_related_applications_opti" ti="h3_related_applications_opti" ti="h3_related_applications_opti">Related Applications (optional)</h3>
     <div id="related-apps-list"></div>
-    <button class="add-btn" onclick="addRelatedApp()">+ Add Related App</button>
+    <button class="add-btn" onclick="addRelatedApp()" ti="btn_add_related_app" ti="btn_add_related_app" ti="btn_add_related_app">+ Add Related App</button>
   </div>
 
 </div>
@@ -163,12 +169,12 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="output-col">
   <div class="sticky">
     <div class="section">
-      <h3>manifest.json</h3>
+      <h3 ti="h3_manifest_json" ti="h3_manifest_json" ti="h3_manifest_json">manifest.json</h3>
       <div id="output" class="output-area"></div>
       <div class="actions">
-        <button class="btn btn-primary" onclick="copyJSON()">Copy JSON</button>
-        <button class="btn" onclick="downloadJSON('manifest.json')">Download .json</button>
-        <button class="btn" onclick="downloadJSON('manifest.webmanifest')">Download .webmanifest</button>
+        <button class="btn btn-primary" onclick="copyJSON()" ti="btn_copy_json" ti="btn_copy_json" ti="btn_copy_json">Copy JSON</button>
+        <button class="btn" onclick="downloadJSON('manifest.json')" ti="btn_download_json" ti="btn_download_json" ti="btn_download_json">Download .json</button>
+        <button class="btn" onclick="downloadJSON('manifest.webmanifest')" ti="btn_download_webmanifest" ti="btn_download_webmanifest" ti="btn_download_webmanifest">Download .webmanifest</button>
       </div>
     </div>
   </div>
@@ -176,12 +182,32 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/">Favicon Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" ti="link_favicon_gen" ti="link_favicon_gen" ti="link_favicon_gen">Favicon Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/" ti="link_meta_tags" ti="link_meta_tags" ti="link_meta_tags">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format" ti="link_json_format" ti="link_json_format">JSON Format</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_web_app_manifest_generato':["Web App Manifest Generator — Create manifest.json for PWAs", "Web 应用清单生成器 — 为 PWA 创建 manifest.json 文件"],'metadesc_generate_manifest_json_fo':["Generate manifest.json for Progressive Web Apps. Icons, display mode, theme colors, shortcuts. Download or copy JSON. No signup.", "为渐进式 Web 应用生成 manifest.json 文件。包含图标、显示模式、主题颜色和快捷方式等设置。下载或复制 JSON 文件。无需注册。"],'h1_web_app_manifest_generato':["Web App Manifest Generator", "Web 应用清单生成器"],'h3_app_info':["App Info", "应用信息"],'h3_display':["Display", "展示"],'h3_theme':["Theme", "主题"],'h3_icons':["Icons", "图标"],'h3_categories':["Categories", "类别"],'h3_screenshots_optional':["Screenshots (optional)", "屏幕截图（可选）"],'h3_shortcuts_optional':["Shortcuts (optional)", "快捷键（可选）"],'h3_related_applications_opti':["Related Applications (optional)", "相关应用程序（可选）"],'h3_manifest_json':["manifest.json", "manifest.json"],'subtitle_create_manifest_json_mani':["Create manifest.json / manifest.webmanifest for Progressive Web Apps", "为渐进式 Web 应用创建 manifest.json / manifest.webmanifest 文件"],'btn_simple_pwa':["Simple PWA", "简单的 PWA"],'btn_full_pwa':["Full PWA", "完整 PWA"],'btn_game':["Game", "游戏"],'btn_news_app':["News App", "新闻应用"],'btn_add_icon':["+ Add Icon", "+ 添加图标"],'btn_add_screenshot':["+ Add Screenshot", "+ 添加屏幕截图"],'btn_add_shortcut':["+ Add Shortcut", "+ 添加快捷方式"],'btn_add_related_app':["+ Add Related App", "+ 添加相关应用"],'btn_copy_json':["Copy JSON", "复制 JSON"],'btn_download_json':["Download .json", "下载 .json 文件"],'btn_download_webmanifest':["Download .webmanifest", "下载 .webmanifest 文件"],'btn_remove':["Remove", "消除"],'btn_remove_2':["Remove", "消除"],'btn_remove_3':["Remove", "消除"],'btn_remove_4':["Remove", "消除"],'placeholder_my_app':["My App", "我的应用"],'placeholder_app':["App", "应用程序"],'placeholder_a_progressive_web_app':["A progressive web app", "渐进式 Web 应用"],'placeholder_business_productivity_uti':["business, productivity, utilities", "商业、生产力、公用事业"],'placeholder_1280x720':["1280x720", "1280x720"],'placeholder_image_png':["image/png", "image/png"],'label_name':["Name", "姓名"],'label_short_name':["Short Name", "简称"],'label_id_optional':["ID (optional)", "ID（可选）"],'label_description':["Description", "描述"],'label_start_url':["Start URL", "起始网址"],'label_scope':["Scope", "范围"],'label_display':["Display", "展示"],'label_orientation':["Orientation", "方向"],'label_direction':["Direction", "方向"],'label_language':["Language", "语言"],'label_theme_color':["Theme Color", "主题颜色"],'label_background_color':["Background Color", "背景颜色"],'label_comma_separated':["Comma-separated", "逗号分隔"],'label_source_url':["Source URL", "源网址"],'label_sizes':["Sizes", "尺寸"],'label_type':["Type", "类型"],'label_purpose':["Purpose", "目的"],'label_source_url_2':["Source URL", "源网址"],'label_sizes_2':["Sizes", "尺寸"],'label_type_2':["Type", "类型"],'label_form_factor':["Form Factor", "外形尺寸"],'label_name_2':["Name", "姓名"],'label_short_name_2':["Short Name", "简称"],'label_url':["URL", "URL"],'label_icon_url':["Icon URL", "图标网址"],'label_description_2':["Description", "描述"],'label_platform':["Platform", "平台"],'label_url_2':["URL", "URL"],'label_id':["ID", "ID"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_meta_tags':["Meta Tags", "元标签"],'link_json_format':["JSON Format", "JSON 格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_web_app_manifest_generato':["Web App Manifest Generator — Create manifest.json for PWAs", "Web 应用清单生成器 — 为 PWA 创建 manifest.json 文件"],'metadesc_generate_manifest_json_fo':["Generate manifest.json for Progressive Web Apps. Icons, display mode, theme colors, shortcuts. Download or copy JSON. No signup.", "为渐进式 Web 应用生成 manifest.json 文件。包含图标、显示模式、主题颜色和快捷方式等设置。下载或复制 JSON 文件。无需注册。"],'h1_web_app_manifest_generato':["Web App Manifest Generator", "Web 应用清单生成器"],'h3_app_info':["App Info", "应用信息"],'h3_display':["Display", "展示"],'h3_theme':["Theme", "主题"],'h3_icons':["Icons", "图标"],'h3_categories':["Categories", "类别"],'h3_screenshots_optional':["Screenshots (optional)", "屏幕截图（可选）"],'h3_shortcuts_optional':["Shortcuts (optional)", "快捷键（可选）"],'h3_related_applications_opti':["Related Applications (optional)", "相关应用程序（可选）"],'h3_manifest_json':["manifest.json", "manifest.json"],'subtitle_create_manifest_json_mani':["Create manifest.json / manifest.webmanifest for Progressive Web Apps", "为渐进式 Web 应用创建 manifest.json / manifest.webmanifest 文件"],'btn_simple_pwa':["Simple PWA", "简单的 PWA"],'btn_full_pwa':["Full PWA", "完整 PWA"],'btn_game':["Game", "游戏"],'btn_news_app':["News App", "新闻应用"],'btn_add_icon':["+ Add Icon", "+ 添加图标"],'btn_add_screenshot':["+ Add Screenshot", "+ 添加屏幕截图"],'btn_add_shortcut':["+ Add Shortcut", "+ 添加快捷方式"],'btn_add_related_app':["+ Add Related App", "+ 添加相关应用"],'btn_copy_json':["Copy JSON", "复制 JSON"],'btn_download_json':["Download .json", "下载 .json 文件"],'btn_download_webmanifest':["Download .webmanifest", "下载 .webmanifest 文件"],'btn_remove':["Remove", "消除"],'btn_remove_2':["Remove", "消除"],'btn_remove_3':["Remove", "消除"],'btn_remove_4':["Remove", "消除"],'placeholder_my_app':["My App", "我的应用"],'placeholder_app':["App", "应用程序"],'placeholder_a_progressive_web_app':["A progressive web app", "渐进式 Web 应用"],'placeholder_business_productivity_uti':["business, productivity, utilities", "商业、生产力、公用事业"],'placeholder_1280x720':["1280x720", "1280x720"],'placeholder_image_png':["image/png", "image/png"],'label_name':["Name", "姓名"],'label_short_name':["Short Name", "简称"],'label_id_optional':["ID (optional)", "ID（可选）"],'label_description':["Description", "描述"],'label_start_url':["Start URL", "起始网址"],'label_scope':["Scope", "范围"],'label_display':["Display", "展示"],'label_orientation':["Orientation", "方向"],'label_direction':["Direction", "方向"],'label_language':["Language", "语言"],'label_theme_color':["Theme Color", "主题颜色"],'label_background_color':["Background Color", "背景颜色"],'label_comma_separated':["Comma-separated", "逗号分隔"],'label_source_url':["Source URL", "源网址"],'label_sizes':["Sizes", "尺寸"],'label_type':["Type", "类型"],'label_purpose':["Purpose", "目的"],'label_source_url_2':["Source URL", "源网址"],'label_sizes_2':["Sizes", "尺寸"],'label_type_2':["Type", "类型"],'label_form_factor':["Form Factor", "外形尺寸"],'label_name_2':["Name", "姓名"],'label_short_name_2':["Short Name", "简称"],'label_url':["URL", "URL"],'label_icon_url':["Icon URL", "图标网址"],'label_description_2':["Description", "描述"],'label_platform':["Platform", "平台"],'label_url_2':["URL", "URL"],'label_id':["ID", "ID"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_favicon_gen':["Favicon Gen", "网站图标生成器"],'link_meta_tags':["Meta Tags", "元标签"],'link_json_format':["JSON Format", "JSON 格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const ICON_SIZES = ['48x48','72x72','96x96','128x128','144x144','192x192','256x256','384x384','512x512'];
 
@@ -213,18 +239,18 @@ function renderIcons() {
   const el = document.getElementById('icons-list');
   el.innerHTML = icons.map((ic, i) => `
     <div class="item-card">
-      <div class="item-header"><span>Icon ${i + 1}</span><button class="remove-btn" onclick="icons.splice(${i},1);renderIcons();generate()">Remove</button></div>
+      <div class="item-header"><span>Icon ${i + 1}</span><button class="remove-btn" onclick="icons.splice(${i},1);renderIcons();generate()" ti="btn_remove" ti="btn_remove_2" ti="btn_remove_3" ti="btn_remove_4" ti="btn_remove" ti="btn_remove_2" ti="btn_remove_3" ti="btn_remove_4" ti="btn_remove" ti="btn_remove_2" ti="btn_remove_3" ti="btn_remove_4">Remove</button></div>
       <div class="field-row">
-        <div class="field"><label>Source URL</label><input type="text" value="${esc(ic.src)}" oninput="icons[${i}].src=this.value;generate()"></div>
+        <div class="field"><label ti="label_source_url" ti="label_source_url_2" ti="label_source_url" ti="label_source_url_2" ti="label_source_url" ti="label_source_url_2">Source URL</label><input type="text" value="${esc(ic.src)}" oninput="icons[${i}].src=this.value;generate()"></div>
       </div>
       <div class="field-row">
-        <div class="field"><label>Sizes</label>
+        <div class="field"><label ti="label_sizes" ti="label_sizes_2" ti="label_sizes" ti="label_sizes_2" ti="label_sizes" ti="label_sizes_2">Sizes</label>
           <select onchange="icons[${i}].sizes=this.value;generate()">
             ${ICON_SIZES.map(s => `<option${s === ic.sizes ? ' selected' : ''}>${s}</option>`).join('')}
           </select>
         </div>
-        <div class="field"><label>Type</label><input type="text" value="${esc(ic.type)}" oninput="icons[${i}].type=this.value;generate()"></div>
-        <div class="field"><label>Purpose</label>
+        <div class="field"><label ti="label_type" ti="label_type_2" ti="label_type" ti="label_type_2" ti="label_type" ti="label_type_2">Type</label><input type="text" value="${esc(ic.type)}" oninput="icons[${i}].type=this.value;generate()"></div>
+        <div class="field"><label ti="label_purpose" ti="label_purpose" ti="label_purpose">Purpose</label>
           <select onchange="icons[${i}].purpose=this.value;generate()">
             <option${ic.purpose==='any'?' selected':''}>any</option>
             <option${ic.purpose==='maskable'?' selected':''}>maskable</option>
@@ -250,9 +276,9 @@ function renderScreenshots() {
         <div class="field"><label>Source URL</label><input type="text" value="${esc(s.src)}" oninput="screenshots[${i}].src=this.value;generate()"></div>
       </div>
       <div class="field-row">
-        <div class="field"><label>Sizes</label><input type="text" value="${esc(s.sizes)}" oninput="screenshots[${i}].sizes=this.value;generate()" placeholder="1280x720"></div>
-        <div class="field"><label>Type</label><input type="text" value="${esc(s.type)}" oninput="screenshots[${i}].type=this.value;generate()" placeholder="image/png"></div>
-        <div class="field"><label>Form Factor</label>
+        <div class="field"><label>Sizes</label><input type="text" value="${esc(s.sizes)}" oninput="screenshots[${i}].sizes=this.value;generate()" tp="placeholder_1280x720" tp="placeholder_1280x720" tp="placeholder_1280x720" placeholder="1280x720"></div>
+        <div class="field"><label>Type</label><input type="text" value="${esc(s.type)}" oninput="screenshots[${i}].type=this.value;generate()" tp="placeholder_image_png" tp="placeholder_image_png" tp="placeholder_image_png" placeholder="image/png"></div>
+        <div class="field"><label ti="label_form_factor" ti="label_form_factor" ti="label_form_factor">Form Factor</label>
           <select onchange="screenshots[${i}].form_factor=this.value;generate()">
             <option value=""${!s.form_factor?' selected':''}>—</option>
             <option${s.form_factor==='wide'?' selected':''}>wide</option>
@@ -279,8 +305,8 @@ function renderShortcuts() {
         <div class="field"><label>Short Name</label><input type="text" value="${esc(s.short_name)}" oninput="shortcuts[${i}].short_name=this.value;generate()"></div>
       </div>
       <div class="field-row">
-        <div class="field"><label>URL</label><input type="text" value="${esc(s.url)}" oninput="shortcuts[${i}].url=this.value;generate()"></div>
-        <div class="field"><label>Icon URL</label><input type="text" value="${esc(s.icon)}" oninput="shortcuts[${i}].icon=this.value;generate()"></div>
+        <div class="field"><label ti="label_url" ti="label_url_2" ti="label_url" ti="label_url_2" ti="label_url" ti="label_url_2">URL</label><input type="text" value="${esc(s.url)}" oninput="shortcuts[${i}].url=this.value;generate()"></div>
+        <div class="field"><label ti="label_icon_url" ti="label_icon_url" ti="label_icon_url">Icon URL</label><input type="text" value="${esc(s.icon)}" oninput="shortcuts[${i}].icon=this.value;generate()"></div>
       </div>
       <div class="field"><label>Description</label><input type="text" value="${esc(s.description)}" oninput="shortcuts[${i}].description=this.value;generate()"></div>
     </div>
@@ -298,7 +324,7 @@ function renderRelatedApps() {
     <div class="item-card">
       <div class="item-header"><span>App ${i + 1}</span><button class="remove-btn" onclick="relatedApps.splice(${i},1);renderRelatedApps();generate()">Remove</button></div>
       <div class="field-row">
-        <div class="field"><label>Platform</label>
+        <div class="field"><label ti="label_platform" ti="label_platform" ti="label_platform">Platform</label>
           <select onchange="relatedApps[${i}].platform=this.value;generate()">
             <option${a.platform==='play'?' selected':''}>play</option>
             <option${a.platform==='itunes'?' selected':''}>itunes</option>
@@ -307,7 +333,7 @@ function renderRelatedApps() {
           </select>
         </div>
         <div class="field"><label>URL</label><input type="text" value="${esc(a.url)}" oninput="relatedApps[${i}].url=this.value;generate()"></div>
-        <div class="field"><label>ID</label><input type="text" value="${esc(a.id)}" oninput="relatedApps[${i}].id=this.value;generate()"></div>
+        <div class="field"><label ti="label_id" ti="label_id" ti="label_id">ID</label><input type="text" value="${esc(a.id)}" oninput="relatedApps[${i}].id=this.value;generate()"></div>
       </div>
     </div>
   `).join('');
@@ -512,6 +538,60 @@ renderScreenshots();
 renderShortcuts();
 renderRelatedApps();
 generate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

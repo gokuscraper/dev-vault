@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_abortcontroller_patterns" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,13 +69,17 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>AbortController Patterns Visualizer</h1>
+<h1 ti="title_abortcontroller_patterns" ti="h1_abortcontroller_patterns" ti="title_abortcontroller_patterns" ti="h1_abortcontroller_patterns">AbortController Patterns Visualizer</h1>
 <p>Interactive demos of AbortController & AbortSignal patterns for fetch cancellation, timeouts, and cleanup</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Patterns</h3>
+<h3 ti="h3_patterns" ti="h3_patterns">Patterns</h3>
 <div id="presets"></div>
 </div>
 <div class="main">
@@ -101,19 +105,29 @@ footer a{color:#00d4ff;text-decoration:none}
 </div>
 </div>
 <div class="controls">
-<button class="btn run" id="btnRun">▶ Run Demo</button>
-<button class="btn abort" id="btnAbort" disabled>✕ Abort</button>
-<button class="btn" id="btnReset">⟲ Reset</button>
+<button class="btn run" id="btnRun" ti="btn_run_demo" ti="btn_run_demo">▶ Run Demo</button>
+<button class="btn abort" id="btnAbort" disabled ti="btn_abort" ti="btn_abort">✕ Abort</button>
+<button class="btn" id="btnReset" ti="btn_reset" ti="btn_reset">⟲ Reset</button>
 <div class="speed-control">
-<label>Speed:</label>
+<label ti="label_speed" ti="label_speed">Speed:</label>
 <input type="range" id="speedSlider" min="1" max="5" value="3">
 <span id="speedLabel">1×</span>
 </div>
 </div>
 </div>
 </div>
-<footer>AbortController Patterns Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>AbortController Patterns Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+<script>var _LANG={'title_abortcontroller_patterns':["AbortController Patterns Visualizer", "AbortController 模式可视化工具"],'metadesc_interactive_abortcontroll':["Interactive AbortController and AbortSignal pattern explorer — fetch cancellation, timeout races, linked signals, and cleanup with live demos", "交互式 AbortController 与 AbortSignal 模式探索器 — fetch 取消、超时竞态、信号链接及带实时演示的清理"],'h1_abortcontroller_patterns':["AbortController Patterns Visualizer", "AbortController 模式可视化工具"],'h3_patterns':["Patterns", "模式"],'btn_run_demo':["▶ Run Demo", "▶ 运行演示"],'btn_abort':["✕ Abort", "✕ 中止"],'btn_reset':["⟲ Reset", "⟲ 重置"],'label_speed':["Speed:", "速度："],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PATTERNS = [
   {
@@ -477,6 +491,46 @@ function addLog(type, t, msg) {
 }
 
 init();
+</script>
+<script>var _LANG={'title_abortcontroller_patterns':["AbortController Patterns Visualizer", "AbortController 模式可视化工具"],'metadesc_interactive_abortcontroll':["Interactive AbortController and AbortSignal pattern explorer — fetch cancellation, timeout races, linked signals, and cleanup with live demos", "交互式 AbortController 与 AbortSignal 模式探索器 — fetch 取消、超时竞态、信号链接及带实时演示的清理"],'h1_abortcontroller_patterns':["AbortController Patterns Visualizer", "AbortController 模式可视化工具"],'h3_patterns':["Patterns", "模式"],'btn_run_demo':["▶ Run Demo", "▶ 运行演示"],'btn_abort':["✕ Abort", "✕ 中止"],'btn_reset':["⟲ Reset", "⟲ 重置"],'label_speed':["Speed:", "速度："],'footer_dev_vault':["Dev Vault", "Dev Vault"],'link_dev_vault':["Dev Vault", "Dev Vault"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

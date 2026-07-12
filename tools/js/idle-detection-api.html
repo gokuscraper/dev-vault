@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_idle_detection_api_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -435,6 +435,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>
@@ -459,7 +461,7 @@
       </div>
 
       <div class="form-group">
-        <label>Idle Threshold</label>
+        <label ti="label_idle_threshold">Idle Threshold</label>
         <div class="threshold-display">
           <div class="threshold-value" id="thresholdValue">60</div>
           <div class="threshold-unit">seconds</div>
@@ -473,9 +475,9 @@
       </div>
 
       <div class="btn-row" style="margin-bottom:1rem">
-        <button id="startBtn" onclick="handleStart()">Start Monitoring</button>
-        <button id="stopBtn" class="btn-danger" onclick="handleStop()" disabled>Stop</button>
-        <button class="btn-secondary" onclick="requestPermission()">Request Permission</button>
+        <button id="startBtn" onclick="handleStart()" ti="btn_start_monitoring">Start Monitoring</button>
+        <button id="stopBtn" class="btn-danger" onclick="handleStop()" disabled ti="btn_stop">Stop</button>
+        <button class="btn-secondary" onclick="requestPermission()" ti="btn_request_permission">Request Permission</button>
       </div>
 
       <!-- Permission Flow -->
@@ -563,7 +565,7 @@
   <div class="panel full-width">
     <div class="panel-header">
       <span>Event Timeline</span>
-      <button class="btn-small btn-secondary" onclick="clearTimeline()">Clear</button>
+      <button class="btn-small btn-secondary" onclick="clearTimeline()" ti="btn_clear">Clear</button>
     </div>
     <div class="panel-body">
       <div class="timeline" id="timeline">
@@ -662,7 +664,7 @@ controller.abort();</div>
 
       <div style="margin-top:1rem">
         <div class="info-box">
-          <strong>Privacy considerations:</strong> The Idle Detection API requires the <code>"idle-detection"</code>
+          <strong ti="strong_privacy_considerations">Privacy considerations:</strong> The Idle Detection API requires the <code>"idle-detection"</code>
           permission. Browsers may show a permission prompt. The minimum threshold is 60 seconds to prevent
           fine-grained user tracking. This API is only available in secure contexts (HTTPS).
         </div>
@@ -683,6 +685,16 @@ controller.abort();</div>
 
 </div>
 
+
+<script>var _LANG={'title_idle_detection_api_playgr':["Idle Detection API Playground", "空闲检测 API 测试平台"],'metadesc_interactive_playground_fo':["Interactive playground for the Idle Detection API. Monitor user activity, screen lock state, and explore idle detection use cases.", "用于空闲检测 API 的交互式演示环境。监控用户活动、屏幕锁定状态，并探索空闲检测用例。"],'btn_start_monitoring':["Start Monitoring", "开始监控"],'btn_stop':["Stop", "停止"],'btn_request_permission':["Request Permission", "请求权限"],'btn_clear':["Clear", "清除"],'strong_privacy_considerations':["Privacy considerations:", "隐私考虑："],'label_idle_threshold':["Idle Threshold", "空闲阈值"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"],'jtc_start_monitoring_to_see_d':["Start monitoring to see demo", "开始监控以查看演示"],'jtc_x':["--", "--"],'jtc_user_is_idle':["User is idle", "用户处于空闲状态"],'jtc_user_is_active':["User is active", "用户处于活跃状态"],'jtc_saved':["Saved", "已保存"],'jtc_5_00':["5:00", "5:00"],'jtc_animations_polling_sync_p':["Animations, polling, sync paused", "动画、轮询、同步已暂停"],'jtc_all_systems_running':["All systems running", "所有系统运行中"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // State
   let detector = null;
@@ -707,11 +719,11 @@ controller.abort();</div>
   function init() {
     const badge = document.getElementById('supportBadge');
     if (isSupported) {
-      badge.textContent = 'Supported';
+      badge.textContent=T("jtc_supported");
       badge.className = 'api-badge badge-supported';
       updatePermStep(1, 'done');
     } else {
-      badge.textContent = 'Not Supported';
+      badge.textContent=T("jtc_not_supported");
       badge.className = 'api-badge badge-unsupported';
       document.getElementById('unsupportedMsg').style.display = 'block';
       simulationMode = true;
@@ -979,8 +991,8 @@ controller.abort();</div>
     if (isMonitoring) {
       updateUseCaseDemo(currentUserState, currentScreenState);
     } else {
-      document.getElementById('demoStatus').textContent = 'Start monitoring to see demo';
-      document.getElementById('demoTimer').textContent = '--';
+      document.getElementById('demoStatus').textContent=T("jtc_start_monitoring_to_see_d");
+      document.getElementById('demoTimer').textContent=T("jtc_x");
     }
 
     demoInterval = setInterval(() => {
@@ -1001,11 +1013,11 @@ controller.abort();</div>
       case 'away':
         if (userState === 'idle') {
           status.innerHTML = '<span style="color:var(--yellow)">Status: Away</span>';
-          timer.textContent = 'User is idle';
+          timer.textContent=T("jtc_user_is_idle");
           demo.classList.remove('monitoring');
         } else {
           status.innerHTML = '<span style="color:var(--green)">Status: Online</span>';
-          timer.textContent = 'User is active';
+          timer.textContent=T("jtc_user_is_active");
           demo.classList.add('monitoring');
         }
         break;
@@ -1014,7 +1026,7 @@ controller.abort();</div>
         if (userState === 'idle') {
           const now = new Date().toLocaleTimeString('en-US', { hour12: false });
           status.innerHTML = `<span style="color:var(--green)">Auto-saved at ${now}</span>`;
-          timer.textContent = 'Saved';
+          timer.textContent=T("jtc_saved");
         } else {
           status.innerHTML = '<span style="color:var(--text-dim)">Editing... (auto-save on idle)</span>';
           timer.textContent = '';
@@ -1024,7 +1036,7 @@ controller.abort();</div>
       case 'session':
         if (userState === 'idle') {
           status.innerHTML = '<span style="color:var(--red)">Session timeout countdown</span>';
-          timer.textContent = '5:00';
+          timer.textContent=T("jtc_5_00");
         } else {
           status.innerHTML = '<span style="color:var(--green)">Session active</span>';
           timer.textContent = '';
@@ -1050,10 +1062,10 @@ controller.abort();</div>
       case 'resources':
         if (userState === 'idle') {
           status.innerHTML = '<span style="color:var(--yellow)">Resources paused (user idle)</span>';
-          timer.textContent = 'Animations, polling, sync paused';
+          timer.textContent=T("jtc_animations_polling_sync_p");
         } else {
           status.innerHTML = '<span style="color:var(--green)">Resources active</span>';
-          timer.textContent = 'All systems running';
+          timer.textContent=T("jtc_all_systems_running");
         }
         break;
     }
@@ -1079,6 +1091,24 @@ controller.abort();</div>
   }
 
   init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

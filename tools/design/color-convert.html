@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_convert_hex_rgb_hsl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,9 +58,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Color Convert</h1>
-<p class="subtitle">Convert colors between HEX, RGB, HSL, HSB, CMYK.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_color_convert">Color Convert</h1>
+<p class="subtitle" ti="subtitle_convert_colors_between_he">Convert colors between HEX, RGB, HSL, HSB, CMYK.</p>
 
 <div class="presets" id="presets"></div>
 
@@ -70,22 +72,32 @@ footer a:hover{color:#999}
 </div>
 
 <div class="hex-input">
-  <input type="text" id="hexInput" value="#3b82f6" oninput="fromHex()" placeholder="#hex" maxlength="7">
+  <input type="text" id="hexInput" value="#3b82f6" oninput="fromHex()" tp="placeholder_hex" placeholder="#hex" maxlength="7">
 </div>
 
 <div class="formats" id="formats"></div>
 
 <div class="contrast-section">
-  <h3>Contrast Check (against white & black)</h3>
+  <h3 ti="h3_contrast_check_against_wh">Contrast Check (against white & black)</h3>
   <div class="contrast-row" id="contrastRow"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/color-convert">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/color-convert" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_color_convert_hex_rgb_hsl':["Color Convert — HEX, RGB, HSL, CMYK Converter", "颜色转换器 — HEX、RGB、HSL、CMYK 转换器"],'metadesc_convert_colors_between_he':["Convert colors between HEX, RGB, HSL, HSB, CMYK. Color picker, contrast checker. Copy any format. Free.", "在 HEX、RGB、HSL、HSB、CMYK 之间转换颜色。颜色选择器，对比度检查器。可复制任何格式。免费。"],'h1_color_convert':["Color Convert", "颜色转换"],'h3_contrast_check_against_wh':["Contrast Check (against white & black)", "对比度检查（与白色和黑色对比）"],'subtitle_convert_colors_between_he':["Convert colors between HEX, RGB, HSL, HSB, CMYK.", "在 HEX、RGB、HSL、HSB、CMYK 之间转换颜色。"],'placeholder_hex':["#hex", "#hex"],'strong_whitecontrast_1':["${whiteContrast}:1", "${whiteContrast}:1"],'strong_blackcontrast_1':["${blackContrast}:1", "${blackContrast}:1"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESET_COLORS=['#ef4444','#f97316','#f59e0b','#84cc16','#10b981','#06b6d4','#3b82f6','#8b5cf6','#ec4899','#f43f5e','#000000','#ffffff','#6b7280','#1e293b'];
 
@@ -213,11 +225,11 @@ function render(){
   document.getElementById('contrastRow').innerHTML=`
     <div class="contrast-demo" style="background:${hex};color:${textOnColor}">Text on Color</div>
     <div class="contrast-info">
-      <span>vs White: <strong>${whiteContrast}:1</strong>
+      <span>vs White: <strong ti="strong_whitecontrast_1">${whiteContrast}:1</strong>
         <span class="contrast-badge ${+whiteContrast>=4.5?'pass':'fail'}">${+whiteContrast>=4.5?'AA Pass':'AA Fail'}</span>
         <span class="contrast-badge ${+whiteContrast>=7?'pass':'fail'}">${+whiteContrast>=7?'AAA Pass':'AAA Fail'}</span>
       </span><br>
-      <span>vs Black: <strong>${blackContrast}:1</strong>
+      <span>vs Black: <strong ti="strong_blackcontrast_1">${blackContrast}:1</strong>
         <span class="contrast-badge ${+blackContrast>=4.5?'pass':'fail'}">${+blackContrast>=4.5?'AA Pass':'AA Fail'}</span>
         <span class="contrast-badge ${+blackContrast>=7?'pass':'fail'}">${+blackContrast>=7?'AAA Pass':'AAA Fail'}</span>
       </span>
@@ -240,12 +252,30 @@ function copyVal(v){
 render();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HSL Picker</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-mixer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Mixer</a>
 <a href="https://gokuscraper.github.io/dev-vault/contrast-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Contrast Check</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

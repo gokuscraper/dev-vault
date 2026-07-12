@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_form_builder_visual" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -78,22 +78,24 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>HTML Form Builder</h1>
-<p class="sub">Visually build forms and export HTML, React, or Vue</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_html_form_builder">HTML Form Builder</h1>
+<p class="sub" ti="subtitle_visually_build_forms_and">Visually build forms and export HTML, React, or Vue</p>
 
 <div class="presets">
-  <button class="preset" onclick="loadPreset('contact')">Contact Form</button>
-  <button class="preset" onclick="loadPreset('login')">Login Form</button>
-  <button class="preset" onclick="loadPreset('registration')">Registration</button>
-  <button class="preset" onclick="loadPreset('feedback')">Feedback</button>
-  <button class="preset" onclick="loadPreset('newsletter')">Newsletter</button>
+  <button class="preset" onclick="loadPreset('contact')" ti="btn_contact_form">Contact Form</button>
+  <button class="preset" onclick="loadPreset('login')" ti="btn_login_form">Login Form</button>
+  <button class="preset" onclick="loadPreset('registration')" ti="btn_registration">Registration</button>
+  <button class="preset" onclick="loadPreset('feedback')" ti="btn_feedback">Feedback</button>
+  <button class="preset" onclick="loadPreset('newsletter')" ti="btn_newsletter">Newsletter</button>
 </div>
 
 <div class="layout">
   <div class="left-col">
     <div class="section">
-      <h3>Fields</h3>
+      <h3 ti="h3_fields">Fields</h3>
       <div class="add-field-row">
         <select id="fieldTypeSelect">
           <option value="text">Text Input</option>
@@ -110,71 +112,81 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
           <option value="hidden">Hidden Field</option>
           <option value="submit">Submit Button</option>
         </select>
-        <button class="add-btn" onclick="addField()">+ Add</button>
+        <button class="add-btn" onclick="addField()" ti="btn_add">+ Add</button>
       </div>
       <div class="field-list" id="fieldList"></div>
     </div>
 
     <div class="section">
-      <h3>Form Settings</h3>
+      <h3 ti="h3_form_settings">Form Settings</h3>
       <div class="field">
-        <label>Action URL</label>
-        <input type="text" id="formAction" value="" placeholder="/submit" oninput="render()">
+        <label ti="label_action_url">Action URL</label>
+        <input type="text" id="formAction" value="" tp="placeholder_submit" placeholder="/submit" oninput="render()">
       </div>
       <div class="field">
-        <label>Method</label>
+        <label ti="label_method">Method</label>
         <select id="formMethod" onchange="render()">
           <option value="POST">POST</option>
           <option value="GET">GET</option>
         </select>
       </div>
       <div class="field">
-        <label>Enctype</label>
+        <label ti="label_enctype">Enctype</label>
         <select id="formEnctype" onchange="render()">
           <option value="application/x-www-form-urlencoded">application/x-www-form-urlencoded</option>
           <option value="multipart/form-data">multipart/form-data</option>
         </select>
       </div>
       <div class="field">
-        <label>Form ID</label>
-        <input type="text" id="formId" value="" placeholder="myForm" oninput="render()">
+        <label ti="label_form_id">Form ID</label>
+        <input type="text" id="formId" value="" tp="placeholder_myform" placeholder="myForm" oninput="render()">
       </div>
       <div class="field">
-        <label>Form Class</label>
-        <input type="text" id="formClass" value="" placeholder="form" oninput="render()">
+        <label ti="label_form_class">Form Class</label>
+        <input type="text" id="formClass" value="" tp="placeholder_form" placeholder="form" oninput="render()">
       </div>
     </div>
   </div>
 
   <div class="right-col">
     <div class="section">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <div class="preview-form" id="previewArea"></div>
     </div>
 
     <div class="section">
-      <h3>Output</h3>
+      <h3 ti="h3_output">Output</h3>
       <div class="tabs">
-        <button class="tab active" onclick="setTab('html',this)">HTML</button>
-        <button class="tab" onclick="setTab('htmlcss',this)">HTML + CSS</button>
-        <button class="tab" onclick="setTab('react',this)">React JSX</button>
-        <button class="tab" onclick="setTab('vue',this)">Vue</button>
+        <button class="tab active" onclick="setTab('html',this)" ti="btn_html">HTML</button>
+        <button class="tab" onclick="setTab('htmlcss',this)" ti="btn_html_css">HTML + CSS</button>
+        <button class="tab" onclick="setTab('react',this)" ti="btn_react_jsx">React JSX</button>
+        <button class="tab" onclick="setTab('vue',this)" ti="btn_vue">Vue</button>
       </div>
       <pre class="output-area" id="outputArea"></pre>
       <div class="actions">
-        <button class="btn btn-primary" onclick="copyOutput()">Copy</button>
-        <button class="btn" onclick="downloadOutput()">Download</button>
+        <button class="btn btn-primary" onclick="copyOutput()" ti="btn_copy">Copy</button>
+        <button class="btn" onclick="downloadOutput()" ti="btn_download">Download</button>
       </div>
     </div>
   </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/html-escape/">HTML Escape</a> | <a href="https://gokuscraper.github.io/dev-vault/table-gen/">Table Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/">HTML to JSX</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/html-escape/" ti="link_html_escape">HTML Escape</a> | <a href="https://gokuscraper.github.io/dev-vault/table-gen/" ti="link_table_gen">Table Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" ti="link_html_to_jsx">HTML to JSX</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_html_form_builder_visual':["HTML Form Builder — Visual Form Generator", "HTML 表单构建器 — 可视化表单生成器"],'metadesc_build_html_forms_visually':["Build HTML forms visually. Text, email, select, radio, checkbox fields. Export HTML, React, Vue. Contact, login, registration presets.", "可视化构建 HTML 表单。支持文本、电子邮件、下拉列表、单选按钮和复选框等字段。可导出 HTML、React 和 Vue 版本。提供联系表单、登录表单和注册表单的预设样式。"],'h1_html_form_builder':["HTML Form Builder", "HTML 表单生成器"],'h3_fields':["Fields", "田野"],'h3_form_settings':["Form Settings", "表单设置"],'h3_live_preview':["Live Preview", "实时预览"],'h3_output':["Output", "输出"],'subtitle_visually_build_forms_and':["Visually build forms and export HTML, React, or Vue", "以可视化方式构建表单并导出 HTML、React 或 Vue 文件"],'btn_contact_form':["Contact Form", "联系表格"],'btn_login_form':["Login Form", "登录表单"],'btn_registration':["Registration", "登记"],'btn_feedback':["Feedback", "反馈"],'btn_newsletter':["Newsletter", "通讯"],'btn_add':["+ Add", "+ 添加"],'btn_html':["HTML", "HTML"],'btn_html_css':["HTML + CSS", "HTML + CSS"],'btn_react_jsx':["React JSX", "React JSX"],'btn_vue':["Vue", "维尤"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_option':["+ Option", "+ 选项"],'btn_esc_f_label':["${esc(f.label)}", "${esc(f.label)}"],'btn_esc_f_label_2':["${esc(f.label)}", "${esc(f.label)}"],'btn_esc_f_label_3':["${esc(f.label)}", "${esc(f.label)}"],'btn_esc_f_label_4':["${esc(f.label)}", "${esc(f.label)}"],'placeholder_submit':["/submit", "/提交"],'placeholder_myform':["myForm", "我的表单"],'placeholder_form':["form", "形式"],'placeholder_esc_f_placeholder':["${esc(f.placeholder)}", "${esc(f.placeholder)}"],'placeholder_esc_f_placeholder_2':["${esc(f.placeholder)}", "${esc(f.placeholder)}"],'placeholder_esc_f_placeholder_3':["${esc(f.placeholder)}", "${esc(f.placeholder)}"],'placeholder_esc_f_placeholder_4':["${esc(f.placeholder)}", "${esc(f.placeholder)}"],'placeholder_esc_f_placeholder_5':["${esc(f.placeholder)}", "${esc(f.placeholder)}"],'label_action_url':["Action URL", "操作 URL"],'label_method':["Method", "方法"],'label_enctype':["Enctype", "编码类型"],'label_form_id':["Form ID", "表单 ID"],'label_form_class':["Form Class", "班级"],'label_options':["Options", "选项"],'label_min':["Min", "敏"],'label_max':["Max", "最大限度"],'label_label':["Label", "标签"],'label_button_text':["Button Text", "按钮文本"],'label_name':["Name", "姓名"],'label_placeholder':["Placeholder", "占位符"],'label_default_value':["Default Value", "默认值"],'label_pattern_regex':["Pattern (regex)", "模式（正则表达式）"],'label_esc_f_label_req':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label_req_2':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label_req_3':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label_req_4':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label_req_5':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label_req_6':["${esc(f.label)}${req}", "${esc(f.label)}${req}"],'label_esc_f_label':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_2':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_3':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_4':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_5':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_6':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_7':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_8':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_9':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_10':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_11':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_12':["${esc(f.label)}", "${esc(f.label)}"],'label_esc_f_label_13':["${esc(f.label)}", "${esc(f.label)}"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_html_escape':["HTML Escape", "HTML 转义"],'link_table_gen':["Table Gen", "表格生成"],'link_html_to_jsx':["HTML to JSX", "HTML 转 JSX"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let fields = [];
 let currentTab = 'html';
@@ -264,18 +276,18 @@ function renderFieldList() {
 
     let optionsHtml = '';
     if (hasOptions && f.expanded) {
-      optionsHtml = `<div class="field"><label>Options</label><div class="options-list">` +
+      optionsHtml = `<div class="field"><label ti="label_options">Options</label><div class="options-list">` +
         (f.options||[]).map((o, oi) =>
           `<div class="option-row"><input type="text" value="${esc(o)}" oninput="updateOption(${i},${oi},this.value)"><button onclick="removeOption(${i},${oi})">x</button></div>`
         ).join('') +
-        `</div><button class="add-btn" style="margin-top:4px" onclick="addOption(${i})">+ Option</button></div>`;
+        `</div><button class="add-btn" style="margin-top:4px" onclick="addOption(${i})" ti="btn_option">+ Option</button></div>`;
     }
 
     let minMaxHtml = '';
     if (hasMinMax && f.expanded) {
       minMaxHtml = `<div style="display:flex;gap:8px">
-        <div class="field" style="flex:1"><label>Min</label><input type="text" value="${esc(f.min||'')}" oninput="updateField(${i},'min',this.value)"></div>
-        <div class="field" style="flex:1"><label>Max</label><input type="text" value="${esc(f.max||'')}" oninput="updateField(${i},'max',this.value)"></div>
+        <div class="field" style="flex:1"><label ti="label_min">Min</label><input type="text" value="${esc(f.min||'')}" oninput="updateField(${i},'min',this.value)"></div>
+        <div class="field" style="flex:1"><label ti="label_max">Max</label><input type="text" value="${esc(f.max||'')}" oninput="updateField(${i},'max',this.value)"></div>
       </div>`;
     }
 
@@ -289,13 +301,13 @@ function renderFieldList() {
         </div>
       </div>
       <div class="field-card-body">
-        ${!isSubmit?`<div class="field"><label>Label</label><input type="text" value="${esc(f.label)}" oninput="updateField(${i},'label',this.value)"></div>`:''}
-        ${isSubmit?`<div class="field"><label>Button Text</label><input type="text" value="${esc(f.label)}" oninput="updateField(${i},'label',this.value)"></div>`:''}
-        ${!isSubmit?`<div class="field"><label>Name</label><input type="text" value="${esc(f.name)}" oninput="updateField(${i},'name',this.value)"></div>`:''}
-        ${!isSubmit&&!isHidden?`<div class="field"><label>Placeholder</label><input type="text" value="${esc(f.placeholder)}" oninput="updateField(${i},'placeholder',this.value)"></div>`:''}
-        ${!isSubmit?`<div class="field"><label>Default Value</label><input type="text" value="${esc(f.defaultValue)}" oninput="updateField(${i},'defaultValue',this.value)"></div>`:''}
+        ${!isSubmit?`<div class="field"><label ti="label_label">Label</label><input type="text" value="${esc(f.label)}" oninput="updateField(${i},'label',this.value)"></div>`:''}
+        ${isSubmit?`<div class="field"><label ti="label_button_text">Button Text</label><input type="text" value="${esc(f.label)}" oninput="updateField(${i},'label',this.value)"></div>`:''}
+        ${!isSubmit?`<div class="field"><label ti="label_name">Name</label><input type="text" value="${esc(f.name)}" oninput="updateField(${i},'name',this.value)"></div>`:''}
+        ${!isSubmit&&!isHidden?`<div class="field"><label ti="label_placeholder">Placeholder</label><input type="text" value="${esc(f.placeholder)}" oninput="updateField(${i},'placeholder',this.value)"></div>`:''}
+        ${!isSubmit?`<div class="field"><label ti="label_default_value">Default Value</label><input type="text" value="${esc(f.defaultValue)}" oninput="updateField(${i},'defaultValue',this.value)"></div>`:''}
         ${!isSubmit?`<div class="field"><label><input type="checkbox" ${f.required?'checked':''} onchange="updateField(${i},'required',this.checked)"> Required</label></div>`:''}
-        ${!isSubmit&&!isHidden&&!hasOptions?`<div class="field"><label>Pattern (regex)</label><input type="text" value="${esc(f.pattern||'')}" oninput="updateField(${i},'pattern',this.value)"></div>`:''}
+        ${!isSubmit&&!isHidden&&!hasOptions?`<div class="field"><label ti="label_pattern_regex">Pattern (regex)</label><input type="text" value="${esc(f.pattern||'')}" oninput="updateField(${i},'pattern',this.value)"></div>`:''}
         ${minMaxHtml}
         ${optionsHtml}
       </div>
@@ -341,12 +353,12 @@ function renderPreview() {
   fields.forEach(f => {
     if (f.type === 'hidden') return;
     if (f.type === 'submit') {
-      html += `<button type="submit">${esc(f.label)}</button>`;
+      html += `<button type="submit" ti="btn_esc_f_label" ti="btn_esc_f_label_2" ti="btn_esc_f_label_3" ti="btn_esc_f_label_4" ti="label_esc_f_label" ti="label_esc_f_label_2" ti="label_esc_f_label_3" ti="label_esc_f_label_4" ti="label_esc_f_label_5" ti="label_esc_f_label_6" ti="label_esc_f_label_7" ti="label_esc_f_label_8" ti="label_esc_f_label_9" ti="label_esc_f_label_10" ti="label_esc_f_label_11" ti="label_esc_f_label_12" ti="label_esc_f_label_13">${esc(f.label)}</button>`;
       return;
     }
     const req = f.required ? ' *' : '';
     if (f.type === 'textarea') {
-      html += `<label>${esc(f.label)}${req}</label><textarea placeholder="${esc(f.placeholder)}">${esc(f.defaultValue)}</textarea>`;
+      html += `<label ti="label_esc_f_label_req" ti="label_esc_f_label_req_2" ti="label_esc_f_label_req_3" ti="label_esc_f_label_req_4" ti="label_esc_f_label_req_5" ti="label_esc_f_label_req_6">${esc(f.label)}${req}</label><textarea tp="placeholder_esc_f_placeholder" tp="placeholder_esc_f_placeholder_2" tp="placeholder_esc_f_placeholder_3" tp="placeholder_esc_f_placeholder_4" tp="placeholder_esc_f_placeholder_5" placeholder="${esc(f.placeholder)}">${esc(f.defaultValue)}</textarea>`;
     } else if (f.type === 'select') {
       html += `<label>${esc(f.label)}${req}</label><select>` + (f.options||[]).map(o => `<option>${esc(o)}</option>`).join('') + `</select>`;
     } else if (f.type === 'radio') {
@@ -696,6 +708,24 @@ function loadPreset(name) {
 
 // Init
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

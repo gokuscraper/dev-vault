@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cross_document_view_trans" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -740,6 +740,14 @@ label {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <div class="header-inner">
@@ -755,15 +763,15 @@ label {
 
 <nav class="nav">
   <div class="nav-inner">
-    <button class="nav-btn active" data-section="sim">MPA Simulator</button>
-    <button class="nav-btn" data-section="types">Transition Types</button>
-    <button class="nav-btn" data-section="inspector">Name Inspector</button>
-    <button class="nav-btn" data-section="rule-editor">@view-transition Editor</button>
-    <button class="nav-btn" data-section="comparison">SPA vs MPA</button>
+    <button class="nav-btn active" data-section="sim" ti="btn_mpa_simulator" ti="btn_mpa_simulator" ti="btn_mpa_simulator" ti="btn_mpa_simulator">MPA Simulator</button>
+    <button class="nav-btn" data-section="types" ti="btn_transition_types" ti="btn_transition_types" ti="btn_transition_types" ti="btn_transition_types">Transition Types</button>
+    <button class="nav-btn" data-section="inspector" ti="btn_name_inspector" ti="btn_name_inspector" ti="btn_name_inspector" ti="btn_name_inspector">Name Inspector</button>
+    <button class="nav-btn" data-section="rule-editor" ti="btn_view_transition_editor" ti="btn_view_transition_editor" ti="btn_view_transition_editor" ti="btn_view_transition_editor">@view-transition Editor</button>
+    <button class="nav-btn" data-section="comparison" ti="btn_spa_vs_mpa" ti="btn_spa_vs_mpa" ti="btn_spa_vs_mpa" ti="btn_spa_vs_mpa">SPA vs MPA</button>
     <button class="nav-btn" data-section="timing">Timing &amp; Easing</button>
-    <button class="nav-btn" data-section="diagram">Pseudo-element Tree</button>
-    <button class="nav-btn" data-section="presets">Presets</button>
-    <button class="nav-btn" data-section="codegen">Code Generator</button>
+    <button class="nav-btn" data-section="diagram" ti="btn_pseudo_element_tree" ti="btn_pseudo_element_tree" ti="btn_pseudo_element_tree" ti="btn_pseudo_element_tree">Pseudo-element Tree</button>
+    <button class="nav-btn" data-section="presets" ti="btn_presets" ti="btn_presets" ti="btn_presets" ti="btn_presets">Presets</button>
+    <button class="nav-btn" data-section="codegen" ti="btn_code_generator" ti="btn_code_generator" ti="btn_code_generator" ti="btn_code_generator">Code Generator</button>
   </div>
 </nav>
 
@@ -771,13 +779,13 @@ label {
 
   <!-- ==================== MPA Simulator ==================== -->
   <section class="section active" id="sec-sim">
-    <h2>MPA Navigation Simulator</h2>
+    <h2 ti="h2_mpa_navigation_simulator" ti="h2_mpa_navigation_simulator" ti="h2_mpa_navigation_simulator" ti="h2_mpa_navigation_simulator">MPA Navigation Simulator</h2>
     <p class="subtitle">Simulates cross-document view transitions between "pages". Each page has <code>@view-transition { navigation: auto; }</code> and named elements that morph across navigations.</p>
 
     <div class="card">
       <div class="timing-controls">
         <div class="timing-control">
-          <label>Transition Type</label>
+          <label ti="label_transition_type" ti="label_transition_type" ti="label_transition_type" ti="label_transition_type">Transition Type</label>
           <select id="sim-type">
             <option value="crossfade">Crossfade (default)</option>
             <option value="slide">Slide</option>
@@ -787,14 +795,14 @@ label {
           </select>
         </div>
         <div class="timing-control">
-          <label>Duration</label>
+          <label ti="label_duration" ti="label_duration_2" ti="label_duration" ti="label_duration_2" ti="label_duration" ti="label_duration_2" ti="label_duration" ti="label_duration_2">Duration</label>
           <div class="range-row">
             <input type="range" id="sim-duration" min="100" max="1500" value="400" step="50">
             <span class="range-value" id="sim-duration-val">400ms</span>
           </div>
         </div>
         <div class="timing-control">
-          <label>Easing</label>
+          <label ti="label_easing" ti="label_easing_2" ti="label_easing_3" ti="label_easing" ti="label_easing_2" ti="label_easing_3" ti="label_easing" ti="label_easing_2" ti="label_easing_3" ti="label_easing" ti="label_easing_2" ti="label_easing_3">Easing</label>
           <select id="sim-easing">
             <option value="ease">ease</option>
             <option value="ease-in">ease-in</option>
@@ -823,28 +831,28 @@ label {
       <!-- Info Panel -->
       <div>
         <div class="card">
-          <h3>How It Works</h3>
+          <h3 ti="h3_how_it_works" ti="h3_how_it_works" ti="h3_how_it_works" ti="h3_how_it_works">How It Works</h3>
           <div class="sim-text" style="margin-bottom:1rem">
             In real MPA transitions, navigating from <code>page-a.html</code> to <code>page-b.html</code> triggers the browser to:
           </div>
           <ol style="font-size:0.8rem;color:var(--text-dim);padding-left:1.2rem;display:flex;flex-direction:column;gap:0.5rem;">
-            <li>Capture a <strong>snapshot</strong> of the old page (static image)</li>
-            <li>Load and render the new page as <strong>live DOM</strong></li>
+            <li>Capture a <strong ti="strong_snapshot" ti="strong_snapshot" ti="strong_snapshot" ti="strong_snapshot">snapshot</strong> of the old page (static image)</li>
+            <li>Load and render the new page as <strong ti="strong_live_dom" ti="strong_live_dom" ti="strong_live_dom" ti="strong_live_dom">live DOM</strong></li>
             <li>Match elements by <code>view-transition-name</code></li>
             <li>Animate <code>::view-transition-old</code> out, <code>::view-transition-new</code> in</li>
-            <li>Named elements <strong>morph</strong> (position + size) between pages</li>
+            <li>Named elements <strong ti="strong_morph" ti="strong_morph_2" ti="strong_morph" ti="strong_morph_2" ti="strong_morph" ti="strong_morph_2" ti="strong_morph" ti="strong_morph_2">morph</strong> (position + size) between pages</li>
           </ol>
         </div>
 
         <div class="card">
-          <h3>Active Transition Names</h3>
+          <h3 ti="h3_active_transition_names" ti="h3_active_transition_names" ti="h3_active_transition_names" ti="h3_active_transition_names">Active Transition Names</h3>
           <div id="active-names" style="font-family:var(--font-mono);font-size:0.8rem;color:var(--text-dim);">
             Click a page link to see transitions
           </div>
         </div>
 
         <div class="card">
-          <h3>Required CSS (both pages)</h3>
+          <h3 ti="h3_required_css_both_pages" ti="h3_required_css_both_pages" ti="h3_required_css_both_pages" ti="h3_required_css_both_pages">Required CSS (both pages)</h3>
           <div class="code-block"><span class="kw">@view-transition</span> {
   <span class="attr">navigation</span>: <span class="val">auto</span>;
 }</div>
@@ -855,7 +863,7 @@ label {
 
   <!-- ==================== Transition Types ==================== -->
   <section class="section" id="sec-types">
-    <h2>Transition Types</h2>
+    <h2 ti="h2_transition_types" ti="h2_transition_types" ti="h2_transition_types" ti="h2_transition_types">Transition Types</h2>
     <p class="subtitle">Click each type to see the animation applied to <code>::view-transition-old(root)</code> and <code>::view-transition-new(root)</code>.</p>
 
     <div class="card" style="margin-bottom:1.5rem;">
@@ -884,14 +892,14 @@ label {
     </div>
 
     <div class="card" id="types-code-card" style="margin-top:1.5rem; display:none;">
-      <h3>CSS for this transition</h3>
+      <h3 ti="h3_css_for_this_transition" ti="h3_css_for_this_transition" ti="h3_css_for_this_transition" ti="h3_css_for_this_transition">CSS for this transition</h3>
       <div class="code-block" id="types-code"></div>
     </div>
   </section>
 
   <!-- ==================== Name Inspector ==================== -->
   <section class="section" id="sec-inspector">
-    <h2>view-transition-name Inspector</h2>
+    <h2 ti="h2_view_transition_name_insp" ti="h2_view_transition_name_insp" ti="h2_view_transition_name_insp" ti="h2_view_transition_name_insp">view-transition-name Inspector</h2>
     <p class="subtitle">Assign <code>view-transition-name</code> to elements and see how they map across pages. Elements with the same name morph between pages.</p>
 
     <div class="inspector-grid">
@@ -909,29 +917,29 @@ label {
           </div>
         </div>
         <div style="text-align:center;margin-top:1rem;">
-          <button class="btn-primary" id="inspector-run-btn">Run Transition</button>
+          <button class="btn-primary" id="inspector-run-btn" ti="btn_run_transition" ti="btn_run_transition" ti="btn_run_transition" ti="btn_run_transition">Run Transition</button>
         </div>
       </div>
 
       <div class="inspector-panel">
         <div class="card">
-          <h3>Element Properties</h3>
+          <h3 ti="h3_element_properties" ti="h3_element_properties" ti="h3_element_properties" ti="h3_element_properties">Element Properties</h3>
           <div id="inspector-props" style="font-size:0.85rem;color:var(--text-dim);">
             Select an element to edit its properties
           </div>
         </div>
         <div class="card">
-          <h3>Name Mapping</h3>
+          <h3 ti="h3_name_mapping" ti="h3_name_mapping" ti="h3_name_mapping" ti="h3_name_mapping">Name Mapping</h3>
           <div id="inspector-mapping" style="font-family:var(--font-mono);font-size:0.8rem;">
             <!-- Generated by JS -->
           </div>
         </div>
         <div class="card">
-          <h3>Rules</h3>
+          <h3 ti="h3_rules" ti="h3_rules" ti="h3_rules" ti="h3_rules">Rules</h3>
           <ul style="font-size:0.8rem;color:var(--text-dim);padding-left:1.2rem;display:flex;flex-direction:column;gap:0.3rem;">
-            <li><code>view-transition-name</code> must be <strong>unique</strong> per page</li>
+            <li><code>view-transition-name</code> must be <strong ti="strong_unique" ti="strong_unique" ti="strong_unique" ti="strong_unique">unique</strong> per page</li>
             <li>Elements with same name across pages will <strong>morph</strong></li>
-            <li>Unmatched elements <strong>crossfade</strong> independently</li>
+            <li>Unmatched elements <strong ti="strong_crossfade" ti="strong_crossfade" ti="strong_crossfade" ti="strong_crossfade">crossfade</strong> independently</li>
             <li>Use <code>view-transition-class</code> for shared styling</li>
           </ul>
         </div>
@@ -941,24 +949,24 @@ label {
 
   <!-- ==================== @view-transition Editor ==================== -->
   <section class="section" id="sec-rule-editor">
-    <h2>@view-transition Rule Editor</h2>
+    <h2 ti="h2_view_transition_rule_edi" ti="h2_view_transition_rule_edi" ti="h2_view_transition_rule_edi" ti="h2_view_transition_rule_edi">@view-transition Rule Editor</h2>
     <p class="subtitle">The <code>@view-transition</code> CSS at-rule opts a document into cross-document view transitions. Edit the rule and see what each property controls.</p>
 
     <div class="grid-2">
       <div class="card">
-        <h3>Edit the Rule</h3>
+        <h3 ti="h3_edit_the_rule" ti="h3_edit_the_rule" ti="h3_edit_the_rule" ti="h3_edit_the_rule">Edit the Rule</h3>
         <textarea id="rule-editor-input" rows="8" style="margin-top:0.5rem;">@view-transition {
   navigation: auto;
 }</textarea>
         <div style="margin-top:0.75rem;">
-          <button class="btn-primary" id="rule-apply-btn">Apply</button>
-          <button class="btn-secondary" id="rule-reset-btn" style="margin-left:0.5rem;">Reset</button>
+          <button class="btn-primary" id="rule-apply-btn" ti="btn_apply" ti="btn_apply" ti="btn_apply" ti="btn_apply">Apply</button>
+          <button class="btn-secondary" id="rule-reset-btn" style="margin-left:0.5rem;" ti="btn_reset" ti="btn_reset" ti="btn_reset" ti="btn_reset">Reset</button>
         </div>
         <div id="rule-error" style="color:var(--red);font-size:0.8rem;margin-top:0.5rem;display:none;"></div>
       </div>
 
       <div class="card">
-        <h3>Property Reference</h3>
+        <h3 ti="h3_property_reference" ti="h3_property_reference" ti="h3_property_reference" ti="h3_property_reference">Property Reference</h3>
         <div id="rule-reference">
           <!-- Generated by JS -->
         </div>
@@ -966,8 +974,8 @@ label {
     </div>
 
     <div class="card" style="margin-top:1.5rem;">
-      <h3>Live Preview</h3>
-      <p class="subtitle" style="margin-bottom:1rem;">The rule is applied to both simulated pages. Navigate to see the effect.</p>
+      <h3 ti="h3_live_preview" ti="h3_live_preview" ti="h3_live_preview" ti="h3_live_preview">Live Preview</h3>
+      <p class="subtitle" style="margin-bottom:1rem;" ti="subtitle_the_rule_is_applied_to_bo" ti="subtitle_the_rule_is_applied_to_bo" ti="subtitle_the_rule_is_applied_to_bo" ti="subtitle_the_rule_is_applied_to_bo">The rule is applied to both simulated pages. Navigate to see the effect.</p>
       <div class="mpa-sim">
         <div class="page-frame">
           <div class="page-frame-header">
@@ -980,13 +988,13 @@ label {
         </div>
         <div>
           <div class="card">
-            <h3>Parsed Values</h3>
+            <h3 ti="h3_parsed_values" ti="h3_parsed_values" ti="h3_parsed_values" ti="h3_parsed_values">Parsed Values</h3>
             <div id="rule-parsed" style="font-family:var(--font-mono);font-size:0.8rem;"></div>
           </div>
           <div class="btn-group" style="margin-top:0.75rem;">
-            <button class="btn-secondary btn-sm" onclick="ruleNavigate('a')">Go to Page A</button>
-            <button class="btn-secondary btn-sm" onclick="ruleNavigate('b')">Go to Page B</button>
-            <button class="btn-secondary btn-sm" onclick="ruleNavigate('c')">Go to Page C</button>
+            <button class="btn-secondary btn-sm" onclick="ruleNavigate('a')" ti="btn_go_to_page_a" ti="btn_go_to_page_a" ti="btn_go_to_page_a" ti="btn_go_to_page_a">Go to Page A</button>
+            <button class="btn-secondary btn-sm" onclick="ruleNavigate('b')" ti="btn_go_to_page_b" ti="btn_go_to_page_b" ti="btn_go_to_page_b" ti="btn_go_to_page_b">Go to Page B</button>
+            <button class="btn-secondary btn-sm" onclick="ruleNavigate('c')" ti="btn_go_to_page_c" ti="btn_go_to_page_c" ti="btn_go_to_page_c" ti="btn_go_to_page_c">Go to Page C</button>
           </div>
         </div>
       </div>
@@ -995,8 +1003,8 @@ label {
 
   <!-- ==================== SPA vs MPA Comparison ==================== -->
   <section class="section" id="sec-comparison">
-    <h2>Same-Document vs Cross-Document Transitions</h2>
-    <p class="subtitle">Compare the two approaches side by side. Both use the same underlying pseudo-element tree, but trigger differently.</p>
+    <h2 ti="h2_same_document_vs_cross_do" ti="h2_same_document_vs_cross_do" ti="h2_same_document_vs_cross_do" ti="h2_same_document_vs_cross_do">Same-Document vs Cross-Document Transitions</h2>
+    <p class="subtitle" ti="subtitle_compare_the_two_approache" ti="subtitle_compare_the_two_approache" ti="subtitle_compare_the_two_approache" ti="subtitle_compare_the_two_approache">Compare the two approaches side by side. Both use the same underlying pseudo-element tree, but trigger differently.</p>
 
     <div class="comparison-grid">
       <div class="comparison-column">
@@ -1008,9 +1016,9 @@ label {
           </div>
         </div>
         <div class="btn-group" style="margin-top:0.75rem;justify-content:center;">
-          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'home')">Home</button>
-          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'about')">About</button>
-          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'contact')">Contact</button>
+          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'home')" ti="btn_home" ti="btn_home_2" ti="btn_home" ti="btn_home_2" ti="btn_home" ti="btn_home_2" ti="btn_home" ti="btn_home_2">Home</button>
+          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'about')" ti="btn_about" ti="btn_about_2" ti="btn_about" ti="btn_about_2" ti="btn_about" ti="btn_about_2" ti="btn_about" ti="btn_about_2">About</button>
+          <button class="btn-secondary btn-sm" onclick="compNavigate('spa', 'contact')" ti="btn_contact" ti="btn_contact_2" ti="btn_contact" ti="btn_contact_2" ti="btn_contact" ti="btn_contact_2" ti="btn_contact" ti="btn_contact_2">Contact</button>
         </div>
       </div>
 
@@ -1031,14 +1039,14 @@ label {
     </div>
 
     <div class="card" style="margin-top:1.5rem;">
-      <h3>Key Differences</h3>
+      <h3 ti="h3_key_differences" ti="h3_key_differences" ti="h3_key_differences" ti="h3_key_differences">Key Differences</h3>
       <div style="overflow-x:auto;">
         <table style="width:100%;font-size:0.8rem;border-collapse:collapse;">
           <thead>
             <tr style="border-bottom:1px solid var(--border);">
               <th style="text-align:left;padding:0.5rem;color:var(--text-dim);"></th>
-              <th style="text-align:left;padding:0.5rem;color:var(--accent);">SPA (Same-Document)</th>
-              <th style="text-align:left;padding:0.5rem;color:var(--green);">MPA (Cross-Document)</th>
+              <th style="text-align:left;padding:0.5rem;color:var(--accent);" ti="th_spa_same_document" ti="th_spa_same_document" ti="th_spa_same_document" ti="th_spa_same_document">SPA (Same-Document)</th>
+              <th style="text-align:left;padding:0.5rem;color:var(--green);" ti="th_mpa_cross_document" ti="th_mpa_cross_document" ti="th_mpa_cross_document" ti="th_mpa_cross_document">MPA (Cross-Document)</th>
             </tr>
           </thead>
           <tbody>
@@ -1070,7 +1078,7 @@ label {
             <tr style="border-bottom:1px solid var(--border);">
               <td style="padding:0.5rem;color:var(--text-dim);">Min JS Required</td>
               <td style="padding:0.5rem;">Yes (API call)</td>
-              <td style="padding:0.5rem;"><strong>No</strong> (CSS-only possible)</td>
+              <td style="padding:0.5rem;"><strong ti="strong_no" ti="strong_no" ti="strong_no" ti="strong_no">No</strong> (CSS-only possible)</td>
             </tr>
             <tr>
               <td style="padding:0.5rem;color:var(--text-dim);">Browser Support</td>
@@ -1090,31 +1098,31 @@ label {
 
     <div class="grid-2">
       <div class="card">
-        <h3>Controls</h3>
+        <h3 ti="h3_controls" ti="h3_controls" ti="h3_controls" ti="h3_controls">Controls</h3>
         <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
           <div class="timing-control">
-            <label>::view-transition-group(*) duration</label>
+            <label ti="label_view_transition_group_du" ti="label_view_transition_group_du" ti="label_view_transition_group_du" ti="label_view_transition_group_du">::view-transition-group(*) duration</label>
             <div class="range-row">
               <input type="range" id="timing-group-dur" min="50" max="2000" value="350" step="50">
               <span class="range-value" id="timing-group-dur-val">350ms</span>
             </div>
           </div>
           <div class="timing-control">
-            <label>::view-transition-old(*) duration</label>
+            <label ti="label_view_transition_old_dura" ti="label_view_transition_old_dura" ti="label_view_transition_old_dura" ti="label_view_transition_old_dura">::view-transition-old(*) duration</label>
             <div class="range-row">
               <input type="range" id="timing-old-dur" min="50" max="2000" value="250" step="50">
               <span class="range-value" id="timing-old-dur-val">250ms</span>
             </div>
           </div>
           <div class="timing-control">
-            <label>::view-transition-new(*) duration</label>
+            <label ti="label_view_transition_new_dura" ti="label_view_transition_new_dura" ti="label_view_transition_new_dura" ti="label_view_transition_new_dura">::view-transition-new(*) duration</label>
             <div class="range-row">
               <input type="range" id="timing-new-dur" min="50" max="2000" value="350" step="50">
               <span class="range-value" id="timing-new-dur-val">350ms</span>
             </div>
           </div>
           <div class="timing-control">
-            <label>Easing Function</label>
+            <label ti="label_easing_function" ti="label_easing_function" ti="label_easing_function" ti="label_easing_function">Easing Function</label>
             <select id="timing-easing">
               <option value="ease">ease</option>
               <option value="ease-in">ease-in</option>
@@ -1129,13 +1137,13 @@ label {
           </div>
         </div>
         <div style="margin-top:1rem;text-align:center;">
-          <button class="btn-primary" id="timing-play-btn">Play Transition</button>
+          <button class="btn-primary" id="timing-play-btn" ti="btn_play_transition" ti="btn_play_transition_2" ti="btn_play_transition" ti="btn_play_transition_2" ti="btn_play_transition" ti="btn_play_transition_2" ti="btn_play_transition" ti="btn_play_transition_2">Play Transition</button>
         </div>
       </div>
 
       <div>
         <div class="card">
-          <h3>Preview</h3>
+          <h3 ti="h3_preview" ti="h3_preview" ti="h3_preview" ti="h3_preview">Preview</h3>
           <div class="page-frame" style="margin-top:0.5rem;">
             <div class="page-frame-header">
               <div class="page-frame-dots"><span></span><span></span><span></span></div>
@@ -1148,7 +1156,7 @@ label {
         </div>
 
         <div class="card">
-          <h3>Generated CSS</h3>
+          <h3 ti="h3_generated_css" ti="h3_generated_css" ti="h3_generated_css" ti="h3_generated_css">Generated CSS</h3>
           <div class="code-block" id="timing-code" style="font-size:0.75rem;">
           </div>
         </div>
@@ -1158,12 +1166,12 @@ label {
 
   <!-- ==================== Pseudo-element Diagram ==================== -->
   <section class="section" id="sec-diagram">
-    <h2>Pseudo-element Tree</h2>
-    <p class="subtitle">The View Transition API creates a tree of pseudo-elements during transitions. Click nodes to learn more.</p>
+    <h2 ti="h2_pseudo_element_tree" ti="h2_pseudo_element_tree" ti="h2_pseudo_element_tree" ti="h2_pseudo_element_tree">Pseudo-element Tree</h2>
+    <p class="subtitle" ti="subtitle_the_view_transition_api_c" ti="subtitle_the_view_transition_api_c" ti="subtitle_the_view_transition_api_c" ti="subtitle_the_view_transition_api_c">The View Transition API creates a tree of pseudo-elements during transitions. Click nodes to learn more.</p>
 
     <div class="grid-2">
       <div class="card">
-        <h3 style="margin-bottom:1rem;">Pseudo-element Hierarchy</h3>
+        <h3 style="margin-bottom:1rem;" ti="h3_pseudo_element_hierarchy" ti="h3_pseudo_element_hierarchy" ti="h3_pseudo_element_hierarchy" ti="h3_pseudo_element_hierarchy">Pseudo-element Hierarchy</h3>
         <div class="diagram-tree" id="diagram-tree">
           <!-- Generated by JS -->
         </div>
@@ -1171,13 +1179,13 @@ label {
 
       <div>
         <div class="card">
-          <h3>Description</h3>
+          <h3 ti="h3_description" ti="h3_description" ti="h3_description" ti="h3_description">Description</h3>
           <div class="diagram-desc" id="diagram-desc">
             Click a pseudo-element to see its description, purpose, and styleable properties.
           </div>
         </div>
         <div class="card">
-          <h3>Visual Representation</h3>
+          <h3 ti="h3_visual_representation" ti="h3_visual_representation" ti="h3_visual_representation" ti="h3_visual_representation">Visual Representation</h3>
           <div id="diagram-visual" style="min-height:200px;background:var(--bg);border-radius:var(--radius);padding:1rem;position:relative;">
             <!-- JS renders visual -->
           </div>
@@ -1188,8 +1196,8 @@ label {
 
   <!-- ==================== Presets ==================== -->
   <section class="section" id="sec-presets">
-    <h2>Presets</h2>
-    <p class="subtitle">Real-world transition patterns. Click a preset to see the animation and get the CSS code.</p>
+    <h2 ti="h2_presets" ti="h2_presets" ti="h2_presets" ti="h2_presets">Presets</h2>
+    <p class="subtitle" ti="subtitle_real_world_transition_pat" ti="subtitle_real_world_transition_pat" ti="subtitle_real_world_transition_pat" ti="subtitle_real_world_transition_pat">Real-world transition patterns. Click a preset to see the animation and get the CSS code.</p>
 
     <div class="presets-grid" id="presets-grid">
       <!-- Generated by JS -->
@@ -1198,7 +1206,7 @@ label {
     <div class="card" style="margin-top:1.5rem;" id="preset-detail" style="display:none;">
       <div class="grid-2">
         <div>
-          <h3 id="preset-detail-name">Select a preset</h3>
+          <h3 id="preset-detail-name" ti="h3_select_a_preset" ti="h3_select_a_preset" ti="h3_select_a_preset" ti="h3_select_a_preset">Select a preset</h3>
           <p class="subtitle" id="preset-detail-desc"></p>
           <div style="text-align:center;margin:1rem 0;">
             <button class="btn-primary" id="preset-play-btn">Play Transition</button>
@@ -1213,7 +1221,7 @@ label {
           </div>
         </div>
         <div>
-          <h3>CSS Code</h3>
+          <h3 ti="h3_css_code" ti="h3_css_code" ti="h3_css_code" ti="h3_css_code">CSS Code</h3>
           <div class="code-block codegen-output" id="preset-code" style="margin-top:0.5rem;"></div>
         </div>
       </div>
@@ -1222,22 +1230,22 @@ label {
 
   <!-- ==================== Code Generator ==================== -->
   <section class="section" id="sec-codegen">
-    <h2>CSS Code Generator</h2>
-    <p class="subtitle">Configure your cross-document view transition and get production-ready CSS.</p>
+    <h2 ti="h2_css_code_generator" ti="h2_css_code_generator" ti="h2_css_code_generator" ti="h2_css_code_generator">CSS Code Generator</h2>
+    <p class="subtitle" ti="subtitle_configure_your_cross_docu" ti="subtitle_configure_your_cross_docu" ti="subtitle_configure_your_cross_docu" ti="subtitle_configure_your_cross_docu">Configure your cross-document view transition and get production-ready CSS.</p>
 
     <div class="grid-2">
       <div class="card">
-        <h3>Configuration</h3>
+        <h3 ti="h3_configuration" ti="h3_configuration" ti="h3_configuration" ti="h3_configuration">Configuration</h3>
         <div style="display:flex;flex-direction:column;gap:1rem;margin-top:1rem;">
           <div>
-            <label>Navigation Type</label>
+            <label ti="label_navigation_type" ti="label_navigation_type" ti="label_navigation_type" ti="label_navigation_type">Navigation Type</label>
             <select id="cg-nav" style="width:100%;">
               <option value="auto">auto (push + replace + traverse)</option>
               <option value="auto">auto</option>
             </select>
           </div>
           <div>
-            <label>Default Transition</label>
+            <label ti="label_default_transition" ti="label_default_transition" ti="label_default_transition" ti="label_default_transition">Default Transition</label>
             <select id="cg-default" style="width:100%;">
               <option value="crossfade">Crossfade (default browser behavior)</option>
               <option value="slide">Slide</option>
@@ -1248,7 +1256,7 @@ label {
             </select>
           </div>
           <div>
-            <label>Duration (ms)</label>
+            <label ti="label_duration_ms" ti="label_duration_ms" ti="label_duration_ms" ti="label_duration_ms">Duration (ms)</label>
             <input type="number" id="cg-duration" value="350" min="50" max="2000" step="50" style="width:100%;">
           </div>
           <div>
@@ -1261,8 +1269,8 @@ label {
             </select>
           </div>
           <div>
-            <label>Named Elements (comma-separated)</label>
-            <input type="text" id="cg-names" value="hero, title, nav" style="width:100%;" placeholder="e.g. hero, title, sidebar">
+            <label ti="label_named_elements_comma_sepa" ti="label_named_elements_comma_sepa" ti="label_named_elements_comma_sepa" ti="label_named_elements_comma_sepa">Named Elements (comma-separated)</label>
+            <input type="text" id="cg-names" value="hero, title, nav" style="width:100%;" tp="placeholder_e_g_hero_title_sidebar" tp="placeholder_e_g_hero_title_sidebar" tp="placeholder_e_g_hero_title_sidebar" tp="placeholder_e_g_hero_title_sidebar" placeholder="e.g. hero, title, sidebar">
           </div>
           <div>
             <label style="display:flex;align-items:center;gap:0.5rem;">
@@ -1279,16 +1287,46 @@ label {
 
       <div class="card">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
-          <h3>Generated Code</h3>
-          <button class="btn-secondary btn-sm" id="cg-copy-btn">Copy</button>
+          <h3 ti="h3_generated_code" ti="h3_generated_code" ti="h3_generated_code" ti="h3_generated_code">Generated Code</h3>
+          <button class="btn-secondary btn-sm" id="cg-copy-btn" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
         </div>
-        <div class="code-block codegen-output" id="cg-output" style="min-height:300px;"></div>
+        <div class="cod
+
+<script>var _LANG={'title_cross_document_view_trans':["Cross-Document View Transitions Playground", "跨文档视图切换演示"],'metadesc_interactive_playground_fo':["Interactive playground for Cross-Document (MPA) View Transitions. Explore @view-transition, view-transition-name, transition types, and CSS code generation.", "用于跨文档（MPA）视图过渡的交互式演示环境。探索 @view-transition、view-transition-name、过渡类型和 CSS 代码生成。"],'h2_mpa_navigation_simulator':["MPA Navigation Simulator", "MPA导航模拟器"],'h2_transition_types':["Transition Types", "转换类型"],'h2_view_transition_name_insp':["view-transition-name Inspector", "视图转换名称 检查器"],'h2_view_transition_rule_edi':["@view-transition Rule Editor", "@view-transition 规则编辑器"],'h2_same_document_vs_cross_do':["Same-Document vs Cross-Document Transitions", "同一文档内转换与跨文档转换"],'h2_timing_easing_controls':["Timing & Easing Controls", "定时和缓动控制"],'h2_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'h2_presets':["Presets", "预设"],'h2_css_code_generator':["CSS Code Generator", "CSS 代码生成器"],'h3_how_it_works':["How It Works", "工作原理"],'h3_active_transition_names':["Active Transition Names", "活跃过渡名称"],'h3_required_css_both_pages':["Required CSS (both pages)", "必需的 CSS（两个页面）"],'h3_css_for_this_transition':["CSS for this transition", "此过渡的 CSS"],'h3_element_properties':["Element Properties", "元素属性"],'h3_name_mapping':["Name Mapping", "名称映射"],'h3_rules':["Rules", "规则"],'h3_edit_the_rule':["Edit the Rule", "编辑规则"],'h3_property_reference':["Property Reference", "物业参考"],'h3_live_preview':["Live Preview", "实时预览"],'h3_parsed_values':["Parsed Values", "已解析值"],'h3_key_differences':["Key Differences", "主要区别"],'h3_controls':["Controls", "控制"],'h3_preview':["Preview", "预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_pseudo_element_hierarchy':["Pseudo-element Hierarchy", "伪元素层次结构"],'h3_description':["Description", "描述"],'h3_visual_representation':["Visual Representation", "视觉表现"],'h3_select_a_preset':["Select a preset", "选择预设"],'h3_css_code':["CSS Code", "CSS 代码"],'h3_configuration':["Configuration", "配置"],'h3_generated_code':["Generated Code", "生成的代码"],'subtitle_the_rule_is_applied_to_bo':["The rule is applied to both simulated pages. Navigate to see the effect.", "该规则适用于两个模拟页面。请导航查看效果。"],'subtitle_compare_the_two_approache':["Compare the two approaches side by side. Both use the same underlying pseudo-element tree, but trigger differently.", "并排比较这两种方法。两者都使用相同的底层伪元素树，但触发方式不同。"],'subtitle_the_view_transition_api_c':["The View Transition API creates a tree of pseudo-elements during transitions. Click nodes to learn more.", "视图过渡 API 会在过渡期间创建伪元素树。点击节点了解更多信息。"],'subtitle_real_world_transition_pat':["Real-world transition patterns. Click a preset to see the animation and get the CSS code.", "真实世界的过渡效果。点击预设即可查看动画并获取 CSS 代码。"],'subtitle_configure_your_cross_docu':["Configure your cross-document view transition and get production-ready CSS.", "配置跨文档视图过渡效果，获取可用于生产环境的 CSS。"],'btn_mpa_simulator':["MPA Simulator", "MPA模拟器"],'btn_transition_types':["Transition Types", "转换类型"],'btn_name_inspector':["Name Inspector", "名称检查员"],'btn_view_transition_editor':["@view-transition Editor", "@view-transition 编辑器"],'btn_spa_vs_mpa':["SPA vs MPA", "SPA 与 MPA"],'btn_timing_easing':["Timing & Easing", "时机与缓和"],'btn_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'btn_presets':["Presets", "预设"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_run_transition':["Run Transition", "运行过渡"],'btn_apply':["Apply", "申请"],'btn_reset':["Reset", "重置"],'btn_go_to_page_a':["Go to Page A", "转到A页"],'btn_go_to_page_b':["Go to Page B", "转到B页"],'btn_go_to_page_c':["Go to Page C", "转到C页"],'btn_home':["Home", "家"],'btn_about':["About", "关于"],'btn_contact':["Contact", "接触"],'btn_home_2':["Home", "家"],'btn_about_2':["About", "关于"],'btn_contact_2':["Contact", "接触"],'btn_play_transition':["Play Transition", "比赛过渡"],'btn_play_transition_2':["Play Transition", "比赛过渡"],'btn_copy':["Copy", "复制"],'placeholder_e_g_hero_title_sidebar':["e.g. hero, title, sidebar", "例如：英雄、标题、侧边栏"],'strong_snapshot':["snapshot", "快照"],'strong_live_dom':["live DOM", "实时 DOM"],'strong_morph':["morph", "变形"],'strong_unique':["unique", "独特的"],'strong_morph_2':["morph", "变形"],'strong_crossfade':["crossfade", "交叉淡入淡出"],'strong_no':["No", "不"],'strong_elem_label':["${elem.label}", "${elem.label}"],'strong_styleable_properties':["Styleable properties:", "可设置样式的属性："],'th_spa_same_document':["SPA (Same-Document)", "SPA（同文档）"],'th_mpa_cross_document':["MPA (Cross-Document)", "MPA（跨文档）"],'label_transition_type':["Transition Type", "过渡类型"],'label_duration':["Duration", "期间"],'label_easing':["Easing", "缓解"],'label_duration_2':["Duration", "期间"],'label_easing_2':["Easing", "缓解"],'label_view_transition_group_du':["::view-transition-group(*) duration", "::view-transition-group(*) 持续时间"],'label_view_transition_old_dura':["::view-transition-old(*) duration", "::view-transition-old(*) 持续时间"],'label_view_transition_new_dura':["::view-transition-new(*) duration", "::view-transition-new(*) 持续时间"],'label_easing_function':["Easing Function", "缓动功能"],'label_navigation_type':["Navigation Type", "导航类型"],'label_default_transition':["Default Transition", "默认转换"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_easing_3':["Easing", "缓解"],'label_named_elements_comma_sepa':["Named Elements (comma-separated)", "命名元素（逗号分隔）"],'label_view_transition_name':["view-transition-name", "视图转换名称"],'jtc_example_com':["example.com", "example.com"],'jtc_warning_could_not_find_va':["Warning: Could not find valid navigation value (auto | none)", "警告：找不到有效的导航值（auto | none）"],'jtc_example_com_page':["example.com/page-", "example.com/page-"],'jtc_example_com_2':["example.com/", "example.com/"],'jtc_example_com_3':["example.com/", "example.com/"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtcpre_example_com':["example.com", "example.com"],'jtcpre_example_com_page':["example.com/page-", "example.com/page-"],'jtcpre_example_com_2':["example.com/", "example.com/"],'jtcpre_example_com_3':["example.com/", "example.com/"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cross_document_view_trans':["Cross-Document View Transitions Playground", "跨文档视图切换演示"],'metadesc_interactive_playground_fo':["Interactive playground for Cross-Document (MPA) View Transitions. Explore @view-transition, view-transition-name, transition types, and CSS code generation.", "用于跨文档（MPA）视图过渡的交互式演示环境。探索 @view-transition、view-transition-name、过渡类型和 CSS 代码生成。"],'h2_mpa_navigation_simulator':["MPA Navigation Simulator", "MPA导航模拟器"],'h2_transition_types':["Transition Types", "转换类型"],'h2_view_transition_name_insp':["view-transition-name Inspector", "视图转换名称 检查器"],'h2_view_transition_rule_edi':["@view-transition Rule Editor", "@view-transition 规则编辑器"],'h2_same_document_vs_cross_do':["Same-Document vs Cross-Document Transitions", "同一文档内转换与跨文档转换"],'h2_timing_easing_controls':["Timing & Easing Controls", "定时和缓动控制"],'h2_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'h2_presets':["Presets", "预设"],'h2_css_code_generator':["CSS Code Generator", "CSS 代码生成器"],'h3_how_it_works':["How It Works", "工作原理"],'h3_active_transition_names':["Active Transition Names", "活跃过渡名称"],'h3_required_css_both_pages':["Required CSS (both pages)", "必需的 CSS（两个页面）"],'h3_css_for_this_transition':["CSS for this transition", "此过渡的 CSS"],'h3_element_properties':["Element Properties", "元素属性"],'h3_name_mapping':["Name Mapping", "名称映射"],'h3_rules':["Rules", "规则"],'h3_edit_the_rule':["Edit the Rule", "编辑规则"],'h3_property_reference':["Property Reference", "物业参考"],'h3_live_preview':["Live Preview", "实时预览"],'h3_parsed_values':["Parsed Values", "已解析值"],'h3_key_differences':["Key Differences", "主要区别"],'h3_controls':["Controls", "控制"],'h3_preview':["Preview", "预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_pseudo_element_hierarchy':["Pseudo-element Hierarchy", "伪元素层次结构"],'h3_description':["Description", "描述"],'h3_visual_representation':["Visual Representation", "视觉表现"],'h3_select_a_preset':["Select a preset", "选择预设"],'h3_css_code':["CSS Code", "CSS 代码"],'h3_configuration':["Configuration", "配置"],'h3_generated_code':["Generated Code", "生成的代码"],'subtitle_the_rule_is_applied_to_bo':["The rule is applied to both simulated pages. Navigate to see the effect.", "该规则适用于两个模拟页面。请导航查看效果。"],'subtitle_compare_the_two_approache':["Compare the two approaches side by side. Both use the same underlying pseudo-element tree, but trigger differently.", "并排比较这两种方法。两者都使用相同的底层伪元素树，但触发方式不同。"],'subtitle_the_view_transition_api_c':["The View Transition API creates a tree of pseudo-elements during transitions. Click nodes to learn more.", "视图过渡 API 会在过渡期间创建伪元素树。点击节点了解更多信息。"],'subtitle_real_world_transition_pat':["Real-world transition patterns. Click a preset to see the animation and get the CSS code.", "真实世界的过渡效果。点击预设即可查看动画并获取 CSS 代码。"],'subtitle_configure_your_cross_docu':["Configure your cross-document view transition and get production-ready CSS.", "配置跨文档视图过渡效果，获取可用于生产环境的 CSS。"],'btn_mpa_simulator':["MPA Simulator", "MPA模拟器"],'btn_transition_types':["Transition Types", "转换类型"],'btn_name_inspector':["Name Inspector", "名称检查员"],'btn_view_transition_editor':["@view-transition Editor", "@view-transition 编辑器"],'btn_spa_vs_mpa':["SPA vs MPA", "SPA 与 MPA"],'btn_timing_easing':["Timing & Easing", "时机与缓和"],'btn_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'btn_presets':["Presets", "预设"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_run_transition':["Run Transition", "运行过渡"],'btn_apply':["Apply", "申请"],'btn_reset':["Reset", "重置"],'btn_go_to_page_a':["Go to Page A", "转到A页"],'btn_go_to_page_b':["Go to Page B", "转到B页"],'btn_go_to_page_c':["Go to Page C", "转到C页"],'btn_home':["Home", "家"],'btn_about':["About", "关于"],'btn_contact':["Contact", "接触"],'btn_home_2':["Home", "家"],'btn_about_2':["About", "关于"],'btn_contact_2':["Contact", "接触"],'btn_play_transition':["Play Transition", "比赛过渡"],'btn_play_transition_2':["Play Transition", "比赛过渡"],'btn_copy':["Copy", "复制"],'placeholder_e_g_hero_title_sidebar':["e.g. hero, title, sidebar", "例如：英雄、标题、侧边栏"],'strong_snapshot':["snapshot", "快照"],'strong_live_dom':["live DOM", "实时 DOM"],'strong_morph':["morph", "变形"],'strong_unique':["unique", "独特的"],'strong_morph_2':["morph", "变形"],'strong_crossfade':["crossfade", "交叉淡入淡出"],'strong_no':["No", "不"],'strong_elem_label':["${elem.label}", "${elem.label}"],'strong_styleable_properties':["Styleable properties:", "可设置样式的属性："],'th_spa_same_document':["SPA (Same-Document)", "SPA（同文档）"],'th_mpa_cross_document':["MPA (Cross-Document)", "MPA（跨文档）"],'label_transition_type':["Transition Type", "过渡类型"],'label_duration':["Duration", "期间"],'label_easing':["Easing", "缓解"],'label_duration_2':["Duration", "期间"],'label_easing_2':["Easing", "缓解"],'label_view_transition_group_du':["::view-transition-group(*) duration", "::view-transition-group(*) 持续时间"],'label_view_transition_old_dura':["::view-transition-old(*) duration", "::view-transition-old(*) 持续时间"],'label_view_transition_new_dura':["::view-transition-new(*) duration", "::view-transition-new(*) 持续时间"],'label_easing_function':["Easing Function", "缓动功能"],'label_navigation_type':["Navigation Type", "导航类型"],'label_default_transition':["Default Transition", "默认转换"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_easing_3':["Easing", "缓解"],'label_named_elements_comma_sepa':["Named Elements (comma-separated)", "命名元素（逗号分隔）"],'label_view_transition_name':["view-transition-name", "视图转换名称"],'jtc_example_com':["example.com", "example.com"],'jtc_warning_could_not_find_va':["Warning: Could not find valid navigation value (auto | none)", "警告：找不到有效的导航值（auto | none）"],'jtc_example_com_page':["example.com/page-", "example.com/page-"],'jtc_example_com_2':["example.com/", "example.com/"],'jtc_example_com_3':["example.com/", "example.com/"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtcpre_example_com':["example.com", "example.com"],'jtcpre_example_com_page':["example.com/page-", "example.com/page-"],'jtcpre_example_com_2':["example.com/", "example.com/"],'jtcpre_example_com_3':["example.com/", "example.com/"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+e-block codegen-output" id="cg-output" style="min-height:300px;"></div>
       </div>
     </div>
   </section>
 
 </main>
 
+
+<script>var _LANG={'title_cross_document_view_trans':["Cross-Document View Transitions Playground", "跨文档视图切换演示"],'metadesc_interactive_playground_fo':["Interactive playground for Cross-Document (MPA) View Transitions. Explore @view-transition, view-transition-name, transition types, and CSS code generation.", "用于跨文档（MPA）视图过渡的交互式演示环境。探索 @view-transition、view-transition-name、过渡类型和 CSS 代码生成。"],'h2_mpa_navigation_simulator':["MPA Navigation Simulator", "MPA导航模拟器"],'h2_transition_types':["Transition Types", "转换类型"],'h2_view_transition_name_insp':["view-transition-name Inspector", "视图转换名称 检查器"],'h2_view_transition_rule_edi':["@view-transition Rule Editor", "@view-transition 规则编辑器"],'h2_same_document_vs_cross_do':["Same-Document vs Cross-Document Transitions", "同一文档内转换与跨文档转换"],'h2_timing_easing_controls':["Timing & Easing Controls", "定时和缓动控制"],'h2_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'h2_presets':["Presets", "预设"],'h2_css_code_generator':["CSS Code Generator", "CSS 代码生成器"],'h3_how_it_works':["How It Works", "工作原理"],'h3_active_transition_names':["Active Transition Names", "活跃过渡名称"],'h3_required_css_both_pages':["Required CSS (both pages)", "必需的 CSS（两个页面）"],'h3_css_for_this_transition':["CSS for this transition", "此过渡的 CSS"],'h3_element_properties':["Element Properties", "元素属性"],'h3_name_mapping':["Name Mapping", "名称映射"],'h3_rules':["Rules", "规则"],'h3_edit_the_rule':["Edit the Rule", "编辑规则"],'h3_property_reference':["Property Reference", "物业参考"],'h3_live_preview':["Live Preview", "实时预览"],'h3_parsed_values':["Parsed Values", "已解析值"],'h3_key_differences':["Key Differences", "主要区别"],'h3_controls':["Controls", "控制"],'h3_preview':["Preview", "预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_pseudo_element_hierarchy':["Pseudo-element Hierarchy", "伪元素层次结构"],'h3_description':["Description", "描述"],'h3_visual_representation':["Visual Representation", "视觉表现"],'h3_select_a_preset':["Select a preset", "选择预设"],'h3_css_code':["CSS Code", "CSS 代码"],'h3_configuration':["Configuration", "配置"],'h3_generated_code':["Generated Code", "生成的代码"],'subtitle_the_rule_is_applied_to_bo':["The rule is applied to both simulated pages. Navigate to see the effect.", "该规则适用于两个模拟页面。请导航查看效果。"],'subtitle_compare_the_two_approache':["Compare the two approaches side by side. Both use the same underlying pseudo-element tree, but trigger differently.", "并排比较这两种方法。两者都使用相同的底层伪元素树，但触发方式不同。"],'subtitle_the_view_transition_api_c':["The View Transition API creates a tree of pseudo-elements during transitions. Click nodes to learn more.", "视图过渡 API 会在过渡期间创建伪元素树。点击节点了解更多信息。"],'subtitle_real_world_transition_pat':["Real-world transition patterns. Click a preset to see the animation and get the CSS code.", "真实世界的过渡效果。点击预设即可查看动画并获取 CSS 代码。"],'subtitle_configure_your_cross_docu':["Configure your cross-document view transition and get production-ready CSS.", "配置跨文档视图过渡效果，获取可用于生产环境的 CSS。"],'btn_mpa_simulator':["MPA Simulator", "MPA模拟器"],'btn_transition_types':["Transition Types", "转换类型"],'btn_name_inspector':["Name Inspector", "名称检查员"],'btn_view_transition_editor':["@view-transition Editor", "@view-transition 编辑器"],'btn_spa_vs_mpa':["SPA vs MPA", "SPA 与 MPA"],'btn_timing_easing':["Timing & Easing", "时机与缓和"],'btn_pseudo_element_tree':["Pseudo-element Tree", "伪元素树"],'btn_presets':["Presets", "预设"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_run_transition':["Run Transition", "运行过渡"],'btn_apply':["Apply", "申请"],'btn_reset':["Reset", "重置"],'btn_go_to_page_a':["Go to Page A", "转到A页"],'btn_go_to_page_b':["Go to Page B", "转到B页"],'btn_go_to_page_c':["Go to Page C", "转到C页"],'btn_home':["Home", "家"],'btn_about':["About", "关于"],'btn_contact':["Contact", "接触"],'btn_home_2':["Home", "家"],'btn_about_2':["About", "关于"],'btn_contact_2':["Contact", "接触"],'btn_play_transition':["Play Transition", "比赛过渡"],'btn_play_transition_2':["Play Transition", "比赛过渡"],'btn_copy':["Copy", "复制"],'placeholder_e_g_hero_title_sidebar':["e.g. hero, title, sidebar", "例如：英雄、标题、侧边栏"],'strong_snapshot':["snapshot", "快照"],'strong_live_dom':["live DOM", "实时 DOM"],'strong_morph':["morph", "变形"],'strong_unique':["unique", "独特的"],'strong_morph_2':["morph", "变形"],'strong_crossfade':["crossfade", "交叉淡入淡出"],'strong_no':["No", "不"],'strong_elem_label':["${elem.label}", "${elem.label}"],'strong_styleable_properties':["Styleable properties:", "可设置样式的属性："],'th_spa_same_document':["SPA (Same-Document)", "SPA（同文档）"],'th_mpa_cross_document':["MPA (Cross-Document)", "MPA（跨文档）"],'label_transition_type':["Transition Type", "过渡类型"],'label_duration':["Duration", "期间"],'label_easing':["Easing", "缓解"],'label_duration_2':["Duration", "期间"],'label_easing_2':["Easing", "缓解"],'label_view_transition_group_du':["::view-transition-group(*) duration", "::view-transition-group(*) 持续时间"],'label_view_transition_old_dura':["::view-transition-old(*) duration", "::view-transition-old(*) 持续时间"],'label_view_transition_new_dura':["::view-transition-new(*) duration", "::view-transition-new(*) 持续时间"],'label_easing_function':["Easing Function", "缓动功能"],'label_navigation_type':["Navigation Type", "导航类型"],'label_default_transition':["Default Transition", "默认转换"],'label_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'label_easing_3':["Easing", "缓解"],'label_named_elements_comma_sepa':["Named Elements (comma-separated)", "命名元素（逗号分隔）"],'label_view_transition_name':["view-transition-name", "视图转换名称"],'jtc_example_com':["example.com", "example.com"],'jtc_warning_could_not_find_va':["Warning: Could not find valid navigation value (auto | none)", "警告：找不到有效的导航值（auto | none）"],'jtc_example_com_page':["example.com/page-", "example.com/page-"],'jtc_example_com_2':["example.com/", "example.com/"],'jtc_example_com_3':["example.com/", "example.com/"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtcpre_example_com':["example.com", "example.com"],'jtcpre_example_com_page':["example.com/page-", "example.com/page-"],'jtcpre_example_com_2':["example.com/", "example.com/"],'jtcpre_example_com_3':["example.com/", "example.com/"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ========== Navigation ==========
 const sections = document.querySelectorAll('.section');
@@ -1441,7 +1479,7 @@ function simNavigate(targetIndex) {
     newContent.classList.remove(inClass);
     simCurrentPage = targetIndex;
     simAnimating = false;
-    document.getElementById('url-a').textContent = 'example.com' + simPages[targetIndex].url;
+    document.getElementById('url-a').textContent=T("jtc_example_com") + simPages[targetIndex].url;
   }, dur);
 }
 
@@ -1671,11 +1709,11 @@ function selectInspectorElement(id, page) {
 
   document.getElementById('inspector-props').innerHTML = `
     <div style="margin-bottom:0.75rem;">
-      <label>Element: <strong>${elem.label}</strong></label>
+      <label>Element: <strong ti="strong_elem_label" ti="strong_elem_label" ti="strong_elem_label" ti="strong_elem_label">${elem.label}</strong></label>
       <div style="font-size:0.75rem;color:var(--text-dim);">Page ${page.toUpperCase()}</div>
     </div>
     <div class="inspector-field">
-      <label>view-transition-name</label>
+      <label ti="label_view_transition_name" ti="label_view_transition_name" ti="label_view_transition_name" ti="label_view_transition_name">view-transition-name</label>
       <input type="text" value="${elem.name}" id="insp-name-input"
         onchange="updateInspectorName('${id}', '${page}', this.value)">
     </div>
@@ -1778,7 +1816,7 @@ function parseRule() {
   // Simple parse
   const navMatch = input.match(/navigation\s*:\s*(auto|none)/);
   if (!navMatch) {
-    errorDiv.textContent = 'Warning: Could not find valid navigation value (auto | none)';
+    errorDiv.textContent=T("jtc_warning_could_not_find_va");
     errorDiv.style.display = 'block';
     parsedDiv.innerHTML = '<span style="color:var(--red)">Invalid rule</span>';
     return { navigation: 'none' };
@@ -1861,7 +1899,7 @@ function ruleNavigate(key) {
   }
 
   ruleCurrentPage = key;
-  document.getElementById('rule-url').textContent = 'example.com/page-' + key;
+  document.getElementById('rule-url').textContent=T("jtc_example_com_page") + key;
 }
 
 renderRulePage('a');
@@ -2115,7 +2153,7 @@ function highlightDiagramNode(index) {
     <div style="font-family:var(--font-mono);color:var(--accent);margin-bottom:0.5rem;">${node.selector}</div>
     <div style="margin-bottom:0.5rem;">${node.desc}</div>
     <div style="font-size:0.8rem;color:var(--text-dim);">
-      <strong>Styleable properties:</strong>
+      <strong ti="strong_styleable_properties" ti="strong_styleable_properties" ti="strong_styleable_properties" ti="strong_styleable_properties">Styleable properties:</strong>
       <ul style="padding-left:1rem;margin-top:0.3rem;">
         ${node.props.map(p => `<li>${p}</li>`).join('')}
       </ul>
@@ -2407,7 +2445,7 @@ function renderPresetPage(preset, pageIdx) {
       }, ['view-transition-name: ' + n]))
     ),
   ]));
-  document.getElementById('preset-url').textContent = 'example.com/' + page.title.toLowerCase().replace(/\s+/g, '-');
+  document.getElementById('preset-url').textContent=T("jtc_example_com_2") + page.title.toLowerCase().replace(/\s+/g, '-');
 }
 
 document.getElementById('preset-play-btn').addEventListener('click', () => {
@@ -2443,7 +2481,7 @@ document.getElementById('preset-play-btn').addEventListener('click', () => {
   }, 400);
 
   presetPageIndex = nextIdx;
-  document.getElementById('preset-url').textContent = 'example.com/' + page.title.toLowerCase().replace(/\s+/g, '-');
+  document.getElementById('preset-url').textContent=T("jtc_example_com_2") + page.title.toLowerCase().replace(/\s+/g, '-');
 });
 
 buildPresetsGrid();
@@ -2610,11 +2648,83 @@ document.getElementById('cg-copy-btn').addEventListener('click', () => {
   const code = document.getElementById('cg-output').textContent;
   copyToClipboard(code);
   const btn = document.getElementById('cg-copy-btn');
-  btn.textContent = 'Copied!';
-  setTimeout(() => btn.textContent = 'Copy', 1500);
+  btn.textContent=T("jtc_copied");
+  setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
 });
 
 generateCode();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

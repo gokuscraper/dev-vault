@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_http_cache_flow_visualize" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,13 +73,15 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>HTTP Cache Flow Visualizer</h1>
+<h1 ti="title_http_cache_flow_visualize" ti="h1_http_cache_flow_visualize">HTTP Cache Flow Visualizer</h1>
 <p>Step through browser caching decisions — Cache-Control, ETag, conditional requests, and revalidation</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
 </div>
 <div class="main">
@@ -95,7 +97,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="tab-reference" class="tab-content hidden">
 <h4 style="color:#00d4ff;margin-bottom:.8rem">Cache-Control Directives</h4>
 <table class="ref-table">
-<tr><th>Directive</th><th>Effect</th><th>Where</th></tr>
+<tr><th ti="th_directive">Directive</th><th ti="th_effect">Effect</th><th ti="th_where">Where</th></tr>
 <tr><td><code>max-age=N</code></td><td>Cache for N seconds from response time</td><td>Response</td></tr>
 <tr><td><code>s-maxage=N</code></td><td>Shared cache (CDN) max age, overrides max-age</td><td>Response</td></tr>
 <tr><td><code>no-cache</code></td><td>Must revalidate before use (NOT "don't cache"!)</td><td>Both</td></tr>
@@ -108,19 +110,19 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">Conditional Request Headers</h4>
 <table class="ref-table">
-<tr><th>Request Header</th><th>Response Header</th><th>Mechanism</th></tr>
+<tr><th ti="th_request_header">Request Header</th><th ti="th_response_header">Response Header</th><th ti="th_mechanism">Mechanism</th></tr>
 <tr><td><code>If-None-Match</code></td><td><code>ETag</code></td><td>Compare content hash/version — most reliable</td></tr>
 <tr><td><code>If-Modified-Since</code></td><td><code>Last-Modified</code></td><td>Compare timestamps — 1-second precision only</td></tr>
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">Status Codes</h4>
 <table class="ref-table">
-<tr><th>Code</th><th>Meaning</th></tr>
+<tr><th ti="th_code">Code</th><th ti="th_meaning">Meaning</th></tr>
 <tr><td><code>200 OK</code></td><td>Full response with body — cache miss or expired</td></tr>
 <tr><td><code>304 Not Modified</code></td><td>Content unchanged — use cached version (no body sent)</td></tr>
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">Common Patterns</h4>
 <table class="ref-table">
-<tr><th>Asset Type</th><th>Recommended</th></tr>
+<tr><th ti="th_asset_type">Asset Type</th><th ti="th_recommended">Recommended</th></tr>
 <tr><td>Versioned assets (app.a1b2c3.js)</td><td><code>max-age=31536000, immutable</code></td></tr>
 <tr><td>HTML pages</td><td><code>no-cache</code> (always revalidate)</td></tr>
 <tr><td>API responses</td><td><code>no-store</code> or short <code>max-age</code></td></tr>
@@ -129,15 +131,25 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 </div>
 <div class="controls">
-<button class="btn" id="btnReset">⟲ Reset</button>
-<button class="btn primary" id="btnStep">Step →</button>
-<button class="btn" id="btnAuto">▶ Auto</button>
+<button class="btn" id="btnReset" ti="btn_reset">⟲ Reset</button>
+<button class="btn primary" id="btnStep" ti="btn_step">Step →</button>
+<button class="btn" id="btnAuto" ti="btn_auto">▶ Auto</button>
 <span class="step-info">Step <span class="step-counter" id="stepCounter">0/0</span></span>
 </div>
 </div>
 </div>
-<footer>HTTP Cache Flow Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>HTTP Cache Flow Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+<script>var _LANG={'title_http_cache_flow_visualize':["HTTP Cache Flow Visualizer", "HTTP 缓存流可视化工具"],'metadesc_interactive_http_caching':["Interactive HTTP caching decision flow — Cache-Control, ETag, If-Modified-Since, 304 Not Modified, and cache revalidation step-by-step", "交互式 HTTP 缓存决策流程——Cache-Control、ETag、If-Modified-Since、304 Not Modified 和缓存重新验证分步详解"],'h1_http_cache_flow_visualize':["HTTP Cache Flow Visualizer", "HTTP 缓存流可视化工具"],'h3_scenarios':["Scenarios", "场景"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'th_directive':["Directive", "指示"],'th_effect':["Effect", "影响"],'th_where':["Where", "在哪里"],'th_request_header':["Request Header", "请求头"],'th_response_header':["Response Header", "响应头"],'th_mechanism':["Mechanism", "机制"],'th_code':["Code", "代码"],'th_meaning':["Meaning", "意义"],'th_asset_type':["Asset Type", "资产类型"],'th_recommended':["Recommended", "受到推崇的"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS = [
   {
@@ -412,7 +424,7 @@ function resetFlow() {
 
 function toggleAuto() {
   if (autoTimer) { stopAuto(); return; }
-  document.getElementById('btnAuto').textContent = '⏸ Pause';
+  document.getElementById('btnAuto').textContent=T("jtc_pause");
   autoTimer = setInterval(() => {
     if (stepIdx >= current.steps.length - 1) { stopAuto(); return; }
     stepForward();
@@ -422,7 +434,7 @@ function toggleAuto() {
 function stopAuto() {
   clearInterval(autoTimer);
   autoTimer = null;
-  document.getElementById('btnAuto').textContent = '▶ Auto';
+  document.getElementById('btnAuto').textContent=T("jtc_auto");
 }
 
 function updateCounter() {
@@ -450,6 +462,24 @@ function renderHeaders() {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_base64_tool_encode_decode" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,9 +58,13 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Base64 Tool</h1>
-<p class="subtitle">Encode, decode, and transform text. Base64, URL, HTML, JWT.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_base64_tool" ti="h1_base64_tool">Base64 Tool</h1>
+<p class="subtitle" ti="subtitle_encode_decode_and_transfo" ti="subtitle_encode_decode_and_transfo">Encode, decode, and transform text. Base64, URL, HTML, JWT.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab(0)">Base64</div>
@@ -73,18 +77,18 @@ footer a:hover{color:#999}
 <div class="panel active" id="p0">
   <div class="layout">
     <div>
-      <div class="label-row"><span class="label">Text</span><span class="info" id="b64inputInfo"></span></div>
-      <textarea id="b64input" placeholder="Enter text to encode..." oninput="b64Encode()">Hello, World!</textarea>
+      <div class="label-row"><span class="label" ti="label_text" ti="label_text">Text</span><span class="info" id="b64inputInfo"></span></div>
+      <textarea id="b64input" tp="placeholder_enter_text_to_encode" tp="placeholder_enter_text_to_encode" placeholder="Enter text to encode..." oninput="b64Encode()">Hello, World!</textarea>
     </div>
     <div class="btn-row">
-      <button class="btn primary" onclick="b64Encode()">Encode ↓</button>
+      <button class="btn primary" onclick="b64Encode()" ti="btn_encode" ti="btn_encode_2" ti="btn_encode_3" ti="btn_encode" ti="btn_encode_2" ti="btn_encode_3">Encode ↓</button>
       <button class="btn swap-btn" onclick="b64Swap()">⇅</button>
-      <button class="btn primary" onclick="b64Decode()">Decode ↑</button>
-      <button class="btn" onclick="copyText('b64output')">Copy</button>
+      <button class="btn primary" onclick="b64Decode()" ti="btn_decode" ti="btn_decode_2" ti="btn_decode_3" ti="btn_decode" ti="btn_decode_2" ti="btn_decode_3">Decode ↑</button>
+      <button class="btn" onclick="copyText('b64output')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button>
     </div>
     <div>
-      <div class="label-row"><span class="label">Base64</span><span class="info" id="b64outputInfo"></span></div>
-      <textarea class="output-area" id="b64output" placeholder="Base64 output..."></textarea>
+      <div class="label-row"><span class="label" ti="label_base64" ti="label_base64">Base64</span><span class="info" id="b64outputInfo"></span></div>
+      <textarea class="output-area" id="b64output" tp="placeholder_base64_output" tp="placeholder_base64_output" placeholder="Base64 output..."></textarea>
     </div>
   </div>
 </div>
@@ -94,7 +98,7 @@ footer a:hover{color:#999}
   <div class="layout">
     <div>
       <div class="label">Text / URL</div>
-      <textarea id="urlInput" placeholder="Enter text to URL encode..." oninput="urlEncode()">Hello World & foo=bar</textarea>
+      <textarea id="urlInput" tp="placeholder_enter_text_to_url_encode" tp="placeholder_enter_text_to_url_encode" placeholder="Enter text to URL encode..." oninput="urlEncode()">Hello World & foo=bar</textarea>
     </div>
     <div class="btn-row">
       <button class="btn primary" onclick="urlEncode()">Encode ↓</button>
@@ -114,7 +118,7 @@ footer a:hover{color:#999}
   <div class="layout">
     <div>
       <div class="label">Text / HTML</div>
-      <textarea id="htmlInput" placeholder="Enter HTML to encode..." oninput="htmlEncode()"><div class="test">Hello & "World"</div></textarea>
+      <textarea id="htmlInput" tp="placeholder_enter_html_to_encode" tp="placeholder_enter_html_to_encode" placeholder="Enter HTML to encode..." oninput="htmlEncode()"><div class="test">Hello & "World"</div></textarea>
     </div>
     <div class="btn-row">
       <button class="btn primary" onclick="htmlEncode()">Encode ↓</button>
@@ -134,7 +138,7 @@ footer a:hover{color:#999}
   <div class="layout">
     <div>
       <div class="label">JWT Token</div>
-      <textarea id="jwtInput" placeholder="Paste a JWT token..." oninput="jwtDecode()">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
+      <textarea id="jwtInput" tp="placeholder_paste_a_jwt_token" tp="placeholder_paste_a_jwt_token" placeholder="Paste a JWT token..." oninput="jwtDecode()">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
     </div>
     <div id="jwtError" style="color:#ef4444;font-size:0.82rem;min-height:20px"></div>
     <div class="jwt-section" id="jwtOutput"></div>
@@ -144,10 +148,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/base64-tool">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> (17 free tools)
+  <a href="https://github.com/gokuscraper/base64-tool" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> (17 free tools)
 </footer>
 
+
+<script>var _LANG={'title_base64_tool_encode_decode':["Base64 Tool — Encode & Decode Base64", "Base64 工具 — 编码与解码 Base64"],'metadesc_encode_text_to_base64_or':["Encode text to Base64 or decode Base64 to text. Also URL encode/decode, HTML entities, and JWT decode. Free, instant.", "将文本编码为 Base64 或将 Base64 解码为文本。同时支持 URL 编码/解码、HTML 实体和 JWT 解码。免费，即时。"],'h1_base64_tool':["Base64 Tool", "Base64 工具"],'subtitle_encode_decode_and_transfo':["Encode, decode, and transform text. Base64, URL, HTML, JWT.", "编码、解码和转换文本。Base64、URL、HTML、JWT。"],'btn_encode':["Encode ↓", "编码 ↓"],'btn_decode':["Decode ↑", "解码 ↑"],'btn_copy':["Copy", "复制"],'btn_encode_2':["Encode ↓", "编码 ↓"],'btn_decode_2':["Decode ↑", "解码 ↑"],'btn_copy_2':["Copy", "复制"],'btn_encode_3':["Encode ↓", "编码 ↓"],'btn_decode_3':["Decode ↑", "解码 ↑"],'btn_copy_3':["Copy", "复制"],'label_text':["Text", "文本"],'label_base64':["Base64", "Base64"],'placeholder_enter_text_to_encode':["Enter text to encode...", "输入要编码的文本..."],'placeholder_base64_output':["Base64 output...", "Base64 输出..."],'placeholder_enter_text_to_url_encode':["Enter text to URL encode...", "输入要 URL 编码的文本..."],'placeholder_enter_html_to_encode':["Enter HTML to encode...", "输入要编码的 HTML..."],'placeholder_paste_a_jwt_token':["Paste a JWT token...", "粘贴 JWT 令牌..."],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'footer_17_free_tools':["(17 free tools)", "（17 个免费工具）"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "Dev Vault"],'jtc_invalid_jwt_expected_3_pa':["Invalid JWT: expected 3 parts separated by dots", "无效的 JWT：期望由点分隔的 3 个部分"],'jtc_error_decoding_jwt':["Error decoding JWT:", "解码 JWT 错误："],'jtc_copied':["Copied!", "已复制！"],'jtcpre_error_decoding_jwt':["Error decoding JWT: ", "解码 JWT 错误："],'jtlword_header':["Header", "请求头"],'jtlword_payload':["Payload", "Payload"],'jtlword_signature':["Signature", "Signature"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 
@@ -205,7 +219,7 @@ function jwtDecode(){
 
   const parts=token.split('.');
   if(parts.length!==3){
-    $('jwtError').textContent='Invalid JWT: expected 3 parts separated by dots';
+    $('jwtError').textContent=T("jtc_invalid_jwt_expected_3_pa");
     $('jwtOutput').innerHTML='';
     return;
   }
@@ -239,7 +253,7 @@ function jwtDecode(){
       </div>
     `;
   }catch(e){
-    $('jwtError').textContent='Error decoding JWT: '+e.message;
+    $('jwtError').textContent=T("jtcpre_error_decoding_jwt")+e.message;
     $('jwtOutput').innerHTML='';
   }
 }
@@ -247,7 +261,7 @@ function jwtDecode(){
 function copyText(id){
   navigator.clipboard.writeText($(id).value);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -259,12 +273,52 @@ htmlEncode();
 jwtDecode();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/hash-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Hash Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/data-uri/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Data Uri</a>
 <a href="https://gokuscraper.github.io/dev-vault/url-parser/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Url Parser</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+<script>var _LANG={'title_base64_tool_encode_decode':["Base64 Tool — Encode & Decode Base64", "Base64 工具 — 编码与解码 Base64"],'metadesc_encode_text_to_base64_or':["Encode text to Base64 or decode Base64 to text. Also URL encode/decode, HTML entities, and JWT decode. Free, instant.", "将文本编码为 Base64 或将 Base64 解码为文本。同时支持 URL 编码/解码、HTML 实体和 JWT 解码。免费，即时。"],'h1_base64_tool':["Base64 Tool", "Base64 工具"],'subtitle_encode_decode_and_transfo':["Encode, decode, and transform text. Base64, URL, HTML, JWT.", "编码、解码和转换文本。Base64、URL、HTML、JWT。"],'btn_encode':["Encode ↓", "编码 ↓"],'btn_decode':["Decode ↑", "解码 ↑"],'btn_copy':["Copy", "复制"],'btn_encode_2':["Encode ↓", "编码 ↓"],'btn_decode_2':["Decode ↑", "解码 ↑"],'btn_copy_2':["Copy", "复制"],'btn_encode_3':["Encode ↓", "编码 ↓"],'btn_decode_3':["Decode ↑", "解码 ↑"],'btn_copy_3':["Copy", "复制"],'label_text':["Text", "文本"],'label_base64':["Base64", "Base64"],'placeholder_enter_text_to_encode':["Enter text to encode...", "输入要编码的文本..."],'placeholder_base64_output':["Base64 output...", "Base64 输出..."],'placeholder_enter_text_to_url_encode':["Enter text to URL encode...", "输入要 URL 编码的文本..."],'placeholder_enter_html_to_encode':["Enter HTML to encode...", "输入要编码的 HTML..."],'placeholder_paste_a_jwt_token':["Paste a JWT token...", "粘贴 JWT 令牌..."],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "Dev Vault"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'footer_17_free_tools':["(17 free tools)", "（17 个免费工具）"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "Dev Vault"],'jtc_invalid_jwt_expected_3_pa':["Invalid JWT: expected 3 parts separated by dots", "无效的 JWT：期望由点分隔的 3 个部分"],'jtc_error_decoding_jwt':["Error decoding JWT:", "解码 JWT 错误："],'jtc_copied':["Copied!", "已复制！"],'jtcpre_error_decoding_jwt':["Error decoding JWT: ", "解码 JWT 错误："],'jtlword_header':["Header", "请求头"],'jtlword_payload':["Payload", "Payload"],'jtlword_signature':["Signature", "Signature"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_picture_in_picture_api_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,17 +121,19 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Picture-in-Picture API Playground</h1>
+  <h1 ti="title_picture_in_picture_api_pl" ti="h1_picture_in_picture_api_pl">Picture-in-Picture API Playground</h1>
   <p>Request PiP windows, handle events, use canvas sources, and explore Document PiP</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <div class="support-icon">🔍</div>
     <div class="support-text">
-      <h3>Detecting Picture-in-Picture support...</h3>
+      <h3 ti="h3_detecting_picture_in_pict">Detecting Picture-in-Picture support...</h3>
       <p>Checking browser capabilities</p>
     </div>
   </div>
@@ -139,21 +141,21 @@ footer a:hover { text-decoration: underline; }
   <div class="support-grid" id="supportGrid"></div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="video">Video PiP</button>
-    <button class="tab" data-tab="canvas">Canvas PiP</button>
-    <button class="tab" data-tab="events">Events</button>
-    <button class="tab" data-tab="docpip">Document PiP</button>
-    <button class="tab" data-tab="compare">Comparison</button>
-    <button class="tab" data-tab="code">Code</button>
+    <button class="tab active" data-tab="video" ti="btn_video_pip">Video PiP</button>
+    <button class="tab" data-tab="canvas" ti="btn_canvas_pip">Canvas PiP</button>
+    <button class="tab" data-tab="events" ti="btn_events">Events</button>
+    <button class="tab" data-tab="docpip" ti="btn_document_pip">Document PiP</button>
+    <button class="tab" data-tab="compare" ti="btn_comparison">Comparison</button>
+    <button class="tab" data-tab="code" ti="btn_code">Code</button>
   </div>
 
   <!-- Video PiP -->
   <div id="tab-video" class="panel active">
-    <h2>Video Picture-in-Picture</h2>
-    <p class="desc">Request PiP mode for a video element. The video floats above other windows.</p>
+    <h2 ti="h2_video_picture_in_picture">Video Picture-in-Picture</h2>
+    <p class="desc" ti="subtitle_request_pip_mode_for_a_vi">Request PiP mode for a video element. The video floats above other windows.</p>
 
     <div class="form-group">
-      <label>Video Source</label>
+      <label ti="label_video_source">Video Source</label>
       <select id="videoSource">
         <option value="generated">Generated Pattern (Canvas-based)</option>
         <option value="camera">Camera (getUserMedia)</option>
@@ -162,9 +164,9 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-primary" id="btnStartVideo">Start Video Source</button>
-      <button class="btn btn-primary" id="btnEnterPip" disabled>Enter PiP</button>
-      <button class="btn btn-danger" id="btnExitPip" disabled>Exit PiP</button>
+      <button class="btn btn-primary" id="btnStartVideo" ti="btn_start_video_source">Start Video Source</button>
+      <button class="btn btn-primary" id="btnEnterPip" disabled ti="btn_enter_pip" ti="btn_enter_pip_2">Enter PiP</button>
+      <button class="btn btn-danger" id="btnExitPip" disabled ti="btn_exit_pip">Exit PiP</button>
     </div>
 
     <div class="video-container">
@@ -194,20 +196,20 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Canvas PiP -->
   <div id="tab-canvas" class="panel">
-    <h2>Canvas as PiP Source</h2>
-    <p class="desc">Use a canvas element as a video source via captureStream(), then request PiP on the resulting video.</p>
+    <h2 ti="h2_canvas_as_pip_source">Canvas as PiP Source</h2>
+    <p class="desc" ti="subtitle_use_a_canvas_element_as_a">Use a canvas element as a video source via captureStream(), then request PiP on the resulting video.</p>
 
     <div class="canvas-controls">
-      <label>Shape:</label>
+      <label ti="label_shape">Shape:</label>
       <select id="canvasShape">
         <option value="circles">Circles</option>
         <option value="bars">Bars</option>
         <option value="wave">Wave</option>
         <option value="particles">Particles</option>
       </select>
-      <label>Color:</label>
+      <label ti="label_color">Color:</label>
       <input type="color" id="canvasColor" value="#00bcd4">
-      <label>Speed:</label>
+      <label ti="label_speed">Speed:</label>
       <input type="range" id="canvasSpeed" min="1" max="10" value="5">
     </div>
 
@@ -216,9 +218,9 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="btn-group" style="margin-top:1rem">
-      <button class="btn btn-primary" id="btnStartCanvas">Start Animation</button>
+      <button class="btn btn-primary" id="btnStartCanvas" ti="btn_start_animation">Start Animation</button>
       <button class="btn btn-primary" id="btnCanvasPip" disabled>Enter PiP</button>
-      <button class="btn" id="btnStopCanvas">Stop</button>
+      <button class="btn" id="btnStopCanvas" ti="btn_stop">Stop</button>
     </div>
 
     <div class="log-area" id="canvasLog">
@@ -228,8 +230,8 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Events -->
   <div id="tab-events" class="panel">
-    <h2>PiP Window Events</h2>
-    <p class="desc">Monitor all Picture-in-Picture events: enterpictureinpicture, leavepictureinpicture, and resize.</p>
+    <h2 ti="h2_pip_window_events">PiP Window Events</h2>
+    <p class="desc" ti="subtitle_monitor_all_picture_in_pi">Monitor all Picture-in-Picture events: enterpictureinpicture, leavepictureinpicture, and resize.</p>
 
     <div class="pip-status">
       <div class="status-card">
@@ -257,22 +259,22 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Document PiP -->
   <div id="tab-docpip" class="panel">
-    <h2>Document Picture-in-Picture</h2>
-    <p class="desc">The Document PiP API allows arbitrary HTML content in PiP windows, not just video. Currently Chrome 116+.</p>
+    <h2 ti="h2_document_picture_in_pictu">Document Picture-in-Picture</h2>
+    <p class="desc" ti="subtitle_the_document_pip_api_allo">The Document PiP API allows arbitrary HTML content in PiP windows, not just video. Currently Chrome 116+.</p>
 
     <div id="docPipSupport" style="margin-bottom:1rem;"></div>
 
     <div class="form-group">
-      <label>PiP Window Width</label>
+      <label ti="label_pip_window_width">PiP Window Width</label>
       <input type="number" id="docPipWidth" value="400" min="200" max="800">
     </div>
     <div class="form-group">
-      <label>PiP Window Height</label>
+      <label ti="label_pip_window_height">PiP Window Height</label>
       <input type="number" id="docPipHeight" value="300" min="150" max="600">
     </div>
 
     <div class="form-group">
-      <label>Content Template</label>
+      <label ti="label_content_template">Content Template</label>
       <select id="docPipTemplate">
         <option value="timer">Countdown Timer</option>
         <option value="notes">Sticky Notes</option>
@@ -282,7 +284,7 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="btn-group">
-      <button class="btn btn-primary" id="btnDocPip">Open Document PiP</button>
+      <button class="btn btn-primary" id="btnDocPip" ti="btn_open_document_pip">Open Document PiP</button>
     </div>
 
     <div class="code-block" id="docPipCode"></div>
@@ -290,12 +292,12 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Comparison -->
   <div id="tab-compare" class="panel">
-    <h2>Browser Support Comparison</h2>
-    <p class="desc">Standard PiP vs Document PiP across major browsers.</p>
+    <h2 ti="h2_browser_support_compariso">Browser Support Comparison</h2>
+    <p class="desc" ti="subtitle_standard_pip_vs_document">Standard PiP vs Document PiP across major browsers.</p>
 
     <table class="comparison-table">
       <thead>
-        <tr><th>Feature</th><th>Chrome</th><th>Firefox</th><th>Safari</th><th>Edge</th></tr>
+        <tr><th ti="th_feature">Feature</th><th ti="th_chrome">Chrome</th><th ti="th_firefox">Firefox</th><th ti="th_safari">Safari</th><th ti="th_edge">Edge</th></tr>
       </thead>
       <tbody>
         <tr><td>Standard Video PiP</td><td class="yes">69+</td><td class="yes">113+</td><td class="yes">13.1+</td><td class="yes">79+</td></tr>
@@ -314,10 +316,10 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Code -->
   <div id="tab-code" class="panel">
-    <h2>Generated Code</h2>
-    <p class="desc">Copy-paste integration code for your project.</p>
+    <h2 ti="h2_generated_code">Generated Code</h2>
+    <p class="desc" ti="subtitle_copy_paste_integration_co">Copy-paste integration code for your project.</p>
 
-    <h3 style="font-size:0.95rem;">Standard Video PiP</h3>
+    <h3 style="font-size:0.95rem;" ti="h3_standard_video_pip">Standard Video PiP</h3>
     <div class="code-block">// Enter Picture-in-Picture
 const video = document.querySelector('video');
 
@@ -341,7 +343,7 @@ video.addEventListener('leavepictureinpicture', () => {
   console.log('Left PiP');
 });</div>
 
-    <h3 style="font-size:0.95rem;margin-top:1.5rem;">Canvas as PiP Source</h3>
+    <h3 style="font-size:0.95rem;margin-top:1.5rem;" ti="h3_canvas_as_pip_source">Canvas as PiP Source</h3>
     <div class="code-block">const canvas = document.getElementById('myCanvas');
 const stream = canvas.captureStream(30); // 30 FPS
 
@@ -352,7 +354,7 @@ await video.play();
 
 const pipWindow = await video.requestPictureInPicture();</div>
 
-    <h3 style="font-size:0.95rem;margin-top:1.5rem;">Document PiP (Chrome 116+)</h3>
+    <h3 style="font-size:0.95rem;margin-top:1.5rem;" ti="h3_document_pip_chrome_116">Document PiP (Chrome 116+)</h3>
     <div class="code-block">// Document Picture-in-Picture
 const pipWindow = await documentPictureInPicture.requestWindow({
   width: 400,
@@ -378,8 +380,8 @@ pipWindow.addEventListener('pagehide', () => {
 });</div>
 
     <div class="btn-group" style="margin-top:1rem">
-      <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.querySelectorAll('#tab-code .code-block')[0].textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Standard PiP',1500)})">Copy Standard PiP</button>
-      <button class="btn" onclick="navigator.clipboard.writeText(document.querySelectorAll('#tab-code .code-block')[2].textContent).then(()=>{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Document PiP',1500)})">Copy Document PiP</button>
+      <button class="btn btn-primary" onclick="navigator.clipboard.writeText(document.querySelectorAll('#tab-code .code-block')[0].textContent).then(()= ti="btn_this_textcontent_copied">{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Standard PiP',1500)})">Copy Standard PiP</button>
+      <button class="btn" onclick="navigator.clipboard.writeText(document.querySelectorAll('#tab-code .code-block')[2].textContent).then(()= ti="btn_this_textcontent_copied_2">{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Document PiP',1500)})">Copy Document PiP</button>
     </div>
   </div>
 </div>
@@ -389,6 +391,16 @@ pipWindow.addEventListener('pagehide', () => {
   <br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Picture-in-Picture_API" target="_blank" rel="noopener">MDN Documentation</a>
 </footer>
 
+
+<script>var _LANG={'title_picture_in_picture_api_pl':["Picture-in-Picture API Playground", "画中画 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Picture-in-Picture API - request PiP mode, handle events, use canvas sources, and explore Document PiP.", "画中画 API 的交互式游乐场 - 请求画中画模式、处理事件、使用画布源以及探索文档画中画。"],'h1_picture_in_picture_api_pl':["Picture-in-Picture API Playground", "画中画 API 演示区"],'h2_video_picture_in_picture':["Video Picture-in-Picture", "视频画中画"],'h2_canvas_as_pip_source':["Canvas as PiP Source", "画布作为画中画源"],'h2_pip_window_events':["PiP Window Events", "画中画窗口事件"],'h2_document_picture_in_pictu':["Document Picture-in-Picture", "文档画中画"],'h2_browser_support_compariso':["Browser Support Comparison", "浏览器支持度比较"],'h2_generated_code':["Generated Code", "生成的代码"],'h2_countdown_timer':["Countdown Timer", "倒计时器"],'h2_sticky_notes':["Sticky Notes", "便签纸"],'h2_custom_controls':["Custom Controls", "自定义控件"],'h2_live_clock':["Live Clock", "实时时钟"],'h3_detecting_picture_in_pict':["Detecting Picture-in-Picture support...", "检测到画中画支持……"],'h3_standard_video_pip':["Standard Video PiP", "标准视频画中画"],'h3_canvas_as_pip_source':["Canvas as PiP Source", "画布作为画中画源"],'h3_document_pip_chrome_116':["Document PiP (Chrome 116+)", "文档画中画（Chrome 116+）"],'subtitle_request_pip_mode_for_a_vi':["Request PiP mode for a video element. The video floats above other windows.", "请求视频元素进入画中画模式。视频将悬浮在其他窗口之上。"],'subtitle_use_a_canvas_element_as_a':["Use a canvas element as a video source via captureStream(), then request PiP on the resulting video.", "使用 canvas 元素作为视频源，通过 captureStream()，然后对生成的视频请求画中画功能。"],'subtitle_monitor_all_picture_in_pi':["Monitor all Picture-in-Picture events: enterpictureinpicture, leavepictureinpicture, and resize.", "监控所有画中画事件：进入画中画、离开画中画和调整大小。"],'subtitle_the_document_pip_api_allo':["The Document PiP API allows arbitrary HTML content in PiP windows, not just video. Currently Chrome 116+.", "文档画中画 API 允许在画中画窗口中显示任意 HTML 内容，而不仅仅是视频。目前支持 Chrome 116 及更高版本。"],'subtitle_standard_pip_vs_document':["Standard PiP vs Document PiP across major browsers.", "主流浏览器上的标准画中画与文档画中画对比。"],'subtitle_copy_paste_integration_co':["Copy-paste integration code for your project.", "复制粘贴集成代码到您的项目中。"],'btn_video_pip':["Video PiP", "视频画中画"],'btn_canvas_pip':["Canvas PiP", "画布画中画"],'btn_events':["Events", "活动"],'btn_document_pip':["Document PiP", "文档 PiP"],'btn_comparison':["Comparison", "比较"],'btn_code':["Code", "代码"],'btn_start_video_source':["Start Video Source", "开始视频源"],'btn_enter_pip':["Enter PiP", "输入画中画"],'btn_exit_pip':["Exit PiP", "退出 PiP"],'btn_start_animation':["Start Animation", "开始动画"],'btn_enter_pip_2':["Enter PiP", "输入画中画"],'btn_stop':["Stop", "停止"],'btn_open_document_pip':["Open Document PiP", "打开文档 PiP"],'btn_this_textcontent_copied':["{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Standard PiP',1500)})\">Copy Standard PiP", "{this.textContent=&#39;已复制！&#39;;setTimeout(()=&gt;this.textContent=&#39;复制标准画中画&#39;,1500)})&quot;&gt;复制标准画中画"],'btn_this_textcontent_copied_2':["{this.textContent='Copied!';setTimeout(()=>this.textContent='Copy Document PiP',1500)})\">Copy Document PiP", "{this.textContent=&#39;已复制！&#39;;setTimeout(()=&gt;this.textContent=&#39;复制画中画文档&#39;,1500)})&quot;&gt;复制画中画文档"],'btn_start':["Start", "开始"],'btn_reset':["Reset", "重置"],'btn_prev':["⏮ Prev", "⏮ 上一页"],'btn_pause':["⏸ Pause", "⏸ 暂停"],'btn_next':["⏭ Next", "⏭ 下一页"],'btn_vol':["🔉 Vol-", "🔉 Vol-"],'btn_vol_2':["🔊 Vol+", "🔊 Vol+"],'btn_shuffle':["🔀 Shuffle", "🔀 随机播放"],'label_f_name':["${f.name}", "${f.name}"],'label_document_pip_is_supported':["Document PiP is supported in this browser", "此浏览器支持文档画中画功能"],'label_document_pip_requires_chr':["Document PiP requires Chrome 116+ or Edge 116+", "文档画中画功能需要 Chrome 116+ 或 Edge 116+"],'placeholder_type_your_notes_here':["Type your notes here...", "请在此处输入您的笔记……"],'th_feature':["Feature", "特征"],'th_chrome':["Chrome", "铬合金"],'th_firefox':["Firefox", "火狐浏览器"],'th_safari':["Safari", "狩猎之旅"],'th_edge':["Edge", "边缘"],'label_video_source':["Video Source", "视频来源"],'label_shape':["Shape:", "形状："],'label_color':["Color:", "颜色："],'label_speed':["Speed:", "速度："],'label_pip_window_width':["PiP Window Width", "画中画窗口宽度"],'label_pip_window_height':["PiP Window Height", "画中画窗口高度"],'label_content_template':["Content Template", "内容模板"],'jtc_full_picture_in_picture_s':["Full Picture-in-Picture support detected", "检测到完全支持画中画功能"],'jtc_all_features_including_do':["All features including Document PiP are available.", "所有功能（包括文档画中画）均可用。"],'jtc_standard_pip_supported':["Standard PiP supported", "支持标准画中画功能"],'jtc_x':["⚠️", "⚠️"],'jtc_limited_picture_in_pictur':["Limited Picture-in-Picture support", "有限的画中画支持"],'jtc_some_features_may_not_wor':["Some features may not work in your browser.", "某些功能可能无法在您的浏览器中使用。"],'jtc_yes':["Yes", "是的"],'jtc_no':["No", "不"],'jtc_x_2':["--", "--"],'jtc_x_3':["--", "--"],'jtc_05_00':["05:00", "05:00"],'jalert_document_picture_in_pictu':["Document Picture-in-Picture is not supported in this browser. Try Chrome 116+.", "此浏览器不支持画中画功能。请尝试使用 Chrome 116 或更高版本。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -410,7 +422,7 @@ pipWindow.addEventListener('pagehide', () => {
     if (ok) supportedCount++;
     const item = document.createElement('div');
     item.className = 'support-item';
-    item.innerHTML = `<span class="dot ${ok ? 'green' : 'red'}"></span><span class="label">${f.name}</span>`;
+    item.innerHTML = `<span class="dot ${ok ? 'green' : 'red'}"></span><span class="label" ti="label_f_name">${f.name}</span>`;
     grid.appendChild(item);
   });
 
@@ -418,18 +430,18 @@ pipWindow.addEventListener('pagehide', () => {
   if (supportedCount === features.length) {
     banner.className = 'support-banner supported';
     banner.querySelector('.support-icon').textContent = '✅';
-    banner.querySelector('h3').textContent = 'Full Picture-in-Picture support detected';
-    banner.querySelector('p').textContent = 'All features including Document PiP are available.';
+    banner.querySelector('h3').textContent=T("jtc_full_picture_in_picture_s");
+    banner.querySelector('p').textContent=T("jtc_all_features_including_do");
   } else if (supportedCount >= 4) {
     banner.className = 'support-banner partial';
     banner.querySelector('.support-icon').textContent = '⚡';
-    banner.querySelector('h3').textContent = 'Standard PiP supported';
+    banner.querySelector('h3').textContent=T("jtc_standard_pip_supported");
     banner.querySelector('p').textContent = `${supportedCount}/${features.length} features available. Document PiP may require Chrome 116+.`;
   } else {
     banner.className = 'support-banner unsupported';
-    banner.querySelector('.support-icon').textContent = '⚠️';
-    banner.querySelector('h3').textContent = 'Limited Picture-in-Picture support';
-    banner.querySelector('p').textContent = 'Some features may not work in your browser.';
+    banner.querySelector('.support-icon').textContent=T("jtc_x");
+    banner.querySelector('h3').textContent=T("jtc_limited_picture_in_pictur");
+    banner.querySelector('p').textContent=T("jtc_some_features_may_not_wor");
   }
 
   // --- Tabs ---
@@ -523,7 +535,7 @@ pipWindow.addEventListener('pagehide', () => {
   video.addEventListener('enterpictureinpicture', (e) => {
     enterCount++;
     document.getElementById('enterCount').textContent = enterCount;
-    document.getElementById('statActive').textContent = 'Yes';
+    document.getElementById('statActive').textContent=T("jtc_yes");
     document.getElementById('btnExitPip').disabled = false;
     document.getElementById('btnEnterPip').disabled = true;
 
@@ -546,9 +558,9 @@ pipWindow.addEventListener('pagehide', () => {
   video.addEventListener('leavepictureinpicture', () => {
     leaveCount++;
     document.getElementById('leaveCount').textContent = leaveCount;
-    document.getElementById('statActive').textContent = 'No';
-    document.getElementById('statWidth').textContent = '--';
-    document.getElementById('statHeight').textContent = '--';
+    document.getElementById('statActive').textContent=T("jtc_no");
+    document.getElementById('statWidth').textContent=T("jtc_x_2");
+    document.getElementById('statHeight').textContent=T("jtc_x_2");
     document.getElementById('btnExitPip').disabled = true;
     document.getElementById('btnEnterPip').disabled = false;
     logEvent('leavepictureinpicture');
@@ -682,12 +694,12 @@ pipWindow.addEventListener('pagehide', () => {
   const docPipSupport = document.getElementById('docPipSupport');
   const hasDocPip = 'documentPictureInPicture' in window;
   docPipSupport.innerHTML = hasDocPip
-    ? '<div class="support-item"><span class="dot green"></span><span class="label">Document PiP is supported in this browser</span></div>'
-    : '<div class="support-item"><span class="dot red"></span><span class="label">Document PiP requires Chrome 116+ or Edge 116+</span></div>';
+    ? '<div class="support-item"><span class="dot green"></span><span class="label" ti="label_document_pip_is_supported">Document PiP is supported in this browser</span></div>'
+    : '<div class="support-item"><span class="dot red"></span><span class="label" ti="label_document_pip_requires_chr">Document PiP requires Chrome 116+ or Edge 116+</span></div>';
 
   document.getElementById('btnDocPip').addEventListener('click', async () => {
     if (!hasDocPip) {
-      alert('Document Picture-in-Picture is not supported in this browser. Try Chrome 116+.');
+      T("jalert_document_picture_in_pictu");
       return;
     }
 
@@ -712,7 +724,7 @@ pipWindow.addEventListener('pagehide', () => {
 
       const body = pipWin.document.body;
       if (template === 'timer') {
-        body.innerHTML = '<h2>Countdown Timer</h2><div class="timer" id="timer">05:00</div><div class="controls-row"><button id="start">Start</button><button id="reset">Reset</button></div>';
+        body.innerHTML = '<h2 ti="h2_countdown_timer">Countdown Timer</h2><div class="timer" id="timer">05:00</div><div class="controls-row"><button id="start" ti="btn_start">Start</button><button id="reset" ti="btn_reset">Reset</button></div>';
         let seconds = 300, interval = null;
         const timerEl = pipWin.document.getElementById('timer');
         pipWin.document.getElementById('start').addEventListener('click', () => {
@@ -725,14 +737,14 @@ pipWindow.addEventListener('pagehide', () => {
           }, 1000);
         });
         pipWin.document.getElementById('reset').addEventListener('click', () => {
-          clearInterval(interval); interval = null; seconds = 300; timerEl.textContent = '05:00';
+          clearInterval(interval); interval = null; seconds = 300; timerEl.textContent=T("jtc_05_00");
         });
       } else if (template === 'notes') {
-        body.innerHTML = '<h2>Sticky Notes</h2><textarea placeholder="Type your notes here..."></textarea>';
+        body.innerHTML = '<h2 ti="h2_sticky_notes">Sticky Notes</h2><textarea tp="placeholder_type_your_notes_here" placeholder="Type your notes here..."></textarea>';
       } else if (template === 'controls') {
-        body.innerHTML = '<h2>Custom Controls</h2><div class="controls-row"><button>⏮ Prev</button><button>⏸ Pause</button><button>⏭ Next</button></div><div class="controls-row"><button>🔉 Vol-</button><button>🔊 Vol+</button><button>🔀 Shuffle</button></div>';
+        body.innerHTML = '<h2 ti="h2_custom_controls">Custom Controls</h2><div class="controls-row"><button ti="btn_prev">⏮ Prev</button><button ti="btn_pause">⏸ Pause</button><button ti="btn_next">⏭ Next</button></div><div class="controls-row"><button ti="btn_vol">🔉 Vol-</button><button ti="btn_vol_2">🔊 Vol+</button><button ti="btn_shuffle">🔀 Shuffle</button></div>';
       } else if (template === 'clock') {
-        body.innerHTML = '<h2>Live Clock</h2><div class="clock" id="clock"></div>';
+        body.innerHTML = '<h2 ti="h2_live_clock">Live Clock</h2><div class="clock" id="clock"></div>';
         const clockEl = pipWin.document.getElementById('clock');
         setInterval(() => { clockEl.textContent = new Date().toLocaleTimeString(); }, 1000);
         clockEl.textContent = new Date().toLocaleTimeString();
@@ -755,6 +767,24 @@ pipWindow.addEventListener('pagehide', () => {
     docPipCodeEl.textContent = `const pipWindow = await documentPictureInPicture.requestWindow({\n  width: ${w},\n  height: ${h}\n});\n\n// Add styles and content to pipWindow.document\n// Template: ${t}`;
   }
   updateDocPipCode();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_import_maps_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -338,6 +338,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>
@@ -354,20 +356,20 @@
     <div class="panel-header">
       <span>Import Map Editor</span>
       <div class="btn-row">
-        <button class="btn-small btn-secondary" onclick="formatJSON()">Format</button>
-        <button class="btn-small btn-secondary" onclick="validateMap()">Validate</button>
+        <button class="btn-small btn-secondary" onclick="formatJSON()" ti="btn_format">Format</button>
+        <button class="btn-small btn-secondary" onclick="validateMap()" ti="btn_validate">Validate</button>
       </div>
     </div>
     <div class="panel-body">
       <div class="form-group">
-        <label>Presets</label>
+        <label ti="label_presets">Presets</label>
         <div class="btn-row">
-          <button class="preset-btn" onclick="loadPreset('react')">React</button>
-          <button class="preset-btn" onclick="loadPreset('vue')">Vue</button>
-          <button class="preset-btn" onclick="loadPreset('three')">Three.js</button>
-          <button class="preset-btn" onclick="loadPreset('lodash')">Lodash-es</button>
-          <button class="preset-btn" onclick="loadPreset('scoped')">Scoped</button>
-          <button class="preset-btn" onclick="loadPreset('integrity')">Integrity</button>
+          <button class="preset-btn" onclick="loadPreset('react')" ti="btn_react">React</button>
+          <button class="preset-btn" onclick="loadPreset('vue')" ti="btn_vue">Vue</button>
+          <button class="preset-btn" onclick="loadPreset('three')" ti="btn_three_js">Three.js</button>
+          <button class="preset-btn" onclick="loadPreset('lodash')" ti="btn_lodash_es">Lodash-es</button>
+          <button class="preset-btn" onclick="loadPreset('scoped')" ti="btn_scoped">Scoped</button>
+          <button class="preset-btn" onclick="loadPreset('integrity')" ti="btn_integrity">Integrity</button>
         </div>
       </div>
 
@@ -397,10 +399,10 @@
       </div>
 
       <div class="form-group">
-        <label>Test a bare specifier</label>
+        <label ti="label_test_a_bare_specifier">Test a bare specifier</label>
         <div style="display:flex;gap:0.5rem">
-          <input type="text" id="testSpecifier" placeholder='e.g., "react" or "lodash/debounce"' onkeydown="if(event.key==='Enter')resolveSpecifier()">
-          <button onclick="resolveSpecifier()">Resolve</button>
+          <input type="text" id="testSpecifier" tp="placeholder_e_g_react_or_lodash_debou" placeholder='e.g., "react" or "lodash/debounce"' onkeydown="if(event.key==='Enter')resolveSpecifier()">
+          <button onclick="resolveSpecifier()" ti="btn_resolve">Resolve</button>
         </div>
       </div>
 
@@ -418,18 +420,18 @@
     </div>
     <div class="panel-body">
       <div class="form-group">
-        <label>Package Name</label>
-        <input type="text" id="cdnPackage" placeholder="e.g., react" value="react">
+        <label ti="label_package_name">Package Name</label>
+        <input type="text" id="cdnPackage" tp="placeholder_e_g_react" placeholder="e.g., react" value="react">
       </div>
       <div class="form-group">
-        <label>Version (optional)</label>
-        <input type="text" id="cdnVersion" placeholder="e.g., 18.2.0 or @18" value="@18">
+        <label ti="label_version_optional">Version (optional)</label>
+        <input type="text" id="cdnVersion" tp="placeholder_e_g_18_2_0_or_18" placeholder="e.g., 18.2.0 or @18" value="@18">
       </div>
       <div class="form-group">
-        <label>Subpath (optional)</label>
-        <input type="text" id="cdnSubpath" placeholder="e.g., /client">
+        <label ti="label_subpath_optional">Subpath (optional)</label>
+        <input type="text" id="cdnSubpath" tp="placeholder_e_g_client" placeholder="e.g., /client">
       </div>
-      <button onclick="generateCDNUrls()" style="margin-bottom:1rem">Generate URLs</button>
+      <button onclick="generateCDNUrls()" style="margin-bottom:1rem" ti="btn_generate_urls">Generate URLs</button>
 
       <div class="cdn-grid" id="cdnGrid">
         <div class="cdn-card" onclick="selectCDN(this, 'esm.sh')">
@@ -450,7 +452,7 @@
         </div>
       </div>
 
-      <button class="btn-small btn-secondary" style="margin-top:0.75rem" onclick="addCDNToMap()">Add selected to import map</button>
+      <button class="btn-small btn-secondary" style="margin-top:0.75rem" onclick="addCDNToMap()" ti="btn_add_selected_to_import_ma">Add selected to import map</button>
     </div>
   </div>
 
@@ -510,13 +512,13 @@ const supported = HTMLScriptElement.supports?.('importmap');
   <div class="panel full-width">
     <div class="panel-header">
       <span>Generated Code</span>
-      <button class="btn-small btn-secondary copy-btn" onclick="copyCode(this)">Copy</button>
+      <button class="btn-small btn-secondary copy-btn" onclick="copyCode(this)" ti="btn_copy">Copy</button>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="showTab('tabBasic',this)">Basic</button>
-      <button class="tab-btn" onclick="showTab('tabScoped',this)">With Scopes</button>
-      <button class="tab-btn" onclick="showTab('tabIntegrity',this)">With Integrity</button>
-      <button class="tab-btn" onclick="showTab('tabUsage',this)">Usage Example</button>
+      <button class="tab-btn active" onclick="showTab('tabBasic',this)" ti="btn_basic">Basic</button>
+      <button class="tab-btn" onclick="showTab('tabScoped',this)" ti="btn_with_scopes">With Scopes</button>
+      <button class="tab-btn" onclick="showTab('tabIntegrity',this)" ti="btn_with_integrity">With Integrity</button>
+      <button class="tab-btn" onclick="showTab('tabUsage',this)" ti="btn_usage_example">Usage Example</button>
     </div>
     <div class="panel-body">
       <div class="tab-content active" id="tabBasic">
@@ -584,6 +586,16 @@ const supported = HTMLScriptElement.supports?.('importmap');
 
 </div>
 
+
+<script>var _LANG={'title_import_maps_playground':["Import Maps Playground", "导入地图游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for Import Maps. Edit JSON import maps, visualize module resolution, and generate CDN URLs for ES modules.", "用于导入映射的交互式演示环境。编辑 JSON 导入映射、可视化模块解析，并为 ES 模块生成 CDN URL。"],'btn_format':["Format", "格式"],'btn_validate':["Validate", "证实"],'btn_react':["React", "React"],'btn_vue':["Vue", "维尤"],'btn_three_js':["Three.js", "Three.js"],'btn_lodash_es':["Lodash-es", "洛达什"],'btn_scoped':["Scoped", "范围"],'btn_integrity':["Integrity", "正直"],'btn_resolve':["Resolve", "解决"],'btn_generate_urls':["Generate URLs", "生成URL"],'btn_add_selected_to_import_ma':["Add selected to import map", "将选定内容添加到导入地图"],'btn_copy':["Copy", "复制"],'btn_basic':["Basic", "基本的"],'btn_with_scopes':["With Scopes", "带瞄准镜"],'btn_with_integrity':["With Integrity", "秉持诚信"],'btn_usage_example':["Usage Example", "使用示例"],'placeholder_e_g_react_or_lodash_debou':["e.g., \"react\" or \"lodash/debounce\"", "例如，“react”或“lodash/debounce”"],'placeholder_e_g_react':["e.g., react", "例如，React"],'placeholder_e_g_18_2_0_or_18':["e.g., 18.2.0 or @18", "例如，18.2.0 或 @18"],'placeholder_e_g_client':["e.g., /client", "例如，/client"],'label_presets':["Presets", "预设"],'label_test_a_bare_specifier':["Test a bare specifier", "测试裸规范"],'label_package_name':["Package Name", "软件包名称"],'label_version_optional':["Version (optional)", "版本（可选）"],'label_subpath_optional':["Subpath (optional)", "子路径（可选）"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // State
   let currentMap = {};
@@ -641,10 +653,10 @@ const supported = HTMLScriptElement.supports?.('importmap');
     const badge = document.getElementById('supportBadge');
     const supported = typeof HTMLScriptElement !== 'undefined' && HTMLScriptElement.supports?.('importmap');
     if (supported) {
-      badge.textContent = 'Supported';
+      badge.textContent=T("jtc_supported");
       badge.className = 'api-badge badge-supported';
     } else {
-      badge.textContent = 'Not Supported';
+      badge.textContent=T("jtc_not_supported");
       badge.className = 'api-badge badge-unsupported';
     }
 
@@ -947,6 +959,24 @@ const supported = HTMLScriptElement.supports?.('importmap');
   }
 
   init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_encoding_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -217,43 +217,45 @@ select { width: auto; cursor: pointer; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Encoding API Playground</h1>
+  <h1 ti="title_encoding_api_playground" ti="h1_encoding_api_playground">Encoding API Playground</h1>
   <p>TextEncoder, TextDecoder, byte visualization & encoding comparison</p>
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-panel="encoder">TextEncoder</button>
-  <button class="tab" data-panel="decoder">TextDecoder</button>
-  <button class="tab" data-panel="bytes">Byte Visualization</button>
-  <button class="tab" data-panel="streaming">Streaming</button>
-  <button class="tab" data-panel="detection">Detection</button>
-  <button class="tab" data-panel="binary">Binary Inspector</button>
-  <button class="tab" data-panel="perf">Performance</button>
+  <button class="tab active" data-panel="encoder" ti="btn_textencoder">TextEncoder</button>
+  <button class="tab" data-panel="decoder" ti="btn_textdecoder">TextDecoder</button>
+  <button class="tab" data-panel="bytes" ti="btn_byte_visualization">Byte Visualization</button>
+  <button class="tab" data-panel="streaming" ti="btn_streaming">Streaming</button>
+  <button class="tab" data-panel="detection" ti="btn_detection">Detection</button>
+  <button class="tab" data-panel="binary" ti="btn_binary_inspector">Binary Inspector</button>
+  <button class="tab" data-panel="perf" ti="btn_performance">Performance</button>
 </div>
 
 <main>
   <!-- Panel 1: TextEncoder -->
   <div class="panel active" id="panel-encoder">
-    <h2>TextEncoder Interactive Demo</h2>
-    <p class="desc">TextEncoder always encodes to UTF-8. Type text to see it converted to bytes in real time.</p>
+    <h2 ti="h2_textencoder_interactive_d">TextEncoder Interactive Demo</h2>
+    <p class="desc" ti="subtitle_textencoder_always_encode">TextEncoder always encodes to UTF-8. Type text to see it converted to bytes in real time.</p>
 
     <div id="encoder-support">
       <span class="support-badge" id="enc-badge">Checking...</span>
     </div>
 
-    <h3>Encode Text</h3>
-    <textarea id="enc-input" placeholder="Type or paste text here... Try emoji, CJK, Arabic, etc.">Hello, World! </textarea>
+    <h3 ti="h3_encode_text">Encode Text</h3>
+    <textarea id="enc-input" tp="placeholder_type_or_paste_text_here_t" placeholder="Type or paste text here... Try emoji, CJK, Arabic, etc.">Hello, World! </textarea>
     <div class="btn-row">
-      <button class="success" onclick="encodeText()">Encode</button>
-      <button class="warn" onclick="encodeInto()">encodeInto() (reuse buffer)</button>
+      <button class="success" onclick="encodeText()" ti="btn_encode">Encode</button>
+      <button class="warn" onclick="encodeInto()" ti="btn_encodeinto_reuse_buffer">encodeInto() (reuse buffer)</button>
     </div>
 
     <div class="stats-row" id="enc-stats"></div>
     <div class="log-area" id="enc-log"><div class="entry system">Encoding results...</div></div>
 
-    <h3>encodeInto() details</h3>
+    <h3 ti="h3_encodeinto_details">encodeInto() details</h3>
     <div class="code-block">const encoder = new TextEncoder();
 
 // encode() - creates new Uint8Array
@@ -267,13 +269,13 @@ const {read, written} = encoder.encodeInto('Hello', buf);
 
   <!-- Panel 2: TextDecoder -->
   <div class="panel" id="panel-decoder">
-    <h2>TextDecoder Interactive Demo</h2>
-    <p class="desc">TextDecoder supports many encodings. Convert byte sequences back to text.</p>
+    <h2 ti="h2_textdecoder_interactive_d">TextDecoder Interactive Demo</h2>
+    <p class="desc" ti="subtitle_textdecoder_supports_many">TextDecoder supports many encodings. Convert byte sequences back to text.</p>
 
-    <h3>Decode Bytes</h3>
+    <h3 ti="h3_decode_bytes">Decode Bytes</h3>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Encoding:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_encoding">Encoding:</label>
         <select id="dec-encoding" style="width:100%;margin:0.25rem 0;">
           <option value="utf-8">utf-8</option>
           <option value="utf-16le">utf-16le</option>
@@ -291,7 +293,7 @@ const {read, written} = encoder.encodeInto('Hello', buf);
         </select>
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Options:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_options">Options:</label>
         <div style="display:flex;gap:1rem;margin:0.5rem 0;">
           <label style="font-size:0.85rem;"><input type="checkbox" id="dec-fatal"> fatal</label>
           <label style="font-size:0.85rem;"><input type="checkbox" id="dec-bom"> ignoreBOM</label>
@@ -299,26 +301,26 @@ const {read, written} = encoder.encodeInto('Hello', buf);
       </div>
     </div>
 
-    <h3>Input bytes (comma-separated decimal or hex with 0x prefix)</h3>
-    <input id="dec-bytes" placeholder="72, 101, 108, 108, 111 or 0x48, 0x65, 0x6C, 0x6C, 0x6F" value="72, 101, 108, 108, 111" />
+    <h3 ti="h3_input_bytes_comma_separat">Input bytes (comma-separated decimal or hex with 0x prefix)</h3>
+    <input id="dec-bytes" tp="placeholder_72_101_108_108_111_or_0x4" placeholder="72, 101, 108, 108, 111 or 0x48, 0x65, 0x6C, 0x6C, 0x6F" value="72, 101, 108, 108, 111" />
     <div class="btn-row">
-      <button class="success" onclick="decodeBytes()">Decode</button>
-      <button onclick="loadSample('utf8')">UTF-8 sample</button>
-      <button onclick="loadSample('emoji')">Emoji</button>
-      <button onclick="loadSample('cjk')">CJK</button>
-      <button onclick="loadSample('bom')">BOM marker</button>
+      <button class="success" onclick="decodeBytes()" ti="btn_decode">Decode</button>
+      <button onclick="loadSample('utf8')" ti="btn_utf_8_sample">UTF-8 sample</button>
+      <button onclick="loadSample('emoji')" ti="btn_emoji" ti="btn_emoji_2">Emoji</button>
+      <button onclick="loadSample('cjk')" ti="btn_cjk" ti="btn_cjk_2">CJK</button>
+      <button onclick="loadSample('bom')" ti="btn_bom_marker">BOM marker</button>
     </div>
     <div class="log-area" id="dec-log"><div class="entry system">Decode results...</div></div>
   </div>
 
   <!-- Panel 3: Byte Visualization -->
   <div class="panel" id="panel-bytes">
-    <h2>Byte-Level Visualization</h2>
-    <p class="desc">See exactly how each character is encoded to bytes. Colors indicate byte count per character.</p>
+    <h2 ti="h2_byte_level_visualization">Byte-Level Visualization</h2>
+    <p class="desc" ti="subtitle_see_exactly_how_each_char">See exactly how each character is encoded to bytes. Colors indicate byte count per character.</p>
 
-    <textarea id="viz-input" placeholder="Type text to visualize byte encoding...">Hi! cafe</textarea>
+    <textarea id="viz-input" tp="placeholder_type_text_to_visualize_by" placeholder="Type text to visualize byte encoding...">Hi! cafe</textarea>
     <div class="btn-row">
-      <button class="success" onclick="visualizeBytes()">Visualize</button>
+      <button class="success" onclick="visualizeBytes()" ti="btn_visualize">Visualize</button>
     </div>
 
     <div style="margin:0.5rem 0;font-size:0.8rem;">
@@ -334,26 +336,26 @@ const {read, written} = encoder.encodeInto('Hello', buf);
 
   <!-- Panel 4: Streaming -->
   <div class="panel" id="panel-streaming">
-    <h2>Streaming Encoder/Decoder</h2>
-    <p class="desc">TextDecoder with stream:true handles multi-byte characters split across chunks. Essential for processing streamed data.</p>
+    <h2 ti="h2_streaming_encoder_decoder">Streaming Encoder/Decoder</h2>
+    <p class="desc" ti="subtitle_textdecoder_with_stream_t">TextDecoder with stream:true handles multi-byte characters split across chunks. Essential for processing streamed data.</p>
 
-    <h3>Streaming Decode Demo</h3>
-    <p class="desc">The emoji character (U+1F680) requires 4 UTF-8 bytes: F0 9F 9A 80. Watch what happens when we split it across chunks.</p>
+    <h3 ti="h3_streaming_decode_demo">Streaming Decode Demo</h3>
+    <p class="desc" ti="subtitle_the_emoji_character_u_1f6">The emoji character (U+1F680) requires 4 UTF-8 bytes: F0 9F 9A 80. Watch what happens when we split it across chunks.</p>
     <div class="btn-row">
-      <button class="success" onclick="streamingDemo()">Run Streaming Demo</button>
-      <button onclick="streamingFail()">Without stream:true (broken)</button>
+      <button class="success" onclick="streamingDemo()" ti="btn_run_streaming_demo">Run Streaming Demo</button>
+      <button onclick="streamingFail()" ti="btn_without_stream_true_broke">Without stream:true (broken)</button>
     </div>
     <div class="log-area" id="stream-log"><div class="entry system">Streaming results...</div></div>
 
-    <h3>Chunked Text Processing</h3>
-    <textarea id="stream-text" placeholder="Enter long text to process in chunks...">The quick brown fox jumps over the lazy dog. Unicode: cafe, , </textarea>
+    <h3 ti="h3_chunked_text_processing">Chunked Text Processing</h3>
+    <textarea id="stream-text" tp="placeholder_enter_long_text_to_proces" placeholder="Enter long text to process in chunks...">The quick brown fox jumps over the lazy dog. Unicode: cafe, , </textarea>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Chunk size (bytes):</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_chunk_size_bytes">Chunk size (bytes):</label>
         <input type="number" id="chunk-size" value="8" min="1" max="100" />
       </div>
       <div class="btn-row" style="align-items:flex-end;">
-        <button onclick="chunkedProcess()">Process in Chunks</button>
+        <button onclick="chunkedProcess()" ti="btn_process_in_chunks">Process in Chunks</button>
       </div>
     </div>
     <div class="log-area" id="chunk-log"><div class="entry system">Chunked processing results...</div></div>
@@ -361,38 +363,38 @@ const {read, written} = encoder.encodeInto('Hello', buf);
 
   <!-- Panel 5: Encoding Detection -->
   <div class="panel" id="panel-detection">
-    <h2>Encoding Detection</h2>
-    <p class="desc">The Encoding API doesn't include detection, but we can analyze byte patterns to guess encodings. This demonstrates common heuristics.</p>
+    <h2 ti="h2_encoding_detection">Encoding Detection</h2>
+    <p class="desc" ti="subtitle_the_encoding_api_doesn_t">The Encoding API doesn't include detection, but we can analyze byte patterns to guess encodings. This demonstrates common heuristics.</p>
 
-    <h3>Analyze Byte Sequence</h3>
-    <input id="detect-bytes" placeholder="Paste bytes: 72, 101, 108, 108, 111 or hex 0x48 0x65..." value="0xEF, 0xBB, 0xBF, 0x48, 0x65, 0x6C, 0x6C, 0x6F" />
+    <h3 ti="h3_analyze_byte_sequence">Analyze Byte Sequence</h3>
+    <input id="detect-bytes" tp="placeholder_paste_bytes_72_101_108_10" placeholder="Paste bytes: 72, 101, 108, 108, 111 or hex 0x48 0x65..." value="0xEF, 0xBB, 0xBF, 0x48, 0x65, 0x6C, 0x6C, 0x6F" />
     <div class="btn-row">
-      <button class="success" onclick="detectEncoding()">Detect Encoding</button>
-      <button onclick="loadDetectSample('utf8bom')">UTF-8 BOM</button>
-      <button onclick="loadDetectSample('utf16le')">UTF-16LE BOM</button>
-      <button onclick="loadDetectSample('latin')">Latin-1</button>
-      <button onclick="loadDetectSample('sjis')">Shift-JIS</button>
+      <button class="success" onclick="detectEncoding()" ti="btn_detect_encoding">Detect Encoding</button>
+      <button onclick="loadDetectSample('utf8bom')" ti="btn_utf_8_bom">UTF-8 BOM</button>
+      <button onclick="loadDetectSample('utf16le')" ti="btn_utf_16le_bom">UTF-16LE BOM</button>
+      <button onclick="loadDetectSample('latin')" ti="btn_latin_1">Latin-1</button>
+      <button onclick="loadDetectSample('sjis')" ti="btn_shift_jis">Shift-JIS</button>
     </div>
     <div class="log-area" id="detect-log"><div class="entry system">Detection results...</div></div>
 
-    <h3>Same Bytes, Different Encodings</h3>
-    <p class="desc">See how the same byte sequence produces different text depending on encoding.</p>
-    <input id="multi-bytes" placeholder="Enter bytes..." value="0xC0, 0xE9, 0xF1, 0xFC, 0xE4" />
+    <h3 ti="h3_same_bytes_different_enco">Same Bytes, Different Encodings</h3>
+    <p class="desc" ti="subtitle_see_how_the_same_byte_seq">See how the same byte sequence produces different text depending on encoding.</p>
+    <input id="multi-bytes" tp="placeholder_enter_bytes" placeholder="Enter bytes..." value="0xC0, 0xE9, 0xF1, 0xFC, 0xE4" />
     <div class="btn-row">
-      <button onclick="decodeMultiple()">Decode with Multiple Encodings</button>
+      <button onclick="decodeMultiple()" ti="btn_decode_with_multiple_enco">Decode with Multiple Encodings</button>
     </div>
     <div class="log-area" id="multi-log"><div class="entry system">Multi-encoding comparison...</div></div>
   </div>
 
   <!-- Panel 6: Binary Inspector -->
   <div class="panel" id="panel-binary">
-    <h2>Binary Data Inspector</h2>
-    <p class="desc">Inspect text encoding at the bit level. See hex, decimal, octal, and binary representations.</p>
+    <h2 ti="h2_binary_data_inspector">Binary Data Inspector</h2>
+    <p class="desc" ti="subtitle_inspect_text_encoding_at">Inspect text encoding at the bit level. See hex, decimal, octal, and binary representations.</p>
 
-    <input id="bin-input" placeholder="Enter text to inspect..." value="ABC" />
+    <input id="bin-input" tp="placeholder_enter_text_to_inspect" placeholder="Enter text to inspect..." value="ABC" />
     <div class="btn-row">
-      <button class="success" onclick="inspectBinary()">Inspect</button>
-      <button onclick="document.getElementById('bin-input').value='cafe';inspectBinary();">cafe</button>
+      <button class="success" onclick="inspectBinary()" ti="btn_inspect">Inspect</button>
+      <button onclick="document.getElementById('bin-input').value='cafe';inspectBinary();" ti="btn_cafe">cafe</button>
       <button onclick="document.getElementById('bin-input').value='';inspectBinary();">Emoji</button>
       <button onclick="document.getElementById('bin-input').value='';inspectBinary();">CJK</button>
     </div>
@@ -403,13 +405,13 @@ const {read, written} = encoder.encodeInto('Hello', buf);
 
   <!-- Panel 7: Performance -->
   <div class="panel" id="panel-perf">
-    <h2>Performance Comparison</h2>
-    <p class="desc">Compare encoding/decoding performance. TextEncoder is optimized for UTF-8; TextDecoder handles many encodings.</p>
+    <h2 ti="h2_performance_comparison">Performance Comparison</h2>
+    <p class="desc" ti="subtitle_compare_encoding_decoding">Compare encoding/decoding performance. TextEncoder is optimized for UTF-8; TextDecoder handles many encodings.</p>
 
-    <h3>encode() vs encodeInto()</h3>
+    <h3 ti="h3_encode_vs_encodeinto">encode() vs encodeInto()</h3>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Text length:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_text_length">Text length:</label>
         <select id="perf-size">
           <option value="100">100 chars</option>
           <option value="1000" selected>1,000 chars</option>
@@ -418,7 +420,7 @@ const {read, written} = encoder.encodeInto('Hello', buf);
         </select>
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Iterations:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_iterations">Iterations:</label>
         <select id="perf-iters">
           <option value="100">100</option>
           <option value="1000" selected>1,000</option>
@@ -427,21 +429,31 @@ const {read, written} = encoder.encodeInto('Hello', buf);
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="benchEncode()">Benchmark Encode</button>
-      <button class="warn" onclick="benchDecode()">Benchmark Decode</button>
+      <button class="success" onclick="benchEncode()" ti="btn_benchmark_encode">Benchmark Encode</button>
+      <button class="warn" onclick="benchDecode()" ti="btn_benchmark_decode">Benchmark Decode</button>
     </div>
     <div id="perf-bars"></div>
     <div class="log-area" id="perf-log"><div class="entry system">Performance results...</div></div>
 
-    <h3>Encoding Size Comparison</h3>
-    <textarea id="size-input" placeholder="Enter text to compare sizes across encodings...">Hello World! cafe  </textarea>
+    <h3 ti="h3_encoding_size_comparison">Encoding Size Comparison</h3>
+    <textarea id="size-input" tp="placeholder_enter_text_to_compare_siz" placeholder="Enter text to compare sizes across encodings...">Hello World! cafe  </textarea>
     <div class="btn-row">
-      <button onclick="compareSizes()">Compare Sizes</button>
+      <button onclick="compareSizes()" ti="btn_compare_sizes">Compare Sizes</button>
     </div>
     <div class="log-area" id="size-log"><div class="entry system">Size comparison results...</div></div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_encoding_api_playground':["Encoding API Playground", "编码 API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the Encoding API - TextEncoder, TextDecoder, byte-level visualization, and encoding comparisons.", "编码 API 的交互式演示平台 - TextEncoder、TextDecoder、字节级可视化和编码比较。"],'h1_encoding_api_playground':["Encoding API Playground", "编码 API Playground"],'h2_textencoder_interactive_d':["TextEncoder Interactive Demo", "文本编码器交互式演示"],'h2_textdecoder_interactive_d':["TextDecoder Interactive Demo", "文本解码器交互式演示"],'h2_byte_level_visualization':["Byte-Level Visualization", "字节级可视化"],'h2_streaming_encoder_decoder':["Streaming Encoder/Decoder", "流媒体编码器/解码器"],'h2_encoding_detection':["Encoding Detection", "编码检测"],'h2_binary_data_inspector':["Binary Data Inspector", "二进制数据检查器"],'h2_performance_comparison':["Performance Comparison", "性能比较"],'h3_encode_text':["Encode Text", "编码文本"],'h3_encodeinto_details':["encodeInto() details", "encodeInto() 详情"],'h3_decode_bytes':["Decode Bytes", "解码字节"],'h3_input_bytes_comma_separat':["Input bytes (comma-separated decimal or hex with 0x prefix)", "输入字节（以逗号分隔的十进制或十六进制，带 0x 前缀）"],'h3_streaming_decode_demo':["Streaming Decode Demo", "流媒体解码演示"],'h3_chunked_text_processing':["Chunked Text Processing", "分块文本处理"],'h3_analyze_byte_sequence':["Analyze Byte Sequence", "分析字节序列"],'h3_same_bytes_different_enco':["Same Bytes, Different Encodings", "相同的字节，不同的编码"],'h3_encode_vs_encodeinto':["encode() vs encodeInto()", "encode() 与 encodeInto()"],'h3_encoding_size_comparison':["Encoding Size Comparison", "编码大小比较"],'subtitle_textencoder_always_encode':["TextEncoder always encodes to UTF-8. Type text to see it converted to bytes in real time.", "TextEncoder 始终编码为 UTF-8 格式。输入文本即可实时查看其转换为字节的过程。"],'subtitle_textdecoder_supports_many':["TextDecoder supports many encodings. Convert byte sequences back to text.", "TextDecoder 支持多种编码。将字节序列转换回文本。"],'subtitle_see_exactly_how_each_char':["See exactly how each character is encoded to bytes. Colors indicate byte count per character.", "查看每个字符的具体编码方式。颜色表示每个字符的字节数。"],'subtitle_textdecoder_with_stream_t':["TextDecoder with stream:true handles multi-byte characters split across chunks. Essential for processing streamed data.", "TextDecoder 启用 stream:true 后，可以处理跨块分割的多字节字符。这对于处理流式数据至关重要。"],'subtitle_the_emoji_character_u_1f6':["The emoji character (U+1F680) requires 4 UTF-8 bytes: F0 9F 9A 80. Watch what happens when we split it across chunks.", "表情符号 (U+1F680) 需要 4 个 UTF-8 字节：F0 9F 9A 80。看看当我们将其分成多个块时会发生什么。"],'subtitle_the_encoding_api_doesn_t':["The Encoding API doesn't include detection, but we can analyze byte patterns to guess encodings. This demonstrates common heuristics.", "编码 API 不包含检测功能，但我们可以通过分析字节模式来猜测编码。这演示了一些常见的启发式方法。"],'subtitle_see_how_the_same_byte_seq':["See how the same byte sequence produces different text depending on encoding.", "看看同样的字节序列如何根据编码的不同产生不同的文本。"],'subtitle_inspect_text_encoding_at':["Inspect text encoding at the bit level. See hex, decimal, octal, and binary representations.", "检查位级别的文本编码。查看十六进制、十进制、八进制和二进制表示。"],'subtitle_compare_encoding_decoding':["Compare encoding/decoding performance. TextEncoder is optimized for UTF-8; TextDecoder handles many encodings.", "比较编码/解码性能。TextEncoder 针对 UTF-8 进行了优化；TextDecoder 可处理多种编码。"],'btn_textencoder':["TextEncoder", "文本编码器"],'btn_textdecoder':["TextDecoder", "文本解码器"],'btn_byte_visualization':["Byte Visualization", "字节可视化"],'btn_streaming':["Streaming", "流媒体"],'btn_detection':["Detection", "检测"],'btn_binary_inspector':["Binary Inspector", "二进制检查器"],'btn_performance':["Performance", "表现"],'btn_encode':["Encode", "编码"],'btn_encodeinto_reuse_buffer':["encodeInto() (reuse buffer)", "encodeInto()（重用缓冲区）"],'btn_decode':["Decode", "解码"],'btn_utf_8_sample':["UTF-8 sample", "UTF-8 样本"],'btn_emoji':["Emoji", "表情符号"],'btn_cjk':["CJK", "中日韩"],'btn_bom_marker':["BOM marker", "BOM标记"],'btn_visualize':["Visualize", "可视化"],'btn_run_streaming_demo':["Run Streaming Demo", "运行流媒体演示"],'btn_without_stream_true_broke':["Without stream:true (broken)", "没有 stream:true（已损坏）"],'btn_process_in_chunks':["Process in Chunks", "分块处理"],'btn_detect_encoding':["Detect Encoding", "检测编码"],'btn_utf_8_bom':["UTF-8 BOM", "UTF-8 BOM"],'btn_utf_16le_bom':["UTF-16LE BOM", "UTF-16LE BOM"],'btn_latin_1':["Latin-1", "拉丁语-1"],'btn_shift_jis':["Shift-JIS", "Shift-JIS"],'btn_decode_with_multiple_enco':["Decode with Multiple Encodings", "使用多种编码进行解码"],'btn_inspect':["Inspect", "检查"],'btn_cafe':["cafe", "咖啡店"],'btn_emoji_2':["Emoji", "表情符号"],'btn_cjk_2':["CJK", "中日韩"],'btn_benchmark_encode':["Benchmark Encode", "基准编码"],'btn_benchmark_decode':["Benchmark Decode", "基准解码"],'btn_compare_sizes':["Compare Sizes", "比较尺寸"],'placeholder_type_or_paste_text_here_t':["Type or paste text here... Try emoji, CJK, Arabic, etc.", "在这里输入或粘贴文本……尝试输入表情符号、中日韩语、阿拉伯语等。"],'placeholder_72_101_108_108_111_or_0x4':["72, 101, 108, 108, 111 or 0x48, 0x65, 0x6C, 0x6C, 0x6F", "72、101、108、108、111 或 0x48、0x65、0x6C、0x6C、0x6F"],'placeholder_type_text_to_visualize_by':["Type text to visualize byte encoding...", "输入文本以查看字节编码……"],'placeholder_enter_long_text_to_proces':["Enter long text to process in chunks...", "请输入长文本，我们将分段处理……"],'placeholder_paste_bytes_72_101_108_10':["Paste bytes: 72, 101, 108, 108, 111 or hex 0x48 0x65...", "粘贴字节：72、101、108、108、111 或十六进制 0x48 0x65..."],'placeholder_enter_bytes':["Enter bytes...", "输入字节数..."],'placeholder_enter_text_to_inspect':["Enter text to inspect...", "输入要检查的文本..."],'placeholder_enter_text_to_compare_siz':["Enter text to compare sizes across encodings...", "输入文本以比较不同编码格式的大小……"],'th_char':["Char", "查尔"],'th_code_point':["Code Point", "代码点"],'th_utf_8_hex':["UTF-8 Hex", "UTF-8 十六进制"],'th_decimal':["Decimal", "小数"],'th_binary':["Binary", "二进制"],'th_bytes':["Bytes", "字节"],'label_encoding':["Encoding:", "编码："],'label_options':["Options:", "选项："],'label_chunk_size_bytes':["Chunk size (bytes):", "数据块大小（字节）："],'label_text_length':["Text length:", "文本长度："],'label_iterations':["Iterations:", "迭代次数："],'jtc_encoding_api_supported':["Encoding API: Supported", "编码 API：支持"],'jtc_encoding_api_not_supporte':["Encoding API: Not Supported", "编码 API：不支持"],'jtlword_characters':["Characters", "人物"],'jtlword_characters_2':["Characters", "人物"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab navigation
 document.querySelectorAll('.tab').forEach(tab => {
@@ -467,10 +479,10 @@ function clearLog(id) { document.getElementById(id).innerHTML = ''; }
 const badge = document.getElementById('enc-badge');
 if (typeof TextEncoder !== 'undefined' && typeof TextDecoder !== 'undefined') {
   badge.className = 'support-badge yes';
-  badge.textContent = 'Encoding API: Supported';
+  badge.textContent=T("jtc_encoding_api_supported");
 } else {
   badge.className = 'support-badge no';
-  badge.textContent = 'Encoding API: Not Supported';
+  badge.textContent=T("jtc_encoding_api_not_supporte");
 }
 
 const encoder = new TextEncoder();
@@ -771,7 +783,7 @@ function inspectBinary() {
   const container = document.getElementById('bin-table-container');
 
   let html = '<table style="width:100%;border-collapse:collapse;font-family:var(--mono);font-size:0.78rem;">';
-  html += '<tr style="background:var(--surface2);"><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">Char</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">Code Point</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">UTF-8 Hex</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">Decimal</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">Binary</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);">Bytes</th></tr>';
+  html += '<tr style="background:var(--surface2);"><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_char">Char</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_code_point">Code Point</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_utf_8_hex">UTF-8 Hex</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_decimal">Decimal</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_binary">Binary</th><th style="padding:6px;border:1px solid var(--border);color:var(--accent);" ti="th_bytes">Bytes</th></tr>';
 
   chars.forEach(char => {
     const cp = char.codePointAt(0);
@@ -896,6 +908,24 @@ function compareSizes() {
 
 // Init
 encodeText();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

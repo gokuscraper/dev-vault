@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_contact_picker_api_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -400,39 +400,47 @@ button.secondary { background: var(--surface-3); color: var(--text); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Contact Picker API Playground</h1>
+  <h1 ti="title_contact_picker_api_playgr" ti="h1_contact_picker_api_playgr" ti="title_contact_picker_api_playgr" ti="h1_contact_picker_api_playgr" ti="title_contact_picker_api_playgr" ti="h1_contact_picker_api_playgr" ti="title_contact_picker_api_playgr" ti="h1_contact_picker_api_playgr">Contact Picker API Playground</h1>
   <p>Select contacts from the device's native contact list in the browser</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <span class="support-icon" id="supportIcon">...</span>
     <div class="support-text">
-      <h3 id="supportTitle">Checking Contact Picker API support...</h3>
+      <h3 id="supportTitle" ti="h3_checking_contact_picker_a" ti="h3_checking_contact_picker_a" ti="h3_checking_contact_picker_a" ti="h3_checking_contact_picker_a">Checking Contact Picker API support...</h3>
       <p id="supportDesc">Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="picker">Contact Picker</button>
-    <button class="tab-btn" data-tab="properties">Property Selection</button>
-    <button class="tab-btn" data-tab="permissions">Permission Flow</button>
-    <button class="tab-btn" data-tab="fallback">Fallback Form</button>
-    <button class="tab-btn" data-tab="privacy">Privacy Guide</button>
+    <button class="tab-btn active" data-tab="picker" ti="btn_contact_picker" ti="btn_contact_picker" ti="btn_contact_picker" ti="btn_contact_picker">Contact Picker</button>
+    <button class="tab-btn" data-tab="properties" ti="btn_property_selection" ti="btn_property_selection" ti="btn_property_selection" ti="btn_property_selection">Property Selection</button>
+    <button class="tab-btn" data-tab="permissions" ti="btn_permission_flow" ti="btn_permission_flow" ti="btn_permission_flow" ti="btn_permission_flow">Permission Flow</button>
+    <button class="tab-btn" data-tab="fallback" ti="btn_fallback_form" ti="btn_fallback_form" ti="btn_fallback_form" ti="btn_fallback_form">Fallback Form</button>
+    <button class="tab-btn" data-tab="privacy" ti="btn_privacy_guide" ti="btn_privacy_guide" ti="btn_privacy_guide" ti="btn_privacy_guide">Privacy Guide</button>
   </div>
 
   <!-- Tab 1: Contact Picker -->
   <div class="tab-panel active" id="tab-picker">
     <div class="card">
-      <h2>navigator.contacts.select() Demo</h2>
+      <h2 ti="h2_navigator_contacts_select" ti="h2_navigator_contacts_select" ti="h2_navigator_contacts_select" ti="h2_navigator_contacts_select">navigator.contacts.select() Demo</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Contact Picker API provides a one-time, user-initiated read of contacts.
         Select which properties to request and whether to allow multiple contacts.
       </p>
 
-      <h3>Properties to Request</h3>
+      <h3 ti="h3_properties_to_request" ti="h3_properties_to_request" ti="h3_properties_to_request" ti="h3_properties_to_request">Properties to Request</h3>
       <div class="checkbox-group" id="propCheckboxes">
         <label class="checkbox-item checked">
           <input type="checkbox" value="name" checked> name
@@ -458,19 +466,19 @@ button.secondary { background: var(--surface-3); color: var(--text); }
       </div>
 
       <div class="form-row" style="margin-top:1rem;">
-        <button id="selectBtn">Select Contacts</button>
-        <button id="selectSimBtn" class="secondary">Simulate Selection</button>
-        <button id="clearBtn" class="secondary">Clear Results</button>
+        <button id="selectBtn" ti="btn_select_contacts" ti="btn_select_contacts" ti="btn_select_contacts" ti="btn_select_contacts">Select Contacts</button>
+        <button id="selectSimBtn" class="secondary" ti="btn_simulate_selection" ti="btn_simulate_selection" ti="btn_simulate_selection" ti="btn_simulate_selection">Simulate Selection</button>
+        <button id="clearBtn" class="secondary" ti="btn_clear_results" ti="btn_clear_results" ti="btn_clear_results" ti="btn_clear_results">Clear Results</button>
       </div>
 
-      <h3>Selected Contacts</h3>
+      <h3 ti="h3_selected_contacts" ti="h3_selected_contacts" ti="h3_selected_contacts" ti="h3_selected_contacts">Selected Contacts</h3>
       <div class="contact-grid" id="contactGrid">
         <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;">
           No contacts selected yet. Click "Select Contacts" or "Simulate Selection" above.
         </p>
       </div>
 
-      <h3>Raw JSON Result</h3>
+      <h3 ti="h3_raw_json_result" ti="h3_raw_json_result" ti="h3_raw_json_result" ti="h3_raw_json_result">Raw JSON Result</h3>
       <div class="result-json" id="rawResult">// Contact data will appear here</div>
 
       <div class="log-area" id="pickerLog"></div>
@@ -480,22 +488,22 @@ button.secondary { background: var(--surface-3); color: var(--text); }
   <!-- Tab 2: Property Selection -->
   <div class="tab-panel" id="tab-properties">
     <div class="card">
-      <h2>Available Properties</h2>
+      <h2 ti="h2_available_properties" ti="h2_available_properties" ti="h2_available_properties" ti="h2_available_properties">Available Properties</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Contact Picker API supports five properties. Check which ones your browser supports
         via <code style="color:var(--accent)">navigator.contacts.getProperties()</code>.
       </p>
 
-      <button id="detectPropsBtn">Detect Supported Properties</button>
+      <button id="detectPropsBtn" ti="btn_detect_supported_properti" ti="btn_detect_supported_properti" ti="btn_detect_supported_properti" ti="btn_detect_supported_properti">Detect Supported Properties</button>
 
       <div style="margin-top:1rem;">
         <table style="width:100%;border-collapse:collapse;font-size:0.9rem;">
           <thead>
             <tr>
-              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Property</th>
-              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Type</th>
-              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Description</th>
-              <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Supported</th>
+              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_property" ti="th_property" ti="th_property" ti="th_property">Property</th>
+              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_type" ti="th_type" ti="th_type" ti="th_type">Type</th>
+              <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_description" ti="th_description" ti="th_description" ti="th_description">Description</th>
+              <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_supported" ti="th_supported" ti="th_supported" ti="th_supported">Supported</th>
             </tr>
           </thead>
           <tbody id="propsTable">
@@ -557,7 +565,7 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
   <!-- Tab 3: Permission Flow -->
   <div class="tab-panel" id="tab-permissions">
     <div class="card">
-      <h2>Permission Flow Visualization</h2>
+      <h2 ti="h2_permission_flow_visualiza" ti="h2_permission_flow_visualiza" ti="h2_permission_flow_visualiza" ti="h2_permission_flow_visualiza">Permission Flow Visualization</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Unlike other Web APIs, the Contact Picker API does not use the Permissions API.
         Instead, it requires a user gesture (click/tap) and shows a native contact picker UI.
@@ -608,7 +616,7 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
         </div>
       </div>
 
-      <h3>Error Scenarios</h3>
+      <h3 ti="h3_error_scenarios" ti="h3_error_scenarios" ti="h3_error_scenarios" ti="h3_error_scenarios">Error Scenarios</h3>
       <div style="display:flex;flex-direction:column;gap:0.5rem;margin:0.75rem 0;">
         <div style="padding:0.75rem;background:var(--surface-2);border:1px solid var(--border);border-radius:var(--radius);">
           <code style="color:var(--error);">SecurityError</code>
@@ -629,13 +637,13 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
   <!-- Tab 4: Fallback Form -->
   <div class="tab-panel" id="tab-fallback">
     <div class="card">
-      <h2>Fallback Form Builder</h2>
+      <h2 ti="h2_fallback_form_builder" ti="h2_fallback_form_builder" ti="h2_fallback_form_builder" ti="h2_fallback_form_builder">Fallback Form Builder</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Since the Contact Picker API is only available on Android Chrome, you need a
         fallback for unsupported browsers. Configure which fields to include.
       </p>
 
-      <h3>Configure Fields</h3>
+      <h3 ti="h3_configure_fields" ti="h3_configure_fields" ti="h3_configure_fields" ti="h3_configure_fields">Configure Fields</h3>
       <div class="checkbox-group" id="fallbackFields">
         <label class="checkbox-item checked">
           <input type="checkbox" value="name" checked> Name
@@ -658,23 +666,23 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
       </div>
 
       <div class="form-row">
-        <button id="generateFormBtn">Generate Form</button>
-        <button id="copyCodeBtn" class="secondary">Copy HTML Code</button>
+        <button id="generateFormBtn" ti="btn_generate_form" ti="btn_generate_form" ti="btn_generate_form" ti="btn_generate_form">Generate Form</button>
+        <button id="copyCodeBtn" class="secondary" ti="btn_copy_html_code" ti="btn_copy_html_code" ti="btn_copy_html_code" ti="btn_copy_html_code">Copy HTML Code</button>
       </div>
 
-      <h3>Form Preview</h3>
+      <h3 ti="h3_form_preview" ti="h3_form_preview" ti="h3_form_preview" ti="h3_form_preview">Form Preview</h3>
       <div class="form-preview" id="formPreview">
         <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;">
           Select fields and click "Generate Form" to see a preview.
         </p>
       </div>
 
-      <h3>Generated HTML</h3>
+      <h3 ti="h3_generated_html" ti="h3_generated_html" ti="h3_generated_html" ti="h3_generated_html">Generated HTML</h3>
       <div class="code-block" id="formCode" style="max-height:300px;overflow-y:auto;">// Select fields and click "Generate Form"</div>
     </div>
 
     <div class="card">
-      <h2>Progressive Enhancement Pattern</h2>
+      <h2 ti="h2_progressive_enhancement_p" ti="h2_progressive_enhancement_p" ti="h2_progressive_enhancement_p" ti="h2_progressive_enhancement_p">Progressive Enhancement Pattern</h2>
       <div class="code-block"><span class="cm">// Feature detection + fallback</span>
 <span class="kw">async function</span> <span class="fn">getContactInfo</span>() {
   <span class="cm">// Check if Contact Picker is available</span>
@@ -707,7 +715,7 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
   <!-- Tab 5: Privacy -->
   <div class="tab-panel" id="tab-privacy">
     <div class="card">
-      <h2>Privacy Considerations</h2>
+      <h2 ti="h2_privacy_considerations" ti="h2_privacy_considerations" ti="h2_privacy_considerations" ti="h2_privacy_considerations">Privacy Considerations</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The Contact Picker API was designed with privacy as a primary concern.
         Understanding these design decisions helps explain why the API works the way it does.
@@ -768,7 +776,7 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
         </li>
       </ul>
 
-      <h3>Platform Detection</h3>
+      <h3 ti="h3_platform_detection" ti="h3_platform_detection" ti="h3_platform_detection" ti="h3_platform_detection">Platform Detection</h3>
       <div class="platform-grid">
         <div class="platform-card">
           <div class="platform-name">Android Chrome</div>
@@ -811,6 +819,36 @@ console.<span class="fn">log</span>(<span class="str">'Supported:'</span>, prope
   </div>
 </div>
 
+
+
+
+<script>var _LANG={'title_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Contact Picker API - select contacts, configure properties, and build fallback forms.", "联系人选择器 API 的交互式演示环境 - 选择联系人、配置属性和构建备用表单。"],'h1_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'h2_navigator_contacts_select':["navigator.contacts.select() Demo", "navigator.contacts.select() 演示"],'h2_available_properties':["Available Properties", "现有房源"],'h2_permission_flow_visualiza':["Permission Flow Visualization", "权限流程可视化"],'h2_fallback_form_builder':["Fallback Form Builder", "备用表单生成器"],'h2_progressive_enhancement_p':["Progressive Enhancement Pattern", "渐进增强模式"],'h2_privacy_considerations':["Privacy Considerations", "隐私考量"],'h3_checking_contact_picker_a':["Checking Contact Picker API support...", "正在检查联系人选择器 API 支持情况……"],'h3_properties_to_request':["Properties to Request", "请求的属性"],'h3_selected_contacts':["Selected Contacts", "精选联系人"],'h3_raw_json_result':["Raw JSON Result", "原始 JSON 结果"],'h3_error_scenarios':["Error Scenarios", "错误场景"],'h3_configure_fields':["Configure Fields", "配置字段"],'h3_form_preview':["Form Preview", "表单预览"],'h3_generated_html':["Generated HTML", "生成的 HTML"],'h3_platform_detection':["Platform Detection", "平台检测"],'btn_contact_picker':["Contact Picker", "联系选择器"],'btn_property_selection':["Property Selection", "物业选择"],'btn_permission_flow':["Permission Flow", "权限流程"],'btn_fallback_form':["Fallback Form", "备用表单"],'btn_privacy_guide':["Privacy Guide", "隐私指南"],'btn_select_contacts':["Select Contacts", "选择联系人"],'btn_simulate_selection':["Simulate Selection", "模拟选择"],'btn_clear_results':["Clear Results", "结果清晰"],'btn_detect_supported_properti':["Detect Supported Properties", "检测支持的属性"],'btn_generate_form':["Generate Form", "生成表单"],'btn_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'btn_submit':["Submit", "提交"],'btn_submit_2':["Submit", "提交"],'placeholder_config_placeholder':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_2':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_3':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_4':["${config.placeholder}", "${config.placeholder}"],'th_property':["Property", "财产"],'th_type':["Type", "类型"],'th_description':["Description", "描述"],'th_supported':["Supported", "支持"],'label_config_label_config_requ':["${config.label}${config.required ? ' *' : ''}", "${config.label}${config.required ? &#39; *&#39; : &#39;&#39;}"],'label_config_label':["${config.label}", "${config.label}"],'label_config_label_2':["${config.label}", "${config.label}"],'jtc_u2705':["\\u2705", "☎"],'jtc_contact_picker_api_is_sup':["Contact Picker API is supported!", "联系人选择器 API 已支持！"],'jtc_navigator_contacts_is_ava':["navigator.contacts is available. You can select real contacts.", "navigator.contacts 可用。您可以选择真实联系人。"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_contact_picker_api_is_not':["Contact Picker API is not available", "联系人选择器 API 不可用"],'jtc_this_api_is_primarily_sup':["This API is primarily supported on Android Chrome 80+. Use", "此 API 主要支持 Android Chrome 80 及更高版本。"],'jtc_contact_data_will_appear':["// Contact data will appear here", "// 联系方式将显示在此处"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'jalert_select_at_least_one_field':["Select at least one field", "至少选择一个字段"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Contact Picker API - select contacts, configure properties, and build fallback forms.", "联系人选择器 API 的交互式演示环境 - 选择联系人、配置属性和构建备用表单。"],'h1_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'h2_navigator_contacts_select':["navigator.contacts.select() Demo", "navigator.contacts.select() 演示"],'h2_available_properties':["Available Properties", "现有房源"],'h2_permission_flow_visualiza':["Permission Flow Visualization", "权限流程可视化"],'h2_fallback_form_builder':["Fallback Form Builder", "备用表单生成器"],'h2_progressive_enhancement_p':["Progressive Enhancement Pattern", "渐进增强模式"],'h2_privacy_considerations':["Privacy Considerations", "隐私考量"],'h3_checking_contact_picker_a':["Checking Contact Picker API support...", "正在检查联系人选择器 API 支持情况……"],'h3_properties_to_request':["Properties to Request", "请求的属性"],'h3_selected_contacts':["Selected Contacts", "精选联系人"],'h3_raw_json_result':["Raw JSON Result", "原始 JSON 结果"],'h3_error_scenarios':["Error Scenarios", "错误场景"],'h3_configure_fields':["Configure Fields", "配置字段"],'h3_form_preview':["Form Preview", "表单预览"],'h3_generated_html':["Generated HTML", "生成的 HTML"],'h3_platform_detection':["Platform Detection", "平台检测"],'btn_contact_picker':["Contact Picker", "联系选择器"],'btn_property_selection':["Property Selection", "物业选择"],'btn_permission_flow':["Permission Flow", "权限流程"],'btn_fallback_form':["Fallback Form", "备用表单"],'btn_privacy_guide':["Privacy Guide", "隐私指南"],'btn_select_contacts':["Select Contacts", "选择联系人"],'btn_simulate_selection':["Simulate Selection", "模拟选择"],'btn_clear_results':["Clear Results", "结果清晰"],'btn_detect_supported_properti':["Detect Supported Properties", "检测支持的属性"],'btn_generate_form':["Generate Form", "生成表单"],'btn_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'btn_submit':["Submit", "提交"],'btn_submit_2':["Submit", "提交"],'placeholder_config_placeholder':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_2':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_3':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_4':["${config.placeholder}", "${config.placeholder}"],'th_property':["Property", "财产"],'th_type':["Type", "类型"],'th_description':["Description", "描述"],'th_supported':["Supported", "支持"],'label_config_label_config_requ':["${config.label}${config.required ? ' *' : ''}", "${config.label}${config.required ? &#39; *&#39; : &#39;&#39;}"],'label_config_label':["${config.label}", "${config.label}"],'label_config_label_2':["${config.label}", "${config.label}"],'jtc_u2705':["\\u2705", "☎"],'jtc_contact_picker_api_is_sup':["Contact Picker API is supported!", "联系人选择器 API 已支持！"],'jtc_navigator_contacts_is_ava':["navigator.contacts is available. You can select real contacts.", "navigator.contacts 可用。您可以选择真实联系人。"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_contact_picker_api_is_not':["Contact Picker API is not available", "联系人选择器 API 不可用"],'jtc_this_api_is_primarily_sup':["This API is primarily supported on Android Chrome 80+. Use", "此 API 主要支持 Android Chrome 80 及更高版本。"],'jtc_contact_data_will_appear':["// Contact data will appear here", "// 联系方式将显示在此处"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'jalert_select_at_least_one_field':["Select at least one field", "至少选择一个字段"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Contact Picker API - select contacts, configure properties, and build fallback forms.", "联系人选择器 API 的交互式演示环境 - 选择联系人、配置属性和构建备用表单。"],'h1_contact_picker_api_playgr':["Contact Picker API Playground", "联系人选择器 API 演示"],'h2_navigator_contacts_select':["navigator.contacts.select() Demo", "navigator.contacts.select() 演示"],'h2_available_properties':["Available Properties", "现有房源"],'h2_permission_flow_visualiza':["Permission Flow Visualization", "权限流程可视化"],'h2_fallback_form_builder':["Fallback Form Builder", "备用表单生成器"],'h2_progressive_enhancement_p':["Progressive Enhancement Pattern", "渐进增强模式"],'h2_privacy_considerations':["Privacy Considerations", "隐私考量"],'h3_checking_contact_picker_a':["Checking Contact Picker API support...", "正在检查联系人选择器 API 支持情况……"],'h3_properties_to_request':["Properties to Request", "请求的属性"],'h3_selected_contacts':["Selected Contacts", "精选联系人"],'h3_raw_json_result':["Raw JSON Result", "原始 JSON 结果"],'h3_error_scenarios':["Error Scenarios", "错误场景"],'h3_configure_fields':["Configure Fields", "配置字段"],'h3_form_preview':["Form Preview", "表单预览"],'h3_generated_html':["Generated HTML", "生成的 HTML"],'h3_platform_detection':["Platform Detection", "平台检测"],'btn_contact_picker':["Contact Picker", "联系选择器"],'btn_property_selection':["Property Selection", "物业选择"],'btn_permission_flow':["Permission Flow", "权限流程"],'btn_fallback_form':["Fallback Form", "备用表单"],'btn_privacy_guide':["Privacy Guide", "隐私指南"],'btn_select_contacts':["Select Contacts", "选择联系人"],'btn_simulate_selection':["Simulate Selection", "模拟选择"],'btn_clear_results':["Clear Results", "结果清晰"],'btn_detect_supported_properti':["Detect Supported Properties", "检测支持的属性"],'btn_generate_form':["Generate Form", "生成表单"],'btn_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'btn_submit':["Submit", "提交"],'btn_submit_2':["Submit", "提交"],'placeholder_config_placeholder':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_2':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_3':["${config.placeholder}", "${config.placeholder}"],'placeholder_config_placeholder_4':["${config.placeholder}", "${config.placeholder}"],'th_property':["Property", "财产"],'th_type':["Type", "类型"],'th_description':["Description", "描述"],'th_supported':["Supported", "支持"],'label_config_label_config_requ':["${config.label}${config.required ? ' *' : ''}", "${config.label}${config.required ? &#39; *&#39; : &#39;&#39;}"],'label_config_label':["${config.label}", "${config.label}"],'label_config_label_2':["${config.label}", "${config.label}"],'jtc_u2705':["\\u2705", "☎"],'jtc_contact_picker_api_is_sup':["Contact Picker API is supported!", "联系人选择器 API 已支持！"],'jtc_navigator_contacts_is_ava':["navigator.contacts is available. You can select real contacts.", "navigator.contacts 可用。您可以选择真实联系人。"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_contact_picker_api_is_not':["Contact Picker API is not available", "联系人选择器 API 不可用"],'jtc_this_api_is_primarily_sup':["This API is primarily supported on Android Chrome 80+. Use", "此 API 主要支持 Android Chrome 80 及更高版本。"],'jtc_contact_data_will_appear':["// Contact data will appear here", "// 联系方式将显示在此处"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_html_code':["Copy HTML Code", "复制 HTML 代码"],'jalert_select_at_least_one_field':["Select at least one field", "至少选择一个字段"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab System ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -854,13 +892,13 @@ const hasContacts = 'contacts' in navigator && 'ContactsManager' in window;
 
   if (hasContacts) {
     banner.classList.add('supported');
-    icon.textContent = '\u2705';
-    title.textContent = 'Contact Picker API is supported!';
-    desc.textContent = 'navigator.contacts is available. You can select real contacts.';
+    icon.textContent=T("jtc_u2705");
+    title.textContent=T("jtc_contact_picker_api_is_sup");
+    desc.textContent=T("jtc_navigator_contacts_is_ava");
   } else {
     banner.classList.add('unsupported');
-    icon.textContent = '\u26A0\uFE0F';
-    title.textContent = 'Contact Picker API is not available';
+    icon.textContent=T("jtc_u26a0_ufe0f");
+    title.textContent=T("jtc_contact_picker_api_is_not");
     desc.textContent = 'This API is primarily supported on Android Chrome 80+. Use "Simulate Selection" to explore the API behavior.';
   }
 })();
@@ -967,7 +1005,7 @@ document.getElementById('selectSimBtn').addEventListener('click', () => {
 
 document.getElementById('clearBtn').addEventListener('click', () => {
   document.getElementById('contactGrid').innerHTML = '<p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;">No contacts selected yet.</p>';
-  document.getElementById('rawResult').textContent = '// Contact data will appear here';
+  document.getElementById('rawResult').textContent=T("jtc_contact_data_will_appear");
   document.getElementById('pickerLog').innerHTML = '';
 });
 
@@ -1016,7 +1054,7 @@ document.getElementById('generateFormBtn').addEventListener('click', () => {
   ).map(cb => cb.value);
 
   if (selected.length === 0) {
-    alert('Select at least one field');
+    T("jalert_select_at_least_one_field");
     return;
   }
 
@@ -1029,15 +1067,15 @@ document.getElementById('generateFormBtn').addEventListener('click', () => {
     const reqAttr = config.required ? ' required' : '';
 
     previewHTML += `<div class="field">
-      <label>${config.label}${config.required ? ' *' : ''}</label>
+      <label ti="label_config_label_config_requ" ti="label_config_label_config_requ" ti="label_config_label_config_requ" ti="label_config_label_config_requ">${config.label}${config.required ? ' *' : ''}</label>
       ${config.type === 'textarea'
-        ? `<textarea placeholder="${config.placeholder}"${reqAttr} style="width:100%;background:var(--surface-3);border:1px solid var(--border);color:var(--text);padding:0.5rem;border-radius:4px;font-family:var(--font);min-height:60px;"></textarea>`
+        ? `<textarea tp="placeholder_config_placeholder" tp="placeholder_config_placeholder_2" tp="placeholder_config_placeholder_3" tp="placeholder_config_placeholder_4" tp="placeholder_config_placeholder" tp="placeholder_config_placeholder_2" tp="placeholder_config_placeholder_3" tp="placeholder_config_placeholder_4" tp="placeholder_config_placeholder" tp="placeholder_config_placeholder_2" tp="placeholder_config_placeholder_3" tp="placeholder_config_placeholder_4" tp="placeholder_config_placeholder" tp="placeholder_config_placeholder_2" tp="placeholder_config_placeholder_3" tp="placeholder_config_placeholder_4" placeholder="${config.placeholder}"${reqAttr} style="width:100%;background:var(--surface-3);border:1px solid var(--border);color:var(--text);padding:0.5rem;border-radius:4px;font-family:var(--font);min-height:60px;"></textarea>`
         : `<input type="${config.type}" placeholder="${config.placeholder}"${reqAttr}>`
       }
     </div>`;
 
     if (config.type === 'textarea') {
-      codeHTML += `  <label for="${field}">${config.label}</label>\n`;
+      codeHTML += `  <label for="${field}" ti="label_config_label" ti="label_config_label_2" ti="label_config_label" ti="label_config_label_2" ti="label_config_label" ti="label_config_label_2" ti="label_config_label" ti="label_config_label_2">${config.label}</label>\n`;
       codeHTML += `  <textarea id="${field}" name="${field}" placeholder="${config.placeholder}"${reqAttr}></textarea>\n\n`;
     } else {
       codeHTML += `  <label for="${field}">${config.label}</label>\n`;
@@ -1045,7 +1083,7 @@ document.getElementById('generateFormBtn').addEventListener('click', () => {
     }
   });
 
-  previewHTML += `<button type="submit" style="margin-top:0.5rem;">Submit</button>`;
+  previewHTML += `<button type="submit" style="margin-top:0.5rem;" ti="btn_submit" ti="btn_submit_2" ti="btn_submit" ti="btn_submit_2" ti="btn_submit" ti="btn_submit_2" ti="btn_submit" ti="btn_submit_2">Submit</button>`;
   codeHTML += '  <button type="submit">Submit</button>\n</form>';
 
   preview.innerHTML = previewHTML;
@@ -1057,10 +1095,82 @@ document.getElementById('copyCodeBtn').addEventListener('click', () => {
   if (code.startsWith('//')) return;
   navigator.clipboard.writeText(code).then(() => {
     const btn = document.getElementById('copyCodeBtn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy HTML Code', 2000);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy_html_code"), 2000);
   });
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

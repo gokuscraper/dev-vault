@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_prototype_chain_visual" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,25 +91,27 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>JS Prototype Chain Visualizer</h1>
+  <h1 ti="title_js_prototype_chain_visual" ti="h1_js_prototype_chain_visual">JS Prototype Chain Visualizer</h1>
   <span>Write code → See the chain → Understand delegation</span>
 </div>
 
 <div class="tabs">
-  <button class="tab active" data-tab="editor">Editor</button>
-  <button class="tab" data-tab="presets">Presets</button>
-  <button class="tab" data-tab="inspect">Inspect</button>
-  <button class="tab" data-tab="code">Reference</button>
+  <button class="tab active" data-tab="editor" ti="btn_editor">Editor</button>
+  <button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+  <button class="tab" data-tab="inspect" ti="btn_inspect">Inspect</button>
+  <button class="tab" data-tab="code" ti="btn_reference">Reference</button>
 </div>
 
 <!-- Editor Panel -->
 <div class="panel editor-panel active" id="panel-editor">
   <div class="editor-top">
     <div class="editor-area" style="flex:0 0 45%;border-right:1px solid var(--border)">
-      <label>JavaScript Code</label>
-      <textarea id="codeInput" spellcheck="false" placeholder="// Write constructor functions, classes, or Object.create()
+      <label ti="label_javascript_code">JavaScript Code</label>
+      <textarea id="codeInput" spellcheck="false" tp="placeholder_write_constructor_functi" placeholder="// Write constructor functions, classes, or Object.create()
 // Then specify which object to visualize below
 
 function Animal(name) {
@@ -153,22 +155,22 @@ const rex = new Dog('Rex', 'Shepherd');</textarea>
     </div>
     <div class="viz-area" id="vizArea">
       <div style="color:var(--dim);text-align:center;padding-top:80px">
-        <p>Click <strong>Visualize</strong> to see the prototype chain</p>
+        <p>Click <strong ti="strong_visualize" ti="strong_visualize_2">Visualize</strong> to see the prototype chain</p>
         <p style="font-size:11px;margin-top:8px">Enter the variable name of the object to inspect below</p>
       </div>
     </div>
   </div>
   <div class="editor-actions">
-    <input id="targetVar" type="text" value="rex" placeholder="Variable name to visualize" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:7px 12px;color:var(--text);font-family:inherit;font-size:12px;width:200px;outline:none">
-    <button class="btn btn-primary" onclick="visualize()">Visualize</button>
-    <button class="btn btn-secondary" onclick="clearViz()">Clear</button>
+    <input id="targetVar" type="text" value="rex" tp="placeholder_variable_name_to_visualiz" placeholder="Variable name to visualize" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:7px 12px;color:var(--text);font-family:inherit;font-size:12px;width:200px;outline:none">
+    <button class="btn btn-primary" onclick="visualize()" ti="btn_visualize">Visualize</button>
+    <button class="btn btn-secondary" onclick="clearViz()" ti="btn_clear">Clear</button>
     <span class="error-msg" id="errorMsg"></span>
   </div>
 </div>
 
 <!-- Presets Panel -->
 <div class="panel presets-panel" id="panel-presets">
-  <h2 style="font-size:14px;color:var(--dim)">Preset Examples</h2>
+  <h2 style="font-size:14px;color:var(--dim)" ti="h2_preset_examples">Preset Examples</h2>
   <div class="presets-grid" id="presetsGrid"></div>
 </div>
 
@@ -176,8 +178,8 @@ const rex = new Dog('Rex', 'Shepherd');</textarea>
 <div class="panel inspect-panel" id="panel-inspect">
   <div class="inspect-input">
     <span style="font-size:12px;color:var(--dim)">Property lookup:</span>
-    <input id="inspectProp" type="text" placeholder="e.g. speak, toString, hasOwnProperty" value="speak">
-    <button class="btn btn-primary" onclick="inspectProperty()">Resolve</button>
+    <input id="inspectProp" type="text" tp="placeholder_e_g_speak_tostring_hasown" placeholder="e.g. speak, toString, hasOwnProperty" value="speak">
+    <button class="btn btn-primary" onclick="inspectProperty()" ti="btn_resolve">Resolve</button>
   </div>
   <div class="inspect-result" id="inspectResult">
     <div style="color:var(--dim);font-size:12px">Visualize an object first, then trace how property lookup walks the chain.</div>
@@ -191,6 +193,16 @@ const rex = new Dog('Rex', 'Shepherd');</textarea>
   </div>
 </div>
 
+
+<script>var _LANG={'title_js_prototype_chain_visual':["JS Prototype Chain Visualizer", "JS原型链可视化工具"],'metadesc_interactive_javascript_pr':["Interactive JavaScript prototype chain visualizer. Write constructor functions, use Object.create(), and see the full prototype chain with property delegation and method resolution.", "交互式 JavaScript 原型链可视化工具。编写构造函数，使用 Object.create()，即可查看包含属性委托和方法解析的完整原型链。"],'h1_js_prototype_chain_visual':["JS Prototype Chain Visualizer", "JS原型链可视化工具"],'h2_preset_examples':["Preset Examples", "预设示例"],'h3_p_name':["${p.name}", "${p.name}"],'h3_resolution_path_for_escht':["Resolution Path for \"' + escHTML(prop) + '\"", "解析路径“&#39; + escHTML(prop) + &#39;”"],'h3_result':["Result", "结果"],'h3_shadowing_detected':["Shadowing Detected", "检测到阴影"],'btn_editor':["Editor", "编辑"],'btn_presets':["Presets", "预设"],'btn_inspect':["Inspect", "检查"],'btn_reference':["Reference", "参考"],'btn_visualize':["Visualize", "可视化"],'btn_clear':["Clear", "清除"],'btn_resolve':["Resolve", "解决"],'label_prototype':["[[Prototype]]", "[[原型]]"],'placeholder_write_constructor_functi':["// Write constructor functions, classes, or Object.create()\n// Then specify which object to visualize below\n\nfunction Animal(name) {\n  this.name = name;\n}\nAnimal.prototype.speak = function() {\n  return this.name + ' speaks';\n};\n\nfunction Dog(name, breed) {\n  Animal.call(this, name);\n  this.breed = breed;\n}\nDog.prototype = Object.create(Animal.prototype);\nDog.prototype.constructor = Dog;\nDog.prototype.bark = function() {\n  return 'Woof!';\n};\n\nconst rex = new Dog('Rex', 'Shepherd');", "// 编写构造函数、类或 Object.create() // 然后在下面指定要可视化的对象 function Animal(name) { this.name = name; } Animal.prototype.speak = function() { return this.name + &#39; speaks&#39;; }; function Dog(name, breed) { Animal.call(this, name); this.breed = breed; } Dog.prototype = Object.create(Animal.prototype); Dog.prototype.constructor = Dog; Dog.prototype.bark = function() { return &#39;Woof!&#39;; }; const rex = new Dog(&#39;Rex&#39;, &#39;Shepherd&#39;);"],'placeholder_variable_name_to_visualiz':["Variable name to visualize", "要可视化的变量名"],'placeholder_e_g_speak_tostring_hasown':["e.g. speak, toString, hasOwnProperty", "例如 speak、toString、hasOwnProperty"],'strong_visualize':["Visualize", "可视化"],'strong_visualize_2':["Visualize", "可视化"],'strong_eschtml_node_name':["${escHTML(node.name)}", "${escHTML(node.name)}"],'strong_eschtml_n_name':["${escHTML(n.name)}", "${escHTML(n.name)}"],'label_javascript_code':["JavaScript Code", "JavaScript 代码"],'jtc_enter_a_variable_name_to':["Enter a variable name to visualize", "输入要可视化的变量名"],'jtlword_null':["null", "无效的"],'jtlword_visualize':["Visualize", "可视化"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(t => {
@@ -388,7 +400,7 @@ const presetsGrid = document.getElementById('presetsGrid');
 PRESETS.forEach((p, i) => {
   const card = document.createElement('div');
   card.className = 'preset-card';
-  card.innerHTML = `<h3>${p.name}</h3><p>${p.desc}</p>`;
+  card.innerHTML = `<h3 ti="h3_p_name">${p.name}</h3><p>${p.desc}</p>`;
   card.addEventListener('click', () => {
     document.getElementById('codeInput').value = p.code;
     document.getElementById('targetVar').value = p.target;
@@ -483,7 +495,7 @@ function visualize() {
   errEl.textContent = '';
 
   if (!target) {
-    errEl.textContent = 'Enter a variable name to visualize';
+    errEl.textContent=T("jtc_enter_a_variable_name_to");
     return;
   }
 
@@ -761,7 +773,7 @@ function renderChain(chain, targetName) {
           <line x1="10" y1="0" x2="10" y2="24" stroke="var(--chain-line)" stroke-width="2"/>
           <polygon points="4,24 10,32 16,24" fill="var(--chain-line)"/>
         </svg>
-        <span class="chain-arrow-label">[[Prototype]]</span>`;
+        <span class="chain-arrow-label" ti="label_prototype">[[Prototype]]</span>`;
       container.appendChild(arrow);
     }
   });
@@ -798,7 +810,7 @@ function inspectProperty() {
   let html = '';
 
   // Resolution path
-  html += '<div class="inspect-section"><h3>Resolution Path for "' + escHTML(prop) + '"</h3>';
+  html += '<div class="inspect-section"><h3 ti="h3_resolution_path_for_escht">Resolution Path for "' + escHTML(prop) + '"</h3>';
   html += '<div class="resolution-path">';
 
   let found = false;
@@ -824,12 +836,12 @@ function inspectProperty() {
   html += '</div></div>';
 
   // Result
-  html += '<div class="inspect-section"><h3>Result</h3>';
+  html += '<div class="inspect-section"><h3 ti="h3_result">Result</h3>';
   if (found) {
     const node = currentChain[foundAt];
     const propInfo = node.props.find(p => p.name === prop);
     html += `<div style="font-size:12px">
-      <p>Found at: <strong>${escHTML(node.name)}</strong> (depth ${foundAt})</p>
+      <p>Found at: <strong ti="strong_eschtml_node_name">${escHTML(node.name)}</strong> (depth ${foundAt})</p>
       <p style="margin-top:4px">Type: <span style="color:var(--accent)">${propInfo.type}</span></p>
       <p style="margin-top:4px">Value: <code style="color:var(--green)">${escHTML(propInfo.value)}</code></p>
       <p style="margin-top:4px">Enumerable: ${propInfo.enumerable ? 'yes' : 'no'}</p>
@@ -846,14 +858,14 @@ function inspectProperty() {
   // All occurrences (for shadowing)
   const occurrences = currentChain.filter(n => n.props && n.props.some(p => p.name === prop));
   if (occurrences.length > 1) {
-    html += '<div class="inspect-section"><h3>Shadowing Detected</h3>';
+    html += '<div class="inspect-section"><h3 ti="h3_shadowing_detected">Shadowing Detected</h3>';
     html += `<div style="font-size:12px">
       <p style="color:var(--orange)">"${escHTML(prop)}" exists at ${occurrences.length} levels:</p>
       <ul style="margin-top:6px;padding-left:20px">`;
     occurrences.forEach((n, i) => {
       const p = n.props.find(p => p.name === prop);
       html += `<li style="margin-top:4px${i > 0 ? ';opacity:.6' : ''}">
-        <strong>${escHTML(n.name)}</strong>: ${escHTML(p.value)}
+        <strong ti="strong_eschtml_n_name">${escHTML(n.name)}</strong>: ${escHTML(p.value)}
         ${i === 0 ? ' ← <span style="color:var(--green)">wins</span>' : ' ← <span style="color:var(--dim)">shadowed</span>'}
       </li>`;
     });
@@ -865,6 +877,24 @@ function inspectProperty() {
 
 // Auto-visualize on load
 visualize();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

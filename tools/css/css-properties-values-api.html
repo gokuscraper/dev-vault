@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_properties_values_api" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -260,6 +260,8 @@ pre .copy-btn {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>CSS <span>@property</span> Playground</h1>
@@ -269,28 +271,28 @@ pre .copy-btn {
 
 <main>
   <div class="tabs" role="tablist">
-    <button class="tab active" data-panel="builder" role="tab">@property Builder</button>
-    <button class="tab" data-panel="syntax" role="tab">Syntax Types</button>
-    <button class="tab" data-panel="animation" role="tab">Animation Demo</button>
-    <button class="tab" data-panel="typecheck" role="tab">Type Checking</button>
-    <button class="tab" data-panel="inheritance" role="tab">Inheritance</button>
-    <button class="tab" data-panel="codegen" role="tab">Code Generator</button>
+    <button class="tab active" data-panel="builder" role="tab" ti="btn_property_builder">@property Builder</button>
+    <button class="tab" data-panel="syntax" role="tab" ti="btn_syntax_types">Syntax Types</button>
+    <button class="tab" data-panel="animation" role="tab" ti="btn_animation_demo">Animation Demo</button>
+    <button class="tab" data-panel="typecheck" role="tab" ti="btn_type_checking">Type Checking</button>
+    <button class="tab" data-panel="inheritance" role="tab" ti="btn_inheritance">Inheritance</button>
+    <button class="tab" data-panel="codegen" role="tab" ti="btn_code_generator">Code Generator</button>
   </div>
 
   <!-- Builder Panel -->
   <div class="panel active" id="builder">
     <div class="card">
-      <h2>@property Rule Builder</h2>
+      <h2 ti="h2_property_rule_builder">@property Rule Builder</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Define a typed CSS custom property with syntax validation, initial value, and inheritance control.</p>
 
       <div class="form-group">
-        <label for="propName">Property Name</label>
-        <input type="text" id="propName" value="--my-color" placeholder="--my-property">
+        <label for="propName" ti="label_property_name" ti="label_property_name_2" ti="label_property_name_3" ti="label_property_name_4">Property Name</label>
+        <input type="text" id="propName" value="--my-color" tp="placeholder_my_property" placeholder="--my-property">
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="propSyntax">Syntax</label>
+          <label for="propSyntax" ti="label_syntax" ti="label_syntax_2" ti="label_syntax_3">Syntax</label>
           <select id="propSyntax">
             <option value="<color>">&lt;color&gt;</option>
             <option value="<length>">&lt;length&gt;</option>
@@ -310,33 +312,33 @@ pre .copy-btn {
           </select>
         </div>
         <div class="form-group">
-          <label for="propInitial">Initial Value</label>
-          <input type="text" id="propInitial" value="#7c6aef" placeholder="Initial value">
+          <label for="propInitial" ti="label_initial_value" ti="label_initial_value_2" ti="label_initial_value_3" ti="label_initial_value_4" ti="label_initial_value_5">Initial Value</label>
+          <input type="text" id="propInitial" value="#7c6aef" tp="placeholder_initial_value" placeholder="Initial value">
         </div>
       </div>
 
       <div class="checkbox-row">
         <input type="checkbox" id="propInherits" checked>
-        <label for="propInherits">Inherits (property value passes to children)</label>
+        <label for="propInherits" ti="label_inherits_property_value_p">Inherits (property value passes to children)</label>
       </div>
 
       <div class="btn-row">
-        <button onclick="registerProperty()">Register Property</button>
-        <button class="secondary" onclick="testProperty()">Test in Live Preview</button>
+        <button onclick="registerProperty()" ti="btn_register_property">Register Property</button>
+        <button class="secondary" onclick="testProperty()" ti="btn_test_in_live_preview">Test in Live Preview</button>
       </div>
     </div>
 
     <div class="two-col">
       <div class="card">
-        <h3>Generated @property CSS</h3>
-        <pre id="cssOutput"><button class="copy-btn" onclick="copyCode('cssOutput')">Copy</button>@property --my-color {
+        <h3 ti="h3_generated_property_css">Generated @property CSS</h3>
+        <pre id="cssOutput"><button class="copy-btn" onclick="copyCode('cssOutput')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10">Copy</button>@property --my-color {
   syntax: "&lt;color&gt;";
   inherits: true;
   initial-value: #7c6aef;
 }</pre>
       </div>
       <div class="card">
-        <h3>Equivalent JavaScript API</h3>
+        <h3 ti="h3_equivalent_javascript_api">Equivalent JavaScript API</h3>
         <pre id="jsOutput"><button class="copy-btn" onclick="copyCode('jsOutput')">Copy</button>CSS.registerProperty({
   name: "--my-color",
   syntax: "&lt;color&gt;",
@@ -347,7 +349,7 @@ pre .copy-btn {
     </div>
 
     <div class="card">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <div id="livePreview" class="demo-box" style="background: var(--surface-2); border: 1px solid var(--border);">
         <span id="previewText">Register a property to see it in action</span>
       </div>
@@ -358,7 +360,7 @@ pre .copy-btn {
   <!-- Syntax Types Panel -->
   <div class="panel" id="syntax">
     <div class="card">
-      <h2>CSS Property Syntax Types</h2>
+      <h2 ti="h2_css_property_syntax_types">CSS Property Syntax Types</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Click a syntax type to see details, valid values, and examples.</p>
       <div class="syntax-grid" id="syntaxGrid"></div>
     </div>
@@ -367,16 +369,16 @@ pre .copy-btn {
       <p id="syntaxDetailDesc" style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.75rem;"></p>
       <div class="form-row">
         <div>
-          <label>Valid Examples</label>
+          <label ti="label_valid_examples">Valid Examples</label>
           <pre id="syntaxValidExamples"></pre>
         </div>
         <div>
-          <label>Invalid Examples</label>
+          <label ti="label_invalid_examples">Invalid Examples</label>
           <pre id="syntaxInvalidExamples" style="border-color:rgba(244,67,54,0.3);"></pre>
         </div>
       </div>
       <div>
-        <label>Combinators</label>
+        <label ti="label_combinators">Combinators</label>
         <pre id="syntaxCombinators"></pre>
       </div>
     </div>
@@ -385,19 +387,19 @@ pre .copy-btn {
   <!-- Animation Panel -->
   <div class="panel" id="animation">
     <div class="card">
-      <h2>Animated Custom Properties</h2>
+      <h2 ti="h2_animated_custom_propertie">Animated Custom Properties</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Unlike untyped custom properties, @property-registered properties can be smoothly animated and transitioned.</p>
 
       <div class="two-col">
         <div>
-          <h3 style="margin-bottom:0.5rem;">Without @property (jumps)</h3>
+          <h3 style="margin-bottom:0.5rem;" ti="h3_without_property_jumps">Without @property (jumps)</h3>
           <div id="animNoProperty" class="demo-box" style="background:linear-gradient(135deg, #7c6aef, #ff6b6b); cursor:pointer;">
             Hover me
           </div>
           <p style="color:var(--text-dim);font-size:0.8rem;margin-top:0.5rem;">Background gradient snaps instantly because the browser cannot interpolate untyped custom properties.</p>
         </div>
         <div>
-          <h3 style="margin-bottom:0.5rem;">With @property (smooth)</h3>
+          <h3 style="margin-bottom:0.5rem;" ti="h3_with_property_smooth">With @property (smooth)</h3>
           <div id="animWithProperty" class="demo-box" style="cursor:pointer;">
             Hover me
           </div>
@@ -406,9 +408,9 @@ pre .copy-btn {
       </div>
 
       <div class="anim-controls">
-        <label>Duration:</label>
+        <label ti="label_duration">Duration:</label>
         <input type="text" id="animDuration" value="1s" style="width:80px;">
-        <label>Easing:</label>
+        <label ti="label_easing">Easing:</label>
         <select id="animEasing" style="width:140px;">
           <option value="ease">ease</option>
           <option value="ease-in">ease-in</option>
@@ -416,16 +418,16 @@ pre .copy-btn {
           <option value="ease-in-out">ease-in-out</option>
           <option value="linear">linear</option>
         </select>
-        <button onclick="setupAnimDemo()">Apply</button>
+        <button onclick="setupAnimDemo()" ti="btn_apply">Apply</button>
       </div>
     </div>
 
     <div class="card">
-      <h3>Continuous Animation</h3>
+      <h3 ti="h3_continuous_animation">Continuous Animation</h3>
       <div id="continuousAnim" class="demo-box" style="height:80px;"></div>
       <div class="anim-controls">
-        <button onclick="toggleContinuous()" id="continuousBtn">Start Animation</button>
-        <label>Speed:</label>
+        <button onclick="toggleContinuous()" id="continuousBtn" ti="btn_start_animation">Start Animation</button>
+        <label ti="label_speed">Speed:</label>
         <select id="continuousSpeed" style="width:100px;">
           <option value="2s">Slow (2s)</option>
           <option value="1s" selected>Normal (1s)</option>
@@ -435,7 +437,7 @@ pre .copy-btn {
     </div>
 
     <div class="card">
-      <h3>Generated Animation CSS</h3>
+      <h3 ti="h3_generated_animation_css">Generated Animation CSS</h3>
       <pre id="animCode"><button class="copy-btn" onclick="copyCode('animCode')">Copy</button>/* Register properties for animation */
 @property --grad-start {
   syntax: "&lt;color&gt;";
@@ -464,12 +466,12 @@ pre .copy-btn {
   <!-- Type Checking Panel -->
   <div class="panel" id="typecheck">
     <div class="card">
-      <h2>Type Checking Demo</h2>
+      <h2 ti="h2_type_checking_demo">Type Checking Demo</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Registered properties reject invalid values and fall back to the initial value. Test it here.</p>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="tcSyntax">Property Syntax</label>
+          <label for="tcSyntax" ti="label_property_syntax">Property Syntax</label>
           <select id="tcSyntax">
             <option value="<color>">&lt;color&gt;</option>
             <option value="<length>">&lt;length&gt;</option>
@@ -486,17 +488,17 @@ pre .copy-btn {
       </div>
 
       <div class="form-group">
-        <label for="tcTestValue">Test Value</label>
-        <input type="text" id="tcTestValue" value="not-a-color" placeholder="Enter a value to test">
+        <label for="tcTestValue" ti="label_test_value">Test Value</label>
+        <input type="text" id="tcTestValue" value="not-a-color" tp="placeholder_enter_a_value_to_test" placeholder="Enter a value to test">
       </div>
 
-      <button onclick="runTypeCheck()">Check Type</button>
+      <button onclick="runTypeCheck()" ti="btn_check_type">Check Type</button>
 
       <div id="tcResult"></div>
     </div>
 
     <div class="card">
-      <h3>Quick Type Tests</h3>
+      <h3 ti="h3_quick_type_tests">Quick Type Tests</h3>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Click to test common valid/invalid value pairs:</p>
       <div id="quickTests" style="display:flex;flex-wrap:wrap;gap:0.5rem;"></div>
       <div id="quickTestResult" style="margin-top:0.75rem;"></div>
@@ -506,7 +508,7 @@ pre .copy-btn {
   <!-- Inheritance Panel -->
   <div class="panel" id="inheritance">
     <div class="card">
-      <h2>Inheritance Chain Visualization</h2>
+      <h2 ti="h2_inheritance_chain_visuali">Inheritance Chain Visualization</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">See how inherits: true/false affects custom property values through the DOM tree.</p>
 
       <div class="form-row">
@@ -525,12 +527,12 @@ pre .copy-btn {
         <label for="inhInherits">inherits: true</label>
       </div>
 
-      <button onclick="updateInheritance()">Update Visualization</button>
+      <button onclick="updateInheritance()" ti="btn_update_visualization">Update Visualization</button>
     </div>
 
     <div class="two-col">
       <div class="card">
-        <h3>inherits: true</h3>
+        <h3 ti="h3_inherits_true" ti="label_inherits_true">inherits: true</h3>
         <div class="inheritance-tree" id="inhTreeTrue">
           <div class="tree-node">:root <span class="prop-val">--theme-color: blue</span></div>
           <div class="tree-node">&lt;body&gt; <span class="prop-val inherited">(inherited: blue)</span></div>
@@ -540,7 +542,7 @@ pre .copy-btn {
         </div>
       </div>
       <div class="card">
-        <h3>inherits: false</h3>
+        <h3 ti="h3_inherits_false">inherits: false</h3>
         <div class="inheritance-tree" id="inhTreeFalse">
           <div class="tree-node">:root <span class="prop-val">--theme-color: blue</span></div>
           <div class="tree-node">&lt;body&gt; <span class="prop-val not-inherited">(initial: gray)</span></div>
@@ -552,7 +554,7 @@ pre .copy-btn {
     </div>
 
     <div class="card">
-      <h3>Live Inheritance Demo</h3>
+      <h3 ti="h3_live_inheritance_demo">Live Inheritance Demo</h3>
       <div id="inhLiveDemo" style="padding:1rem;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
         <div id="inhRoot" style="padding:1rem;border:2px dashed var(--border);border-radius:var(--radius);">
           <span style="font-size:0.8rem;color:var(--text-dim);">:root</span>
@@ -573,7 +575,7 @@ pre .copy-btn {
   <!-- Code Generator Panel -->
   <div class="panel" id="codegen">
     <div class="card">
-      <h2>Code Generator</h2>
+      <h2 ti="h2_code_generator">Code Generator</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Generate production-ready code for multiple @property registrations.</p>
 
       <div id="codegenEntries">
@@ -603,7 +605,7 @@ pre .copy-btn {
             <div class="form-group" style="display:flex;align-items:flex-end;">
               <div class="checkbox-row" style="margin-bottom:0;">
                 <input type="checkbox" class="cg-inherits" checked>
-                <label>Inherits</label>
+                <label ti="label_inherits" ti="label_inherits_2">Inherits</label>
               </div>
             </div>
           </div>
@@ -611,24 +613,34 @@ pre .copy-btn {
       </div>
 
       <div class="btn-row">
-        <button onclick="addCodegenEntry()">+ Add Property</button>
-        <button onclick="generateCode()">Generate Code</button>
+        <button onclick="addCodegenEntry()" ti="btn_add_property">+ Add Property</button>
+        <button onclick="generateCode()" ti="btn_generate_code">Generate Code</button>
       </div>
     </div>
 
     <div class="two-col">
       <div class="card">
-        <h3>@property CSS</h3>
+        <h3 ti="h3_property_css">@property CSS</h3>
         <pre id="codegenCSS"><button class="copy-btn" onclick="copyCode('codegenCSS')">Copy</button>Click "Generate Code" to see output</pre>
       </div>
       <div class="card">
-        <h3>JavaScript API (with fallback)</h3>
+        <h3 ti="h3_javascript_api_with_fallb">JavaScript API (with fallback)</h3>
         <pre id="codegenJS"><button class="copy-btn" onclick="copyCode('codegenJS')">Copy</button>Click "Generate Code" to see output</pre>
       </div>
     </div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_css_properties_values_api':["CSS Properties & Values API Playground", "CSS 属性和值 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for CSS @property rule and Houdini CSS Properties & Values API. Build, test, and animate typed custom properties.", "用于 CSS @property 规则和 Houdini CSS 属性与值 API 的交互式演示环境。构建、测试和动画化自定义类型属性。"],'h2_property_rule_builder':["@property Rule Builder", "@property 规则生成器"],'h2_css_property_syntax_types':["CSS Property Syntax Types", "CSS属性语法类型"],'h2_animated_custom_propertie':["Animated Custom Properties", "动画自定义属性"],'h2_type_checking_demo':["Type Checking Demo", "类型检查演示"],'h2_inheritance_chain_visuali':["Inheritance Chain Visualization", "继承链可视化"],'h2_code_generator':["Code Generator", "代码生成器"],'h3_generated_property_css':["Generated @property CSS", "生成的 @property CSS"],'h3_equivalent_javascript_api':["Equivalent JavaScript API", "等效的 JavaScript API"],'h3_live_preview':["Live Preview", "实时预览"],'h3_without_property_jumps':["Without @property (jumps)", "没有 @property（跳转）"],'h3_with_property_smooth':["With @property (smooth)", "使用 @property（平滑）"],'h3_continuous_animation':["Continuous Animation", "连续动画"],'h3_generated_animation_css':["Generated Animation CSS", "生成的动画 CSS"],'h3_quick_type_tests':["Quick Type Tests", "快速打字测试"],'h3_inherits_true':["inherits: true", "继承：是"],'h3_inherits_false':["inherits: false", "继承：否"],'h3_live_inheritance_demo':["Live Inheritance Demo", "实时继承演示"],'h3_property_css':["@property CSS", "@property CSS"],'h3_javascript_api_with_fallb':["JavaScript API (with fallback)", "JavaScript API（带备用方案）"],'btn_property_builder':["@property Builder", "@property Builder"],'btn_syntax_types':["Syntax Types", "语法类型"],'btn_animation_demo':["Animation Demo", "动画演示"],'btn_type_checking':["Type Checking", "类型检查"],'btn_inheritance':["Inheritance", "遗产"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_register_property':["Register Property", "注册财产"],'btn_test_in_live_preview':["Test in Live Preview", "在实时预览中进行测试"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_apply':["Apply", "申请"],'btn_start_animation':["Start Animation", "开始动画"],'btn_copy_3':["Copy", "复制"],'btn_check_type':["Check Type", "检查类型"],'btn_update_visualization':["Update Visualization", "更新可视化"],'btn_add_property':["+ Add Property", "+ 添加属性"],'btn_generate_code':["Generate Code", "生成代码"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_escapehtml_t_label':["${escapeHtml(t.label)}", "${escapeHtml(t.label)}"],'btn_remove':["Remove", "消除"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'placeholder_my_property':["--my-property", "--我的财产"],'placeholder_initial_value':["Initial value", "初始值"],'placeholder_enter_a_value_to_test':["Enter a value to test", "输入要测试的值"],'placeholder_property_name':["--property-name", "--属性名称"],'strong_escapehtml_t_value':["${escapeHtml(t.value)}", "${escapeHtml(t.value)}"],'strong_escapehtml_testvalue':["${escapeHtml(testValue)}", "${escapeHtml(testValue)}"],'strong_escapehtml_initial':["${escapeHtml(initial)}", "${escapeHtml(initial)}"],'label_property_name':["Property Name", "物业名称"],'label_syntax':["Syntax", "句法"],'label_initial_value':["Initial Value", "初始值"],'label_inherits_property_value_p':["Inherits (property value passes to children)", "继承（财产价值传给子女）"],'label_valid_examples':["Valid Examples", "有效示例"],'label_invalid_examples':["Invalid Examples", "无效示例"],'label_combinators':["Combinators", "组合子"],'label_duration':["Duration:", "期间："],'label_easing':["Easing:", "缓和："],'label_speed':["Speed:", "速度："],'label_property_syntax':["Property Syntax", "属性语法"],'label_initial_value_2':["Initial Value", "初始值"],'label_test_value':["Test Value", "测试值"],'label_property_name_2':["Property Name", "物业名称"],'label_initial_value_3':["Initial Value", "初始值"],'label_inherits_true':["inherits: true", "继承：是"],'label_property_name_3':["Property Name", "物业名称"],'label_syntax_2':["Syntax", "句法"],'label_initial_value_4':["Initial Value", "初始值"],'label_inherits':["Inherits", "继承"],'label_property_name_4':["Property Name", "物业名称"],'label_syntax_3':["Syntax", "句法"],'label_initial_value_5':["Initial Value", "初始值"],'label_inherits_2':["Inherits", "继承"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_stop_animation':["Stop Animation", "定格动画"],'jtc_start_animation':["Start Animation", "开始动画"],'jalert_css_registerproperty_is_n':["CSS.registerProperty is not supported in your browser.", "您的浏览器不支持 CSS.registerProperty。"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"],'jtlword_syntax':["Syntax", "句法"],'jtlword_inherits':["Inherits", "继承"],'jtlword_remove':["Remove", "消除"],'jtlword_copy_4':["Copy", "复制"],'jtlword_copy_5':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Feature Detection ===
 const isSupported = typeof CSS !== 'undefined' && typeof CSS.registerProperty === 'function';
@@ -652,8 +664,8 @@ function copyCode(preId) {
   const text = pre.textContent.replace(/^Copy/, '').trim();
   navigator.clipboard.writeText(text).then(() => {
     const btn = pre.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -680,7 +692,7 @@ function updateBuilderOutput() {
 
 function registerProperty() {
   if (!isSupported) {
-    alert('CSS.registerProperty is not supported in your browser.');
+    T("jalert_css_registerproperty_is_n");
     return;
   }
   const name = document.getElementById('propName').value;
@@ -828,7 +840,7 @@ function toggleContinuous() {
   const speed = document.getElementById('continuousSpeed').value;
 
   if (continuousRunning) {
-    btn.textContent = 'Stop Animation';
+    btn.textContent=T("jtc_stop_animation");
     if (isSupported) {
       if (!registeredProps.has('--cont-color')) {
         try { CSS.registerProperty({ name: '--cont-color', syntax: '<color>', inherits: false, initialValue: '#7c6aef' }); registeredProps.add('--cont-color'); } catch(e) {}
@@ -848,7 +860,7 @@ function toggleContinuous() {
     el.style.background = 'var(--cont-color)';
     el.style.animation = `continuousGrad ${speed} ease-in-out infinite`;
   } else {
-    btn.textContent = 'Start Animation';
+    btn.textContent=T("jtc_start_animation");
     el.style.animation = 'none';
     el.style.background = 'var(--surface-2)';
   }
@@ -869,7 +881,7 @@ const quickTestData = [
 function renderQuickTests() {
   const container = document.getElementById('quickTests');
   container.innerHTML = quickTestData.map((t, i) => `
-    <button class="secondary" onclick="runQuickTest(${i})" style="font-size:0.8rem;">${escapeHtml(t.label)}</button>
+    <button class="secondary" onclick="runQuickTest(${i})" style="font-size:0.8rem;" ti="btn_escapehtml_t_label">${escapeHtml(t.label)}</button>
   `).join('');
 }
 
@@ -879,7 +891,7 @@ function runQuickTest(index) {
   const container = document.getElementById('quickTestResult');
   container.innerHTML = `
     <div class="type-check-result ${result ? 'type-valid' : 'type-invalid'}">
-      <strong>${escapeHtml(t.value)}</strong> as ${escapeHtml(t.syntax)}:
+      <strong ti="strong_escapehtml_t_value">${escapeHtml(t.value)}</strong> as ${escapeHtml(t.syntax)}:
       ${result ? 'VALID' : 'INVALID — falls back to initial value'}
     </div>
   `;
@@ -916,10 +928,10 @@ function runTypeCheck() {
 
   document.getElementById('tcResult').innerHTML = `
     <div class="type-check-result ${result ? 'type-valid' : 'type-invalid'}">
-      <strong>${escapeHtml(testValue)}</strong> as ${escapeHtml(syntax)}:
+      <strong ti="strong_escapehtml_testvalue">${escapeHtml(testValue)}</strong> as ${escapeHtml(syntax)}:
       ${result
         ? 'VALID — Browser accepts this value.'
-        : `INVALID — Browser rejects this value. Falls back to initial value: <strong>${escapeHtml(initial)}</strong>`
+        : `INVALID — Browser rejects this value. Falls back to initial value: <strong ti="strong_escapehtml_initial">${escapeHtml(initial)}</strong>`
       }
     </div>
   `;
@@ -983,7 +995,7 @@ function addCodegenEntry() {
     <div class="form-row">
       <div class="form-group">
         <label>Property Name</label>
-        <input type="text" class="cg-name" value="--prop-${codegenCount}" placeholder="--property-name">
+        <input type="text" class="cg-name" value="--prop-${codegenCount}" tp="placeholder_property_name" placeholder="--property-name">
       </div>
       <div class="form-group">
         <label>Syntax</label>
@@ -1007,7 +1019,7 @@ function addCodegenEntry() {
           <input type="checkbox" class="cg-inherits">
           <label>Inherits</label>
         </div>
-        <button class="secondary" onclick="this.closest('.codegen-entry').remove()" style="font-size:0.75rem;padding:0.3rem 0.6rem;">Remove</button>
+        <button class="secondary" onclick="this.closest('.codegen-entry').remove()" style="font-size:0.75rem;padding:0.3rem 0.6rem;" ti="btn_remove">Remove</button>
       </div>
     </div>
   `;
@@ -1041,6 +1053,24 @@ function escapeHtml(str) {
   div.textContent = str;
   return div.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

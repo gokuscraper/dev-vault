@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_countdown_timer_custom_ti" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,20 +67,58 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Countdown Timer</h1>
-  <p class="subtitle">Set custom countdown timers</p>
-  <div class="add-bar"><button class="add-btn" onclick="addTimer()">+ Add Timer</button></div>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_countdown_timer" ti="h1_countdown_timer" ti="h1_countdown_timer" ti="h1_countdown_timer">Countdown Timer</h1>
+  <p class="subtitle" ti="subtitle_set_custom_countdown_time" ti="subtitle_set_custom_countdown_time" ti="subtitle_set_custom_countdown_time" ti="subtitle_set_custom_countdown_time">Set custom countdown timers</p>
+  <div class="add-bar"><button class="add-btn" onclick="addTimer()" ti="btn_add_timer" ti="btn_add_timer" ti="btn_add_timer" ti="btn_add_timer">+ Add Timer</button></div>
   <div id="timers"></div>
   <p class="shortcut-hint">Space — start / pause focused timer</p>
 </div>
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <span style="color:#333">|</span>
-  <a href="https://gokuscraper.github.io/dev-vault/pomodoro/">Pomodoro</a>
+  <a href="https://gokuscraper.github.io/dev-vault/pomodoro/" ti="link_pomodoro" ti="link_pomodoro" ti="link_pomodoro" ti="link_pomodoro">Pomodoro</a>
   <span style="color:#333">|</span>
-  <a href="https://gokuscraper.github.io/dev-vault/stopwatch/">Stopwatch</a>
+  <a href="https://gokuscraper.github.io/dev-vault/stopwatch/" ti="link_stopwatch" ti="link_stopwatch" ti="link_stopwatch" ti="link_stopwatch">Stopwatch</a>
 </footer>
+
+
+
+<script>var _LANG={'title_countdown_timer_custom_ti':["Countdown Timer — Custom Timer", "倒计时器 — 自定义计时器"],'metadesc_free_countdown_timer_with':["Free countdown timer with multiple simultaneous timers, quick presets, audio alerts, and browser notifications. No signup, no ads.", "免费倒计时器，支持多个计时器同时运行、快速预设、语音提示和浏览器通知。无需注册，无广告。"],'h1_countdown_timer':["Countdown Timer", "倒计时器"],'subtitle_set_custom_countdown_time':["Set custom countdown timers", "设置自定义倒计时器"],'btn_add_timer':["+ Add Timer", "+ 添加定时器"],'btn_1m':["1m", "1米"],'btn_3m':["3m", "3米"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_1hr':["1hr", "1小时"],'btn_start':["Start", "开始"],'btn_reset':["Reset", "重置"],'btn_stop_alarm':["Stop Alarm", "停止警报"],'btn_reset_2':["Reset", "重置"],'btn_pause':["Pause", "暂停"],'btn_reset_3':["Reset", "重置"],'btn_resume':["Resume", "恢复"],'btn_reset_4':["Reset", "重置"],'btn_start_2':["Start", "开始"],'btn_reset_5':["Reset", "重置"],'label_hrs':["hrs", "小时"],'label_min':["min", "最小"],'label_sec':["sec", "秒"],'placeholder_timer_label_e_g_pasta':["Timer label (e.g. Pasta)", "计时器标签（例如：意大利面）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_pomodoro':["Pomodoro", "番茄"],'link_stopwatch':["Stopwatch", "跑表"],'jtlword_hrs':["hrs", "小时"],'jtlword_min':["min", "最小"],'jtlword_sec':["sec", "秒"],'jtlword_start':["Start", "开始"],'jtlword_reset':["Reset", "重置"],'jtlword_reset_2':["Reset", "重置"],'jtlword_pause':["Pause", "暂停"],'jtlword_reset_3':["Reset", "重置"],'jtlword_resume':["Resume", "恢复"],'jtlword_reset_4':["Reset", "重置"],'jtlword_start_2':["Start", "开始"],'jtlword_reset_5':["Reset", "重置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_countdown_timer_custom_ti':["Countdown Timer — Custom Timer", "倒计时器 — 自定义计时器"],'metadesc_free_countdown_timer_with':["Free countdown timer with multiple simultaneous timers, quick presets, audio alerts, and browser notifications. No signup, no ads.", "免费倒计时器，支持多个计时器同时运行、快速预设、语音提示和浏览器通知。无需注册，无广告。"],'h1_countdown_timer':["Countdown Timer", "倒计时器"],'subtitle_set_custom_countdown_time':["Set custom countdown timers", "设置自定义倒计时器"],'btn_add_timer':["+ Add Timer", "+ 添加定时器"],'btn_1m':["1m", "1米"],'btn_3m':["3m", "3米"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_1hr':["1hr", "1小时"],'btn_start':["Start", "开始"],'btn_reset':["Reset", "重置"],'btn_stop_alarm':["Stop Alarm", "停止警报"],'btn_reset_2':["Reset", "重置"],'btn_pause':["Pause", "暂停"],'btn_reset_3':["Reset", "重置"],'btn_resume':["Resume", "恢复"],'btn_reset_4':["Reset", "重置"],'btn_start_2':["Start", "开始"],'btn_reset_5':["Reset", "重置"],'label_hrs':["hrs", "小时"],'label_min':["min", "最小"],'label_sec':["sec", "秒"],'placeholder_timer_label_e_g_pasta':["Timer label (e.g. Pasta)", "计时器标签（例如：意大利面）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_pomodoro':["Pomodoro", "番茄"],'link_stopwatch':["Stopwatch", "跑表"],'jtlword_hrs':["hrs", "小时"],'jtlword_min':["min", "最小"],'jtlword_sec':["sec", "秒"],'jtlword_start':["Start", "开始"],'jtlword_reset':["Reset", "重置"],'jtlword_reset_2':["Reset", "重置"],'jtlword_pause':["Pause", "暂停"],'jtlword_reset_3':["Reset", "重置"],'jtlword_resume':["Resume", "恢复"],'jtlword_reset_4':["Reset", "重置"],'jtlword_start_2':["Start", "开始"],'jtlword_reset_5':["Reset", "重置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_countdown_timer_custom_ti':["Countdown Timer — Custom Timer", "倒计时器 — 自定义计时器"],'metadesc_free_countdown_timer_with':["Free countdown timer with multiple simultaneous timers, quick presets, audio alerts, and browser notifications. No signup, no ads.", "免费倒计时器，支持多个计时器同时运行、快速预设、语音提示和浏览器通知。无需注册，无广告。"],'h1_countdown_timer':["Countdown Timer", "倒计时器"],'subtitle_set_custom_countdown_time':["Set custom countdown timers", "设置自定义倒计时器"],'btn_add_timer':["+ Add Timer", "+ 添加定时器"],'btn_1m':["1m", "1米"],'btn_3m':["3m", "3米"],'btn_5m':["5m", "5米"],'btn_10m':["10m", "10米"],'btn_15m':["15m", "15米"],'btn_30m':["30m", "30米"],'btn_1hr':["1hr", "1小时"],'btn_start':["Start", "开始"],'btn_reset':["Reset", "重置"],'btn_stop_alarm':["Stop Alarm", "停止警报"],'btn_reset_2':["Reset", "重置"],'btn_pause':["Pause", "暂停"],'btn_reset_3':["Reset", "重置"],'btn_resume':["Resume", "恢复"],'btn_reset_4':["Reset", "重置"],'btn_start_2':["Start", "开始"],'btn_reset_5':["Reset", "重置"],'label_hrs':["hrs", "小时"],'label_min':["min", "最小"],'label_sec':["sec", "秒"],'placeholder_timer_label_e_g_pasta':["Timer label (e.g. Pasta)", "计时器标签（例如：意大利面）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_pomodoro':["Pomodoro", "番茄"],'link_stopwatch':["Stopwatch", "跑表"],'jtlword_hrs':["hrs", "小时"],'jtlword_min':["min", "最小"],'jtlword_sec':["sec", "秒"],'jtlword_start':["Start", "开始"],'jtlword_reset':["Reset", "重置"],'jtlword_reset_2':["Reset", "重置"],'jtlword_pause':["Pause", "暂停"],'jtlword_reset_3':["Reset", "重置"],'jtlword_resume':["Resume", "恢复"],'jtlword_reset_4':["Reset", "重置"],'jtlword_start_2':["Start", "开始"],'jtlword_reset_5':["Reset", "重置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const MAX_TIMERS = 3;
 let timers = [];
@@ -153,28 +191,28 @@ function renderTimer(t) {
   div.setAttribute('tabindex', '0');
   div.innerHTML = `
     <div class="timer-top">
-      <input class="label-input" placeholder="Timer label (e.g. Pasta)" data-id="${t.id}">
+      <input class="label-input" tp="placeholder_timer_label_e_g_pasta" tp="placeholder_timer_label_e_g_pasta" tp="placeholder_timer_label_e_g_pasta" tp="placeholder_timer_label_e_g_pasta" placeholder="Timer label (e.g. Pasta)" data-id="${t.id}">
       <button class="remove-btn" onclick="removeTimer(${t.id})" title="Remove">&times;</button>
     </div>
     <div class="input-row" data-inputs="${t.id}">
-      <div class="time-group"><input class="time-input" type="number" min="0" max="99" value="0" data-field="h" data-id="${t.id}"><span class="time-label">hrs</span></div>
-      <div class="time-group"><input class="time-input" type="number" min="0" max="59" value="5" data-field="m" data-id="${t.id}"><span class="time-label">min</span></div>
-      <div class="time-group"><input class="time-input" type="number" min="0" max="59" value="0" data-field="s" data-id="${t.id}"><span class="time-label">sec</span></div>
+      <div class="time-group"><input class="time-input" type="number" min="0" max="99" value="0" data-field="h" data-id="${t.id}"><span class="time-label" ti="label_hrs" ti="label_hrs" ti="label_hrs" ti="label_hrs">hrs</span></div>
+      <div class="time-group"><input class="time-input" type="number" min="0" max="59" value="5" data-field="m" data-id="${t.id}"><span class="time-label" ti="label_min" ti="label_min" ti="label_min" ti="label_min">min</span></div>
+      <div class="time-group"><input class="time-input" type="number" min="0" max="59" value="0" data-field="s" data-id="${t.id}"><span class="time-label" ti="label_sec" ti="label_sec" ti="label_sec" ti="label_sec">sec</span></div>
     </div>
     <div class="presets" data-presets="${t.id}">
-      <button class="preset" onclick="setPreset(${t.id},1)">1m</button>
-      <button class="preset" onclick="setPreset(${t.id},3)">3m</button>
-      <button class="preset" onclick="setPreset(${t.id},5)">5m</button>
-      <button class="preset" onclick="setPreset(${t.id},10)">10m</button>
-      <button class="preset" onclick="setPreset(${t.id},15)">15m</button>
-      <button class="preset" onclick="setPreset(${t.id},30)">30m</button>
-      <button class="preset" onclick="setPreset(${t.id},60)">1hr</button>
+      <button class="preset" onclick="setPreset(${t.id},1)" ti="btn_1m" ti="btn_1m" ti="btn_1m" ti="btn_1m">1m</button>
+      <button class="preset" onclick="setPreset(${t.id},3)" ti="btn_3m" ti="btn_3m" ti="btn_3m" ti="btn_3m">3m</button>
+      <button class="preset" onclick="setPreset(${t.id},5)" ti="btn_5m" ti="btn_5m" ti="btn_5m" ti="btn_5m">5m</button>
+      <button class="preset" onclick="setPreset(${t.id},10)" ti="btn_10m" ti="btn_10m" ti="btn_10m" ti="btn_10m">10m</button>
+      <button class="preset" onclick="setPreset(${t.id},15)" ti="btn_15m" ti="btn_15m" ti="btn_15m" ti="btn_15m">15m</button>
+      <button class="preset" onclick="setPreset(${t.id},30)" ti="btn_30m" ti="btn_30m" ti="btn_30m" ti="btn_30m">30m</button>
+      <button class="preset" onclick="setPreset(${t.id},60)" ti="btn_1hr" ti="btn_1hr" ti="btn_1hr" ti="btn_1hr">1hr</button>
     </div>
     <div class="display" data-display="${t.id}">00:05:00</div>
     <div class="progress-bar"><div class="progress-fill" data-progress="${t.id}"></div></div>
     <div class="controls" data-controls="${t.id}">
-      <button class="ctrl-btn btn-start" onclick="startTimer(${t.id})">Start</button>
-      <button class="ctrl-btn btn-reset" onclick="resetTimer(${t.id})">Reset</button>
+      <button class="ctrl-btn btn-start" onclick="startTimer(${t.id})" ti="btn_start" ti="btn_start_2" ti="btn_start" ti="btn_start_2" ti="btn_start" ti="btn_start_2" ti="btn_start" ti="btn_start_2">Start</button>
+      <button class="ctrl-btn btn-reset" onclick="resetTimer(${t.id})" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset_5" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset_5" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset_5" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset_5">Reset</button>
     </div>`;
   document.getElementById('timers').appendChild(div);
 }
@@ -230,11 +268,11 @@ function renderControls(id) {
   if (!t) return;
   const el = document.querySelector(`[data-controls="${id}"]`);
   if (t.alarming) {
-    el.innerHTML = `<button class="ctrl-btn btn-stop-alarm" onclick="stopAlarm(${id})">Stop Alarm</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
+    el.innerHTML = `<button class="ctrl-btn btn-stop-alarm" onclick="stopAlarm(${id})" ti="btn_stop_alarm" ti="btn_stop_alarm" ti="btn_stop_alarm" ti="btn_stop_alarm">Stop Alarm</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
   } else if (t.state === 'running') {
-    el.innerHTML = `<button class="ctrl-btn btn-pause" onclick="pauseTimer(${id})">Pause</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
+    el.innerHTML = `<button class="ctrl-btn btn-pause" onclick="pauseTimer(${id})" ti="btn_pause" ti="btn_pause" ti="btn_pause" ti="btn_pause">Pause</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
   } else if (t.state === 'paused') {
-    el.innerHTML = `<button class="ctrl-btn btn-start" onclick="resumeTimer(${id})">Resume</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
+    el.innerHTML = `<button class="ctrl-btn btn-start" onclick="resumeTimer(${id})" ti="btn_resume" ti="btn_resume" ti="btn_resume" ti="btn_resume">Resume</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
   } else {
     el.innerHTML = `<button class="ctrl-btn btn-start" onclick="startTimer(${id})">Start</button><button class="ctrl-btn btn-reset" onclick="resetTimer(${id})">Reset</button>`;
   }
@@ -357,6 +395,78 @@ document.addEventListener('keydown', e => {
 });
 
 addTimer();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

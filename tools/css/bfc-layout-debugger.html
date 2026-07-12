@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_bfc_layout_debugger_block" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -63,13 +63,17 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>BFC Layout Debugger</h1>
-<p class="subtitle">See how Block Formatting Context affects floats, margins, and containment</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_bfc_layout_debugger" ti="h1_bfc_layout_debugger">BFC Layout Debugger</h1>
+<p class="subtitle" ti="subtitle_see_how_block_formatting" ti="subtitle_see_how_block_formatting">See how Block Formatting Context affects floats, margins, and containment</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('debugger')">Debugger</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('debugger')" ti="btn_debugger" ti="btn_debugger">Debugger</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-debugger" class="panel active">
@@ -86,11 +90,11 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>What is a Block Formatting Context?</h3>
+<h3 ti="h3_what_is_a_block_formattin" ti="h3_what_is_a_block_formattin">What is a Block Formatting Context?</h3>
 <p>A BFC is a region of the page where block-level boxes are laid out. It's an isolated layout environment — elements inside a BFC don't affect layout outside, and vice versa. Think of it as a "layout boundary."</p>
 </div>
 <div class="ref-section">
-<h3>How to Create a BFC</h3>
+<h3 ti="h3_how_to_create_a_bfc" ti="h3_how_to_create_a_bfc">How to Create a BFC</h3>
 <ul>
 <li><span class="code">display: flow-root</span> — The cleanest way (designed for this purpose)</li>
 <li><span class="code">overflow: hidden | auto | scroll</span> — Classic hack (may clip content)</li>
@@ -103,25 +107,35 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </ul>
 </div>
 <div class="ref-section">
-<h3>What BFC Does</h3>
+<h3 ti="h3_what_bfc_does" ti="h3_what_bfc_does">What BFC Does</h3>
 <ul>
-<li><strong>Contains floats</strong> — A BFC parent wraps around its floated children (no height collapse)</li>
-<li><strong>Prevents margin collapse</strong> — Margins of elements in different BFCs don't collapse</li>
-<li><strong>Excludes external floats</strong> — Content in a BFC doesn't wrap around external floats</li>
-<li><strong>Layout isolation</strong> — Internal layout doesn't affect siblings or parents</li>
+<li><strong ti="strong_contains_floats" ti="strong_contains_floats">Contains floats</strong> — A BFC parent wraps around its floated children (no height collapse)</li>
+<li><strong ti="strong_prevents_margin_collapse" ti="strong_prevents_margin_collapse">Prevents margin collapse</strong> — Margins of elements in different BFCs don't collapse</li>
+<li><strong ti="strong_excludes_external_floats" ti="strong_excludes_external_floats">Excludes external floats</strong> — Content in a BFC doesn't wrap around external floats</li>
+<li><strong ti="strong_layout_isolation" ti="strong_layout_isolation">Layout isolation</strong> — Internal layout doesn't affect siblings or parents</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Common Pain Points Solved by BFC</h3>
+<h3 ti="h3_common_pain_points_solved" ti="h3_common_pain_points_solved">Common Pain Points Solved by BFC</h3>
 <ul>
-<li><strong>"Why is my container 0px tall?"</strong> → Floated children escape the parent. Create a BFC on the parent.</li>
-<li><strong>"Why are my margins collapsing?"</strong> → Adjacent margins collapse in the same BFC. Create a new BFC to prevent it.</li>
-<li><strong>"Why is my text wrapping around the float?"</strong> → The text's container is in the same BFC as the float. Create a BFC on the text container to make it sit beside the float.</li>
+<li><strong ti="strong_why_is_my_container_0px" ti="strong_why_is_my_container_0px">"Why is my container 0px tall?"</strong> → Floated children escape the parent. Create a BFC on the parent.</li>
+<li><strong ti="strong_why_are_my_margins_colla" ti="strong_why_are_my_margins_colla">"Why are my margins collapsing?"</strong> → Adjacent margins collapse in the same BFC. Create a new BFC to prevent it.</li>
+<li><strong ti="strong_why_is_my_text_wrapping" ti="strong_why_is_my_text_wrapping">"Why is my text wrapping around the float?"</strong> → The text's container is in the same BFC as the float. Create a BFC on the text container to make it sit beside the float.</li>
 </ul>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_bfc_layout_debugger_block':["BFC Layout Debugger — Block Formatting Context Visualizer", "BFC 布局调试器 — 块格式化上下文可视化"],'metadesc_interactive_block_formatt':["Interactive Block Formatting Context debugger. See how BFC creation affects float containment, margin collapse prevention, and layout isolation.", "交互式块格式化上下文调试器。查看 BFC 创建如何影响浮动包含、外边距折叠防止和布局隔离。"],'h1_bfc_layout_debugger':["BFC Layout Debugger", "BFC 布局调试器"],'h3_what_is_a_block_formattin':["What is a Block Formatting Context?", "什么是块格式化上下文？"],'h3_how_to_create_a_bfc':["How to Create a BFC", "如何创建 BFC"],'h3_what_bfc_does':["What BFC Does", "BFC 的作用"],'h3_common_pain_points_solved':["Common Pain Points Solved by BFC", "BFC 解决的常见痛点"],'h3_parent_bfc_method':["Parent BFC Method", "父级 BFC 方法"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_bfc_on_box_b_s_wrapper':["BFC on Box B's Wrapper", "Box B 包装器上的 BFC"],'h3_margins':["Margins", "外边距"],'h3_content_area_bfc':["Content Area BFC", "内容区域 BFC"],'h3_apply_bfc_to_containers':["Apply BFC to Containers", "将 BFC 应用于容器"],'h3_why_flow_root':["Why flow-root?", "为什么用 flow-root？"],'h3_recommendation':["Recommendation", "建议"],'subtitle_see_how_block_formatting':["See how Block Formatting Context affects floats, margins, and containment", "查看块格式化上下文如何影响浮动、外边距和包含"],'btn_debugger':["Debugger", "调试器"],'btn_reference':["Reference", "参考"],'btn_p_name':["${p.name}", "${p.name}"],'strong_contains_floats':["Contains floats", "Contains floats"],'strong_prevents_margin_collapse':["Prevents margin collapse", "Prevents margin collapse"],'strong_excludes_external_floats':["Excludes external floats", "Excludes external floats"],'strong_layout_isolation':["Layout isolation", "Layout isolation"],'strong_why_is_my_container_0px':["\"Why is my container 0px tall?\"", "\"为什么我的容器高度为 0px？\""],'strong_why_are_my_margins_colla':["\"Why are my margins collapsing?\"", "\"为什么我的外边距折叠了？\""],'strong_why_is_my_text_wrapping':["\"Why is my text wrapping around the float?\"", "\"为什么我的文本环绕浮动元素？\""],'strong_with_bfc_bfc':["With BFC (${bfc}):", "With BFC (${bfc}):"],'strong_without_bfc':["Without BFC:", "不带 BFC："],'strong_with_bfc':["With BFC:", "带 BFC："],'strong_m1_m2_px':["${m1+m2}px", "${m1+m2}px"],'strong_without_bfc_2':["Without BFC:", "不带 BFC："],'strong_collapsed_px':["${collapsed}px", "${collapsed}px"],'strong_main_content_area':["Main content area", "主内容区域"],'strong_with_bfc_2':["With BFC:", "带 BFC："],'strong_without_bfc_3':["Without BFC:", "不带 BFC："],'strong_with_bfc_on_both_containe':["With BFC on both containers:", "两个容器都带 BFC："],'strong_without_bfc_4':["Without BFC:", "不带 BFC："],'strong_clearfix':["Clearfix", "Clearfix"],'strong_display_flow_root':["display: flow-root", "display: flow-root"],'strong_clearfix_2':["clearfix", "clearfix"],'strong_overflow_hidden':["overflow: hidden", "overflow: hidden"],'strong_display_flow_root_2':["display: flow-root", "display: flow-root"],'strong_display_flow_root_3':["display: flow-root", "display: flow-root"],'strong_for_float_containment':["For float containment:", "用于浮动包含："],'strong_for_margin_collapse_preve':["For margin collapse prevention:", "用于防止外边距折叠："],'strong_for_float_exclusion_sideb':["For float exclusion (sidebar):", "用于浮动排除（侧边栏）："],'strong_never_use_for_bfc_alone':["Never use for BFC alone:", "切勿单独用于 BFC："],'label_create_bfc':["Create BFC:", "创建 BFC："],'label_method':["Method:", "方法："],'label_box_a_bottom':["Box A bottom:", "Box A 底部："],'label_box_b_top':["Box B top:", "Box B 顶部："],'label_method_2':["Method:", "方法："],'label_both_containers':["Both containers:", "两个容器："],'jtc_comparison':["Comparison", "比较"],'jtc_all_methods':["All Methods", "所有方法"],'jtlword_float':["Float", "浮动"],'jtlword_none':["None", "None"],'jtlword_margins':["Margins", "外边距"],'jtlword_sidebar':["Sidebar", "Sidebar"],'jtlword_none_2':["None", "None"],'jtlword_float_2':["Float", "浮动"],'jtlword_float_3':["Float", "浮动"],'jtlword_clearfix':["Clearfix", "Clearfix"],'jtlword_clearfix_2':["clearfix", "clearfix"],'jtlword_recommendation':["Recommendation", "建议"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {name:'Float Containment',id:'float-contain',desc:'Classic problem: parent collapses when children float'},
@@ -152,7 +166,7 @@ function showTab(id) {
 
 function renderPresets() {
   document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}" ti="btn_p_name" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -201,13 +215,13 @@ function renderFloatContain(render, explanation, controls, badge) {
   badge.className = 'bfc-badge ' + (isBFC ? 'bfc-yes' : 'bfc-no');
 
   explanation.innerHTML = isBFC
-    ? `<strong>With BFC (${bfc}):</strong> The parent creates a new BFC and must contain all its floated children. The parent's height expands to wrap the floats. The next sibling sits below properly.`
-    : `<strong>Without BFC:</strong> Floated children escape their parent (the parent collapses to 0 height for the floats). The next sibling overlaps the floats. This is the classic "float containment" bug.`;
+    ? `<strong ti="strong_with_bfc_bfc" ti="strong_with_bfc_bfc">With BFC (${bfc}):</strong> The parent creates a new BFC and must contain all its floated children. The parent's height expands to wrap the floats. The next sibling sits below properly.`
+    : `<strong ti="strong_without_bfc" ti="strong_without_bfc_2" ti="strong_without_bfc_3" ti="strong_without_bfc_4" ti="strong_without_bfc" ti="strong_without_bfc_2" ti="strong_without_bfc_3" ti="strong_without_bfc_4">Without BFC:</strong> Floated children escape their parent (the parent collapses to 0 height for the floats). The next sibling overlaps the floats. This is the classic "float containment" bug.`;
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>Parent BFC Method</h3>
-      <div class="ctrl-row"><label>Create BFC:</label>
+      <h3 ti="h3_parent_bfc_method" ti="h3_parent_bfc_method">Parent BFC Method</h3>
+      <div class="ctrl-row"><label ti="label_create_bfc" ti="label_create_bfc">Create BFC:</label>
         <select onchange="state.bfcMethod=this.value;renderScenario('float-contain')">
           <option value="none" ${bfc==='none'?'selected':''}>None (no BFC)</option>
           <option value="flow-root" ${bfc==='flow-root'?'selected':''}>display: flow-root</option>
@@ -217,7 +231,7 @@ function renderFloatContain(render, explanation, controls, badge) {
       </div>
     </div>
     <div class="ctrl-section">
-      <h3>Generated CSS</h3>
+      <h3 ti="h3_generated_css" ti="h3_generated_css">Generated CSS</h3>
       <pre style="font-size:0.72rem;color:#10b981;background:#0d0d1a;padding:8px;border-radius:6px;line-height:1.5">.parent {
   border: 3px solid blue;
   ${isBFC ? bfcCSS : '/* no BFC */'}
@@ -256,13 +270,13 @@ function renderMarginCollapse(render, explanation, controls, badge) {
   badge.className = 'bfc-badge ' + (isBFC ? 'bfc-yes' : 'bfc-no');
 
   explanation.innerHTML = isBFC
-    ? `<strong>With BFC:</strong> Box B is inside a new BFC. Margins from different BFCs never collapse. The actual gap is ${m1} + ${m2} = <strong>${m1+m2}px</strong>.`
-    : `<strong>Without BFC:</strong> Adjacent vertical margins collapse to the larger value. ${m1}px + ${m2}px = <strong>${collapsed}px</strong> (not ${m1+m2}px). This surprises many developers.`;
+    ? `<strong ti="strong_with_bfc" ti="strong_with_bfc_2" ti="strong_with_bfc" ti="strong_with_bfc_2">With BFC:</strong> Box B is inside a new BFC. Margins from different BFCs never collapse. The actual gap is ${m1} + ${m2} = <strong ti="strong_m1_m2_px" ti="strong_m1_m2_px">${m1+m2}px</strong>.`
+    : `<strong>Without BFC:</strong> Adjacent vertical margins collapse to the larger value. ${m1}px + ${m2}px = <strong ti="strong_collapsed_px" ti="strong_collapsed_px">${collapsed}px</strong> (not ${m1+m2}px). This surprises many developers.`;
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>BFC on Box B's Wrapper</h3>
-      <div class="ctrl-row"><label>Method:</label>
+      <h3 ti="h3_bfc_on_box_b_s_wrapper" ti="h3_bfc_on_box_b_s_wrapper">BFC on Box B's Wrapper</h3>
+      <div class="ctrl-row"><label ti="label_method" ti="label_method_2" ti="label_method" ti="label_method_2">Method:</label>
         <select onchange="state.bfcMethod=this.value;renderScenario('margin-collapse')">
           <option value="none" ${bfc==='none'?'selected':''}>None</option>
           <option value="flow-root" ${bfc==='flow-root'?'selected':''}>display: flow-root</option>
@@ -271,11 +285,11 @@ function renderMarginCollapse(render, explanation, controls, badge) {
       </div>
     </div>
     <div class="ctrl-section">
-      <h3>Margins</h3>
-      <div class="ctrl-row"><label>Box A bottom:</label>
+      <h3 ti="h3_margins" ti="h3_margins">Margins</h3>
+      <div class="ctrl-row"><label ti="label_box_a_bottom" ti="label_box_a_bottom">Box A bottom:</label>
         <input type="range" min="0" max="50" value="${m1}" oninput="state.margin1=+this.value;renderScenario('margin-collapse')"> ${m1}px
       </div>
-      <div class="ctrl-row"><label>Box B top:</label>
+      <div class="ctrl-row"><label ti="label_box_b_top" ti="label_box_b_top">Box B top:</label>
         <input type="range" min="0" max="50" value="${m2}" oninput="state.margin2=+this.value;renderScenario('margin-collapse')"> ${m2}px
       </div>
     </div>`;
@@ -293,7 +307,7 @@ function renderFloatExclude(render, explanation, controls, badge) {
     <div style="padding:15px">
       <div style="float:left;width:100px;height:120px;background:#3b82f6;color:#fff;display:flex;align-items:center;justify-content:center;font-size:0.7rem;border-radius:4px;margin-right:12px">Sidebar<br>(float: left)</div>
       <div style="${contentStyle}font-size:0.75rem;line-height:1.5;color:#333">
-        <strong>Main content area</strong> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit.
+        <strong ti="strong_main_content_area" ti="strong_main_content_area">Main content area</strong> — Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Duis aute irure dolor in reprehenderit.
       </div>
     </div>`;
 
@@ -306,7 +320,7 @@ function renderFloatExclude(render, explanation, controls, badge) {
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>Content Area BFC</h3>
+      <h3 ti="h3_content_area_bfc" ti="h3_content_area_bfc">Content Area BFC</h3>
       <div class="ctrl-row"><label>Method:</label>
         <select onchange="state.bfcMethod=this.value;renderScenario('float-exclude')">
           <option value="none" ${bfc==='none'?'selected':''}>None (text wraps)</option>
@@ -340,13 +354,13 @@ function renderNestedFloats(render, explanation, controls, badge) {
   badge.className = 'bfc-badge ' + (isBFC ? 'bfc-yes' : 'bfc-no');
 
   explanation.innerHTML = isBFC
-    ? `<strong>With BFC on both containers:</strong> Each container independently wraps its floats. The inner float is contained by the inner BFC, and the outer float is contained by the outer BFC. Clean isolation.`
+    ? `<strong ti="strong_with_bfc_on_both_containe" ti="strong_with_bfc_on_both_containe">With BFC on both containers:</strong> Each container independently wraps its floats. The inner float is contained by the inner BFC, and the outer float is contained by the outer BFC. Clean isolation.`
     : `<strong>Without BFC:</strong> Both floats escape their containers. The inner float may interact with the outer float. Containers collapse. The "next element" overlaps.`;
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>Apply BFC to Containers</h3>
-      <div class="ctrl-row"><label>Both containers:</label>
+      <h3 ti="h3_apply_bfc_to_containers" ti="h3_apply_bfc_to_containers">Apply BFC to Containers</h3>
+      <div class="ctrl-row"><label ti="label_both_containers" ti="label_both_containers">Both containers:</label>
         <select onchange="state.bfcMethod=this.value;renderScenario('nested-floats')">
           <option value="none" ${bfc==='none'?'selected':''}>None</option>
           <option value="flow-root" ${bfc==='flow-root'?'selected':''}>display: flow-root</option>
@@ -382,17 +396,17 @@ function renderClearfixVsBfc(render, explanation, controls, badge) {
       </div>
     </div>`;
 
-  badge.textContent = 'Comparison';
+  badge.textContent=T("jtc_comparison");
   badge.className = 'bfc-badge bfc-yes';
 
-  explanation.innerHTML = `<strong>Clearfix</strong> uses a pseudo-element with <code>clear: both</code> — a hack from the float-layout era. <strong>display: flow-root</strong> was designed specifically for this: it creates a BFC with no side effects. Use <code>flow-root</code> in modern code.`;
+  explanation.innerHTML = `<strong ti="strong_clearfix" ti="strong_clearfix">Clearfix</strong> uses a pseudo-element with <code>clear: both</code> — a hack from the float-layout era. <strong ti="strong_display_flow_root" ti="strong_display_flow_root_2" ti="strong_display_flow_root_3" ti="strong_display_flow_root" ti="strong_display_flow_root_2" ti="strong_display_flow_root_3">display: flow-root</strong> was designed specifically for this: it creates a BFC with no side effects. Use <code>flow-root</code> in modern code.`;
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>Why flow-root?</h3>
+      <h3 ti="h3_why_flow_root" ti="h3_why_flow_root">Why flow-root?</h3>
       <div style="font-size:0.75rem;color:#aaa;line-height:1.5">
-        <p style="margin-bottom:8px"><strong>clearfix</strong>: Requires pseudo-element, adds empty content to DOM, doesn't prevent margin collapse</p>
-        <p style="margin-bottom:8px"><strong>overflow: hidden</strong>: Creates BFC but clips overflowing content (dropdowns, shadows)</p>
+        <p style="margin-bottom:8px"><strong ti="strong_clearfix_2" ti="strong_clearfix_2">clearfix</strong>: Requires pseudo-element, adds empty content to DOM, doesn't prevent margin collapse</p>
+        <p style="margin-bottom:8px"><strong ti="strong_overflow_hidden" ti="strong_overflow_hidden">overflow: hidden</strong>: Creates BFC but clips overflowing content (dropdowns, shadows)</p>
         <p><strong>display: flow-root</strong>: Creates BFC, no side effects, semantic intent is clear. Supported in all modern browsers (IE excluded).</p>
       </div>
     </div>`;
@@ -422,25 +436,65 @@ function renderAllMethods(render, explanation, controls, badge) {
       `).join('')}
     </div>`;
 
-  badge.textContent = 'All Methods';
+  badge.textContent=T("jtc_all_methods");
   badge.className = 'bfc-badge bfc-yes';
 
   explanation.innerHTML = `All these CSS properties create a new Block Formatting Context. <strong>display: flow-root</strong> is the only one designed specifically for BFC creation with zero side effects. Others create BFC as a secondary behavior.`;
 
   controls.innerHTML = `
     <div class="ctrl-section">
-      <h3>Recommendation</h3>
+      <h3 ti="h3_recommendation" ti="h3_recommendation">Recommendation</h3>
       <div style="font-size:0.75rem;color:#aaa;line-height:1.5">
-        <p style="margin-bottom:8px"><strong>For float containment:</strong> <code style="color:#10b981">display: flow-root</code></p>
-        <p style="margin-bottom:8px"><strong>For margin collapse prevention:</strong> <code style="color:#10b981">display: flow-root</code> on a wrapper</p>
-        <p style="margin-bottom:8px"><strong>For float exclusion (sidebar):</strong> <code style="color:#10b981">overflow: hidden</code> or <code style="color:#10b981">display: flow-root</code></p>
-        <p><strong>Never use for BFC alone:</strong> float, position: absolute, display: inline-block (they have too many side effects)</p>
+        <p style="margin-bottom:8px"><strong ti="strong_for_float_containment" ti="strong_for_float_containment">For float containment:</strong> <code style="color:#10b981">display: flow-root</code></p>
+        <p style="margin-bottom:8px"><strong ti="strong_for_margin_collapse_preve" ti="strong_for_margin_collapse_preve">For margin collapse prevention:</strong> <code style="color:#10b981">display: flow-root</code> on a wrapper</p>
+        <p style="margin-bottom:8px"><strong ti="strong_for_float_exclusion_sideb" ti="strong_for_float_exclusion_sideb">For float exclusion (sidebar):</strong> <code style="color:#10b981">overflow: hidden</code> or <code style="color:#10b981">display: flow-root</code></p>
+        <p><strong ti="strong_never_use_for_bfc_alone" ti="strong_never_use_for_bfc_alone">Never use for BFC alone:</strong> float, position: absolute, display: inline-block (they have too many side effects)</p>
       </div>
     </div>`;
 }
 
 renderPresets();
 loadPreset(0);
+</script>
+<script>var _LANG={'title_bfc_layout_debugger_block':["BFC Layout Debugger — Block Formatting Context Visualizer", "BFC 布局调试器 — 块格式化上下文可视化"],'metadesc_interactive_block_formatt':["Interactive Block Formatting Context debugger. See how BFC creation affects float containment, margin collapse prevention, and layout isolation.", "交互式块格式化上下文调试器。查看 BFC 创建如何影响浮动包含、外边距折叠防止和布局隔离。"],'h1_bfc_layout_debugger':["BFC Layout Debugger", "BFC 布局调试器"],'h3_what_is_a_block_formattin':["What is a Block Formatting Context?", "什么是块格式化上下文？"],'h3_how_to_create_a_bfc':["How to Create a BFC", "如何创建 BFC"],'h3_what_bfc_does':["What BFC Does", "BFC 的作用"],'h3_common_pain_points_solved':["Common Pain Points Solved by BFC", "BFC 解决的常见痛点"],'h3_parent_bfc_method':["Parent BFC Method", "父级 BFC 方法"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_bfc_on_box_b_s_wrapper':["BFC on Box B's Wrapper", "Box B 包装器上的 BFC"],'h3_margins':["Margins", "外边距"],'h3_content_area_bfc':["Content Area BFC", "内容区域 BFC"],'h3_apply_bfc_to_containers':["Apply BFC to Containers", "将 BFC 应用于容器"],'h3_why_flow_root':["Why flow-root?", "为什么用 flow-root？"],'h3_recommendation':["Recommendation", "建议"],'subtitle_see_how_block_formatting':["See how Block Formatting Context affects floats, margins, and containment", "查看块格式化上下文如何影响浮动、外边距和包含"],'btn_debugger':["Debugger", "调试器"],'btn_reference':["Reference", "参考"],'btn_p_name':["${p.name}", "${p.name}"],'strong_contains_floats':["Contains floats", "Contains floats"],'strong_prevents_margin_collapse':["Prevents margin collapse", "Prevents margin collapse"],'strong_excludes_external_floats':["Excludes external floats", "Excludes external floats"],'strong_layout_isolation':["Layout isolation", "Layout isolation"],'strong_why_is_my_container_0px':["\"Why is my container 0px tall?\"", "\"为什么我的容器高度为 0px？\""],'strong_why_are_my_margins_colla':["\"Why are my margins collapsing?\"", "\"为什么我的外边距折叠了？\""],'strong_why_is_my_text_wrapping':["\"Why is my text wrapping around the float?\"", "\"为什么我的文本环绕浮动元素？\""],'strong_with_bfc_bfc':["With BFC (${bfc}):", "With BFC (${bfc}):"],'strong_without_bfc':["Without BFC:", "不带 BFC："],'strong_with_bfc':["With BFC:", "带 BFC："],'strong_m1_m2_px':["${m1+m2}px", "${m1+m2}px"],'strong_without_bfc_2':["Without BFC:", "不带 BFC："],'strong_collapsed_px':["${collapsed}px", "${collapsed}px"],'strong_main_content_area':["Main content area", "主内容区域"],'strong_with_bfc_2':["With BFC:", "带 BFC："],'strong_without_bfc_3':["Without BFC:", "不带 BFC："],'strong_with_bfc_on_both_containe':["With BFC on both containers:", "两个容器都带 BFC："],'strong_without_bfc_4':["Without BFC:", "不带 BFC："],'strong_clearfix':["Clearfix", "Clearfix"],'strong_display_flow_root':["display: flow-root", "display: flow-root"],'strong_clearfix_2':["clearfix", "clearfix"],'strong_overflow_hidden':["overflow: hidden", "overflow: hidden"],'strong_display_flow_root_2':["display: flow-root", "display: flow-root"],'strong_display_flow_root_3':["display: flow-root", "display: flow-root"],'strong_for_float_containment':["For float containment:", "用于浮动包含："],'strong_for_margin_collapse_preve':["For margin collapse prevention:", "用于防止外边距折叠："],'strong_for_float_exclusion_sideb':["For float exclusion (sidebar):", "用于浮动排除（侧边栏）："],'strong_never_use_for_bfc_alone':["Never use for BFC alone:", "切勿单独用于 BFC："],'label_create_bfc':["Create BFC:", "创建 BFC："],'label_method':["Method:", "方法："],'label_box_a_bottom':["Box A bottom:", "Box A 底部："],'label_box_b_top':["Box B top:", "Box B 顶部："],'label_method_2':["Method:", "方法："],'label_both_containers':["Both containers:", "两个容器："],'jtc_comparison':["Comparison", "比较"],'jtc_all_methods':["All Methods", "所有方法"],'jtlword_float':["Float", "浮动"],'jtlword_none':["None", "None"],'jtlword_margins':["Margins", "外边距"],'jtlword_sidebar':["Sidebar", "Sidebar"],'jtlword_none_2':["None", "None"],'jtlword_float_2':["Float", "浮动"],'jtlword_float_3':["Float", "浮动"],'jtlword_clearfix':["Clearfix", "Clearfix"],'jtlword_clearfix_2':["clearfix", "clearfix"],'jtlword_recommendation':["Recommendation", "建议"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

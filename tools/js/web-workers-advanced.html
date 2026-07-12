@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_workers_advanced_patt" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,33 +109,35 @@ pre{padding:1rem;overflow-x:auto;font-family:'Fira Code','Cascadia Code','SF Mon
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<h1>Web Workers Advanced Patterns</h1>
-<p class="subtitle">Interactive demos with real Worker execution via Blob URLs</p>
+
+<h1 ti="h1_web_workers_advanced_patt">Web Workers Advanced Patterns</h1>
+<p class="subtitle" ti="subtitle_interactive_demos_with_re">Interactive demos with real Worker execution via Blob URLs</p>
 
 <div class="tab-bar" id="tabs">
-  <button class="active" data-tab="computation">Heavy Computation</button>
-  <button data-tab="messaging">Message Passing</button>
-  <button data-tab="pool">Worker Pool</button>
+  <button class="active" data-tab="computation" ti="btn_heavy_computation">Heavy Computation</button>
+  <button data-tab="messaging" ti="btn_message_passing">Message Passing</button>
+  <button data-tab="pool" ti="btn_worker_pool">Worker Pool</button>
   <button data-tab="concepts">SharedWorker &amp; Concepts</button>
 </div>
 
 <!-- Demo 1: Heavy Computation -->
 <div class="panel active" id="computation">
-  <h2>Heavy Computation Offloading</h2>
+  <h2 ti="h2_heavy_computation_offload">Heavy Computation Offloading</h2>
   <p class="desc">Run expensive calculations on the main thread vs. a Web Worker. Watch the spinner &mdash; if it freezes, the main thread is blocked. Workers keep the UI responsive.</p>
 
   <div class="demo-area">
     <div class="demo-controls">
-      <label>Algorithm:</label>
+      <label ti="label_algorithm">Algorithm:</label>
       <select id="comp-algo">
         <option value="fibonacci">Fibonacci (recursive)</option>
         <option value="primes">Prime Sieve</option>
       </select>
-      <label>N:</label>
+      <label ti="label_n">N:</label>
       <input type="number" id="comp-n" value="40" min="1" max="100000" style="width:100px">
-      <button class="btn btn-danger" id="comp-main-btn" onclick="runMainThread()">Run on Main Thread</button>
-      <button class="btn btn-success" id="comp-worker-btn" onclick="runOnWorker()">Run on Worker</button>
+      <button class="btn btn-danger" id="comp-main-btn" onclick="runMainThread()" ti="btn_run_on_main_thread">Run on Main Thread</button>
+      <button class="btn btn-success" id="comp-worker-btn" onclick="runOnWorker()" ti="btn_run_on_worker">Run on Worker</button>
     </div>
 
     <div class="animation-row">
@@ -166,7 +168,7 @@ pre{padding:1rem;overflow-x:auto;font-family:'Fira Code','Cascadia Code','SF Mon
   </div>
 
   <div class="code-block">
-    <div class="code-header"><span>Worker via Blob URL</span><button class="copy-btn" onclick="copyCode(this)">Copy</button></div>
+    <div class="code-header"><span>Worker via Blob URL</span><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6">Copy</button></div>
 <pre><span class="cm">// Create a Worker from inline code using a Blob URL</span>
 <span class="kw">const</span> workerCode = <span class="st">`
   function fibonacci(n) {
@@ -210,21 +212,21 @@ worker.onmessage = (e) =&gt; {
 
 <!-- Demo 2: Message Passing -->
 <div class="panel" id="messaging">
-  <h2>Message Passing Patterns</h2>
+  <h2 ti="h2_message_passing_patterns">Message Passing Patterns</h2>
   <p class="desc">Web Workers communicate via <code>postMessage()</code>. Data is cloned by default (structured clone), but for large data (ArrayBuffers, etc.) you can transfer ownership for zero-copy performance.</p>
 
-  <h3>Structured Clone vs. Transferable Objects</h3>
+  <h3 ti="h3_structured_clone_vs_trans">Structured Clone vs. Transferable Objects</h3>
   <div class="demo-area">
     <div class="demo-controls">
-      <label>Buffer size:</label>
+      <label ti="label_buffer_size">Buffer size:</label>
       <select id="msg-size">
         <option value="1">1 MB</option>
         <option value="10" selected>10 MB</option>
         <option value="50">50 MB</option>
         <option value="100">100 MB</option>
       </select>
-      <button class="btn btn-primary" onclick="runCloneTest()">Structured Clone</button>
-      <button class="btn btn-success" onclick="runTransferTest()">Transfer</button>
+      <button class="btn btn-primary" onclick="runCloneTest()" ti="btn_structured_clone" ti="th_structured_clone">Structured Clone</button>
+      <button class="btn btn-success" onclick="runTransferTest()" ti="btn_transfer">Transfer</button>
     </div>
 
     <div class="result-grid">
@@ -241,7 +243,7 @@ worker.onmessage = (e) =&gt; {
     </div>
 
     <table class="transfer-table">
-      <thead><tr><th>Feature</th><th>Structured Clone</th><th>Transferable</th></tr></thead>
+      <thead><tr><th ti="th_feature" ti="th_feature_2">Feature</th><th>Structured Clone</th><th ti="th_transferable">Transferable</th></tr></thead>
       <tbody>
         <tr><td>Data copied?</td><td>Yes (deep copy)</td><td>No (ownership transfer)</td></tr>
         <tr><td>Sender retains data?</td><td>Yes</td><td>No (neutered)</td></tr>
@@ -252,7 +254,7 @@ worker.onmessage = (e) =&gt; {
     </table>
   </div>
 
-  <h3>Message Protocol Pattern</h3>
+  <h3 ti="h3_message_protocol_pattern">Message Protocol Pattern</h3>
   <div class="demo-area">
     <div class="msg-viz">
       <div class="msg-box msg-main">Main Thread</div>
@@ -317,17 +319,17 @@ self.onmessage = (e) =&gt; {
 
 <!-- Demo 3: Worker Pool -->
 <div class="panel" id="pool">
-  <h2>Worker Pool Pattern</h2>
-  <p class="desc">Instead of creating and destroying workers for each task, maintain a pool of reusable workers. Tasks are queued and dispatched to idle workers. This reduces creation overhead and limits resource usage.</p>
+  <h2 ti="h2_worker_pool_pattern">Worker Pool Pattern</h2>
+  <p class="desc" ti="subtitle_instead_of_creating_and_d">Instead of creating and destroying workers for each task, maintain a pool of reusable workers. Tasks are queued and dispatched to idle workers. This reduces creation overhead and limits resource usage.</p>
 
   <div class="demo-area">
     <div class="demo-controls">
-      <label>Pool size:</label>
+      <label ti="label_pool_size">Pool size:</label>
       <input type="number" id="pool-size" value="4" min="1" max="8" style="width:70px">
-      <label>Tasks:</label>
+      <label ti="label_tasks">Tasks:</label>
       <input type="number" id="pool-tasks" value="12" min="1" max="50" style="width:70px">
-      <button class="btn btn-primary" id="pool-run-btn" onclick="runPool()">Run Pool Demo</button>
-      <button class="btn btn-secondary" onclick="resetPool()">Reset</button>
+      <button class="btn btn-primary" id="pool-run-btn" onclick="runPool()" ti="btn_run_pool_demo">Run Pool Demo</button>
+      <button class="btn btn-secondary" onclick="resetPool()" ti="btn_reset">Reset</button>
     </div>
 
     <h4 style="font-size:0.85rem;color:#888;margin-bottom:0.5rem">Worker Status</h4>
@@ -423,12 +425,12 @@ Promise.all(tasks).then((results) =&gt; {
 <!-- SharedWorker & Concepts -->
 <div class="panel" id="concepts">
   <h2>SharedWorker &amp; Advanced Concepts</h2>
-  <p class="desc">SharedWorkers are shared across all tabs/windows of the same origin. They're useful for shared state, broadcast communication, and resource deduplication. Note: SharedWorker support varies (not available in all browsers).</p>
+  <p class="desc" ti="subtitle_sharedworkers_are_shared">SharedWorkers are shared across all tabs/windows of the same origin. They're useful for shared state, broadcast communication, and resource deduplication. Note: SharedWorker support varies (not available in all browsers).</p>
 
   <div class="demo-area">
-    <h3 style="margin-top:0">Worker Types Comparison</h3>
+    <h3 style="margin-top:0" ti="h3_worker_types_comparison">Worker Types Comparison</h3>
     <table class="transfer-table">
-      <thead><tr><th>Feature</th><th>Worker</th><th>SharedWorker</th></tr></thead>
+      <thead><tr><th>Feature</th><th ti="th_worker">Worker</th><th ti="th_sharedworker">SharedWorker</th></tr></thead>
       <tbody>
         <tr><td>Scope</td><td>Single page</td><td>All same-origin pages</td></tr>
         <tr><td>Communication</td><td>Direct postMessage</td><td>Via MessagePort</td></tr>
@@ -559,6 +561,16 @@ console.log(result); <span class="cm">// No postMessage boilerplate!</span></pre
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_workers_advanced_patt':["Web Workers Advanced Patterns Playground", "Web Workers 高级模式练习场"],'metadesc_interactive_demos_of_web':["Interactive demos of Web Worker patterns: computation offloading, message passing, worker pools, and SharedWorker concepts.", "Web Worker 模式的交互式演示：计算卸载、消息传递、工作池和 SharedWorker 概念。"],'h1_web_workers_advanced_patt':["Web Workers Advanced Patterns", "Web Workers 高级模式"],'h2_heavy_computation_offload':["Heavy Computation Offloading", "重型计算卸载"],'h2_message_passing_patterns':["Message Passing Patterns", "消息传递模式"],'h2_worker_pool_pattern':["Worker Pool Pattern", "工人池模式"],'h2_sharedworker_advanced_con':["SharedWorker & Advanced Concepts", "共享工作者及高级概念"],'h3_structured_clone_vs_trans':["Structured Clone vs. Transferable Objects", "结构化克隆与可转移对象"],'h3_message_protocol_pattern':["Message Protocol Pattern", "消息协议模式"],'h3_worker_types_comparison':["Worker Types Comparison", "工人类型比较"],'subtitle_interactive_demos_with_re':["Interactive demos with real Worker execution via Blob URLs", "通过 Blob URL 实现带有真实 Worker 执行的交互式演示"],'subtitle_run_expensive_calculation':["Run expensive calculations on the main thread vs. a Web Worker. Watch the spinner — if it freezes, the main thread is blocked. Workers keep the UI responsive.", "在主线程上运行耗时计算，而不是在 Web Worker 上运行。观察加载指示器——如果它卡住，则表示主线程被阻塞。Worker 可以保持 UI 的响应速度。"],'subtitle_instead_of_creating_and_d':["Instead of creating and destroying workers for each task, maintain a pool of reusable workers. Tasks are queued and dispatched to idle workers. This reduces creation overhead and limits resource usage.", "与其为每个任务创建和销毁工作进程，不如维护一个可重用的工作进程池。任务会被排队，然后分派给空闲的工作进程。这样可以减少创建进程的开销，并限制资源的使用。"],'subtitle_sharedworkers_are_shared':["SharedWorkers are shared across all tabs/windows of the same origin. They're useful for shared state, broadcast communication, and resource deduplication. Note: SharedWorker support varies (not available in all browsers).", "SharedWorker 在同一源的所有标签页/窗口之间共享。它们适用于共享状态、广播通信和资源去重。注意：SharedWorker 的支持情况因浏览器而异（并非所有浏览器都支持）。"],'btn_heavy_computation':["Heavy Computation", "繁重计算"],'btn_message_passing':["Message Passing", "消息传递"],'btn_worker_pool':["Worker Pool", "工人池"],'btn_sharedworker_concepts':["SharedWorker & Concepts", "共享工作者及概念"],'btn_run_on_main_thread':["Run on Main Thread", "在主线程上运行"],'btn_run_on_worker':["Run on Worker", "在 Worker 上运行"],'btn_copy':["Copy", "复制"],'btn_structured_clone':["Structured Clone", "结构化克隆"],'btn_transfer':["Transfer", "转移"],'btn_copy_2':["Copy", "复制"],'btn_run_pool_demo':["Run Pool Demo", "运行池演示"],'btn_reset':["Reset", "重置"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'th_feature':["Feature", "特征"],'th_structured_clone':["Structured Clone", "结构化克隆"],'th_transferable':["Transferable", "可转让"],'th_feature_2':["Feature", "特征"],'th_worker':["Worker", "工人"],'th_sharedworker':["SharedWorker", "共享工作者"],'label_algorithm':["Algorithm:", "算法："],'label_n':["N:", "N："],'label_buffer_size':["Buffer size:", "缓冲区大小："],'label_pool_size':["Pool size:", "泳池尺寸："],'label_tasks':["Tasks:", "任务："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_x':["...", "..."],'jtc_computing_in_worker':["Computing in worker...", "计算中的工人..."],'jtc_0_0':["0 / 0", "0 / 0"],'jtc_x_2':["--", "--"],'jtlword_idle':["idle", "闲置的"],'jtlword_done':["done", "完毕"],'jtlword_idle_2':["idle", "闲置的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.getElementById('tabs').addEventListener('click', (e) => {
@@ -572,8 +584,8 @@ document.getElementById('tabs').addEventListener('click', (e) => {
 function copyCode(btn) {
   const pre = btn.closest('.code-block').querySelector('pre');
   navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -681,8 +693,8 @@ function runOnWorker() {
   const blob = new Blob([computeWorkerCode], { type: 'application/javascript' });
   const worker = new Worker(URL.createObjectURL(blob));
 
-  document.getElementById('worker-result').textContent = '...';
-  document.getElementById('worker-time').textContent = 'Computing in worker...';
+  document.getElementById('worker-result').textContent=T("jtc_x");
+  document.getElementById('worker-time').textContent=T("jtc_computing_in_worker");
 
   worker.onmessage = (e) => {
     const { result, time } = e.data;
@@ -795,8 +807,8 @@ function resetPool() {
   poolWorkers.forEach(w => w.terminate());
   poolWorkers = [];
   document.getElementById('pool-log').innerHTML = '';
-  document.getElementById('pool-completed').textContent = '0 / 0';
-  document.getElementById('pool-time').textContent = '--';
+  document.getElementById('pool-completed').textContent=T("jtc_0_0");
+  document.getElementById('pool-time').textContent=T("jtc_x_2");
   document.getElementById('pool-viz').innerHTML = '';
   document.getElementById('pool-run-btn').disabled = false;
 }
@@ -869,6 +881,24 @@ function runPool() {
   // Initial dispatch
   workers.forEach(w => dispatch(w));
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

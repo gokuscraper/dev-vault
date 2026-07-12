@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_starting_style_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -497,6 +497,8 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">@s</span>
@@ -504,14 +506,14 @@ body {
     <span class="badge">CSS 2024</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="layout">
   <!-- Sidebar: Presets -->
   <div class="sidebar">
-    <h2>Presets</h2>
+    <h2 ti="h2_presets">Presets</h2>
     <div class="preset-list" id="presetList">
       <button class="preset-btn active" data-preset="modal">
         <span class="preset-icon">M</span>
@@ -557,15 +559,15 @@ body {
       </button>
     </div>
 
-    <h2>Properties</h2>
+    <h2 ti="h2_properties">Properties</h2>
     <div class="controls">
       <div class="control-row">
-        <label>Duration</label>
+        <label ti="label_duration">Duration</label>
         <input type="range" id="duration" min="100" max="1500" value="300" step="50">
         <span class="range-value" id="durationVal">300ms</span>
       </div>
       <div class="control-row">
-        <label>Easing</label>
+        <label ti="label_easing">Easing</label>
         <select id="easing">
           <option value="ease">ease</option>
           <option value="ease-in">ease-in</option>
@@ -577,24 +579,24 @@ body {
         </select>
       </div>
       <div class="control-row">
-        <label>Start Opacity</label>
+        <label ti="label_start_opacity">Start Opacity</label>
         <input type="range" id="startOpacity" min="0" max="1" value="0" step="0.05">
         <span class="range-value" id="startOpacityVal">0</span>
       </div>
       <div class="control-row">
-        <label>Start Scale</label>
+        <label ti="label_start_scale">Start Scale</label>
         <input type="range" id="startScale" min="0" max="1.5" value="0.95" step="0.05">
         <span class="range-value" id="startScaleVal">0.95</span>
       </div>
       <div class="control-row">
-        <label>Start Y offset</label>
+        <label ti="label_start_y_offset">Start Y offset</label>
         <input type="range" id="startY" min="-100" max="100" value="20" step="5">
         <span class="range-value" id="startYVal">20px</span>
       </div>
     </div>
 
     <div style="margin-top: 16px;">
-      <h2>Browser Support</h2>
+      <h2 ti="h2_browser_support">Browser Support</h2>
       <div class="info-bar" style="flex-direction: column; align-items: flex-start; gap: 6px; border: 1px solid var(--border); border-radius: var(--radius); margin-top: 8px;">
         <span><span class="tag tag-green">Chrome 117+</span></span>
         <span><span class="tag tag-green">Edge 117+</span></span>
@@ -608,10 +610,10 @@ body {
   <!-- Preview -->
   <div class="preview-area">
     <div class="preview-header">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <div class="btn-group">
-        <button class="btn btn-primary" id="triggerBtn">Trigger Animation</button>
-        <button class="btn btn-outline" id="resetBtn">Reset</button>
+        <button class="btn btn-primary" id="triggerBtn" ti="btn_trigger_animation">Trigger Animation</button>
+        <button class="btn btn-outline" id="resetBtn" ti="btn_reset">Reset</button>
       </div>
     </div>
     <div class="preview-container" id="previewContainer">
@@ -625,8 +627,8 @@ body {
   <!-- Code Output -->
   <div class="code-panel">
     <div class="code-header">
-      <h3>Generated CSS</h3>
-      <button class="btn btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
+      <button class="btn btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output" id="codeOutput">
       <pre id="codeContent"></pre>
@@ -636,6 +638,16 @@ body {
 
 <style id="dynamicStyles"></style>
 
+
+<script>var _LANG={'title_css_starting_style_playgr':["CSS @starting-style Playground — Dev Vault", "CSS @starting-style Playground — 开发库"],'metadesc_interactive_starting_styl':["Interactive @starting-style playground. Animate elements from display:none. Modals, popovers, toasts with pure CSS entry animations.", "交互式 @starting 风格的 Playground。为 display:none 的元素添加动画效果。模态框、弹出框、提示框等元素均可使用纯 CSS 实现进入动画。"],'h2_presets':["Presets", "预设"],'h2_properties':["Properties", "特性"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_live_preview':["Live Preview", "实时预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'btn_trigger_animation':["Trigger Animation", "触发动画"],'btn_reset':["Reset", "重置"],'btn_copy':["Copy", "复制"],'btn_close':["Close", "关闭"],'btn_hover_target':["Hover Target", "悬停目标"],'btn_dashboard':["Dashboard", "仪表板"],'btn_analytics':["Analytics", "分析"],'btn_settings':["Settings", "设置"],'btn_team':["Team", "团队"],'label_duration':["Duration", "期间"],'label_easing':["Easing", "缓解"],'label_start_opacity':["Start Opacity", "起始不透明度"],'label_start_scale':["Start Scale", "起始量表"],'label_start_y_offset':["Start Y offset", "起始 Y 偏移"],'footer_css_starting_style_playgr':["CSS @starting-style Playground — Dev Vault", "CSS @starting-style Playground — 开发库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_close':["Close", "关闭"],'jtlword_speed':["Speed", "速度"],'jtlword_security':["Security", "安全"],'jtlword_design':["Design", "设计"],'jtlword_dashboard':["Dashboard", "仪表板"],'jtlword_analytics':["Analytics", "分析"],'jtlword_settings':["Settings", "设置"],'jtlword_team':["Team", "团队"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const els = {
@@ -719,7 +731,7 @@ body {
             <div class="demo-modal ss-target" id="modalEl">
               <h4>Confirm Action</h4>
               <p>This modal uses @starting-style for its entry animation. No JavaScript animations needed.</p>
-              <button class="btn btn-primary" onclick="document.getElementById('modalBackdrop').classList.remove('visible');document.getElementById('modalEl').classList.remove('ss-visible');">Close</button>
+              <button class="btn btn-primary" onclick="document.getElementById('modalBackdrop').classList.remove('visible');document.getElementById('modalEl').classList.remove('ss-visible');" ti="btn_close">Close</button>
             </div>
           </div>
         </div>`;
@@ -734,7 +746,7 @@ body {
         <div class="demo-stage">
           <p style="color:var(--text-secondary);font-size:0.9rem;">Click "Trigger Animation" to toggle the popover</p>
           <div style="position:relative;display:inline-block;">
-            <button class="demo-popover-anchor" id="popAnchor">Hover Target</button>
+            <button class="demo-popover-anchor" id="popAnchor" ti="btn_hover_target">Hover Target</button>
             <div class="demo-popover ss-target" id="popoverEl" style="display:none;top:100%;left:50%;transform:translateX(-50%);margin-top:10px;">
               This popover animates in with @starting-style. Pure CSS, no JavaScript animation.
             </div>
@@ -793,10 +805,10 @@ body {
       els.previewContainer.innerHTML = `
         <div class="demo-stage">
           <div class="demo-nav" id="navEl">
-            <button class="demo-nav-item active ss-visible" data-idx="0">Dashboard</button>
-            <button class="demo-nav-item" data-idx="1">Analytics</button>
-            <button class="demo-nav-item" data-idx="2">Settings</button>
-            <button class="demo-nav-item" data-idx="3">Team</button>
+            <button class="demo-nav-item active ss-visible" data-idx="0" ti="btn_dashboard">Dashboard</button>
+            <button class="demo-nav-item" data-idx="1" ti="btn_analytics">Analytics</button>
+            <button class="demo-nav-item" data-idx="2" ti="btn_settings">Settings</button>
+            <button class="demo-nav-item" data-idx="3" ti="btn_team">Team</button>
           </div>
         </div>`;
       setTimeout(() => {
@@ -1025,10 +1037,10 @@ body {
   els.copyBtn.addEventListener('click', () => {
     const css = els.dynamicStyles.textContent;
     navigator.clipboard.writeText(css).then(() => {
-      els.copyBtn.textContent = 'Copied!';
+      els.copyBtn.textContent=T("jtc_copied");
       els.copyBtn.classList.add('copied');
       setTimeout(() => {
-        els.copyBtn.textContent = 'Copy';
+        els.copyBtn.textContent=T("jtc_copy");
         els.copyBtn.classList.remove('copied');
       }, 2000);
     });
@@ -1037,6 +1049,24 @@ body {
   // Init
   updateControlUI();
   renderPreview();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

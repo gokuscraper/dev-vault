@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_hash_generator_sha_1_sha" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,9 +61,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Hash Generator</h1>
-<p class="subtitle">Generate SHA-1, SHA-256, SHA-512 hashes from text or files.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_hash_generator">Hash Generator</h1>
+<p class="subtitle" ti="subtitle_generate_sha_1_sha_256_sh">Generate SHA-1, SHA-256, SHA-512 hashes from text or files.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab(0)">Text</div>
@@ -74,12 +76,12 @@ footer a:hover{color:#999}
 <!-- Text Hash -->
 <div class="panel active" id="p0">
   <div class="label">Input Text</div>
-  <textarea id="textInput" placeholder="Enter text to hash..." oninput="hashText()">Hello, World!</textarea>
+  <textarea id="textInput" tp="placeholder_enter_text_to_hash" placeholder="Enter text to hash..." oninput="hashText()">Hello, World!</textarea>
   <div class="algo-select" id="algoSelect">
-    <button class="algo-btn active" onclick="toggleAlgo(this,'sha1')">SHA-1</button>
-    <button class="algo-btn active" onclick="toggleAlgo(this,'sha256')">SHA-256</button>
-    <button class="algo-btn active" onclick="toggleAlgo(this,'sha512')">SHA-512</button>
-    <button class="algo-btn" onclick="toggleAlgo(this,'md5')">MD5</button>
+    <button class="algo-btn active" onclick="toggleAlgo(this,'sha1')" ti="btn_sha_1">SHA-1</button>
+    <button class="algo-btn active" onclick="toggleAlgo(this,'sha256')" ti="btn_sha_256">SHA-256</button>
+    <button class="algo-btn active" onclick="toggleAlgo(this,'sha512')" ti="btn_sha_512">SHA-512</button>
+    <button class="algo-btn" onclick="toggleAlgo(this,'md5')" ti="btn_md5">MD5</button>
   </div>
   <div class="hash-results" id="textResults"></div>
 </div>
@@ -97,20 +99,30 @@ footer a:hover{color:#999}
 <!-- Compare -->
 <div class="panel" id="p2">
   <div class="label">Hash 1</div>
-  <input class="compare-input" id="hash1" placeholder="Paste first hash..." oninput="compareHashes()">
+  <input class="compare-input" id="hash1" tp="placeholder_paste_first_hash" placeholder="Paste first hash..." oninput="compareHashes()">
   <div style="height:10px"></div>
   <div class="label">Hash 2</div>
-  <input class="compare-input" id="hash2" placeholder="Paste second hash..." oninput="compareHashes()">
+  <input class="compare-input" id="hash2" tp="placeholder_paste_second_hash" placeholder="Paste second hash..." oninput="compareHashes()">
   <div class="compare-result" id="compareResult"></div>
 </div>
 
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/hash-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> (20 free tools)
+  <a href="https://github.com/gokuscraper/hash-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> (20 free tools)
 </footer>
 
+
+<script>var _LANG={'title_hash_generator_sha_1_sha':["Hash Generator — SHA-1, SHA-256, SHA-512, MD5", "哈希生成器 — SHA-1、SHA-256、SHA-512、MD5"],'metadesc_generate_sha_1_sha_256_sh':["Generate SHA-1, SHA-256, SHA-512 hashes from text or files. Compare hashes, copy instantly. Free, no upload, runs in your browser.", "从文本或文件生成 SHA-1、SHA-256 和 SHA-512 哈希值。比较哈希值，即时复制。免费，无需上传，在浏览器中运行。"],'h1_hash_generator':["Hash Generator", "哈希生成器"],'subtitle_generate_sha_1_sha_256_sh':["Generate SHA-1, SHA-256, SHA-512 hashes from text or files.", "从文本或文件生成 SHA-1、SHA-256、SHA-512 哈希值。"],'btn_sha_1':["SHA-1", "SHA-1"],'btn_sha_256':["SHA-256", "SHA-256"],'btn_sha_512':["SHA-512", "SHA-512"],'btn_md5':["MD5", "MD5"],'btn_copy':["Copy", "复制"],'placeholder_enter_text_to_hash':["Enter text to hash...", "输入要进行哈希处理的文本..."],'placeholder_paste_first_hash':["Paste first hash...", "先粘贴哈希值……"],'placeholder_paste_second_hash':["Paste second hash...", "粘贴第二个哈希值……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_20_free_tools':["(20 free tools)", "（20款免费工具）"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 const algos={sha1:'SHA-1',sha256:'SHA-256',sha512:'SHA-512',md5:'MD5'};
@@ -210,7 +222,7 @@ function renderResults(container,hashes){
     <div class="hash-row">
       <div class="algo">${algo}</div>
       <div class="value">${hash}</div>
-      <button class="copy-btn" onclick="copyHash(this,'${hash}')">Copy</button>
+      <button class="copy-btn" onclick="copyHash(this,'${hash}')" ti="btn_copy">Copy</button>
     </div>
   `).join('');
 }
@@ -253,7 +265,7 @@ function compareHashes(){
 function copyHash(btn,hash){
   navigator.clipboard.writeText(hash);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -268,12 +280,30 @@ dz.addEventListener('drop',e=>{e.preventDefault();dz.classList.remove('drag');if
 hashText();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/base64-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Base64 Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/password-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Password Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/uuid-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">UUID Gen</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

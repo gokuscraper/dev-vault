@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_selection_range_api_playg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -147,6 +147,8 @@ header h1 .icon{font-size:1.2em}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
     <h1><span class="icon">&#9776;</span> Selection &amp; Range API Playground</h1>
@@ -155,18 +157,18 @@ header h1 .icon{font-size:1.2em}
 
   <!-- Presets -->
   <div class="presets" id="presets">
-    <button class="preset-btn active" data-preset="basic">Basic Selection</button>
-    <button class="preset-btn" data-preset="multi">Multi-Range (Firefox)</button>
-    <button class="preset-btn" data-preset="editable">ContentEditable</button>
-    <button class="preset-btn" data-preset="highlight">Highlight Word</button>
-    <button class="preset-btn" data-preset="extract">Extract Fragment</button>
+    <button class="preset-btn active" data-preset="basic" ti="btn_basic_selection">Basic Selection</button>
+    <button class="preset-btn" data-preset="multi" ti="btn_multi_range_firefox">Multi-Range (Firefox)</button>
+    <button class="preset-btn" data-preset="editable" ti="btn_contenteditable">ContentEditable</button>
+    <button class="preset-btn" data-preset="highlight" ti="btn_highlight_word">Highlight Word</button>
+    <button class="preset-btn" data-preset="extract" ti="btn_extract_fragment">Extract Fragment</button>
   </div>
 
   <!-- Sandbox -->
   <div id="sandbox">
-    <p>The <strong>Selection API</strong> provides access to the portion of the document selected by the user.</p>
+    <p>The <strong ti="strong_selection_api">Selection API</strong> provides access to the portion of the document selected by the user.</p>
     <p>A <em>Range</em> object represents a fragment of the document, defined by a start and end point.</p>
-    <p class="nested">Nested content: <span>spans</span>, <a href="#">links</a>, and <code>code</code> elements live here.</p>
+    <p class="nested">Nested content: <span>spans</span>, <a href="#" ti="link_links">links</a>, and <code>code</code> elements live here.</p>
   </div>
 
   <div class="grid">
@@ -187,7 +189,7 @@ header h1 .icon{font-size:1.2em}
       <div class="panel" style="margin-bottom:16px">
         <div class="panel-header">
           <span class="label">&#127795; DOM Tree View</span>
-          <button class="ctrl-btn" onclick="refreshTree()" style="padding:2px 8px;font-size:0.7rem">Refresh</button>
+          <button class="ctrl-btn" onclick="refreshTree()" style="padding:2px 8px;font-size:0.7rem" ti="btn_refresh">Refresh</button>
         </div>
         <div class="panel-body dom-tree" id="domTree" style="max-height:350px"></div>
       </div>
@@ -196,7 +198,7 @@ header h1 .icon{font-size:1.2em}
       <div class="panel">
         <div class="panel-header">
           <span class="label">&#9889; Event Monitor</span>
-          <button class="ctrl-btn danger" onclick="clearEvents()" style="padding:2px 8px;font-size:0.7rem">Clear</button>
+          <button class="ctrl-btn danger" onclick="clearEvents()" style="padding:2px 8px;font-size:0.7rem" ti="btn_clear">Clear</button>
         </div>
         <div class="panel-body event-log" id="eventLog">
           <div style="color:var(--fg3);font-size:0.82rem;text-align:center;padding:10px">Listening for selectionchange &amp; selectstart...</div>
@@ -219,53 +221,53 @@ header h1 .icon{font-size:1.2em}
           <!-- Programmatic Selection -->
           <div class="tab-panel active" id="tab-programmatic">
             <div class="control-group">
-              <label>Target Node</label>
+              <label ti="label_target_node">Target Node</label>
               <div class="control-row">
                 <select class="ctrl-select" id="startNodeSelect"></select>
               </div>
             </div>
             <div class="control-group">
-              <label>Start Offset</label>
+              <label ti="label_start_offset">Start Offset</label>
               <div class="control-row">
                 <input type="number" class="ctrl-input" id="startOffset" value="0" min="0">
               </div>
             </div>
             <div class="control-group">
-              <label>End Node</label>
+              <label ti="label_end_node">End Node</label>
               <div class="control-row">
                 <select class="ctrl-select" id="endNodeSelect"></select>
               </div>
             </div>
             <div class="control-group">
-              <label>End Offset</label>
+              <label ti="label_end_offset">End Offset</label>
               <div class="control-row">
                 <input type="number" class="ctrl-input" id="endOffset" value="5" min="0">
               </div>
             </div>
             <div class="control-row" style="margin-top:8px">
-              <button class="ctrl-btn success" onclick="applyProgrammaticSelection()">Apply Selection</button>
-              <button class="ctrl-btn" onclick="collapseToStart()">Collapse to Start</button>
-              <button class="ctrl-btn" onclick="collapseToEnd()">Collapse to End</button>
+              <button class="ctrl-btn success" onclick="applyProgrammaticSelection()" ti="btn_apply_selection">Apply Selection</button>
+              <button class="ctrl-btn" onclick="collapseToStart()" ti="btn_collapse_to_start">Collapse to Start</button>
+              <button class="ctrl-btn" onclick="collapseToEnd()" ti="btn_collapse_to_end">Collapse to End</button>
             </div>
           </div>
 
           <!-- Range Operations -->
           <div class="tab-panel" id="tab-rangeops">
             <div class="ops-grid">
-              <button class="ctrl-btn" onclick="doRangeOp('createRange')">createRange()</button>
-              <button class="ctrl-btn" onclick="doRangeOp('cloneRange')">cloneRange()</button>
-              <button class="ctrl-btn" onclick="doRangeOp('selectNode')">selectNode()</button>
-              <button class="ctrl-btn" onclick="doRangeOp('selectNodeContents')">selectNodeContents()</button>
+              <button class="ctrl-btn" onclick="doRangeOp('createRange')" ti="btn_createrange">createRange()</button>
+              <button class="ctrl-btn" onclick="doRangeOp('cloneRange')" ti="btn_clonerange">cloneRange()</button>
+              <button class="ctrl-btn" onclick="doRangeOp('selectNode')" ti="btn_selectnode">selectNode()</button>
+              <button class="ctrl-btn" onclick="doRangeOp('selectNodeContents')" ti="btn_selectnodecontents">selectNodeContents()</button>
             </div>
             <div class="control-group">
-              <label>Multi-Range (Firefox only)</label>
+              <label ti="label_multi_range_firefox_only">Multi-Range (Firefox only)</label>
               <div class="control-row">
-                <button class="ctrl-btn" onclick="addRange()">addRange()</button>
-                <button class="ctrl-btn danger" onclick="removeAllRanges()">removeAllRanges()</button>
+                <button class="ctrl-btn" onclick="addRange()" ti="btn_addrange">addRange()</button>
+                <button class="ctrl-btn danger" onclick="removeAllRanges()" ti="btn_removeallranges">removeAllRanges()</button>
               </div>
             </div>
             <div class="control-group" style="margin-top:8px">
-              <label>Select Node for Operations</label>
+              <label ti="label_select_node_for_operation">Select Node for Operations</label>
               <div class="control-row">
                 <select class="ctrl-select" id="opNodeSelect"></select>
               </div>
@@ -276,13 +278,13 @@ header h1 .icon{font-size:1.2em}
           <div class="tab-panel" id="tab-richtext">
             <p style="font-size:0.75rem;color:var(--fg2);margin-bottom:10px">Select text in sandbox first, then apply an operation:</p>
             <div class="ops-grid">
-              <button class="ctrl-btn" onclick="doRichText('surroundContents')">surroundContents()</button>
-              <button class="ctrl-btn danger" onclick="doRichText('extractContents')">extractContents()</button>
-              <button class="ctrl-btn" onclick="doRichText('cloneContents')">cloneContents()</button>
-              <button class="ctrl-btn danger" onclick="doRichText('deleteContents')">deleteContents()</button>
+              <button class="ctrl-btn" onclick="doRichText('surroundContents')" ti="btn_surroundcontents">surroundContents()</button>
+              <button class="ctrl-btn danger" onclick="doRichText('extractContents')" ti="btn_extractcontents">extractContents()</button>
+              <button class="ctrl-btn" onclick="doRichText('cloneContents')" ti="btn_clonecontents">cloneContents()</button>
+              <button class="ctrl-btn danger" onclick="doRichText('deleteContents')" ti="btn_deletecontents">deleteContents()</button>
             </div>
             <div class="control-group" style="margin-top:8px">
-              <label>Surround Tag</label>
+              <label ti="label_surround_tag">Surround Tag</label>
               <div class="control-row">
                 <select class="ctrl-select" id="surroundTag">
                   <option value="mark">mark</option>
@@ -290,7 +292,7 @@ header h1 .icon{font-size:1.2em}
                   <option value="em">em</option>
                   <option value="span">span (with class)</option>
                 </select>
-                <button class="ctrl-btn" onclick="resetSandbox()">Reset Sandbox</button>
+                <button class="ctrl-btn" onclick="resetSandbox()" ti="btn_reset_sandbox">Reset Sandbox</button>
               </div>
             </div>
           </div>
@@ -303,7 +305,7 @@ header h1 .icon{font-size:1.2em}
           <span class="label">&#128196; Code Output</span>
         </div>
         <div class="panel-body code-output">
-          <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+          <button class="copy-btn" onclick="copyCode(this)" ti="btn_copy">Copy</button>
           <div class="code-block" id="codeOutput"><span class="cm">// Select text or use controls to generate code</span></div>
         </div>
       </div>
@@ -321,6 +323,16 @@ header h1 .icon{font-size:1.2em}
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_selection_range_api_playg':["Selection & Range API Playground", "选择与范围 API 演示区"],'metadesc_interactive_visual_debugg':["Interactive visual debugger for the Selection & Range API. Inspect ranges, manipulate selections, and explore DOM text nodes.", "用于 Selection &amp; Range API 的交互式可视化调试器。检查范围、操作选区并探索 DOM 文本节点。"],'btn_basic_selection':["Basic Selection", "基本选择"],'btn_multi_range_firefox':["Multi-Range (Firefox)", "多范围（Firefox）"],'btn_contenteditable':["ContentEditable", "内容可编辑"],'btn_highlight_word':["Highlight Word", "高亮单词"],'btn_extract_fragment':["Extract Fragment", "提取片段"],'btn_refresh':["Refresh", "刷新"],'btn_clear':["Clear", "清除"],'btn_apply_selection':["Apply Selection", "应用选择"],'btn_collapse_to_start':["Collapse to Start", "折叠至开头"],'btn_collapse_to_end':["Collapse to End", "崩溃结束"],'btn_createrange':["createRange()", "创建范围()"],'btn_clonerange':["cloneRange()", "克隆范围()"],'btn_selectnode':["selectNode()", "selectNode()"],'btn_selectnodecontents':["selectNodeContents()", "selectNodeContents()"],'btn_addrange':["addRange()", "添加范围()"],'btn_removeallranges':["removeAllRanges()", "removeAllRanges()"],'btn_surroundcontents':["surroundContents()", "环绕内容()"],'btn_extractcontents':["extractContents()", "extractContents()"],'btn_clonecontents':["cloneContents()", "cloneContents()"],'btn_deletecontents':["deleteContents()", "deleteContents()"],'btn_reset_sandbox':["Reset Sandbox", "重置沙盒"],'btn_copy':["Copy", "复制"],'label_selection_inspector':["🔍 Selection Inspector", "🔍 甄选督察"],'label_dom_tree_view':["🌳 DOM Tree View", "🌳 DOM 树状视图"],'label_event_monitor':["⚡ Event Monitor", "⚡ 事件监视器"],'label_controls':["⚙ Controls", "⚙ 控制"],'label_code_output':["📄 Code Output", "📄 代码输出"],'label_browser_support':["🌐 Browser Support", "🌐 浏览器支持"],'strong_selection_api':["Selection API", "选择 API"],'strong_editable':["editable", "可编辑"],'label_target_node':["Target Node", "目标节点"],'label_start_offset':["Start Offset", "起始偏移量"],'label_end_node':["End Node", "末端节点"],'label_end_offset':["End Offset", "末端偏移"],'label_multi_range_firefox_only':["Multi-Range (Firefox only)", "多范围（仅限 Firefox）"],'label_select_node_for_operation':["Select Node for Operations", "选择节点进行操作"],'label_surround_tag':["Surround Tag", "环绕标签"],'link_links':["links", "链接"],'jtc_0_ranges':["0 ranges", "0 个范围"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_full_support':["Full Support", "全力支持"],'jtc_good_support':["Good Support", "良好支持"],'jtc_partial_support':["Partial Support", "部分支持"],'jtlword_editable':["editable", "可编辑"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── State ──
 const sandbox = document.getElementById('sandbox');
@@ -427,7 +439,7 @@ function updateInspector() {
   const sel = window.getSelection();
   if (!sel || sel.rangeCount === 0) {
     inspectorBody.innerHTML = '<div style="color:var(--fg3);font-size:0.82rem;text-align:center;padding:20px">No selection</div>';
-    rangeCountEl.textContent = '0 ranges';
+    rangeCountEl.textContent=T("jtc_0_ranges");
     return;
   }
 
@@ -572,10 +584,10 @@ updateCodeOutput = function(code) {
 
 function copyCode(btn) {
   navigator.clipboard.writeText(rawCode).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => {
-      btn.textContent = 'Copy';
+      btn.textContent=T("jtc_copy");
       btn.classList.remove('copied');
     }, 1500);
   });
@@ -893,7 +905,7 @@ sel.addRange(range2);
       }
       case 'editable': {
         sandbox.innerHTML = `<p>Non-editable paragraph above the editable area.</p>
-<div contenteditable="true" style="min-height:40px">This text is <strong>editable</strong>. Try selecting and modifying it.</div>
+<div contenteditable="true" style="min-height:40px">This text is <strong ti="strong_editable">editable</strong>. Try selecting and modifying it.</div>
 <p>Non-editable paragraph below.</p>`;
         originalSandboxHTML = sandbox.innerHTML;
         refreshNodeSelects();
@@ -1023,13 +1035,13 @@ function checkBrowserSupport() {
 
   const badge = document.getElementById('browserBadge');
   if (allGood && partialCount === 0) {
-    badge.textContent = 'Full Support';
+    badge.textContent=T("jtc_full_support");
     badge.className = 'badge badge-green';
   } else if (allGood) {
-    badge.textContent = 'Good Support';
+    badge.textContent=T("jtc_good_support");
     badge.className = 'badge badge-green';
   } else {
-    badge.textContent = 'Partial Support';
+    badge.textContent=T("jtc_partial_support");
     badge.className = 'badge badge-yellow';
   }
 }
@@ -1073,6 +1085,24 @@ checkBrowserSupport();
 
 // Apply basic preset on load
 requestAnimationFrame(() => applyPreset('basic'));
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_periodic_background_sync" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -309,13 +309,15 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Periodic Background Sync Playground</h1>
+  <h1 ti="title_periodic_background_sync" ti="h1_periodic_background_sync">Periodic Background Sync Playground</h1>
   <p>Schedule periodic background sync tasks for Progressive Web Apps</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Support Detection -->
   <div id="supportBanner" class="support-banner"></div>
 
@@ -332,7 +334,7 @@
         <span id="permStatus" class="status-badge unknown">Checking...</span>
       </div>
 
-      <button class="btn btn-sm" onclick="checkPermission()">Re-check Permission</button>
+      <button class="btn btn-sm" onclick="checkPermission()" ti="btn_re_check_permission">Re-check Permission</button>
 
       <div style="margin-top:1rem;">
         <div style="font-size:0.85rem;color:var(--text-dim);margin-bottom:0.5rem;">Requirements:</div>
@@ -353,8 +355,8 @@
       </div>
 
       <div style="display:flex;gap:0.5rem;">
-        <button class="btn btn-sm" id="registerSwBtn" onclick="registerSW()">Register SW</button>
-        <button class="btn btn-sm btn-secondary" id="unregisterSwBtn" onclick="unregisterSW()" disabled>Unregister SW</button>
+        <button class="btn btn-sm" id="registerSwBtn" onclick="registerSW()" ti="btn_register_sw">Register SW</button>
+        <button class="btn btn-sm btn-secondary" id="unregisterSwBtn" onclick="unregisterSW()" disabled ti="btn_unregister_sw">Unregister SW</button>
       </div>
 
       <div class="code-block" style="margin-top:1rem;font-size:0.75rem;">
@@ -374,12 +376,12 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (event) => {
     <div class="grid-2">
       <div>
         <div class="form-group">
-          <label>Sync Tag</label>
-          <input type="text" id="syncTag" placeholder="e.g. news-sync, content-refresh" value="content-sync">
+          <label ti="label_sync_tag">Sync Tag</label>
+          <input type="text" id="syncTag" tp="placeholder_e_g_news_sync_content_ref" placeholder="e.g. news-sync, content-refresh" value="content-sync">
         </div>
 
         <div class="form-group">
-          <label>Minimum Interval</label>
+          <label ti="label_minimum_interval">Minimum Interval</label>
           <div class="interval-slider">
             <input type="range" id="intervalSlider" min="0" max="8" value="4" oninput="updateIntervalDisplay()">
             <div class="interval-display">
@@ -390,17 +392,17 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (event) => {
         </div>
 
         <div class="preset-btns">
-          <button class="btn btn-sm btn-secondary" onclick="setInterval(0)">1 min</button>
-          <button class="btn btn-sm btn-secondary" onclick="setInterval(2)">15 min</button>
-          <button class="btn btn-sm btn-secondary" onclick="setInterval(4)">1 hour</button>
-          <button class="btn btn-sm btn-secondary" onclick="setInterval(6)">12 hours</button>
-          <button class="btn btn-sm btn-secondary" onclick="setInterval(8)">1 day</button>
+          <button class="btn btn-sm btn-secondary" onclick="setInterval(0)" ti="btn_1_min">1 min</button>
+          <button class="btn btn-sm btn-secondary" onclick="setInterval(2)" ti="btn_15_min">15 min</button>
+          <button class="btn btn-sm btn-secondary" onclick="setInterval(4)" ti="btn_1_hour">1 hour</button>
+          <button class="btn btn-sm btn-secondary" onclick="setInterval(6)" ti="btn_12_hours">12 hours</button>
+          <button class="btn btn-sm btn-secondary" onclick="setInterval(8)" ti="btn_1_day">1 day</button>
         </div>
 
         <div style="display:flex;gap:0.5rem;">
-          <button class="btn" id="registerSyncBtn" onclick="registerSync()">Register Sync</button>
-          <button class="btn btn-secondary" id="listSyncsBtn" onclick="listTags()">List Tags</button>
-          <button class="btn btn-danger btn-sm" id="unregisterSyncBtn" onclick="unregisterSync()">Unregister</button>
+          <button class="btn" id="registerSyncBtn" onclick="registerSync()" ti="btn_register_sync">Register Sync</button>
+          <button class="btn btn-secondary" id="listSyncsBtn" onclick="listTags()" ti="btn_list_tags">List Tags</button>
+          <button class="btn btn-danger btn-sm" id="unregisterSyncBtn" onclick="unregisterSync()" ti="btn_unregister">Unregister</button>
         </div>
 
         <div id="generatedRegCode" class="code-block" style="margin-top:1rem;display:none;"></div>
@@ -423,8 +425,8 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (event) => {
         Visual timeline of sync registrations and simulated events.
       </p>
       <div class="sim-controls">
-        <button class="btn btn-sm" onclick="simulateSync()">Simulate Sync Event</button>
-        <button class="btn btn-sm btn-secondary" onclick="clearTimeline()">Clear</button>
+        <button class="btn btn-sm" onclick="simulateSync()" ti="btn_simulate_sync_event">Simulate Sync Event</button>
+        <button class="btn btn-sm btn-secondary" onclick="clearTimeline()" ti="btn_clear" ti="btn_clear_2">Clear</button>
       </div>
       <div id="timeline" class="timeline" style="max-height:300px;overflow-y:auto;">
         <div class="timeline-event register">
@@ -454,12 +456,12 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (event) => {
       </div>
 
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-        <button class="btn btn-sm" id="startSimBtn" onclick="startSimulation()">Start Auto-Sim</button>
-        <button class="btn btn-sm btn-danger" id="stopSimBtn" onclick="stopSimulation()" disabled>Stop</button>
+        <button class="btn btn-sm" id="startSimBtn" onclick="startSimulation()" ti="btn_start_auto_sim">Start Auto-Sim</button>
+        <button class="btn btn-sm btn-danger" id="stopSimBtn" onclick="stopSimulation()" disabled ti="btn_stop">Stop</button>
       </div>
 
       <div class="form-group" style="margin-top:0.75rem;">
-        <label>Simulation interval (seconds)</label>
+        <label ti="label_simulation_interval_secon">Simulation interval (seconds)</label>
         <input type="number" id="simInterval" value="5" min="1" max="60">
       </div>
     </div>
@@ -553,7 +555,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
     <h2>&#x1F30D; Browser Support</h2>
     <div class="compat-table">
       <table>
-        <thead><tr><th>Browser</th><th>Version</th><th>Status</th><th>Notes</th></tr></thead>
+        <thead><tr><th ti="th_browser">Browser</th><th ti="th_version">Version</th><th ti="th_status">Status</th><th ti="th_notes">Notes</th></tr></thead>
         <tbody>
           <tr><td>Chrome</td><td>80+</td><td style="color:var(--success);">Supported</td><td>Requires installed PWA + site engagement</td></tr>
           <tr><td>Edge</td><td>80+</td><td style="color:var(--success);">Supported</td><td>Chromium-based, same as Chrome</td></tr>
@@ -566,7 +568,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
     </div>
 
     <div style="margin-top:1rem;font-size:0.83rem;color:var(--text-dim);">
-      <strong>Key constraints:</strong>
+      <strong ti="strong_key_constraints">Key constraints:</strong>
       <ul style="margin-top:0.5rem;padding-left:1.5rem;">
         <li>The browser may adjust the actual interval based on site engagement score</li>
         <li>minInterval is a <em>minimum</em> - actual intervals may be much longer</li>
@@ -587,6 +589,16 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
   </div>
 </div>
 
+
+<script>var _LANG={'title_periodic_background_sync':["Periodic Background Sync Playground", "周期性背景同步游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for the Periodic Background Sync API - schedule background sync tasks in your PWA.", "周期性后台同步 API 的交互式演示平台 - 在您的 PWA 中安排后台同步任务。"],'h1_periodic_background_sync':["Periodic Background Sync Playground", "周期性背景同步游乐场"],'h2_permission_status':["🔒 Permission Status", "🔒 权限状态"],'h2_service_worker':["⚙️ Service Worker", "⚙️ 服务人员"],'h2_register_periodic_sync':["🔄 Register Periodic Sync", "🔄 注册定期同步"],'h2_sync_event_timeline':["📊 Sync Event Timeline", "📊 同步事件时间线"],'h2_sync_simulation':["🎮 Sync Simulation", "🎮 同步模拟"],'h2_use_case_demos':["💡 Use Case Demos", "💡 使用案例演示"],'h2_browser_support':["🌍 Browser Support", "🌍 浏览器支持"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_re_check_permission':["Re-check Permission", "重新检查权限"],'btn_register_sw':["Register SW", "注册软件"],'btn_unregister_sw':["Unregister SW", "注销软件"],'btn_1_min':["1 min", "1分钟"],'btn_15_min':["15 min", "15分钟"],'btn_1_hour':["1 hour", "1小时"],'btn_12_hours':["12 hours", "12小时"],'btn_1_day':["1 day", "1天"],'btn_register_sync':["Register Sync", "注册同步"],'btn_list_tags':["List Tags", "列表标签"],'btn_unregister':["Unregister", "取消注册"],'btn_simulate_sync_event':["Simulate Sync Event", "模拟同步事件"],'btn_clear':["Clear", "清除"],'btn_start_auto_sim':["Start Auto-Sim", "启动自动模拟"],'btn_stop':["Stop", "停止"],'btn_clear_2':["Clear", "清除"],'btn_remove':["Remove", "消除"],'placeholder_e_g_news_sync_content_ref':["e.g. news-sync, content-refresh", "例如新闻同步、内容刷新"],'strong_key_constraints':["Key constraints:", "关键限制因素："],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_status':["Status", "地位"],'th_notes':["Notes", "笔记"],'label_sync_tag':["Sync Tag", "同步标签"],'label_minimum_interval':["Minimum Interval", "最小间隔"],'label_simulation_interval_secon':["Simulation interval (seconds)", "模拟间隔（秒）"],'jtc_not_available':["Not available", "无法使用"],'jtc_active':["Active", "积极的"],'jtc_not_registered':["Not registered", "未注册"],'jtc_idle_last_sync_completed':["Idle (last sync completed)", "空闲（上次同步已完成）"],'jtc_idle':["Idle", "闲置的"],'jtlword_const':["const", "常量"],'jtlword_await':["await", "等待"],'jtlword_await_2':["await", "等待"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   /* ===== Interval Presets ===== */
   const INTERVALS = [
@@ -672,7 +684,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
       });
     } catch (e) {
       statusEl.className = 'status-badge unknown';
-      statusEl.textContent = 'Not available';
+      statusEl.textContent=T("jtc_not_available");
       log(`Permission query failed: ${e.message}`, 'warn');
     }
 
@@ -760,11 +772,11 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
     const el = document.getElementById('swStatus');
     if (active) {
       el.className = 'status-badge granted';
-      el.textContent = 'Active';
+      el.textContent=T("jtc_active");
       document.getElementById('unregisterSwBtn').disabled = false;
     } else {
       el.className = 'status-badge denied';
-      el.textContent = 'Not registered';
+      el.textContent=T("jtc_not_registered");
       document.getElementById('unregisterSwBtn').disabled = true;
     }
   }
@@ -863,7 +875,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
           <div class="tag-name">${tag}</div>
           <div class="interval">minInterval: ${interval.label} (${interval.ms.toLocaleString()} ms)</div>
         </div>
-        <button class="btn btn-sm btn-danger" onclick="removeTag('${tag}')">Remove</button>
+        <button class="btn btn-sm btn-danger" onclick="removeTag('${tag}')" ti="btn_remove">Remove</button>
       </div>`;
     });
     el.innerHTML = html;
@@ -909,7 +921,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
     document.getElementById('simStatusText').textContent = `Syncing '${tag}'...`;
     setTimeout(() => {
       indicator.style.background = 'var(--accent)';
-      document.getElementById('simStatusText').textContent = 'Idle (last sync completed)';
+      document.getElementById('simStatusText').textContent=T("jtc_idle_last_sync_completed");
     }, 1000);
   }
 
@@ -933,7 +945,7 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
     document.getElementById('startSimBtn').disabled = false;
     document.getElementById('stopSimBtn').disabled = true;
     document.getElementById('simIndicator').style.background = 'var(--text-dim)';
-    document.getElementById('simStatusText').textContent = 'Idle';
+    document.getElementById('simStatusText').textContent=T("jtc_idle");
     log('Auto-simulation stopped.', 'info');
   }
 
@@ -952,6 +964,24 @@ self.addEventListener(<span class="string">'periodicsync'</span>, (e) => {
       }
     });
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

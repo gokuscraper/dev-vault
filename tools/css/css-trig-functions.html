@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_trigonometric_functio" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -772,10 +772,12 @@ input[type="range"]::-moz-range-thumb {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- Header -->
 <header class="header">
-  <h1>CSS Trigonometric Functions</h1>
+  <h1 ti="h1_css_trigonometric_functio">CSS Trigonometric Functions</h1>
   <p>Interactive playground for native CSS <code>sin()</code>, <code>cos()</code>, <code>tan()</code>, <code>atan2()</code> math functions. No JavaScript calculations needed.</p>
   <div class="browser-support">
     <span class="browser-badge">Chrome <span class="version">111+</span></span>
@@ -787,23 +789,23 @@ input[type="range"]::-moz-range-thumb {
 
 <!-- Navigation -->
 <nav class="nav">
-  <a href="#circular">Circular Layout</a>
-  <a href="#orbit">Orbit</a>
-  <a href="#clock">Clock</a>
-  <a href="#wave">Wave</a>
-  <a href="#atan2">atan2()</a>
-  <a href="#grapher">Grapher</a>
+  <a href="#circular" ti="link_circular_layout">Circular Layout</a>
+  <a href="#orbit" ti="link_orbit">Orbit</a>
+  <a href="#clock" ti="link_clock">Clock</a>
+  <a href="#wave" ti="link_wave">Wave</a>
+  <a href="#atan2" ti="link_atan2">atan2()</a>
+  <a href="#grapher" ti="link_grapher">Grapher</a>
   <a href="#converter">Unit Converter</a>
 </nav>
 
-<div class="container">
+<div class="container" style="position:relative">
 
 <!-- ═══════════════════════════════════════════ -->
 <!-- Demo 1: Circular Layout Builder            -->
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="circular">
   <div class="demo-title">
-    <h2>Circular Layout Builder</h2>
+    <h2 ti="h2_circular_layout_builder">Circular Layout Builder</h2>
     <span class="tag tag-sin">sin()</span>
     <span class="tag tag-cos">cos()</span>
   </div>
@@ -835,7 +837,7 @@ input[type="range"]::-moz-range-thumb {
         <div class="code-block">
           <div class="code-header">
             <span>CSS</span>
-            <button class="copy-btn" onclick="copyCode('circleCode')">Copy</button>
+            <button class="copy-btn" onclick="copyCode('circleCode')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
           </div>
           <div class="code-content" id="circleCode"></div>
         </div>
@@ -849,7 +851,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="orbit">
   <div class="demo-title">
-    <h2>Orbit Animation</h2>
+    <h2 ti="h2_orbit_animation">Orbit Animation</h2>
     <span class="tag tag-sin">sin()</span>
     <span class="tag tag-cos">cos()</span>
   </div>
@@ -893,7 +895,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="clock">
   <div class="demo-title">
-    <h2>Clock Face</h2>
+    <h2 ti="h2_clock_face">Clock Face</h2>
     <span class="tag tag-sin">sin()</span>
     <span class="tag tag-cos">cos()</span>
   </div>
@@ -930,7 +932,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="wave">
   <div class="demo-title">
-    <h2>Wave Generator</h2>
+    <h2 ti="h2_wave_generator">Wave Generator</h2>
     <span class="tag tag-sin">sin()</span>
   </div>
   <div class="demo-body">
@@ -956,9 +958,9 @@ input[type="range"]::-moz-range-thumb {
           <input type="range" id="waveSpeed" min="1" max="10" value="3">
         </div>
         <div class="graph-controls">
-          <button class="graph-btn active" onclick="setWaveStyle(this,'')">Solid</button>
-          <button class="graph-btn" onclick="setWaveStyle(this,'wave-rainbow')">Rainbow</button>
-          <button class="graph-btn" onclick="setWaveStyle(this,'wave-gradient')">Gradient</button>
+          <button class="graph-btn active" onclick="setWaveStyle(this,'')" ti="btn_solid">Solid</button>
+          <button class="graph-btn" onclick="setWaveStyle(this,'wave-rainbow')" ti="btn_rainbow">Rainbow</button>
+          <button class="graph-btn" onclick="setWaveStyle(this,'wave-gradient')" ti="btn_gradient">Gradient</button>
         </div>
         <div class="code-block">
           <div class="code-header">
@@ -977,7 +979,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="atan2">
   <div class="demo-title">
-    <h2>Angle Calculator</h2>
+    <h2 ti="h2_angle_calculator">Angle Calculator</h2>
     <span class="tag tag-atan2">atan2()</span>
   </div>
   <div class="demo-body">
@@ -1008,16 +1010,16 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="grapher">
   <div class="demo-title">
-    <h2>Function Grapher</h2>
+    <h2 ti="h2_function_grapher">Function Grapher</h2>
     <span class="tag tag-sin">sin()</span>
     <span class="tag tag-cos">cos()</span>
     <span class="tag tag-tan">tan()</span>
   </div>
   <div class="demo-body">
     <div class="graph-controls" id="graphToggles">
-      <button class="graph-btn active" data-fn="sin" onclick="toggleGraph(this)">sin(x)</button>
-      <button class="graph-btn active" data-fn="cos" onclick="toggleGraph(this)">cos(x)</button>
-      <button class="graph-btn" data-fn="tan" onclick="toggleGraph(this)">tan(x)</button>
+      <button class="graph-btn active" data-fn="sin" onclick="toggleGraph(this)" ti="btn_sin_x">sin(x)</button>
+      <button class="graph-btn active" data-fn="cos" onclick="toggleGraph(this)" ti="btn_cos_x">cos(x)</button>
+      <button class="graph-btn" data-fn="tan" onclick="toggleGraph(this)" ti="btn_tan_x">tan(x)</button>
     </div>
     <div class="demo-canvas" style="min-height:320px">
       <div class="graph-container">
@@ -1040,7 +1042,7 @@ input[type="range"]::-moz-range-thumb {
 <!-- ═══════════════════════════════════════════ -->
 <section class="demo-section" id="converter">
   <div class="demo-title">
-    <h2>Unit Converter</h2>
+    <h2 ti="h2_unit_converter" ti="link_unit_converter">Unit Converter</h2>
   </div>
   <div class="demo-body">
     <p style="color:var(--text-dim);font-size:0.88rem;margin-bottom:0.8rem">
@@ -1048,19 +1050,19 @@ input[type="range"]::-moz-range-thumb {
     </p>
     <div class="converter">
       <div class="converter-field">
-        <label>Degrees (deg)</label>
+        <label ti="label_degrees_deg">Degrees (deg)</label>
         <input type="number" id="convDeg" value="90" step="any" oninput="convertFrom('deg')">
       </div>
       <div class="converter-field">
-        <label>Radians (rad)</label>
+        <label ti="label_radians_rad">Radians (rad)</label>
         <input type="number" id="convRad" step="any" oninput="convertFrom('rad')">
       </div>
       <div class="converter-field">
-        <label>Turns (turn)</label>
+        <label ti="label_turns_turn">Turns (turn)</label>
         <input type="number" id="convTurn" step="any" oninput="convertFrom('turn')">
       </div>
       <div class="converter-field">
-        <label>Gradians (grad)</label>
+        <label ti="label_gradians_grad">Gradians (grad)</label>
         <input type="number" id="convGrad" step="any" oninput="convertFrom('grad')">
       </div>
     </div>
@@ -1086,9 +1088,19 @@ input[type="range"]::-moz-range-thumb {
 
 <footer class="footer">
   <p>CSS Trigonometric Functions Playground &mdash; Built with pure CSS trig: <code>sin()</code> <code>cos()</code> <code>tan()</code> <code>atan2()</code></p>
-  <p style="margin-top:0.5rem"><a href="https://github.com/gokuscraper/css-trig-functions">Source on GitHub</a></p>
+  <p style="margin-top:0.5rem"><a href="https://github.com/gokuscraper/css-trig-functions" ti="link_source_on_github">Source on GitHub</a></p>
 </footer>
 
+
+<script>var _LANG={'title_css_trigonometric_functio':["CSS Trigonometric Functions Playground", "CSS三角函数练习场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS sin(), cos(), tan(), atan2() math functions. Build circular layouts, orbits, waves, and more with native CSS trigonometry.", "用于 CSS sin()、cos()、tan()、atan2() 数学函数的交互式练习场。使用原生 CSS 三角函数构建圆形布局、轨道、波浪等图形。"],'h1_css_trigonometric_functio':["CSS Trigonometric Functions", "CSS三角函数"],'h2_circular_layout_builder':["Circular Layout Builder", "圆形布局生成器"],'h2_orbit_animation':["Orbit Animation", "轨道动画"],'h2_clock_face':["Clock Face", "钟面"],'h2_wave_generator':["Wave Generator", "波浪发生器"],'h2_angle_calculator':["Angle Calculator", "角度计算器"],'h2_function_grapher':["Function Grapher", "函数绘图器"],'h2_unit_converter':["Unit Converter", "单位转换器"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_solid':["Solid", "坚硬的"],'btn_rainbow':["Rainbow", "彩虹"],'btn_gradient':["Gradient", "坡度"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_sin_x':["sin(x)", "sin(x)"],'btn_cos_x':["cos(x)", "cos(x)"],'btn_tan_x':["tan(x)", "tan(x)"],'label_degrees_deg':["Degrees (deg)", "度数（度）"],'label_radians_rad':["Radians (rad)", "弧度（rad）"],'label_turns_turn':["Turns (turn)", "转弯（turn）"],'label_gradians_grad':["Gradians (grad)", "研究生（grad）"],'link_circular_layout':["Circular Layout", "圆形布局"],'link_orbit':["Orbit", "轨道"],'link_clock':["Clock", "钟"],'link_wave':["Wave", "海浪"],'link_atan2':["atan2()", "atan2()"],'link_grapher':["Grapher", "绘图师"],'link_unit_converter':["Unit Converter", "单位转换器"],'link_source_on_github':["Source on GitHub", "GitHub 上的源代码"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_position':["position", "位置"],'jtlword_absolute':["absolute", "绝对"],'jtlword_top':["top", "顶部"],'jtlword_left':["left", "左边"],'jtlword_transform':["transform", "转换"],'jtlword_translate':["translate", "翻译"],'jtlword_translate_2':["translate", "翻译"],'jtlword_calc':["calc", "计算"],'jtlword_cos':["cos", "化学"],'jtlword_var':["var", "变量"],'jtlword_calc_2':["calc", "计算"],'jtlword_sin':["sin", "罪"],'jtlword_var_2':["var", "变量"],'jtlword_calc_3':["calc", "计算"],'jtlword_calc_4':["calc", "计算"],'jtlword_calc_5':["calc", "计算"],'jtlword_syntax':["syntax", "句法"],'jtlword_inherits':["inherits", "继承"],'jtlword_false':["false", "错误的"],'jtlword_orbit':["orbit", "轨道"],'jtlword_from':["from", "从"],'jtlword_to':["to", "到"],'jtlword_translate_3':["translate", "翻译"],'jtlword_calc_6':["calc", "计算"],'jtlword_cos_2':["cos", "化学"],'jtlword_var_3':["var", "变量"],'jtlword_calc_7':["calc", "计算"],'jtlword_sin_2':["sin", "罪"],'jtlword_var_4':["var", "变量"],'jtlword_animation':["animation", "动画片"],'jtlword_calc_8':["calc", "计算"],'jtlword_position_2':["position", "位置"],'jtlword_absolute_2':["absolute", "绝对"],'jtlword_top_2':["top", "顶部"],'jtlword_left_2':["left", "左边"],'jtlword_transform_2':["transform", "转换"],'jtlword_translate_4':["translate", "翻译"],'jtlword_translate_5':["translate", "翻译"],'jtlword_calc_9':["calc", "计算"],'jtlword_cos_3':["cos", "化学"],'jtlword_var_5':["var", "变量"],'jtlword_var_6':["var", "变量"],'jtlword_calc_10':["calc", "计算"],'jtlword_sin_3':["sin", "罪"],'jtlword_var_7':["var", "变量"],'jtlword_var_8':["var", "变量"],'jtlword_syntax_2':["syntax", "句法"],'jtlword_inherits_2':["inherits", "继承"],'jtlword_false_2':["false", "错误的"],'jtlword_wave':["wave", "海浪"],'jtlword_from_2':["from", "从"],'jtlword_to_2':["to", "到"],'jtlword_height':["height", "高度"],'jtlword_calc_11':["calc", "计算"],'jtlword_sin_4':["sin", "罪"],'jtlword_var_9':["var", "变量"],'jtlword_var_10':["var", "变量"],'jtlword_animation_2':["animation", "动画片"],'jtlword_rotate':["rotate", "旋转"],'jtlword_atan2':["atan2", "atan2"],'jtlword_var_11':["var", "变量"],'jtlword_var_12':["var", "变量"],'jtlword_rotate_2':["rotate", "旋转"],'jtlword_atan2_2':["atan2", "atan2"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Utilities ──
 function $(id) { return document.getElementById(id); }
@@ -1098,8 +1110,8 @@ function copyCode(id) {
   const text = el.textContent;
   navigator.clipboard.writeText(text).then(() => {
     const btn = el.closest('.code-block').querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1580,6 +1592,24 @@ function round(n) { return Math.round(n * 10000) / 10000; }
 
 // Initialize converter
 convertFrom('deg');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

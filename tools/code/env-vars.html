@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_env_vars_environment_vari" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -53,15 +53,17 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <header>
     <h1><span>$</span>env-vars</h1>
     <p>Environment variable quick reference — 12+ platforms, searchable</p>
   </header>
 
   <div class="search-box">
-    <input type="text" id="search" placeholder="Search variables (e.g. AWS_ACCESS, NODE_ENV, CI)..." autocomplete="off">
+    <input type="text" id="search" tp="placeholder_search_variables_e_g_aws" placeholder="Search variables (e.g. AWS_ACCESS, NODE_ENV, CI)..." autocomplete="off">
   </div>
 
   <div class="platforms" id="platforms"></div>
@@ -70,9 +72,19 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </div>
 
 <footer>
-  <p>env-vars — Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a></p>
+  <p>env-vars — Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault">Dev Vault</a></p>
 </footer>
 
+
+<script>var _LANG={'title_env_vars_environment_vari':["env-vars — Environment Variable Reference for Developers", "环境变量 — 面向开发人员的环境变量参考"],'metadesc_quick_reference_for_commo':["Quick reference for common environment variables. AWS, GCP, GitHub Actions, Node.js, Docker, Stripe, and more. Search, copy, bookmark.", "常用环境变量快速参考。涵盖 AWS、GCP、GitHub Actions、Node.js、Docker、Stripe 等平台。支持搜索、复制和收藏。"],'h3_plats_plat_plat':["${PLATS[plat] || plat}", "${PLATS[plat] || plat}"],'placeholder_search_variables_e_g_aws':["Search variables (e.g. AWS_ACCESS, NODE_ENV, CI)...", "搜索变量（例如 AWS_ACCESS、NODE_ENV、CI）……"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_all':["All", "全部"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const VARS = [
   // Node.js
@@ -235,7 +247,7 @@ function render() {
 
   let html = '';
   for (const [plat, vars] of Object.entries(groups)) {
-    html += `<div class="var-group"><h3>${PLATS[plat] || plat}</h3><table class="var-table">`;
+    html += `<div class="var-group"><h3 ti="h3_plats_plat_plat">${PLATS[plat] || plat}</h3><table class="var-table">`;
     for (const v of vars) {
       const tagHtml = v.tag === 'secret' ? '<span class="tag tag-secret">secret</span>' :
         v.tag === 'required' ? '<span class="tag tag-required">required</span>' : '';
@@ -268,6 +280,24 @@ function esc(s) {
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

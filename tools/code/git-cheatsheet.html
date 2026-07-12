@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_git_cheatsheet_57_command" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -323,6 +323,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <div class="header-top">
@@ -333,19 +335,19 @@
     </div>
     <div class="search-wrap">
       <span class="search-icon">🔍</span>
-      <input type="text" id="search" placeholder="Search commands, descriptions…" autocomplete="off" spellcheck="false">
+      <input type="text" id="search" tp="placeholder_search_commands_descripti" placeholder="Search commands, descriptions…" autocomplete="off" spellcheck="false">
     </div>
   </div>
   <div class="filter-row">
-    <button class="filter-btn active" data-cat="all">All</button>
-    <button class="filter-btn" data-cat="setup">Setup</button>
-    <button class="filter-btn" data-cat="basics">Basics</button>
-    <button class="filter-btn" data-cat="branching">Branching</button>
-    <button class="filter-btn" data-cat="remote">Remote</button>
-    <button class="filter-btn" data-cat="stash">Stash</button>
-    <button class="filter-btn" data-cat="log">Log</button>
-    <button class="filter-btn" data-cat="undo">Undo</button>
-    <button class="filter-btn" data-cat="advanced">Advanced</button>
+    <button class="filter-btn active" data-cat="all" ti="btn_all">All</button>
+    <button class="filter-btn" data-cat="setup" ti="btn_setup">Setup</button>
+    <button class="filter-btn" data-cat="basics" ti="btn_basics">Basics</button>
+    <button class="filter-btn" data-cat="branching" ti="btn_branching">Branching</button>
+    <button class="filter-btn" data-cat="remote" ti="btn_remote">Remote</button>
+    <button class="filter-btn" data-cat="stash" ti="btn_stash">Stash</button>
+    <button class="filter-btn" data-cat="log" ti="btn_log">Log</button>
+    <button class="filter-btn" data-cat="undo" ti="btn_undo">Undo</button>
+    <button class="filter-btn" data-cat="advanced" ti="btn_advanced">Advanced</button>
   </div>
 </header>
 
@@ -356,6 +358,16 @@
   </div>
 </main>
 
+
+<script>var _LANG={'title_git_cheatsheet_57_command':["Git Cheatsheet — 57 Commands with Examples", "Git 速查表 — 57 个命令及示例"],'metadesc_quick_reference_for_57_gi':["Quick reference for 57 Git commands with examples, danger levels, and categories. Search, filter, click to copy. Free, no signup.", "57 个 Git 命令快速参考指南，包含示例、危险等级和分类。支持搜索、筛选和点击复制。免费，无需注册。"],'btn_all':["All", "全部"],'btn_setup':["Setup", "设置"],'btn_basics':["Basics", "基础知识"],'btn_branching':["Branching", "分枝"],'btn_remote':["Remote", "偏僻的"],'btn_stash':["Stash", "藏"],'btn_log':["Log", "日志"],'btn_undo':["Undo", "撤销"],'btn_advanced':["Advanced", "先进的"],'placeholder_search_commands_descripti':["Search commands, descriptions…", "搜索命令、描述……"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COMMANDS = [
   // SETUP
@@ -1006,6 +1018,24 @@ document.addEventListener('keydown', e => {
 
 // Initial render
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

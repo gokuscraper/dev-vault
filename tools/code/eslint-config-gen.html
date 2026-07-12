@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_eslint_config_generator_b" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,68 +49,80 @@ input:focus,select:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>ESLint Config Generator</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_eslint_config_generator">ESLint Config Generator</h1>
 <p class="sub">Build ESLint v9 flat config visually <span class="badge badge-new">Flat Config</span></p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Plugins & Extends</h3>
-<div class="check-row"><input type="checkbox" id="pJS" checked onchange="gen()"><label for="pJS">@eslint/js (recommended)</label></div>
-<div class="check-row"><input type="checkbox" id="pTS" onchange="gen()"><label for="pTS">typescript-eslint</label></div>
-<div class="check-row"><input type="checkbox" id="pReact" onchange="gen()"><label for="pReact">eslint-plugin-react + react-hooks</label></div>
-<div class="check-row"><input type="checkbox" id="pNext" onchange="gen()"><label for="pNext">@next/eslint-plugin-next</label></div>
-<div class="check-row"><input type="checkbox" id="pImport" onchange="gen()"><label for="pImport">eslint-plugin-import-x</label></div>
-<div class="check-row"><input type="checkbox" id="pPrettier" onchange="gen()"><label for="pPrettier">eslint-config-prettier (disable formatting rules)</label></div>
-<div class="check-row"><input type="checkbox" id="pNode" onchange="gen()"><label for="pNode">eslint-plugin-n (Node.js)</label></div>
+<h3 ti="h3_plugins_extends">Plugins & Extends</h3>
+<div class="check-row"><input type="checkbox" id="pJS" checked onchange="gen()"><label for="pJS" ti="label_eslint_js_recommended">@eslint/js (recommended)</label></div>
+<div class="check-row"><input type="checkbox" id="pTS" onchange="gen()"><label for="pTS" ti="label_typescript_eslint">typescript-eslint</label></div>
+<div class="check-row"><input type="checkbox" id="pReact" onchange="gen()"><label for="pReact" ti="label_eslint_plugin_react_react">eslint-plugin-react + react-hooks</label></div>
+<div class="check-row"><input type="checkbox" id="pNext" onchange="gen()"><label for="pNext" ti="label_next_eslint_plugin_next">@next/eslint-plugin-next</label></div>
+<div class="check-row"><input type="checkbox" id="pImport" onchange="gen()"><label for="pImport" ti="label_eslint_plugin_import_x">eslint-plugin-import-x</label></div>
+<div class="check-row"><input type="checkbox" id="pPrettier" onchange="gen()"><label for="pPrettier" ti="label_eslint_config_prettier_di">eslint-config-prettier (disable formatting rules)</label></div>
+<div class="check-row"><input type="checkbox" id="pNode" onchange="gen()"><label for="pNode" ti="label_eslint_plugin_n_node_js">eslint-plugin-n (Node.js)</label></div>
 </div>
 
 <div class="section">
-<h3>File Patterns</h3>
+<h3 ti="h3_file_patterns">File Patterns</h3>
 <div class="row">
-<div class="col"><label>Include files</label><input id="fInclude" value="**/*.{js,mjs,cjs,ts,tsx}" oninput="gen()"></div>
-<div class="col"><label>Ignore patterns</label><input id="fIgnore" value="node_modules/, dist/, build/, .next/" oninput="gen()"></div>
+<div class="col"><label ti="label_include_files">Include files</label><input id="fInclude" value="**/*.{js,mjs,cjs,ts,tsx}" oninput="gen()"></div>
+<div class="col"><label ti="label_ignore_patterns">Ignore patterns</label><input id="fIgnore" value="node_modules/, dist/, build/, .next/" oninput="gen()"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Environment</h3>
+<h3 ti="h3_environment">Environment</h3>
 <div class="row">
 <div class="col">
-<div class="check-row"><input type="checkbox" id="eBrowser" checked onchange="gen()"><label for="eBrowser">Browser (window, document)</label></div>
-<div class="check-row"><input type="checkbox" id="eNode" checked onchange="gen()"><label for="eNode">Node.js (process, __dirname)</label></div>
+<div class="check-row"><input type="checkbox" id="eBrowser" checked onchange="gen()"><label for="eBrowser" ti="label_browser_window_document">Browser (window, document)</label></div>
+<div class="check-row"><input type="checkbox" id="eNode" checked onchange="gen()"><label for="eNode" ti="label_node_js_process_dirname">Node.js (process, __dirname)</label></div>
 </div>
 <div class="col">
-<div class="check-row"><input type="checkbox" id="eES2024" checked onchange="gen()"><label for="eES2024">ES2024 globals</label></div>
+<div class="check-row"><input type="checkbox" id="eES2024" checked onchange="gen()"><label for="eES2024" ti="label_es2024_globals">ES2024 globals</label></div>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h3>Custom Rules</h3>
+<h3 ti="h3_custom_rules">Custom Rules</h3>
 <div id="rulesList"></div>
-<button class="add-btn" onclick="addRule()">+ Add Rule</button>
+<button class="add-btn" onclick="addRule()" ti="btn_add_rule">+ Add Rule</button>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy" ti="btn_copy_2">Copy</button>
 <pre id="out"></pre>
 </div>
 
 <div class="section" style="margin-top:16px">
-<h3>Install Command</h3>
+<h3 ti="h3_install_command">Install Command</h3>
 <div class="output" style="margin-top:0;min-height:auto">
 <button class="copy-btn" onclick="copyInstall()">Copy</button>
 <pre id="installCmd"></pre>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/tsconfig-gen/">tsconfig Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/">GH Actions Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/tsconfig-gen/" ti="link_tsconfig_gen">tsconfig Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/" ti="link_package_json_gen">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gh-actions-gen/" ti="link_gh_actions_gen">GH Actions Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_eslint_config_generator_b':["ESLint Config Generator — Build eslint.config.js Visually", "ESLint 配置生成器 — 可视化构建 eslint.config.js"],'metadesc_generate_eslint_flat_conf':["Generate ESLint flat config (v9+) visually. TypeScript, React, Next.js, Node.js presets. Rules editor. No signup.", "可视化生成 ESLint 扁平化配置（v9+）。支持 TypeScript、React、Next.js 和 Node.js 预设。内置规则编辑器。无需注册。"],'h1_eslint_config_generator':["ESLint Config Generator", "ESLint 配置生成器"],'h3_plugins_extends':["Plugins & Extends", "插件和扩展"],'h3_file_patterns':["File Patterns", "文件模式"],'h3_environment':["Environment", "环境"],'h3_custom_rules':["Custom Rules", "自定义规则"],'h3_install_command':["Install Command", "安装命令"],'btn_add_rule':["+ Add Rule", "+ 添加规则"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'label_eslint_js_recommended':["@eslint/js (recommended)", "@eslint/js（推荐）"],'label_typescript_eslint':["typescript-eslint", "typescript-eslint"],'label_eslint_plugin_react_react':["eslint-plugin-react + react-hooks", "eslint-plugin-react + react-hooks"],'label_next_eslint_plugin_next':["@next/eslint-plugin-next", "@next/eslint-plugin-next"],'label_eslint_plugin_import_x':["eslint-plugin-import-x", "eslint-plugin-import-x"],'label_eslint_config_prettier_di':["eslint-config-prettier (disable formatting rules)", "eslint-config-prettier（禁用格式化规则）"],'label_eslint_plugin_n_node_js':["eslint-plugin-n (Node.js)", "eslint-plugin-n（Node.js）"],'label_include_files':["Include files", "包含文件"],'label_ignore_patterns':["Ignore patterns", "忽略模式"],'label_browser_window_document':["Browser (window, document)", "浏览器（窗口，文档）"],'label_node_js_process_dirname':["Node.js (process, __dirname)", "Node.js（进程，__dirname）"],'label_es2024_globals':["ES2024 globals", "ES2024 全局变量"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_tsconfig_gen':["tsconfig Gen", "tsconfig Gen"],'link_package_json_gen':["package.json Gen", "package.json 生成"],'link_gh_actions_gen':["GH Actions Gen", "GH Actions Gen"],'jtlword_off':["off", "离开"],'jtlword_warn':["warn", "警告"],'jtlword_error':["error", "错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COMMON_RULES = [
   'no-unused-vars','no-console','no-debugger','eqeqeq','curly','prefer-const',
@@ -288,6 +300,24 @@ function showToast(){
 
 initPresets();
 loadPreset('TypeScript');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

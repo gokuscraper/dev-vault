@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_grid_area_painter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -42,48 +42,50 @@ button:hover{background:#2a4a3a}
 </style>
 </head>
 <body>
-<h1>CSS Grid Area Painter</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_css_grid_area_painter" ti="h1_css_grid_area_painter">CSS Grid Area Painter</h1>
 <div class="app">
 <div class="sidebar">
 <div class="section">
-<h3>Grid Size</h3>
+<h3 ti="h3_grid_size">Grid Size</h3>
 <div class="grid-settings">
-<div><label>Columns</label><input type="number" id="cols" value="4" min="1" max="20" onchange="rebuildGrid()"></div>
-<div><label>Rows</label><input type="number" id="rows" value="3" min="1" max="20" onchange="rebuildGrid()"></div>
+<div><label ti="label_columns">Columns</label><input type="number" id="cols" value="4" min="1" max="20" onchange="rebuildGrid()"></div>
+<div><label ti="label_rows">Rows</label><input type="number" id="rows" value="3" min="1" max="20" onchange="rebuildGrid()"></div>
 </div>
 <div class="grid-settings" style="margin-top:8px">
-<div><label>Col Size</label><input type="text" id="colSize" value="1fr" placeholder="1fr" onchange="updateOutput()"></div>
-<div><label>Row Size</label><input type="text" id="rowSize" value="auto" placeholder="auto" onchange="updateOutput()"></div>
+<div><label ti="label_col_size">Col Size</label><input type="text" id="colSize" value="1fr" tp="placeholder_1fr" placeholder="1fr" onchange="updateOutput()"></div>
+<div><label ti="label_row_size">Row Size</label><input type="text" id="rowSize" value="auto" tp="placeholder_auto" placeholder="auto" onchange="updateOutput()"></div>
 </div>
-<label>Gap</label>
-<input type="text" id="gap" value="8px" placeholder="8px" onchange="updateOutput()">
+<label ti="label_gap">Gap</label>
+<input type="text" id="gap" value="8px" tp="placeholder_8px" placeholder="8px" onchange="updateOutput()">
 </div>
 
 <div class="section">
-<h3>Paint Area</h3>
-<label>Area Name</label>
-<input type="text" id="areaName" value="header" placeholder="e.g. header, sidebar, main">
-<label>Color</label>
+<h3 ti="h3_paint_area">Paint Area</h3>
+<label ti="label_area_name">Area Name</label>
+<input type="text" id="areaName" value="header" tp="placeholder_e_g_header_sidebar_main" placeholder="e.g. header, sidebar, main">
+<label ti="label_color">Color</label>
 <div class="color-palette" id="palette"></div>
 <div class="btn-row">
-<button onclick="addArea()">Add as New Area</button>
+<button onclick="addArea()" ti="btn_add_as_new_area">Add as New Area</button>
 </div>
 </div>
 
 <div class="section">
-<h3>Named Areas</h3>
+<h3 ti="h3_named_areas">Named Areas</h3>
 <div class="area-list" id="areaList"></div>
 <div class="btn-row">
-<button onclick="clearAllAreas()">Clear All</button>
-<button onclick="fillEmpty()">Fill Empty as "."</button>
+<button onclick="clearAllAreas()" ti="btn_clear_all">Clear All</button>
+<button onclick="fillEmpty()" ti="btn_fill_empty_as">Fill Empty as "."</button>
 </div>
 </div>
 
 <div class="section">
-<h3>Import</h3>
-<textarea class="import-area" id="importArea" placeholder='Paste grid-template-areas, e.g.:\n"header header"\n"sidebar main"\n"footer footer"'></textarea>
+<h3 ti="h3_import">Import</h3>
+<textarea class="import-area" id="importArea" tp="placeholder_paste_grid_template_areas" placeholder='Paste grid-template-areas, e.g.:\n"header header"\n"sidebar main"\n"footer footer"'></textarea>
 <div class="btn-row">
-<button onclick="importAreas()">Import</button>
+<button onclick="importAreas()" ti="btn_import">Import</button>
 </div>
 </div>
 </div>
@@ -95,13 +97,23 @@ button:hover{background:#2a4a3a}
 </div>
 
 <div class="output-wrap">
-<h3 style="font-size:.9rem;color:#34d399;margin-bottom:8px">Generated CSS</h3>
+<h3 style="font-size:.9rem;color:#34d399;margin-bottom:8px" ti="h3_generated_css">Generated CSS</h3>
 <div class="output" id="cssOutput"></div>
 <div class="btn-row">
-<button onclick="copyCSS()">Copy CSS</button>
+<button onclick="copyCSS()" ti="btn_copy_css">Copy CSS</button>
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_grid_area_painter':["CSS Grid Area Painter", "CSS 网格区域绘制器"],'h1_css_grid_area_painter':["CSS Grid Area Painter", "CSS 网格区域绘制器"],'h3_grid_size':["Grid Size", "网格大小"],'h3_paint_area':["Paint Area", "油漆区"],'h3_named_areas':["Named Areas", "命名区域"],'h3_import':["Import", "进口"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'btn_add_as_new_area':["Add as New Area", "添加为新区域"],'btn_clear_all':["Clear All", "全部清除"],'btn_fill_empty_as':["Fill Empty as \".\"", "填空为“”。"],'btn_import':["Import", "进口"],'btn_copy_css':["Copy CSS", "复制 CSS"],'placeholder_1fr':["1fr", "1fr"],'placeholder_auto':["auto", "汽车"],'placeholder_8px':["8px", "8像素"],'placeholder_e_g_header_sidebar_main':["e.g. header, sidebar, main", "例如：页眉、侧边栏、主页面"],'placeholder_paste_grid_template_areas':["Paste grid-template-areas, e.g.:\\n\"header header\"\\n\"sidebar main\"\\n\"footer footer\"", "粘贴网格模板区域，例如：\\n&quot;页眉&quot;\\n&quot;侧边栏&quot;\\n&quot;页脚&quot;"],'label_columns':["Columns", "列"],'label_rows':["Rows", "行"],'label_col_size':["Col Size", "列大小"],'label_row_size':["Row Size", "行大小"],'label_gap':["Gap", "差距"],'label_area_name':["Area Name", "区域名称"],'label_color':["Color", "颜色"],'jalert_css_copied':["CSS copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const colors=['#ef4444','#f97316','#eab308','#22c55e','#14b8a6','#3b82f6','#8b5cf6','#ec4899','#6366f1','#06b6d4','#84cc16','#f43f5e'];
 let currentColor=colors[0];
@@ -342,7 +354,7 @@ function renderPreview(templateAreas,colSize,rowSize,gap){
 
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent)
-    .then(()=>alert('CSS copied!'));
+    .then(()=>T("jalert_css_copied"));
 }
 
 function importAreas(){
@@ -377,6 +389,24 @@ function importAreas(){
 // Init
 rebuildGrid();
 renderAreaList();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

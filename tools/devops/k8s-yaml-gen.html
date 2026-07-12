@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_kubernetes_yaml_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,12 +55,14 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Kubernetes YAML Generator</h1>
-<p class="sub">Generate K8s manifests visually — no kubectl needed</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_kubernetes_yaml_generator">Kubernetes YAML Generator</h1>
+<p class="sub" ti="subtitle_generate_k8s_manifests_vi">Generate K8s manifests visually — no kubectl needed</p>
 
 <div class="section">
-<h3>Resource Type</h3>
+<h3 ti="h3_resource_type">Resource Type</h3>
 <div class="tabs" id="resourceTabs">
 <div class="tab active" data-res="deployment">Deployment</div>
 <div class="tab" data-res="service">Service</div>
@@ -84,91 +86,91 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <!-- Deployment fields -->
 <div class="section" id="fDeployment">
-<h3>Deployment</h3>
-<div class="field"><label>Name</label><input id="dName" value="my-app" oninput="gen()"></div>
-<div class="field"><label>Namespace</label><input id="dNamespace" value="default" oninput="gen()"></div>
-<div class="field"><label>Image</label><input id="dImage" value="nginx:latest" oninput="gen()"></div>
+<h3 ti="h3_deployment">Deployment</h3>
+<div class="field"><label ti="label_name" ti="label_name_2" ti="label_name_3" ti="label_name_4" ti="label_name_5" ti="label_name_6" ti="label_name_7">Name</label><input id="dName" value="my-app" oninput="gen()"></div>
+<div class="field"><label ti="label_namespace">Namespace</label><input id="dNamespace" value="default" oninput="gen()"></div>
+<div class="field"><label ti="label_image" ti="label_image_2">Image</label><input id="dImage" value="nginx:latest" oninput="gen()"></div>
 <div class="field-row">
-<div class="field"><label>Replicas</label><input id="dReplicas" type="number" value="1" min="1" oninput="gen()"></div>
-<div class="field"><label>Container Port</label><input id="dPort" type="number" value="80" oninput="gen()"></div>
+<div class="field"><label ti="label_replicas">Replicas</label><input id="dReplicas" type="number" value="1" min="1" oninput="gen()"></div>
+<div class="field"><label ti="label_container_port">Container Port</label><input id="dPort" type="number" value="80" oninput="gen()"></div>
 </div>
 <div class="field-row">
-<div class="field"><label>CPU Request</label><input id="dCpuReq" value="100m" oninput="gen()"></div>
-<div class="field"><label>CPU Limit</label><input id="dCpuLim" value="500m" oninput="gen()"></div>
+<div class="field"><label ti="label_cpu_request">CPU Request</label><input id="dCpuReq" value="100m" oninput="gen()"></div>
+<div class="field"><label ti="label_cpu_limit">CPU Limit</label><input id="dCpuLim" value="500m" oninput="gen()"></div>
 </div>
 <div class="field-row">
-<div class="field"><label>Memory Request</label><input id="dMemReq" value="128Mi" oninput="gen()"></div>
-<div class="field"><label>Memory Limit</label><input id="dMemLim" value="512Mi" oninput="gen()"></div>
+<div class="field"><label ti="label_memory_request">Memory Request</label><input id="dMemReq" value="128Mi" oninput="gen()"></div>
+<div class="field"><label ti="label_memory_limit">Memory Limit</label><input id="dMemLim" value="512Mi" oninput="gen()"></div>
 </div>
-<div class="field"><label>Environment Variables</label></div>
+<div class="field"><label ti="label_environment_variables">Environment Variables</label></div>
 <div class="kv-list" id="dEnvList"></div>
-<button class="add-btn" onclick="addKV('dEnvList');gen()">+ Add Env</button>
+<button class="add-btn" onclick="addKV('dEnvList');gen()" ti="btn_add_env">+ Add Env</button>
 
 <div style="margin-top:10px">
-<div class="check-row"><input type="checkbox" id="dLiveness" onchange="gen()"><label for="dLiveness">Liveness Probe (HTTP GET /healthz)</label></div>
-<div class="check-row"><input type="checkbox" id="dReadiness" onchange="gen()"><label for="dReadiness">Readiness Probe (HTTP GET /ready)</label></div>
+<div class="check-row"><input type="checkbox" id="dLiveness" onchange="gen()"><label for="dLiveness" ti="label_liveness_probe_http_get_h">Liveness Probe (HTTP GET /healthz)</label></div>
+<div class="check-row"><input type="checkbox" id="dReadiness" onchange="gen()"><label for="dReadiness" ti="label_readiness_probe_http_get">Readiness Probe (HTTP GET /ready)</label></div>
 </div>
 </div>
 
 <!-- Service fields -->
 <div class="section" id="fService" style="display:none">
-<h3>Service</h3>
+<h3 ti="h3_service">Service</h3>
 <div class="field"><label>Name</label><input id="sName" value="my-app-svc" oninput="gen()"></div>
-<div class="field"><label>Type</label><select id="sType" onchange="gen()">
+<div class="field"><label ti="label_type" ti="label_type_2">Type</label><select id="sType" onchange="gen()">
 <option value="ClusterIP">ClusterIP</option>
 <option value="NodePort">NodePort</option>
 <option value="LoadBalancer">LoadBalancer</option>
 </select></div>
 <div class="field-row">
-<div class="field"><label>Port</label><input id="sPort" type="number" value="80" oninput="gen()"></div>
-<div class="field"><label>Target Port</label><input id="sTargetPort" type="number" value="80" oninput="gen()"></div>
+<div class="field"><label ti="label_port">Port</label><input id="sPort" type="number" value="80" oninput="gen()"></div>
+<div class="field"><label ti="label_target_port">Target Port</label><input id="sTargetPort" type="number" value="80" oninput="gen()"></div>
 </div>
-<div class="field"><label>Selector (app label)</label><input id="sSelector" value="my-app" oninput="gen()"></div>
+<div class="field"><label ti="label_selector_app_label">Selector (app label)</label><input id="sSelector" value="my-app" oninput="gen()"></div>
 </div>
 
 <!-- Ingress fields -->
 <div class="section" id="fIngress" style="display:none">
-<h3>Ingress</h3>
+<h3 ti="h3_ingress">Ingress</h3>
 <div class="field"><label>Name</label><input id="iName" value="my-app-ingress" oninput="gen()"></div>
-<div class="field"><label>Host</label><input id="iHost" value="app.example.com" oninput="gen()"></div>
-<div class="field"><label>Path</label><input id="iPath" value="/" oninput="gen()"></div>
-<div class="field"><label>Service Name</label><input id="iSvcName" value="my-app-svc" oninput="gen()"></div>
-<div class="field"><label>Service Port</label><input id="iSvcPort" type="number" value="80" oninput="gen()"></div>
-<div class="check-row"><input type="checkbox" id="iTls" onchange="gen()"><label for="iTls">Enable TLS</label></div>
-<div class="field" id="iTlsSecret" style="display:none"><label>TLS Secret Name</label><input id="iTlsSecretName" value="tls-secret" oninput="gen()"></div>
+<div class="field"><label ti="label_host">Host</label><input id="iHost" value="app.example.com" oninput="gen()"></div>
+<div class="field"><label ti="label_path">Path</label><input id="iPath" value="/" oninput="gen()"></div>
+<div class="field"><label ti="label_service_name">Service Name</label><input id="iSvcName" value="my-app-svc" oninput="gen()"></div>
+<div class="field"><label ti="label_service_port">Service Port</label><input id="iSvcPort" type="number" value="80" oninput="gen()"></div>
+<div class="check-row"><input type="checkbox" id="iTls" onchange="gen()"><label for="iTls" ti="label_enable_tls">Enable TLS</label></div>
+<div class="field" id="iTlsSecret" style="display:none"><label ti="label_tls_secret_name">TLS Secret Name</label><input id="iTlsSecretName" value="tls-secret" oninput="gen()"></div>
 </div>
 
 <!-- ConfigMap fields -->
 <div class="section" id="fConfigmap" style="display:none">
-<h3>ConfigMap</h3>
+<h3 ti="h3_configmap">ConfigMap</h3>
 <div class="field"><label>Name</label><input id="cmName" value="my-config" oninput="gen()"></div>
-<div class="field"><label>Data (key=value per line)</label></div>
+<div class="field"><label ti="label_data_key_value_per_line">Data (key=value per line)</label></div>
 <div class="kv-list" id="cmDataList"></div>
-<button class="add-btn" onclick="addKV('cmDataList');gen()">+ Add Entry</button>
+<button class="add-btn" onclick="addKV('cmDataList');gen()" ti="btn_add_entry" ti="btn_add_entry_2">+ Add Entry</button>
 </div>
 
 <!-- Secret fields -->
 <div class="section" id="fSecret" style="display:none">
-<h3>Secret</h3>
+<h3 ti="h3_secret">Secret</h3>
 <div class="field"><label>Name</label><input id="secName" value="my-secret" oninput="gen()"></div>
 <div class="field"><label>Type</label><select id="secType" onchange="gen()">
 <option value="Opaque">Opaque</option>
 <option value="kubernetes.io/tls">TLS</option>
 <option value="kubernetes.io/dockerconfigjson">Docker Registry</option>
 </select></div>
-<div class="field"><label>Data (values will be base64-encoded)</label></div>
+<div class="field"><label ti="label_data_values_will_be_base6">Data (values will be base64-encoded)</label></div>
 <div class="kv-list" id="secDataList"></div>
 <button class="add-btn" onclick="addKV('secDataList');gen()">+ Add Entry</button>
 </div>
 
 <!-- CronJob fields -->
 <div class="section" id="fCronjob" style="display:none">
-<h3>CronJob</h3>
+<h3 ti="h3_cronjob">CronJob</h3>
 <div class="field"><label>Name</label><input id="cjName" value="my-cronjob" oninput="gen()"></div>
-<div class="field"><label>Schedule (cron)</label><input id="cjSchedule" value="0 * * * *" oninput="gen()"></div>
+<div class="field"><label ti="label_schedule_cron">Schedule (cron)</label><input id="cjSchedule" value="0 * * * *" oninput="gen()"></div>
 <div class="field"><label>Image</label><input id="cjImage" value="busybox" oninput="gen()"></div>
-<div class="field"><label>Command</label><input id="cjCommand" value="echo Hello" oninput="gen()"></div>
-<div class="field"><label>Restart Policy</label><select id="cjRestart" onchange="gen()">
+<div class="field"><label ti="label_command">Command</label><input id="cjCommand" value="echo Hello" oninput="gen()"></div>
+<div class="field"><label ti="label_restart_policy">Restart Policy</label><select id="cjRestart" onchange="gen()">
 <option value="OnFailure">OnFailure</option>
 <option value="Never">Never</option>
 </select></div>
@@ -176,11 +178,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 
 <!-- PVC fields -->
 <div class="section" id="fPvc" style="display:none">
-<h3>PersistentVolumeClaim</h3>
+<h3 ti="h3_persistentvolumeclaim">PersistentVolumeClaim</h3>
 <div class="field"><label>Name</label><input id="pvcName" value="my-data" oninput="gen()"></div>
-<div class="field"><label>Storage Class</label><input id="pvcClass" value="" placeholder="(default)" oninput="gen()"></div>
-<div class="field"><label>Size</label><input id="pvcSize" value="10Gi" oninput="gen()"></div>
-<div class="field"><label>Access Mode</label><select id="pvcAccess" onchange="gen()">
+<div class="field"><label ti="label_storage_class">Storage Class</label><input id="pvcClass" value="" tp="placeholder_default" placeholder="(default)" oninput="gen()"></div>
+<div class="field"><label ti="label_size">Size</label><input id="pvcSize" value="10Gi" oninput="gen()"></div>
+<div class="field"><label ti="label_access_mode">Access Mode</label><select id="pvcAccess" onchange="gen()">
 <option value="ReadWriteOnce">ReadWriteOnce</option>
 <option value="ReadOnlyMany">ReadOnlyMany</option>
 <option value="ReadWriteMany">ReadWriteMany</option>
@@ -191,17 +193,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyYaml()">Copy YAML</button>
-<button class="btn" onclick="downloadYaml()">Download</button>
+<button class="btn btn-primary" onclick="copyYaml()" ti="btn_copy_yaml">Copy YAML</button>
+<button class="btn" onclick="downloadYaml()" ti="btn_download">Download</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config</a> | <a href="https://gokuscraper.github.io/dev-vault/yaml-json/">YAML ↔ JSON</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/" ti="link_docker_compose">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config">Nginx Config</a> | <a href="https://gokuscraper.github.io/dev-vault/yaml-json/" ti="link_yaml_json">YAML ↔ JSON</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_kubernetes_yaml_generator':["Kubernetes YAML Generator — Deployment, Service, Ingress & More", "Kubernetes YAML 生成器 — Deployment、Service、Ingress 等"],'metadesc_generate_kubernetes_yaml':["Generate Kubernetes YAML manifests visually. Deployment, Service, Ingress, ConfigMap, Secret, CronJob, PVC. Presets for common stacks. No signup.", "以可视化方式生成 Kubernetes YAML 清单。支持 Deployment、Service、Ingress、ConfigMap、Secret、CronJob 和 PVC。提供常用堆栈的预设。无需注册。"],'h1_kubernetes_yaml_generator':["Kubernetes YAML Generator", "Kubernetes YAML 生成器"],'h3_resource_type':["Resource Type", "资源类型"],'h3_deployment':["Deployment", "部署"],'h3_service':["Service", "服务"],'h3_ingress':["Ingress", "Ingress"],'h3_configmap':["ConfigMap", "配置映射"],'h3_secret':["Secret", "秘密"],'h3_cronjob':["CronJob", "定时任务"],'h3_persistentvolumeclaim':["PersistentVolumeClaim", "持续销量声明"],'subtitle_generate_k8s_manifests_vi':["Generate K8s manifests visually — no kubectl needed", "以可视化方式生成 Kubernetes 清单——无需 kubectl"],'btn_add_env':["+ Add Env", "+ 添加环境"],'btn_add_entry':["+ Add Entry", "+ 添加条目"],'btn_add_entry_2':["+ Add Entry", "+ 添加条目"],'btn_copy_yaml':["Copy YAML", "复制 YAML"],'btn_download':["Download", "下载"],'placeholder_default':["(default)", "（默认）"],'placeholder_key':["key", "钥匙"],'placeholder_value':["value", "价值"],'label_name':["Name", "姓名"],'label_namespace':["Namespace", "命名空间"],'label_image':["Image", "图像"],'label_replicas':["Replicas", "复制品"],'label_container_port':["Container Port", "集装箱港口"],'label_cpu_request':["CPU Request", "CPU请求"],'label_cpu_limit':["CPU Limit", "CPU 限制"],'label_memory_request':["Memory Request", "内存请求"],'label_memory_limit':["Memory Limit", "内存限制"],'label_environment_variables':["Environment Variables", "环境变量"],'label_liveness_probe_http_get_h':["Liveness Probe (HTTP GET /healthz)", "活体检测（HTTP GET /healthz）"],'label_readiness_probe_http_get':["Readiness Probe (HTTP GET /ready)", "就绪探测（HTTP GET /ready）"],'label_name_2':["Name", "姓名"],'label_type':["Type", "类型"],'label_port':["Port", "港口"],'label_target_port':["Target Port", "目标端口"],'label_selector_app_label':["Selector (app label)", "选择器（应用标签）"],'label_name_3':["Name", "姓名"],'label_host':["Host", "主持人"],'label_path':["Path", "小路"],'label_service_name':["Service Name", "服务名称"],'label_service_port':["Service Port", "服务端口"],'label_enable_tls':["Enable TLS", "启用 TLS"],'label_tls_secret_name':["TLS Secret Name", "TLS 密钥名称"],'label_name_4':["Name", "姓名"],'label_data_key_value_per_line':["Data (key=value per line)", "数据（每行键值对）"],'label_name_5':["Name", "姓名"],'label_type_2':["Type", "类型"],'label_data_values_will_be_base6':["Data (values will be base64-encoded)", "数据（值将进行 base64 编码）"],'label_name_6':["Name", "姓名"],'label_schedule_cron':["Schedule (cron)", "定时任务（cron）"],'label_image_2':["Image", "图像"],'label_command':["Command", "命令"],'label_restart_policy':["Restart Policy", "重启策略"],'label_name_7':["Name", "姓名"],'label_storage_class':["Storage Class", "存储类"],'label_size':["Size", "尺寸"],'label_access_mode':["Access Mode", "访问模式"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_docker_compose':["Docker Compose", "Docker Compose"],'link_nginx_config':["Nginx Config", "Nginx 配置"],'link_yaml_json':["YAML ↔ JSON", "YAML ↔ JSON"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentRes='deployment';
 
@@ -228,7 +240,7 @@ function addKV(listId,key,val){
   const list=document.getElementById(listId);
   const row=document.createElement('div');
   row.className='kv-row';
-  row.innerHTML=`<input placeholder="key" value="${key||''}" oninput="gen()"><input placeholder="value" value="${val||''}" oninput="gen()"><button onclick="this.parentElement.remove();gen()">×</button>`;
+  row.innerHTML=`<input tp="placeholder_key" placeholder="key" value="${key||''}" oninput="gen()"><input tp="placeholder_value" placeholder="value" value="${val||''}" oninput="gen()"><button onclick="this.parentElement.remove();gen()">×</button>`;
   list.appendChild(row);
 }
 
@@ -473,6 +485,24 @@ function showToast(msg){
 
 // Init
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_license_chooser_compare_o" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,9 +60,11 @@ button.gen-btn:hover{background:#243860}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>License Chooser</h1>
-<p class="sub">Compare open source licenses and generate LICENSE file</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_license_chooser">License Chooser</h1>
+<p class="sub" ti="subtitle_compare_open_source_licen">Compare open source licenses and generate LICENSE file</p>
 
 <div class="tabs">
 <div class="tab active" onclick="showTab('compare')">Compare</div>
@@ -76,30 +78,40 @@ button.gen-btn:hover{background:#243860}
 
 <div class="panel" id="p-generate">
 <div class="section">
-<h3>Generate LICENSE File</h3>
+<h3 ti="h3_generate_license_file">Generate LICENSE File</h3>
 <div class="row">
-<div class="col"><label>License</label>
+<div class="col"><label ti="label_license">License</label>
 <select id="genLicense" onchange="genFile()">
 <option>MIT</option><option>Apache-2.0</option><option>GPL-3.0</option><option>BSD-2-Clause</option><option>BSD-3-Clause</option><option>ISC</option><option>MPL-2.0</option><option>LGPL-3.0</option><option>AGPL-3.0</option><option>Unlicense</option><option>CC0-1.0</option>
 </select></div>
 </div>
 <div class="row">
-<div class="col"><label>Full Name</label><input id="genName" value="" oninput="genFile()" placeholder="Your Name"></div>
-<div class="col"><label>Year</label><input id="genYear" oninput="genFile()"></div>
+<div class="col"><label ti="label_full_name">Full Name</label><input id="genName" value="" oninput="genFile()" tp="placeholder_your_name" placeholder="Your Name"></div>
+<div class="col"><label ti="label_year">Year</label><input id="genYear" oninput="genFile()"></div>
 </div>
-<button class="gen-btn" onclick="genFile()">Generate</button>
+<button class="gen-btn" onclick="genFile()" ti="btn_generate">Generate</button>
 </div>
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">.gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-score/">README Score</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/package-json-gen/" ti="link_package_json_gen">package.json Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen">.gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-score/" ti="link_readme_score">README Score</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_license_chooser_compare_o':["License Chooser — Compare Open Source Licenses", "许可证选择器 — 比较开源许可证"],'metadesc_compare_and_choose_open_s':["Compare and choose open source licenses. MIT, Apache 2.0, GPL, BSD, ISC, MPL, AGPL side-by-side. Generate LICENSE file.", "比较并选择开源许可证。MIT、Apache 2.0、GPL、BSD、ISC、MPL、AGPL 并排显示。生成 LICENSE 文件。"],'h1_license_chooser':["License Chooser", "许可证选择器"],'h2_l_name':["${l.name}", "${l.name}"],'h3_generate_license_file':["Generate LICENSE File", "生成许可证文件"],'h3_l_name':["${l.name}", "${l.name}"],'subtitle_compare_open_source_licen':["Compare open source licenses and generate LICENSE file", "比较开源许可证并生成 LICENSE 文件"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'placeholder_your_name':["Your Name", "你的名字"],'label_license':["License", "执照"],'label_full_name':["Full Name", "姓名"],'label_year':["Year", "年"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_package_json_gen':["package.json Gen", "package.json 生成"],'link_gitignore_gen':[".gitignore Gen", ".gitignore 生成器"],'link_readme_score':["README Score", "自述文件评分"],'jtlword_permissions':["Permissions", "权限"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const LICENSES = [
   {id:'MIT',name:'MIT License',spdx:'MIT',
@@ -199,7 +211,7 @@ function renderCards(){
     d.onclick=()=>{selected=l.id;renderCards();showDetail(l.id)};
     const tags=l.must.length===0?'<span class="tag tag-yes">No conditions</span>':
       (l.must.includes('Same license')?'<span class="tag tag-warn">Copyleft</span>':'<span class="tag tag-yes">Permissive</span>');
-    d.innerHTML=`<h3>${l.name}</h3><div class="spdx">${l.spdx}</div><div class="tags">${tags}</div><p>${l.desc}</p><p style="color:#555;font-size:0.72rem;margin-top:6px">${l.pop}</p>`;
+    d.innerHTML=`<h3 ti="h3_l_name">${l.name}</h3><div class="spdx">${l.spdx}</div><div class="tags">${tags}</div><p>${l.desc}</p><p style="color:#555;font-size:0.72rem;margin-top:6px">${l.pop}</p>`;
     c.appendChild(d);
   });
 }
@@ -207,7 +219,7 @@ function renderCards(){
 function showDetail(id){
   const l=LICENSES.find(x=>x.id===id);if(!l)return;
   const d=document.getElementById('detail');
-  d.innerHTML=`<div class="detail"><h2>${l.name}</h2><p style="color:#888;margin-bottom:16px">${l.desc}</p>
+  d.innerHTML=`<div class="detail"><h2 ti="h2_l_name">${l.name}</h2><p style="color:#888;margin-bottom:16px">${l.desc}</p>
   <div class="perm-grid">
     <div class="perm-col can"><h4>Permissions</h4><ul>${l.can.map(x=>`<li>✓ ${x}</li>`).join('')}</ul></div>
     <div class="perm-col must"><h4>Conditions</h4><ul>${l.must.length?l.must.map(x=>`<li>● ${x}</li>`).join(''):'<li>None</li>'}</ul></div>
@@ -233,6 +245,24 @@ document.getElementById('genYear').value=new Date().getFullYear();
 renderCards();
 showDetail('MIT');
 genFile();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_selector_tester" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,14 +62,16 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Selector Tester</h1>
-<p class="subtitle">Test CSS selectors in real-time with live highlighting, match count, and specificity calculation</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_css_selector_tester" ti="h1_css_selector_tester">CSS Selector Tester</h1>
+<p class="subtitle" ti="subtitle_test_css_selectors_in_rea">Test CSS selectors in real-time with live highlighting, match count, and specificity calculation</p>
 
 <div class="panel" style="margin-bottom:20px">
 <div class="selector-input">
-<label>CSS Selector</label>
-<input type="text" id="selectorInput" value="p.intro" placeholder="Enter a CSS selector...">
+<label ti="label_css_selector">CSS Selector</label>
+<input type="text" id="selectorInput" value="p.intro" tp="placeholder_enter_a_css_selector" placeholder="Enter a CSS selector...">
 <div class="match-count" id="matchCount">0 matches</div>
 </div>
 <div id="errorMsg" class="error-msg" style="display:none"></div>
@@ -97,7 +99,7 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 
 <div class="main-grid">
 <div class="panel">
-<h2>HTML Source</h2>
+<h2 ti="h2_html_source">HTML Source</h2>
 <textarea id="htmlSource" oninput="updatePreview()">&lt;header id="main"&gt;
   &lt;h1&gt;Welcome&lt;/h1&gt;
   &lt;nav&gt;
@@ -131,8 +133,8 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
   &lt;/table&gt;
 
   &lt;form&gt;
-    &lt;input type="text" placeholder="Name"&gt;
-    &lt;input type="email" placeholder="Email"&gt;
+    &lt;input type="text" tp="placeholder_name" placeholder="Name"&gt;
+    &lt;input type="email" tp="placeholder_email" placeholder="Email"&gt;
     &lt;input type="checkbox" checked&gt;
     &lt;select&gt;
       &lt;option&gt;Option 1&lt;/option&gt;
@@ -152,7 +154,7 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 <div class="preview-frame" id="previewFrame"></div>
 
 <div class="specificity" id="specificityDisplay">
-<h2 style="font-size:0.95rem;margin-bottom:8px;color:#b8e07e">Specificity</h2>
+<h2 style="font-size:0.95rem;margin-bottom:8px;color:#b8e07e" ti="h2_specificity">Specificity</h2>
 <div class="spec-display" id="specValue">Enter a selector above</div>
 <div id="specExplain" style="font-size:0.8rem;color:#888;margin-top:4px"></div>
 </div>
@@ -160,7 +162,7 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </div>
 
 <div class="panel">
-<h2>Selector Reference</h2>
+<h2 ti="h2_selector_reference">Selector Reference</h2>
 <div class="cheatsheet">
 <div class="cheat-item" onclick="setSelector('*')"><div class="cheat-selector">*</div><div class="cheat-desc">Universal - matches all elements</div></div>
 <div class="cheat-item" onclick="setSelector('p')"><div class="cheat-selector">element</div><div class="cheat-desc">Type selector (p, div, span...)</div></div>
@@ -193,6 +195,16 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_selector_tester':["CSS Selector Tester", "CSS 选择器测试器"],'h1_css_selector_tester':["CSS Selector Tester", "CSS 选择器测试器"],'h2_html_source':["HTML Source", "HTML 源代码"],'h2_specificity':["Specificity", "特异性"],'h2_selector_reference':["Selector Reference", "选择器参考"],'subtitle_test_css_selectors_in_rea':["Test CSS selectors in real-time with live highlighting, match count, and specificity calculation", "实时测试 CSS 选择器，包括实时高亮显示、匹配计数和特异性计算。"],'label_ids':["IDs", "ID"],'label_classes':["Classes", "课程"],'label_elements':["Elements", "元素"],'placeholder_enter_a_css_selector':["Enter a CSS selector...", "输入 CSS 选择器..."],'placeholder_name':["Name", "姓名"],'placeholder_email':["Email", "电子邮件"],'label_css_selector':["CSS Selector", "CSS 选择器"],'jtc_0_matches':["0 matches", "0 场比赛"],'jtc_error':["error", "错误"],'jtlword_ids':["IDs", "ID"],'jtlword_classes':["Classes", "课程"],'jtlword_elements':["Elements", "元素"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const selectorInput = document.getElementById('selectorInput');
 const htmlSource = document.getElementById('htmlSource');
@@ -224,7 +236,7 @@ function runSelector() {
   frame.querySelectorAll('.highlighted').forEach(el => el.classList.remove('highlighted'));
 
   if (!selector) {
-    countEl.textContent = '0 matches';
+    countEl.textContent=T("jtc_0_matches");
     countEl.className = 'match-count zero';
     errorEl.style.display = 'none';
     updateSpecificity('');
@@ -240,7 +252,7 @@ function runSelector() {
     errorEl.style.display = 'none';
     updateSpecificity(selector);
   } catch (e) {
-    countEl.textContent = 'error';
+    countEl.textContent=T("jtc_error");
     countEl.className = 'match-count error';
     errorEl.textContent = e.message;
     errorEl.style.display = 'block';
@@ -325,11 +337,11 @@ function updateSpecificity(selector) {
   try {
     const [a, b, c] = calculateSpecificity(selector);
     specEl.innerHTML = `
-      <span class="spec-part"><span class="spec-num">${a}</span><span class="spec-label">IDs</span></span>
+      <span class="spec-part"><span class="spec-num">${a}</span><span class="spec-label" ti="label_ids">IDs</span></span>
       <span class="spec-sep">,</span>
-      <span class="spec-part"><span class="spec-num">${b}</span><span class="spec-label">Classes</span></span>
+      <span class="spec-part"><span class="spec-num">${b}</span><span class="spec-label" ti="label_classes">Classes</span></span>
       <span class="spec-sep">,</span>
-      <span class="spec-part"><span class="spec-num">${c}</span><span class="spec-label">Elements</span></span>
+      <span class="spec-part"><span class="spec-num">${c}</span><span class="spec-label" ti="label_elements">Elements</span></span>
     `;
 
     const parts = [];
@@ -345,6 +357,24 @@ function updateSpecificity(selector) {
 
 // Initialize
 updatePreview();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

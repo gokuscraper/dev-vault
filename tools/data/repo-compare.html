@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_repo_compare_side_by_side" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,32 +80,36 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Repo Compare</h1>
-  <p class="subtitle">Side-by-side GitHub repository comparison. Stars, forks, issues, languages, and more.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_repo_compare" ti="h1_repo_compare">Repo Compare</h1>
+  <p class="subtitle" ti="subtitle_side_by_side_github_repos" ti="subtitle_side_by_side_github_repos">Side-by-side GitHub repository comparison. Stars, forks, issues, languages, and more.</p>
 
   <div class="input-row">
     <div class="input-group">
-      <label>Repository A</label>
-      <input type="text" id="repoA" placeholder="e.g. expressjs/express" autocomplete="off">
+      <label ti="label_repository_a" ti="label_repository_a">Repository A</label>
+      <input type="text" id="repoA" tp="placeholder_e_g_expressjs_express" tp="placeholder_e_g_expressjs_express" placeholder="e.g. expressjs/express" autocomplete="off">
     </div>
     <span class="vs">vs</span>
     <div class="input-group">
-      <label>Repository B</label>
-      <input type="text" id="repoB" placeholder="e.g. fastify/fastify" autocomplete="off">
+      <label ti="label_repository_b" ti="label_repository_b">Repository B</label>
+      <input type="text" id="repoB" tp="placeholder_e_g_fastify_fastify" tp="placeholder_e_g_fastify_fastify" placeholder="e.g. fastify/fastify" autocomplete="off">
     </div>
-    <button class="compare-btn" id="compareBtn" onclick="compare()">Compare</button>
+    <button class="compare-btn" id="compareBtn" onclick="compare()" ti="btn_compare" ti="btn_compare">Compare</button>
   </div>
 
   <div class="presets" id="presets">
-    <button onclick="preset('facebook/react','vuejs/vue')">React vs Vue</button>
-    <button onclick="preset('expressjs/express','fastify/fastify')">Express vs Fastify</button>
-    <button onclick="preset('denoland/deno','nodejs/node')">Deno vs Node</button>
-    <button onclick="preset('vitejs/vite','webpack/webpack')">Vite vs Webpack</button>
-    <button onclick="preset('tailwindlabs/tailwindcss','twbs/bootstrap')">Tailwind vs Bootstrap</button>
-    <button onclick="preset('prisma/prisma','drizzle-team/drizzle-orm')">Prisma vs Drizzle</button>
-    <button onclick="preset('vitest-dev/vitest','jestjs/jest')">Vitest vs Jest</button>
-    <button onclick="preset('astro-community/astro','vercel/next.js')">Astro vs Next.js</button>
+    <button onclick="preset('facebook/react','vuejs/vue')" ti="btn_react_vs_vue" ti="btn_react_vs_vue">React vs Vue</button>
+    <button onclick="preset('expressjs/express','fastify/fastify')" ti="btn_express_vs_fastify" ti="btn_express_vs_fastify">Express vs Fastify</button>
+    <button onclick="preset('denoland/deno','nodejs/node')" ti="btn_deno_vs_node" ti="btn_deno_vs_node">Deno vs Node</button>
+    <button onclick="preset('vitejs/vite','webpack/webpack')" ti="btn_vite_vs_webpack" ti="btn_vite_vs_webpack">Vite vs Webpack</button>
+    <button onclick="preset('tailwindlabs/tailwindcss','twbs/bootstrap')" ti="btn_tailwind_vs_bootstrap" ti="btn_tailwind_vs_bootstrap">Tailwind vs Bootstrap</button>
+    <button onclick="preset('prisma/prisma','drizzle-team/drizzle-orm')" ti="btn_prisma_vs_drizzle" ti="btn_prisma_vs_drizzle">Prisma vs Drizzle</button>
+    <button onclick="preset('vitest-dev/vitest','jestjs/jest')" ti="btn_vitest_vs_jest" ti="btn_vitest_vs_jest">Vitest vs Jest</button>
+    <button onclick="preset('astro-community/astro','vercel/next.js')" ti="btn_astro_vs_next_js" ti="btn_astro_vs_next_js">Astro vs Next.js</button>
   </div>
 
   <div class="error" id="error"></div>
@@ -115,21 +119,41 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="winner-banner" id="winner"></div>
     <table class="comparison-table" id="table"></table>
     <div class="lang-bars" id="langSection" style="display:none">
-      <h3>Languages</h3>
+      <h3 ti="h3_languages" ti="h3_languages">Languages</h3>
       <div class="lang-row" id="langRow"></div>
     </div>
     <div class="activity" id="activitySection" style="display:none">
-      <h3>Weekly Commit Activity (Last Year)</h3>
+      <h3 ti="h3_weekly_commit_activity_la" ti="h3_weekly_commit_activity_la">Weekly Commit Activity (Last Year)</h3>
       <div class="chart-container"><canvas id="activityChart"></canvas></div>
     </div>
   </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 58+ free browser-based developer tools<br>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 58+ free browser-based developer tools<br>
   Data from <a href="https://api.github.com" target="_blank">GitHub API</a>
 </footer>
 
+
+
+<script>var _LANG={'title_repo_compare_side_by_side':["Repo Compare — Side-by-Side GitHub Repository Comparison", "仓库对比 — GitHub 仓库并排比较"],'metadesc_compare_two_github_reposi':["Compare two GitHub repositories side by side. Stars, forks, issues, languages, commit activity, and more.", "并排比较两个 GitHub 代码库。比较内容包括：星标数、fork 数、问题数、语言、提交活动等。"],'h1_repo_compare':["Repo Compare", "仓库比较"],'h3_languages':["Languages", "语言"],'h3_weekly_commit_activity_la':["Weekly Commit Activity (Last Year)", "每周承诺活动（去年）"],'subtitle_side_by_side_github_repos':["Side-by-side GitHub repository comparison. Stars, forks, issues, languages, and more.", "GitHub 代码库并排比较。包括星标数、分支数、问题数、语言等等。"],'btn_compare':["Compare", "比较"],'btn_react_vs_vue':["React vs Vue", "React 与 Vue"],'btn_express_vs_fastify':["Express vs Fastify", "Express 与 Fastify"],'btn_deno_vs_node':["Deno vs Node", "Deno 与 Node"],'btn_vite_vs_webpack':["Vite vs Webpack", "Vite 与 Webpack 的比较"],'btn_tailwind_vs_bootstrap':["Tailwind vs Bootstrap", "Tailwind 与 Bootstrap"],'btn_prisma_vs_drizzle':["Prisma vs Drizzle", "Prisma 对阵 Drizzle"],'btn_vitest_vs_jest':["Vitest vs Jest", "Vitest 对阵 Jest"],'btn_astro_vs_next_js':["Astro vs Next.js", "Astro 与 Next.js 的比较"],'placeholder_e_g_expressjs_express':["e.g. expressjs/express", "例如 expressjs/express"],'placeholder_e_g_fastify_fastify':["e.g. fastify/fastify", "例如 fastify/fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_repository_a':["Repository A", "存储库 A"],'label_repository_b':["Repository B", "存储库 B"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_repo_compare_side_by_side':["Repo Compare — Side-by-Side GitHub Repository Comparison", "仓库对比 — GitHub 仓库并排比较"],'metadesc_compare_two_github_reposi':["Compare two GitHub repositories side by side. Stars, forks, issues, languages, commit activity, and more.", "并排比较两个 GitHub 代码库。比较内容包括：星标数、fork 数、问题数、语言、提交活动等。"],'h1_repo_compare':["Repo Compare", "仓库比较"],'h3_languages':["Languages", "语言"],'h3_weekly_commit_activity_la':["Weekly Commit Activity (Last Year)", "每周承诺活动（去年）"],'subtitle_side_by_side_github_repos':["Side-by-side GitHub repository comparison. Stars, forks, issues, languages, and more.", "GitHub 代码库并排比较。包括星标数、分支数、问题数、语言等等。"],'btn_compare':["Compare", "比较"],'btn_react_vs_vue':["React vs Vue", "React 与 Vue"],'btn_express_vs_fastify':["Express vs Fastify", "Express 与 Fastify"],'btn_deno_vs_node':["Deno vs Node", "Deno 与 Node"],'btn_vite_vs_webpack':["Vite vs Webpack", "Vite 与 Webpack 的比较"],'btn_tailwind_vs_bootstrap':["Tailwind vs Bootstrap", "Tailwind 与 Bootstrap"],'btn_prisma_vs_drizzle':["Prisma vs Drizzle", "Prisma 对阵 Drizzle"],'btn_vitest_vs_jest':["Vitest vs Jest", "Vitest 对阵 Jest"],'btn_astro_vs_next_js':["Astro vs Next.js", "Astro 与 Next.js 的比较"],'placeholder_e_g_expressjs_express':["e.g. expressjs/express", "例如 expressjs/express"],'placeholder_e_g_fastify_fastify':["e.g. fastify/fastify", "例如 fastify/fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_repository_a':["Repository A", "存储库 A"],'label_repository_b':["Repository B", "存储库 B"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -240,7 +264,7 @@ function buildTable(a, b) {
     rows.push(`<tr><td class="metric">${label}</td><td class="pkg ${ac}">${av}</td><td class="pkg ${bc}">${bv}</td></tr>`);
   };
 
-  rows.push(`<thead><tr><th class="metric">Metric</th><th><span class="pkg-header">${a.fullName}</span></th><th><span class="pkg-header">${b.fullName}</span></th></tr></thead><tbody>`);
+  rows.push(`<thead><tr><th class="metric" ti="th_metric" ti="th_metric">Metric</th><th><span class="pkg-header">${a.fullName}</span></th><th><span class="pkg-header">${b.fullName}</span></th></tr></thead><tbody>`);
 
   section('Popularity');
   row('Stars', fmt(a.stars), fmt(b.stars), a.stars, b.stars, true);
@@ -430,12 +454,48 @@ document.addEventListener('keydown', e => {
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Stats</a>
 <a href="https://gokuscraper.github.io/dev-vault/npm-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">npm Compare</a>
 <a href="https://gokuscraper.github.io/dev-vault/gh-card/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Gh Card</a>
 <a href="https://gokuscraper.github.io/dev-vault/dep-tree/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Dep Tree</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

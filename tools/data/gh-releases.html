@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_gh_releases_github_releas" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,16 +85,18 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <header>
     <h1><span>gh</span>-releases</h1>
     <p>Browse GitHub release notes for any repository</p>
   </header>
 
   <div class="search-row">
-    <input type="text" id="repoInput" placeholder="owner/repo (e.g. facebook/react)" autocomplete="off">
-    <button id="fetchBtn" onclick="fetchReleases()">Fetch</button>
+    <input type="text" id="repoInput" tp="placeholder_owner_repo_e_g_facebook_r" placeholder="owner/repo (e.g. facebook/react)" autocomplete="off">
+    <button id="fetchBtn" onclick="fetchReleases()" ti="btn_fetch">Fetch</button>
   </div>
 
   <div class="presets">
@@ -117,9 +119,19 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </div>
 
 <footer>
-  <p>gh-releases — Data from <a href="https://docs.github.com/en/rest/releases" target="_blank">GitHub API</a> (60 req/hr unauthenticated) | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a></p>
+  <p>gh-releases — Data from <a href="https://docs.github.com/en/rest/releases" target="_blank">GitHub API</a> (60 req/hr unauthenticated) | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault">Dev Vault</a></p>
 </footer>
 
+
+<script>var _LANG={'title_gh_releases_github_releas':["gh-releases — GitHub Release Notes Viewer", "gh-releases — GitHub 发布说明查看器"],'metadesc_browse_github_release_not':["Browse GitHub release notes for any repository. Search releases, view changelogs, compare versions. No auth required.", "浏览 GitHub 上任何代码仓库的发布说明。搜索版本、查看变更日志、比较版本。无需身份验证。"],'h1_1':["$1", "1美元"],'h2_1':["$1", "1美元"],'h3_1':["$1", "1美元"],'btn_fetch':["Fetch", "拿来"],'placeholder_owner_repo_e_g_facebook_r':["owner/repo (e.g. facebook/react)", "所有者/仓库（例如 facebook/react）"],'placeholder_filter_releases':["Filter releases...", "过滤器释放……"],'strong_esc_r_name':["${esc(r.name)}", "${esc(r.name)}"],'strong_1':["$1", "1美元"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_enter_owner_repo_format':["Enter owner/repo format", "输入所有者/仓库格式"],'jtc_no_releases_found_this_re':["No releases found. This repo may use tags instead.", "未找到已发布的版本。此仓库可能使用标签代替。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const GH_API = 'https://api.github.com';
 const input = document.getElementById('repoInput');
@@ -146,7 +158,7 @@ async function fetchReleases() {
   if (urlMatch) repo = urlMatch[1];
   repo = repo.replace(/\.git$/, '').replace(/\/$/, '');
 
-  if (!repo.includes('/')) { statusEl.textContent = 'Enter owner/repo format'; statusEl.className = 'status error'; return; }
+  if (!repo.includes('/')) { statusEl.textContent=T("jtc_enter_owner_repo_format"); statusEl.className = 'status error'; return; }
 
   btn.disabled = true;
   statusEl.innerHTML = '<span class="loading"></span> Fetching releases...';
@@ -181,12 +193,12 @@ async function fetchReleases() {
     // Filter
     filterEl.style.display = 'flex';
     filterEl.innerHTML = `
-      <input type="text" id="filterInput" placeholder="Filter releases..." oninput="renderReleases()">
+      <input type="text" id="filterInput" tp="placeholder_filter_releases" placeholder="Filter releases..." oninput="renderReleases()">
       <label><input type="checkbox" id="hidePrerelease" onchange="renderReleases()"> Hide pre-releases</label>
     `;
 
     if (allReleases.length === 0) {
-      statusEl.textContent = 'No releases found. This repo may use tags instead.';
+      statusEl.textContent=T("jtc_no_releases_found_this_re");
     } else {
       statusEl.textContent = `${allReleases.length} releases loaded`;
     }
@@ -236,7 +248,7 @@ function renderReleases() {
         </span>
       </div>
       <div class="release-body" id="rel-${i}">
-        ${r.name && r.name !== r.tag_name ? `<strong>${esc(r.name)}</strong>` : ''}
+        ${r.name && r.name !== r.tag_name ? `<strong ti="strong_esc_r_name">${esc(r.name)}</strong>` : ''}
         <div class="md">${body}</div>
         ${assets.length ? `<div class="assets"><h4>Assets (${assets.length})</h4>${assets.map(a =>
           `<div class="asset"><a href="${a.browser_download_url}" target="_blank">${esc(a.name)}</a> (${formatBytes(a.size)})</div>`
@@ -266,11 +278,11 @@ function simpleMarkdown(text) {
   // Inline code
   html = html.replace(/`([^`]+)`/g, '<code>$1</code>');
   // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/^### (.+)$/gm, '<h3 ti="h3_1">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 ti="h2_1">$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1 ti="h1_1">$1</h1>');
   // Bold
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong ti="strong_1">$1</strong>');
   // Links [text](url)
   html = html.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" target="_blank">$1</a>');
   // Unordered list
@@ -302,6 +314,24 @@ function esc(s) {
   d.textContent = s || '';
   return d.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

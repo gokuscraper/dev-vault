@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ssl_check_certificate_ins" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,20 +78,22 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>SSL Check</h1>
-<p class="subtitle">Inspect SSL/TLS certificates for any domain.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_ssl_check">SSL Check</h1>
+<p class="subtitle" ti="subtitle_inspect_ssl_tls_certifica">Inspect SSL/TLS certificates for any domain.</p>
 
 <div class="search-row">
-  <input type="text" id="domain" placeholder="Enter domain (e.g., github.com)" onkeydown="if(event.key==='Enter')check()">
-  <button class="btn primary" onclick="check()">Check</button>
+  <input type="text" id="domain" tp="placeholder_enter_domain_e_g_github_c" placeholder="Enter domain (e.g., github.com)" onkeydown="if(event.key==='Enter')check()">
+  <button class="btn primary" onclick="check()" ti="btn_check">Check</button>
 </div>
 
 <div class="quick-row">
-  <button class="quick-btn" onclick="setDomain('google.com')">google.com</button>
-  <button class="quick-btn" onclick="setDomain('github.com')">github.com</button>
-  <button class="quick-btn" onclick="setDomain('expired.badssl.com')">expired.badssl.com</button>
-  <button class="quick-btn" onclick="setDomain('self-signed.badssl.com')">self-signed.badssl.com</button>
+  <button class="quick-btn" onclick="setDomain('google.com')" ti="btn_google_com">google.com</button>
+  <button class="quick-btn" onclick="setDomain('github.com')" ti="btn_github_com">github.com</button>
+  <button class="quick-btn" onclick="setDomain('expired.badssl.com')" ti="btn_expired_badssl_com">expired.badssl.com</button>
+  <button class="quick-btn" onclick="setDomain('self-signed.badssl.com')" ti="btn_self_signed_badssl_com">self-signed.badssl.com</button>
 </div>
 
 <p class="note">Uses browser's built-in TLS connection to inspect certificates.</p>
@@ -103,7 +105,7 @@ footer a:hover{color:#999}
   <div class="grade-bar"><div class="grade" id="grade"></div></div>
   <div class="info-grid" id="infoGrid"></div>
   <div class="expiry-bar" id="expiryBar">
-    <h3>Certificate Validity Period</h3>
+    <h3 ti="h3_certificate_validity_peri">Certificate Validity Period</h3>
     <div class="bar-track"><div class="bar-fill" id="barFill"></div></div>
     <div class="bar-labels">
       <span id="barStart"></span>
@@ -111,7 +113,7 @@ footer a:hover{color:#999}
     </div>
   </div>
   <div class="checks" id="checks">
-    <h3>Security Checks</h3>
+    <h3 ti="h3_security_checks">Security Checks</h3>
     <div id="checkList"></div>
   </div>
 </div>
@@ -119,10 +121,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/ssl-check">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/ssl-check" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_ssl_check_certificate_ins':["SSL Check — Certificate Inspector", "SSL 检查 — 证书检查器"],'metadesc_check_ssl_tls_certificate':["Check SSL/TLS certificates for any domain. Expiration, issuer, protocol, grade. Free.", "检查任何域名的 SSL/TLS 证书。包括有效期、颁发机构、协议和等级。免费。"],'h1_ssl_check':["SSL Check", "SSL 检查"],'h3_certificate_validity_peri':["Certificate Validity Period", "证书有效期"],'h3_security_checks':["Security Checks", "安全检查"],'subtitle_inspect_ssl_tls_certifica':["Inspect SSL/TLS certificates for any domain.", "检查任何域名的 SSL/TLS 证书。"],'btn_check':["Check", "查看"],'btn_google_com':["google.com", "google.com"],'btn_github_com':["github.com", "github.com"],'btn_expired_badssl_com':["expired.badssl.com", "expired.badssl.com"],'btn_self_signed_badssl_com':["self-signed.badssl.com", "self-signed.badssl.com"],'placeholder_enter_domain_e_g_github_c':["Enter domain (e.g., github.com)", "输入域名（例如，github.com）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_check_failed':["Check failed:", "检查失败："],'jtcpre_check_failed':["Check failed: ", "检查失败："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function setDomain(d){document.getElementById('domain').value=d;check()}
 
@@ -284,19 +296,37 @@ async function check(){
 
     document.getElementById('results').style.display='block';
   }catch(e){
-    document.getElementById('error').textContent='Check failed: '+e.message;
+    document.getElementById('error').textContent=T("jtcpre_check_failed")+e.message;
     document.getElementById('error').style.display='block';
   }
   document.getElementById('loading').style.display='none';
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/dns-lookup/" style="color:#4da6ff;text-decoration:none;margin:0 8px">DNS Lookup</a>
 <a href="https://gokuscraper.github.io/dev-vault/ip-info/" style="color:#4da6ff;text-decoration:none;margin:0 8px">IP Info</a>
 <a href="https://gokuscraper.github.io/dev-vault/og-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">OG Preview</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

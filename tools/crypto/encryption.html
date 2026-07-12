@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_encryption_tool" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,15 +22,17 @@ textarea{resize:vertical;min-height:60px}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Encryption Tool</h1>
-  <p class="desc">Encrypt and decrypt text using symmetric algorithms</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_encryption_tool" ti="h1_encryption_tool">Encryption Tool</h1>
+  <p class="desc" ti="subtitle_encrypt_and_decrypt_text">Encrypt and decrypt text using symmetric algorithms</p>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.2.0/crypto-js.min.js"></script>
   <div class="card">
-    <h2>Encrypt</h2>
+    <h2 ti="h2_encrypt">Encrypt</h2>
     <textarea id="encInput" rows="3" spellcheck="false">Lorem ipsum dolor sit amet</textarea>
     <div class="row2 mt-10">
-      <input type="text" id="encSecret" value="my secret key" placeholder="Secret key" spellcheck="false">
+      <input type="text" id="encSecret" value="my secret key" tp="placeholder_secret_key" tp="placeholder_secret_key_2" placeholder="Secret key" spellcheck="false">
       <select id="encAlgo">
         <option value="AES">AES</option>
         <option value="TripleDES">TripleDES</option>
@@ -38,11 +40,11 @@ textarea{resize:vertical;min-height:60px}
         <option value="RC4">RC4</option>
       </select>
     </div>
-    <label>Encrypted output</label>
+    <label ti="label_encrypted_output">Encrypted output</label>
     <textarea id="encOutput" rows="3" readonly></textarea>
   </div>
   <div class="card">
-    <h2>Decrypt</h2>
+    <h2 ti="h2_decrypt">Decrypt</h2>
     <textarea id="decInput" rows="3" spellcheck="false">U2FsdGVkX1/EC3+6P5dbbkZ3e1kQ5o2yzuU0NHTjmrKnLBEwreV489Kr0DIBu+Bs</textarea>
     <div class="row2 mt-10">
       <input type="text" id="decSecret" value="my secret key" placeholder="Secret key" spellcheck="false">
@@ -53,10 +55,20 @@ textarea{resize:vertical;min-height:60px}
         <option value="RC4">RC4</option>
       </select>
     </div>
-    <label>Decrypted output</label>
+    <label ti="label_decrypted_output">Decrypted output</label>
     <textarea id="decOutput" rows="3" readonly></textarea>
   </div>
 </div>
+
+<script>var _LANG={'title_encryption_tool':["Encryption Tool", "加密工具"],'metadesc_encrypt_and_decrypt_text':["Encrypt and decrypt text using AES, TripleDES, Rabbit, or RC4 algorithms with a secret key.", "使用 AES、TripleDES、Rabbit 或 RC4 算法和密钥对文本进行加密和解密。"],'h1_encryption_tool':["Encryption Tool", "加密工具"],'h2_encrypt':["Encrypt", "加密"],'h2_decrypt':["Decrypt", "解密"],'subtitle_encrypt_and_decrypt_text':["Encrypt and decrypt text using symmetric algorithms", "使用对称算法加密和解密文本"],'placeholder_secret_key':["Secret key", "密钥"],'placeholder_secret_key_2':["Secret key", "密钥"],'label_encrypted_output':["Encrypted output", "加密输出"],'label_decrypted_output':["Decrypted output", "解密后的输出"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const algos = { AES: CryptoJS.AES, TripleDES: CryptoJS.TripleDES, Rabbit: CryptoJS.Rabbit, RC4: CryptoJS.RC4 };
 
@@ -82,6 +94,24 @@ function updateDec() {
 ['encInput','encSecret','encAlgo'].forEach(id => document.getElementById(id).addEventListener('input', updateEnc));
 ['decInput','decSecret','decAlgo'].forEach(id => document.getElementById(id).addEventListener('input', updateDec));
 updateEnc(); updateDec();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

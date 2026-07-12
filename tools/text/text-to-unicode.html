@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_text_to_unicode_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,24 +30,50 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Text to Unicode Converter</h1>
-  <p class="desc">View Unicode code points for any text</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_text_to_unicode_converter" ti="h1_text_to_unicode_converter" ti="title_text_to_unicode_converter" ti="h1_text_to_unicode_converter" ti="title_text_to_unicode_converter" ti="h1_text_to_unicode_converter">Text to Unicode Converter</h1>
+  <p class="desc" ti="subtitle_view_unicode_code_points" ti="subtitle_view_unicode_code_points" ti="subtitle_view_unicode_code_points">View Unicode code points for any text</p>
   <div class="card">
-    <label>Input text</label>
+    <label ti="label_input_text" ti="label_input_text" ti="label_input_text">Input text</label>
     <textarea id="input" rows="3" spellcheck="false">Hello 世界 🌍</textarea>
     <div id="tableWrap"></div>
     <div class="flex-center">
-      <button id="copyBtn">Copy as CSV</button>
+      <button id="copyBtn" ti="btn_copy_as_csv" ti="btn_copy_as_csv" ti="btn_copy_as_csv">Copy as CSV</button>
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_text_to_unicode_converter':["Text to Unicode Converter", "文本转Unicode转换器"],'metadesc_convert_text_to_unicode_c':["Convert text to Unicode code points. Shows decimal, hex, binary, HTML entities, and Unicode character names.", "将文本转换为Unicode代码点。显示十进制、十六进制、二进制、HTML实体和Unicode字符名称。"],'h1_text_to_unicode_converter':["Text to Unicode Converter", "文本转Unicode转换器"],'subtitle_view_unicode_code_points':["View Unicode code points for any text", "查看任何文本的 Unicode 代码点"],'btn_copy_as_csv':["Copy as CSV", "复制为 CSV 文件"],'th_char':["Char", "查尔"],'th_decimal':["Decimal", "小数"],'th_hex':["Hex", "十六进制"],'th_binary':["Binary", "二进制"],'th_html_entity':["HTML Entity", "HTML实体"],'th_js_escape':["JS Escape", "JS 转义"],'label_input_text':["Input text", "输入文本"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_text_to_unicode_converter':["Text to Unicode Converter", "文本转Unicode转换器"],'metadesc_convert_text_to_unicode_c':["Convert text to Unicode code points. Shows decimal, hex, binary, HTML entities, and Unicode character names.", "将文本转换为Unicode代码点。显示十进制、十六进制、二进制、HTML实体和Unicode字符名称。"],'h1_text_to_unicode_converter':["Text to Unicode Converter", "文本转Unicode转换器"],'subtitle_view_unicode_code_points':["View Unicode code points for any text", "查看任何文本的 Unicode 代码点"],'btn_copy_as_csv':["Copy as CSV", "复制为 CSV 文件"],'th_char':["Char", "查尔"],'th_decimal':["Decimal", "小数"],'th_hex':["Hex", "十六进制"],'th_binary':["Binary", "二进制"],'th_html_entity':["HTML Entity", "HTML实体"],'th_js_escape':["JS Escape", "JS 转义"],'label_input_text':["Input text", "输入文本"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function update() {
   const text = document.getElementById('input').value;
   const wrap = document.getElementById('tableWrap');
   if (!text) { wrap.innerHTML = ''; return; }
-  let html = '<table><thead><tr><th>Char</th><th>Decimal</th><th>Hex</th><th>Binary</th><th>HTML Entity</th><th>JS Escape</th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th ti="th_char" ti="th_char" ti="th_char">Char</th><th ti="th_decimal" ti="th_decimal" ti="th_decimal">Decimal</th><th ti="th_hex" ti="th_hex" ti="th_hex">Hex</th><th ti="th_binary" ti="th_binary" ti="th_binary">Binary</th><th ti="th_html_entity" ti="th_html_entity" ti="th_html_entity">HTML Entity</th><th ti="th_js_escape" ti="th_js_escape" ti="th_js_escape">JS Escape</th></tr></thead><tbody>';
   for (const ch of text) {
     const code = ch.codePointAt(0);
     const hex = code.toString(16).toUpperCase();
@@ -76,6 +102,60 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText('Char,Decimal,Hex,Binary,HTML Entity,JS Escape\n' + rows);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_color_level_4_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,49 +68,51 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>&#127912; CSS Color Level 4 <span class="accent">Playground</span></h1>
-  <span class="badge">Baseline <strong>2024</strong> — oklch, oklab, color-mix, color()</span>
+  <span class="badge">Baseline <strong ti="strong_2024">2024</strong> — oklch, oklab, color-mix, color()</span>
 </header>
 
 <nav id="nav">
-  <button class="active" data-section="spaces">Color Spaces</button>
-  <button data-section="oklch">OKLCH Picker</button>
-  <button data-section="gamut">Gamut Mapping</button>
-  <button data-section="colormix">color-mix()</button>
-  <button data-section="colorfn">color()</button>
-  <button data-section="detect">Display Detection</button>
-  <button data-section="codegen">Code Generator</button>
+  <button class="active" data-section="spaces" ti="btn_color_spaces">Color Spaces</button>
+  <button data-section="oklch" ti="btn_oklch_picker">OKLCH Picker</button>
+  <button data-section="gamut" ti="btn_gamut_mapping">Gamut Mapping</button>
+  <button data-section="colormix" ti="btn_color_mix">color-mix()</button>
+  <button data-section="colorfn" ti="btn_color">color()</button>
+  <button data-section="detect" ti="btn_display_detection">Display Detection</button>
+  <button data-section="codegen" ti="btn_code_generator">Code Generator</button>
 </nav>
 
 <!-- Section 1: Color Space Comparison -->
 <section class="section active" id="sec-spaces">
-  <h2>Color Space Comparison</h2>
-  <p class="desc">CSS Color Level 4 introduces new color spaces beyond sRGB. Each space has different gamuts and perceptual properties.</p>
+  <h2 ti="h2_color_space_comparison">Color Space Comparison</h2>
+  <p class="desc" ti="subtitle_css_color_level_4_introdu">CSS Color Level 4 introduces new color spaces beyond sRGB. Each space has different gamuts and perceptual properties.</p>
   <div class="demo-card">
     <h3>sRGB vs Display P3 vs Rec.2020 <span class="tag">gamut comparison</span></h3>
     <div class="three-col">
       <div>
         <h4 style="font-size:13px;margin-bottom:8px;color:var(--accent)">sRGB</h4>
         <p style="font-size:11px;color:var(--text-dim);margin-bottom:12px">Standard web colors. Covers ~35% of human vision. All browsers, all displays.</p>
-        <div class="swatch" style="background:rgb(255,0,0)"><span class="swatch-label">rgb(255,0,0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:rgb(0,128,0)"><span class="swatch-label">rgb(0,128,0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:rgb(0,0,255)"><span class="swatch-label">rgb(0,0,255)</span></div>
+        <div class="swatch" style="background:rgb(255,0,0)"><span class="swatch-label" ti="label_rgb_255_0_0">rgb(255,0,0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:rgb(0,128,0)"><span class="swatch-label" ti="label_rgb_0_128_0">rgb(0,128,0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:rgb(0,0,255)"><span class="swatch-label" ti="label_rgb_0_0_255">rgb(0,0,255)</span></div>
       </div>
       <div>
         <h4 style="font-size:13px;margin-bottom:8px;color:var(--green)">Display P3</h4>
         <p style="font-size:11px;color:var(--text-dim);margin-bottom:12px">Wider gamut. ~25% more colors than sRGB. Most modern displays. Apple standard.</p>
-        <div class="swatch" style="background:color(display-p3 1 0 0)"><span class="swatch-label">color(display-p3 1 0 0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:color(display-p3 0 0.5 0)"><span class="swatch-label">color(display-p3 0 0.5 0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:color(display-p3 0 0 1)"><span class="swatch-label">color(display-p3 0 0 1)</span></div>
+        <div class="swatch" style="background:color(display-p3 1 0 0)"><span class="swatch-label" ti="label_color_display_p3_1_0_0">color(display-p3 1 0 0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:color(display-p3 0 0.5 0)"><span class="swatch-label" ti="label_color_display_p3_0_0_5_0">color(display-p3 0 0.5 0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:color(display-p3 0 0 1)"><span class="swatch-label" ti="label_color_display_p3_0_0_1">color(display-p3 0 0 1)</span></div>
       </div>
       <div>
         <h4 style="font-size:13px;margin-bottom:8px;color:var(--purple)">Rec.2020</h4>
         <p style="font-size:11px;color:var(--text-dim);margin-bottom:12px">Ultra-wide gamut. ~75% of visible spectrum. Few displays. Future-proof.</p>
-        <div class="swatch" style="background:color(rec2020 1 0 0)"><span class="swatch-label">color(rec2020 1 0 0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:color(rec2020 0 0.5 0)"><span class="swatch-label">color(rec2020 0 0.5 0)</span></div>
-        <div style="margin-top:4px" class="swatch" style="background:color(rec2020 0 0 1)"><span class="swatch-label">color(rec2020 0 0 1)</span></div>
+        <div class="swatch" style="background:color(rec2020 1 0 0)"><span class="swatch-label" ti="label_color_rec2020_1_0_0">color(rec2020 1 0 0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:color(rec2020 0 0.5 0)"><span class="swatch-label" ti="label_color_rec2020_0_0_5_0">color(rec2020 0 0.5 0)</span></div>
+        <div style="margin-top:4px" class="swatch" style="background:color(rec2020 0 0 1)"><span class="swatch-label" ti="label_color_rec2020_0_0_1">color(rec2020 0 0 1)</span></div>
       </div>
     </div>
     <div style="margin-top:16px;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
@@ -118,10 +120,10 @@ footer a:hover{text-decoration:underline}
       <div style="overflow-x:auto">
         <table style="width:100%;border-collapse:collapse;font-size:12px">
           <tr style="border-bottom:1px solid var(--border)">
-            <th style="text-align:left;padding:8px;color:var(--text-dim)">Function</th>
-            <th style="text-align:left;padding:8px;color:var(--text-dim)">Space</th>
-            <th style="text-align:left;padding:8px;color:var(--text-dim)">Perceptual?</th>
-            <th style="text-align:left;padding:8px;color:var(--text-dim)">Use Case</th>
+            <th style="text-align:left;padding:8px;color:var(--text-dim)" ti="th_function" ti="th_function_2">Function</th>
+            <th style="text-align:left;padding:8px;color:var(--text-dim)" ti="th_space">Space</th>
+            <th style="text-align:left;padding:8px;color:var(--text-dim)" ti="th_perceptual">Perceptual?</th>
+            <th style="text-align:left;padding:8px;color:var(--text-dim)" ti="th_use_case">Use Case</th>
           </tr>
           <tr style="border-bottom:1px solid var(--border)">
             <td style="padding:8px"><code style="color:var(--cyan)">rgb()</code></td>
@@ -167,42 +169,42 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 2: OKLCH Color Picker -->
 <section class="section" id="sec-oklch">
-  <h2>OKLCH Color Picker</h2>
-  <p class="desc">OKLCH is perceptually uniform: equal steps in lightness, chroma, or hue produce equal visual differences. This makes it ideal for generating harmonious palettes.</p>
+  <h2 ti="h2_oklch_color_picker">OKLCH Color Picker</h2>
+  <p class="desc" ti="subtitle_oklch_is_perceptually_uni">OKLCH is perceptually uniform: equal steps in lightness, chroma, or hue produce equal visual differences. This makes it ideal for generating harmonious palettes.</p>
   <div class="two-col">
     <div class="demo-card">
       <h3>Picker <span class="tag">oklch(L C H)</span></h3>
       <div style="display:grid;gap:16px">
         <div class="ctrl-group">
-          <label>Lightness (L): <strong id="lVal">0.70</strong></label>
+          <label>Lightness (L): <strong id="lVal" ti="strong_0_70">0.70</strong></label>
           <input type="range" id="oklchL" min="0" max="100" value="70" oninput="updateOklch()" style="width:100%">
         </div>
         <div class="ctrl-group">
-          <label>Chroma (C): <strong id="cVal">0.15</strong></label>
+          <label>Chroma (C): <strong id="cVal" ti="strong_0_15">0.15</strong></label>
           <input type="range" id="oklchC" min="0" max="40" value="15" oninput="updateOklch()" style="width:100%">
         </div>
         <div class="ctrl-group">
-          <label>Hue (H): <strong id="hVal">250</strong>deg</label>
+          <label>Hue (H): <strong id="hVal" ti="strong_250">250</strong>deg</label>
           <input type="range" id="oklchH" min="0" max="360" value="250" oninput="updateOklch()" style="width:100%">
           <div class="hue-strip" id="hueStrip" onclick="pickHue(event)" style="margin-top:4px">
             <div class="hue-thumb" id="hueThumb" style="left:69.4%"></div>
           </div>
         </div>
         <div class="ctrl-group">
-          <label>Alpha: <strong id="aVal">1.00</strong></label>
+          <label>Alpha: <strong id="aVal" ti="strong_1_00" ti="strong_1_00_2">1.00</strong></label>
           <input type="range" id="oklchA" min="0" max="100" value="100" oninput="updateOklch()" style="width:100%">
         </div>
       </div>
       <div id="oklchPreview" style="margin-top:16px;height:120px;border-radius:var(--radius);border:1px solid var(--border);display:flex;align-items:flex-end;padding:12px;background:oklch(0.7 0.15 250)">
-        <span class="swatch-label" id="oklchLabel">oklch(0.70 0.15 250)</span>
+        <span class="swatch-label" id="oklchLabel" ti="label_oklch_0_70_0_15_250">oklch(0.70 0.15 250)</span>
       </div>
-      <div class="code-block" style="margin-top:8px" id="oklchCode"><button class="copy-btn" onclick="copyCode(this)">Copy</button>color: oklch(0.70 0.15 250);</div>
+      <div class="code-block" style="margin-top:8px" id="oklchCode"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9">Copy</button>color: oklch(0.70 0.15 250);</div>
     </div>
     <div class="demo-card">
-      <h3>Palette Generator</h3>
+      <h3 ti="h3_palette_generator">Palette Generator</h3>
       <div class="controls">
         <div class="ctrl-group">
-          <label>Harmony</label>
+          <label ti="label_harmony">Harmony</label>
           <select id="harmonyType" onchange="updateOklch()">
             <option value="mono">Monochromatic</option>
             <option value="complement">Complementary</option>
@@ -221,13 +223,13 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 3: Gamut Mapping -->
 <section class="section" id="sec-gamut">
-  <h2>Gamut Mapping Visualization</h2>
-  <p class="desc">When a color is outside a display's gamut, the browser maps it to the nearest displayable color. This visualization shows how out-of-gamut colors get clipped.</p>
+  <h2 ti="h2_gamut_mapping_visualizati">Gamut Mapping Visualization</h2>
+  <p class="desc" ti="subtitle_when_a_color_is_outside_a">When a color is outside a display's gamut, the browser maps it to the nearest displayable color. This visualization shows how out-of-gamut colors get clipped.</p>
   <div class="demo-card">
     <h3>Gamut Boundaries <span class="tag">color() vs oklch()</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Test Hue</label>
+        <label ti="label_test_hue">Test Hue</label>
         <input type="range" id="gamutHue" min="0" max="360" value="150" oninput="updateGamut()">
       </div>
       <span style="font-size:13px;font-weight:600;color:var(--accent)" id="gamutHueVal">150 deg</span>
@@ -248,32 +250,32 @@ footer a:hover{text-decoration:underline}
       <span>Lightness: 1.0</span>
     </div>
     <div style="margin-top:16px;padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius)">
-      <p style="font-size:12px;color:var(--text-dim);line-height:1.8"><strong style="color:var(--text)">How gamut mapping works:</strong> When you specify a color outside the display's gamut (e.g., <code style="color:var(--cyan)">oklch(0.8 0.4 150)</code> on an sRGB display), the browser reduces the chroma (saturation) until the color fits within the displayable range. This preserves the perceived hue and lightness as closely as possible.</p>
+      <p style="font-size:12px;color:var(--text-dim);line-height:1.8"><strong style="color:var(--text)" ti="strong_how_gamut_mapping_works">How gamut mapping works:</strong> When you specify a color outside the display's gamut (e.g., <code style="color:var(--cyan)">oklch(0.8 0.4 150)</code> on an sRGB display), the browser reduces the chroma (saturation) until the color fits within the displayable range. This preserves the perceived hue and lightness as closely as possible.</p>
     </div>
   </div>
 </section>
 
 <!-- Section 4: color-mix() -->
 <section class="section" id="sec-colormix">
-  <h2>color-mix() Builder</h2>
+  <h2 ti="h2_color_mix_builder">color-mix() Builder</h2>
   <p class="desc"><code>color-mix()</code> blends two colors in a specified color space. The interpolation space dramatically affects the result.</p>
   <div class="demo-card">
     <h3>Interactive Mixer <span class="tag">color-mix()</span></h3>
     <div class="controls">
       <div class="ctrl-group">
-        <label>Color 1</label>
+        <label ti="label_color_1">Color 1</label>
         <input type="color" id="mixColor1" value="#3b82f6" onchange="updateMix()">
       </div>
       <div class="ctrl-group">
-        <label>Color 2</label>
+        <label ti="label_color_2">Color 2</label>
         <input type="color" id="mixColor2" value="#ef4444" onchange="updateMix()">
       </div>
       <div class="ctrl-group">
-        <label>Ratio: <strong id="mixRatioVal">50</strong>%</label>
+        <label>Ratio: <strong id="mixRatioVal" ti="strong_50">50</strong>%</label>
         <input type="range" id="mixRatio" min="0" max="100" value="50" oninput="updateMix()">
       </div>
       <div class="ctrl-group">
-        <label>Color Space</label>
+        <label ti="label_color_space" ti="label_color_space_2">Color Space</label>
         <select id="mixSpace" onchange="updateMix()">
           <option value="srgb">srgb</option>
           <option value="srgb-linear">srgb-linear</option>
@@ -309,7 +311,7 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 5: color() Function -->
 <section class="section" id="sec-colorfn">
-  <h2>color() Function Explorer</h2>
+  <h2 ti="h2_color_function_explorer">color() Function Explorer</h2>
   <p class="desc">The <code>color()</code> function specifies colors in any predefined color space. Use it for wide-gamut colors in Display P3 and Rec.2020.</p>
   <div class="demo-card">
     <h3>color() Builder <span class="tag">color(space r g b / a)</span></h3>
@@ -334,11 +336,11 @@ footer a:hover{text-decoration:underline}
         <input type="range" id="cfnR" min="0" max="100" value="100" oninput="updateColorFn()" style="width:100%">
       </div>
       <div class="ctrl-group">
-        <label>G: <strong id="cfnGVal">0.00</strong></label>
+        <label>G: <strong id="cfnGVal" ti="strong_0_00">0.00</strong></label>
         <input type="range" id="cfnG" min="0" max="100" value="0" oninput="updateColorFn()" style="width:100%">
       </div>
       <div class="ctrl-group">
-        <label>B: <strong id="cfnBVal">0.50</strong></label>
+        <label>B: <strong id="cfnBVal" ti="strong_0_50">0.50</strong></label>
         <input type="range" id="cfnB" min="0" max="100" value="50" oninput="updateColorFn()" style="width:100%">
       </div>
     </div>
@@ -361,7 +363,7 @@ footer a:hover{text-decoration:underline}
 
 <!-- Section 6: Wide-Gamut Display Detection -->
 <section class="section" id="sec-detect">
-  <h2>Wide-Gamut Display Detection</h2>
+  <h2 ti="h2_wide_gamut_display_detect">Wide-Gamut Display Detection</h2>
   <p class="desc">Detect if the user's display supports wide-gamut colors using <code>@media (color-gamut: p3)</code> and JavaScript. Serve appropriate colors based on display capability.</p>
   <div class="demo-card">
     <h3>Your Display <span class="tag">detection</span></h3>
@@ -392,7 +394,7 @@ const supportsRec2020 = matchMedia('(color-gamut: rec2020)').matches;
 const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
   </div>
   <div class="demo-card">
-    <h3>P3 vs sRGB Live Comparison</h3>
+    <h3 ti="h3_p3_vs_srgb_live_compariso">P3 vs sRGB Live Comparison</h3>
     <p style="font-size:12px;color:var(--text-dim);margin-bottom:12px">If your display supports P3, the right column will show more vibrant colors. On sRGB displays, both columns look identical.</p>
     <div class="two-col">
       <div>
@@ -421,18 +423,18 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
 
 <!-- Section 7: Code Generator -->
 <section class="section" id="sec-codegen">
-  <h2>Code Generator</h2>
-  <p class="desc">Generate production-ready CSS color code with fallbacks for older browsers.</p>
+  <h2 ti="h2_code_generator">Code Generator</h2>
+  <p class="desc" ti="subtitle_generate_production_ready">Generate production-ready CSS color code with fallbacks for older browsers.</p>
   <div class="two-col">
     <div class="demo-card">
-      <h3>Configuration</h3>
+      <h3 ti="h3_configuration">Configuration</h3>
       <div style="display:grid;gap:16px">
         <div class="ctrl-group">
-          <label>Base Color</label>
+          <label ti="label_base_color">Base Color</label>
           <input type="color" id="genBaseColor" value="#3b82f6" onchange="generateColorCode()">
         </div>
         <div class="ctrl-group">
-          <label>Output Format</label>
+          <label ti="label_output_format">Output Format</label>
           <select id="genFormat" onchange="generateColorCode()">
             <option value="oklch">oklch() — perceptual</option>
             <option value="oklab">oklab() — perceptual</option>
@@ -441,7 +443,7 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
           </select>
         </div>
         <div class="ctrl-group">
-          <label>Include</label>
+          <label ti="label_include">Include</label>
           <select id="genInclude" onchange="generateColorCode()">
             <option value="single">Single color</option>
             <option value="palette">5-step palette</option>
@@ -450,14 +452,14 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
           </select>
         </div>
         <div class="ctrl-group">
-          <label>Custom Property Name</label>
+          <label ti="label_custom_property_name">Custom Property Name</label>
           <input type="text" id="genVarName" value="--color-primary" oninput="generateColorCode()" style="padding:6px 10px;border:1px solid var(--border);border-radius:var(--radius);background:var(--bg);color:var(--text);font-family:var(--font-mono);font-size:12px">
         </div>
-        <button class="btn primary" onclick="navigator.clipboard.writeText(document.getElementById('genColorOutput').value).then(()=>showToast())">Copy Generated Code</button>
+        <button class="btn primary" onclick="navigator.clipboard.writeText(document.getElementById('genColorOutput').value).then(()= ti="btn_showtoast_copy_generated">showToast())">Copy Generated Code</button>
       </div>
     </div>
     <div class="demo-card">
-      <h3>Generated CSS</h3>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
       <textarea class="code-output" id="genColorOutput" readonly style="height:350px"></textarea>
       <div id="genPreviewSwatches" style="margin-top:12px;display:flex;gap:4px"></div>
     </div>
@@ -467,14 +469,14 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
 <!-- Reference Section -->
 <section style="padding:24px;max-width:1200px;margin:0 auto">
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px;margin-bottom:20px">
-    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px">CSS Color Level 4 — Function Reference</h3>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px" ti="h3_css_color_level_4_functio">CSS Color Level 4 — Function Reference</h3>
     <div style="overflow-x:auto">
       <table style="width:100%;border-collapse:collapse;font-size:12px">
         <thead>
           <tr style="border-bottom:2px solid var(--border)">
             <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Function</th>
-            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Syntax</th>
-            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase">Notes</th>
+            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase" ti="th_syntax">Syntax</th>
+            <th style="text-align:left;padding:10px;color:var(--text-dim);font-size:11px;text-transform:uppercase" ti="th_notes">Notes</th>
           </tr>
         </thead>
         <tbody>
@@ -513,25 +515,25 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
     </div>
   </div>
   <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:var(--radius);padding:20px">
-    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px">Browser Support</h3>
+    <h3 style="font-size:15px;font-weight:600;margin-bottom:16px" ti="h3_browser_support">Browser Support</h3>
     <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px">
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
-        <strong style="color:var(--green);font-size:13px">oklch() / oklab()</strong>
+        <strong style="color:var(--green);font-size:13px" ti="strong_oklch_oklab">oklch() / oklab()</strong>
         <p style="font-size:11px;color:var(--green);margin-top:4px">Baseline 2023</p>
         <p style="font-size:10px;color:var(--text-dim)">Chrome 111+, Firefox 113+, Safari 15.4+</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
-        <strong style="color:var(--green);font-size:13px">color()</strong>
+        <strong style="color:var(--green);font-size:13px" ti="strong_color">color()</strong>
         <p style="font-size:11px;color:var(--green);margin-top:4px">Baseline 2023</p>
         <p style="font-size:10px;color:var(--text-dim)">Chrome 111+, Firefox 113+, Safari 15.4+</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
-        <strong style="color:var(--green);font-size:13px">color-mix()</strong>
+        <strong style="color:var(--green);font-size:13px" ti="strong_color_mix">color-mix()</strong>
         <p style="font-size:11px;color:var(--green);margin-top:4px">Baseline 2023</p>
         <p style="font-size:10px;color:var(--text-dim)">Chrome 111+, Firefox 113+, Safari 16.2+</p>
       </div>
       <div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
-        <strong style="color:var(--green);font-size:13px">Relative color</strong>
+        <strong style="color:var(--green);font-size:13px" ti="strong_relative_color">Relative color</strong>
         <p style="font-size:11px;color:var(--green);margin-top:4px">Baseline 2024</p>
         <p style="font-size:10px;color:var(--text-dim)">Chrome 119+, Firefox 128+, Safari 16.4+</p>
       </div>
@@ -540,11 +542,21 @@ const colorDepth = screen.colorDepth; // 24 = 8-bit, 30 = 10-bit</div>
 </section>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — CSS Color Level 4 Playground
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — CSS Color Level 4 Playground
 </footer>
 
 <div class="toast" id="toast">Copied to clipboard!</div>
 
+
+<script>var _LANG={'title_css_color_level_4_playgro':["CSS Color Level 4 Playground — Dev Vault", "CSS 颜色级别 4 练习场 — 开发者宝库"],'metadesc_interactive_playground_fo':["Interactive playground for CSS Color Level 4: oklch(), oklab(), color(), color-mix(), gamut mapping, wide-gamut display detection.", "CSS 颜色级别 4 的交互式游乐场：oklch()、oklab()、color()、color-mix()、色域映射、广色域显示检测。"],'h2_color_space_comparison':["Color Space Comparison", "色彩空间比较"],'h2_oklch_color_picker':["OKLCH Color Picker", "OKLCH 颜色选择器"],'h2_gamut_mapping_visualizati':["Gamut Mapping Visualization", "色域映射可视化"],'h2_color_mix_builder':["color-mix() Builder", "颜色混合() 构建器"],'h2_color_function_explorer':["color() Function Explorer", "color() 函数浏览器"],'h2_wide_gamut_display_detect':["Wide-Gamut Display Detection", "广色域显示检测"],'h2_code_generator':["Code Generator", "代码生成器"],'h3_palette_generator':["Palette Generator", "调色板生成器"],'h3_p3_vs_srgb_live_compariso':["P3 vs sRGB Live Comparison", "P3 与 sRGB 实时对比"],'h3_configuration':["Configuration", "配置"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_css_color_level_4_functio':["CSS Color Level 4 — Function Reference", "CSS 颜色级别 4 — 函数参考"],'h3_browser_support':["Browser Support", "浏览器支持"],'subtitle_css_color_level_4_introdu':["CSS Color Level 4 introduces new color spaces beyond sRGB. Each space has different gamuts and perceptual properties.", "CSS 颜色级别 4 引入了除 sRGB 之外的新颜色空间。每个空间都有不同的色域和感知特性。"],'subtitle_oklch_is_perceptually_uni':["OKLCH is perceptually uniform: equal steps in lightness, chroma, or hue produce equal visual differences. This makes it ideal for generating harmonious palettes.", "OKLCH 在感知上是均匀的：亮度、饱和度或色调的等步变化产生相同的视觉差异。这使其成为生成和谐调色板的理想选择。"],'subtitle_when_a_color_is_outside_a':["When a color is outside a display's gamut, the browser maps it to the nearest displayable color. This visualization shows how out-of-gamut colors get clipped.", "当颜色超出显示器的色域时，浏览器会将其映射到最接近的可显示颜色。此可视化图展示了超出色域的颜色是如何被裁剪的。"],'subtitle_generate_production_ready':["Generate production-ready CSS color code with fallbacks for older browsers.", "生成可用于生产环境的 CSS 颜色代码，并为旧版浏览器提供备用方案。"],'btn_color_spaces':["Color Spaces", "色彩空间"],'btn_oklch_picker':["OKLCH Picker", "OKLCH Picker"],'btn_gamut_mapping':["Gamut Mapping", "色域映射"],'btn_color_mix':["color-mix()", "颜色混合()"],'btn_color':["color()", "颜色（）"],'btn_display_detection':["Display Detection", "显示检测"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_showtoast_copy_generated':["showToast())\">Copy Generated Code", "showToast())&quot;&gt;复制生成的代码"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'label_rgb_255_0_0':["rgb(255,0,0)", "rgb(255,0,0)"],'label_rgb_0_128_0':["rgb(0,128,0)", "rgb(0,128,0)"],'label_rgb_0_0_255':["rgb(0,0,255)", "rgb(0,0,255)"],'label_color_display_p3_1_0_0':["color(display-p3 1 0 0)", "color(display-p3 1 0 0)"],'label_color_display_p3_0_0_5_0':["color(display-p3 0 0.5 0)", "color(display-p3 0 0.5 0)"],'label_color_display_p3_0_0_1':["color(display-p3 0 0 1)", "color(display-p3 0 0 1)"],'label_color_rec2020_1_0_0':["color(rec2020 1 0 0)", "color(rec2020 1 0 0)"],'label_color_rec2020_0_0_5_0':["color(rec2020 0 0.5 0)", "color(rec2020 0 0.5 0)"],'label_color_rec2020_0_0_1':["color(rec2020 0 0 1)", "color(rec2020 0 0 1)"],'label_oklch_0_70_0_15_250':["oklch(0.70 0.15 250)", "oklch(0.70 0.15 250)"],'strong_2024':["2024", "2024"],'strong_0_70':["0.70", "0.70"],'strong_0_15':["0.15", "0.15"],'strong_250':["250", "250"],'strong_1_00':["1.00", "1.00"],'strong_how_gamut_mapping_works':["How gamut mapping works:", "色域映射的工作原理："],'strong_50':["50", "50"],'strong_1_00_2':["1.00", "1.00"],'strong_0_00':["0.00", "0.00"],'strong_0_50':["0.50", "0.50"],'strong_oklch_oklab':["oklch() / oklab()", "oklch() / oklab()"],'strong_color':["color()", "颜色（）"],'strong_color_mix':["color-mix()", "颜色混合()"],'strong_relative_color':["Relative color", "相对颜色"],'strong_i_value':["${i.value}", "${i.value}"],'th_function':["Function", "功能"],'th_space':["Space", "空间"],'th_perceptual':["Perceptual?", "感知上的？"],'th_use_case':["Use Case", "用例"],'th_function_2':["Function", "功能"],'th_syntax':["Syntax", "句法"],'th_notes':["Notes", "笔记"],'label_harmony':["Harmony", "和谐"],'label_test_hue':["Test Hue", "测试色调"],'label_color_1':["Color 1", "颜色 1"],'label_color_2':["Color 2", "颜色 2"],'label_color_space':["Color Space", "色彩空间"],'label_color_space_2':["Color Space", "色彩空间"],'label_base_color':["Base Color", "底色"],'label_output_format':["Output Format", "输出格式"],'label_include':["Include", "包括"],'label_custom_property_name':["Custom Property Name", "自定义属性名称"],'footer_css_color_level_4_playgro':["CSS Color Level 4 Playground — Dev Vault", "CSS 颜色级别 4 练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_copy':["Copy", "复制"],'jtlword_copy_2':["Copy", "复制"],'jtlword_copy_3':["Copy", "复制"],'jtlword_copy_4':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* Navigation */
 document.getElementById('nav').addEventListener('click', e => {
@@ -769,7 +781,7 @@ function detectDisplay() {
   document.getElementById('displayInfo').innerHTML = items.map(i =>
     `<div style="padding:12px;background:var(--bg);border:1px solid var(--border);border-radius:var(--radius);text-align:center">
       <div style="font-size:11px;color:var(--text-dim);margin-bottom:4px">${i.label}</div>
-      <strong style="color:${i.color};font-size:14px">${i.value}</strong>
+      <strong style="color:${i.color};font-size:14px" ti="strong_i_value">${i.value}</strong>
     </div>`
   ).join('');
 }
@@ -864,6 +876,24 @@ function generateColorCode() {
   ).join('');
 }
 generateColorCode();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

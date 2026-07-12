@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_schema_generator_dra" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,13 +117,15 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>JSON Schema</h1>
+  <h1 ti="h1_json_schema">JSON Schema</h1>
   <span class="badge">2020-12</span>
   <div class="tabs">
-    <button class="tab active" data-mode="generate">Generate</button>
-    <button class="tab" data-mode="validate">Validate</button>
+    <button class="tab active" data-mode="generate" ti="btn_generate">Generate</button>
+    <button class="tab" data-mode="validate" ti="btn_validate" ti="btn_validate_2">Validate</button>
   </div>
 </div>
 
@@ -170,7 +172,7 @@ footer a:hover{text-decoration:underline}
         <span class="panel-title">JSON Input</span>
         <div class="btn-group">
           <div class="preset-btn" id="presets-wrap">
-            <button class="btn" id="btn-presets">Presets ▾</button>
+            <button class="btn" id="btn-presets" ti="btn_presets">Presets ▾</button>
             <div class="preset-menu hidden" id="preset-menu">
               <div class="preset-item" data-preset="user">User object <span class="preset-tag">auth</span></div>
               <div class="preset-item" data-preset="api">API response <span class="preset-tag">rest</span></div>
@@ -180,12 +182,12 @@ footer a:hover{text-decoration:underline}
               <div class="preset-item" data-preset="form">Form data <span class="preset-tag">ui</span></div>
             </div>
           </div>
-          <button class="btn" id="btn-clear">Clear</button>
+          <button class="btn" id="btn-clear" ti="btn_clear">Clear</button>
         </div>
       </div>
       <div class="code-wrap">
         <div class="hl-output" id="input-hl" aria-hidden="true"><code></code></div>
-        <textarea id="json-input" placeholder="Paste your JSON here..." spellcheck="false" autocomplete="off"></textarea>
+        <textarea id="json-input" tp="placeholder_paste_your_json_here" placeholder="Paste your JSON here..." spellcheck="false" autocomplete="off"></textarea>
       </div>
       <div class="stats" id="input-status"><span class="v-placeholder">Paste JSON to generate schema</span></div>
     </div>
@@ -195,7 +197,7 @@ footer a:hover{text-decoration:underline}
     <div class="panel">
       <div class="panel-header">
         <span class="panel-title">JSON Schema Output</span>
-        <button class="btn btn-accent" id="btn-copy">Copy</button>
+        <button class="btn btn-accent" id="btn-copy" ti="btn_copy">Copy</button>
       </div>
       <div class="code-wrap">
         <div class="hl-output" id="output-hl" aria-hidden="true"><code></code></div>
@@ -215,7 +217,7 @@ footer a:hover{text-decoration:underline}
       </div>
       <div class="code-wrap">
         <div class="hl-output" id="v-data-hl" aria-hidden="true"><code></code></div>
-        <textarea id="validate-json" placeholder="Paste JSON data to validate..." spellcheck="false" autocomplete="off"></textarea>
+        <textarea id="validate-json" tp="placeholder_paste_json_data_to_valida" placeholder="Paste JSON data to validate..." spellcheck="false" autocomplete="off"></textarea>
       </div>
     </div>
     <div class="divider"></div>
@@ -225,7 +227,7 @@ footer a:hover{text-decoration:underline}
       </div>
       <div class="code-wrap">
         <div class="hl-output" id="v-schema-hl" aria-hidden="true"><code></code></div>
-        <textarea id="validate-schema" placeholder="Paste JSON Schema..." spellcheck="false" autocomplete="off"></textarea>
+        <textarea id="validate-schema" tp="placeholder_paste_json_schema" placeholder="Paste JSON Schema..." spellcheck="false" autocomplete="off"></textarea>
       </div>
     </div>
     <div class="divider"></div>
@@ -242,9 +244,19 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 100+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 100+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_json_schema_generator_dra':["JSON Schema Generator — Draft 2020-12", "JSON Schema 生成器 — 草案 2020-12"],'metadesc_generate_valid_json_schem':["Generate valid JSON Schema from sample JSON data. Draft 2020-12 format, format detection, schema validation.", "从示例 JSON 数据生成有效的 JSON Schema。草案 2020-12 格式，格式检测，Schema 验证。"],'h1_json_schema':["JSON Schema", "JSON 模式"],'btn_generate':["Generate", "产生"],'btn_validate':["Validate", "证实"],'btn_presets':["Presets ▾", "预设 ▾"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_validate_2':["Validate", "证实"],'placeholder_paste_your_json_here':["Paste your JSON here...", "把你的JSON文件粘贴到这里……"],'placeholder_paste_json_data_to_valida':["Paste JSON data to validate...", "粘贴 JSON 数据进行验证..."],'placeholder_paste_json_schema':["Paste JSON Schema...", "粘贴 JSON Schema..."],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
 'use strict';
@@ -837,7 +849,7 @@ btnCopy.addEventListener('click', () => {
   if (!text) return;
   navigator.clipboard.writeText(text).then(() => {
     const orig = btnCopy.textContent;
-    btnCopy.textContent = 'Copied!';
+    btnCopy.textContent=T("jtc_copied");
     setTimeout(() => { btnCopy.textContent = orig; }, 1500);
   });
 });
@@ -1069,12 +1081,12 @@ function validateFormat(value, format) {
 })();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-to-ts/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON → TS</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
 <a href="https://gokuscraper.github.io/dev-vault/yaml-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">YAML ↔ JSON</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -1084,5 +1096,23 @@ function validateFormat(value, format) {
 <a href="https://gokuscraper.github.io/dev-vault/yaml-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">YAML ↔ JSON</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

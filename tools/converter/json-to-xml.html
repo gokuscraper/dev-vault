@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_to_xml_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,19 +27,21 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>JSON to XML Converter</h1>
-  <p class="desc">Convert between JSON and XML formats</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_json_to_xml_converter" ti="h1_json_to_xml_converter">JSON to XML Converter</h1>
+  <p class="desc" ti="subtitle_convert_between_json_and">Convert between JSON and XML formats</p>
   <div class="card">
     <div class="tabs">
-      <button class="active" data-dir="json2xml">JSON → XML</button>
-      <button data-dir="xml2json">XML → JSON</button>
+      <button class="active" data-dir="json2xml" ti="btn_json_xml">JSON → XML</button>
+      <button data-dir="xml2json" ti="btn_xml_json">XML → JSON</button>
     </div>
     <div id="rootDiv" style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
-      <label style="min-width:80px;margin:0">Root element</label>
+      <label style="min-width:80px;margin:0" ti="label_root_element">Root element</label>
       <input type="text" id="rootName" value="root" style="width:120px;margin:0">
     </div>
-    <label>Input</label>
+    <label ti="label_input">Input</label>
     <textarea id="input" rows="8" spellcheck="false">{
   "name": "John",
   "age": 30,
@@ -50,15 +52,25 @@ button:hover{background:#252525;border-color:#3b82f6}
     "zip": 10001
   }
 }</textarea>
-    <label>Output</label>
+    <label ti="label_output">Output</label>
     <textarea id="output" rows="8" readonly></textarea>
     <div class="error" id="error"></div>
     <div class="flex-center">
-      <button id="convertBtn">Convert</button>
-      <button id="copyBtn">Copy Output</button>
+      <button id="convertBtn" ti="btn_convert">Convert</button>
+      <button id="copyBtn" ti="btn_copy_output">Copy Output</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_json_to_xml_converter':["JSON to XML Converter", "JSON 转 XML 转换器"],'metadesc_convert_json_data_to_xml':["Convert JSON data to XML format and back. Supports nested objects, arrays, attributes, and custom root element names.", "将 JSON 数据转换为 XML 格式，反之亦然。支持嵌套对象、数组、属性和自定义根元素名称。"],'h1_json_to_xml_converter':["JSON to XML Converter", "JSON 转 XML 转换器"],'subtitle_convert_between_json_and':["Convert between JSON and XML formats", "JSON 和 XML 格式之间的转换"],'btn_json_xml':["JSON → XML", "JSON → XML"],'btn_xml_json':["XML → JSON", "XML → JSON"],'btn_convert':["Convert", "转变"],'btn_copy_output':["Copy Output", "复制输出"],'label_root_element':["Root element", "根元素"],'label_input':["Input", "输入"],'label_output':["Output", "输出"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function escapeXml(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;').replace(/'/g, '&apos;');
@@ -135,7 +147,7 @@ function convert() {
       output.value = JSON.stringify(obj, null, 2);
     }
   } catch(e) {
-    error.textContent = 'Error: ' + e.message;
+    error.textContent=T("jtcpre_error")+ e.message;
     output.value = '';
   }
 }
@@ -146,6 +158,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
 });
 document.getElementById('rootName').addEventListener('input', convert);
 convert();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_llm_price_calculator_comp" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -89,6 +89,8 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="hero">
   <h1>LLM <span>Price</span> Calculator</h1>
   <p>Compare 35+ AI models by price, quality, and value. Find the smartest model for your budget.</p>
@@ -97,12 +99,12 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   <div class="input-section">
     <div class="input-row">
       <div class="input-group">
-        <label>Monthly input tokens</label>
+        <label ti="label_monthly_input_tokens">Monthly input tokens</label>
         <input type="number" id="inputTokens" value="10" min="0" step="1">
         <div class="unit">million tokens / month</div>
       </div>
       <div class="input-group">
-        <label>Monthly output tokens</label>
+        <label ti="label_monthly_output_tokens">Monthly output tokens</label>
         <input type="number" id="outputTokens" value="2" min="0" step="0.1">
         <div class="unit">million tokens / month</div>
       </div>
@@ -140,6 +142,16 @@ body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,san
   Last updated: March 2026
 </div>
 
+
+<script>var _LANG={'title_llm_price_calculator_comp':["LLM Price Calculator — Compare AI Model Costs", "LLM价格计算器 — 比较AI模型成本"],'metadesc_calculate_and_compare_mon':["Calculate and compare monthly costs for Claude, GPT, Gemini, DeepSeek, Mistral, Llama, and Grok. Input your token usage, see which model is cheapest.", "计算并比较 Claude、GPT、Gemini、DeepSeek、Mistral、Llama 和 Grok 的月度费用。输入您的代币使用量，查看哪种模式最划算。"],'label_monthly_input_tokens':["Monthly input tokens", "每月投入代币"],'label_monthly_output_tokens':["Monthly output tokens", "月度产出代币"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const MODELS = [
   // Anthropic — quality: composite of Arena Elo, SWE-bench Verified, GPQA Diamond
@@ -320,6 +332,24 @@ document.getElementById('inputTokens').oninput = () => { document.querySelectorA
 document.getElementById('outputTokens').oninput = () => { document.querySelectorAll('.preset').forEach(b=>b.classList.remove('active')); calculate(); };
 
 calculate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

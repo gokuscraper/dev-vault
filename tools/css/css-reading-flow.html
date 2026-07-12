@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_reading_flow_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -407,9 +407,11 @@ a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
-  <h1>CSS reading-flow Playground</h1>
+  <h1 ti="title_css_reading_flow_playgrou" ti="h1_css_reading_flow_playgrou">CSS reading-flow Playground</h1>
   <p>Control focus navigation order in flex and grid layouts with the CSS <code>reading-flow</code> property.</p>
   <div id="compat-banner" class="compat-banner"></div>
 </header>
@@ -419,23 +421,23 @@ a:hover { text-decoration: underline; }
   <!-- 1. Flex Demo -->
   <section class="section" id="flex-demo">
     <h2><span class="icon">&#x2B13;</span> Flex Demo</h2>
-    <p class="subtitle">Flex container with reversed items. Toggle reading-flow to see tab order change.</p>
+    <p class="subtitle" ti="subtitle_flex_container_with_rever">Flex container with reversed items. Toggle reading-flow to see tab order change.</p>
     <div class="controls">
       <div>
-        <label>reading-flow</label>
+        <label ti="label_reading_flow" ti="label_reading_flow_2" ti="label_reading_flow_3" ti="label_reading_flow_4">reading-flow</label>
         <div class="btn-group" id="flex-rf-btns">
-          <button class="active" data-val="normal">normal</button>
-          <button data-val="flex-visual">flex-visual</button>
-          <button data-val="flex-flow">flex-flow</button>
+          <button class="active" data-val="normal" ti="btn_normal" ti="btn_normal_2">normal</button>
+          <button data-val="flex-visual" ti="btn_flex_visual" ti="btn_flex_visual_2" ti="btn_flex_visual_3">flex-visual</button>
+          <button data-val="flex-flow" ti="btn_flex_flow" ti="btn_flex_flow_2" ti="btn_flex_flow_3">flex-flow</button>
         </div>
       </div>
       <div>
-        <label>flex-direction</label>
+        <label ti="label_flex_direction">flex-direction</label>
         <div class="btn-group" id="flex-dir-btns">
-          <button class="active" data-val="row-reverse">row-reverse</button>
-          <button data-val="row">row</button>
-          <button data-val="column">column</button>
-          <button data-val="column-reverse">column-reverse</button>
+          <button class="active" data-val="row-reverse" ti="btn_row_reverse" ti="btn_row_reverse_2" ti="btn_row_reverse_3">row-reverse</button>
+          <button data-val="row" ti="btn_row" ti="btn_row_2" ti="btn_row_3">row</button>
+          <button data-val="column" ti="btn_column">column</button>
+          <button data-val="column-reverse" ti="btn_column_reverse" ti="btn_column_reverse_2" ti="btn_column_reverse_3">column-reverse</button>
         </div>
       </div>
     </div>
@@ -454,9 +456,9 @@ a:hover { text-decoration: underline; }
         <label>reading-flow</label>
         <div class="btn-group" id="grid-rf-btns">
           <button class="active" data-val="normal">normal</button>
-          <button data-val="grid-rows">grid-rows</button>
-          <button data-val="grid-columns">grid-columns</button>
-          <button data-val="grid-order">grid-order</button>
+          <button data-val="grid-rows" ti="btn_grid_rows" ti="btn_grid_rows_2">grid-rows</button>
+          <button data-val="grid-columns" ti="btn_grid_columns" ti="btn_grid_columns_2">grid-columns</button>
+          <button data-val="grid-order" ti="btn_grid_order" ti="btn_grid_order_2">grid-order</button>
         </div>
       </div>
     </div>
@@ -469,7 +471,7 @@ a:hover { text-decoration: underline; }
   <!-- 3. Accessibility Impact -->
   <section class="section" id="a11y-section">
     <h2><span class="icon">&#x267F;</span> Accessibility Impact</h2>
-    <p class="subtitle">reading-flow fixes the disconnect between visual order and DOM/focus order.</p>
+    <p class="subtitle" ti="subtitle_reading_flow_fixes_the_di">reading-flow fixes the disconnect between visual order and DOM/focus order.</p>
     <div class="a11y-comparison">
       <div class="a11y-panel">
         <h3><span class="status-bad">&#x2716;</span> Without reading-flow</h3>
@@ -491,23 +493,23 @@ a:hover { text-decoration: underline; }
   <!-- 4. Screen Reader Simulation -->
   <section class="section" id="sr-section">
     <h2><span class="icon">&#x1F50A;</span> Screen Reader Simulation</h2>
-    <p class="subtitle">See the order a screen reader would follow with and without reading-flow.</p>
+    <p class="subtitle" ti="subtitle_see_the_order_a_screen_re">See the order a screen reader would follow with and without reading-flow.</p>
     <div class="controls" style="margin-bottom:0.75rem;">
       <div>
-        <label>Layout</label>
+        <label ti="label_layout" ti="label_layout_2">Layout</label>
         <div class="btn-group" id="sr-layout-btns">
-          <button class="active" data-val="flex-reverse">flex row-reverse</button>
-          <button data-val="grid-reorder">grid reordered</button>
+          <button class="active" data-val="flex-reverse" ti="btn_flex_row_reverse">flex row-reverse</button>
+          <button data-val="grid-reorder" ti="btn_grid_reordered">grid reordered</button>
         </div>
       </div>
     </div>
     <div class="two-col">
       <div>
-        <h3 style="font-size:0.9rem;margin-bottom:0.5rem;color:var(--danger);">DOM Order (default)</h3>
+        <h3 style="font-size:0.9rem;margin-bottom:0.5rem;color:var(--danger);" ti="h3_dom_order_default">DOM Order (default)</h3>
         <ol class="sr-list" id="sr-dom-list"></ol>
       </div>
       <div>
-        <h3 style="font-size:0.9rem;margin-bottom:0.5rem;color:var(--success);">With reading-flow</h3>
+        <h3 style="font-size:0.9rem;margin-bottom:0.5rem;color:var(--success);" ti="h3_with_reading_flow">With reading-flow</h3>
         <ol class="sr-list" id="sr-rf-list"></ol>
       </div>
     </div>
@@ -519,14 +521,14 @@ a:hover { text-decoration: underline; }
   <!-- 5. Interactive Grid Builder -->
   <section class="section" id="builder-section">
     <h2><span class="icon">&#x1F9F1;</span> Interactive Grid Builder</h2>
-    <p class="subtitle">Create a grid layout, place items, and see how reading-flow affects navigation order.</p>
+    <p class="subtitle" ti="subtitle_create_a_grid_layout_plac">Create a grid layout, place items, and see how reading-flow affects navigation order.</p>
     <div class="builder-controls">
       <div class="field">
-        <label>Columns</label>
+        <label ti="label_columns">Columns</label>
         <input type="number" id="builder-cols" value="3" min="2" max="6">
       </div>
       <div class="field">
-        <label>Rows</label>
+        <label ti="label_rows">Rows</label>
         <input type="number" id="builder-rows" value="3" min="2" max="6">
       </div>
       <div class="field">
@@ -538,7 +540,7 @@ a:hover { text-decoration: underline; }
           <option value="grid-order">grid-order</option>
         </select>
       </div>
-      <button id="builder-reset">Reset</button>
+      <button id="builder-reset" ti="btn_reset">Reset</button>
     </div>
     <div class="demo-area">
       <div class="builder-grid" id="builder-grid"></div>
@@ -549,13 +551,13 @@ a:hover { text-decoration: underline; }
   <!-- 6. Code Generator -->
   <section class="section" id="codegen-section">
     <h2><span class="icon">&#x1F4CB;</span> Code Generator</h2>
-    <p class="subtitle">Generate the CSS for your layout with reading-flow.</p>
+    <p class="subtitle" ti="subtitle_generate_the_css_for_your">Generate the CSS for your layout with reading-flow.</p>
     <div class="controls">
       <div>
         <label>Layout</label>
         <div class="btn-group" id="cg-layout-btns">
-          <button class="active" data-val="flex">flex</button>
-          <button data-val="grid">grid</button>
+          <button class="active" data-val="flex" ti="btn_flex">flex</button>
+          <button data-val="grid" ti="btn_grid">grid</button>
         </div>
       </div>
       <div>
@@ -566,7 +568,7 @@ a:hover { text-decoration: underline; }
         </div>
       </div>
       <div>
-        <label>Direction / Template</label>
+        <label ti="label_direction_template">Direction / Template</label>
         <div class="btn-group" id="cg-dir-btns">
           <button class="active" data-val="row-reverse">row-reverse</button>
           <button data-val="row">row</button>
@@ -575,7 +577,7 @@ a:hover { text-decoration: underline; }
       </div>
     </div>
     <div class="code-output" id="code-output">
-      <button class="copy-btn" id="copy-btn">Copy</button>
+      <button class="copy-btn" id="copy-btn" ti="btn_copy" ti="btn_copy_2">Copy</button>
     </div>
   </section>
 
@@ -585,6 +587,16 @@ a:hover { text-decoration: underline; }
   Built by <a href="https://github.com/gokuscraper" target="_blank" rel="noopener">gokuscraper</a> &times; Claude Code
 </footer>
 
+
+<script>var _LANG={'title_css_reading_flow_playgrou':["CSS reading-flow Playground", "CSS 阅读流程演示"],'metadesc_control_focus_navigation':["Control focus navigation order in flex and grid layouts with CSS reading-flow.", "使用 CSS reading-flow 控制 flex 和 grid 布局中的焦点导航顺序。"],'h1_css_reading_flow_playgrou':["CSS reading-flow Playground", "CSS 阅读流程演示"],'h3_dom_order_default':["DOM Order (default)", "DOM 顺序（默认）"],'h3_with_reading_flow':["With reading-flow", "通过阅读流程"],'subtitle_flex_container_with_rever':["Flex container with reversed items. Toggle reading-flow to see tab order change.", "带有反向排列项目的弹性容器。切换阅读流程即可查看标签顺序的变化。"],'subtitle_reading_flow_fixes_the_di':["reading-flow fixes the disconnect between visual order and DOM/focus order.", "reading-flow 解决了视觉顺序与 DOM/焦点顺序之间的脱节问题。"],'subtitle_see_the_order_a_screen_re':["See the order a screen reader would follow with and without reading-flow.", "查看屏幕阅读器在启用和禁用阅读流程的情况下会遵循的顺序。"],'subtitle_create_a_grid_layout_plac':["Create a grid layout, place items, and see how reading-flow affects navigation order.", "创建网格布局，放置项目，并观察阅读流程如何影响导航顺序。"],'subtitle_generate_the_css_for_your':["Generate the CSS for your layout with reading-flow.", "使用 reading-flow 生成布局的 CSS。"],'btn_normal':["normal", "普通的"],'btn_flex_visual':["flex-visual", "灵活视觉"],'btn_flex_flow':["flex-flow", "柔性流"],'btn_row_reverse':["row-reverse", "行反转"],'btn_row':["row", "排"],'btn_column':["column", "柱子"],'btn_column_reverse':["column-reverse", "列反转"],'btn_normal_2':["normal", "普通的"],'btn_grid_rows':["grid-rows", "网格行"],'btn_grid_columns':["grid-columns", "网格列"],'btn_grid_order':["grid-order", "网格顺序"],'btn_flex_row_reverse':["flex row-reverse", "反向弯曲划船"],'btn_grid_reordered':["grid reordered", "网格重新排序"],'btn_simulate_focus_walk':["▶ Simulate Focus Walk", "▶ 模拟专注行走"],'btn_reset':["Reset", "重置"],'btn_flex':["flex", "弹性"],'btn_grid':["grid", "网格"],'btn_flex_visual_2':["flex-visual", "灵活视觉"],'btn_flex_flow_2':["flex-flow", "柔性流"],'btn_row_reverse_2':["row-reverse", "行反转"],'btn_row_2':["row", "排"],'btn_column_reverse_2':["column-reverse", "列反转"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_flex_visual_3':["flex-visual", "灵活视觉"],'btn_flex_flow_3':["flex-flow", "柔性流"],'btn_row_reverse_3':["row-reverse", "行反转"],'btn_row_3':["row", "排"],'btn_column_reverse_3':["column-reverse", "列反转"],'btn_grid_rows_2':["grid-rows", "网格行"],'btn_grid_columns_2':["grid-columns", "网格列"],'btn_grid_order_2':["grid-order", "网格顺序"],'btn_3_col':["3-col", "3列"],'btn_4_col':["4-col", "4列"],'btn_2_col':["2-col", "2-col"],'label_reading_flow':["reading-flow", "阅读流程"],'label_flex_direction':["flex-direction", "弯曲方向"],'label_reading_flow_2':["reading-flow", "阅读流程"],'label_layout':["Layout", "布局"],'label_columns':["Columns", "列"],'label_rows':["Rows", "行"],'label_reading_flow_3':["reading-flow", "阅读流程"],'label_layout_2':["Layout", "布局"],'label_reading_flow_4':["reading-flow", "阅读流程"],'label_direction_template':["Direction / Template", "方向/模板"],'jtc_item':["Item", "物品"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_flex_direction':["flex-direction", "弯曲方向"],'jtc_grid_template_columns':["grid-template-columns", "网格模板列"],'jtcpre_item':["Item ", "物品"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -950,7 +962,7 @@ a:hover { text-decoration: underline; }
       const itemIdx = builderItems.findIndex(it => it.cellIndex === c);
       if (itemIdx >= 0) {
         cell.classList.add('filled');
-        cell.textContent = 'Item ' + builderItems[itemIdx].placementOrder;
+        cell.textContent=T("jtcpre_item")+ builderItems[itemIdx].placementOrder;
         // Focus order badge
         const foIdx = focusOrder.findIndex(f => f.idx === itemIdx);
         if (foIdx >= 0) {
@@ -1028,8 +1040,8 @@ a:hover { text-decoration: underline; }
     document.getElementById('copy-btn').addEventListener('click', function() {
       const text = output.textContent.replace('Copy', '').trim();
       navigator.clipboard.writeText(text).then(() => {
-        this.textContent = 'Copied!';
-        setTimeout(() => { this.textContent = 'Copy'; }, 1500);
+        this.textContent=T("jtc_copied");
+        setTimeout(() => { this.textContent=T("jtc_copy"); }, 1500);
       });
     });
   }
@@ -1047,17 +1059,17 @@ a:hover { text-decoration: underline; }
         '<button class="active" data-val="row-reverse">row-reverse</button>' +
         '<button data-val="row">row</button>' +
         '<button data-val="column-reverse">column-reverse</button>';
-      dirBtns.parentElement.querySelector('label').textContent = 'flex-direction';
+      dirBtns.parentElement.querySelector('label').textContent=T("jtc_flex_direction");
     } else {
       rfBtns.innerHTML =
         '<button class="active" data-val="grid-rows">grid-rows</button>' +
         '<button data-val="grid-columns">grid-columns</button>' +
         '<button data-val="grid-order">grid-order</button>';
       dirBtns.innerHTML =
-        '<button class="active" data-val="repeat(3, 1fr)">3-col</button>' +
-        '<button data-val="repeat(4, 1fr)">4-col</button>' +
-        '<button data-val="repeat(2, 1fr)">2-col</button>';
-      dirBtns.parentElement.querySelector('label').textContent = 'grid-template-columns';
+        '<button class="active" data-val="repeat(3, 1fr)" ti="btn_3_col">3-col</button>' +
+        '<button data-val="repeat(4, 1fr)" ti="btn_4_col">4-col</button>' +
+        '<button data-val="repeat(2, 1fr)" ti="btn_2_col">2-col</button>';
+      dirBtns.parentElement.querySelector('label').textContent=T("jtc_grid_template_columns");
     }
 
     setupBtnGroup('cg-rf-btns', renderCodeGen);
@@ -1070,6 +1082,24 @@ a:hover { text-decoration: underline; }
   setupBtnGroup('cg-dir-btns', renderCodeGen);
   renderCodeGen();
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

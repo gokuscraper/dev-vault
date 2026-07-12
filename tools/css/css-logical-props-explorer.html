@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_logical_properties_ex" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -296,34 +296,36 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>CSS Logical Properties Explorer</h1>
+  <h1 ti="title_css_logical_properties_ex" ti="h1_css_logical_properties_ex">CSS Logical Properties Explorer</h1>
   <p>Understand block/inline axes, writing modes, and the physical-to-logical property mapping</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab active" data-tab="axes">Block/Inline Axes</button>
-    <button class="tab" data-tab="margin">Margin & Padding</button>
-    <button class="tab" data-tab="writing">Writing Modes</button>
-    <button class="tab" data-tab="direction">Direction (LTR/RTL)</button>
-    <button class="tab" data-tab="mapping">Property Mapping</button>
-    <button class="tab" data-tab="float">Float & Clear</button>
-    <button class="tab" data-tab="border">Border & Radius</button>
-    <button class="tab" data-tab="checklist">Migration Checklist</button>
+    <button class="tab active" data-tab="axes" ti="btn_block_inline_axes">Block/Inline Axes</button>
+    <button class="tab" data-tab="margin" ti="btn_margin_padding">Margin & Padding</button>
+    <button class="tab" data-tab="writing" ti="btn_writing_modes">Writing Modes</button>
+    <button class="tab" data-tab="direction" ti="btn_direction_ltr_rtl">Direction (LTR/RTL)</button>
+    <button class="tab" data-tab="mapping" ti="btn_property_mapping">Property Mapping</button>
+    <button class="tab" data-tab="float" ti="btn_float_clear">Float & Clear</button>
+    <button class="tab" data-tab="border" ti="btn_border_radius">Border & Radius</button>
+    <button class="tab" data-tab="checklist" ti="btn_migration_checklist">Migration Checklist</button>
   </div>
 
   <!-- Block/Inline Axes -->
   <div class="panel active" id="panel-axes">
     <div class="card">
-      <h2>Block and Inline Axes</h2>
-      <p>Logical properties use <strong>block</strong> (perpendicular to text flow) and <strong>inline</strong> (parallel to text flow) instead of physical directions (top/right/bottom/left).</p>
+      <h2 ti="h2_block_and_inline_axes">Block and Inline Axes</h2>
+      <p>Logical properties use <strong ti="strong_block">block</strong> (perpendicular to text flow) and <strong ti="strong_inline">inline</strong> (parallel to text flow) instead of physical directions (top/right/bottom/left).</p>
 
       <div class="demo-area">
         <div class="controls-row">
           <div class="control-group">
-            <label>Writing Mode:</label>
+            <label ti="label_writing_mode" ti="label_writing_mode_2" ti="label_writing_mode_3">Writing Mode:</label>
             <select id="axis-writing-mode" onchange="updateAxisDemo()">
               <option value="horizontal-tb">horizontal-tb (default)</option>
               <option value="vertical-rl">vertical-rl (Japanese, Chinese)</option>
@@ -331,7 +333,7 @@
             </select>
           </div>
           <div class="control-group">
-            <label>Direction:</label>
+            <label ti="label_direction" ti="label_direction_2" ti="label_direction_3" ti="label_direction_4" ti="label_direction_5">Direction:</label>
             <select id="axis-direction" onchange="updateAxisDemo()">
               <option value="ltr">ltr (left-to-right)</option>
               <option value="rtl">rtl (right-to-left, Arabic/Hebrew)</option>
@@ -354,7 +356,7 @@
       </div>
 
       <div class="highlight-box">
-        <strong>Key insight:</strong> In <code class="inline-code">horizontal-tb</code>, block = vertical, inline = horizontal. In <code class="inline-code">vertical-rl</code>, block = horizontal, inline = vertical. Logical properties automatically adapt!
+        <strong ti="strong_key_insight">Key insight:</strong> In <code class="inline-code">horizontal-tb</code>, block = vertical, inline = horizontal. In <code class="inline-code">vertical-rl</code>, block = horizontal, inline = vertical. Logical properties automatically adapt!
       </div>
     </div>
   </div>
@@ -362,7 +364,7 @@
   <!-- Margin & Padding -->
   <div class="panel" id="panel-margin">
     <div class="card">
-      <h2>Margin & Padding (Logical vs Physical)</h2>
+      <h2 ti="h2_margin_padding_logical_vs">Margin & Padding (Logical vs Physical)</h2>
       <p>Logical margin and padding properties adapt to writing mode and direction automatically.</p>
 
       <div class="demo-area">
@@ -383,7 +385,7 @@
             </select>
           </div>
           <div class="control-group">
-            <label>Property:</label>
+            <label ti="label_property">Property:</label>
             <select id="mp-property" onchange="updateMarginDemo()">
               <option value="margin-block-start">margin-block-start</option>
               <option value="margin-block-end">margin-block-end</option>
@@ -420,7 +422,7 @@
   <!-- Writing Modes -->
   <div class="panel" id="panel-writing">
     <div class="card">
-      <h2>Writing Mode Interactive Demo</h2>
+      <h2 ti="h2_writing_mode_interactive">Writing Mode Interactive Demo</h2>
       <p>See how different writing modes affect text layout and how logical properties respond.</p>
 
       <div class="demo-area">
@@ -440,8 +442,8 @@
             <h4 style="color: var(--text-secondary); font-size: 0.85rem; margin-bottom: 0.5rem;">Text Flow Preview</h4>
             <div id="wm-preview" style="background: var(--bg-primary); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; min-height: 200px; overflow: auto;">
               <div id="wm-text" style="border: 2px solid var(--accent); border-radius: var(--radius); padding: 1rem; transition: all 0.3s;">
-                <p style="margin-block-end: 0.75rem; color: var(--text-primary);">This text flows in the <strong>inline direction</strong>.</p>
-                <p style="margin-block-end: 0.75rem; color: var(--text-secondary);">New blocks stack in the <strong>block direction</strong>.</p>
+                <p style="margin-block-end: 0.75rem; color: var(--text-primary);">This text flows in the <strong ti="strong_inline_direction">inline direction</strong>.</p>
+                <p style="margin-block-end: 0.75rem; color: var(--text-secondary);">New blocks stack in the <strong ti="strong_block_direction">block direction</strong>.</p>
                 <p style="color: var(--text-muted);">Logical properties adapt to this automatically.</p>
               </div>
             </div>
@@ -466,7 +468,7 @@
   <!-- Direction -->
   <div class="panel" id="panel-direction">
     <div class="card">
-      <h2>Direction (LTR/RTL) with Logical Properties</h2>
+      <h2 ti="h2_direction_ltr_rtl_with_lo">Direction (LTR/RTL) with Logical Properties</h2>
       <p>Logical properties eliminate the need for direction-specific CSS overrides. What was <code class="inline-code">margin-left</code> in LTR becomes <code class="inline-code">margin-right</code> in RTL, but <code class="inline-code">margin-inline-start</code> handles both.</p>
 
       <div class="demo-area">
@@ -497,7 +499,7 @@
       </div>
 
       <div class="highlight-box">
-        <strong>Practical benefit:</strong> With logical properties, you write CSS once and it works for both LTR and RTL layouts. No need for <code class="inline-code">[dir="rtl"]</code> overrides or separate stylesheets.
+        <strong ti="strong_practical_benefit">Practical benefit:</strong> With logical properties, you write CSS once and it works for both LTR and RTL layouts. No need for <code class="inline-code">[dir="rtl"]</code> overrides or separate stylesheets.
       </div>
     </div>
   </div>
@@ -505,12 +507,12 @@
   <!-- Property Mapping -->
   <div class="panel" id="panel-mapping">
     <div class="card">
-      <h2>Logical vs Physical Property Mapping</h2>
+      <h2 ti="h2_logical_vs_physical_prope">Logical vs Physical Property Mapping</h2>
       <p>Complete mapping table for <code class="inline-code">horizontal-tb</code> with <code class="inline-code">direction: ltr</code> (default western layout).</p>
 
-      <h3>Size Properties</h3>
+      <h3 ti="h3_size_properties">Size Properties</h3>
       <table>
-        <thead><tr><th>Physical</th><th>Logical</th><th>Notes</th></tr></thead>
+        <thead><tr><th ti="th_physical" ti="th_physical_2" ti="th_physical_3" ti="th_physical_4" ti="th_physical_5" ti="th_physical_6" ti="th_physical_7" ti="th_physical_8">Physical</th><th ti="th_logical" ti="th_logical_2" ti="th_logical_3" ti="th_logical_4" ti="th_logical_5" ti="th_logical_6" ti="th_logical_7" ti="th_logical_8">Logical</th><th ti="th_notes">Notes</th></tr></thead>
         <tbody>
           <tr><td><code>width</code></td><td><code>inline-size</code></td><td>Size along inline axis</td></tr>
           <tr><td><code>height</code></td><td><code>block-size</code></td><td>Size along block axis</td></tr>
@@ -521,9 +523,9 @@
         </tbody>
       </table>
 
-      <h3>Margin Properties</h3>
+      <h3 ti="h3_margin_properties">Margin Properties</h3>
       <table>
-        <thead><tr><th>Physical</th><th>Logical</th><th>Shorthand</th></tr></thead>
+        <thead><tr><th>Physical</th><th>Logical</th><th ti="th_shorthand" ti="th_shorthand_2" ti="th_shorthand_3">Shorthand</th></tr></thead>
         <tbody>
           <tr><td><code>margin-top</code></td><td><code>margin-block-start</code></td><td rowspan="2"><code>margin-block</code></td></tr>
           <tr><td><code>margin-bottom</code></td><td><code>margin-block-end</code></td></tr>
@@ -532,7 +534,7 @@
         </tbody>
       </table>
 
-      <h3>Padding Properties</h3>
+      <h3 ti="h3_padding_properties">Padding Properties</h3>
       <table>
         <thead><tr><th>Physical</th><th>Logical</th><th>Shorthand</th></tr></thead>
         <tbody>
@@ -543,7 +545,7 @@
         </tbody>
       </table>
 
-      <h3>Inset (Position) Properties</h3>
+      <h3 ti="h3_inset_position_properties">Inset (Position) Properties</h3>
       <table>
         <thead><tr><th>Physical</th><th>Logical</th><th>Shorthand</th></tr></thead>
         <tbody>
@@ -555,7 +557,7 @@
         </tbody>
       </table>
 
-      <h3>Text Alignment</h3>
+      <h3 ti="h3_text_alignment">Text Alignment</h3>
       <table>
         <thead><tr><th>Physical</th><th>Logical</th></tr></thead>
         <tbody>
@@ -569,7 +571,7 @@
   <!-- Float & Clear -->
   <div class="panel" id="panel-float">
     <div class="card">
-      <h2>Float, Clear & Resize (Logical Equivalents)</h2>
+      <h2 ti="h2_float_clear_resize_logica">Float, Clear & Resize (Logical Equivalents)</h2>
       <p>Float and clear now accept logical values <code class="inline-code">inline-start</code> and <code class="inline-code">inline-end</code>.</p>
 
 <pre><span class="cmt">/* Physical (old) */</span>
@@ -599,7 +601,7 @@
       </div>
 
       <table>
-        <thead><tr><th>Physical</th><th>Logical</th><th>Browser Support</th></tr></thead>
+        <thead><tr><th>Physical</th><th>Logical</th><th ti="th_browser_support">Browser Support</th></tr></thead>
         <tbody>
           <tr><td><code>float: left</code></td><td><code>float: inline-start</code></td><td><span class="badge badge-green">All modern</span></td></tr>
           <tr><td><code>float: right</code></td><td><code>float: inline-end</code></td><td><span class="badge badge-green">All modern</span></td></tr>
@@ -615,10 +617,10 @@
   <!-- Border & Radius -->
   <div class="panel" id="panel-border">
     <div class="card">
-      <h2>Border & Border-Radius (Logical)</h2>
+      <h2 ti="h2_border_border_radius_logi">Border & Border-Radius (Logical)</h2>
       <p>Border properties have full logical equivalents. Border-radius uses logical corners.</p>
 
-      <h3>Border Properties</h3>
+      <h3 ti="h3_border_properties">Border Properties</h3>
       <table>
         <thead><tr><th>Physical</th><th>Logical</th></tr></thead>
         <tbody>
@@ -629,7 +631,7 @@
         </tbody>
       </table>
 
-      <h3>Border-Radius (Logical Corners)</h3>
+      <h3 ti="h3_border_radius_logical_cor">Border-Radius (Logical Corners)</h3>
       <table>
         <thead><tr><th>Physical</th><th>Logical</th></tr></thead>
         <tbody>
@@ -641,10 +643,10 @@
       </table>
 
       <div class="highlight-box">
-        <strong>Naming convention:</strong> <code class="inline-code">border-{block-position}-{inline-position}-radius</code>. "start-start" = block-start + inline-start = top-left in horizontal-tb LTR.
+        <strong ti="strong_naming_convention">Naming convention:</strong> <code class="inline-code">border-{block-position}-{inline-position}-radius</code>. "start-start" = block-start + inline-start = top-left in horizontal-tb LTR.
       </div>
 
-      <h3>Interactive Demo</h3>
+      <h3 ti="h3_interactive_demo">Interactive Demo</h3>
       <div class="demo-area">
         <div class="controls-row">
           <div class="control-group">
@@ -655,7 +657,7 @@
             </select>
           </div>
           <div class="control-group">
-            <label>Highlight Corner:</label>
+            <label ti="label_highlight_corner">Highlight Corner:</label>
             <select id="border-corner" onchange="updateBorderDemo()">
               <option value="start-start">start-start (block-start + inline-start)</option>
               <option value="start-end">start-end (block-start + inline-end)</option>
@@ -679,7 +681,7 @@
   <!-- Migration Checklist -->
   <div class="panel" id="panel-checklist">
     <div class="card">
-      <h2>Physical to Logical Migration Checklist</h2>
+      <h2 ti="h2_physical_to_logical_migra">Physical to Logical Migration Checklist</h2>
       <p>A step-by-step guide for migrating your CSS from physical to logical properties.</p>
 
       <ul class="checklist">
@@ -699,15 +701,15 @@
       </ul>
 
       <div class="highlight-box">
-        <strong>Browser support:</strong> All logical properties listed above are supported in all modern browsers (Chrome 87+, Firefox 66+, Safari 14.1+, Edge 87+). Safe for production use.
+        <strong ti="strong_browser_support">Browser support:</strong> All logical properties listed above are supported in all modern browsers (Chrome 87+, Firefox 66+, Safari 14.1+, Edge 87+). Safe for production use.
       </div>
 
-      <h3>Quick Conversion Tool</h3>
+      <h3 ti="h3_quick_conversion_tool">Quick Conversion Tool</h3>
       <div class="demo-area">
-        <label>Enter a physical CSS property:</label>
+        <label ti="label_enter_a_physical_css_prop">Enter a physical CSS property:</label>
         <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: flex-end;">
-          <input type="text" id="convert-input" value="margin-left: 1rem" style="width: 300px;" placeholder="e.g., margin-left: 1rem">
-          <button class="btn" onclick="convertProperty()">Convert to Logical</button>
+          <input type="text" id="convert-input" value="margin-left: 1rem" style="width: 300px;" tp="placeholder_e_g_margin_left_1rem" placeholder="e.g., margin-left: 1rem">
+          <button class="btn" onclick="convertProperty()" ti="btn_convert_to_logical">Convert to Logical</button>
         </div>
         <div class="code-output" id="convert-output"></div>
       </div>
@@ -715,6 +717,16 @@
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_logical_properties_ex':["CSS Logical Properties Explorer", "CSS 逻辑属性浏览器"],'metadesc_interactive_explorer_for':["Interactive explorer for CSS logical properties: block/inline axes, writing modes, direction, and physical-to-logical property mapping.", "CSS 逻辑属性的交互式浏览器：块/行内轴、编写模式、方向以及物理属性到逻辑属性的映射。"],'h1_css_logical_properties_ex':["CSS Logical Properties Explorer", "CSS 逻辑属性浏览器"],'h2_block_and_inline_axes':["Block and Inline Axes", "块状轴和内联轴"],'h2_margin_padding_logical_vs':["Margin & Padding (Logical vs Physical)", "边距和填充（逻辑边距与物理边距）"],'h2_writing_mode_interactive':["Writing Mode Interactive Demo", "写作模式交互式演示"],'h2_direction_ltr_rtl_with_lo':["Direction (LTR/RTL) with Logical Properties", "具有逻辑属性的方向（从左到右/从右到左）"],'h2_logical_vs_physical_prope':["Logical vs Physical Property Mapping", "逻辑属性映射与物理属性映射"],'h2_float_clear_resize_logica':["Float, Clear & Resize (Logical Equivalents)", "浮动、清除和调整大小（逻辑等效项）"],'h2_border_border_radius_logi':["Border & Border-Radius (Logical)", "边界和边界半径（逻辑）"],'h2_physical_to_logical_migra':["Physical to Logical Migration Checklist", "物理到逻辑迁移清单"],'h3_size_properties':["Size Properties", "尺寸属性"],'h3_margin_properties':["Margin Properties", "边际属性"],'h3_padding_properties':["Padding Properties", "填充属性"],'h3_inset_position_properties':["Inset (Position) Properties", "插入（位置）属性"],'h3_text_alignment':["Text Alignment", "文本对齐"],'h3_border_properties':["Border Properties", "边界属性"],'h3_border_radius_logical_cor':["Border-Radius (Logical Corners)", "边界半径（逻辑角）"],'h3_interactive_demo':["Interactive Demo", "交互式演示"],'h3_quick_conversion_tool':["Quick Conversion Tool", "快速转换工具"],'btn_block_inline_axes':["Block/Inline Axes", "块/内联轴器"],'btn_margin_padding':["Margin & Padding", "边距和填充"],'btn_writing_modes':["Writing Modes", "写作模式"],'btn_direction_ltr_rtl':["Direction (LTR/RTL)", "方向（从左到右/从右到左）"],'btn_property_mapping':["Property Mapping", "属性映射"],'btn_float_clear':["Float & Clear", "漂浮与清澈"],'btn_border_radius':["Border & Radius", "边框和半径"],'btn_migration_checklist':["Migration Checklist", "迁移清单"],'btn_convert_to_logical':["Convert to Logical", "转换为逻辑格式"],'placeholder_e_g_margin_left_1rem':["e.g., margin-left: 1rem", "例如，margin-left: 1rem"],'strong_block':["block", "堵塞"],'strong_inline':["inline", "排队"],'strong_key_insight':["Key insight:", "关键见解："],'strong_inline_direction':["inline direction", "内联方向"],'strong_block_direction':["block direction", "块方向"],'strong_practical_benefit':["Practical benefit:", "实际益处："],'strong_naming_convention':["Naming convention:", "命名规则："],'strong_browser_support':["Browser support:", "浏览器支持："],'th_physical':["Physical", "身体的"],'th_logical':["Logical", "逻辑"],'th_notes':["Notes", "笔记"],'th_physical_2':["Physical", "身体的"],'th_logical_2':["Logical", "逻辑"],'th_shorthand':["Shorthand", "速记"],'th_physical_3':["Physical", "身体的"],'th_logical_3':["Logical", "逻辑"],'th_shorthand_2':["Shorthand", "速记"],'th_physical_4':["Physical", "身体的"],'th_logical_4':["Logical", "逻辑"],'th_shorthand_3':["Shorthand", "速记"],'th_physical_5':["Physical", "身体的"],'th_logical_5':["Logical", "逻辑"],'th_physical_6':["Physical", "身体的"],'th_logical_6':["Logical", "逻辑"],'th_browser_support':["Browser Support", "浏览器支持"],'th_physical_7':["Physical", "身体的"],'th_logical_7':["Logical", "逻辑"],'th_physical_8':["Physical", "身体的"],'th_logical_8':["Logical", "逻辑"],'label_writing_mode':["Writing Mode:", "写作模式："],'label_direction':["Direction:", "方向："],'label_writing_mode_2':["Writing Mode:", "写作模式："],'label_direction_2':["Direction:", "方向："],'label_property':["Property:", "财产："],'label_writing_mode_3':["Writing Mode:", "写作模式："],'label_direction_3':["Direction:", "方向："],'label_direction_4':["Direction:", "方向："],'label_direction_5':["Direction:", "方向："],'label_highlight_corner':["Highlight Corner:", "精彩瞬间："],'label_enter_a_physical_css_prop':["Enter a physical CSS property:", "输入一个物理 CSS 属性："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Tab switching
   document.querySelectorAll('.tab').forEach(tab => {
@@ -1034,6 +1046,24 @@ blocks stack: ${isVert ? (mode === 'vertical-rl' ? 'right to left' : 'left to ri
 
     output.textContent = `No logical equivalent found for "${prop}".\n\nTry: margin-left, padding-top, width, height,\nborder-top-left-radius, text-align: left, float: left, etc.`;
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

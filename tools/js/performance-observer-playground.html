@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_performance_observer_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,9 +77,11 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Performance Observer Playground</h1>
-<p class="subtitle">Interactive PerformanceObserver API explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_performance_observer_play" ti="h1_performance_observer_play">Performance Observer Playground</h1>
+<p class="subtitle">Interactive PerformanceObserver API explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault" ti="link_dev_vault_2">Dev Vault</a></p>
 
 <div class="tabs">
 <div class="tab active" data-tab="observe">Observe</div>
@@ -92,35 +94,35 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <!-- Observe Panel -->
 <div class="panel active" id="panel-observe">
 <div class="card">
-<h3>Observer Configuration</h3>
+<h3 ti="h3_observer_configuration">Observer Configuration</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:10px">Select entry types to observe. Entries appear in real-time below.</p>
 <div class="row">
 <div class="col">
-<div class="check-row"><input type="checkbox" id="obs-mark" checked><label for="obs-mark">mark</label></div>
-<div class="check-row"><input type="checkbox" id="obs-measure" checked><label for="obs-measure">measure</label></div>
-<div class="check-row"><input type="checkbox" id="obs-resource" checked><label for="obs-resource">resource</label></div>
-<div class="check-row"><input type="checkbox" id="obs-paint"><label for="obs-paint">paint</label></div>
+<div class="check-row"><input type="checkbox" id="obs-mark" checked><label for="obs-mark" ti="label_mark">mark</label></div>
+<div class="check-row"><input type="checkbox" id="obs-measure" checked><label for="obs-measure" ti="label_measure">measure</label></div>
+<div class="check-row"><input type="checkbox" id="obs-resource" checked><label for="obs-resource" ti="label_resource">resource</label></div>
+<div class="check-row"><input type="checkbox" id="obs-paint"><label for="obs-paint" ti="label_paint">paint</label></div>
 </div>
 <div class="col">
-<div class="check-row"><input type="checkbox" id="obs-navigation"><label for="obs-navigation">navigation</label></div>
-<div class="check-row"><input type="checkbox" id="obs-longtask"><label for="obs-longtask">longtask</label></div>
-<div class="check-row"><input type="checkbox" id="obs-element"><label for="obs-element">element</label></div>
-<div class="check-row"><input type="checkbox" id="obs-event"><label for="obs-event">event</label></div>
+<div class="check-row"><input type="checkbox" id="obs-navigation"><label for="obs-navigation" ti="label_navigation">navigation</label></div>
+<div class="check-row"><input type="checkbox" id="obs-longtask"><label for="obs-longtask" ti="label_longtask">longtask</label></div>
+<div class="check-row"><input type="checkbox" id="obs-element"><label for="obs-element" ti="label_element">element</label></div>
+<div class="check-row"><input type="checkbox" id="obs-event"><label for="obs-event" ti="label_event">event</label></div>
 </div>
 <div class="col">
-<div class="check-row"><input type="checkbox" id="obs-first-input"><label for="obs-first-input">first-input</label></div>
-<div class="check-row"><input type="checkbox" id="obs-largest-contentful-paint"><label for="obs-largest-contentful-paint">largest-contentful-paint</label></div>
-<div class="check-row"><input type="checkbox" id="obs-layout-shift"><label for="obs-layout-shift">layout-shift</label></div>
+<div class="check-row"><input type="checkbox" id="obs-first-input"><label for="obs-first-input" ti="label_first_input">first-input</label></div>
+<div class="check-row"><input type="checkbox" id="obs-largest-contentful-paint"><label for="obs-largest-contentful-paint" ti="label_largest_contentful_paint">largest-contentful-paint</label></div>
+<div class="check-row"><input type="checkbox" id="obs-layout-shift"><label for="obs-layout-shift" ti="label_layout_shift">layout-shift</label></div>
 </div>
 </div>
 <div class="check-row" style="margin-top:4px">
 <input type="checkbox" id="obs-buffered" checked>
-<label for="obs-buffered">buffered (include entries from before observer started)</label>
+<label for="obs-buffered" ti="label_buffered_include_entries">buffered (include entries from before observer started)</label>
 </div>
 <div style="display:flex;gap:8px;margin-top:12px">
-<button class="primary" onclick="startObserver()">Start Observer</button>
-<button onclick="stopObserver()">Stop</button>
-<button class="danger" onclick="clearEntries()">Clear</button>
+<button class="primary" onclick="startObserver()" ti="btn_start_observer">Start Observer</button>
+<button onclick="stopObserver()" ti="btn_stop">Stop</button>
+<button class="danger" onclick="clearEntries()" ti="btn_clear">Clear</button>
 </div>
 </div>
 
@@ -132,7 +134,7 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 </div>
 
 <div class="card">
-<h3>Timeline</h3>
+<h3 ti="h3_timeline">Timeline</h3>
 <div class="timeline" id="timeline">
 <div class="timeline-label">Entries over time</div>
 <div class="timeline-axis" id="timeline-axis"></div>
@@ -150,52 +152,52 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <!-- Marks & Measures Panel -->
 <div class="panel" id="panel-marks">
 <div class="card">
-<h3>Create Performance Marks</h3>
+<h3 ti="h3_create_performance_marks">Create Performance Marks</h3>
 <div class="row">
 <div class="col">
-<label>Mark Name</label>
-<input type="text" id="mark-name" value="my-mark" placeholder="e.g. render-start">
+<label ti="label_mark_name">Mark Name</label>
+<input type="text" id="mark-name" value="my-mark" tp="placeholder_e_g_render_start" placeholder="e.g. render-start">
 </div>
 <div class="col">
-<label>Detail (optional JSON)</label>
-<input type="text" id="mark-detail" placeholder='e.g. {"component":"header"}'>
+<label ti="label_detail_optional_json">Detail (optional JSON)</label>
+<input type="text" id="mark-detail" tp="placeholder_e_g_component_header" placeholder='e.g. {"component":"header"}'>
 </div>
 </div>
-<button class="primary" onclick="createMark()" style="margin-top:8px">Create Mark</button>
+<button class="primary" onclick="createMark()" style="margin-top:8px" ti="btn_create_mark">Create Mark</button>
 </div>
 
 <div class="card">
-<h3>Create Performance Measures</h3>
+<h3 ti="h3_create_performance_measur">Create Performance Measures</h3>
 <div class="row">
 <div class="col">
-<label>Measure Name</label>
+<label ti="label_measure_name">Measure Name</label>
 <input type="text" id="measure-name" value="my-measure">
 </div>
 <div class="col">
-<label>Start Mark (optional)</label>
-<input type="text" id="measure-start" placeholder="mark name or leave empty">
+<label ti="label_start_mark_optional">Start Mark (optional)</label>
+<input type="text" id="measure-start" tp="placeholder_mark_name_or_leave_empty" tp="placeholder_mark_name_or_leave_empty_2" placeholder="mark name or leave empty">
 </div>
 <div class="col">
-<label>End Mark (optional)</label>
+<label ti="label_end_mark_optional">End Mark (optional)</label>
 <input type="text" id="measure-end" placeholder="mark name or leave empty">
 </div>
 </div>
-<button class="primary" onclick="createMeasure()" style="margin-top:8px">Create Measure</button>
+<button class="primary" onclick="createMeasure()" style="margin-top:8px" ti="btn_create_measure">Create Measure</button>
 </div>
 
 <div class="card">
-<h3>Quick Actions</h3>
+<h3 ti="h3_quick_actions">Quick Actions</h3>
 <div style="display:flex;gap:8px;flex-wrap:wrap">
-<button onclick="quickMarkPair()">Mark Pair (start + end + measure)</button>
-<button onclick="simulateLongTask()">Simulate Long Task (~100ms)</button>
-<button onclick="fetchResource()">Fetch Resource (logo)</button>
-<button onclick="clearMarks()">Clear All Marks</button>
-<button onclick="clearMeasures()">Clear All Measures</button>
+<button onclick="quickMarkPair()" ti="btn_mark_pair_start_end_measu">Mark Pair (start + end + measure)</button>
+<button onclick="simulateLongTask()" ti="btn_simulate_long_task_100ms">Simulate Long Task (~100ms)</button>
+<button onclick="fetchResource()" ti="btn_fetch_resource_logo">Fetch Resource (logo)</button>
+<button onclick="clearMarks()" ti="btn_clear_all_marks">Clear All Marks</button>
+<button onclick="clearMeasures()" ti="btn_clear_all_measures">Clear All Measures</button>
 </div>
 </div>
 
 <div class="card">
-<h3>Existing Marks & Measures</h3>
+<h3 ti="h3_existing_marks_measures">Existing Marks & Measures</h3>
 <div id="marks-list" class="entry-list">
 <div class="empty">No marks or measures yet</div>
 </div>
@@ -205,11 +207,11 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <!-- Resource Waterfall Panel -->
 <div class="panel" id="panel-resources">
 <div class="card">
-<h3>Resource Timing Waterfall</h3>
+<h3 ti="h3_resource_timing_waterfall">Resource Timing Waterfall</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:10px">Shows all resources loaded by this page with timing breakdown.</p>
 <div style="display:flex;gap:8px;margin-bottom:12px">
-<button class="primary" onclick="refreshResources()">Refresh</button>
-<button onclick="fetchResource()">Load Test Resource</button>
+<button class="primary" onclick="refreshResources()" ti="btn_refresh">Refresh</button>
+<button onclick="fetchResource()" ti="btn_load_test_resource">Load Test Resource</button>
 </div>
 <div id="resource-waterfall" class="waterfall">
 <div class="empty">Click "Refresh" to load resource timing data</div>
@@ -220,7 +222,7 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <!-- Web Vitals Panel -->
 <div class="panel" id="panel-vitals">
 <div class="card">
-<h3>Core Web Vitals</h3>
+<h3 ti="h3_core_web_vitals" ti="h3_core_web_vitals_2">Core Web Vitals</h3>
 <p style="font-size:.78rem;color:#888;margin-bottom:12px">Real-time Core Web Vitals from this page. Interact with the page to trigger FID/INP.</p>
 <div class="stat-grid">
 <div class="stat">
@@ -248,18 +250,18 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <div class="label">INP (ms)</div>
 </div>
 </div>
-<button class="primary" onclick="collectVitals()">Collect Vitals</button>
+<button class="primary" onclick="collectVitals()" ti="btn_collect_vitals">Collect Vitals</button>
 </div>
 
 <div class="card">
-<h3>Paint Timing</h3>
+<h3 ti="h3_paint_timing">Paint Timing</h3>
 <div id="paint-list" class="entry-list">
 <div class="empty">Click "Collect Vitals" to see paint timing</div>
 </div>
 </div>
 
 <div class="card">
-<h3>Navigation Timing</h3>
+<h3 ti="h3_navigation_timing">Navigation Timing</h3>
 <div id="nav-list" class="entry-list">
 <div class="empty">Click "Collect Vitals" to see navigation timing</div>
 </div>
@@ -269,8 +271,8 @@ label{display:block;font-size:.78rem;color:#888;margin-bottom:4px}
 <!-- Code Panel -->
 <div class="panel" id="panel-code">
 <div class="card">
-<h3>Basic Observer</h3>
-<div class="code-block" id="code-basic"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Create a PerformanceObserver
+<h3 ti="h3_basic_observer">Basic Observer</h3>
+<div class="code-block" id="code-basic"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>// Create a PerformanceObserver
 const observer = new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
     console.log(`[${entry.entryType}] ${entry.name}: ${entry.duration.toFixed(2)}ms`);
@@ -288,7 +290,7 @@ observer.observe({
 </div>
 
 <div class="card">
-<h3>Marks & Measures</h3>
+<h3 ti="h3_marks_measures">Marks & Measures</h3>
 <div class="code-block" id="code-marks"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Create marks at key points
 performance.mark('fetch-start');
 
@@ -342,7 +344,7 @@ new PerformanceObserver((list) => {
 </div>
 
 <div class="card">
-<h3>Resource Timing</h3>
+<h3 ti="h3_resource_timing">Resource Timing</h3>
 <div class="code-block" id="code-resource"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// Observe resource loading
 new PerformanceObserver((list) => {
   for (const entry of list.getEntries()) {
@@ -365,12 +367,22 @@ new PerformanceObserver((list) => {
 
 <div class="footer">
   Performance Observer Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash;
-  <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver">MDN Docs</a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/API/PerformanceObserver" ti="link_mdn_docs">MDN Docs</a>
 </div>
 </div>
 
 <div class="tooltip" id="tooltip"></div>
 
+
+<script>var _LANG={'title_performance_observer_play':["Performance Observer Playground", "绩效观察员游乐场"],'metadesc_interactive_performance_o':["Interactive Performance Observer API playground. Visualize performance entries, marks, measures, resource timing, paint timing, and long tasks in real-time.", "交互式性能观察器 API 演示环境。实时可视化性能条目、标记、指标、资源耗时、绘制时间和长时间任务。"],'h1_performance_observer_play':["Performance Observer Playground", "绩效观察员游乐场"],'h3_observer_configuration':["Observer Configuration", "观察者配置"],'h3_timeline':["Timeline", "时间线"],'h3_create_performance_marks':["Create Performance Marks", "创建绩效标志"],'h3_create_performance_measur':["Create Performance Measures", "创建绩效指标"],'h3_quick_actions':["Quick Actions", "快速操作"],'h3_existing_marks_measures':["Existing Marks & Measures", "现有标志和措施"],'h3_resource_timing_waterfall':["Resource Timing Waterfall", "资源时序瀑布"],'h3_core_web_vitals':["Core Web Vitals", "核心网络指标"],'h3_paint_timing':["Paint Timing", "油漆时间"],'h3_navigation_timing':["Navigation Timing", "导航计时"],'h3_basic_observer':["Basic Observer", "基本观察员"],'h3_marks_measures':["Marks & Measures", "标记与测量"],'h3_core_web_vitals_2':["Core Web Vitals", "核心网络指标"],'h3_resource_timing':["Resource Timing", "资源时序"],'btn_start_observer':["Start Observer", "开始观察"],'btn_stop':["Stop", "停止"],'btn_clear':["Clear", "清除"],'btn_create_mark':["Create Mark", "创建标记"],'btn_create_measure':["Create Measure", "创建度量"],'btn_mark_pair_start_end_measu':["Mark Pair (start + end + measure)", "标记对（开始 + 结束 + 测量）"],'btn_simulate_long_task_100ms':["Simulate Long Task (~100ms)", "模拟长时间任务（约100毫秒）"],'btn_fetch_resource_logo':["Fetch Resource (logo)", "获取资源（徽标）"],'btn_clear_all_marks':["Clear All Marks", "清除所有标记"],'btn_clear_all_measures':["Clear All Measures", "清除所有措施"],'btn_refresh':["Refresh", "刷新"],'btn_load_test_resource':["Load Test Resource", "负载测试资源"],'btn_collect_vitals':["Collect Vitals", "采集生命体征"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'placeholder_e_g_render_start':["e.g. render-start", "例如 render-start"],'placeholder_e_g_component_header':["e.g. {\"component\":\"header\"}", "例如 {&quot;component&quot;:&quot;header&quot;}"],'placeholder_mark_name_or_leave_empty':["mark name or leave empty", "标记名称或留空"],'placeholder_mark_name_or_leave_empty_2':["mark name or leave empty", "标记名称或留空"],'label_mark':["mark", "标记"],'label_measure':["measure", "措施"],'label_resource':["resource", "资源"],'label_paint':["paint", "画"],'label_navigation':["navigation", "导航"],'label_longtask':["longtask", "长任务"],'label_element':["element", "元素"],'label_event':["event", "事件"],'label_first_input':["first-input", "首次输入"],'label_largest_contentful_paint':["largest-contentful-paint", "最大的内容绘画"],'label_layout_shift':["layout-shift", "布局偏移"],'label_buffered_include_entries':["buffered (include entries from before observer started)", "已缓冲（包含观察者启动之前的条目）"],'label_mark_name':["Mark Name", "商标名称"],'label_detail_optional_json':["Detail (optional JSON)", "详细信息（可选 JSON）"],'label_measure_name':["Measure Name", "测量名称"],'label_start_mark_optional':["Start Mark (optional)", "起始标记（可选）"],'label_end_mark_optional':["End Mark (optional)", "结束标记（可选）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault_2':["Dev Vault", "开发者宝库"],'link_mdn_docs':["MDN Docs", "MDN 文档"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let observer = null;
 let entries = [];
@@ -828,8 +840,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const code = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -837,6 +849,24 @@ function copyCode(btn) {
 window.addEventListener('load', () => {
   startObserver();
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

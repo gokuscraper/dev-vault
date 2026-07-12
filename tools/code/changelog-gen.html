@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_changelog_generator_creat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,20 +49,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Changelog Generator</h1>
-<p class="sub">Create CHANGELOG.md following Keep a Changelog format</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_changelog_generator">Changelog Generator</h1>
+<p class="sub" ti="subtitle_create_changelog_md_follo">Create CHANGELOG.md following Keep a Changelog format</p>
 
 <div class="section">
-<h3>Project</h3>
+<h3 ti="h3_project">Project</h3>
 <div class="field-row">
-<div class="field"><label>Project Name</label><input id="projName" value="My Project" oninput="gen()"></div>
-<div class="field"><label>Repo URL (for compare links)</label><input id="repoUrl" value="" placeholder="https://github.com/user/repo" oninput="gen()"></div>
+<div class="field"><label ti="label_project_name">Project Name</label><input id="projName" value="My Project" oninput="gen()"></div>
+<div class="field"><label ti="label_repo_url_for_compare_link">Repo URL (for compare links)</label><input id="repoUrl" value="" tp="placeholder_https_github_com_user_rep" placeholder="https://github.com/user/repo" oninput="gen()"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets">
 <div class="preset" onclick="loadPreset('initial')">Initial Release</div>
 <div class="preset" onclick="loadPreset('bugfix')">Bug Fix Release</div>
@@ -74,7 +76,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Versions <button class="btn btn-sm" style="float:right" onclick="addVersion()">+ Add Version</button></h3>
+<h3>Versions <button class="btn btn-sm" style="float:right" onclick="addVersion()" ti="btn_add_version">+ Add Version</button></h3>
 <div id="versionsList"></div>
 </div>
 </div>
@@ -82,17 +84,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyMd()">Copy Markdown</button>
-<button class="btn" onclick="downloadMd()">Download CHANGELOG.md</button>
+<button class="btn btn-primary" onclick="copyMd()" ti="btn_copy_markdown">Copy Markdown</button>
+<button class="btn" onclick="downloadMd()" ti="btn_download_changelog_md">Download CHANGELOG.md</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/semver-calc/">SemVer Calc</a> | <a href="https://gokuscraper.github.io/dev-vault/github-actions-gen/">GitHub Actions</a> | <a href="https://gokuscraper.github.io/dev-vault/markdown-preview/">Markdown Preview</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/semver-calc/" ti="link_semver_calc">SemVer Calc</a> | <a href="https://gokuscraper.github.io/dev-vault/github-actions-gen/" ti="link_github_actions">GitHub Actions</a> | <a href="https://gokuscraper.github.io/dev-vault/markdown-preview/" ti="link_markdown_preview">Markdown Preview</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_changelog_generator_creat':["Changelog Generator — Create CHANGELOG.md from Entries", "变更日志生成器 — 从条目创建 CHANGELOG.md"],'metadesc_generate_changelog_md_fol':["Generate CHANGELOG.md following Keep a Changelog format. Add entries, organize by version. Semantic versioning. Copy or download Markdown.", "按照“保持变更日志”格式生成 CHANGELOG.md 文件。添加条目，并按版本进行组织。语义化版本控制。复制或下载 Markdown 文件。"],'h1_changelog_generator':["Changelog Generator", "变更日志生成器"],'h3_project':["Project", "项目"],'h3_presets':["Presets", "预设"],'subtitle_create_changelog_md_follo':["Create CHANGELOG.md following Keep a Changelog format", "按照“保持变更日志格式”创建 CHANGELOG.md 文件"],'btn_add_version':["+ Add Version", "+ 添加版本"],'btn_copy_markdown':["Copy Markdown", "复制 Markdown"],'btn_download_changelog_md':["Download CHANGELOG.md", "下载 CHANGELOG.md"],'btn_entry':["+ Entry", "+ 入口"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo", "https://github.com/user/repo"],'placeholder_description':["Description", "描述"],'label_project_name':["Project Name", "项目名称"],'label_repo_url_for_compare_link':["Repo URL (for compare links)", "仓库 URL（用于比较链接）"],'label_version':["Version", "版本"],'label_date':["Date", "日期"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_semver_calc':["SemVer Calc", "语义版本控制"],'link_github_actions':["GitHub Actions", "GitHub Actions"],'link_markdown_preview':["Markdown Preview", "Markdown 预览"],'jtlword_version':["Version", "版本"],'jtlword_date':["Date", "日期"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let versions=[];
 let vId=0;
@@ -122,16 +134,16 @@ function renderVersions(){
     let entriesHTML='';
     ver.entries.forEach((e,ei)=>{
       const opts=TYPES.map(t=>`<option value="${t}"${t===e.type?' selected':''}>${t}</option>`).join('');
-      entriesHTML+=`<div class="entry-row"><select onchange="versions[${vi}].entries[${ei}].type=this.value;gen()">${opts}</select><input value="${esc(e.text)}" placeholder="Description" oninput="versions[${vi}].entries[${ei}].text=this.value;gen()"><button onclick="versions[${vi}].entries.splice(${ei},1);renderVersions();gen()">×</button></div>`;
+      entriesHTML+=`<div class="entry-row"><select onchange="versions[${vi}].entries[${ei}].type=this.value;gen()">${opts}</select><input value="${esc(e.text)}" tp="placeholder_description" placeholder="Description" oninput="versions[${vi}].entries[${ei}].text=this.value;gen()"><button onclick="versions[${vi}].entries.splice(${ei},1);renderVersions();gen()">×</button></div>`;
     });
 
     card.innerHTML=`<h4>v${ver.version}</h4><button class="remove" onclick="removeVersion(${ver.id})">×</button>
       <div class="field-row">
-        <div class="field"><label>Version</label><input value="${ver.version}" oninput="versions[${vi}].version=this.value;gen()"></div>
-        <div class="field"><label>Date</label><input type="date" value="${ver.date}" oninput="versions[${vi}].date=this.value;gen()"></div>
+        <div class="field"><label ti="label_version">Version</label><input value="${ver.version}" oninput="versions[${vi}].version=this.value;gen()"></div>
+        <div class="field"><label ti="label_date">Date</label><input type="date" value="${ver.date}" oninput="versions[${vi}].date=this.value;gen()"></div>
       </div>
       ${entriesHTML}
-      <button class="add-btn" onclick="versions[${vi}].entries.push({type:'Added',text:''});renderVersions();gen()">+ Entry</button>`;
+      <button class="add-btn" onclick="versions[${vi}].entries.push({type:'Added',text:''});renderVersions();gen()" ti="btn_entry">+ Entry</button>`;
     list.appendChild(card);
   });
 }
@@ -207,6 +219,24 @@ function showToast(msg){
 }
 
 loadPreset('initial');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

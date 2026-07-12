@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_performance_timeline_api" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -122,42 +122,44 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Performance Timeline API Playground</h1>
+  <h1 ti="title_performance_timeline_api" ti="h1_performance_timeline_api">Performance Timeline API Playground</h1>
   <p>PerformanceObserver, Resource Timing, Navigation Timing, User Timing, Long Tasks, and timeline visualization</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner supported">
     <div class="support-icon">✅</div>
     <div class="support-text">
-      <h3>Performance Timeline API is supported</h3>
+      <h3 ti="h3_performance_timeline_api">Performance Timeline API is supported</h3>
       <p>All major browsers support the Performance API.</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab active" data-tab="observer">PerformanceObserver</button>
-    <button class="tab" data-tab="resource">Resource Timing</button>
-    <button class="tab" data-tab="navigation">Navigation Timing</button>
-    <button class="tab" data-tab="user">User Timing</button>
-    <button class="tab" data-tab="longtask">Long Tasks</button>
-    <button class="tab" data-tab="timeline">Timeline</button>
-    <button class="tab" data-tab="code">Code</button>
+    <button class="tab active" data-tab="observer" ti="btn_performanceobserver">PerformanceObserver</button>
+    <button class="tab" data-tab="resource" ti="btn_resource_timing">Resource Timing</button>
+    <button class="tab" data-tab="navigation" ti="btn_navigation_timing">Navigation Timing</button>
+    <button class="tab" data-tab="user" ti="btn_user_timing">User Timing</button>
+    <button class="tab" data-tab="longtask" ti="btn_long_tasks">Long Tasks</button>
+    <button class="tab" data-tab="timeline" ti="btn_timeline">Timeline</button>
+    <button class="tab" data-tab="code" ti="btn_code">Code</button>
   </div>
 
   <!-- PerformanceObserver -->
   <div id="tab-observer" class="panel active">
-    <h2>PerformanceObserver Entry Types</h2>
-    <p class="desc">Explore available entry types and observe performance entries in real-time.</p>
+    <h2 ti="h2_performanceobserver_entry">PerformanceObserver Entry Types</h2>
+    <p class="desc" ti="subtitle_explore_available_entry_t">Explore available entry types and observe performance entries in real-time.</p>
 
-    <h3 style="font-size:1rem;color:var(--accent-light)">Available Entry Types</h3>
+    <h3 style="font-size:1rem;color:var(--accent-light)" ti="h3_available_entry_types">Available Entry Types</h3>
     <div class="entry-types-grid" id="entryTypesGrid"></div>
 
-    <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)">Create Observer</h3>
+    <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)" ti="h3_create_observer">Create Observer</h3>
     <div class="form-group">
-      <label>Entry Type to Observe</label>
+      <label ti="label_entry_type_to_observe">Entry Type to Observe</label>
       <select id="observeType">
         <option value="resource">resource</option>
         <option value="mark">mark</option>
@@ -172,9 +174,9 @@ footer a:hover { text-decoration: underline; }
       </select>
     </div>
     <div class="btn-group">
-      <button class="btn btn-primary" id="btnStartObs">Start Observer</button>
-      <button class="btn" id="btnStopObs" disabled>Stop Observer</button>
-      <button class="btn" id="btnClearBuffer">Clear Buffer</button>
+      <button class="btn btn-primary" id="btnStartObs" ti="btn_start_observer">Start Observer</button>
+      <button class="btn" id="btnStopObs" disabled ti="btn_stop_observer">Stop Observer</button>
+      <button class="btn" id="btnClearBuffer" ti="btn_clear_buffer">Clear Buffer</button>
     </div>
 
     <div class="stats-grid">
@@ -191,13 +193,13 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Resource Timing -->
   <div id="tab-resource" class="panel">
-    <h2>Resource Timing Entries</h2>
-    <p class="desc">View timing data for all resources loaded by the page.</p>
+    <h2 ti="h2_resource_timing_entries">Resource Timing Entries</h2>
+    <p class="desc" ti="subtitle_view_timing_data_for_all">View timing data for all resources loaded by the page.</p>
 
     <div class="btn-group">
-      <button class="btn btn-primary" id="btnLoadResources">Refresh Resource List</button>
-      <button class="btn" id="btnFetchResource">Fetch Test Resource</button>
-      <button class="btn" id="btnClearResources">Clear Resource Timings</button>
+      <button class="btn btn-primary" id="btnLoadResources" ti="btn_refresh_resource_list">Refresh Resource List</button>
+      <button class="btn" id="btnFetchResource" ti="btn_fetch_test_resource">Fetch Test Resource</button>
+      <button class="btn" id="btnClearResources" ti="btn_clear_resource_timings">Clear Resource Timings</button>
     </div>
 
     <div class="stats-grid" id="resourceStats"></div>
@@ -206,13 +208,13 @@ footer a:hover { text-decoration: underline; }
       <table class="resource-table" id="resourceTable">
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Type</th>
-            <th>Duration (ms)</th>
-            <th>Transfer (B)</th>
-            <th>DNS (ms)</th>
-            <th>Connect (ms)</th>
-            <th>TTFB (ms)</th>
+            <th ti="th_name">Name</th>
+            <th ti="th_type">Type</th>
+            <th ti="th_duration_ms">Duration (ms)</th>
+            <th ti="th_transfer_b">Transfer (B)</th>
+            <th ti="th_dns_ms">DNS (ms)</th>
+            <th ti="th_connect_ms">Connect (ms)</th>
+            <th ti="th_ttfb_ms">TTFB (ms)</th>
           </tr>
         </thead>
         <tbody id="resourceBody"></tbody>
@@ -222,14 +224,14 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Navigation Timing -->
   <div id="tab-navigation" class="panel">
-    <h2>Navigation Timing Breakdown</h2>
-    <p class="desc">Detailed breakdown of the page navigation phases from redirect to load complete.</p>
+    <h2 ti="h2_navigation_timing_breakdo">Navigation Timing Breakdown</h2>
+    <p class="desc" ti="subtitle_detailed_breakdown_of_the">Detailed breakdown of the page navigation phases from redirect to load complete.</p>
 
-    <button class="btn btn-primary" id="btnRefreshNav">Refresh Timing Data</button>
+    <button class="btn btn-primary" id="btnRefreshNav" ti="btn_refresh_timing_data">Refresh Timing Data</button>
 
     <div class="stats-grid" id="navStats"></div>
 
-    <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)">Phase Breakdown</h3>
+    <h3 style="margin-top:1.5rem;font-size:1rem;color:var(--accent-light)" ti="h3_phase_breakdown">Phase Breakdown</h3>
     <div class="nav-breakdown" id="navBreakdown"></div>
 
     <div class="code-block" id="navRaw" style="max-height:300px;overflow:auto;margin-top:1.5rem;"></div>
@@ -237,46 +239,46 @@ footer a:hover { text-decoration: underline; }
 
   <!-- User Timing -->
   <div id="tab-user" class="panel">
-    <h2>User Timing (mark / measure)</h2>
-    <p class="desc">Create performance marks and measures interactively. Use them to instrument your code.</p>
+    <h2 ti="h2_user_timing_mark_measure">User Timing (mark / measure)</h2>
+    <p class="desc" ti="subtitle_create_performance_marks">Create performance marks and measures interactively. Use them to instrument your code.</p>
 
-    <h3 style="font-size:1rem;color:var(--accent-light)">Create Mark</h3>
+    <h3 style="font-size:1rem;color:var(--accent-light)" ti="h3_create_mark">Create Mark</h3>
     <div class="form-row">
       <div class="form-group">
-        <label>Mark Name</label>
-        <input type="text" id="markName" value="my-mark" placeholder="e.g. init-start">
+        <label ti="label_mark_name">Mark Name</label>
+        <input type="text" id="markName" value="my-mark" tp="placeholder_e_g_init_start" tp="placeholder_e_g_init_start_2" placeholder="e.g. init-start">
       </div>
       <div class="form-group" style="display:flex;align-items:end;">
-        <button class="btn btn-primary" id="btnMark">performance.mark()</button>
+        <button class="btn btn-primary" id="btnMark" ti="btn_performance_mark">performance.mark()</button>
       </div>
     </div>
 
-    <h3 style="font-size:1rem;color:var(--accent-light);margin-top:0.5rem">Create Measure</h3>
+    <h3 style="font-size:1rem;color:var(--accent-light);margin-top:0.5rem" ti="h3_create_measure">Create Measure</h3>
     <div class="form-row">
       <div class="form-group">
-        <label>Measure Name</label>
-        <input type="text" id="measureName" value="my-measure" placeholder="e.g. init-duration">
+        <label ti="label_measure_name">Measure Name</label>
+        <input type="text" id="measureName" value="my-measure" tp="placeholder_e_g_init_duration" placeholder="e.g. init-duration">
       </div>
       <div class="form-group">
-        <label>Start Mark (optional)</label>
+        <label ti="label_start_mark_optional">Start Mark (optional)</label>
         <input type="text" id="measureStart" placeholder="e.g. init-start">
       </div>
     </div>
     <div class="form-row">
       <div class="form-group">
-        <label>End Mark (optional, defaults to now)</label>
-        <input type="text" id="measureEnd" placeholder="e.g. init-end">
+        <label ti="label_end_mark_optional_default">End Mark (optional, defaults to now)</label>
+        <input type="text" id="measureEnd" tp="placeholder_e_g_init_end" placeholder="e.g. init-end">
       </div>
       <div class="form-group" style="display:flex;align-items:end;">
-        <button class="btn btn-primary" id="btnMeasure">performance.measure()</button>
+        <button class="btn btn-primary" id="btnMeasure" ti="btn_performance_measure">performance.measure()</button>
       </div>
     </div>
 
     <div class="btn-group">
-      <button class="btn" id="btnRefreshMarks">Refresh List</button>
-      <button class="btn" id="btnClearMarks">Clear All Marks</button>
-      <button class="btn" id="btnClearMeasures">Clear All Measures</button>
-      <button class="btn" id="btnSimulate">Run Simulation</button>
+      <button class="btn" id="btnRefreshMarks" ti="btn_refresh_list">Refresh List</button>
+      <button class="btn" id="btnClearMarks" ti="btn_clear_all_marks">Clear All Marks</button>
+      <button class="btn" id="btnClearMeasures" ti="btn_clear_all_measures">Clear All Measures</button>
+      <button class="btn" id="btnSimulate" ti="btn_run_simulation">Run Simulation</button>
     </div>
 
     <div class="mark-list" id="markList"></div>
@@ -288,14 +290,14 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Long Tasks -->
   <div id="tab-longtask" class="panel">
-    <h2>Long Task Detection</h2>
-    <p class="desc">Monitor tasks that block the main thread for more than 50ms. Uses PerformanceObserver with "longtask" type.</p>
+    <h2 ti="h2_long_task_detection">Long Task Detection</h2>
+    <p class="desc" ti="subtitle_monitor_tasks_that_block">Monitor tasks that block the main thread for more than 50ms. Uses PerformanceObserver with "longtask" type.</p>
 
     <div class="btn-group">
-      <button class="btn btn-primary" id="btnStartLT">Start Monitoring</button>
-      <button class="btn" id="btnStopLT" disabled>Stop Monitoring</button>
-      <button class="btn" id="btnTriggerLT">Trigger Long Task (100ms)</button>
-      <button class="btn" id="btnTriggerLT2">Trigger Long Task (500ms)</button>
+      <button class="btn btn-primary" id="btnStartLT" ti="btn_start_monitoring">Start Monitoring</button>
+      <button class="btn" id="btnStopLT" disabled ti="btn_stop_monitoring">Stop Monitoring</button>
+      <button class="btn" id="btnTriggerLT" ti="btn_trigger_long_task_100ms">Trigger Long Task (100ms)</button>
+      <button class="btn" id="btnTriggerLT2" ti="btn_trigger_long_task_500ms">Trigger Long Task (500ms)</button>
     </div>
 
     <div class="stats-grid">
@@ -312,16 +314,16 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Timeline -->
   <div id="tab-timeline" class="panel">
-    <h2>Timeline Visualization</h2>
-    <p class="desc">Visual chart of all performance entries on a time axis.</p>
+    <h2 ti="h2_timeline_visualization">Timeline Visualization</h2>
+    <p class="desc" ti="subtitle_visual_chart_of_all_perfo">Visual chart of all performance entries on a time axis.</p>
 
     <div class="btn-group" style="margin-bottom:1rem">
-      <button class="btn btn-primary" id="btnDrawTimeline">Draw Timeline</button>
-      <button class="btn" id="btnTimelineAll">Show All Entries</button>
+      <button class="btn btn-primary" id="btnDrawTimeline" ti="btn_draw_timeline">Draw Timeline</button>
+      <button class="btn" id="btnTimelineAll" ti="btn_show_all_entries">Show All Entries</button>
     </div>
 
     <div class="form-group">
-      <label>Filter by Entry Type</label>
+      <label ti="label_filter_by_entry_type">Filter by Entry Type</label>
       <select id="timelineFilter">
         <option value="all">All Types</option>
         <option value="resource">resource</option>
@@ -339,12 +341,12 @@ footer a:hover { text-decoration: underline; }
 
   <!-- Code -->
   <div id="tab-code" class="panel">
-    <h2>Generated Code</h2>
-    <p class="desc">Complete Performance Timeline API integration snippets.</p>
+    <h2 ti="h2_generated_code">Generated Code</h2>
+    <p class="desc" ti="subtitle_complete_performance_time">Complete Performance Timeline API integration snippets.</p>
 
     <div class="code-block" id="fullCode"></div>
     <div class="btn-group" style="margin-top:1rem">
-      <button class="btn btn-primary" id="copyCode">Copy to Clipboard</button>
+      <button class="btn btn-primary" id="copyCode" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
     </div>
   </div>
 </div>
@@ -354,6 +356,16 @@ footer a:hover { text-decoration: underline; }
   <br><a href="https://developer.mozilla.org/en-US/docs/Web/API/Performance_API" target="_blank" rel="noopener">MDN Documentation</a>
 </footer>
 
+
+<script>var _LANG={'title_performance_timeline_api':["Performance Timeline API Playground", "性能时间线 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Performance Timeline API - PerformanceObserver, Resource Timing, Navigation Timing, User Timing, Long Tasks, and timeline visualization.", "Performance Timeline API 的交互式演示平台 - PerformanceObserver、资源计时、导航计时、用户计时、长时间任务和时间线可视化。"],'h1_performance_timeline_api':["Performance Timeline API Playground", "性能时间线 API 演示"],'h2_performanceobserver_entry':["PerformanceObserver Entry Types", "PerformanceObserver 条目类型"],'h2_resource_timing_entries':["Resource Timing Entries", "资源计时条目"],'h2_navigation_timing_breakdo':["Navigation Timing Breakdown", "导航时序故障"],'h2_user_timing_mark_measure':["User Timing (mark / measure)", "用户计时（标记/测量）"],'h2_long_task_detection':["Long Task Detection", "长时间任务检测"],'h2_timeline_visualization':["Timeline Visualization", "时间线可视化"],'h2_generated_code':["Generated Code", "生成的代码"],'h3_performance_timeline_api':["Performance Timeline API is supported", "支持性能时间线 API"],'h3_available_entry_types':["Available Entry Types", "可参与的参赛类型"],'h3_create_observer':["Create Observer", "创建观察者"],'h3_phase_breakdown':["Phase Breakdown", "阶段分解"],'h3_create_mark':["Create Mark", "创建标记"],'h3_create_measure':["Create Measure", "创建度量"],'subtitle_explore_available_entry_t':["Explore available entry types and observe performance entries in real-time.", "探索可用的参赛类型并实时观察参赛表现。"],'subtitle_view_timing_data_for_all':["View timing data for all resources loaded by the page.", "查看页面加载的所有资源的计时数据。"],'subtitle_detailed_breakdown_of_the':["Detailed breakdown of the page navigation phases from redirect to load complete.", "从重定向到加载完成，详细分解页面导航的各个阶段。"],'subtitle_create_performance_marks':["Create performance marks and measures interactively. Use them to instrument your code.", "以交互方式创建性能指标和衡量标准。使用它们来检测您的代码。"],'subtitle_monitor_tasks_that_block':["Monitor tasks that block the main thread for more than 50ms. Uses PerformanceObserver with \"longtask\" type.", "监控阻塞主线程超过 50 毫秒的任务。使用 PerformanceObserver，类型为“longtask”。"],'subtitle_visual_chart_of_all_perfo':["Visual chart of all performance entries on a time axis.", "以时间轴为横轴，可视化所有业绩记录的图表。"],'subtitle_complete_performance_time':["Complete Performance Timeline API integration snippets.", "完整的性能时间线 API 集成代码片段。"],'btn_performanceobserver':["PerformanceObserver", "PerformanceObserver"],'btn_resource_timing':["Resource Timing", "资源时序"],'btn_navigation_timing':["Navigation Timing", "导航计时"],'btn_user_timing':["User Timing", "用户计时"],'btn_long_tasks':["Long Tasks", "长时间任务"],'btn_timeline':["Timeline", "时间线"],'btn_code':["Code", "代码"],'btn_start_observer':["Start Observer", "开始观察"],'btn_stop_observer':["Stop Observer", "停止观察"],'btn_clear_buffer':["Clear Buffer", "清除缓冲区"],'btn_refresh_resource_list':["Refresh Resource List", "刷新资源列表"],'btn_fetch_test_resource':["Fetch Test Resource", "获取测试资源"],'btn_clear_resource_timings':["Clear Resource Timings", "明确资源使用时间"],'btn_refresh_timing_data':["Refresh Timing Data", "刷新计时数据"],'btn_performance_mark':["performance.mark()", "性能.mark()"],'btn_performance_measure':["performance.measure()", "性能.测量()"],'btn_refresh_list':["Refresh List", "刷新列表"],'btn_clear_all_marks':["Clear All Marks", "清除所有标记"],'btn_clear_all_measures':["Clear All Measures", "清除所有措施"],'btn_run_simulation':["Run Simulation", "运行模拟"],'btn_start_monitoring':["Start Monitoring", "开始监控"],'btn_stop_monitoring':["Stop Monitoring", "停止监控"],'btn_trigger_long_task_100ms':["Trigger Long Task (100ms)", "触发长时间任务（100毫秒）"],'btn_trigger_long_task_500ms':["Trigger Long Task (500ms)", "触发长时间任务（500毫秒）"],'btn_draw_timeline':["Draw Timeline", "绘制时间线"],'btn_show_all_entries':["Show All Entries", "显示所有条目"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'placeholder_e_g_init_start':["e.g. init-start", "例如 init-start"],'placeholder_e_g_init_duration':["e.g. init-duration", "例如 init-duration"],'placeholder_e_g_init_start_2':["e.g. init-start", "例如 init-start"],'placeholder_e_g_init_end':["e.g. init-end", "例如 init-end"],'th_name':["Name", "姓名"],'th_type':["Type", "类型"],'th_duration_ms':["Duration (ms)", "持续时间（毫秒）"],'th_transfer_b':["Transfer (B)", "转移（B）"],'th_dns_ms':["DNS (ms)", "DNS（毫秒）"],'th_connect_ms':["Connect (ms)", "连接（毫秒）"],'th_ttfb_ms':["TTFB (ms)", "TTFB（毫秒）"],'label_entry_type_to_observe':["Entry Type to Observe", "要观察的条目类型"],'label_mark_name':["Mark Name", "商标名称"],'label_measure_name':["Measure Name", "测量名称"],'label_start_mark_optional':["Start Mark (optional)", "起始标记（可选）"],'label_end_mark_optional_default':["End Mark (optional, defaults to now)", "结束标记（可选，默认为当前时间）"],'label_filter_by_entry_type':["Filter by Entry Type", "按条目类型筛选"],'jtc_active':["Active", "积极的"],'jtc_stopped':["Stopped", "停止"],'jtc_on':["On", "在"],'jtc_off':["Off", "离开"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'jtlword_resources':["Resources", "资源"],'jtlword_type':["Type", "类型"],'jtlword_protocol':["Protocol", "协议"],'jtlword_types':["Types", "类型"],'jtlword_displayed':["Displayed", "已显示"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -423,7 +435,7 @@ footer a:hover { text-decoration: underline; }
         });
       });
       perfObserver.observe({ type, buffered: true });
-      document.getElementById('obsStatus').textContent = 'Active';
+      document.getElementById('obsStatus').textContent=T("jtc_active");
       document.getElementById('obsType').textContent = type;
       document.getElementById('btnStartObs').disabled = true;
       document.getElementById('btnStopObs').disabled = false;
@@ -435,7 +447,7 @@ footer a:hover { text-decoration: underline; }
 
   document.getElementById('btnStopObs').addEventListener('click', () => {
     if (perfObserver) { perfObserver.disconnect(); perfObserver = null; }
-    document.getElementById('obsStatus').textContent = 'Stopped';
+    document.getElementById('obsStatus').textContent=T("jtc_stopped");
     document.getElementById('btnStartObs').disabled = false;
     document.getElementById('btnStopObs').disabled = true;
     logObs('Observer stopped');
@@ -663,7 +675,7 @@ footer a:hover { text-decoration: underline; }
         });
       });
       ltObserver.observe({ type: 'longtask', buffered: true });
-      document.getElementById('ltStatus').textContent = 'On';
+      document.getElementById('ltStatus').textContent=T("jtc_on");
       document.getElementById('btnStartLT').disabled = true;
       document.getElementById('btnStopLT').disabled = false;
       logLT('<span class="event">Long task monitoring started</span>');
@@ -674,7 +686,7 @@ footer a:hover { text-decoration: underline; }
 
   document.getElementById('btnStopLT').addEventListener('click', () => {
     if (ltObserver) { ltObserver.disconnect(); ltObserver = null; }
-    document.getElementById('ltStatus').textContent = 'Off';
+    document.getElementById('ltStatus').textContent=T("jtc_off");
     document.getElementById('btnStartLT').disabled = false;
     document.getElementById('btnStopLT').disabled = true;
     logLT('Monitoring stopped');
@@ -899,10 +911,28 @@ performance.addEventListener('resourcetimingbufferfull', () => {
   document.getElementById('copyCode').addEventListener('click', () => {
     navigator.clipboard.writeText(document.getElementById('fullCode').textContent).then(() => {
       const btn = document.getElementById('copyCode');
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy to Clipboard', 1500);
+      btn.textContent=T("jtc_copied");
+      setTimeout(() => btn.textContent=T("jtc_copy_to_clipboard"), 1500);
     });
   });
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

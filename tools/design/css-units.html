@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_units_unit_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,41 +58,53 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Units</h1>
-<p class="subtitle">Convert between CSS units. Live calculator & reference.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_units">CSS Units</h1>
+<p class="subtitle" ti="subtitle_convert_between_css_units">Convert between CSS units. Live calculator & reference.</p>
 
 <div class="converter">
   <div class="conv-row">
-    <div class="conv-item"><label>Value</label><input type="number" id="inputVal" value="16" step="any" oninput="convert()"></div>
-    <div class="conv-item"><label>From</label><select id="fromUnit" onchange="convert()"><option value="px" selected>px</option><option value="rem">rem</option><option value="em">em</option><option value="vw">vw</option><option value="vh">vh</option><option value="percent">%</option><option value="pt">pt</option><option value="cm">cm</option><option value="mm">mm</option><option value="in">in</option></select></div>
+    <div class="conv-item"><label ti="label_value">Value</label><input type="number" id="inputVal" value="16" step="any" oninput="convert()"></div>
+    <div class="conv-item"><label ti="label_from">From</label><select id="fromUnit" onchange="convert()"><option value="px" selected>px</option><option value="rem">rem</option><option value="em">em</option><option value="vw">vw</option><option value="vh">vh</option><option value="percent">%</option><option value="pt">pt</option><option value="cm">cm</option><option value="mm">mm</option><option value="in">in</option></select></div>
   </div>
 </div>
 
 <div class="context">
-  <h3>Context (affects conversions)</h3>
+  <h3 ti="h3_context_affects_conversio">Context (affects conversions)</h3>
   <div class="ctx-row">
-    <div class="ctx-item"><label>Root font-size</label><input type="number" id="rootFs" value="16" oninput="convert()"><label>px</label></div>
-    <div class="ctx-item"><label>Parent font-size</label><input type="number" id="parentFs" value="16" oninput="convert()"><label>px</label></div>
-    <div class="ctx-item"><label>Viewport width</label><input type="number" id="vpW" value="1920" oninput="convert()"><label>px</label></div>
-    <div class="ctx-item"><label>Viewport height</label><input type="number" id="vpH" value="1080" oninput="convert()"><label>px</label></div>
-    <div class="ctx-item"><label>Container width</label><input type="number" id="contW" value="1200" oninput="convert()"><label>px</label></div>
+    <div class="ctx-item"><label ti="label_root_font_size">Root font-size</label><input type="number" id="rootFs" value="16" oninput="convert()"><label ti="label_px" ti="label_px_2" ti="label_px_3" ti="label_px_4" ti="label_px_5">px</label></div>
+    <div class="ctx-item"><label ti="label_parent_font_size">Parent font-size</label><input type="number" id="parentFs" value="16" oninput="convert()"><label>px</label></div>
+    <div class="ctx-item"><label ti="label_viewport_width">Viewport width</label><input type="number" id="vpW" value="1920" oninput="convert()"><label>px</label></div>
+    <div class="ctx-item"><label ti="label_viewport_height">Viewport height</label><input type="number" id="vpH" value="1080" oninput="convert()"><label>px</label></div>
+    <div class="ctx-item"><label ti="label_container_width">Container width</label><input type="number" id="contW" value="1200" oninput="convert()"><label>px</label></div>
   </div>
 </div>
 
 <div class="results" id="results"></div>
 
 <div class="ref-section">
-  <h2>CSS Unit Reference</h2>
+  <h2 ti="h2_css_unit_reference">CSS Unit Reference</h2>
   <div class="ref-grid" id="refGrid"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/css-units">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/css-units" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_css_units_unit_converter':["CSS Units — Unit Converter & Reference", "CSS 单位 — 单位转换器和参考"],'metadesc_convert_between_css_units':["Convert between CSS units: px, rem, em, vw, vh, %, pt, cm. Live calculator with unit reference. Free.", "CSS单位转换：px、rem、em、vw、vh、%、pt、cm。实时计算器，带单位参考。免费。"],'h1_css_units':["CSS Units", "CSS 单位"],'h2_css_unit_reference':["CSS Unit Reference", "CSS 单位参考"],'h3_context_affects_conversio':["Context (affects conversions)", "上下文（影响转化率）"],'subtitle_convert_between_css_units':["Convert between CSS units. Live calculator & reference.", "CSS单位转换。实时计算器和参考。"],'strong_related_tools':["Related Tools", "相关工具"],'label_value':["Value", "价值"],'label_from':["From", "从"],'label_root_font_size':["Root font-size", "根字体大小"],'label_px':["px", "像素"],'label_parent_font_size':["Parent font-size", "父字体大小"],'label_px_2':["px", "像素"],'label_viewport_width':["Viewport width", "视口宽度"],'label_px_3':["px", "像素"],'label_viewport_height':["Viewport height", "视口高度"],'label_px_4':["px", "像素"],'label_container_width':["Container width", "容器宽度"],'label_px_5':["px", "像素"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const UNITS=[
   {id:'px',name:'px',type:'Absolute',desc:'Pixels. 1px = 1/96th of 1 inch. The most common unit.'},
@@ -192,12 +204,30 @@ convert();
 renderRef();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
 <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Spacing Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
 <a href="https://gokuscraper.github.io/dev-vault/box-model/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Box Model</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_scope_chain_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,41 +74,53 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>JS Scope Chain Visualizer</h1>
+  <h1 ti="title_js_scope_chain_visualizer" ti="h1_js_scope_chain_visualizer">JS Scope Chain Visualizer</h1>
   <span>See how variables are looked up through scope chains & closures</span>
 </div>
 
 <div class="main">
   <div class="left">
-    <label>JavaScript Code</label>
+    <label ti="label_javascript_code">JavaScript Code</label>
     <textarea id="codeInput" spellcheck="false"></textarea>
     <div class="presets-bar" id="presetsBar"></div>
     <div class="controls">
-      <button class="btn btn-primary" onclick="analyze()">Analyze</button>
-      <button class="btn-sm" onclick="clearAll()">Clear</button>
+      <button class="btn btn-primary" onclick="analyze()" ti="btn_analyze">Analyze</button>
+      <button class="btn-sm" onclick="clearAll()" ti="btn_clear">Clear</button>
       <span class="error-msg" id="errorMsg"></span>
     </div>
   </div>
   <div class="right">
     <div class="scope-area" id="scopeArea">
-      <div style="color:var(--dim);text-align:center;padding-top:60px;font-size:12px">Click <strong>Analyze</strong> to visualize scope chains</div>
+      <div style="color:var(--dim);text-align:center;padding-top:60px;font-size:12px">Click <strong ti="strong_analyze" ti="strong_analyze_2">Analyze</strong> to visualize scope chains</div>
     </div>
     <div class="lookup-area">
-      <h3>Variable Lookup</h3>
+      <h3 ti="h3_variable_lookup">Variable Lookup</h3>
       <div class="lookup-input">
-        <input type="text" id="lookupVar" placeholder="Enter variable name to trace lookup" value="">
+        <input type="text" id="lookupVar" tp="placeholder_enter_variable_name_to_tr" placeholder="Enter variable name to trace lookup" value="">
         <select id="lookupScope" style="background:var(--surface2);border:1px solid var(--border);border-radius:6px;padding:6px;color:var(--text);font-family:inherit;font-size:11px">
           <option value="">Select scope...</option>
         </select>
-        <button class="btn-sm" onclick="traceLookup()">Trace</button>
+        <button class="btn-sm" onclick="traceLookup()" ti="btn_trace">Trace</button>
       </div>
       <div id="lookupResult"></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_js_scope_chain_visualizer':["JS Scope Chain Visualizer", "JS作用域链可视化工具"],'metadesc_interactive_javascript_sc':["Interactive JavaScript scope chain and closure visualizer. Write code, see how variable lookup walks through scope chains. Understand closures, hoisting, and lexical scoping.", "交互式 JavaScript 作用域链和闭包可视化工具。编写代码，查看变量查找如何遍历作用域链。理解闭包、变量提升和词法作用域。"],'h1_js_scope_chain_visualizer':["JS Scope Chain Visualizer", "JS作用域链可视化工具"],'h3_variable_lookup':["Variable Lookup", "变量查找"],'btn_analyze':["Analyze", "分析"],'btn_clear':["Clear", "清除"],'btn_trace':["Trace", "痕迹"],'label_esc_label':["${esc(label)}", "${esc(label)}"],'placeholder_enter_variable_name_to_tr':["Enter variable name to trace lookup", "输入要跟踪查找的变量名"],'strong_analyze':["Analyze", "分析"],'strong_esc_varname':["${esc(varName)}", "${esc(varName)}"],'strong_esc_foundscope_name':["${esc(foundScope.name)}", "${esc(foundScope.name)}"],'strong_analyze_2':["Analyze", "分析"],'label_javascript_code':["JavaScript Code", "JavaScript 代码"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -560,7 +572,7 @@ function renderScopeNode(scope) {
   }
 
   return `<div class="scope-box ${typeClass}">
-    <span class="scope-label ${typeClass}">${esc(label)}</span>
+    <span class="scope-label ${typeClass}" ti="label_esc_label">${esc(label)}</span>
     <div class="scope-vars">${varsHtml}</div>
     ${childrenHtml}
   </div>`;
@@ -647,7 +659,7 @@ function traceLookup() {
     const v = foundScope.vars.find(v => v.name === varName);
     const isClosure = foundScope !== startScope && foundScope.type === 'function';
     html += `<div class="lookup-result">
-      <p style="color:var(--green)">✓ Found "<strong>${esc(varName)}</strong>" in <strong>${esc(foundScope.name)}</strong></p>
+      <p style="color:var(--green)">✓ Found "<strong ti="strong_esc_varname">${esc(varName)}</strong>" in <strong ti="strong_esc_foundscope_name">${esc(foundScope.name)}</strong></p>
       <p style="margin-top:4px;color:var(--dim)">Kind: ${v.kind} · Value: ${esc(v.value)}</p>
       ${isClosure ? '<p style="margin-top:4px;color:var(--orange)">⚡ This is a closure reference — the variable lives in an outer scope.</p>' : ''}
       ${foundScope !== startScope ? `<p style="margin-top:4px;color:var(--dim)">Walked ${steps.indexOf(steps.find(s => s.found))} scope(s) up the chain.</p>` : '<p style="margin-top:4px;color:var(--dim)">Found in the current scope (own variable).</p>'}
@@ -674,6 +686,24 @@ function clearAll() {
 
 // Auto-analyze on load
 analyze();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

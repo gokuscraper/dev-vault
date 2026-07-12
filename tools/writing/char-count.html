@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_character_counter_platfor" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -107,9 +107,11 @@ textarea::placeholder{color:var(--text2)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Character Counter</h1>
+  <h1 ti="h1_character_counter">Character Counter</h1>
   <span class="sub">Live stats · 10 platform limits · word &amp; character frequency</span>
 </header>
 
@@ -118,13 +120,13 @@ textarea::placeholder{color:var(--text2)}
   <!-- Textarea -->
   <div class="input-card">
     <div class="input-toolbar">
-      <span class="input-label">Your Text</span>
+      <span class="input-label" ti="label_your_text">Your Text</span>
       <div class="btn-group">
-        <button id="copyBtn" onclick="copyText()">Copy Text</button>
-        <button onclick="clearText()">Clear</button>
+        <button id="copyBtn" onclick="copyText()" ti="btn_copy_text">Copy Text</button>
+        <button onclick="clearText()" ti="btn_clear">Clear</button>
       </div>
     </div>
-    <textarea id="textInput" placeholder="Start typing or paste your text here…" oninput="update()" autofocus></textarea>
+    <textarea id="textInput" tp="placeholder_start_typing_or_paste_you" placeholder="Start typing or paste your text here…" oninput="update()" autofocus></textarea>
   </div>
 
   <!-- Core stats -->
@@ -183,6 +185,16 @@ textarea::placeholder{color:var(--text2)}
 
 </main>
 
+
+<script>var _LANG={'title_character_counter_platfor':["Character Counter — Platform Limits, Reading Time & Word Frequency", "字符计数器——平台限制、阅读时间和词频"],'metadesc_real_time_character_count':["Real-time character counter with platform limits for Twitter, Instagram, LinkedIn, YouTube, SMS and more. Plus reading time, word frequency and byte size.", "实时字符计数器，支持 Twitter、Instagram、LinkedIn、YouTube、短信等平台，并可设置字符数限制。此外，还可统计阅读时间、词频和字节大小。"],'h1_character_counter':["Character Counter", "字符计数器"],'btn_copy_text':["Copy Text", "复制文本"],'btn_clear':["Clear", "清除"],'label_your_text':["Your Text", "您的文本"],'placeholder_start_typing_or_paste_you':["Start typing or paste your text here…", "在这里开始输入或粘贴您的文本……"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
   const PLATFORMS = [
@@ -329,7 +341,7 @@ textarea::placeholder{color:var(--text2)}
     }
     const btn=document.getElementById('copyBtn');
     const orig=btn.textContent;
-    btn.textContent='Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('primary');
     setTimeout(()=>{btn.textContent=orig;btn.classList.remove('primary');},1400);
   };
@@ -345,12 +357,12 @@ textarea::placeholder{color:var(--text2)}
 })();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/title-score/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Title Score</a>
 <a href="https://gokuscraper.github.io/dev-vault/md-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">MD Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -360,5 +372,23 @@ textarea::placeholder{color:var(--text2)}
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

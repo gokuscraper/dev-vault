@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_systemd_service_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -44,27 +44,33 @@ textarea{min-height:60px;resize:vertical}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Systemd Service Generator</h1>
-<p class="sub">Build .service unit files visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_systemd_service_generator" ti="h1_systemd_service_generator" ti="h1_systemd_service_generator">Systemd Service Generator</h1>
+<p class="sub" ti="subtitle_build_service_unit_files" ti="subtitle_build_service_unit_files" ti="subtitle_build_service_unit_files">Build .service unit files visually</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>[Unit]</h3>
+<h3 ti="h3_unit" ti="h3_unit" ti="h3_unit">[Unit]</h3>
 <div class="row">
-<div class="col"><label>Description</label><input id="desc" value="My Application" oninput="gen()"></div>
+<div class="col"><label ti="label_description" ti="label_description" ti="label_description">Description</label><input id="desc" value="My Application" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>After</label><input id="after" value="network.target" oninput="gen()" placeholder="network.target multi-user.target"></div>
-<div class="col"><label>Wants</label><input id="wants" value="" oninput="gen()" placeholder="network-online.target"></div>
+<div class="col"><label ti="label_after" ti="label_after" ti="label_after">After</label><input id="after" value="network.target" oninput="gen()" tp="placeholder_network_target_multi_user" tp="placeholder_network_target_multi_user" tp="placeholder_network_target_multi_user" placeholder="network.target multi-user.target"></div>
+<div class="col"><label ti="label_wants" ti="label_wants" ti="label_wants">Wants</label><input id="wants" value="" oninput="gen()" tp="placeholder_network_online_target" tp="placeholder_network_online_target" tp="placeholder_network_online_target" placeholder="network-online.target"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>[Service]</h3>
+<h3 ti="h3_service" ti="h3_service" ti="h3_service">[Service]</h3>
 <div class="row">
-<div class="col"><label>Type</label><select id="svcType" onchange="gen()">
+<div class="col"><label ti="label_type" ti="label_type" ti="label_type">Type</label><select id="svcType" onchange="gen()">
 <option value="simple" selected>simple</option>
 <option value="exec">exec</option>
 <option value="forking">forking</option>
@@ -72,87 +78,107 @@ textarea{min-height:60px;resize:vertical}
 <option value="notify">notify</option>
 <option value="idle">idle</option>
 </select></div>
-<div class="col"><label>Restart</label><select id="restart" onchange="gen()">
+<div class="col"><label ti="label_restart" ti="label_restart" ti="label_restart">Restart</label><select id="restart" onchange="gen()">
 <option value="no">no</option>
 <option value="on-failure" selected>on-failure</option>
 <option value="on-abnormal">on-abnormal</option>
 <option value="always">always</option>
 <option value="on-success">on-success</option>
 </select></div>
-<div class="col" style="max-width:120px"><label>RestartSec</label><input id="restartSec" type="number" value="5" min="0" oninput="gen()"></div>
+<div class="col" style="max-width:120px"><label ti="label_restartsec" ti="label_restartsec" ti="label_restartsec">RestartSec</label><input id="restartSec" type="number" value="5" min="0" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>ExecStart</label><input id="execStart" value="/usr/local/bin/myapp" oninput="gen()"></div>
+<div class="col"><label ti="label_execstart" ti="label_execstart" ti="label_execstart">ExecStart</label><input id="execStart" value="/usr/local/bin/myapp" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>ExecStartPre (optional)</label><input id="execStartPre" value="" oninput="gen()" placeholder="/usr/bin/mkdir -p /var/run/myapp"></div>
-<div class="col"><label>ExecStop (optional)</label><input id="execStop" value="" oninput="gen()" placeholder="/bin/kill -TERM $MAINPID"></div>
+<div class="col"><label ti="label_execstartpre_optional" ti="label_execstartpre_optional" ti="label_execstartpre_optional">ExecStartPre (optional)</label><input id="execStartPre" value="" oninput="gen()" tp="placeholder_usr_bin_mkdir_p_var_run" tp="placeholder_usr_bin_mkdir_p_var_run" tp="placeholder_usr_bin_mkdir_p_var_run" placeholder="/usr/bin/mkdir -p /var/run/myapp"></div>
+<div class="col"><label ti="label_execstop_optional" ti="label_execstop_optional" ti="label_execstop_optional">ExecStop (optional)</label><input id="execStop" value="" oninput="gen()" tp="placeholder_bin_kill_term_mainpid" tp="placeholder_bin_kill_term_mainpid" tp="placeholder_bin_kill_term_mainpid" placeholder="/bin/kill -TERM $MAINPID"></div>
 </div>
 <div class="row">
-<div class="col"><label>User</label><input id="user" value="www-data" oninput="gen()"></div>
-<div class="col"><label>Group</label><input id="group" value="www-data" oninput="gen()"></div>
+<div class="col"><label ti="label_user" ti="label_user" ti="label_user">User</label><input id="user" value="www-data" oninput="gen()"></div>
+<div class="col"><label ti="label_group" ti="label_group" ti="label_group">Group</label><input id="group" value="www-data" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>WorkingDirectory</label><input id="workDir" value="/opt/myapp" oninput="gen()"></div>
+<div class="col"><label ti="label_workingdirectory" ti="label_workingdirectory" ti="label_workingdirectory">WorkingDirectory</label><input id="workDir" value="/opt/myapp" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Environment (KEY=VALUE per line)</label><textarea id="env" rows="2" oninput="gen()" placeholder="NODE_ENV=production&#10;PORT=3000"></textarea></div>
+<div class="col"><label ti="label_environment_key_value_per" ti="label_environment_key_value_per" ti="label_environment_key_value_per">Environment (KEY=VALUE per line)</label><textarea id="env" rows="2" oninput="gen()" placeholder="NODE_ENV=production&#10;PORT=3000"></textarea></div>
 </div>
 <div class="row">
-<div class="col"><label>EnvironmentFile (optional)</label><input id="envFile" value="" oninput="gen()" placeholder="/etc/myapp/env"></div>
-</div>
-
-<h3 style="margin-top:12px">Resource Limits</h3>
-<div class="row">
-<div class="col"><label>LimitNOFILE</label><input id="limitNofile" value="" oninput="gen()" placeholder="65535"></div>
-<div class="col"><label>MemoryMax</label><input id="memoryMax" value="" oninput="gen()" placeholder="512M"></div>
-<div class="col"><label>CPUQuota</label><input id="cpuQuota" value="" oninput="gen()" placeholder="80%"></div>
+<div class="col"><label ti="label_environmentfile_optional" ti="label_environmentfile_optional" ti="label_environmentfile_optional">EnvironmentFile (optional)</label><input id="envFile" value="" oninput="gen()" tp="placeholder_etc_myapp_env" tp="placeholder_etc_myapp_env" tp="placeholder_etc_myapp_env" placeholder="/etc/myapp/env"></div>
 </div>
 
-<h3 style="margin-top:12px">Security Hardening</h3>
-<div class="check-row"><input type="checkbox" id="noNewPriv" checked onchange="gen()"><label for="noNewPriv">NoNewPrivileges=true</label></div>
-<div class="check-row"><input type="checkbox" id="protectSystem" onchange="gen()"><label for="protectSystem">ProtectSystem=strict</label></div>
-<div class="check-row"><input type="checkbox" id="protectHome" onchange="gen()"><label for="protectHome">ProtectHome=true</label></div>
-<div class="check-row"><input type="checkbox" id="privateTmp" checked onchange="gen()"><label for="privateTmp">PrivateTmp=true</label></div>
-<div class="check-row"><input type="checkbox" id="readWritePaths" onchange="gen()"><label for="readWritePaths">ReadWritePaths=/opt/myapp</label></div>
-
-<h3 style="margin-top:12px">Logging</h3>
+<h3 style="margin-top:12px" ti="h3_resource_limits" ti="h3_resource_limits" ti="h3_resource_limits">Resource Limits</h3>
 <div class="row">
-<div class="col"><label>StandardOutput</label><select id="stdOut" onchange="gen()">
+<div class="col"><label ti="label_limitnofile" ti="label_limitnofile" ti="label_limitnofile">LimitNOFILE</label><input id="limitNofile" value="" oninput="gen()" tp="placeholder_65535" tp="placeholder_65535" tp="placeholder_65535" placeholder="65535"></div>
+<div class="col"><label ti="label_memorymax" ti="label_memorymax" ti="label_memorymax">MemoryMax</label><input id="memoryMax" value="" oninput="gen()" tp="placeholder_512m" tp="placeholder_512m" tp="placeholder_512m" placeholder="512M"></div>
+<div class="col"><label ti="label_cpuquota" ti="label_cpuquota" ti="label_cpuquota">CPUQuota</label><input id="cpuQuota" value="" oninput="gen()" tp="placeholder_80" tp="placeholder_80" tp="placeholder_80" placeholder="80%"></div>
+</div>
+
+<h3 style="margin-top:12px" ti="h3_security_hardening" ti="h3_security_hardening" ti="h3_security_hardening">Security Hardening</h3>
+<div class="check-row"><input type="checkbox" id="noNewPriv" checked onchange="gen()"><label for="noNewPriv" ti="label_nonewprivileges_true" ti="label_nonewprivileges_true" ti="label_nonewprivileges_true">NoNewPrivileges=true</label></div>
+<div class="check-row"><input type="checkbox" id="protectSystem" onchange="gen()"><label for="protectSystem" ti="label_protectsystem_strict" ti="label_protectsystem_strict" ti="label_protectsystem_strict">ProtectSystem=strict</label></div>
+<div class="check-row"><input type="checkbox" id="protectHome" onchange="gen()"><label for="protectHome" ti="label_protecthome_true" ti="label_protecthome_true" ti="label_protecthome_true">ProtectHome=true</label></div>
+<div class="check-row"><input type="checkbox" id="privateTmp" checked onchange="gen()"><label for="privateTmp" ti="label_privatetmp_true" ti="label_privatetmp_true" ti="label_privatetmp_true">PrivateTmp=true</label></div>
+<div class="check-row"><input type="checkbox" id="readWritePaths" onchange="gen()"><label for="readWritePaths" ti="label_readwritepaths_opt_myapp" ti="label_readwritepaths_opt_myapp" ti="label_readwritepaths_opt_myapp">ReadWritePaths=/opt/myapp</label></div>
+
+<h3 style="margin-top:12px" ti="h3_logging" ti="h3_logging" ti="h3_logging">Logging</h3>
+<div class="row">
+<div class="col"><label ti="label_standardoutput" ti="label_standardoutput" ti="label_standardoutput">StandardOutput</label><select id="stdOut" onchange="gen()">
 <option value="journal" selected>journal</option>
 <option value="syslog">syslog</option>
 <option value="file:/var/log/myapp.log">file</option>
 <option value="inherit">inherit</option>
 </select></div>
-<div class="col"><label>StandardError</label><select id="stdErr" onchange="gen()">
+<div class="col"><label ti="label_standarderror" ti="label_standarderror" ti="label_standarderror">StandardError</label><select id="stdErr" onchange="gen()">
 <option value="journal" selected>journal</option>
 <option value="syslog">syslog</option>
 <option value="file:/var/log/myapp-error.log">file</option>
 <option value="inherit">inherit</option>
 </select></div>
-<div class="col"><label>SyslogIdentifier</label><input id="syslogId" value="" oninput="gen()" placeholder="myapp"></div>
+<div class="col"><label ti="label_syslogidentifier" ti="label_syslogidentifier" ti="label_syslogidentifier">SyslogIdentifier</label><input id="syslogId" value="" oninput="gen()" tp="placeholder_myapp" tp="placeholder_myapp" tp="placeholder_myapp" placeholder="myapp"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>[Install]</h3>
+<h3 ti="h3_install" ti="h3_install" ti="h3_install">[Install]</h3>
 <div class="row">
-<div class="col"><label>WantedBy</label><input id="wantedBy" value="multi-user.target" oninput="gen()"></div>
+<div class="col"><label ti="label_wantedby" ti="label_wantedby" ti="label_wantedby">WantedBy</label><input id="wantedBy" value="multi-user.target" oninput="gen()"></div>
 </div>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
 <div class="install-cmd" id="installCmd"></div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/">Docker Compose Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/cron-builder/">Cron Builder</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config_gen" ti="link_nginx_config_gen" ti="link_nginx_config_gen">Nginx Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/" ti="link_docker_compose_gen" ti="link_docker_compose_gen" ti="link_docker_compose_gen">Docker Compose Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/cron-builder/" ti="link_cron_builder" ti="link_cron_builder" ti="link_cron_builder">Cron Builder</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_systemd_service_generator':["Systemd Service Generator — Build Unit Files Visually", "Systemd 服务生成器 — 以可视化方式构建单元文件"],'metadesc_generate_systemd_service':["Generate systemd .service unit files visually. Type, restart, user, environment, dependencies. 8 presets. No signup.", "以可视化方式生成 systemd .service 单元文件。可设置类型、重启、用户、环境变量和依赖项。8 个预设选项。无需注册。"],'h1_systemd_service_generator':["Systemd Service Generator", "Systemd 服务生成器"],'h3_unit':["[Unit]", "[单元]"],'h3_service':["[Service]", "[服务]"],'h3_resource_limits':["Resource Limits", "资源限制"],'h3_security_hardening':["Security Hardening", "安全加固"],'h3_logging':["Logging", "日志记录"],'h3_install':["[Install]", "[安装]"],'subtitle_build_service_unit_files':["Build .service unit files visually", "以可视化方式构建 .service 单元文件"],'btn_copy':["Copy", "复制"],'placeholder_network_target_multi_user':["network.target multi-user.target", "网络目标 多用户目标"],'placeholder_network_online_target':["network-online.target", "网络在线.目标"],'placeholder_usr_bin_mkdir_p_var_run':["/usr/bin/mkdir -p /var/run/myapp", "/usr/bin/mkdir -p /var/run/myapp"],'placeholder_bin_kill_term_mainpid':["/bin/kill -TERM $MAINPID", "/bin/kill -TERM $MAINPID"],'placeholder_node_env_production_port':["NODE_ENV=production\nPORT=3000", "NODE_ENV=production PORT=3000"],'placeholder_etc_myapp_env':["/etc/myapp/env", "/etc/myapp/env"],'placeholder_65535':["65535", "65535"],'placeholder_512m':["512M", "512米"],'placeholder_80':["80%", "80%"],'placeholder_myapp':["myapp", "我的应用"],'label_description':["Description", "描述"],'label_after':["After", "后"],'label_wants':["Wants", "想要"],'label_type':["Type", "类型"],'label_restart':["Restart", "重启"],'label_restartsec':["RestartSec", "重启安全"],'label_execstart':["ExecStart", "执行启动"],'label_execstartpre_optional':["ExecStartPre (optional)", "ExecStartPre（可选）"],'label_execstop_optional':["ExecStop (optional)", "ExecStop（可选）"],'label_user':["User", "用户"],'label_group':["Group", "团体"],'label_workingdirectory':["WorkingDirectory", "工作目录"],'label_environment_key_value_per':["Environment (KEY=VALUE per line)", "环境（每行 KEY=VALUE）"],'label_environmentfile_optional':["EnvironmentFile (optional)", "环境文件（可选）"],'label_limitnofile':["LimitNOFILE", "LimitNOFILE"],'label_memorymax':["MemoryMax", "MemoryMax"],'label_cpuquota':["CPUQuota", "CPU配额"],'label_nonewprivileges_true':["NoNewPrivileges=true", "NoNewPrivileges=true"],'label_protectsystem_strict':["ProtectSystem=strict", "ProtectSystem=严格"],'label_protecthome_true':["ProtectHome=true", "ProtectHome=true"],'label_privatetmp_true':["PrivateTmp=true", "PrivateTmp=true"],'label_readwritepaths_opt_myapp':["ReadWritePaths=/opt/myapp", "ReadWritePaths=/opt/myapp"],'label_standardoutput':["StandardOutput", "标准输出"],'label_standarderror':["StandardError", "标准误差"],'label_syslogidentifier':["SyslogIdentifier", "系统日志标识符"],'label_wantedby':["WantedBy", "通缉"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_nginx_config_gen':["Nginx Config Gen", "Nginx 配置生成器"],'link_docker_compose_gen':["Docker Compose Gen", "Docker Compose 生成"],'link_cron_builder':["Cron Builder", "定时任务生成器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_systemd_service_generator':["Systemd Service Generator — Build Unit Files Visually", "Systemd 服务生成器 — 以可视化方式构建单元文件"],'metadesc_generate_systemd_service':["Generate systemd .service unit files visually. Type, restart, user, environment, dependencies. 8 presets. No signup.", "以可视化方式生成 systemd .service 单元文件。可设置类型、重启、用户、环境变量和依赖项。8 个预设选项。无需注册。"],'h1_systemd_service_generator':["Systemd Service Generator", "Systemd 服务生成器"],'h3_unit':["[Unit]", "[单元]"],'h3_service':["[Service]", "[服务]"],'h3_resource_limits':["Resource Limits", "资源限制"],'h3_security_hardening':["Security Hardening", "安全加固"],'h3_logging':["Logging", "日志记录"],'h3_install':["[Install]", "[安装]"],'subtitle_build_service_unit_files':["Build .service unit files visually", "以可视化方式构建 .service 单元文件"],'btn_copy':["Copy", "复制"],'placeholder_network_target_multi_user':["network.target multi-user.target", "网络目标 多用户目标"],'placeholder_network_online_target':["network-online.target", "网络在线.目标"],'placeholder_usr_bin_mkdir_p_var_run':["/usr/bin/mkdir -p /var/run/myapp", "/usr/bin/mkdir -p /var/run/myapp"],'placeholder_bin_kill_term_mainpid':["/bin/kill -TERM $MAINPID", "/bin/kill -TERM $MAINPID"],'placeholder_node_env_production_port':["NODE_ENV=production\nPORT=3000", "NODE_ENV=production PORT=3000"],'placeholder_etc_myapp_env':["/etc/myapp/env", "/etc/myapp/env"],'placeholder_65535':["65535", "65535"],'placeholder_512m':["512M", "512米"],'placeholder_80':["80%", "80%"],'placeholder_myapp':["myapp", "我的应用"],'label_description':["Description", "描述"],'label_after':["After", "后"],'label_wants':["Wants", "想要"],'label_type':["Type", "类型"],'label_restart':["Restart", "重启"],'label_restartsec':["RestartSec", "重启安全"],'label_execstart':["ExecStart", "执行启动"],'label_execstartpre_optional':["ExecStartPre (optional)", "ExecStartPre（可选）"],'label_execstop_optional':["ExecStop (optional)", "ExecStop（可选）"],'label_user':["User", "用户"],'label_group':["Group", "团体"],'label_workingdirectory':["WorkingDirectory", "工作目录"],'label_environment_key_value_per':["Environment (KEY=VALUE per line)", "环境（每行 KEY=VALUE）"],'label_environmentfile_optional':["EnvironmentFile (optional)", "环境文件（可选）"],'label_limitnofile':["LimitNOFILE", "LimitNOFILE"],'label_memorymax':["MemoryMax", "MemoryMax"],'label_cpuquota':["CPUQuota", "CPU配额"],'label_nonewprivileges_true':["NoNewPrivileges=true", "NoNewPrivileges=true"],'label_protectsystem_strict':["ProtectSystem=strict", "ProtectSystem=严格"],'label_protecthome_true':["ProtectHome=true", "ProtectHome=true"],'label_privatetmp_true':["PrivateTmp=true", "PrivateTmp=true"],'label_readwritepaths_opt_myapp':["ReadWritePaths=/opt/myapp", "ReadWritePaths=/opt/myapp"],'label_standardoutput':["StandardOutput", "标准输出"],'label_standarderror':["StandardError", "标准误差"],'label_syslogidentifier':["SyslogIdentifier", "系统日志标识符"],'label_wantedby':["WantedBy", "通缉"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_nginx_config_gen':["Nginx Config Gen", "Nginx 配置生成器"],'link_docker_compose_gen':["Docker Compose Gen", "Docker Compose 生成"],'link_cron_builder':["Cron Builder", "定时任务生成器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
 'Node.js App':{desc:'Node.js Application',after:'network.target',wants:'',type:'simple',restart:'on-failure',restartSec:5,execStart:'/usr/bin/node /opt/myapp/index.js',execStartPre:'',execStop:'',user:'node',group:'node',workDir:'/opt/myapp',env:'NODE_ENV=production\nPORT=3000',envFile:'',limitNofile:'',memoryMax:'',cpuQuota:'',noNewPriv:true,protectSystem:false,protectHome:false,privateTmp:true,readWritePaths:false,stdOut:'journal',stdErr:'journal',syslogId:'myapp',wantedBy:'multi-user.target'},
@@ -279,6 +305,60 @@ function copyOut(){
 
 initPresets();
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

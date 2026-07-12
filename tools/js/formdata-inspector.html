@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_formdata_inspector_visual" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -517,9 +517,11 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>FormData Inspector</h1>
+  <h1 ti="h1_formdata_inspector">FormData Inspector</h1>
   <p>Build forms visually, inspect FormData entries, preview files, and see POST body output</p>
 </header>
 
@@ -548,11 +550,11 @@ footer a:hover { text-decoration: underline; }
     </div>
 
     <div class="tabs">
-      <button class="tab active" data-tab="entries">Entries</button>
+      <button class="tab active" data-tab="entries" ti="btn_entries">Entries</button>
       <button class="tab" data-tab="files">Files &amp; Blobs</button>
-      <button class="tab" data-tab="post">POST Body</button>
-      <button class="tab" data-tab="mime">MIME Types</button>
-      <button class="tab" data-tab="code">JS Code</button>
+      <button class="tab" data-tab="post" ti="btn_post_body">POST Body</button>
+      <button class="tab" data-tab="mime" ti="btn_mime_types">MIME Types</button>
+      <button class="tab" data-tab="code" ti="btn_js_code">JS Code</button>
     </div>
 
     <!-- Entries Tab -->
@@ -564,12 +566,12 @@ footer a:hover { text-decoration: underline; }
     <!-- POST Body Tab -->
     <div class="tab-content" id="tab-post">
       <div class="encoding-selector">
-        <button class="encoding-btn active" data-encoding="multipart">multipart/form-data</button>
-        <button class="encoding-btn" data-encoding="urlencoded">application/x-www-form-urlencoded</button>
-        <button class="encoding-btn" data-encoding="json">application/json</button>
+        <button class="encoding-btn active" data-encoding="multipart" ti="btn_multipart_form_data">multipart/form-data</button>
+        <button class="encoding-btn" data-encoding="urlencoded" ti="btn_application_x_www_form_ur">application/x-www-form-urlencoded</button>
+        <button class="encoding-btn" data-encoding="json" ti="btn_application_json">application/json</button>
       </div>
       <div class="code-wrapper">
-        <button class="copy-btn" id="copyPostBody">Copy</button>
+        <button class="copy-btn" id="copyPostBody" ti="btn_copy" ti="btn_copy_2">Copy</button>
         <div class="code-block" id="postBodyOutput"></div>
       </div>
     </div>
@@ -589,10 +591,20 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/formdata-inspector">GitHub</a> &middot;
-  Built with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData">FormData API</a>
+  <a href="https://github.com/gokuscraper/formdata-inspector" ti="link_github">GitHub</a> &middot;
+  Built with the <a href="https://developer.mozilla.org/en-US/docs/Web/API/FormData" ti="link_formdata_api">FormData API</a>
 </footer>
 
+
+<script>var _LANG={'title_formdata_inspector_visual':["FormData Inspector — Visual FormData API Explorer", "FormData Inspector — 可视化 FormData API 资源管理器"],'metadesc_build_html_forms_visually':["Build HTML forms visually and inspect FormData.entries(), blob/file previews, MIME types, and POST body output in real time.", "以可视化的方式构建 HTML 表单，并实时检查 FormData.entries()、blob/文件预览、MIME 类型和 POST 正文输出。"],'h1_formdata_inspector':["FormData Inspector", "表单数据检查器"],'btn_entries':["Entries", "条目"],'btn_files_blobs':["Files & Blobs", "文件和 Blob"],'btn_post_body':["POST Body", "正文"],'btn_mime_types':["MIME Types", "MIME 类型"],'btn_js_code':["JS Code", "JS 代码"],'btn_multipart_form_data':["multipart/form-data", "multipart/form-data"],'btn_application_x_www_form_ur':["application/x-www-form-urlencoded", "application/x-www-form-urlencoded"],'btn_application_json':["application/json", "application/json"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_p_name':["${p.name}", "${p.name}"],'btn_t':["+ ${t}", "+ ${t}"],'placeholder_field_name':["field name", "字段名称"],'placeholder_esc_f_placeholder':["${esc(f.placeholder || '')}", "${esc(f.placeholder || &#39;&#39;)}"],'placeholder_hidden_value':["hidden value", "隐藏值"],'placeholder_esc_f_placeholder_2':["${esc(f.placeholder || '')}", "${esc(f.placeholder || &#39;&#39;)}"],'th_key':["Key", "钥匙"],'th_filename':["Filename", "文件名"],'th_mime_type':["MIME Type", "MIME 类型"],'th_size':["Size", "尺寸"],'th_category':["Category", "类别"],'link_github':["GitHub", "GitHub"],'link_formdata_api':["FormData API", "FormData API"],'jtc_empty_no_file_selected':["(empty - no file selected)", "（空白 - 未选择任何文件）"],'jtc_no_data':["(no data)", "（无数据）"],'jtc_copied':["Copied!", "已复制！"],'jtlword_key':["Key", "钥匙"],'jtlword_filename':["Filename", "文件名"],'jtlword_size':["Size", "尺寸"],'jtlword_category':["Category", "类别"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Presets ──────────────────────────────────────────
 const PRESETS = [
@@ -695,7 +707,7 @@ function init() {
 function renderPresets() {
   const el = document.getElementById('presets');
   el.innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset-btn${i === activePreset ? ' active' : ''}" data-preset="${i}">${p.name}</button>`
+    `<button class="preset-btn${i === activePreset ? ' active' : ''}" data-preset="${i}" ti="btn_p_name">${p.name}</button>`
   ).join('');
   el.addEventListener('click', e => {
     const btn = e.target.closest('[data-preset]');
@@ -716,7 +728,7 @@ function loadPreset(index) {
 function renderAddButtons() {
   const el = document.getElementById('addFieldRow');
   el.innerHTML = FIELD_TYPES.map(t =>
-    `<button class="add-btn" data-add="${t}">+ ${t}</button>`
+    `<button class="add-btn" data-add="${t}" ti="btn_t">+ ${t}</button>`
   ).join('');
   el.addEventListener('click', e => {
     const btn = e.target.closest('[data-add]');
@@ -754,7 +766,7 @@ function renderFields() {
       <div class="field-card" data-index="${i}">
         <div class="field-card-header">
           <span class="field-type-badge ${typeClass}">${typeName}</span>
-          <input class="field-name-input" value="${esc(f.name)}" data-field="name" data-index="${i}" spellcheck="false" placeholder="field name">
+          <input class="field-name-input" value="${esc(f.name)}" data-field="name" data-index="${i}" spellcheck="false" tp="placeholder_field_name" placeholder="field name">
           <button class="field-remove" data-remove="${i}" title="Remove field">&times;</button>
         </div>
         ${renderFieldInput(f, i)}
@@ -826,11 +838,11 @@ function renderFieldInput(f, i) {
     case 'email':
     case 'number':
     case 'date':
-      return `<input class="field-input" type="${f.type}" value="${esc(f.value || '')}" placeholder="${esc(f.placeholder || '')}" data-value data-index="${i}">`;
+      return `<input class="field-input" type="${f.type}" value="${esc(f.value || '')}" tp="placeholder_esc_f_placeholder" tp="placeholder_esc_f_placeholder_2" placeholder="${esc(f.placeholder || '')}" data-value data-index="${i}">`;
 
     case 'hidden':
       return `
-        <input class="field-input" type="text" value="${esc(f.value || '')}" placeholder="hidden value" data-value data-index="${i}">
+        <input class="field-input" type="text" value="${esc(f.value || '')}" tp="placeholder_hidden_value" placeholder="hidden value" data-value data-index="${i}">
         <div class="field-meta">type=hidden (not visible to users)</div>
       `;
 
@@ -1016,7 +1028,7 @@ function renderFiles(entries) {
     } else {
       const note = document.createElement('div');
       note.className = 'field-meta';
-      note.textContent = '(empty - no file selected)';
+      note.textContent=T("jtc_empty_no_file_selected");
       div.appendChild(note);
     }
 
@@ -1029,7 +1041,7 @@ async function renderPostBody(entries, fd) {
   const output = document.getElementById('postBodyOutput');
 
   if (entries.length === 0) {
-    output.textContent = '(no data)';
+    output.textContent=T("jtc_no_data");
     return;
   }
 
@@ -1109,7 +1121,7 @@ function renderMime(entries) {
 
   el.innerHTML = `
     <table class="mime-table">
-      <thead><tr><th>Key</th><th>Filename</th><th>MIME Type</th><th>Size</th><th>Category</th></tr></thead>
+      <thead><tr><th ti="th_key">Key</th><th ti="th_filename">Filename</th><th ti="th_mime_type">MIME Type</th><th ti="th_size">Size</th><th ti="th_category">Category</th></tr></thead>
       <tbody>
         ${fileEntries.map(({ key, value }) => {
           const name = value instanceof File && value.name ? value.name : '(blob)';
@@ -1210,7 +1222,7 @@ function setupCopy() {
 function copyText(text, btn) {
   navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1500);
   });
 }
@@ -1273,6 +1285,24 @@ function mimeCategory(mime) {
 
 // ── Boot ────────────────────────────────────────────
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

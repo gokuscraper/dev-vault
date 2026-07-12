@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_nfc_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -165,6 +165,8 @@ header p{color:var(--text-dim);font-size:.9rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
     <h1><span class="nfc-icon"></span> Web NFC Playground</h1>
@@ -174,20 +176,20 @@ header p{color:var(--text-dim);font-size:.9rem}
   <div class="compat-banner" id="compatBanner">
     <span class="icon">&#9888;</span>
     <div>
-      <strong>Limited Browser Support:</strong> Web NFC is only available in <strong>Chrome 89+</strong> on <strong>Android</strong> devices with NFC hardware.
+      <strong ti="strong_limited_browser_support">Limited Browser Support:</strong> Web NFC is only available in <strong ti="strong_chrome_89">Chrome 89+</strong> on <strong ti="strong_android">Android</strong> devices with NFC hardware.
       Desktop browsers, iOS Safari, and Firefox are not supported.
       <span id="simNotice"></span>
     </div>
   </div>
 
   <div class="tabs" role="tablist">
-    <button class="active" onclick="switchTab('scanner')" role="tab">Scanner</button>
-    <button onclick="switchTab('builder')" role="tab">Builder</button>
-    <button onclick="switchTab('writer')" role="tab">Writer</button>
-    <button onclick="switchTab('readonly')" role="tab">Read-Only</button>
-    <button onclick="switchTab('hex')" role="tab">Hex Viewer</button>
-    <button onclick="switchTab('tnf')" role="tab">TNF Explorer</button>
-    <button onclick="switchTab('errors')" role="tab">Error Sim</button>
+    <button class="active" onclick="switchTab('scanner')" role="tab" ti="btn_scanner">Scanner</button>
+    <button onclick="switchTab('builder')" role="tab" ti="btn_builder">Builder</button>
+    <button onclick="switchTab('writer')" role="tab" ti="btn_writer">Writer</button>
+    <button onclick="switchTab('readonly')" role="tab" ti="btn_read_only">Read-Only</button>
+    <button onclick="switchTab('hex')" role="tab" ti="btn_hex_viewer">Hex Viewer</button>
+    <button onclick="switchTab('tnf')" role="tab" ti="btn_tnf_explorer">TNF Explorer</button>
+    <button onclick="switchTab('errors')" role="tab" ti="btn_error_sim">Error Sim</button>
   </div>
 
   <!-- SCANNER TAB -->
@@ -196,16 +198,16 @@ header p{color:var(--text-dim);font-size:.9rem}
       <h2>NFC Scanner <span class="status status-idle" id="scanStatus">Idle</span></h2>
       <p>Start scanning to read NDEF messages from NFC tags.</p>
       <div class="btn-group">
-        <button class="btn-primary" id="btnScan" onclick="startScan()">Start Scanning</button>
-        <button class="btn-outline" id="btnStopScan" onclick="stopScan()" disabled>Stop</button>
+        <button class="btn-primary" id="btnScan" onclick="startScan()" ti="btn_start_scanning">Start Scanning</button>
+        <button class="btn-outline" id="btnStopScan" onclick="stopScan()" disabled ti="btn_stop">Stop</button>
       </div>
       <div class="log" id="scanLog"></div>
     </div>
 
     <div class="card">
-      <h2>Generated Code</h2>
+      <h2 ti="h2_generated_code" ti="h2_generated_code_2" ti="h2_generated_code_3" ti="h2_generated_code_4">Generated Code</h2>
       <div class="code-block">
-        <button class="copy-btn" onclick="copyCode('scanCode')">Copy</button>
+        <button class="copy-btn" onclick="copyCode('scanCode')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
         <pre id="scanCode">const ndef = new NDEFReader();
 
 async function startScan() {
@@ -232,7 +234,7 @@ async function startScan() {
     </div>
 
     <div class="card">
-      <h2>NDEF Message Structure</h2>
+      <h2 ti="h2_ndef_message_structure">NDEF Message Structure</h2>
       <div class="ndef-diagram">
         <div class="msg-box">
           <div class="msg-label">NDEF Message</div>
@@ -267,13 +269,13 @@ async function startScan() {
   <!-- BUILDER TAB -->
   <div class="panel" id="panel-builder">
     <div class="card">
-      <h2>NDEF Message Builder</h2>
+      <h2 ti="h2_ndef_message_builder">NDEF Message Builder</h2>
       <p>Create multi-record NDEF messages with different record types.</p>
 
-      <h3>Add Record</h3>
+      <h3 ti="h3_add_record">Add Record</h3>
       <div class="form-row">
         <div class="form-group">
-          <label>Record Type</label>
+          <label ti="label_record_type">Record Type</label>
           <select id="recordType" onchange="updateRecordForm()">
             <option value="text">Text</option>
             <option value="url">URL</option>
@@ -282,16 +284,16 @@ async function startScan() {
           </select>
         </div>
         <div class="form-group" id="langGroup">
-          <label>Language</label>
-          <input type="text" id="recordLang" value="en" placeholder="en">
+          <label ti="label_language">Language</label>
+          <input type="text" id="recordLang" value="en" tp="placeholder_en" placeholder="en">
         </div>
       </div>
 
       <div id="mimeGroup" style="display:none">
         <div class="form-row">
           <div class="form-group">
-            <label>MIME Type</label>
-            <input type="text" id="recordMime" placeholder="application/json">
+            <label ti="label_mime_type">MIME Type</label>
+            <input type="text" id="recordMime" tp="placeholder_application_json" placeholder="application/json">
           </div>
         </div>
       </div>
@@ -299,31 +301,31 @@ async function startScan() {
       <div id="smartPosterGroup" style="display:none">
         <div class="form-row">
           <div class="form-group">
-            <label>Poster Title</label>
-            <input type="text" id="spTitle" placeholder="My Link">
+            <label ti="label_poster_title">Poster Title</label>
+            <input type="text" id="spTitle" tp="placeholder_my_link" placeholder="My Link">
           </div>
           <div class="form-group">
-            <label>Poster URL</label>
-            <input type="text" id="spUrl" placeholder="https://example.com">
+            <label ti="label_poster_url">Poster URL</label>
+            <input type="text" id="spUrl" tp="placeholder_https_example_com" placeholder="https://example.com">
           </div>
         </div>
       </div>
 
       <div class="form-row">
         <div class="form-group full">
-          <label id="payloadLabel">Payload</label>
-          <textarea id="recordPayload" rows="2" placeholder="Enter text content..."></textarea>
+          <label id="payloadLabel" ti="label_payload">Payload</label>
+          <textarea id="recordPayload" rows="2" tp="placeholder_enter_text_content" placeholder="Enter text content..."></textarea>
         </div>
       </div>
 
-      <button class="btn-primary" onclick="addRecord()">Add Record</button>
+      <button class="btn-primary" onclick="addRecord()" ti="btn_add_record">Add Record</button>
 
       <h3>Records (<span id="recordCount">0</span>)</h3>
       <div class="record-list" id="recordList">
         <div style="color:var(--text-muted);font-size:.85rem;text-align:center;padding:20px">No records added yet. Use the form above or load a preset.</div>
       </div>
 
-      <h3>Presets</h3>
+      <h3 ti="h3_presets">Presets</h3>
       <div class="preset-grid">
         <div class="preset-card" onclick="loadPreset('url')">
           <div class="preset-icon">&#128279;</div>
@@ -368,8 +370,8 @@ async function startScan() {
       <h2>NFC Writer <span class="status status-idle" id="writeStatus">Idle</span></h2>
       <p>Write the message built in the Builder tab to an NFC tag. Bring a tag close after pressing Write.</p>
       <div class="btn-group">
-        <button class="btn-success" id="btnWrite" onclick="writeTag()">Write to Tag</button>
-        <button class="btn-outline" onclick="switchTab('builder')">Go to Builder</button>
+        <button class="btn-success" id="btnWrite" onclick="writeTag()" ti="btn_write_to_tag">Write to Tag</button>
+        <button class="btn-outline" onclick="switchTab('builder')" ti="btn_go_to_builder">Go to Builder</button>
       </div>
       <div id="writerRecordSummary" style="margin-top:12px"></div>
       <div class="log" id="writeLog"></div>
@@ -399,10 +401,10 @@ async function writeTag() {
   <!-- READ-ONLY TAB -->
   <div class="panel" id="panel-readonly">
     <div class="card">
-      <h2>Make Tag Read-Only</h2>
+      <h2 ti="h2_make_tag_read_only">Make Tag Read-Only</h2>
       <div class="warning-box">
         <div class="warn-title">&#9888; Irreversible Operation</div>
-        <p>Making a tag read-only is <strong>permanent</strong>. The tag can never be written to again.
+        <p>Making a tag read-only is <strong ti="strong_permanent">permanent</strong>. The tag can never be written to again.
         This is implemented via <code>NDEFReader.makeReadOnly()</code>. There is no undo.</p>
         <ul style="margin:8px 0 0 20px;color:var(--text-dim);font-size:.85rem">
           <li>The current content on the tag will be locked forever.</li>
@@ -411,7 +413,7 @@ async function writeTag() {
         </ul>
       </div>
       <div class="btn-group">
-        <button class="btn-danger" id="btnReadOnly" onclick="makeReadOnly()">Make Read-Only</button>
+        <button class="btn-danger" id="btnReadOnly" onclick="makeReadOnly()" ti="btn_make_read_only">Make Read-Only</button>
       </div>
       <div class="log" id="readonlyLog"></div>
     </div>
@@ -436,14 +438,14 @@ async function makeReadOnly() {
   <!-- HEX VIEWER TAB -->
   <div class="panel" id="panel-hex">
     <div class="card">
-      <h2>NDEF Hex Viewer</h2>
+      <h2 ti="h2_ndef_hex_viewer">NDEF Hex Viewer</h2>
       <p>View the raw NDEF binary structure of the built message. Color-coded: <span style="color:var(--orange)">TNF/flags</span> <span style="color:var(--purple)">type</span> <span style="color:var(--cyan)">payload</span> <span style="color:var(--text-dim)">lengths</span></p>
       <div id="hexContent" class="hex-viewer" style="margin-top:12px">
         <div style="color:var(--text-muted);text-align:center;padding:20px">Add records in the Builder tab to see the hex dump.</div>
       </div>
     </div>
     <div class="card">
-      <h2>NDEF Binary Format Reference</h2>
+      <h2 ti="h2_ndef_binary_format_refere">NDEF Binary Format Reference</h2>
       <div style="font-family:var(--font-mono);font-size:.8rem;color:var(--text-dim);line-height:1.8">
         <div>Byte 0: <span style="color:var(--orange)">[MB][ME][CF][SR][IL][TNF TNF TNF]</span></div>
         <div>Byte 1: <span style="color:var(--text-dim)">TYPE_LENGTH</span></div>
@@ -457,7 +459,7 @@ async function makeReadOnly() {
   <!-- TNF EXPLORER TAB -->
   <div class="panel" id="panel-tnf">
     <div class="card">
-      <h2>Type Name Format (TNF) Explorer</h2>
+      <h2 ti="h2_type_name_format_tnf_expl">Type Name Format (TNF) Explorer</h2>
       <p>NDEF records use a 3-bit TNF field to describe how the Type field should be interpreted.</p>
       <div class="tnf-grid" id="tnfGrid"></div>
     </div>
@@ -466,19 +468,19 @@ async function makeReadOnly() {
   <!-- ERROR SIMULATION TAB -->
   <div class="panel" id="panel-errors">
     <div class="card">
-      <h2>Error Scenario Simulator</h2>
+      <h2 ti="h2_error_scenario_simulator">Error Scenario Simulator</h2>
       <p>Simulate common NFC error conditions to test your error handling code.</p>
       <div class="btn-group">
-        <button class="btn-outline" onclick="simError('permission')">Permission Denied</button>
-        <button class="btn-outline" onclick="simError('removed')">Tag Removed Mid-Write</button>
-        <button class="btn-outline" onclick="simError('writefail')">Write Failure</button>
-        <button class="btn-outline" onclick="simError('readonly')">Tag Is Read-Only</button>
-        <button class="btn-outline" onclick="simError('capacity')">Tag Capacity Exceeded</button>
+        <button class="btn-outline" onclick="simError('permission')" ti="btn_permission_denied">Permission Denied</button>
+        <button class="btn-outline" onclick="simError('removed')" ti="btn_tag_removed_mid_write">Tag Removed Mid-Write</button>
+        <button class="btn-outline" onclick="simError('writefail')" ti="btn_write_failure">Write Failure</button>
+        <button class="btn-outline" onclick="simError('readonly')" ti="btn_tag_is_read_only">Tag Is Read-Only</button>
+        <button class="btn-outline" onclick="simError('capacity')" ti="btn_tag_capacity_exceeded">Tag Capacity Exceeded</button>
       </div>
       <div class="log" id="errorLog"></div>
     </div>
     <div class="card">
-      <h2>Error Handling Code</h2>
+      <h2 ti="h2_error_handling_code">Error Handling Code</h2>
       <div class="code-block">
         <button class="copy-btn" onclick="copyCode('errorCode')">Copy</button>
         <pre id="errorCode">async function safeNfcOperation() {
@@ -509,6 +511,16 @@ async function makeReadOnly() {
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_nfc_api_playground':["Web NFC API Playground", "Web NFC API 实验场"],'metadesc_interactive_playground_fo':["Interactive playground for the Web NFC API — read, write, and explore NDEF messages with multiple record types.", "Web NFC API 的交互式游乐场——读取、写入和探索具有多种记录类型的 NDEF 消息。"],'h2_generated_code':["Generated Code", "生成的代码"],'h2_ndef_message_structure':["NDEF Message Structure", "NDEF 消息结构"],'h2_ndef_message_builder':["NDEF Message Builder", "NDEF消息生成器"],'h2_generated_code_2':["Generated Code", "生成的代码"],'h2_generated_code_3':["Generated Code", "生成的代码"],'h2_make_tag_read_only':["Make Tag Read-Only", "将标签设为只读"],'h2_generated_code_4':["Generated Code", "生成的代码"],'h2_ndef_hex_viewer':["NDEF Hex Viewer", "NDEF 十六进制查看器"],'h2_ndef_binary_format_refere':["NDEF Binary Format Reference", "NDEF 二进制格式参考"],'h2_type_name_format_tnf_expl':["Type Name Format (TNF) Explorer", "类型名称格式 (TNF) 资源管理器"],'h2_error_scenario_simulator':["Error Scenario Simulator", "错误场景模拟器"],'h2_error_handling_code':["Error Handling Code", "错误处理代码"],'h3_add_record':["Add Record", "添加记录"],'h3_presets':["Presets", "预设"],'btn_scanner':["Scanner", "扫描器"],'btn_builder':["Builder", "建造者"],'btn_writer':["Writer", "作家"],'btn_read_only':["Read-Only", "只读"],'btn_hex_viewer':["Hex Viewer", "十六进制查看器"],'btn_tnf_explorer':["TNF Explorer", "TNF Explorer"],'btn_error_sim':["Error Sim", "错误模拟"],'btn_start_scanning':["Start Scanning", "开始扫描"],'btn_stop':["Stop", "停止"],'btn_copy':["Copy", "复制"],'btn_add_record':["Add Record", "添加记录"],'btn_copy_2':["Copy", "复制"],'btn_write_to_tag':["Write to Tag", "写入标签"],'btn_go_to_builder':["Go to Builder", "前往构建器"],'btn_copy_3':["Copy", "复制"],'btn_make_read_only':["Make Read-Only", "设为只读"],'btn_copy_4':["Copy", "复制"],'btn_permission_denied':["Permission Denied", "没有权限"],'btn_tag_removed_mid_write':["Tag Removed Mid-Write", "标签在写入过程中被移除"],'btn_write_failure':["Write Failure", "写入失败"],'btn_tag_is_read_only':["Tag Is Read-Only", "标签为只读"],'btn_tag_capacity_exceeded':["Tag Capacity Exceeded", "标签容量已超限"],'btn_copy_5':["Copy", "复制"],'btn_remove':["Remove", "消除"],'placeholder_en':["en", "英文"],'placeholder_application_json':["application/json", "application/json"],'placeholder_my_link':["My Link", "我的链接"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_enter_text_content':["Enter text content...", "请输入文本内容..."],'strong_limited_browser_support':["Limited Browser Support:", "浏览器支持有限："],'strong_chrome_89':["Chrome 89+", "Chrome 89+"],'strong_android':["Android", "安卓"],'strong_permanent':["permanent", "永恒的"],'strong_simulation_mode_active':["Simulation mode active", "模拟模式已激活"],'strong_state_records_length':["${state.records.length}", "${state.records.length}"],'label_record_type':["Record Type", "记录类型"],'label_language':["Language", "语言"],'label_mime_type':["MIME Type", "MIME 类型"],'label_poster_title':["Poster Title", "海报标题"],'label_poster_url':["Poster URL", "海报网址"],'label_payload':["Payload", "有效载荷"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_text_content':["Text Content", "文本内容"],'jtc_url':["URL", "URL"],'jtc_payload_data':["Payload Data", "有效载荷数据"],'jtc_additional_text_optional':["Additional Text (optional)", "附加文字（可选）"],'jtc_add_records_above_to_gen':["// Add records above to generate code...", "// 将以上记录添加到代码中..."],'jalert_this_will_permanently_mak':["This will permanently make the tag read-only. This CANNOT be undone. Continue?", "这将永久将该标签设置为只读。此操作无法撤销。是否继续？"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ===== State =====
 const state = {
@@ -522,7 +534,7 @@ const state = {
 (function init() {
   if (state.simulated) {
     document.getElementById('simNotice').innerHTML =
-      '<br><strong>Simulation mode active</strong> — all operations use mock data since Web NFC is not available in this browser.';
+      '<br><strong ti="strong_simulation_mode_active">Simulation mode active</strong> — all operations use mock data since Web NFC is not available in this browser.';
   }
   renderTNFExplorer();
 })();
@@ -561,8 +573,8 @@ function copyCode(id) {
   const text = document.getElementById(id).textContent;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById(id).closest('.code-block').querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -672,10 +684,10 @@ function updateRecordForm() {
   const lbl = document.getElementById('payloadLabel');
   const ta = document.getElementById('recordPayload');
   switch (type) {
-    case 'text': lbl.textContent = 'Text Content'; ta.placeholder = 'Enter text content...'; break;
-    case 'url': lbl.textContent = 'URL'; ta.placeholder = 'https://example.com'; break;
-    case 'mime': lbl.textContent = 'Payload Data'; ta.placeholder = '{"key":"value"}'; break;
-    case 'smart-poster': lbl.textContent = 'Additional Text (optional)'; ta.placeholder = 'Optional description...'; break;
+    case 'text': lbl.textContent=T("jtc_text_content"); ta.placeholder = 'Enter text content...'; break;
+    case 'url': lbl.textContent=T("jtc_url"); ta.placeholder = 'https://example.com'; break;
+    case 'mime': lbl.textContent=T("jtc_payload_data"); ta.placeholder = '{"key":"value"}'; break;
+    case 'smart-poster': lbl.textContent=T("jtc_additional_text_optional"); ta.placeholder = 'Optional description...'; break;
   }
 }
 
@@ -738,7 +750,7 @@ function renderRecords() {
         <div class="record-type">${r.type.toUpperCase()}</div>
         <div class="record-payload">${escHtml(r.display)}</div>
       </div>
-      <button class="btn-outline btn-sm" onclick="removeRecord(${i})">Remove</button>
+      <button class="btn-outline btn-sm" onclick="removeRecord(${i})" ti="btn_remove">Remove</button>
     </div>
   `).join('');
 }
@@ -749,7 +761,7 @@ function escHtml(s) {
 
 function updateBuilderCode() {
   if (state.records.length === 0) {
-    document.getElementById('builderCode').textContent = '// Add records above to generate code...';
+    document.getElementById('builderCode').textContent=T("jtc_add_records_above_to_gen");
     return;
   }
   const lines = ['const ndef = new NDEFReader();', '', 'await ndef.write({', '  records: ['];
@@ -824,7 +836,7 @@ function updateWriterSummary() {
     el.innerHTML = '<div style="color:var(--text-muted);font-size:.85rem">No records to write. Build a message in the Builder tab first.</div>';
     return;
   }
-  el.innerHTML = `<div style="font-size:.85rem;color:var(--text-dim)">Ready to write <strong>${state.records.length}</strong> record(s):</div>` +
+  el.innerHTML = `<div style="font-size:.85rem;color:var(--text-dim)">Ready to write <strong ti="strong_state_records_length">${state.records.length}</strong> record(s):</div>` +
     state.records.map(r => `<div style="font-size:.8rem;color:var(--purple);margin:2px 0;font-family:var(--font-mono)">${escHtml(r.display)}</div>`).join('');
 
   // Also update code
@@ -888,7 +900,7 @@ async function writeTag() {
 
 // ===== Read-Only =====
 async function makeReadOnly() {
-  if (!confirm('This will permanently make the tag read-only. This CANNOT be undone. Continue?')) return;
+  if (!T("jalert_this_will_permanently_mak")) return;
   log('readonlyLog', 'Waiting for NFC tag...', 'info');
 
   if (state.simulated) {
@@ -1057,6 +1069,24 @@ function simError(type) {
     log(el, '', '');
   }, 600);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_function_playground_i" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -818,6 +818,8 @@ code.inline {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- ============================================
      HERO
@@ -842,20 +844,20 @@ code.inline {
      ============================================ -->
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="#basics">Basics</a>
-    <a href="#types">Types</a>
+    <a href="#basics" ti="link_basics">Basics</a>
+    <a href="#types" ti="link_types">Types</a>
     <a href="#conditionals">Conditionals</a>
-    <a href="#colors">Colors</a>
-    <a href="#spacing">Spacing</a>
-    <a href="#fluid">Fluid Type</a>
-    <a href="#editor">Live Editor</a>
-    <a href="#comparison">Comparison</a>
-    <a href="#patterns">Patterns</a>
-    <a href="#support">Support</a>
+    <a href="#colors" ti="link_colors">Colors</a>
+    <a href="#spacing" ti="link_spacing">Spacing</a>
+    <a href="#fluid" ti="link_fluid_type">Fluid Type</a>
+    <a href="#editor" ti="link_live_editor">Live Editor</a>
+    <a href="#comparison" ti="link_comparison">Comparison</a>
+    <a href="#patterns" ti="link_patterns">Patterns</a>
+    <a href="#support" ti="link_support">Support</a>
   </div>
 </nav>
 
-<div class="container">
+<div class="container" style="position:relative">
 
 <!-- ============================================
      1. BASIC FUNCTION
@@ -900,7 +902,7 @@ code.inline {
       </div>
 
       <div class="note">
-        <strong>How it works:</strong> Functions are called with the <code class="inline">--name(args)</code> dashed-function syntax. The <code class="inline">result:</code> descriptor sets the return value. Unlike JavaScript, there is no early return &mdash; the last <code class="inline">result:</code> in cascade order wins.
+        <strong ti="strong_how_it_works">How it works:</strong> Functions are called with the <code class="inline">--name(args)</code> dashed-function syntax. The <code class="inline">result:</code> descriptor sets the return value. Unlike JavaScript, there is no early return &mdash; the last <code class="inline">result:</code> in cascade order wins.
       </div>
     </div>
   </div>
@@ -1015,7 +1017,7 @@ code.inline {
   <span class="prop">gap</span>: <span class="fn-name">--responsive-gap</span>(<span class="val">0.5rem</span>, <span class="val">2rem</span>);
 }</pre>
       <div class="note">
-        <strong>Cascade, not early return:</strong> Unlike <code class="inline">if/else</code> in JavaScript, CSS functions evaluate all <code class="inline">result:</code> declarations. The one that wins in cascade order (including @media applicability) becomes the return value.
+        <strong ti="strong_cascade_not_early_return">Cascade, not early return:</strong> Unlike <code class="inline">if/else</code> in JavaScript, CSS functions evaluate all <code class="inline">result:</code> declarations. The one that wins in cascade order (including @media applicability) becomes the return value.
       </div>
     </div>
   </div>
@@ -1066,7 +1068,7 @@ code.inline {
   )</span>;
 }</pre>
       <div class="note">
-        <strong>Note:</strong> The <code class="inline">if()</code> function is a separate CSS proposal (CSS Values Level 5) that complements <code class="inline">@function</code>. Browser support may differ.
+        <strong ti="strong_note">Note:</strong> The <code class="inline">if()</code> function is a separate CSS proposal (CSS Values Level 5) that complements <code class="inline">@function</code>. Browser support may differ.
       </div>
     </div>
   </div>
@@ -1238,7 +1240,7 @@ code.inline {
       </div>
 
       <div class="note">
-        <strong>Why this matters:</strong> Instead of writing <code class="inline">clamp()</code> math for every element, you call <code class="inline">--fluid(min, max)</code>. Change the base formula once, and every usage updates. This is the kind of DRY pattern that was previously only possible with preprocessors.
+        <strong ti="strong_why_this_matters">Why this matters:</strong> Instead of writing <code class="inline">clamp()</code> math for every element, you call <code class="inline">--fluid(min, max)</code>. Change the base formula once, and every usage updates. This is the kind of DRY pattern that was previously only possible with preprocessors.
       </div>
     </div>
   </div>
@@ -1257,7 +1259,7 @@ code.inline {
     <div class="card-body">
       <div class="editor-wrapper">
         <div class="editor-pane">
-          <label for="cssEditor">CSS (with @function)</label>
+          <label for="cssEditor" ti="label_css_with_function">CSS (with @function)</label>
           <textarea id="cssEditor" spellcheck="false">/* Try editing this! */
 @function --brand-color(--shade <number>: 500) returns <color> {
   --h: 245;
@@ -1299,9 +1301,9 @@ code.inline {
 }</textarea>
         </div>
         <div class="editor-pane">
-          <label for="htmlEditor">HTML</label>
+          <label for="htmlEditor" ti="label_html">HTML</label>
           <textarea id="htmlEditor" spellcheck="false"><div class="demo-card">
-  <h3>Custom Functions</h3>
+  <h3 ti="h3_custom_functions">Custom Functions</h3>
   <p>
     This card is styled entirely with
     CSS @function calls for colors and
@@ -1313,13 +1315,13 @@ code.inline {
       </div>
 
       <div class="editor-actions">
-        <button class="btn btn--primary" id="runBtn">Run</button>
-        <button class="btn btn--ghost" id="resetBtn">Reset</button>
+        <button class="btn btn--primary" id="runBtn" ti="btn_run">Run</button>
+        <button class="btn btn--ghost" id="resetBtn" ti="btn_reset">Reset</button>
         <span id="editorStatus" style="font-size:0.82rem;color:var(--text-muted);margin-left:auto;"></span>
       </div>
 
       <div style="margin-top:1rem;">
-        <label style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:0.5rem;">Preview</label>
+        <label style="font-size:0.85rem;font-weight:600;color:var(--text-secondary);display:block;margin-bottom:0.5rem;" ti="label_preview">Preview</label>
         <div class="preview-frame">
           <iframe id="previewFrame" sandbox="allow-same-origin" title="Live preview"></iframe>
         </div>
@@ -1342,10 +1344,10 @@ code.inline {
       <table class="comparison-table">
         <thead>
           <tr>
-            <th>Feature</th>
-            <th>@function</th>
-            <th>Custom Properties</th>
-            <th>Sass Functions</th>
+            <th ti="th_feature">Feature</th>
+            <th ti="th_function">@function</th>
+            <th ti="th_custom_properties">Custom Properties</th>
+            <th ti="th_sass_functions">Sass Functions</th>
           </tr>
         </thead>
         <tbody>
@@ -1368,7 +1370,7 @@ code.inline {
             <td class="tag-yes">@return</td>
           </tr>
           <tr>
-            <td>Conditionals</td>
+            <td ti="link_conditionals">Conditionals</td>
             <td class="tag-yes">@media / if()</td>
             <td class="tag-no">No</td>
             <td class="tag-yes">@if/@else</td>
@@ -1417,13 +1419,13 @@ code.inline {
   <div class="card">
     <div class="card-header">Same Pattern, Three Ways</div>
     <div class="card-body">
-      <h3>CSS @function</h3>
+      <h3 ti="h3_css_function">CSS @function</h3>
       <pre><span class="kw">@function</span> <span class="fn-name">--size</span>(<span class="param">--step</span> <span class="type">&lt;number&gt;</span>) <span class="kw">returns</span> <span class="type">&lt;length&gt;</span> {
   <span class="prop">result</span>: <span class="val">calc(0.25rem * var(--step))</span>;
 }
 <span class="sel">.box</span> { <span class="prop">padding</span>: <span class="fn-name">--size</span>(<span class="val">4</span>); }</pre>
 
-      <h3>CSS Custom Properties (workaround)</h3>
+      <h3 ti="h3_css_custom_properties_wor">CSS Custom Properties (workaround)</h3>
       <pre><span class="sel">:root</span> {
   <span class="prop">--size-1</span>: <span class="val">0.25rem</span>;
   <span class="prop">--size-2</span>: <span class="val">0.5rem</span>;
@@ -1433,7 +1435,7 @@ code.inline {
 }
 <span class="sel">.box</span> { <span class="prop">padding</span>: <span class="val">var(--size-4)</span>; }</pre>
 
-      <h3>Sass Function</h3>
+      <h3 ti="h3_sass_function">Sass Function</h3>
       <pre><span class="kw">@function</span> <span class="fn-name">size</span>(<span class="param">$step</span>) {
   <span class="kw">@return</span> <span class="val">0.25rem * $step</span>;
 }
@@ -1513,10 +1515,10 @@ code.inline {
 }</pre>
 
       <div class="note" id="detectionResult">
-        <strong>Your browser:</strong> <span id="detectionStatus">Checking...</span>
+        <strong ti="strong_your_browser">Your browser:</strong> <span id="detectionStatus">Checking...</span>
       </div>
 
-      <h3 style="margin-top:1.5rem;">How This Playground Works Without @function</h3>
+      <h3 style="margin-top:1.5rem;" ti="h3_how_this_playground_works">How This Playground Works Without @function</h3>
       <p style="color:var(--text-secondary);font-size:0.9rem;line-height:1.7;">
         All visual demonstrations on this page use standard CSS (<code class="inline">calc()</code>, <code class="inline">clamp()</code>, <code class="inline">color-mix()</code>) to simulate the output of <code class="inline">@function</code> calls. The code examples show the actual <code class="inline">@function</code> syntax, while the previews show what the computed result would be. In the Live Editor (section 07), if your browser supports <code class="inline">@function</code> natively, the preview renders real CSS; otherwise it applies a basic JS-based fallback that processes simple function calls.
       </p>
@@ -1532,15 +1534,25 @@ code.inline {
 <footer>
   <p>
     CSS @function Playground &mdash;
-    <a href="https://drafts.csswg.org/css-mixins-1/">Spec</a> &middot;
-    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@function">MDN</a> &middot;
-    <a href="https://github.com/gokuscraper/css-function-rule">Source</a>
+    <a href="https://drafts.csswg.org/css-mixins-1/" ti="link_spec">Spec</a> &middot;
+    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference/At-rules/@function" ti="link_mdn">MDN</a> &middot;
+    <a href="https://github.com/gokuscraper/css-function-rule" ti="link_source">Source</a>
   </p>
 </footer>
 
 <!-- ============================================
      JAVASCRIPT
      ============================================ -->
+
+<script>var _LANG={'title_css_function_playground_i':["CSS @function Playground — Interactive Custom CSS Functions Explorer", "CSS @function Playground — 交互式自定义 CSS 函数探索器"],'metadesc_interactive_playground_fo':["Interactive playground for CSS @function rule. Define custom CSS functions with parameters, types, conditionals, and return values. Chrome 139+ experimental.", "CSS @function 规则的交互式演示环境。定义带有参数、类型、条件和返回值的自定义 CSS 函数。Chrome 139+ 实验性功能。"],'h3_custom_functions':["Custom Functions", "自定义函数"],'h3_css_function':["CSS @function", "CSS @function"],'h3_css_custom_properties_wor':["CSS Custom Properties (workaround)", "CSS 自定义属性（解决方法）"],'h3_sass_function':["Sass Function", "Sass 函数"],'h3_how_this_playground_works':["How This Playground Works Without @function", "这个 Playground 如何在不使用 @function 的情况下工作"],'subtitle_interactive_explorer_for':["Interactive explorer for CSS Custom Functions. Define reusable logic with parameters, types, conditionals, and return values — all in pure CSS.", "用于 CSS 自定义函数的交互式浏览器。使用纯 CSS 定义可重用的逻辑，包括参数、类型、条件和返回值。"],'btn_run':["Run", "跑步"],'btn_reset':["Reset", "重置"],'btn_copy':["Copy", "复制"],'label_s_name':["${s.name}", "${s.name}"],'strong_how_it_works':["How it works:", "工作原理："],'strong_cascade_not_early_return':["Cascade, not early return:", "级联式，而非提前回报："],'strong_note':["Note:", "笔记："],'strong_why_this_matters':["Why this matters:", "这件事的重要性："],'strong_your_browser':["Your browser:", "您的浏览器："],'strong_native_support_detected':["Native support detected.", "检测到原生支持。"],'strong_no_native_support':["No native support.", "不支持原生功能。"],'th_feature':["Feature", "特征"],'th_function':["@function", "@功能"],'th_custom_properties':["Custom Properties", "自定义属性"],'th_sass_functions':["Sass Functions", "Sass 函数"],'label_css_with_function':["CSS (with @function)", "CSS（使用 @function）"],'label_html':["HTML", "HTML"],'label_preview':["Preview", "预览"],'link_basics':["Basics", "基础知识"],'link_types':["Types", "类型"],'link_conditionals':["Conditionals", "条件"],'link_colors':["Colors", "颜色"],'link_spacing':["Spacing", "间距"],'link_fluid_type':["Fluid Type", "流体类型"],'link_live_editor':["Live Editor", "实时编辑器"],'link_comparison':["Comparison", "比较"],'link_patterns':["Patterns", "模式"],'link_support':["Support", "支持"],'link_spec':["Spec", "规格"],'link_mdn':["MDN", "MDN"],'link_source':["Source", "来源"],'jtc_css_function_is_supported':["CSS @function is supported natively.", "CSS @function 函数已原生支持。"],'jtc_css_function_is_not_suppo':["CSS @function is NOT supported. Previews use simulated output.", "CSS @function 函数不受支持。预览使用模拟输出。"],'jtc_this_box_has_padding_doub':["This box has padding: --double(10px)", "此框有内边距：--double(10px)"],'jtc_computed_padding':["Computed padding:", "计算填充："],'jtc_copy':["Copy", "复制"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_2':["Copy", "复制"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy_3':["Copy", "复制"],'jtcpre_computed_padding':["Computed padding: ", "计算填充："],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -1563,13 +1575,13 @@ code.inline {
 
   if (hasNativeFunction) {
     banner.className = 'support-banner support-banner--yes';
-    banner.innerHTML = '<strong>Native support detected.</strong> Your browser supports CSS @function. All live demos render natively.';
-    detectionStatus.textContent = 'CSS @function is supported natively.';
+    banner.innerHTML = '<strong ti="strong_native_support_detected">Native support detected.</strong> Your browser supports CSS @function. All live demos render natively.';
+    detectionStatus.textContent=T("jtc_css_function_is_supported");
     detectionStatus.style.color = 'var(--green)';
   } else {
     banner.className = 'support-banner support-banner--no';
-    banner.innerHTML = '<strong>No native support.</strong> Your browser does not support CSS @function yet. Visual demos use simulated output. Try Chrome 139+ or Edge 139+ for native rendering.';
-    detectionStatus.textContent = 'CSS @function is NOT supported. Previews use simulated output.';
+    banner.innerHTML = '<strong ti="strong_no_native_support">No native support.</strong> Your browser does not support CSS @function yet. Visual demos use simulated output. Try Chrome 139+ or Edge 139+ for native rendering.';
+    detectionStatus.textContent=T("jtc_css_function_is_not_suppo");
     detectionStatus.style.color = 'var(--red)';
   }
 
@@ -1591,7 +1603,7 @@ code.inline {
 
     const testEl = document.createElement('div');
     testEl.style.cssText = 'padding: --double(10px); background: rgba(129,140,248,0.15); border-radius: 8px; display:inline-block;';
-    testEl.textContent = 'This box has padding: --double(10px)';
+    testEl.textContent=T("jtc_this_box_has_padding_doub");
     testEl.style.fontFamily = 'var(--font-mono)';
     testEl.style.fontSize = '0.9rem';
     testEl.style.color = 'var(--green)';
@@ -1603,7 +1615,7 @@ code.inline {
       info.style.marginTop = '0.5rem';
       info.style.fontSize = '0.82rem';
       info.style.color = 'var(--text-muted)';
-      info.textContent = 'Computed padding: ' + computed;
+      info.textContent=T("jtcpre_computed_padding")+ computed;
       container.appendChild(info);
     });
   }
@@ -1629,7 +1641,7 @@ code.inline {
     const bar = document.createElement('div');
     bar.className = 'spacing-bar';
     bar.innerHTML = `
-      <span class="label">${s.name}</span>
+      <span class="label" ti="label_s_name">${s.name}</span>
       <div class="bar" style="width:${Math.min(px * 2.5, 100)}%">${rem}rem (${px}px)</div>
     `;
     spacingDemo.appendChild(bar);
@@ -1664,12 +1676,12 @@ code.inline {
 
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
-    btn.textContent = 'Copy';
+    btn.textContent=T("jtc_copy");
     btn.addEventListener('click', () => {
       const text = pre.textContent.replace(/^Copy\n?/, '');
       navigator.clipboard.writeText(text).then(() => {
-        btn.textContent = 'Copied!';
-        setTimeout(() => btn.textContent = 'Copy', 1500);
+        btn.textContent=T("jtc_copied");
+        setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
       });
     });
     pre.style.position = 'relative';
@@ -2007,14 +2019,14 @@ h1 { font-size: --fluid(1.5rem, 3rem); }`
     card.innerHTML = `
       <div class="pattern-card-header">
         <h4>${p.name}</h4>
-        <button class="copy-pattern">Copy</button>
+        <button class="copy-pattern" ti="btn_copy">Copy</button>
       </div>
       <pre>${escapeHtml(p.code)}</pre>
     `;
     card.querySelector('.copy-pattern').addEventListener('click', function() {
       navigator.clipboard.writeText(p.code).then(() => {
-        this.textContent = 'Copied!';
-        setTimeout(() => this.textContent = 'Copy', 1500);
+        this.textContent=T("jtc_copied");
+        setTimeout(() => this.textContent=T("jtc_copy"), 1500);
       });
     });
     patternGrid.appendChild(card);
@@ -2024,6 +2036,24 @@ h1 { font-size: --fluid(1.5rem, 3rem); }`
     return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
   }
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

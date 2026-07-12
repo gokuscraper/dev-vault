@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_requestidlecallback_explo" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -305,17 +305,21 @@ footer {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="warn-banner" id="warnBanner">
   Your browser does not support requestIdleCallback. A polyfill is being used for demonstration purposes.
 </div>
 
 <header>
-  <h1>requestIdleCallback Explorer</h1>
+  <h1 ti="title_requestidlecallback_explo" ti="h1_requestidlecallback_explo" ti="title_requestidlecallback_explo" ti="h1_requestidlecallback_explo">requestIdleCallback Explorer</h1>
   <p>Visualize idle deadlines, task queues, and cooperative scheduling patterns</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- Deadline Visualization -->
   <div class="card">
@@ -337,9 +341,9 @@ footer {
       </div>
     </div>
     <div class="btn-row">
-      <button class="primary" onclick="startDeadlineDemo()">Start Sampling</button>
-      <button onclick="stopDeadlineDemo()">Stop</button>
-      <button onclick="clearDeadlineLog()">Clear Log</button>
+      <button class="primary" onclick="startDeadlineDemo()" ti="btn_start_sampling" ti="btn_start_sampling">Start Sampling</button>
+      <button onclick="stopDeadlineDemo()" ti="btn_stop" ti="btn_stop">Stop</button>
+      <button onclick="clearDeadlineLog()" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button>
     </div>
     <div class="log-area" id="deadlineLog" style="margin-top:.75rem;max-height:180px;">
       <div style="color:var(--text-dim)">Click "Start Sampling" to begin...</div>
@@ -376,11 +380,11 @@ footer {
       </div>
     </div>
     <div style="margin-top:1rem;">
-      <label>Timeout option (ms, 0 = none)</label>
+      <label ti="label_timeout_option_ms_0_none" ti="label_timeout_option_ms_0_none">Timeout option (ms, 0 = none)</label>
       <input type="number" id="timeoutOption" value="0" min="0" max="10000" step="100">
     </div>
     <div style="margin-top:.5rem;">
-      <label>Background load (simulate busy main thread)</label>
+      <label ti="label_background_load_simulate" ti="label_background_load_simulate">Background load (simulate busy main thread)</label>
       <select id="bgLoad">
         <option value="0">None</option>
         <option value="5">Light (5ms work)</option>
@@ -399,17 +403,17 @@ footer {
     </p>
     <div class="form-row">
       <div>
-        <label>Task Name</label>
-        <input type="text" id="taskName" value="Data Processing" placeholder="Task name">
+        <label ti="label_task_name" ti="label_task_name">Task Name</label>
+        <input type="text" id="taskName" value="Data Processing" tp="placeholder_task_name" tp="placeholder_task_name" placeholder="Task name">
       </div>
       <div>
-        <label>Work Duration (ms)</label>
+        <label ti="label_work_duration_ms" ti="label_work_duration_ms">Work Duration (ms)</label>
         <input type="number" id="taskDuration" value="10" min="1" max="500">
       </div>
     </div>
     <div class="form-row">
       <div>
-        <label>Priority</label>
+        <label ti="label_priority" ti="label_priority">Priority</label>
         <select id="taskPriority">
           <option value="high">High (timeout: 100ms)</option>
           <option value="medium" selected>Medium (timeout: 1000ms)</option>
@@ -417,15 +421,15 @@ footer {
         </select>
       </div>
       <div>
-        <label>Count</label>
+        <label ti="label_count" ti="label_count">Count</label>
         <input type="number" id="taskCount" value="5" min="1" max="50">
       </div>
     </div>
     <div class="btn-row">
-      <button class="primary" onclick="addTasks()">Add Tasks</button>
-      <button onclick="startTaskQueue()">Process Queue</button>
-      <button class="danger" onclick="clearTaskQueue()">Clear All</button>
-      <button onclick="cancelAllTasks()">Cancel Pending</button>
+      <button class="primary" onclick="addTasks()" ti="btn_add_tasks" ti="btn_add_tasks">Add Tasks</button>
+      <button onclick="startTaskQueue()" ti="btn_process_queue" ti="btn_process_queue">Process Queue</button>
+      <button class="danger" onclick="clearTaskQueue()" ti="btn_clear_all" ti="btn_clear_all">Clear All</button>
+      <button onclick="cancelAllTasks()" ti="btn_cancel_pending" ti="btn_cancel_pending">Cancel Pending</button>
     </div>
     <div id="taskQueueList" style="margin-top:.75rem;max-height:250px;overflow-y:auto;">
       <div style="color:var(--text-dim);font-size:.85rem;padding:.5rem;">No tasks in queue</div>
@@ -442,9 +446,9 @@ footer {
       <div style="color:var(--text-dim)">Click "Schedule & Cancel" to demo...</div>
     </div>
     <div class="btn-row">
-      <button class="primary" onclick="cancelDemo()">Schedule & Cancel</button>
-      <button onclick="scheduleOnly()">Schedule Only</button>
-      <button onclick="clearCancelLog()">Clear</button>
+      <button class="primary" onclick="cancelDemo()" ti="btn_schedule_cancel" ti="btn_schedule_cancel">Schedule & Cancel</button>
+      <button onclick="scheduleOnly()" ti="btn_schedule_only" ti="btn_schedule_only">Schedule Only</button>
+      <button onclick="clearCancelLog()" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3">Clear</button>
     </div>
   </div>
 
@@ -456,16 +460,16 @@ footer {
     </p>
     <div class="form-row">
       <div>
-        <label>Timeout (ms)</label>
+        <label ti="label_timeout_ms" ti="label_timeout_ms">Timeout (ms)</label>
         <input type="number" id="didTimeoutMs" value="200" min="50" max="5000" step="50">
       </div>
       <div>
-        <label>Block main thread for (ms)</label>
+        <label ti="label_block_main_thread_for_ms" ti="label_block_main_thread_for_ms">Block main thread for (ms)</label>
         <input type="number" id="blockMs" value="500" min="0" max="3000" step="100">
       </div>
     </div>
     <div class="btn-row">
-      <button class="primary" onclick="didTimeoutDemo()">Run Demo</button>
+      <button class="primary" onclick="didTimeoutDemo()" ti="btn_run_demo" ti="btn_run_demo">Run Demo</button>
       <button onclick="clearDidTimeoutLog()">Clear</button>
     </div>
     <div id="didTimeoutLog" class="log-area" style="margin-top:.75rem;min-height:80px;">
@@ -480,8 +484,8 @@ footer {
       Compare when each scheduling API fires and how much idle time is available.
     </p>
     <div class="btn-row" style="margin-top:0;margin-bottom:.75rem;">
-      <button class="primary" onclick="runComparison()">Run Comparison</button>
-      <button onclick="runComparisonBusy()">Run (with busy main thread)</button>
+      <button class="primary" onclick="runComparison()" ti="btn_run_comparison" ti="btn_run_comparison">Run Comparison</button>
+      <button onclick="runComparisonBusy()" ti="btn_run_with_busy_main_thread" ti="btn_run_with_busy_main_thread">Run (with busy main thread)</button>
       <button onclick="clearComparison()">Clear</button>
     </div>
     <div class="comparison-row" id="comparisonResults">
@@ -516,9 +520,9 @@ footer {
   <div class="card full-width">
     <h2><span class="icon">&#128736;</span> Cooperative Scheduling Patterns</h2>
     <div class="tab-bar" id="patternTabs">
-      <button class="active" onclick="showPattern('chunk')">Chunk Processing</button>
-      <button onclick="showPattern('priority')">Priority Queue</button>
-      <button onclick="showPattern('deadline')">Deadline Aware</button>
+      <button class="active" onclick="showPattern('chunk')" ti="btn_chunk_processing" ti="btn_chunk_processing">Chunk Processing</button>
+      <button onclick="showPattern('priority')" ti="btn_priority_queue" ti="btn_priority_queue">Priority Queue</button>
+      <button onclick="showPattern('deadline')" ti="btn_deadline_aware" ti="btn_deadline_aware">Deadline Aware</button>
     </div>
 
     <div id="pattern-chunk" class="pattern-card">
@@ -537,7 +541,7 @@ footer {
   <span class="fn">requestIdleCallback</span>(processChunk);
 }</div>
       <div class="btn-row">
-        <button class="primary" onclick="runChunkDemo()">Run Demo (1000 items)</button>
+        <button class="primary" onclick="runChunkDemo()" ti="btn_run_demo_1000_items" ti="btn_run_demo_1000_items">Run Demo (1000 items)</button>
         <span id="chunkStatus" style="font-size:.8rem;color:var(--text-dim);align-self:center;"></span>
       </div>
     </div>
@@ -584,6 +588,26 @@ footer {
   requestIdleCallback Explorer &mdash; Interactive API Playground
 </footer>
 
+
+
+<script>var _LANG={'title_requestidlecallback_explo':["requestIdleCallback Explorer", "requestIdleCallback Explorer"],'metadesc_interactive_playground_fo':["Interactive playground for requestIdleCallback API - visualize idle deadlines, task queues, and cooperative scheduling patterns.", "requestIdleCallback API 的交互式演示平台 - 可视化空闲截止时间、任务队列和协作调度模式。"],'h1_requestidlecallback_explo':["requestIdleCallback Explorer", "requestIdleCallback Explorer"],'btn_start_sampling':["Start Sampling", "开始采样"],'btn_stop':["Stop", "停止"],'btn_clear_log':["Clear Log", "清除日志"],'btn_add_tasks':["Add Tasks", "添加任务"],'btn_process_queue':["Process Queue", "进程队列"],'btn_clear_all':["Clear All", "全部清除"],'btn_cancel_pending':["Cancel Pending", "取消待处理"],'btn_schedule_cancel':["Schedule & Cancel", "安排和取消"],'btn_schedule_only':["Schedule Only", "仅限日程安排"],'btn_clear':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear_2':["Clear", "清除"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_run_with_busy_main_thread':["Run (with busy main thread)", "运行（主线程繁忙时）"],'btn_clear_3':["Clear", "清除"],'btn_chunk_processing':["Chunk Processing", "块处理"],'btn_priority_queue':["Priority Queue", "优先级队列"],'btn_deadline_aware':["Deadline Aware", "截止日期意识"],'btn_run_demo_1000_items':["Run Demo (1000 items)", "运行演示（1000 项）"],'placeholder_task_name':["Task name", "任务名称"],'label_timeout_option_ms_0_none':["Timeout option (ms, 0 = none)", "超时选项（毫秒，0 = 无）"],'label_background_load_simulate':["Background load (simulate busy main thread)", "后台加载（模拟繁忙的主线程）"],'label_task_name':["Task Name", "任务名称"],'label_work_duration_ms':["Work Duration (ms)", "工作时长（毫秒）"],'label_priority':["Priority", "优先事项"],'label_count':["Count", "数数"],'label_timeout_ms':["Timeout (ms)", "超时时间（毫秒）"],'label_block_main_thread_for_ms':["Block main thread for (ms)", "阻塞主线程（毫秒）"],'jtc_0ms':["0ms", "0毫秒"],'jtc_false':["false", "错误的"],'jtc_x':["--", "--"],'jtc_x_2':["...", "..."],'jtc_x_3':["...", "..."],'jtc_x_4':["--", "--"],'jtc_x_5':["--", "--"],'jtc_processing':["Processing...", "加工..."]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_requestidlecallback_explo':["requestIdleCallback Explorer", "requestIdleCallback Explorer"],'metadesc_interactive_playground_fo':["Interactive playground for requestIdleCallback API - visualize idle deadlines, task queues, and cooperative scheduling patterns.", "requestIdleCallback API 的交互式演示平台 - 可视化空闲截止时间、任务队列和协作调度模式。"],'h1_requestidlecallback_explo':["requestIdleCallback Explorer", "requestIdleCallback Explorer"],'btn_start_sampling':["Start Sampling", "开始采样"],'btn_stop':["Stop", "停止"],'btn_clear_log':["Clear Log", "清除日志"],'btn_add_tasks':["Add Tasks", "添加任务"],'btn_process_queue':["Process Queue", "进程队列"],'btn_clear_all':["Clear All", "全部清除"],'btn_cancel_pending':["Cancel Pending", "取消待处理"],'btn_schedule_cancel':["Schedule & Cancel", "安排和取消"],'btn_schedule_only':["Schedule Only", "仅限日程安排"],'btn_clear':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_clear_2':["Clear", "清除"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_run_with_busy_main_thread':["Run (with busy main thread)", "运行（主线程繁忙时）"],'btn_clear_3':["Clear", "清除"],'btn_chunk_processing':["Chunk Processing", "块处理"],'btn_priority_queue':["Priority Queue", "优先级队列"],'btn_deadline_aware':["Deadline Aware", "截止日期意识"],'btn_run_demo_1000_items':["Run Demo (1000 items)", "运行演示（1000 项）"],'placeholder_task_name':["Task name", "任务名称"],'label_timeout_option_ms_0_none':["Timeout option (ms, 0 = none)", "超时选项（毫秒，0 = 无）"],'label_background_load_simulate':["Background load (simulate busy main thread)", "后台加载（模拟繁忙的主线程）"],'label_task_name':["Task Name", "任务名称"],'label_work_duration_ms':["Work Duration (ms)", "工作时长（毫秒）"],'label_priority':["Priority", "优先事项"],'label_count':["Count", "数数"],'label_timeout_ms':["Timeout (ms)", "超时时间（毫秒）"],'label_block_main_thread_for_ms':["Block main thread for (ms)", "阻塞主线程（毫秒）"],'jtc_0ms':["0ms", "0毫秒"],'jtc_false':["false", "错误的"],'jtc_x':["--", "--"],'jtc_x_2':["...", "..."],'jtc_x_3':["...", "..."],'jtc_x_4':["--", "--"],'jtc_x_5':["--", "--"],'jtc_processing':["Processing...", "加工..."]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Feature detection
 const hasRIC = typeof window.requestIdleCallback === 'function';
@@ -627,9 +651,9 @@ function clearDeadlineLog() {
   stopDeadlineDemo();
   document.getElementById('deadlineLog').innerHTML = '<div style="color:var(--text-dim)">Click "Start Sampling" to begin...</div>';
   document.getElementById('deadlineFill').style.width = '0%';
-  document.getElementById('deadlineFill').textContent = '0ms';
+  document.getElementById('deadlineFill').textContent=T("jtc_0ms");
   document.getElementById('callCount').textContent = '0';
-  document.getElementById('didTimeoutVal').textContent = 'false';
+  document.getElementById('didTimeoutVal').textContent=T("jtc_false");
   resetStats();
 }
 
@@ -702,7 +726,7 @@ function updateStats() {
 }
 
 function resetStats() {
-  ['statAvg','statMin','statMax','statInterval'].forEach(id => document.getElementById(id).textContent = '--');
+  ['statAvg','statMin','statMax','statInterval'].forEach(id => document.getElementById(id).textContent=T("jtc_x"));
   ['statTotal','statTimeouts'].forEach(id => document.getElementById(id).textContent = '0');
 }
 
@@ -875,8 +899,8 @@ function clearDidTimeoutLog() {
 function runComparison(busy = false) {
   const log = document.getElementById('comparisonLog');
   log.innerHTML = '';
-  ['cmpRic','cmpTimeout','cmpRaf'].forEach(id => document.getElementById(id).textContent = '...');
-  document.getElementById('cmpRicRemain').textContent = '...';
+  ['cmpRic','cmpTimeout','cmpRaf'].forEach(id => document.getElementById(id).textContent=T("jtc_x_2"));
+  document.getElementById('cmpRicRemain').textContent=T("jtc_x_2");
 
   const results = {};
   const start = performance.now();
@@ -933,8 +957,8 @@ function addCompLog(text) {
 
 function clearComparison() {
   document.getElementById('comparisonLog').innerHTML = '<div style="color:var(--text-dim)">Results will appear here...</div>';
-  ['cmpRic','cmpTimeout','cmpRaf'].forEach(id => document.getElementById(id).textContent = '--');
-  document.getElementById('cmpRicRemain').textContent = '--';
+  ['cmpRic','cmpTimeout','cmpRaf'].forEach(id => document.getElementById(id).textContent=T("jtc_x"));
+  document.getElementById('cmpRicRemain').textContent=T("jtc_x");
 }
 
 // === Patterns ===
@@ -949,7 +973,7 @@ function runChunkDemo() {
   const items = Array.from({ length: 1000 }, (_, i) => i);
   let processed = 0;
   const status = document.getElementById('chunkStatus');
-  status.textContent = 'Processing...';
+  status.textContent=T("jtc_processing");
   const start = performance.now();
 
   function processChunk(deadline) {
@@ -971,5 +995,41 @@ function runChunkDemo() {
 }
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

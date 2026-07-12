@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_markdown_editor_live_prev" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -78,9 +78,15 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Markdown Editor</h1>
-<p class="subtitle">Live Preview & Export</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_markdown_editor" ti="h1_markdown_editor" ti="h1_markdown_editor">Markdown Editor</h1>
+<p class="subtitle" ti="subtitle_live_preview_export" ti="subtitle_live_preview_export" ti="subtitle_live_preview_export">Live Preview & Export</p>
 
 <div class="toolbar" id="toolbar">
   <button class="tb-btn" onclick="ins('**','**')" title="Bold"><b>B</b></button>
@@ -88,19 +94,19 @@ footer a:hover{text-decoration:underline}
   <button class="tb-btn" onclick="ins('~~','~~')" title="Strikethrough"><s>S</s></button>
   <button class="tb-btn" onclick="ins('`','`')" title="Inline Code">&lt;/&gt;</button>
   <div class="tb-sep"></div>
-  <button class="tb-btn" onclick="insLine('# ')" title="Heading">H#</button>
-  <button class="tb-btn" onclick="insLine('- ')" title="List">List</button>
-  <button class="tb-btn" onclick="insLine('1. ')" title="Ordered List">1.</button>
-  <button class="tb-btn" onclick="insLine('> ')" title="Blockquote">"</button>
-  <button class="tb-btn" onclick="insBlock('```\n','\n```')" title="Code Block">{ }</button>
+  <button class="tb-btn" onclick="insLine('# ')" title="Heading" ti="btn_h" ti="btn_h" ti="btn_h">H#</button>
+  <button class="tb-btn" onclick="insLine('- ')" title="List" ti="btn_list" ti="btn_list" ti="btn_list">List</button>
+  <button class="tb-btn" onclick="insLine('1. ')" title="Ordered List" ti="btn_1" ti="btn_1" ti="btn_1">1.</button>
+  <button class="tb-btn" onclick="insLine(' ti="btn_title_blockquote" ti="btn_title_blockquote" ti="btn_title_blockquote"> ')" title="Blockquote">"</button>
+  <button class="tb-btn" onclick="insBlock('```\n','\n```')" title="Code Block" ti="btn_x" ti="btn_x" ti="btn_x">{ }</button>
   <div class="tb-sep"></div>
-  <button class="tb-btn" onclick="insLink()" title="Link">Link</button>
-  <button class="tb-btn" onclick="insImage()" title="Image">Img</button>
-  <button class="tb-btn" onclick="insLine('---')" title="Horizontal Rule">HR</button>
+  <button class="tb-btn" onclick="insLink()" title="Link" ti="btn_link" ti="btn_link" ti="btn_link">Link</button>
+  <button class="tb-btn" onclick="insImage()" title="Image" ti="btn_img" ti="btn_img" ti="btn_img">Img</button>
+  <button class="tb-btn" onclick="insLine('---')" title="Horizontal Rule" ti="btn_hr" ti="btn_hr" ti="btn_hr">HR</button>
   <div class="tb-sep"></div>
-  <button class="export-btn" onclick="copyHTML()">Copy HTML</button>
-  <button class="export-btn" onclick="downloadMd()">Save .md</button>
-  <button class="export-btn" onclick="downloadHTML()">Save .html</button>
+  <button class="export-btn" onclick="copyHTML()" ti="btn_copy_html" ti="btn_copy_html" ti="btn_copy_html">Copy HTML</button>
+  <button class="export-btn" onclick="downloadMd()" ti="btn_save_md" ti="btn_save_md" ti="btn_save_md">Save .md</button>
+  <button class="export-btn" onclick="downloadHTML()" ti="btn_save_html" ti="btn_save_html" ti="btn_save_html">Save .html</button>
   <button class="tb-btn" onclick="toggleFS()" id="fsBtn" title="Fullscreen">⛶</button>
 </div>
 
@@ -122,14 +128,34 @@ footer a:hover{text-decoration:underline}
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">← Dev Vault</a>
   <div class="related">
-    <a href="https://gokuscraper.github.io/dev-vault/md-preview/">MD Preview</a>
-    <a href="https://gokuscraper.github.io/dev-vault/word-count/">Word Count</a>
-    <a href="https://gokuscraper.github.io/dev-vault/html-escape/">HTML Escape</a>
+    <a href="https://gokuscraper.github.io/dev-vault/md-preview/" ti="link_md_preview" ti="link_md_preview" ti="link_md_preview">MD Preview</a>
+    <a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count" ti="link_word_count" ti="link_word_count">Word Count</a>
+    <a href="https://gokuscraper.github.io/dev-vault/html-escape/" ti="link_html_escape" ti="link_html_escape" ti="link_html_escape">HTML Escape</a>
   </div>
 </footer>
 
+
+
+<script>var _LANG={'title_markdown_editor_live_prev':["Markdown Editor — Live Preview & Export", "Markdown 编辑器 — 实时预览和导出"],'metadesc_live_markdown_editor_with':["Live Markdown editor with split preview. Write markdown, see HTML instantly. Export as HTML or .md. Free, no sign-up.", "实时 Markdown 编辑器，支持分屏预览。编写 Markdown 代码，即可即时查看 HTML 代码。可导出为 HTML 或 .md 文件。免费，无需注册。"],'h1_markdown_editor':["Markdown Editor", "Markdown 编辑器"],'subtitle_live_preview_export':["Live Preview & Export", "实时预览和导出"],'btn_h':["H#", "H#"],'btn_list':["List", "列表"],'btn_1':["1.", "1."],'btn_title_blockquote':["')\" title=\"Blockquote\">\"", "&#39;)&quot; title=&quot;Blockquote&quot;&gt;&quot;"],'btn_x':["{ }", "{ }"],'btn_link':["Link", "关联"],'btn_img':["Img", "图片"],'btn_hr':["HR", "人力资源"],'btn_copy_html':["Copy HTML", "复制 HTML"],'btn_save_md':["Save .md", "保存 .md"],'btn_save_html':["Save .html", "保存 .html"],'label_eschtml_lang':["${escHtml(lang)}", "${escHtml(lang)}"],'strong_1':["$1", "1美元"],'th_parseinline_h':["${parseInline(h)}", "${parseInline(h)}"],'footer_dev_vault':["← Dev Vault", "← 开发者宝库"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'link_md_preview':["MD Preview", "MD预览"],'link_word_count':["Word Count", "字数统计"],'link_html_escape':["HTML Escape", "HTML 转义"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_markdown_editor_live_prev':["Markdown Editor — Live Preview & Export", "Markdown 编辑器 — 实时预览和导出"],'metadesc_live_markdown_editor_with':["Live Markdown editor with split preview. Write markdown, see HTML instantly. Export as HTML or .md. Free, no sign-up.", "实时 Markdown 编辑器，支持分屏预览。编写 Markdown 代码，即可即时查看 HTML 代码。可导出为 HTML 或 .md 文件。免费，无需注册。"],'h1_markdown_editor':["Markdown Editor", "Markdown 编辑器"],'subtitle_live_preview_export':["Live Preview & Export", "实时预览和导出"],'btn_h':["H#", "H#"],'btn_list':["List", "列表"],'btn_1':["1.", "1."],'btn_title_blockquote':["')\" title=\"Blockquote\">\"", "&#39;)&quot; title=&quot;Blockquote&quot;&gt;&quot;"],'btn_x':["{ }", "{ }"],'btn_link':["Link", "关联"],'btn_img':["Img", "图片"],'btn_hr':["HR", "人力资源"],'btn_copy_html':["Copy HTML", "复制 HTML"],'btn_save_md':["Save .md", "保存 .md"],'btn_save_html':["Save .html", "保存 .html"],'label_eschtml_lang':["${escHtml(lang)}", "${escHtml(lang)}"],'strong_1':["$1", "1美元"],'th_parseinline_h':["${parseInline(h)}", "${parseInline(h)}"],'footer_dev_vault':["← Dev Vault", "← 开发者宝库"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'link_md_preview':["MD Preview", "MD预览"],'link_word_count':["Word Count", "字数统计"],'link_html_escape':["HTML Escape", "HTML 转义"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const editor = document.getElementById('editor');
 const preview = document.getElementById('preview');
@@ -202,7 +228,7 @@ function parseMarkdown(md) {
   md = md.replace(/```(\w*)\n([\s\S]*?)```/g, (_, lang, code) => {
     const i = codeBlocks.length;
     const escaped = escHtml(code.replace(/\n$/, ''));
-    const label = lang ? `<span class="lang-label">${escHtml(lang)}</span>` : '';
+    const label = lang ? `<span class="lang-label" ti="label_eschtml_lang" ti="label_eschtml_lang" ti="label_eschtml_lang">${escHtml(lang)}</span>` : '';
     codeBlocks.push(`<pre>${label}<code>${escaped}</code></pre>`);
     return `%%CODEBLOCK_${i}%%`;
   });
@@ -323,7 +349,7 @@ function parseInline(text) {
   // Bold+Italic
   text = text.replace(/\*\*\*(.+?)\*\*\*/g, '<strong><em>$1</em></strong>');
   // Bold
-  text = text.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  text = text.replace(/\*\*(.+?)\*\*/g, '<strong ti="strong_1" ti="strong_1" ti="strong_1">$1</strong>');
   // Italic
   text = text.replace(/\*(.+?)\*/g, '<em>$1</em>');
   // Strikethrough
@@ -336,7 +362,7 @@ function renderTable(rows) {
   if (!rows.length) return '';
   const parse = r => r.replace(/^\||\|$/g, '').split('|').map(c => c.trim());
   const header = parse(rows[0]);
-  let t = '<table><thead><tr>' + header.map(h => `<th>${parseInline(h)}</th>`).join('') + '</tr></thead><tbody>';
+  let t = '<table><thead><tr>' + header.map(h => `<th ti="th_parseinline_h" ti="th_parseinline_h" ti="th_parseinline_h">${parseInline(h)}</th>`).join('') + '</tr></thead><tbody>';
   for (let i = 1; i < rows.length; i++) {
     const cells = parse(rows[i]);
     t += '<tr>' + cells.map(c => `<td>${parseInline(c)}</td>`).join('') + '</tr>';
@@ -465,6 +491,60 @@ editor.addEventListener('keydown', e => {
 const saved = localStorage.getItem('md-editor-content');
 editor.value = saved !== null ? saved : sampleMd;
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

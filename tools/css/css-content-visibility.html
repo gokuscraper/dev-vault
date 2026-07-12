@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_content_visibility_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -571,6 +571,8 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1>
@@ -578,21 +580,21 @@ body {
     CSS content-visibility Playground
   </h1>
   <div class="links">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
-    <a href="https://github.com/gokuscraper/css-content-visibility">Source</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
+    <a href="https://github.com/gokuscraper/css-content-visibility" ti="link_source">Source</a>
   </div>
 </header>
 
 <nav class="nav" id="nav">
-  <button class="active" data-section="basic">Basic Demo</button>
-  <button data-section="intrinsic">contain-intrinsic-size</button>
-  <button data-section="performance">Performance</button>
-  <button data-section="scroll">Scroll Performance</button>
-  <button data-section="dynamic">Dynamic Loading</button>
-  <button data-section="gotchas">Gotchas</button>
-  <button data-section="inspector">Containment Inspector</button>
-  <button data-section="patterns">Code Patterns</button>
-  <button data-section="support">Browser Support</button>
+  <button class="active" data-section="basic" ti="btn_basic_demo">Basic Demo</button>
+  <button data-section="intrinsic" ti="btn_contain_intrinsic_size" ti="th_contain_intrinsic_size">contain-intrinsic-size</button>
+  <button data-section="performance" ti="btn_performance">Performance</button>
+  <button data-section="scroll" ti="btn_scroll_performance">Scroll Performance</button>
+  <button data-section="dynamic" ti="btn_dynamic_loading">Dynamic Loading</button>
+  <button data-section="gotchas" ti="btn_gotchas">Gotchas</button>
+  <button data-section="inspector" ti="btn_containment_inspector">Containment Inspector</button>
+  <button data-section="patterns" ti="btn_code_patterns">Code Patterns</button>
+  <button data-section="support" ti="btn_browser_support">Browser Support</button>
 </nav>
 
 <main class="main">
@@ -600,20 +602,20 @@ body {
 <!-- ======== BASIC DEMO ======== -->
 <div class="section active" id="sec-basic">
   <div class="card">
-    <h2>content-visibility: auto | hidden | visible</h2>
+    <h2 ti="h2_content_visibility_auto_h">content-visibility: auto | hidden | visible</h2>
     <p class="subtitle">
       <code>content-visibility</code> tells the browser whether to render an element's contents.
       With <code>auto</code>, off-screen content is skipped entirely, reducing initial render cost.
     </p>
 
     <div class="controls">
-      <button class="btn active" onclick="setBasicMode('visible')">visible (default)</button>
-      <button class="btn" onclick="setBasicMode('auto')">auto</button>
-      <button class="btn" onclick="setBasicMode('hidden')">hidden</button>
-      <button class="btn btn-sm" onclick="setBasicCount(500)">500 items</button>
-      <button class="btn btn-sm active" onclick="setBasicCount(1000)">1,000 items</button>
-      <button class="btn btn-sm" onclick="setBasicCount(3000)">3,000 items</button>
-      <button class="btn btn-sm" onclick="setBasicCount(5000)">5,000 items</button>
+      <button class="btn active" onclick="setBasicMode('visible')" ti="btn_visible_default">visible (default)</button>
+      <button class="btn" onclick="setBasicMode('auto')" ti="btn_auto">auto</button>
+      <button class="btn" onclick="setBasicMode('hidden')" ti="btn_hidden">hidden</button>
+      <button class="btn btn-sm" onclick="setBasicCount(500)" ti="btn_500_items" ti="btn_500_items_2">500 items</button>
+      <button class="btn btn-sm active" onclick="setBasicCount(1000)" ti="btn_1_000_items">1,000 items</button>
+      <button class="btn btn-sm" onclick="setBasicCount(3000)" ti="btn_3_000_items">3,000 items</button>
+      <button class="btn btn-sm" onclick="setBasicCount(5000)" ti="btn_5_000_items" ti="btn_5_000_items_2">5,000 items</button>
     </div>
 
     <div class="metrics" id="basic-metrics">
@@ -624,7 +626,7 @@ body {
     </div>
 
     <div class="info-box" id="basic-info">
-      With <strong>visible</strong> (default), the browser renders all 1,000 items immediately. Try switching to <strong>auto</strong> to see the performance difference.
+      With <strong ti="strong_visible" ti="strong_visible_2" ti="strong_visible_3">visible</strong> (default), the browser renders all 1,000 items immediately. Try switching to <strong ti="strong_auto" ti="strong_auto_2" ti="strong_auto_3">auto</strong> to see the performance difference.
     </div>
 
     <div class="demo-area">
@@ -636,25 +638,25 @@ body {
 <!-- ======== CONTAIN-INTRINSIC-SIZE ======== -->
 <div class="section" id="sec-intrinsic">
   <div class="card">
-    <h2>contain-intrinsic-size</h2>
+    <h2 ti="h2_contain_intrinsic_size">contain-intrinsic-size</h2>
     <p class="subtitle">
       When <code>content-visibility: auto</code> skips rendering, the element has zero height by default.
       <code>contain-intrinsic-size</code> provides a placeholder size to prevent layout shifts and enable correct scrollbar sizing.
     </p>
 
     <div class="controls">
-      <button class="btn active" onclick="setIntrinsicMode('none')">No intrinsic size</button>
-      <button class="btn" onclick="setIntrinsicMode('fixed')">Fixed (80px)</button>
-      <button class="btn" onclick="setIntrinsicMode('auto-fixed')">auto 80px</button>
+      <button class="btn active" onclick="setIntrinsicMode('none')" ti="btn_no_intrinsic_size">No intrinsic size</button>
+      <button class="btn" onclick="setIntrinsicMode('fixed')" ti="btn_fixed_80px">Fixed (80px)</button>
+      <button class="btn" onclick="setIntrinsicMode('auto-fixed')" ti="btn_auto_80px">auto 80px</button>
     </div>
 
     <div class="info-box" id="intrinsic-info">
-      <strong>No contain-intrinsic-size:</strong> Without a size hint, skipped elements collapse to 0px height. The scrollbar jumps erratically as items enter/leave the viewport. Watch the scrollbar behavior as you scroll.
+      <strong ti="strong_no_contain_intrinsic_size" ti="strong_no_contain_intrinsic_size_2">No contain-intrinsic-size:</strong> Without a size hint, skipped elements collapse to 0px height. The scrollbar jumps erratically as items enter/leave the viewport. Watch the scrollbar behavior as you scroll.
     </div>
 
     <div class="split">
       <div>
-        <h3>Scrollbar behavior</h3>
+        <h3 ti="h3_scrollbar_behavior">Scrollbar behavior</h3>
         <div class="demo-area">
           <div class="panel-label">
             <span id="intrinsic-mode-label">content-visibility: auto</span>
@@ -664,14 +666,14 @@ body {
         </div>
       </div>
       <div>
-        <h3>Layout size comparison</h3>
+        <h3 ti="h3_layout_size_comparison">Layout size comparison</h3>
         <div class="demo-area" style="padding: 16px;">
           <div class="cis-visual" id="cis-visual">
             <!-- Filled by JS -->
           </div>
           <div style="margin-top:16px;">
             <div class="slider-group">
-              <label>contain-intrinsic-size:</label>
+              <label ti="label_contain_intrinsic_size">contain-intrinsic-size:</label>
               <input type="range" min="0" max="200" value="80" id="cis-slider" oninput="updateCISSlider()">
               <span class="val-display" id="cis-slider-val">80px</span>
             </div>
@@ -689,12 +691,12 @@ body {
   <div class="card">
     <h3>The <code>auto</code> keyword</h3>
     <p class="subtitle">
-      <code>contain-intrinsic-size: auto 80px</code> uses <strong>80px</strong> as the initial placeholder,
+      <code>contain-intrinsic-size: auto 80px</code> uses <strong ti="strong_80px">80px</strong> as the initial placeholder,
       but once the element has been rendered, the browser remembers its actual size and uses that instead.
       This gives the best of both worlds: correct initial scrollbar + no layout shift after scrolling.
     </p>
     <div class="code-block">
-      <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+      <button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10">Copy</button>
 <span class="comment">/* Best practice: use 'auto' + a reasonable fallback */</span>
 <span class="prop">.card</span> {
   <span class="kw">content-visibility</span>: <span class="val">auto</span>;
@@ -714,18 +716,18 @@ body {
 <!-- ======== PERFORMANCE COMPARISON ======== -->
 <div class="section" id="sec-performance">
   <div class="card">
-    <h2>Performance Comparison</h2>
+    <h2 ti="h2_performance_comparison">Performance Comparison</h2>
     <p class="subtitle">
       Side-by-side rendering with and without <code>content-visibility: auto</code>.
       Click "Run Benchmark" to measure actual paint times in your browser.
     </p>
 
     <div class="controls">
-      <button class="btn primary" onclick="runBenchmark()">Run Benchmark</button>
+      <button class="btn primary" onclick="runBenchmark()" ti="btn_run_benchmark">Run Benchmark</button>
       <button class="btn btn-sm" onclick="setPerfCount(500)">500 items</button>
-      <button class="btn btn-sm active" onclick="setPerfCount(2000)">2,000 items</button>
+      <button class="btn btn-sm active" onclick="setPerfCount(2000)" ti="btn_2_000_items">2,000 items</button>
       <button class="btn btn-sm" onclick="setPerfCount(5000)">5,000 items</button>
-      <button class="btn btn-sm" onclick="setPerfCount(10000)">10,000 items</button>
+      <button class="btn btn-sm" onclick="setPerfCount(10000)" ti="btn_10_000_items">10,000 items</button>
     </div>
 
     <div class="metrics">
@@ -757,7 +759,7 @@ body {
     </div>
 
     <div class="info-box" style="margin-top:16px;">
-      <strong>How this works:</strong> Both lists contain identical items. The right list applies
+      <strong ti="strong_how_this_works">How this works:</strong> Both lists contain identical items. The right list applies
       <code>content-visibility: auto; contain-intrinsic-size: auto 50px;</code> to each item.
       The browser skips rendering off-screen items entirely — no layout, no paint, no compositing.
       The performance difference is most dramatic with large item counts.
@@ -768,16 +770,16 @@ body {
 <!-- ======== SCROLL PERFORMANCE ======== -->
 <div class="section" id="sec-scroll">
   <div class="card">
-    <h2>Scroll Performance</h2>
+    <h2 ti="h2_scroll_performance">Scroll Performance</h2>
     <p class="subtitle">
       Scroll through 10,000 items. The FPS counter and frame time graph show how
       <code>content-visibility: auto</code> keeps scrolling smooth by only rendering visible items.
     </p>
 
     <div class="controls">
-      <button class="btn active" onclick="setScrollCV(true)">content-visibility: auto</button>
-      <button class="btn" onclick="setScrollCV(false)">No content-visibility</button>
-      <button class="btn btn-sm" onclick="scrollToRandom()">Jump to Random</button>
+      <button class="btn active" onclick="setScrollCV(true)" ti="btn_content_visibility_auto">content-visibility: auto</button>
+      <button class="btn" onclick="setScrollCV(false)" ti="btn_no_content_visibility">No content-visibility</button>
+      <button class="btn btn-sm" onclick="scrollToRandom()" ti="btn_jump_to_random">Jump to Random</button>
     </div>
 
     <div class="metrics">
@@ -804,14 +806,14 @@ body {
 <!-- ======== DYNAMIC CONTENT LOADING ======== -->
 <div class="section" id="sec-dynamic">
   <div class="card">
-    <h2>Dynamic Content + IntersectionObserver</h2>
+    <h2 ti="h2_dynamic_content_intersect">Dynamic Content + IntersectionObserver</h2>
     <p class="subtitle">
       Combine <code>content-visibility: auto</code> with IntersectionObserver for lazy rendering.
       Items start as lightweight placeholders and render their full content when they approach the viewport.
     </p>
 
     <div class="controls">
-      <button class="btn primary" onclick="resetDynamic()">Reset Demo</button>
+      <button class="btn primary" onclick="resetDynamic()" ti="btn_reset_demo">Reset Demo</button>
       <span style="font-size:0.78rem;color:var(--text-dim);">Scroll down to trigger lazy rendering</span>
     </div>
 
@@ -860,11 +862,11 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
       <h4><span class="badge orange">Warning</span> Find-in-Page (Ctrl+F)</h4>
       <p>
         With <code>content-visibility: hidden</code>, content is completely invisible to find-in-page.
-        With <code>content-visibility: auto</code>, browsers <strong>do</strong> search through hidden content
+        With <code>content-visibility: auto</code>, browsers <strong ti="strong_do">do</strong> search through hidden content
         and will reveal matching items — but this was not always the case in older browser versions.
       </p>
       <div class="controls" style="margin-top:8px;">
-        <button class="btn btn-sm" onclick="testFindInPage()">Generate Searchable Content</button>
+        <button class="btn btn-sm" onclick="testFindInPage()" ti="btn_generate_searchable_conte">Generate Searchable Content</button>
       </div>
       <div id="find-demo" style="margin-top:8px;"></div>
     </div>
@@ -901,7 +903,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
         match the actual content height.
       </p>
       <div class="controls" style="margin-top:8px;">
-        <button class="btn btn-sm" onclick="testAnchorJump()">Test Anchor Jump</button>
+        <button class="btn btn-sm" onclick="testAnchorJump()" ti="btn_test_anchor_jump">Test Anchor Jump</button>
       </div>
       <div class="demo-area" style="margin-top:8px;">
         <div class="demo-scroll" id="anchor-demo" style="max-height:250px;"></div>
@@ -912,7 +914,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
       <h4><span class="badge purple">Note</span> Animations &amp; Transitions</h4>
       <p>
         CSS animations and transitions inside elements with <code>content-visibility: auto</code> are
-        <strong>paused</strong> when the element is off-screen. They resume when the element enters the
+        <strong ti="strong_paused">paused</strong> when the element is off-screen. They resume when the element enters the
         viewport. This is usually desirable (saves CPU), but can cause visual jumps if the animation
         state matters.
       </p>
@@ -932,7 +934,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 <!-- ======== CONTAINMENT INSPECTOR ======== -->
 <div class="section" id="sec-inspector">
   <div class="card">
-    <h2>Containment Inspector</h2>
+    <h2 ti="h2_containment_inspector">Containment Inspector</h2>
     <p class="subtitle">
       See which elements are currently rendered vs. skipped by the browser.
       Elements with <code>content-visibility: auto</code> that are off-screen have their
@@ -940,10 +942,10 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
     </p>
 
     <div class="controls">
-      <button class="btn primary" onclick="refreshInspector()">Refresh State</button>
-      <button class="btn btn-sm" onclick="scrollInspectorList('top')">Scroll to Top</button>
-      <button class="btn btn-sm" onclick="scrollInspectorList('middle')">Scroll to Middle</button>
-      <button class="btn btn-sm" onclick="scrollInspectorList('bottom')">Scroll to Bottom</button>
+      <button class="btn primary" onclick="refreshInspector()" ti="btn_refresh_state">Refresh State</button>
+      <button class="btn btn-sm" onclick="scrollInspectorList('top')" ti="btn_scroll_to_top">Scroll to Top</button>
+      <button class="btn btn-sm" onclick="scrollInspectorList('middle')" ti="btn_scroll_to_middle">Scroll to Middle</button>
+      <button class="btn btn-sm" onclick="scrollInspectorList('bottom')" ti="btn_scroll_to_bottom">Scroll to Bottom</button>
     </div>
 
     <div class="metrics">
@@ -954,13 +956,13 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 
     <div class="split">
       <div>
-        <h3>Scrollable List (100 items)</h3>
+        <h3 ti="h3_scrollable_list_100_items">Scrollable List (100 items)</h3>
         <div class="demo-area">
           <div class="demo-scroll" id="inspector-scroll-list" style="max-height:350px;" onscroll="refreshInspector()"></div>
         </div>
       </div>
       <div>
-        <h3>Containment Status</h3>
+        <h3 ti="h3_containment_status">Containment Status</h3>
         <div class="demo-area">
           <div class="demo-scroll" id="inspector-status" style="max-height:350px;"></div>
         </div>
@@ -968,7 +970,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
     </div>
 
     <div class="info-box" style="margin-top:16px;">
-      <strong>How detection works:</strong> We use <code>IntersectionObserver</code> to track which items
+      <strong ti="strong_how_detection_works">How detection works:</strong> We use <code>IntersectionObserver</code> to track which items
       are near the viewport. Elements with <code>content-visibility: auto</code> that are far off-screen
       have their rendering skipped by the browser. The inspector approximates this by checking viewport proximity.
     </div>
@@ -978,10 +980,10 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 <!-- ======== CODE PATTERNS ======== -->
 <div class="section" id="sec-patterns">
   <div class="card">
-    <h2>Copy-Paste Code Patterns</h2>
-    <p class="subtitle">Ready-to-use patterns for common use cases.</p>
+    <h2 ti="h2_copy_paste_code_patterns">Copy-Paste Code Patterns</h2>
+    <p class="subtitle" ti="subtitle_ready_to_use_patterns_for">Ready-to-use patterns for common use cases.</p>
 
-    <h3>Long Lists / Feeds</h3>
+    <h3 ti="h3_long_lists_feeds">Long Lists / Feeds</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* Apply to each list item or article card */</span>
@@ -994,7 +996,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
    preventing layout shifts on subsequent visits */</span>
     </div>
 
-    <h3>Tab Panels</h3>
+    <h3 ti="h3_tab_panels">Tab Panels</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* Hidden tabs stay in DOM but skip rendering entirely */</span>
@@ -1012,9 +1014,9 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 
     <div class="tab-demo">
       <div class="tabs">
-        <button class="active" onclick="switchPatternTab(0,this)">Tab 1</button>
-        <button onclick="switchPatternTab(1,this)">Tab 2 (heavy)</button>
-        <button onclick="switchPatternTab(2,this)">Tab 3</button>
+        <button class="active" onclick="switchPatternTab(0,this)" ti="btn_tab_1">Tab 1</button>
+        <button onclick="switchPatternTab(1,this)" ti="btn_tab_2_heavy">Tab 2 (heavy)</button>
+        <button onclick="switchPatternTab(2,this)" ti="btn_tab_3">Tab 3</button>
       </div>
       <div class="tab-content" id="pattern-tab-0">
         <p style="color:var(--text-secondary);font-size:0.85rem;">This tab is <strong>visible</strong>. Content renders normally.</p>
@@ -1028,7 +1030,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
       </div>
     </div>
 
-    <h3 style="margin-top:20px;">Accordions / Collapsibles</h3>
+    <h3 style="margin-top:20px;" ti="h3_accordions_collapsibles">Accordions / Collapsibles</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* Accordion content: hidden but preserves state */</span>
@@ -1047,7 +1049,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
    positions, and component state are preserved */</span>
     </div>
 
-    <h3>Below-the-Fold Sections</h3>
+    <h3 ti="h3_below_the_fold_sections">Below-the-Fold Sections</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* Entire page sections that start off-screen */</span>
@@ -1063,7 +1065,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 }
     </div>
 
-    <h3>Data Tables</h3>
+    <h3 ti="h3_data_tables">Data Tables</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* Apply to table rows for large data tables */</span>
@@ -1076,7 +1078,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
    Variable heights may cause scrollbar jitter. */</span>
     </div>
 
-    <h3>Virtual Scrolling Alternative</h3>
+    <h3 ti="h3_virtual_scrolling_alterna">Virtual Scrolling Alternative</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* content-visibility: auto is a CSS-only alternative to
@@ -1102,7 +1104,7 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 <!-- ======== BROWSER SUPPORT ======== -->
 <div class="section" id="sec-support">
   <div class="card">
-    <h2>Browser Support</h2>
+    <h2 ti="h2_browser_support">Browser Support</h2>
     <p class="subtitle">
       <code>content-visibility</code> is well-supported in modern browsers. It was first shipped in Chrome 85 (August 2020).
     </p>
@@ -1110,11 +1112,11 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
     <table class="support-table">
       <thead>
         <tr>
-          <th>Browser</th>
-          <th>content-visibility</th>
+          <th ti="th_browser">Browser</th>
+          <th ti="th_content_visibility">content-visibility</th>
           <th>contain-intrinsic-size</th>
-          <th>auto keyword (CIS)</th>
-          <th>Version</th>
+          <th ti="th_auto_keyword_cis">auto keyword (CIS)</th>
+          <th ti="th_version">Version</th>
         </tr>
       </thead>
       <tbody>
@@ -1157,11 +1159,11 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
     </table>
 
     <div class="info-box" style="margin-top:16px;">
-      <strong>Current browser detection:</strong>
+      <strong ti="strong_current_browser_detection">Current browser detection:</strong>
       <span id="browser-support-result">Checking...</span>
     </div>
 
-    <h3 style="margin-top:20px;">Progressive Enhancement</h3>
+    <h3 style="margin-top:20px;" ti="h3_progressive_enhancement">Progressive Enhancement</h3>
     <div class="code-block">
       <button class="copy-btn" onclick="copyCode(this)">Copy</button>
 <span class="comment">/* content-visibility is safe to use as progressive enhancement.
@@ -1190,6 +1192,16 @@ document.<span class="fn">querySelectorAll</span>(<span class="str">'.lazy-card'
 
 </main>
 
+
+<script>var _LANG={'title_css_content_visibility_pl':["CSS content-visibility Playground — Dev Vault", "CSS 内容可见性测试场 — 开发者宝库"],'metadesc_interactive_css_content_v':["Interactive CSS content-visibility playground. Toggle auto/hidden/visible, measure rendering performance, explore contain-intrinsic-size, scroll optimization, and common gotchas.", "交互式 CSS 内容可见性测试平台。切换自动/隐藏/可见状态，测量渲染性能，探索 contain-intrinsic-size、滚动优化和常见陷阱。"],'h2_content_visibility_auto_h':["content-visibility: auto | hidden | visible", "内容可见性：自动 | 隐藏 | 可见"],'h2_contain_intrinsic_size':["contain-intrinsic-size", "包含固有尺寸"],'h2_performance_comparison':["Performance Comparison", "性能比较"],'h2_scroll_performance':["Scroll Performance", "滚动性能"],'h2_dynamic_content_intersect':["Dynamic Content + IntersectionObserver", "动态内容 + IntersectionObserver"],'h2_gotchas_common_issues':["Gotchas & Common Issues", "陷阱与常见问题"],'h2_containment_inspector':["Containment Inspector", "收容检查员"],'h2_copy_paste_code_patterns':["Copy-Paste Code Patterns", "复制粘贴代码模式"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_scrollbar_behavior':["Scrollbar behavior", "滚动条行为"],'h3_layout_size_comparison':["Layout size comparison", "布局尺寸比较"],'h3_scrollable_list_100_items':["Scrollable List (100 items)", "可滚动列表（100 项）"],'h3_containment_status':["Containment Status", "遏制状态"],'h3_long_lists_feeds':["Long Lists / Feeds", "长列表/订阅源"],'h3_tab_panels':["Tab Panels", "选项卡面板"],'h3_accordions_collapsibles':["Accordions / Collapsibles", "手风琴/折叠式"],'h3_below_the_fold_sections':["Below-the-Fold Sections", "下方章节"],'h3_data_tables':["Data Tables", "数据表"],'h3_virtual_scrolling_alterna':["Virtual Scrolling Alternative", "虚拟滚动替代方案"],'h3_progressive_enhancement':["Progressive Enhancement", "渐进增强"],'subtitle_ready_to_use_patterns_for':["Ready-to-use patterns for common use cases.", "适用于常见用例的现成模式。"],'btn_basic_demo':["Basic Demo", "基本演示"],'btn_contain_intrinsic_size':["contain-intrinsic-size", "包含固有尺寸"],'btn_performance':["Performance", "表现"],'btn_scroll_performance':["Scroll Performance", "滚动性能"],'btn_dynamic_loading':["Dynamic Loading", "动态载荷"],'btn_gotchas':["Gotchas", "陷阱"],'btn_containment_inspector':["Containment Inspector", "收容检查员"],'btn_code_patterns':["Code Patterns", "代码模式"],'btn_browser_support':["Browser Support", "浏览器支持"],'btn_visible_default':["visible (default)", "可见（默认）"],'btn_auto':["auto", "汽车"],'btn_hidden':["hidden", "隐"],'btn_500_items':["500 items", "500件"],'btn_1_000_items':["1,000 items", "1000件商品"],'btn_3_000_items':["3,000 items", "3000件商品"],'btn_5_000_items':["5,000 items", "5000件商品"],'btn_no_intrinsic_size':["No intrinsic size", "无固有尺寸"],'btn_fixed_80px':["Fixed (80px)", "固定（80像素）"],'btn_auto_80px':["auto 80px", "自动 80px"],'btn_copy':["Copy", "复制"],'btn_run_benchmark':["Run Benchmark", "运行基准测试"],'btn_500_items_2':["500 items", "500件"],'btn_2_000_items':["2,000 items", "2000件商品"],'btn_5_000_items_2':["5,000 items", "5000件商品"],'btn_10_000_items':["10,000 items", "10,000 件商品"],'btn_content_visibility_auto':["content-visibility: auto", "内容可见性：自动"],'btn_no_content_visibility':["No content-visibility", "无内容可见性"],'btn_jump_to_random':["Jump to Random", "跳转到随机"],'btn_reset_demo':["Reset Demo", "重置演示"],'btn_copy_2':["Copy", "复制"],'btn_generate_searchable_conte':["Generate Searchable Content", "生成可搜索内容"],'btn_copy_3':["Copy", "复制"],'btn_test_anchor_jump':["Test Anchor Jump", "测试锚点跳跃"],'btn_refresh_state':["Refresh State", "刷新状态"],'btn_scroll_to_top':["Scroll to Top", "返回顶部"],'btn_scroll_to_middle':["Scroll to Middle", "滚动到中间"],'btn_scroll_to_bottom':["Scroll to Bottom", "滚动到底部"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_tab_1':["Tab 1", "表 1"],'btn_tab_2_heavy':["Tab 2 (heavy)", "标签 2（重）"],'btn_tab_3':["Tab 3", "表3"],'btn_copy_6':["Copy", "复制"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'strong_visible':["visible", "可见的"],'strong_auto':["auto", "汽车"],'strong_no_contain_intrinsic_size':["No contain-intrinsic-size:", "无固有尺寸："],'strong_80px':["80px", "80像素"],'strong_how_this_works':["How this works:", "工作原理如下："],'strong_do':["do", "做"],'strong_paused':["paused", "暂停"],'strong_how_detection_works':["How detection works:", "检测原理："],'strong_visible_2':["visible", "可见的"],'strong_current_browser_detection':["Current browser detection:", "当前浏览器检测结果："],'strong_visible_3':["visible", "可见的"],'strong_auto_2':["auto", "汽车"],'strong_auto_3':["auto", "汽车"],'strong_hidden':["hidden", "隐"],'strong_no_contain_intrinsic_size_2':["No contain-intrinsic-size:", "无固有尺寸："],'strong_fixed_80px':["Fixed 80px:", "固定80像素："],'strong_auto_80px':["auto 80px:", "自动 80px："],'strong_findme_hidden':["\"FINDME-HIDDEN\"", "“FINDME-HIDDEN”"],'strong_findme_auto':["\"FINDME-AUTO\"", "“FINDME-AUTO”"],'strong_target_anchor_landed_here':["TARGET: Anchor landed here (#anchor-item-75)", "目标：锚点落在此处 (#anchor-item-75)"],'th_browser':["Browser", "浏览器"],'th_content_visibility':["content-visibility", "内容可见性"],'th_contain_intrinsic_size':["contain-intrinsic-size", "包含固有尺寸"],'th_auto_keyword_cis':["auto keyword (CIS)", "自动关键字（CIS）"],'th_version':["Version", "版本"],'label_contain_intrinsic_size':["contain-intrinsic-size:", "包含固有大小："],'footer_css_content_visibility_pl':["CSS content-visibility Playground — Dev Vault", "CSS 内容可见性测试场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_source':["Source", "来源"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_no_size_hint':["no size hint", "没有尺寸提示"],'jtc_80px_fixed':["80px fixed", "80px 固定"],'jtc_auto_80px':["auto 80px", "自动 80px"],'jtc_ready':["Ready", "准备好"],'jtc_ready_2':["Ready", "准备好"],'jtc_rendering':["Rendering...", "渲染中……"],'jtc_waiting':["Waiting...", "等待..."],'jtc_rendering_2':["Rendering...", "渲染中……"],'jtc_rendered':["Rendered", "渲染"],'jtc_skipped':["Skipped", "跳过"],'jtlword_visible':["visible", "可见的"],'jtlword_auto':["auto", "汽车"],'jtlword_auto_2':["auto", "汽车"],'jtlword_hidden':["hidden", "隐"],'jtlword_all':["all", "全部"],'jtlword_rendered':["Rendered", "渲染"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ========== NAVIGATION ==========
 const navBtns = document.querySelectorAll('.nav button');
@@ -1209,8 +1221,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const text = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1274,7 +1286,7 @@ function renderBasicList() {
   } else if (basicMode === 'auto') {
     info.innerHTML = `With <strong>auto</strong>, only visible items are rendered. Off-screen items are skipped entirely, dramatically reducing initial render time. Scroll to see items render on demand.`;
   } else {
-    info.innerHTML = `With <strong>hidden</strong>, <em>all</em> items are hidden and their rendering is skipped. The element takes up no space. This is useful for tab panels or off-screen UI that should preserve state.`;
+    info.innerHTML = `With <strong ti="strong_hidden">hidden</strong>, <em>all</em> items are hidden and their rendering is skipped. The element takes up no space. This is useful for tab panels or off-screen UI that should preserve state.`;
   }
 }
 
@@ -1314,9 +1326,9 @@ function renderIntrinsicList() {
 
   // Update badge
   const badge = document.getElementById('intrinsic-badge');
-  if (cisMode === 'none') { badge.textContent = 'no size hint'; badge.className = 'badge orange'; }
-  else if (cisMode === 'fixed') { badge.textContent = '80px fixed'; badge.className = 'badge blue'; }
-  else { badge.textContent = 'auto 80px'; badge.className = 'badge green'; }
+  if (cisMode === 'none') { badge.textContent=T("jtc_no_size_hint"); badge.className = 'badge orange'; }
+  else if (cisMode === 'fixed') { badge.textContent=T("jtc_80px_fixed"); badge.className = 'badge blue'; }
+  else { badge.textContent=T("jtc_auto_80px"); badge.className = 'badge green'; }
 
   updateCISMetrics();
 }
@@ -1335,9 +1347,9 @@ function setIntrinsicMode(mode) {
   if (mode === 'none') {
     info.innerHTML = `<strong>No contain-intrinsic-size:</strong> Without a size hint, skipped elements collapse to 0px height. The scrollbar jumps erratically as items enter/leave the viewport. Watch the scrollbar behavior as you scroll.`;
   } else if (mode === 'fixed') {
-    info.innerHTML = `<strong>Fixed 80px:</strong> Each skipped item is treated as 80px tall. The scrollbar is stable from the start, but if the actual item height differs, there may be a small jump when items render.`;
+    info.innerHTML = `<strong ti="strong_fixed_80px">Fixed 80px:</strong> Each skipped item is treated as 80px tall. The scrollbar is stable from the start, but if the actual item height differs, there may be a small jump when items render.`;
   } else {
-    info.innerHTML = `<strong>auto 80px:</strong> Uses 80px as the initial estimate, but once an item has been rendered, the browser remembers its actual height. Best of both worlds: stable scrollbar + no layout shifts after first render.`;
+    info.innerHTML = `<strong ti="strong_auto_80px">auto 80px:</strong> Uses 80px as the initial estimate, but once an item has been rendered, the browser remembers its actual height. Best of both worlds: stable scrollbar + no layout shifts after first render.`;
   }
 
   renderIntrinsicList();
@@ -1374,8 +1386,8 @@ function setPerfCount(n) {
   document.getElementById('perf-without').textContent = '—';
   document.getElementById('perf-with').textContent = '—';
   document.getElementById('perf-speedup').textContent = '—';
-  document.getElementById('perf-status-without').textContent = 'Ready';
-  document.getElementById('perf-status-with').textContent = 'Ready';
+  document.getElementById('perf-status-without').textContent=T("jtc_ready");
+  document.getElementById('perf-status-with').textContent=T("jtc_ready");
 }
 
 function generateItemHTML(i, withCV) {
@@ -1396,9 +1408,9 @@ function runBenchmark() {
 
   listA.innerHTML = '';
   listB.innerHTML = '';
-  statusA.textContent = 'Rendering...';
+  statusA.textContent=T("jtc_rendering");
   statusA.className = 'badge orange';
-  statusB.textContent = 'Waiting...';
+  statusB.textContent=T("jtc_waiting");
   statusB.className = 'badge blue';
 
   requestAnimationFrame(() => {
@@ -1415,7 +1427,7 @@ function runBenchmark() {
     document.getElementById('perf-without').textContent = timeA.toFixed(1);
 
     // With content-visibility
-    statusB.textContent = 'Rendering...';
+    statusB.textContent=T("jtc_rendering");
     statusB.className = 'badge orange';
 
     requestAnimationFrame(() => {
@@ -1603,7 +1615,7 @@ function testFindInPage() {
   demo.innerHTML = `
     <div class="demo-area" style="padding:12px;">
       <p style="font-size:0.82rem;color:var(--text-secondary);margin-bottom:8px;">
-        Try Ctrl+F and search for <strong>"FINDME-HIDDEN"</strong> or <strong>"FINDME-AUTO"</strong>:
+        Try Ctrl+F and search for <strong ti="strong_findme_hidden">"FINDME-HIDDEN"</strong> or <strong ti="strong_findme_auto">"FINDME-AUTO"</strong>:
       </p>
       <div style="content-visibility:hidden;background:var(--bg-input);padding:8px;border-radius:4px;margin-bottom:8px;">
         <span style="font-size:0.82rem;">FINDME-HIDDEN: This text uses content-visibility: hidden. It should NOT be found by Ctrl+F.</span>
@@ -1622,7 +1634,7 @@ function testAnchorJump() {
     html += `<div class="demo-item anchor-target" id="anchor-item-${i}"
       style="content-visibility:auto;contain-intrinsic-size:auto 45px;${isTarget ? 'background:var(--accent-glow);' : ''}">
       <span class="num">${i + 1}</span>
-      <span class="text">${isTarget ? '<strong style="color:var(--accent);">TARGET: Anchor landed here (#anchor-item-75)</strong>' : generateContent(i)}</span>
+      <span class="text">${isTarget ? '<strong style="color:var(--accent);" ti="strong_target_anchor_landed_here">TARGET: Anchor landed here (#anchor-item-75)</strong>' : generateContent(i)}</span>
     </div>`;
   }
   demo.innerHTML = html;
@@ -1673,10 +1685,10 @@ function initInspector() {
       if (statusEl) {
         if (e.isIntersecting) {
           statusEl.className = 'inspector-item rendered';
-          statusEl.querySelector('.status').textContent = 'Rendered';
+          statusEl.querySelector('.status').textContent=T("jtc_rendered");
         } else {
           statusEl.className = 'inspector-item skipped';
-          statusEl.querySelector('.status').textContent = 'Skipped';
+          statusEl.querySelector('.status').textContent=T("jtc_skipped");
         }
       }
     });
@@ -1765,5 +1777,23 @@ new MutationObserver(() => {
 }).observe(scrollSection, { attributes: true, attributeFilter: ['class'] });
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_shadow_dom_explorer_inter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -459,12 +459,14 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1><span class="icon">&#x25C8;</span> Shadow DOM Explorer</h1>
   <div class="links">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
-    <a href="https://github.com/gokuscraper/shadow-dom-explorer">GitHub</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
+    <a href="https://github.com/gokuscraper/shadow-dom-explorer" ti="link_github">GitHub</a>
   </div>
 </header>
 
@@ -472,7 +474,7 @@ body {
   <!-- Controls -->
   <div class="controls-panel">
     <div class="presets">
-      <h3>Presets</h3>
+      <h3 ti="h3_presets">Presets</h3>
       <div class="preset-grid" id="presetGrid"></div>
     </div>
 
@@ -559,9 +561,9 @@ body {
   <!-- Main -->
   <div class="main-panel">
     <div class="panel-tabs">
-      <button class="panel-tab active" data-tab="preview" onclick="switchTab('preview')">Preview</button>
-      <button class="panel-tab" data-tab="tree" onclick="switchTab('tree')">DOM Tree</button>
-      <button class="panel-tab" data-tab="info" onclick="switchTab('info')">Concepts</button>
+      <button class="panel-tab active" data-tab="preview" onclick="switchTab('preview')" ti="btn_preview">Preview</button>
+      <button class="panel-tab" data-tab="tree" onclick="switchTab('tree')" ti="btn_dom_tree">DOM Tree</button>
+      <button class="panel-tab" data-tab="info" onclick="switchTab('info')" ti="btn_concepts">Concepts</button>
     </div>
 
     <div class="preview-area" id="previewTab">
@@ -576,14 +578,14 @@ body {
         <p>Shadow DOM provides encapsulation for DOM and CSS. A shadow tree is attached to an element (the <code>host</code>) and rendered instead of, or in addition to, the host's children.</p>
       </div>
       <div class="info-card">
-        <h3>Open vs Closed</h3>
+        <h3 ti="h3_open_vs_closed">Open vs Closed</h3>
         <ul>
           <li><code>mode: "open"</code> — <code>element.shadowRoot</code> returns the shadow root. External JS can access internals.</li>
           <li><code>mode: "closed"</code> — <code>element.shadowRoot</code> returns <code>null</code>. Internals are hidden (but not truly secure).</li>
         </ul>
       </div>
       <div class="info-card">
-        <h3>Style Encapsulation</h3>
+        <h3 ti="h3_style_encapsulation">Style Encapsulation</h3>
         <p>Styles inside shadow DOM do not leak out, and document styles do not penetrate in. Exceptions:</p>
         <ul>
           <li><code>::part(name)</code> — style elements with <code>part="name"</code> from outside</li>
@@ -597,15 +599,15 @@ body {
         <p>Slots project light DOM children into the shadow tree. <code>&lt;slot&gt;</code> shows default content when nothing is distributed. <code>&lt;slot name="x"&gt;</code> matches <code>slot="x"</code> on light DOM children.</p>
       </div>
       <div class="info-card">
-        <h3>::slotted()</h3>
+        <h3 ti="h3_slotted">::slotted()</h3>
         <p>Used inside shadow CSS to style elements distributed through <code>&lt;slot&gt;</code>. Only targets top-level slotted elements, not their descendants. Specificity is lower than light DOM styles.</p>
       </div>
       <div class="info-card">
-        <h3>::part()</h3>
+        <h3 ti="h3_part">::part()</h3>
         <p>Exposes named parts of shadow DOM to external styling via <code>part="name"</code> attribute. The host author controls which parts are exposed. Used from the document level: <code>my-element::part(header) { ... }</code>.</p>
       </div>
       <div class="info-card">
-        <h3>adoptedStyleSheets</h3>
+        <h3 ti="h3_adoptedstylesheets">adoptedStyleSheets</h3>
         <p>A more performant way to share styles. Create a <code>CSSStyleSheet</code>, call <code>.replaceSync(css)</code>, and assign to <code>shadowRoot.adoptedStyleSheets</code>. The same sheet object can be shared across multiple shadow roots.</p>
       </div>
     </div>
@@ -619,6 +621,16 @@ body {
   </div>
 </div>
 
+
+<script>var _LANG={'title_shadow_dom_explorer_inter':["Shadow DOM Explorer — Interactive Visualizer", "Shadow DOM Explorer — 交互式可视化工具"],'metadesc_interactive_shadow_dom_vi':["Interactive Shadow DOM visualizer. Explore open vs closed shadow roots, style encapsulation, slot distribution, ::slotted(), ::part(), adoptedStyleSheets. 5+ live presets.", "交互式 Shadow DOM 可视化工具。探索开放式与封闭式 Shadow 根、样式封装、插槽分布、::slotted()、::part()、adoptedStyleSheets。5 个以上的实时预设。"],'h2_i_m_in_the_light_dom':["I'm in the Light DOM", "我在光明领域。"],'h2_i_m_in_the_shadow_dom':["I'm in the Shadow DOM", "我在暗影领域。"],'h3_presets':["Presets", "预设"],'h3_shadow_dom':["◈ Shadow DOM", "◈ 影子 DOM"],'h3_open_vs_closed':["Open vs Closed", "开放式 vs 封闭式"],'h3_style_encapsulation':["Style Encapsulation", "风格封装"],'h3_slotted':["::slotted()", "::slotted()"],'h3_part':["::part()", "：：部分（）"],'h3_adoptedstylesheets':["adoptedStyleSheets", "采用的样式表"],'h3_slotted_heading':["Slotted Heading", "开槽船首"],'h3_component_heading':["Component Heading", "组件标题"],'h3_styled_via_adoptedstylesh':["Styled via adoptedStyleSheets", "通过 adoptStyleSheets 进行样式设置"],'h3_closed_shadow_root':["🔒 Closed Shadow Root", "🔒 封闭式阴影根"],'h3_themed_component':["Themed Component", "主题组件"],'h3_outer_shadow':["Outer Shadow", "外影"],'btn_run':["▶ Run", "▶ 跑"],'btn_preview':["Preview", "预览"],'btn_dom_tree':["DOM Tree", "DOM树"],'btn_concepts':["Concepts", "概念"],'btn_click_me':["Click Me", "点击我"],'btn_themed_button':["Themed Button", "主题按钮"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'jtc_rendered':["Rendered", "渲染"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // -- Presets --
 const PRESETS = [
@@ -629,8 +641,8 @@ const PRESETS = [
     mode: 'open',
     adoptedStylesheets: false,
     delegatesFocus: false,
-    host: `<h2>I'm in the Light DOM</h2>\n<p>My color is set by outer CSS.</p>`,
-    shadow: `<h2>I'm in the Shadow DOM</h2>\n<p>My styles are encapsulated.</p>`,
+    host: `<h2 ti="h2_i_m_in_the_light_dom">I'm in the Light DOM</h2>\n<p>My color is set by outer CSS.</p>`,
+    shadow: `<h2 ti="h2_i_m_in_the_shadow_dom">I'm in the Shadow DOM</h2>\n<p>My styles are encapsulated.</p>`,
     shadowCss: `h2 { color: #a855f7; }\np { color: #c084fc; font-style: italic; }`,
     outerCss: `h2 { color: #ef4444; font-size: 1.5rem; }\np { color: #999; }`
   },
@@ -653,7 +665,7 @@ const PRESETS = [
     mode: 'open',
     adoptedStylesheets: false,
     delegatesFocus: false,
-    host: `<h3>Slotted Heading</h3>\n<p class="highlight">Highlighted paragraph</p>\n<p>Normal paragraph</p>`,
+    host: `<h3 ti="h3_slotted_heading">Slotted Heading</h3>\n<p class="highlight">Highlighted paragraph</p>\n<p>Normal paragraph</p>`,
     shadow: `<div class="wrapper">\n  <slot></slot>\n</div>`,
     shadowCss: `.wrapper { padding: 16px; border: 2px solid #334155; border-radius: 8px; }\n\n/* ::slotted() only targets top-level slotted elements */\n::slotted(h3) {\n  color: #22c55e;\n  border-bottom: 2px solid #22c55e;\n  padding-bottom: 8px;\n  margin-bottom: 12px;\n}\n::slotted(.highlight) {\n  background: rgba(34, 197, 94, 0.1);\n  padding: 8px;\n  border-radius: 4px;\n}\n::slotted(p) {\n  margin: 4px 0;\n  color: #94a3b8;\n}`,
     outerCss: `/* Outer styles have HIGHER specificity than ::slotted() */\n/* Uncomment to see outer win: */\n/* p.highlight { background: rgba(239,68,68,0.2); } */`
@@ -666,7 +678,7 @@ const PRESETS = [
     adoptedStylesheets: false,
     delegatesFocus: false,
     host: `<!-- No light DOM children needed -->`,
-    shadow: `<div part="container">\n  <h3 part="heading">Component Heading</h3>\n  <p part="body">This component exposes parts for external styling.</p>\n  <button part="action">Click Me</button>\n</div>`,
+    shadow: `<div part="container">\n  <h3 part="heading" ti="h3_component_heading">Component Heading</h3>\n  <p part="body">This component exposes parts for external styling.</p>\n  <button part="action" ti="btn_click_me">Click Me</button>\n</div>`,
     shadowCss: `/* Internal base styles */\ndiv { padding: 20px; border-radius: 8px; }\nh3 { margin-bottom: 8px; }\np { margin-bottom: 12px; }\nbutton { padding: 8px 16px; border: none; border-radius: 4px; cursor: pointer; font-family: inherit; }`,
     outerCss: `/* ::part() lets you style shadow internals from outside */\n#shadow-host::part(container) {\n  background: #1e1b4b;\n  border: 1px solid #4338ca;\n}\n#shadow-host::part(heading) {\n  color: #818cf8;\n}\n#shadow-host::part(body) {\n  color: #a5b4fc;\n}\n#shadow-host::part(action) {\n  background: #6366f1;\n  color: white;\n  font-weight: 600;\n}`
   },
@@ -678,7 +690,7 @@ const PRESETS = [
     adoptedStylesheets: true,
     delegatesFocus: false,
     host: `<p>Light DOM paragraph</p>`,
-    shadow: `<div class="panel">\n  <h3>Styled via adoptedStyleSheets</h3>\n  <p>No &lt;style&gt; tag — CSS is applied programmatically via CSSStyleSheet API.</p>\n  <code>shadowRoot.adoptedStyleSheets = [sheet]</code>\n</div>`,
+    shadow: `<div class="panel">\n  <h3 ti="h3_styled_via_adoptedstylesh">Styled via adoptedStyleSheets</h3>\n  <p>No &lt;style&gt; tag — CSS is applied programmatically via CSSStyleSheet API.</p>\n  <code>shadowRoot.adoptedStyleSheets = [sheet]</code>\n</div>`,
     shadowCss: `.panel {\n  background: #0c1222;\n  border: 1px solid #1e3a5f;\n  border-radius: 12px;\n  padding: 20px;\n}\nh3 {\n  color: #38bdf8;\n  margin-bottom: 8px;\n}\np {\n  color: #7dd3fc;\n  margin-bottom: 8px;\n}\ncode {\n  display: block;\n  background: #0a0a0a;\n  padding: 8px 12px;\n  border-radius: 6px;\n  color: #22d3ee;\n  font-family: 'JetBrains Mono', monospace;\n  font-size: 0.85em;\n}`,
     outerCss: ``
   },
@@ -702,7 +714,7 @@ const PRESETS = [
     adoptedStylesheets: false,
     delegatesFocus: false,
     host: `<!-- Custom properties are the official theming API -->`,
-    shadow: `<div class="themed">\n  <h3>Themed Component</h3>\n  <p>This component uses CSS custom properties for theming.</p>\n  <button>Themed Button</button>\n</div>`,
+    shadow: `<div class="themed">\n  <h3 ti="h3_themed_component">Themed Component</h3>\n  <p>This component uses CSS custom properties for theming.</p>\n  <button ti="btn_themed_button">Themed Button</button>\n</div>`,
     shadowCss: `.themed {\n  background: var(--card-bg, #1a1a1a);\n  border: 1px solid var(--card-border, #333);\n  border-radius: 8px;\n  padding: 20px;\n  color: var(--card-text, #e6e6e6);\n}\nh3 { color: var(--card-heading, #fff); margin-bottom: 8px; }\nbutton {\n  background: var(--card-accent, #3b82f6);\n  color: white;\n  border: none;\n  padding: 8px 16px;\n  border-radius: 6px;\n  cursor: pointer;\n  font-family: inherit;\n  font-weight: 600;\n}`,
     outerCss: `/* Custom properties cascade through shadow boundary */\n#shadow-host {\n  --card-bg: #0f1729;\n  --card-border: #1e40af;\n  --card-text: #bfdbfe;\n  --card-heading: #60a5fa;\n  --card-accent: #2563eb;\n}`
   },
@@ -714,7 +726,7 @@ const PRESETS = [
     adoptedStylesheets: false,
     delegatesFocus: false,
     host: `<div slot="content">\n  <p>This content is distributed to the outer component, which itself contains a shadow child.</p>\n</div>`,
-    shadow: `<div class="outer-component">\n  <h3>Outer Shadow</h3>\n  <div class="inner-host" id="inner-host">\n    <!-- Inner shadow will be attached by JS -->\n  </div>\n  <slot name="content">Default outer content</slot>\n</div>`,
+    shadow: `<div class="outer-component">\n  <h3 ti="h3_outer_shadow">Outer Shadow</h3>\n  <div class="inner-host" id="inner-host">\n    <!-- Inner shadow will be attached by JS -->\n  </div>\n  <slot name="content">Default outer content</slot>\n</div>`,
     shadowCss: `.outer-component {\n  border: 2px solid #7c3aed;\n  border-radius: 12px;\n  padding: 16px;\n  background: #0d0520;\n}\nh3 { color: #c084fc; margin-bottom: 12px; }\n.inner-host {\n  border: 2px dashed #f59e0b;\n  border-radius: 8px;\n  padding: 12px;\n  margin-bottom: 12px;\n  background: rgba(245,158,11,0.05);\n}`,
     outerCss: `/* Styles cannot reach either shadow boundary */\n.outer-component h3 { color: red; /* won't work */ }\n.inner-content { color: red; /* won't work */ }`
   }
@@ -844,7 +856,7 @@ function runShadow() {
 
     // Status
     document.getElementById('statusDot').className = 'status-dot ok';
-    document.getElementById('statusText').textContent = 'Rendered';
+    document.getElementById('statusText').textContent=T("jtc_rendered");
     document.getElementById('statusMode').textContent = `Mode: ${mode}`;
     document.getElementById('statusSlots').textContent = `Slots: ${slots.length}`;
     document.getElementById('statusParts').textContent = `Parts: ${parts.length}`;
@@ -982,6 +994,24 @@ document.querySelectorAll('textarea').forEach(ta => {
 });
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

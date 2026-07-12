@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_engine_pipeline_visual" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -76,14 +76,16 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Engine Pipeline</h1>
+<h1 ti="h1_js_engine_pipeline">JS Engine Pipeline</h1>
 <select id="scenarioSelect"></select>
 <div class="controls">
-<button onclick="stepBack()">← Back</button>
-<button onclick="stepForward()" class="primary">Step →</button>
-<button onclick="autoPlay()">▶ Auto</button>
-<button onclick="resetPipeline()">Reset</button>
+<button onclick="stepBack()" ti="btn_back">← Back</button>
+<button onclick="stepForward()" class="primary" ti="btn_step">Step →</button>
+<button onclick="autoPlay()" ti="btn_auto">▶ Auto</button>
+<button onclick="resetPipeline()" ti="btn_reset">Reset</button>
 </div>
 </header>
 <div class="main">
@@ -93,13 +95,23 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </div>
 <div class="sidebar">
 <div class="tab-bar">
-<button class="active" onclick="switchTab('detail')">Details</button>
-<button onclick="switchTab('execution')">Execution</button>
-<button onclick="switchTab('reference')">Reference</button>
+<button class="active" onclick="switchTab('detail')" ti="btn_details">Details</button>
+<button onclick="switchTab('execution')" ti="btn_execution">Execution</button>
+<button onclick="switchTab('reference')" ti="btn_reference">Reference</button>
 </div>
 <div class="tab-content" id="tabContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_js_engine_pipeline_visual':["JS Engine Pipeline Visualizer", "JS引擎管道可视化工具"],'metadesc_visualize_how_javascript':["Visualize how JavaScript engines process code: Source → Tokenizer → Parser → AST → Bytecode → Interpreter → JIT Compiler → Optimized Code. Step through V8", "可视化 JavaScript 引擎如何处理代码：源代码 → 分词器 → 解析器 → 抽象语法树 (AST) → 字节码 → 解释器 → 即时编译器 (JIT) → 优化后的代码。逐步演示 V8 引擎。"],'h1_js_engine_pipeline':["JS Engine Pipeline", "JS引擎管道"],'h3_source_code':["Source Code", "源代码"],'h3_tokens':["Tokens", "代币"],'h3_abstract_syntax_tree':["Abstract Syntax Tree", "抽象语法树"],'h3_ignition_bytecode':["Ignition Bytecode", "点火字节码"],'h3_execution_timeline':["Execution Timeline", "执行时间表"],'btn_back':["← Back", "← 返回"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'btn_details':["Details", "细节"],'btn_execution':["Execution", "执行"],'btn_reference':["Reference", "参考"],'th_tier':["Tier", "层级"],'th_name':["Name", "姓名"],'th_speed':["Speed", "速度"],'th_quality':["Quality", "质量"],'th_concept':["Concept", "概念"],'th_description':["Description", "描述"],'th_technique':["Technique", "技术"],'th_what_it_does':["What it does", "它的作用"],'jtlword_tier':["Tier", "层级"],'jtlword_name':["Name", "姓名"],'jtlword_speed':["Speed", "速度"],'jtlword_quality':["Quality", "质量"],'jtlword_baseline':["Baseline", "基线"],'jtlword_sparkplug':["Sparkplug", "火花塞"],'jtlword_maglev':["Maglev", "磁悬浮"],'jtlword_turbofan':["TurboFan", "涡轮风扇"],'jtlword_concept':["Concept", "概念"],'jtlword_description':["Description", "描述"],'jtlword_deoptimization':["Deoptimization", "去优化"],'jtlword_osr':["OSR", "OSR"],'jtlword_smi':["SMI", "SMI"],'jtlword_heapnumber':["HeapNumber", "堆数"],'jtlword_technique':["Technique", "技术"],'jtlword_inlining':["Inlining", "内衬"],'jtlword_licm':["LICM", "LICM"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const STAGES=['source','tokenize','parse','ast','bytecode','interpret','jit','optimized','deopt'];
 const STAGE_LABELS=['Source','Tokenizer','Parser','AST','Bytecode','Interpreter','JIT','Optimized','Deopt'];
@@ -460,19 +472,19 @@ function renderContent(){
 
   // Source
   if(currentStep>=0){
-    html+=`<div class="content-panel"><h3>Source Code</h3><div class="code-block">${escHtml(s.code)}</div></div>`;
+    html+=`<div class="content-panel"><h3 ti="h3_source_code">Source Code</h3><div class="code-block">${escHtml(s.code)}</div></div>`;
   }
 
   // Tokens
   if(currentStep>=1){
-    html+=`<div class="content-panel"><h3>Tokens</h3><div class="code-block" style="white-space:pre-wrap">`;
+    html+=`<div class="content-panel"><h3 ti="h3_tokens">Tokens</h3><div class="code-block" style="white-space:pre-wrap">`;
     s.tokens.forEach(t=>{html+=`<span class="token tk-${t.type}">${escHtml(t.val)}</span> `});
     html+=`</div></div>`;
   }
 
   // AST
   if(currentStep>=3){
-    html+=`<div class="content-panel"><h3>Abstract Syntax Tree</h3>`;
+    html+=`<div class="content-panel"><h3 ti="h3_abstract_syntax_tree">Abstract Syntax Tree</h3>`;
     s.ast.forEach(n=>{
       const cls=stage>=3?'highlight':'';
       html+=`<div class="ast-node ${cls}" style="margin-left:${n.depth*20}px">`;
@@ -487,7 +499,7 @@ function renderContent(){
 
   // Bytecode
   if(currentStep>=4){
-    html+=`<div class="content-panel"><h3>Ignition Bytecode</h3>`;
+    html+=`<div class="content-panel"><h3 ti="h3_ignition_bytecode">Ignition Bytecode</h3>`;
     s.bytecode.forEach((b,i)=>{
       const hl=stage>=4?'highlight':'';
       html+=`<div class="bytecode-line ${hl}"><span class="bc-op">${b.op}</span> <span class="bc-reg">${b.args}</span> <span style="color:#666">${b.comment}</span></div>`;
@@ -498,7 +510,7 @@ function renderContent(){
   // Execution
   if(currentStep>=5){
     const execIdx=currentStep-5;
-    html+=`<div class="content-panel"><h3>Execution Timeline</h3>`;
+    html+=`<div class="content-panel"><h3 ti="h3_execution_timeline">Execution Timeline</h3>`;
     s.execution.forEach((e,i)=>{
       if(i>execIdx)return;
       html+=`<div class="exec-line ${e.type}"><span class="step-num">${i+1}</span><span>${escHtml(e.msg)}</span></div>`;
@@ -551,7 +563,7 @@ function renderTab(){
     el.innerHTML=`
     <div class="info-card"><h4>V8 Compilation Tiers</h4>
     <table class="ref-table">
-    <tr><th>Tier</th><th>Name</th><th>Speed</th><th>Quality</th></tr>
+    <tr><th ti="th_tier">Tier</th><th ti="th_name">Name</th><th ti="th_speed">Speed</th><th ti="th_quality">Quality</th></tr>
     <tr><td>0</td><td>Ignition (Interpreter)</td><td>Instant start</td><td>Baseline</td></tr>
     <tr><td>1</td><td>Sparkplug</td><td>~ms compile</td><td>No optimization</td></tr>
     <tr><td>2</td><td>Maglev</td><td>~5ms compile</td><td>Type speculation</td></tr>
@@ -559,7 +571,7 @@ function renderTab(){
     </table></div>
     <div class="info-card"><h4>Key Concepts</h4>
     <table class="ref-table">
-    <tr><th>Concept</th><th>Description</th></tr>
+    <tr><th ti="th_concept">Concept</th><th ti="th_description">Description</th></tr>
     <tr><td>Hidden Class (Map)</td><td>Internal shape descriptor for objects. Same property order = same map.</td></tr>
     <tr><td>Inline Cache (IC)</td><td>Caches property lookup results per call site. States: uninitialized → monomorphic → polymorphic → megamorphic.</td></tr>
     <tr><td>Type Feedback</td><td>Runtime type info collected by Ignition. Guides JIT speculation.</td></tr>
@@ -570,7 +582,7 @@ function renderTab(){
     </table></div>
     <div class="info-card"><h4>Optimization Techniques</h4>
     <table class="ref-table">
-    <tr><th>Technique</th><th>What it does</th></tr>
+    <tr><th ti="th_technique">Technique</th><th ti="th_what_it_does">What it does</th></tr>
     <tr><td>Inlining</td><td>Replaces function call with function body</td></tr>
     <tr><td>Escape Analysis</td><td>Eliminates heap allocation if object doesn't escape</td></tr>
     <tr><td>LICM</td><td>Loop-Invariant Code Motion: hoists unchanging code out of loops</td></tr>
@@ -607,6 +619,24 @@ function switchTab(t){
 }
 function escHtml(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

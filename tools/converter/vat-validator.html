@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_vat_validator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -34,12 +34,14 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>VAT Validator</h1>
-<p class="subtitle">Validate European VAT numbers.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_vat_validator" ti="h1_vat_validator">VAT Validator</h1>
+<p class="subtitle" ti="subtitle_validate_european_vat_num">Validate European VAT numbers.</p>
 
 <div class="card">
-  <input id="vatInput" type="text" placeholder="Enter VAT number (e.g. BE0411905847)" value="BE0411905847" oninput="validate()" style="text-transform:uppercase">
+  <input id="vatInput" type="text" tp="placeholder_enter_vat_number_e_g_be04" placeholder="Enter VAT number (e.g. BE0411905847)" value="BE0411905847" oninput="validate()" style="text-transform:uppercase">
   
   <div id="result" class="result" style="margin-top:14px">Checking...</div>
   <div class="info-grid" id="infoGrid"></div>
@@ -47,10 +49,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <p><a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p><a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_vat_validator':["VAT Validator", "增值税验证器"],'metadesc_validate_european_vat_num':["Validate European VAT numbers for all 27 EU countries. Check format, country, and structure.", "验证欧盟27个成员国的欧洲增值税号。检查格式、国家/地区和结构。"],'h1_vat_validator':["VAT Validator", "增值税验证器"],'subtitle_validate_european_vat_num':["Validate European VAT numbers.", "验证欧洲增值税号。"],'placeholder_enter_vat_number_e_g_be04':["Enter VAT number (e.g. BE0411905847)", "请输入增值税号（例如 BE0411905847）"],'link_github':["GitHub", "GitHub"],'jtc_enter_a_vat_number':["Enter a VAT number", "请输入增值税号"],'jtc_unknown_country_code':["✗ Unknown country code:", "✗ 未知国家代码："],'jtc_valid':["✓ Valid", "✓ 有效"],'jtc_invalid_format_for':["✗ Invalid format for", "✗ 格式无效"],'jtcpre_unknown_country_code':["✗ Unknown country code: ", "✗ 未知国家代码："],'jtcpre_valid':["✓ Valid ", "✓ 有效"],'jtcpre_invalid_format_for':["✗ Invalid format for ", "✗ 格式无效"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // EU VAT validation rules for all 27 member states
 const vatRules = {
@@ -90,7 +102,7 @@ function validate() {
   
   if (!input) {
     result.className = 'result';
-    result.textContent = 'Enter a VAT number';
+    result.textContent=T("jtc_enter_a_vat_number");
     infoGrid.innerHTML = '';
     return;
   }
@@ -100,7 +112,7 @@ function validate() {
   
   if (!rule) {
     result.className = 'result invalid';
-    result.textContent = '✗ Unknown country code: ' + cc;
+    result.textContent=T("jtcpre_unknown_country_code")+ cc;
     infoGrid.innerHTML = '';
     return;
   }
@@ -109,10 +121,10 @@ function validate() {
   
   if (isValidFormat) {
     result.className = 'result valid';
-    result.textContent = '✓ Valid ' + rule.name + ' VAT Number';
+    result.textContent=T("jtcpre_valid")+ rule.name + ' VAT Number';
   } else {
     result.className = 'result invalid';
-    result.textContent = '✗ Invalid format for ' + rule.name;
+    result.textContent=T("jtcpre_invalid_format_for")+ rule.name;
   }
   
   infoGrid.innerHTML = [
@@ -126,6 +138,24 @@ function validate() {
 }
 
 validate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

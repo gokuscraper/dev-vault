@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_long_animation_frame_loaf" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -146,9 +146,15 @@ footer{padding:2rem 0;text-align:center;color:var(--text2);font-size:.8rem;borde
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <div class="container">
+  <div class="container" style="position:relative">
     <h1><span>LoAF</span> API Playground</h1>
     <p>Long Animation Frame API &mdash; diagnose slow frames &amp; INP issues interactively</p>
     <div class="browser-support" id="browserSupport">
@@ -159,25 +165,25 @@ footer{padding:2rem 0;text-align:center;color:var(--text2);font-size:.8rem;borde
 </header>
 
 <nav>
-  <div class="container">
-    <a href="#setup">Setup</a>
-    <a href="#blocker">Frame Blocker</a>
-    <a href="#timeline">Timeline</a>
-    <a href="#attribution">Attribution</a>
-    <a href="#inp">INP Demo</a>
-    <a href="#comparison">Optimization</a>
-    <a href="#scenarios">Scenarios</a>
-    <a href="#monitor">Live Monitor</a>
+  <div class="container" style="position:relative">
+    <a href="#setup" ti="link_setup" ti="link_setup" ti="link_setup">Setup</a>
+    <a href="#blocker" ti="link_frame_blocker" ti="link_frame_blocker" ti="link_frame_blocker">Frame Blocker</a>
+    <a href="#timeline" ti="link_timeline" ti="link_timeline" ti="link_timeline">Timeline</a>
+    <a href="#attribution" ti="link_attribution" ti="link_attribution" ti="link_attribution">Attribution</a>
+    <a href="#inp" ti="link_inp_demo" ti="link_inp_demo" ti="link_inp_demo">INP Demo</a>
+    <a href="#comparison" ti="link_optimization" ti="link_optimization" ti="link_optimization">Optimization</a>
+    <a href="#scenarios" ti="link_scenarios" ti="link_scenarios" ti="link_scenarios">Scenarios</a>
+    <a href="#monitor" ti="link_live_monitor" ti="link_live_monitor" ti="link_live_monitor">Live Monitor</a>
   </div>
 </nav>
 
 <!-- Setup Code -->
 <section id="setup">
-  <div class="container">
+  <div class="container" style="position:relative">
     <h2>PerformanceObserver Setup <span class="tag">Copy &amp; Paste</span></h2>
     <p class="section-desc">Drop this snippet into your app to start capturing Long Animation Frames.</p>
     <div class="code-block">
-      <button class="btn copy-btn" onclick="copyCode(this)">Copy</button>
+      <button class="btn copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
       <code><span class="cm">// Observe Long Animation Frames (Chrome 123+)</span>
 <span class="kw">const</span> observer = <span class="kw">new</span> <span class="fn">PerformanceObserver</span>(<span class="kw">function</span>(list) {
   <span class="kw">for</span> (<span class="kw">const</span> entry <span class="kw">of</span> list.<span class="fn">getEntries</span>()) {
@@ -211,12 +217,12 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
     <h2>Frame Blocker <span class="tag">Interactive</span></h2>
     <p class="section-desc">Click buttons to run expensive operations. Watch LoAF entries appear in the timeline and monitor below.</p>
     <div class="btn-group">
-      <button class="btn" onclick="blockSort()">Sort 500K items</button>
-      <button class="btn" onclick="blockDOM()">Create 5K DOM nodes</button>
-      <button class="btn" onclick="blockLoop()">Heavy loop (10M iterations)</button>
-      <button class="btn" onclick="blockReflow()">Force reflow 200x</button>
-      <button class="btn" onclick="blockJSON()">JSON parse 1MB</button>
-      <button class="btn danger" onclick="blockAll()">Run all at once</button>
+      <button class="btn" onclick="blockSort()" ti="btn_sort_500k_items" ti="btn_sort_500k_items" ti="btn_sort_500k_items">Sort 500K items</button>
+      <button class="btn" onclick="blockDOM()" ti="btn_create_5k_dom_nodes" ti="btn_create_5k_dom_nodes" ti="btn_create_5k_dom_nodes">Create 5K DOM nodes</button>
+      <button class="btn" onclick="blockLoop()" ti="btn_heavy_loop_10m_iterations" ti="btn_heavy_loop_10m_iterations" ti="btn_heavy_loop_10m_iterations">Heavy loop (10M iterations)</button>
+      <button class="btn" onclick="blockReflow()" ti="btn_force_reflow_200x" ti="btn_force_reflow_200x" ti="btn_force_reflow_200x">Force reflow 200x</button>
+      <button class="btn" onclick="blockJSON()" ti="btn_json_parse_1mb" ti="btn_json_parse_1mb" ti="btn_json_parse_1mb">JSON parse 1MB</button>
+      <button class="btn danger" onclick="blockAll()" ti="btn_run_all_at_once" ti="btn_run_all_at_once" ti="btn_run_all_at_once">Run all at once</button>
     </div>
     <div class="card" id="blockerResult">
       <p style="color:var(--text2);font-size:.85rem">Click a button above to generate long frames...</p>
@@ -238,7 +244,7 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
       </div>
     </div>
     <div style="margin-top:.6rem;display:flex;gap:.5rem">
-      <button class="btn" onclick="clearTimeline()">Clear timeline</button>
+      <button class="btn" onclick="clearTimeline()" ti="btn_clear_timeline" ti="btn_clear_timeline" ti="btn_clear_timeline">Clear timeline</button>
       <span style="font-size:.8rem;color:var(--text2);line-height:2" id="timelineCount">0 frames</span>
     </div>
   </div>
@@ -253,7 +259,7 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
       <div style="overflow-x:auto">
         <table class="script-table">
           <thead>
-            <tr><th>Invoker</th><th>Type</th><th>Function</th><th>Duration</th></tr>
+            <tr><th ti="th_invoker" ti="th_invoker" ti="th_invoker">Invoker</th><th ti="th_type" ti="th_type" ti="th_type">Type</th><th ti="th_function" ti="th_function" ti="th_function">Function</th><th ti="th_duration" ti="th_duration" ti="th_duration">Duration</th></tr>
           </thead>
           <tbody id="scriptTableBody">
             <tr><td colspan="4" style="color:var(--text2);text-align:center;padding:1.5rem">Trigger a frame blocker above to see script attribution data</td></tr>
@@ -285,9 +291,9 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
       </div>
     </div>
     <div class="btn-group" style="margin-top:1rem">
-      <button class="btn primary" id="inpTestBtn" onclick="inpTest(false)">Click me (fast response)</button>
-      <button class="btn danger" id="inpBlockBtn" onclick="inpTest(true)">Click me (blocked 200ms)</button>
-      <button class="btn" onclick="resetINP()">Reset INP</button>
+      <button class="btn primary" id="inpTestBtn" onclick="inpTest(false)" ti="btn_click_me_fast_response" ti="btn_click_me_fast_response" ti="btn_click_me_fast_response">Click me (fast response)</button>
+      <button class="btn danger" id="inpBlockBtn" onclick="inpTest(true)" ti="btn_click_me_blocked_200ms" ti="btn_click_me_blocked_200ms" ti="btn_click_me_blocked_200ms">Click me (blocked 200ms)</button>
+      <button class="btn" onclick="resetINP()" ti="btn_reset_inp" ti="btn_reset_inp" ti="btn_reset_inp">Reset INP</button>
     </div>
   </div>
 </section>
@@ -303,17 +309,17 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
         <p style="font-size:.8rem;color:var(--text2);margin-bottom:.6rem">Runs everything in one synchronous chunk. Main thread is blocked.</p>
         <div class="progress"><div class="progress-fill" id="beforeProgress" style="width:0;background:var(--red)"></div></div>
         <div class="status" id="beforeStatus">Ready</div>
-        <button class="btn danger" onclick="runBlocking()" id="beforeBtn" style="margin-top:.5rem">Run blocking</button>
+        <button class="btn danger" onclick="runBlocking()" id="beforeBtn" style="margin-top:.5rem" ti="btn_run_blocking" ti="btn_run_blocking" ti="btn_run_blocking">Run blocking</button>
       </div>
       <div class="panel after">
         <h4>After: Chunked + yield()</h4>
         <p style="font-size:.8rem;color:var(--text2);margin-bottom:.6rem">Yields to the browser between chunks. Main thread stays responsive.</p>
         <div class="progress"><div class="progress-fill" id="afterProgress" style="width:0;background:var(--green)"></div></div>
         <div class="status" id="afterStatus">Ready</div>
-        <button class="btn primary" onclick="runChunked()" id="afterBtn" style="margin-top:.5rem">Run chunked</button>
+        <button class="btn primary" onclick="runChunked()" id="afterBtn" style="margin-top:.5rem" ti="btn_run_chunked" ti="btn_run_chunked" ti="btn_run_chunked">Run chunked</button>
       </div>
     </div>
-    <button class="btn" onclick="runBoth()" style="margin-top:.8rem">Run both simultaneously</button>
+    <button class="btn" onclick="runBoth()" style="margin-top:.8rem" ti="btn_run_both_simultaneously" ti="btn_run_both_simultaneously" ti="btn_run_both_simultaneously">Run both simultaneously</button>
   </div>
 </section>
 
@@ -371,7 +377,7 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
       </div>
     </div>
     <div style="display:flex;gap:.5rem;margin-top:.5rem">
-      <button class="btn" onclick="clearMonitor()">Clear</button>
+      <button class="btn" onclick="clearMonitor()" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
       <span style="font-size:.8rem;color:var(--text2);line-height:2" id="monitorCount">0 entries</span>
     </div>
   </div>
@@ -393,6 +399,26 @@ observer.<span class="fn">observe</span>({ <span class="prop">type</span>: <span
 <!-- Scratch area for DOM operations (hidden) -->
 <div id="scratch" style="position:absolute;left:-9999px;top:-9999px;width:500px"></div>
 
+
+
+<script>var _LANG={'title_long_animation_frame_loaf':["Long Animation Frame (LoAF) API Playground", "长动画帧 (LoAF) API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Long Animation Frame (LoAF) API — diagnose INP issues with live frame timing visualization.", "长动画帧 (LoAF) API 的交互式游乐场 — 通过实时帧计时可视化诊断 INP 问题。"],'btn_copy':["Copy", "复制"],'btn_sort_500k_items':["Sort 500K items", "排序 50 万个项目"],'btn_create_5k_dom_nodes':["Create 5K DOM nodes", "创建 5000 个 DOM 节点"],'btn_heavy_loop_10m_iterations':["Heavy loop (10M iterations)", "繁重循环（1000万次迭代）"],'btn_force_reflow_200x':["Force reflow 200x", "强制回流200倍"],'btn_json_parse_1mb':["JSON parse 1MB", "JSON 解析 1MB"],'btn_run_all_at_once':["Run all at once", "一次性全部运行"],'btn_clear_timeline':["Clear timeline", "清晰的时间表"],'btn_click_me_fast_response':["Click me (fast response)", "点击我（快速响应）"],'btn_click_me_blocked_200ms':["Click me (blocked 200ms)", "点击我（阻塞200毫秒）"],'btn_reset_inp':["Reset INP", "重置 INP"],'btn_run_blocking':["Run blocking", "运行阻塞"],'btn_run_chunked':["Run chunked", "分块运行"],'btn_run_both_simultaneously':["Run both simultaneously", "同时运行这两个程序"],'btn_clear':["Clear", "清除"],'th_invoker':["Invoker", "祈求者"],'th_type':["Type", "类型"],'th_function':["Function", "功能"],'th_duration':["Duration", "期间"],'link_setup':["Setup", "设置"],'link_frame_blocker':["Frame Blocker", "帧阻挡器"],'link_timeline':["Timeline", "时间线"],'link_attribution':["Attribution", "归因"],'link_inp_demo':["INP Demo", "INP演示"],'link_optimization':["Optimization", "优化"],'link_scenarios':["Scenarios", "场景"],'link_live_monitor':["Live Monitor", "实时监控"],'jtc_supported_chrome_123':["Supported — Chrome 123+", "支持 — Chrome 123+"],'jtc_not_supported_in_this_bro':["Not supported in this browser (needs Chrome 123+). Demo UI still works.", "此浏览器不支持（需要 Chrome 123 或更高版本）。演示界面仍然有效。"],'jtc_0_frames':["0 frames", "0帧"],'jtc_0_entries':["0 entries", "0 条记录"],'jtc_node':["Node", "节点"],'jtc_node_2':["Node", "节点"],'jtc_0_ms':["0 ms", "0 毫秒"],'jtc_good':["Good", "好的"],'jtc_x':["--", "--"],'jtc_running':["Running...", "跑步..."],'jtc_done_in':["Done in", "完成于"],'jtc_running_2':["Running...", "跑步..."],'jtc_done_in_2':["Done in", "完成于"],'jtc_item':["Item", "物品"],'jtc_reflow_target':["Reflow target", "回流目标"],'jtcpre_node':["Node ", "节点"],'jtcpre_node_2':["Node ", "节点"],'jtcpre_done_in':["Done in ", "完成于"],'jtcpre_done_in_2':["Done in ", "完成于"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_long_animation_frame_loaf':["Long Animation Frame (LoAF) API Playground", "长动画帧 (LoAF) API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Long Animation Frame (LoAF) API — diagnose INP issues with live frame timing visualization.", "长动画帧 (LoAF) API 的交互式游乐场 — 通过实时帧计时可视化诊断 INP 问题。"],'btn_copy':["Copy", "复制"],'btn_sort_500k_items':["Sort 500K items", "排序 50 万个项目"],'btn_create_5k_dom_nodes':["Create 5K DOM nodes", "创建 5000 个 DOM 节点"],'btn_heavy_loop_10m_iterations':["Heavy loop (10M iterations)", "繁重循环（1000万次迭代）"],'btn_force_reflow_200x':["Force reflow 200x", "强制回流200倍"],'btn_json_parse_1mb':["JSON parse 1MB", "JSON 解析 1MB"],'btn_run_all_at_once':["Run all at once", "一次性全部运行"],'btn_clear_timeline':["Clear timeline", "清晰的时间表"],'btn_click_me_fast_response':["Click me (fast response)", "点击我（快速响应）"],'btn_click_me_blocked_200ms':["Click me (blocked 200ms)", "点击我（阻塞200毫秒）"],'btn_reset_inp':["Reset INP", "重置 INP"],'btn_run_blocking':["Run blocking", "运行阻塞"],'btn_run_chunked':["Run chunked", "分块运行"],'btn_run_both_simultaneously':["Run both simultaneously", "同时运行这两个程序"],'btn_clear':["Clear", "清除"],'th_invoker':["Invoker", "祈求者"],'th_type':["Type", "类型"],'th_function':["Function", "功能"],'th_duration':["Duration", "期间"],'link_setup':["Setup", "设置"],'link_frame_blocker':["Frame Blocker", "帧阻挡器"],'link_timeline':["Timeline", "时间线"],'link_attribution':["Attribution", "归因"],'link_inp_demo':["INP Demo", "INP演示"],'link_optimization':["Optimization", "优化"],'link_scenarios':["Scenarios", "场景"],'link_live_monitor':["Live Monitor", "实时监控"],'jtc_supported_chrome_123':["Supported — Chrome 123+", "支持 — Chrome 123+"],'jtc_not_supported_in_this_bro':["Not supported in this browser (needs Chrome 123+). Demo UI still works.", "此浏览器不支持（需要 Chrome 123 或更高版本）。演示界面仍然有效。"],'jtc_0_frames':["0 frames", "0帧"],'jtc_0_entries':["0 entries", "0 条记录"],'jtc_node':["Node", "节点"],'jtc_node_2':["Node", "节点"],'jtc_0_ms':["0 ms", "0 毫秒"],'jtc_good':["Good", "好的"],'jtc_x':["--", "--"],'jtc_running':["Running...", "跑步..."],'jtc_done_in':["Done in", "完成于"],'jtc_running_2':["Running...", "跑步..."],'jtc_done_in_2':["Done in", "完成于"],'jtc_item':["Item", "物品"],'jtc_reflow_target':["Reflow target", "回流目标"],'jtcpre_node':["Node ", "节点"],'jtcpre_node_2':["Node ", "节点"],'jtcpre_done_in':["Done in ", "完成于"],'jtcpre_done_in_2':["Done in ", "完成于"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 let loafEntries = [];
@@ -413,10 +439,10 @@ let supported = false;
   const text = document.getElementById('supportText');
   if (supported) {
     dot.classList.add('ok');
-    text.textContent = 'Supported — Chrome 123+';
+    text.textContent=T("jtc_supported_chrome_123");
   } else {
     dot.classList.add('no');
-    text.textContent = 'Not supported in this browser (needs Chrome 123+). Demo UI still works.';
+    text.textContent=T("jtc_not_supported_in_this_bro");
   }
 })();
 
@@ -457,7 +483,7 @@ function addTimelineBar(entry) {
 function clearTimeline() {
   document.getElementById('timelineTrack').innerHTML = '';
   timelineFrames = 0;
-  document.getElementById('timelineCount').textContent = '0 frames';
+  document.getElementById('timelineCount').textContent=T("jtc_0_frames");
 }
 
 // --- Monitor ---
@@ -493,7 +519,7 @@ function clearMonitor() {
   list.innerHTML = '';
   if (header) list.appendChild(header);
   monitorEntries = 0;
-  document.getElementById('monitorCount').textContent = '0 entries';
+  document.getElementById('monitorCount').textContent=T("jtc_0_entries");
 }
 
 // --- Script Attribution ---
@@ -531,7 +557,7 @@ function blockDOM() {
     const frag = document.createDocumentFragment();
     for (let i = 0; i < 5000; i++) {
       const div = document.createElement('div');
-      div.textContent = 'Node ' + i;
+      div.textContent=T("jtcpre_node")+ i;
       div.style.cssText = 'padding:2px;border:1px solid #333;margin:1px;font-size:10px';
       frag.appendChild(div);
     }
@@ -590,7 +616,7 @@ function blockAll() {
     const frag = document.createDocumentFragment();
     for (let i = 0; i < 5000; i++) {
       const div = document.createElement('div');
-      div.textContent = 'Node ' + i;
+      div.textContent=T("jtcpre_node")+ i;
       frag.appendChild(div);
     }
     const scratch = document.getElementById('scratch');
@@ -646,10 +672,10 @@ function updateINP() {
 
 function resetINP() {
   inpInteractions = [];
-  document.getElementById('inpValue').textContent = '0 ms';
+  document.getElementById('inpValue').textContent=T("jtc_0_ms");
   document.getElementById('inpValue').className = 'inp-value good';
-  document.getElementById('inpRating').textContent = 'Good';
-  document.getElementById('worstInp').textContent = '--';
+  document.getElementById('inpRating').textContent=T("jtc_good");
+  document.getElementById('worstInp').textContent=T("jtc_x");
   document.getElementById('worstInp').className = 'inp-value';
   document.getElementById('inpCount').textContent = '0';
 }
@@ -661,7 +687,7 @@ const CHUNK_SIZE = 50000;
 function runBlocking() {
   const btn = document.getElementById('beforeBtn');
   btn.disabled = true;
-  document.getElementById('beforeStatus').textContent = 'Running...';
+  document.getElementById('beforeStatus').textContent=T("jtc_running");
   document.getElementById('beforeProgress').style.width = '0';
   const start = performance.now();
   requestAnimationFrame(function() {
@@ -671,7 +697,7 @@ function runBlocking() {
     }
     const elapsed = performance.now() - start;
     document.getElementById('beforeProgress').style.width = '100%';
-    document.getElementById('beforeStatus').textContent = 'Done in ' + Math.round(elapsed) + 'ms (blocked entire time)';
+    document.getElementById('beforeStatus').textContent=T("jtcpre_done_in")+ Math.round(elapsed) + 'ms (blocked entire time)';
     btn.disabled = false;
   });
 }
@@ -679,7 +705,7 @@ function runBlocking() {
 async function runChunked() {
   const btn = document.getElementById('afterBtn');
   btn.disabled = true;
-  document.getElementById('afterStatus').textContent = 'Running...';
+  document.getElementById('afterStatus').textContent=T("jtc_running");
   document.getElementById('afterProgress').style.width = '0';
   const start = performance.now();
   let sum = 0;
@@ -702,7 +728,7 @@ async function runChunked() {
     }
   }
   const elapsed = performance.now() - start;
-  document.getElementById('afterStatus').textContent = 'Done in ' + Math.round(elapsed) + 'ms (stayed responsive)';
+  document.getElementById('afterStatus').textContent=T("jtcpre_done_in")+ Math.round(elapsed) + 'ms (stayed responsive)';
   btn.disabled = false;
 }
 
@@ -720,7 +746,7 @@ function scenarioDOMThrash() {
     for (let i = 0; i < 100; i++) {
       const div = document.createElement('div');
       div.style.cssText = 'width:50px;height:20px;padding:5px;border:1px solid #444';
-      div.textContent = 'Item';
+      div.textContent=T("jtc_item");
       scratch.appendChild(div);
     }
     // DOM thrash: read-write-read-write cycle
@@ -761,7 +787,7 @@ function scenarioForcedReflow() {
     scratch.innerHTML = '';
     const el = document.createElement('div');
     el.style.cssText = 'width:100px;padding:10px;transition:none';
-    el.textContent = 'Reflow target';
+    el.textContent=T("jtc_reflow_target");
     scratch.appendChild(el);
     for (let i = 0; i < 500; i++) {
       el.style.width = (100 + (i % 200)) + 'px';
@@ -888,6 +914,60 @@ if (!supported) {
     });
   };
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

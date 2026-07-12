@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_yaml_json_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,44 +59,56 @@ footer a:hover{color:#999}
 <script src="https://cdn.jsdelivr.net/npm/js-yaml@4.1.0/dist/js-yaml.min.js"></script>
 </head>
 <body>
-<div class="container">
-<h1>YAML ↔ JSON</h1>
-<p class="subtitle">Convert between YAML and JSON. No upload, no server.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_yaml_json">YAML ↔ JSON</h1>
+<p class="subtitle" ti="subtitle_convert_between_yaml_and">Convert between YAML and JSON. No upload, no server.</p>
 
 <div class="mode-toggle">
-  <button class="mode-btn active" onclick="setMode('yaml2json')">YAML → JSON</button>
-  <button class="mode-btn" onclick="setMode('json2yaml')">JSON → YAML</button>
+  <button class="mode-btn active" onclick="setMode('yaml2json')" ti="btn_yaml_json">YAML → JSON</button>
+  <button class="mode-btn" onclick="setMode('json2yaml')" ti="btn_json_yaml">JSON → YAML</button>
 </div>
 
 <div class="options">
-  <div class="opt"><label>JSON indent</label><select id="jsonIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option><option value="0">Minified</option></select></div>
-  <div class="opt"><label>YAML indent</label><select id="yamlIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option></select></div>
+  <div class="opt"><label ti="label_json_indent">JSON indent</label><select id="jsonIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option><option value="0">Minified</option></select></div>
+  <div class="opt"><label ti="label_yaml_indent">YAML indent</label><select id="yamlIndent"><option value="2">2 spaces</option><option value="4">4 spaces</option></select></div>
 </div>
 
 <div class="editor">
-  <div class="pane"><h3 id="inputLabel">YAML Input</h3><textarea id="input" placeholder="Paste YAML here..."></textarea></div>
-  <div class="pane"><h3 id="outputLabel">JSON Output</h3><textarea id="output" readonly placeholder="Result will appear here..."></textarea></div>
+  <div class="pane"><h3 id="inputLabel" ti="h3_yaml_input">YAML Input</h3><textarea id="input" tp="placeholder_paste_yaml_here" placeholder="Paste YAML here..."></textarea></div>
+  <div class="pane"><h3 id="outputLabel" ti="h3_json_output">JSON Output</h3><textarea id="output" readonly tp="placeholder_result_will_appear_here" placeholder="Result will appear here..."></textarea></div>
 </div>
 
 <div class="error-box" id="errorBox"></div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="convert()">Convert</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="downloadOutput()">Download</button>
-  <button class="btn" onclick="swap()">⇄ Swap</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
-  <button class="btn" onclick="loadSample()">Sample</button>
+  <button class="btn primary" onclick="convert()" ti="btn_convert">Convert</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadOutput()" ti="btn_download">Download</button>
+  <button class="btn" onclick="swap()" ti="btn_swap">⇄ Swap</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
+  <button class="btn" onclick="loadSample()" ti="btn_sample">Sample</button>
 </div>
 
 <div class="stats" id="stats"></div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/yaml-json">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/yaml-json" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_yaml_json_converter':["YAML ↔ JSON — Converter", "YAML ↔ JSON — 转换器"],'metadesc_convert_yaml_to_json_and':["Convert YAML to JSON and JSON to YAML. Validate, format, minify. Handles nested objects, arrays, anchors. Free, no upload.", "YAML 转 JSON，JSON 转 YAML。支持验证、格式化和压缩。支持嵌套对象、数组和锚点。免费，无需上传。"],'h1_yaml_json':["YAML ↔ JSON", "YAML ↔ JSON"],'h3_yaml_input':["YAML Input", "YAML 输入"],'h3_json_output':["JSON Output", "JSON 输出"],'subtitle_convert_between_yaml_and':["Convert between YAML and JSON. No upload, no server.", "YAML 和 JSON 之间相互转换。无需上传，无需服务器。"],'btn_yaml_json':["YAML → JSON", "YAML → JSON"],'btn_json_yaml':["JSON → YAML", "JSON → YAML"],'btn_convert':["Convert", "转变"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_swap':["⇄ Swap", "⇄ 交换"],'btn_clear':["Clear", "清除"],'btn_sample':["Sample", "样本"],'placeholder_paste_yaml_here':["Paste YAML here...", "在此处粘贴 YAML 文件……"],'placeholder_result_will_appear_here':["Result will appear here...", "结果将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'label_json_indent':["JSON indent", "JSON 缩进"],'label_yaml_indent':["YAML indent", "YAML 缩进"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let mode='yaml2json';
 
@@ -129,7 +141,7 @@ function convert(){
     document.getElementById('output').value=result;
     showStats(input,result);
   }catch(e){
-    errBox.textContent='Error: '+e.message;
+    errBox.textContent=T("jtcpre_error")+e.message;
     errBox.style.display='block';
     document.getElementById('output').value='';
   }
@@ -238,12 +250,30 @@ document.getElementById('input').addEventListener('input',()=>{
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/toml-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">TOML ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/csv-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSV ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-schema/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Schema</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

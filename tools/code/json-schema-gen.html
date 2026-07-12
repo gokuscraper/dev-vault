@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_schema_generator_inf" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -39,9 +39,11 @@ textarea:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JSON Schema Generator</h1>
-<p class="sub">Paste JSON, get a schema — auto-infer types, required fields, patterns</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_json_schema_generator">JSON Schema Generator</h1>
+<p class="sub" ti="subtitle_paste_json_get_a_schema_a">Paste JSON, get a schema — auto-infer types, required fields, patterns</p>
 
 <div class="samples">
 <span class="sample" onclick="loadSample('user')">User</span>
@@ -52,16 +54,16 @@ textarea:focus{border-color:#3b82f6}
 </div>
 
 <div class="options">
-<div class="check-row"><input type="checkbox" id="optReq" checked onchange="gen()"><label for="optReq">All fields required</label></div>
-<div class="check-row"><input type="checkbox" id="optDesc" onchange="gen()"><label for="optDesc">Add descriptions</label></div>
-<div class="check-row"><input type="checkbox" id="optExamples" checked onchange="gen()"><label for="optExamples">Include examples</label></div>
-<div class="check-row"><input type="checkbox" id="optPatterns" checked onchange="gen()"><label for="optPatterns">Infer patterns</label></div>
-<div class="check-row"><input type="checkbox" id="optNoAdditional" onchange="gen()"><label for="optNoAdditional">No additional properties</label></div>
+<div class="check-row"><input type="checkbox" id="optReq" checked onchange="gen()"><label for="optReq" ti="label_all_fields_required">All fields required</label></div>
+<div class="check-row"><input type="checkbox" id="optDesc" onchange="gen()"><label for="optDesc" ti="label_add_descriptions">Add descriptions</label></div>
+<div class="check-row"><input type="checkbox" id="optExamples" checked onchange="gen()"><label for="optExamples" ti="label_include_examples">Include examples</label></div>
+<div class="check-row"><input type="checkbox" id="optPatterns" checked onchange="gen()"><label for="optPatterns" ti="label_infer_patterns">Infer patterns</label></div>
+<div class="check-row"><input type="checkbox" id="optNoAdditional" onchange="gen()"><label for="optNoAdditional" ti="label_no_additional_properties">No additional properties</label></div>
 </div>
 
 <div class="panels">
 <div class="panel">
-<h3>Input JSON</h3>
+<h3 ti="h3_input_json">Input JSON</h3>
 <textarea id="input" oninput="gen()" spellcheck="false">{
   "id": 1,
   "name": "Alice",
@@ -78,17 +80,27 @@ textarea:focus{border-color:#3b82f6}
 <div class="error" id="error"></div>
 </div>
 <div class="panel">
-<h3>JSON Schema</h3>
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<h3 ti="h3_json_schema">JSON Schema</h3>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <textarea id="output" readonly spellcheck="false"></textarea>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-formatter/">JSON Formatter</a> | <a href="https://gokuscraper.github.io/dev-vault/json-path/">JSON Path</a> | <a href="https://gokuscraper.github.io/dev-vault/json-diff/">JSON Diff</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/json-formatter/" ti="link_json_formatter">JSON Formatter</a> | <a href="https://gokuscraper.github.io/dev-vault/json-path/" ti="link_json_path">JSON Path</a> | <a href="https://gokuscraper.github.io/dev-vault/json-diff/" ti="link_json_diff">JSON Diff</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_json_schema_generator_inf':["JSON Schema Generator — Infer Schema from JSON", "JSON Schema 生成器 — 从 JSON 推断 Schema"],'metadesc_generate_json_schema_from':["Generate JSON Schema from sample JSON data. Auto-infer types, required fields, patterns, enums. Draft 2020-12 output. No signup.", "从示例 JSON 数据生成 JSON Schema。自动推断类型、必填字段、模式和枚举。2020 年 12 月草案输出。无需注册。"],'h1_json_schema_generator':["JSON Schema Generator", "JSON Schema 生成器"],'h3_input_json':["Input JSON", "输入 JSON"],'h3_json_schema':["JSON Schema", "JSON 模式"],'subtitle_paste_json_get_a_schema_a':["Paste JSON, get a schema — auto-infer types, required fields, patterns", "粘贴 JSON，获取模式——自动推断类型、必填字段和模式"],'btn_copy':["Copy", "复制"],'label_all_fields_required':["All fields required", "所有字段均为必填项"],'label_add_descriptions':["Add descriptions", "添加描述"],'label_include_examples':["Include examples", "请举例说明"],'label_infer_patterns':["Infer patterns", "推断模式"],'label_no_additional_properties':["No additional properties", "无其他属性"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_json_formatter':["JSON Formatter", "JSON格式化程序"],'link_json_path':["JSON Path", "JSON 路径"],'link_json_diff':["JSON Diff", "JSON 差异"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SAMPLES={
 user:`{
@@ -275,6 +287,24 @@ function copyOut(){
 }
 
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

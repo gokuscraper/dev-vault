@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_http_2_multiplexing_visua" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -92,23 +92,25 @@ header p{color:#888;font-size:0.85rem}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>HTTP/2 Multiplexing Visualizer</h1>
+<h1 ti="title_http_2_multiplexing_visua" ti="h1_http_2_multiplexing_visua">HTTP/2 Multiplexing Visualizer</h1>
 <p>See how HTTP/2 streams interleave on a single connection vs HTTP/1.1 head-of-line blocking</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" data-tab="compare">Compare</button>
-<button class="tab" data-tab="hpack">HPACK</button>
-<button class="tab" data-tab="presets">Scenarios</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="compare" ti="btn_compare">Compare</button>
+<button class="tab" data-tab="hpack" ti="btn_hpack">HPACK</button>
+<button class="tab" data-tab="presets" ti="btn_scenarios">Scenarios</button>
+<button class="tab" data-tab="reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="compare">
 <div class="controls">
-<button class="btn success" id="simulateBtn">▶ Simulate</button>
-<button class="btn" id="resetBtn">↺ Reset</button>
+<button class="btn success" id="simulateBtn" ti="btn_simulate">▶ Simulate</button>
+<button class="btn" id="resetBtn" ti="btn_reset">↺ Reset</button>
 <label style="color:#888;font-size:0.8rem">Requests:
 <select id="requestCount" style="padding:4px;border-radius:4px;border:1px solid #333;background:#0a0a0a;color:#e6e6e6">
 <option value="4">4</option><option value="6" selected>6</option><option value="8">8</option><option value="12">12</option>
@@ -121,13 +123,13 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="compare">
 <div class="protocol-panel h1">
-<h3>HTTP/1.1</h3>
+<h3 ti="h3_http_1_1">HTTP/1.1</h3>
 <div class="subtitle">Multiple connections, head-of-line blocking</div>
 <div class="connection" id="h1View"></div>
 <div class="stats-row" id="h1Stats"></div>
 </div>
 <div class="protocol-panel h2">
-<h3>HTTP/2</h3>
+<h3 ti="h3_http_2">HTTP/2</h3>
 <div class="subtitle">Single connection, multiplexed streams</div>
 <div class="connection" id="h2View"></div>
 <div class="stats-row" id="h2Stats"></div>
@@ -137,7 +139,7 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="panel" id="hpack">
 <div class="hpack-demo">
-<h3>HPACK Header Compression</h3>
+<h3 ti="h3_hpack_header_compression">HPACK Header Compression</h3>
 <p style="color:#888;font-size:0.82rem;margin-bottom:16px">HTTP/2 uses HPACK to compress headers. Static table + dynamic table + Huffman encoding reduce header overhead dramatically.</p>
 
 <h4 style="color:#aaa;font-size:0.85rem;margin-bottom:8px">Request 1 (cold start — all headers sent)</h4>
@@ -149,11 +151,11 @@ header p{color:#888;font-size:0.85rem}
 <div style="margin-top:16px">
 <h4 style="color:#aaa;font-size:0.85rem;margin-bottom:8px">Compression Ratio</h4>
 <div class="compression-bar">
-<span class="label">Original</span>
+<span class="label" ti="label_original">Original</span>
 <div class="bar"><div class="fill original" style="width:100%">~350 bytes</div></div>
 </div>
 <div class="compression-bar" style="margin-top:4px">
-<span class="label">HPACK'd</span>
+<span class="label" ti="label_hpack_d">HPACK'd</span>
 <div class="bar"><div class="fill compressed" style="width:15%">~50 bytes (85% smaller)</div></div>
 </div>
 </div>
@@ -166,26 +168,26 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>HTTP/1.1 Limitations</h3>
+<h3 ti="h3_http_1_1_limitations">HTTP/1.1 Limitations</h3>
 <ul>
-<li><strong>Head-of-line blocking</strong>: Only one request at a time per connection. Browser opens 6 connections max per domain.</li>
-<li><strong>No multiplexing</strong>: Response must complete before next request starts on that connection.</li>
-<li><strong>Header redundancy</strong>: Full headers sent with every request (cookies, user-agent, etc.)</li>
-<li><strong>Domain sharding</strong>: Workaround — split assets across subdomains to get more connections.</li>
+<li><strong ti="strong_head_of_line_blocking">Head-of-line blocking</strong>: Only one request at a time per connection. Browser opens 6 connections max per domain.</li>
+<li><strong ti="strong_no_multiplexing">No multiplexing</strong>: Response must complete before next request starts on that connection.</li>
+<li><strong ti="strong_header_redundancy">Header redundancy</strong>: Full headers sent with every request (cookies, user-agent, etc.)</li>
+<li><strong ti="strong_domain_sharding">Domain sharding</strong>: Workaround — split assets across subdomains to get more connections.</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>HTTP/2 Improvements</h3>
+<h3 ti="h3_http_2_improvements">HTTP/2 Improvements</h3>
 <ul>
-<li><strong>Multiplexing</strong>: Multiple streams on a single TCP connection. No head-of-line blocking at HTTP layer.</li>
-<li><strong>Stream prioritization</strong>: Client can hint which resources are more important.</li>
-<li><strong>HPACK compression</strong>: Headers compressed with static table + dynamic table + Huffman encoding.</li>
-<li><strong>Server Push</strong>: Server can proactively send resources the client will need.</li>
-<li><strong>Binary framing</strong>: All communication is in binary frames, not text.</li>
+<li><strong ti="strong_multiplexing">Multiplexing</strong>: Multiple streams on a single TCP connection. No head-of-line blocking at HTTP layer.</li>
+<li><strong ti="strong_stream_prioritization">Stream prioritization</strong>: Client can hint which resources are more important.</li>
+<li><strong ti="strong_hpack_compression">HPACK compression</strong>: Headers compressed with static table + dynamic table + Huffman encoding.</li>
+<li><strong ti="strong_server_push">Server Push</strong>: Server can proactively send resources the client will need.</li>
+<li><strong ti="strong_binary_framing">Binary framing</strong>: All communication is in binary frames, not text.</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>HTTP/2 Stream States</h3>
+<h3 ti="h3_http_2_stream_states">HTTP/2 Stream States</h3>
 <ul>
 <li><code>idle</code> → <code>open</code> (after HEADERS frame)</li>
 <li><code>open</code> → <code>half-closed</code> (after END_STREAM on one side)</li>
@@ -194,7 +196,7 @@ header p{color:#888;font-size:0.85rem}
 </ul>
 </div>
 <div class="ref-section">
-<h3>HTTP/3 (QUIC)</h3>
+<h3 ti="h3_http_3_quic">HTTP/3 (QUIC)</h3>
 <ul>
 <li>Solves TCP-level head-of-line blocking (HTTP/2 still has this at TCP layer)</li>
 <li>Built on UDP with QUIC transport protocol</li>
@@ -205,6 +207,16 @@ header p{color:#888;font-size:0.85rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_http_2_multiplexing_visua':["HTTP/2 Multiplexing Visualizer", "HTTP/2 多路复用可视化工具"],'metadesc_interactive_http_2_multip':["Interactive HTTP/2 multiplexing visualizer. See how streams interleave on a single connection. Compare HTTP/1.1 head-of-line blocking vs HTTP/2 multiplexing. HPACK header compression demo.", "交互式 HTTP/2 多路复用可视化工具。查看单个连接上数据流的交错传输。比较 HTTP/1.1 队头阻塞与 HTTP/2 多路复用。HPACK 头部压缩演示。"],'h1_http_2_multiplexing_visua':["HTTP/2 Multiplexing Visualizer", "HTTP/2 多路复用可视化工具"],'h3_http_1_1':["HTTP/1.1", "HTTP/1.1"],'h3_http_2':["HTTP/2", "HTTP/2"],'h3_hpack_header_compression':["HPACK Header Compression", "HPACK头部压缩"],'h3_http_1_1_limitations':["HTTP/1.1 Limitations", "HTTP/1.1 的限制"],'h3_http_2_improvements':["HTTP/2 Improvements", "HTTP/2 改进"],'h3_http_2_stream_states':["HTTP/2 Stream States", "HTTP/2 流状态"],'h3_http_3_quic':["HTTP/3 (QUIC)", "HTTP/3 (QUIC)"],'btn_compare':["Compare", "比较"],'btn_hpack':["HPACK", "HPACK"],'btn_scenarios':["Scenarios", "场景"],'btn_reference':["Reference", "参考"],'btn_simulate':["▶ Simulate", "▶ 模拟"],'btn_reset':["↺ Reset", "↺ 重置"],'label_original':["Original", "原来的"],'label_hpack_d':["HPACK'd", "HPACK 封装"],'label_r_name':["${r.name}", "${r.name}"],'label_stream_i_2_1':["Stream ${i * 2 + 1}", "流 ${i * 2 + 1}"],'strong_head_of_line_blocking':["Head-of-line blocking", "队伍首位阻挡"],'strong_no_multiplexing':["No multiplexing", "无多路复用"],'strong_header_redundancy':["Header redundancy", "头部冗余"],'strong_domain_sharding':["Domain sharding", "域分片"],'strong_multiplexing':["Multiplexing", "多路复用"],'strong_stream_prioritization':["Stream prioritization", "流优先级"],'strong_hpack_compression':["HPACK compression", "HPACK压缩"],'strong_server_push':["Server Push", "服务器推送"],'strong_binary_framing':["Binary framing", "二元框架"],'th_header':["Header", "标题"],'th_value':["Value", "价值"],'th_encoding':["Encoding", "编码"],'th_size':["Size", "尺寸"],'th_header_2':["Header", "标题"],'th_value_2':["Value", "价值"],'th_encoding_2':["Encoding", "编码"],'th_size_2':["Size", "尺寸"],'jtc_single_connection_all_str':["Single Connection — All Streams Multiplexed", "单连接 — 所有流复用"],'jtlword_connections':["Connections", "连接"],'jtlword_connection':["Connection", "联系"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COLORS = ['c1','c2','c3','c4','c5','c6','c7','c8'];
 const RESOURCES = [
@@ -265,7 +277,7 @@ function renderH1(resources, maxConn) {
     conn.forEach((r, ri) => {
       const row = document.createElement('div');
       row.className = 'stream-row';
-      row.innerHTML = `<span class="stream-label">${r.name}</span><div class="stream-track"><div style="display:flex;height:100%"><div style="width:${offset * scale}%;min-width:${offset * scale}%"></div><div class="stream-bar ${COLORS[(ci * 3 + ri) % 8]}" style="width:${r.size * scale}%"><span class="bar-text">${r.size}KB</span></div></div></div>`;
+      row.innerHTML = `<span class="stream-label" ti="label_r_name">${r.name}</span><div class="stream-track"><div style="display:flex;height:100%"><div style="width:${offset * scale}%;min-width:${offset * scale}%"></div><div class="stream-bar ${COLORS[(ci * 3 + ri) % 8]}" style="width:${r.size * scale}%"><span class="bar-text">${r.size}KB</span></div></div></div>`;
       view.appendChild(row);
       offset += r.size;
     });
@@ -292,7 +304,7 @@ function renderH2(resources) {
 
   const label = document.createElement('div');
   label.className = 'conn-label';
-  label.textContent = 'Single Connection — All Streams Multiplexed';
+  label.textContent=T("jtc_single_connection_all_str");
   view.appendChild(label);
 
   // All resources in parallel, time = max single resource
@@ -311,7 +323,7 @@ function renderH2(resources) {
     for (let f = 0; f < frameCount; f++) {
       framesHTML += `<div class="frame ${COLORS[i % 8]}" style="width:${frameWidth}%;flex-shrink:0;opacity:${0.6 + 0.4 * (f / frameCount)}"></div>`;
     }
-    row.innerHTML = `<span class="stream-label">Stream ${i * 2 + 1}</span><div class="stream-track"><div class="frame-container">${framesHTML}</div></div>`;
+    row.innerHTML = `<span class="stream-label" ti="label_stream_i_2_1">Stream ${i * 2 + 1}</span><div class="stream-track"><div class="frame-container">${framesHTML}</div></div>`;
     view.appendChild(row);
   });
 
@@ -351,7 +363,7 @@ function renderHPACK() {
   ];
 
   const table1 = document.getElementById('hpackTable1');
-  table1.innerHTML = '<tr><th>Header</th><th>Value</th><th>Encoding</th><th class="size">Size</th></tr>';
+  table1.innerHTML = '<tr><th ti="th_header" ti="th_header_2">Header</th><th ti="th_value" ti="th_value_2">Value</th><th ti="th_encoding" ti="th_encoding_2">Encoding</th><th class="size" ti="th_size" ti="th_size_2">Size</th></tr>';
   let total1 = 0;
   headers1.forEach(h => {
     const size = h.static ? 1 : (h.key.length + h.val.length);
@@ -426,6 +438,24 @@ PRESETS.forEach(p => {
 // Init
 simulate();
 renderHPACK();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

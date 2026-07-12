@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_attr_function_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -563,10 +563,12 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- ── Header ── -->
 <header>
-  <div class="container">
+  <div class="container" style="position:relative">
     <h1>CSS <code>attr()</code> Playground</h1>
     <p>The attr() function can now go beyond <code>content:</code> &mdash; use data-* attributes to drive colors, lengths, and more, directly in CSS.</p>
     <div class="browser-support">
@@ -580,15 +582,15 @@ footer a:hover { text-decoration: underline; }
 <!-- ── Nav ── -->
 <nav>
   <div class="container">
-    <a href="#color">Color</a>
-    <a href="#size">Size</a>
-    <a href="#types">Type Conversion</a>
-    <a href="#theming">Dynamic Theming</a>
-    <a href="#table">Data Table</a>
-    <a href="#print">Print Links</a>
-    <a href="#tooltips">Tooltips</a>
+    <a href="#color" ti="link_color">Color</a>
+    <a href="#size" ti="link_size">Size</a>
+    <a href="#types" ti="link_type_conversion">Type Conversion</a>
+    <a href="#theming" ti="link_dynamic_theming">Dynamic Theming</a>
+    <a href="#table" ti="link_data_table">Data Table</a>
+    <a href="#print" ti="link_print_links">Print Links</a>
+    <a href="#tooltips" ti="link_tooltips">Tooltips</a>
     <a href="#editor">Editor</a>
-    <a href="#reference">Reference</a>
+    <a href="#reference" ti="link_reference">Reference</a>
   </div>
 </nav>
 
@@ -603,18 +605,18 @@ footer a:hover { text-decoration: underline; }
 
   <div class="demo-card">
     <div class="demo-card-header">
-      <h3>Live Demo</h3>
-      <button class="btn copy-btn" onclick="copyText(this, colorCssOutput.textContent)">Copy CSS</button>
+      <h3 ti="h3_live_demo" ti="h3_live_demo_2" ti="h3_live_demo_3" ti="h3_live_demo_4">Live Demo</h3>
+      <button class="btn copy-btn" onclick="copyText(this, colorCssOutput.textContent)" ti="btn_copy_css" ti="btn_copy_css_2" ti="btn_copy_css_3" ti="btn_copy_css_4" ti="btn_copy_css_5" ti="btn_copy_css_6" ti="btn_copy_css_7">Copy CSS</button>
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
-        <label>HTML (edit data-color values)</label>
+        <label ti="label_html_edit_data_color_valu">HTML (edit data-color values)</label>
         <textarea id="colorHtmlEditor" spellcheck="false"></textarea>
-        <label>Generated CSS</label>
+        <label ti="label_generated_css" ti="label_generated_css_2" ti="label_generated_css_3" ti="label_generated_css_4" ti="label_generated_css_5">Generated CSS</label>
         <div class="css-output" id="colorCssOutput"></div>
       </div>
       <div class="demo-preview attr-color-demo" id="colorPreview">
-        <span class="demo-preview-label">Preview</span>
+        <span class="demo-preview-label" ti="label_preview" ti="label_preview_2" ti="label_preview_3" ti="label_preview_4" ti="label_preview_5">Preview</span>
       </div>
     </div>
   </div>
@@ -634,7 +636,7 @@ footer a:hover { text-decoration: underline; }
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
-        <label>HTML (edit data-width / data-height)</label>
+        <label ti="label_html_edit_data_width_data">HTML (edit data-width / data-height)</label>
         <textarea id="sizeHtmlEditor" spellcheck="false"></textarea>
         <label>Generated CSS</label>
         <div class="css-output" id="sizeCssOutput"></div>
@@ -654,7 +656,7 @@ footer a:hover { text-decoration: underline; }
   <p>The full syntax: <code>attr(&lt;attr-name&gt; type(&lt;syntax&gt;), &lt;fallback&gt;)</code>. Here are the supported types in action.</p>
 
   <div class="demo-card">
-    <div class="demo-card-header"><h3>Type Examples</h3></div>
+    <div class="demo-card-header"><h3 ti="h3_type_examples">Type Examples</h3></div>
     <div class="demo-card-body single" style="padding: 20px;">
       <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 12px;" id="typeExamples">
         <!-- Filled by JS -->
@@ -672,32 +674,32 @@ footer a:hover { text-decoration: underline; }
 
   <div class="demo-card">
     <div class="demo-card-header">
-      <h3>Theme Controls</h3>
+      <h3 ti="h3_theme_controls">Theme Controls</h3>
       <button class="btn copy-btn" onclick="copyText(this, themeCssOutput.textContent)">Copy CSS</button>
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
         <div class="control-row">
-          <label>data-bg</label>
+          <label ti="label_data_bg">data-bg</label>
           <input type="color" id="themeBg" value="#1a1a2e">
           <input type="text" id="themeBgText" value="#1a1a2e" size="8">
         </div>
         <div class="control-row">
-          <label>data-fg</label>
+          <label ti="label_data_fg">data-fg</label>
           <input type="color" id="themeFg" value="#eaeaea">
           <input type="text" id="themeFgText" value="#eaeaea" size="8">
         </div>
         <div class="control-row">
-          <label>data-accent</label>
+          <label ti="label_data_accent">data-accent</label>
           <input type="color" id="themeAccent" value="#e94560">
           <input type="text" id="themeAccentText" value="#e94560" size="8">
         </div>
         <div class="control-row">
-          <label>data-radius</label>
+          <label ti="label_data_radius">data-radius</label>
           <input type="text" id="themeRadius" value="12px" size="6">
         </div>
         <div class="control-row">
-          <label>data-padding</label>
+          <label ti="label_data_padding">data-padding</label>
           <input type="text" id="themePadding" value="24px" size="6">
         </div>
         <label>Generated CSS</label>
@@ -731,7 +733,7 @@ footer a:hover { text-decoration: underline; }
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
-        <label>HTML (edit data-row-color / data-bar-width)</label>
+        <label ti="label_html_edit_data_row_color">HTML (edit data-row-color / data-bar-width)</label>
         <textarea id="tableHtmlEditor" spellcheck="false" style="min-height: 200px;"></textarea>
         <label>Generated CSS</label>
         <div class="css-output" id="tableCssOutput"></div>
@@ -752,18 +754,18 @@ footer a:hover { text-decoration: underline; }
 
   <div class="demo-card">
     <div class="demo-card-header">
-      <h3>Print Preview</h3>
+      <h3 ti="h3_print_preview">Print Preview</h3>
       <button class="btn copy-btn" onclick="copyText(this, printCssOutput.textContent)">Copy CSS</button>
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
-        <label>HTML</label>
+        <label ti="label_html" ti="label_html_2">HTML</label>
         <textarea id="printHtmlEditor" spellcheck="false"></textarea>
-        <label>CSS (print + simulated)</label>
+        <label ti="label_css_print_simulated">CSS (print + simulated)</label>
         <div class="css-output" id="printCssOutput"></div>
       </div>
       <div class="demo-preview" id="printPreview" style="flex-direction: column; align-items: flex-start; padding: 24px;">
-        <span class="demo-preview-label">Preview (simulated print)</span>
+        <span class="demo-preview-label" ti="label_preview_simulated_print">Preview (simulated print)</span>
       </div>
     </div>
   </div>
@@ -783,13 +785,13 @@ footer a:hover { text-decoration: underline; }
     </div>
     <div class="demo-card-body">
       <div class="demo-editor">
-        <label>HTML (edit data-tooltip)</label>
+        <label ti="label_html_edit_data_tooltip">HTML (edit data-tooltip)</label>
         <textarea id="tooltipHtmlEditor" spellcheck="false"></textarea>
         <label>Generated CSS</label>
         <div class="css-output" id="tooltipCssOutput"></div>
       </div>
       <div class="demo-preview" id="tooltipPreview">
-        <span class="demo-preview-label">Preview (hover to see)</span>
+        <span class="demo-preview-label" ti="label_preview_hover_to_see">Preview (hover to see)</span>
       </div>
     </div>
   </div>
@@ -808,17 +810,17 @@ footer a:hover { text-decoration: underline; }
 
   <div class="demo-card">
     <div class="demo-card-header">
-      <h3>Editor</h3>
+      <h3 ti="h3_editor" ti="link_editor">Editor</h3>
       <div class="btn-group">
         <button class="btn copy-btn" onclick="copyText(this, editorCss.value)">Copy CSS</button>
-        <button class="btn" onclick="resetEditor()">Reset</button>
+        <button class="btn" onclick="resetEditor()" ti="btn_reset">Reset</button>
       </div>
     </div>
     <div class="demo-card-body">
       <div class="demo-editor" style="gap: 12px;">
         <label>HTML</label>
         <textarea id="editorHtml" spellcheck="false" style="min-height: 100px;"></textarea>
-        <label>CSS</label>
+        <label ti="label_css">CSS</label>
         <textarea id="editorCss" spellcheck="false" style="min-height: 100px;"></textarea>
       </div>
       <div class="demo-preview" id="editorPreview" style="align-items: flex-start; padding: 20px;">
@@ -832,14 +834,14 @@ footer a:hover { text-decoration: underline; }
 <!-- Section 9: Type Reference          -->
 <!-- ═══════════════════════════════════ -->
 <section id="reference">
-  <h2>Type Reference</h2>
+  <h2 ti="h2_type_reference">Type Reference</h2>
   <p>All supported type keywords for <code>attr(name type(&lt;syntax&gt;), fallback)</code>.</p>
 
   <div class="demo-card">
     <div class="demo-card-body single" style="padding: 0;">
       <table class="ref-table">
         <thead>
-          <tr><th>Type</th><th>Syntax</th><th>Example</th><th>Use Case</th></tr>
+          <tr><th ti="th_type">Type</th><th ti="th_syntax">Syntax</th><th ti="th_example">Example</th><th ti="th_use_case">Use Case</th></tr>
         </thead>
         <tbody>
           <tr><td><code>string</code></td><td><code>attr(data-x type(&lt;string&gt;))</code></td><td><code>data-x="hello"</code></td><td>Text content, custom properties</td></tr>
@@ -868,6 +870,16 @@ footer a:hover { text-decoration: underline; }
   </div>
 </footer>
 
+
+<script>var _LANG={'title_css_attr_function_playgro':["CSS attr() Function Playground", "CSS attr() 函数演示"],'metadesc_interactive_playground_fo':["Interactive playground for the CSS attr() function — use data attributes for colors, lengths, and more.", "CSS attr() 函数的交互式演示——使用数据属性来设置颜色、长度等。"],'h2_type_reference':["Type Reference", "类型参考"],'h3_live_demo':["Live Demo", "在线演示"],'h3_live_demo_2':["Live Demo", "在线演示"],'h3_type_examples':["Type Examples", "类型示例"],'h3_theme_controls':["Theme Controls", "主题控制"],'h3_live_demo_3':["Live Demo", "在线演示"],'h3_print_preview':["Print Preview", "打印预览"],'h3_live_demo_4':["Live Demo", "在线演示"],'h3_editor':["Editor", "编辑"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_copy_css_2':["Copy CSS", "复制 CSS"],'btn_copy_css_3':["Copy CSS", "复制 CSS"],'btn_copy_css_4':["Copy CSS", "复制 CSS"],'btn_copy_css_5':["Copy CSS", "复制 CSS"],'btn_copy_css_6':["Copy CSS", "复制 CSS"],'btn_copy_css_7':["Copy CSS", "复制 CSS"],'btn_reset':["Reset", "重置"],'btn_100ms':["100ms", "100毫秒"],'btn_300ms':["300ms", "300毫秒"],'btn_600ms':["600ms", "600毫秒"],'btn_1200ms':["1200ms", "1200毫秒"],'label_preview':["Preview", "预览"],'label_preview_2':["Preview", "预览"],'label_preview_3':["Preview", "预览"],'label_preview_4':["Preview", "预览"],'label_preview_simulated_print':["Preview (simulated print)", "预览（模拟打印）"],'label_preview_hover_to_see':["Preview (hover to see)", "预览（鼠标悬停查看）"],'label_preview_5':["Preview", "预览"],'th_type':["Type", "类型"],'th_syntax':["Syntax", "句法"],'th_example':["Example", "例子"],'th_use_case':["Use Case", "用例"],'th_language':["Language", "语言"],'th_usage':["Usage %", "用法 ％"],'th_bar':["Bar", "酒吧"],'label_html_edit_data_color_valu':["HTML (edit data-color values)", "HTML（编辑数据颜色值）"],'label_generated_css':["Generated CSS", "生成的 CSS"],'label_html_edit_data_width_data':["HTML (edit data-width / data-height)", "HTML（编辑 data-width / data-height）"],'label_generated_css_2':["Generated CSS", "生成的 CSS"],'label_data_bg':["data-bg", "数据背景"],'label_data_fg':["data-fg", "数据-fg"],'label_data_accent':["data-accent", "数据重音"],'label_data_radius':["data-radius", "数据半径"],'label_data_padding':["data-padding", "数据填充"],'label_generated_css_3':["Generated CSS", "生成的 CSS"],'label_html_edit_data_row_color':["HTML (edit data-row-color / data-bar-width)", "HTML（编辑数据行颜色/数据栏宽度）"],'label_generated_css_4':["Generated CSS", "生成的 CSS"],'label_html':["HTML", "HTML"],'label_css_print_simulated':["CSS (print + simulated)", "CSS（打印+模拟）"],'label_html_edit_data_tooltip':["HTML (edit data-tooltip)", "HTML（编辑数据提示）"],'label_generated_css_5':["Generated CSS", "生成的 CSS"],'label_html_2':["HTML", "HTML"],'label_css':["CSS", "CSS"],'link_color':["Color", "颜色"],'link_size':["Size", "尺寸"],'link_type_conversion':["Type Conversion", "类型转换"],'link_dynamic_theming':["Dynamic Theming", "动态主题"],'link_data_table':["Data Table", "数据表"],'link_print_links':["Print Links", "打印链接"],'link_tooltips':["Tooltips", "工具提示"],'link_editor':["Editor", "编辑"],'link_reference':["Reference", "参考"],'link_mdn_css_attr':["MDN: CSS attr()", "MDN：CSS attr()"],'link_css_values_level_5':["CSS Values Level 5", "CSS 值级别 5"],'link_can_i_use_attr':["Can I Use: attr()", "我可以使用：attr()"],'link_web_dev_css_attr':["web.dev: CSS attr()", "web.dev: CSS attr()"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ════════════════════════════════════════
    Utility
@@ -876,7 +888,7 @@ footer a:hover { text-decoration: underline; }
 function copyText(btn, text) {
   navigator.clipboard.writeText(text).then(() => {
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1500);
   });
 }
@@ -1076,7 +1088,7 @@ function initTheming() {
 
 const tableDefaultHtml = `<table class="data-table" style="width:100%">
   <thead>
-    <tr><th>Language</th><th>Usage %</th><th>Bar</th></tr>
+    <tr><th ti="th_language">Language</th><th ti="th_usage">Usage %</th><th ti="th_bar">Bar</th></tr>
   </thead>
   <tbody>
     <tr data-row-color="rgba(88,166,255,0.12)">
@@ -1133,10 +1145,10 @@ function initTable() {
    ════════════════════════════════════════ */
 
 const printDefaultHtml = `<div class="print-demo">
-  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/attr">MDN: CSS attr()</a>
-  <a href="https://drafts.csswg.org/css-values-5/">CSS Values Level 5</a>
-  <a href="https://caniuse.com/css3-attr">Can I Use: attr()</a>
-  <a href="https://web.dev/blog/css-attr">web.dev: CSS attr()</a>
+  <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/attr" ti="link_mdn_css_attr">MDN: CSS attr()</a>
+  <a href="https://drafts.csswg.org/css-values-5/" ti="link_css_values_level_5">CSS Values Level 5</a>
+  <a href="https://caniuse.com/css3-attr" ti="link_can_i_use_attr">Can I Use: attr()</a>
+  <a href="https://web.dev/blog/css-attr" ti="link_web_dev_css_attr">web.dev: CSS attr()</a>
 </div>`;
 
 const printCssText = `/* Print stylesheet — universal support */
@@ -1382,10 +1394,10 @@ const presets = [
     title: 'Transition Speed',
     desc: 'Duration from data-*',
     html: `<div style="display:flex;gap:12px;flex-wrap:wrap;">
-  <button class="trans-btn" data-dur="100ms">100ms</button>
-  <button class="trans-btn" data-dur="300ms">300ms</button>
-  <button class="trans-btn" data-dur="600ms">600ms</button>
-  <button class="trans-btn" data-dur="1200ms">1200ms</button>
+  <button class="trans-btn" data-dur="100ms" ti="btn_100ms">100ms</button>
+  <button class="trans-btn" data-dur="300ms" ti="btn_300ms">300ms</button>
+  <button class="trans-btn" data-dur="600ms" ti="btn_600ms">600ms</button>
+  <button class="trans-btn" data-dur="1200ms" ti="btn_1200ms">1200ms</button>
 </div>`,
     css: `.trans-btn {
   padding: 10px 20px;
@@ -1499,6 +1511,24 @@ document.addEventListener('DOMContentLoaded', () => {
   initTooltips();
   initEditor();
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

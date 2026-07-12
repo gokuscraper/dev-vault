@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_garbage_collection_vis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,33 +74,45 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Garbage Collection</h1>
+<h1 ti="h1_js_garbage_collection">JS Garbage Collection</h1>
 <select id="scenarioSelect"></select>
 <div class="controls">
-<button onclick="stepBack()">← Back</button>
-<button onclick="stepForward()" class="primary">Step →</button>
-<button onclick="autoPlay()">▶ Auto</button>
-<button onclick="reset()">Reset</button>
+<button onclick="stepBack()" ti="btn_back">← Back</button>
+<button onclick="stepForward()" class="primary" ti="btn_step">Step →</button>
+<button onclick="autoPlay()" ti="btn_auto">▶ Auto</button>
+<button onclick="reset()" ti="btn_reset">Reset</button>
 </div>
 </header>
 <div class="main">
 <div class="vis-col">
 <div class="gc-phase" id="phases"></div>
 <div class="step-desc" id="stepDesc">Select a scenario and step through the GC cycle.</div>
-<div class="panel"><h3>V8 Heap</h3>
+<div class="panel"><h3 ti="h3_v8_heap">V8 Heap</h3>
 <div class="heap-layout" id="heapLayout"></div>
 <div class="stats" id="stats"></div>
 </div>
 </div>
 <div class="sidebar">
 <div class="tab-bar">
-<button class="active" onclick="switchTab('detail')">Details</button>
-<button onclick="switchTab('reference')">Reference</button>
+<button class="active" onclick="switchTab('detail')" ti="btn_details">Details</button>
+<button onclick="switchTab('reference')" ti="btn_reference">Reference</button>
 </div>
 <div class="tab-content" id="tabContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_js_garbage_collection_vis':["JS Garbage Collection Visualizer", "JS 垃圾回收可视化工具"],'metadesc_interactive_javascript_ga':["Interactive JavaScript garbage collection visualizer. V8 generational GC, Mark-Sweep, Scavenge, Mark-Compact, heap regions (Young/Old), promotion, memory pressure. Step-through GC cycles.", "交互式 JavaScript 垃圾回收可视化工具。支持 V8 分代 GC、标记清除、清扫、标记压缩、堆区域（年轻堆/老堆）、提升、内存压力等机制。可单步演示 GC 周期。"],'h1_js_garbage_collection':["JS Garbage Collection", "JS 垃圾回收"],'h3_v8_heap':["V8 Heap", "V8堆"],'btn_back':["← Back", "← 返回"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'btn_details':["Details", "细节"],'btn_reference':["Reference", "参考"],'th_region':["Region", "地区"],'th_size':["Size", "尺寸"],'th_gc_type':["GC Type", "GC类型"],'th_algorithm':["Algorithm", "算法"],'th_used_for':["Used for", "用于"],'th_pause':["Pause", "暂停"],'jtlword_garbage':["Garbage", "垃圾"],'jtlword_region':["Region", "地区"],'jtlword_size':["Size", "尺寸"],'jtlword_varies':["Varies", "因情况而异"],'jtlword_varies_2':["Varies", "因情况而异"],'jtlword_varies_3':["Varies", "因情况而异"],'jtlword_algorithm':["Algorithm", "算法"],'jtlword_pause':["Pause", "暂停"],'jtlword_scavenge':["Scavenge", "搜寻"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS=[
 {name:'Minor GC (Scavenge)',
@@ -310,7 +322,7 @@ function renderTab(){
     el.innerHTML=`
     <div class="info-card"><h4>V8 Heap Regions</h4>
     <table class="ref-table">
-    <tr><th>Region</th><th>Size</th><th>GC Type</th></tr>
+    <tr><th ti="th_region">Region</th><th ti="th_size">Size</th><th ti="th_gc_type">GC Type</th></tr>
     <tr><td>Young (New Space)</td><td>1-8 MB</td><td>Scavenge (Minor GC)</td></tr>
     <tr><td>Old (Old Space)</td><td>~1.5 GB max</td><td>Mark-Sweep/Compact (Major GC)</td></tr>
     <tr><td>Large Object Space</td><td>Varies</td><td>Mark-Sweep (never moved)</td></tr>
@@ -319,7 +331,7 @@ function renderTab(){
     </table></div>
     <div class="info-card"><h4>GC Algorithms</h4>
     <table class="ref-table">
-    <tr><th>Algorithm</th><th>Used for</th><th>Pause</th></tr>
+    <tr><th ti="th_algorithm">Algorithm</th><th ti="th_used_for">Used for</th><th ti="th_pause">Pause</th></tr>
     <tr><td>Scavenge</td><td>Young generation</td><td><1ms</td></tr>
     <tr><td>Mark-Sweep</td><td>Old generation</td><td>5-50ms</td></tr>
     <tr><td>Mark-Compact</td><td>Old gen (fragmented)</td><td>10-100ms</td></tr>
@@ -363,6 +375,24 @@ function switchTab(t){
   renderTab();
 }
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

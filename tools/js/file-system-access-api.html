@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_file_system_access_api_pl" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,8 +73,10 @@ td code{color:#ff7043;font-size:.72rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>File System Access API Playground</h1>
+<h1 ti="title_file_system_access_api_pl" ti="h1_file_system_access_api_pl">File System Access API Playground</h1>
 <p>Read, write, and browse local files directly from the browser — no server needed</p>
 </header>
 <div class="app">
@@ -83,44 +85,44 @@ td code{color:#ff7043;font-size:.72rem}
 <div class="actions">
 <div class="action-card" onclick="openFile()">
 <div class="icon">📂</div>
-<h3>Open File</h3>
+<h3 ti="h3_open_file">Open File</h3>
 <p>showOpenFilePicker()</p>
 </div>
 <div class="action-card" onclick="saveFile()">
 <div class="icon">💾</div>
-<h3>Save File</h3>
+<h3 ti="h3_save_file">Save File</h3>
 <p>showSaveFilePicker()</p>
 </div>
 <div class="action-card" onclick="openDir()">
 <div class="icon">📁</div>
-<h3>Browse Directory</h3>
+<h3 ti="h3_browse_directory">Browse Directory</h3>
 <p>showDirectoryPicker()</p>
 </div>
 </div>
 
 <div class="editor" id="editorSection" style="display:none">
 <div class="editor-header">
-<h3 id="editorTitle">Editor</h3>
+<h3 id="editorTitle" ti="h3_editor">Editor</h3>
 <div>
-<button onclick="saveToHandle()">💾 Save</button>
-<button onclick="saveAsNew()">📝 Save As...</button>
+<button onclick="saveToHandle()" ti="btn_save">💾 Save</button>
+<button onclick="saveAsNew()" ti="btn_save_as">📝 Save As...</button>
 </div>
 </div>
-<textarea id="editorArea" placeholder="File contents will appear here..."></textarea>
+<textarea id="editorArea" tp="placeholder_file_contents_will_appear" placeholder="File contents will appear here..."></textarea>
 </div>
 
 <div class="file-info" id="fileInfoSection" style="display:none">
-<h3>File Info</h3>
+<h3 ti="h3_file_info">File Info</h3>
 <div id="fileProps"></div>
 </div>
 
 <div class="dir-tree" id="dirTreeSection" style="display:none">
-<h3 id="dirTitle">Directory Contents</h3>
+<h3 id="dirTitle" ti="h3_directory_contents">Directory Contents</h3>
 <div id="dirContents"></div>
 </div>
 
 <div class="output">
-<h3>Activity Log</h3>
+<h3 ti="h3_activity_log">Activity Log</h3>
 <div class="output-content" id="logArea">
 <div class="log-entry info">Click an action above to interact with the File System Access API.</div>
 </div>
@@ -161,7 +163,7 @@ td code{color:#ff7043;font-size:.72rem}
 </div>
 </div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details">
 <div class="detail-box">
 <h4>About</h4>
@@ -171,7 +173,7 @@ td code{color:#ff7043;font-size:.72rem}
 <div class="detail-box">
 <h4>API Methods</h4>
 <table>
-<tr><th>Method</th><th>Returns</th></tr>
+<tr><th ti="th_method">Method</th><th ti="th_returns">Returns</th></tr>
 <tr><td><code>showOpenFilePicker()</code></td><td>FileSystemFileHandle[]</td></tr>
 <tr><td><code>showSaveFilePicker()</code></td><td>FileSystemFileHandle</td></tr>
 <tr><td><code>showDirectoryPicker()</code></td><td>FileSystemDirectoryHandle</td></tr>
@@ -183,7 +185,7 @@ td code{color:#ff7043;font-size:.72rem}
 <div class="detail-box">
 <h4>Handle Types</h4>
 <table>
-<tr><th>Type</th><th>Properties</th></tr>
+<tr><th ti="th_type">Type</th><th ti="th_properties">Properties</th></tr>
 <tr><td><code>FileSystemFileHandle</code></td><td>kind:'file', name, getFile(), createWritable()</td></tr>
 <tr><td><code>FileSystemDirectoryHandle</code></td><td>kind:'directory', name, getFileHandle(), getDirectoryHandle(), entries()</td></tr>
 </table>
@@ -210,7 +212,7 @@ td code{color:#ff7043;font-size:.72rem}
 <div class="detail-box">
 <h4>Alternatives</h4>
 <table>
-<tr><th>API</th><th>Use Case</th></tr>
+<tr><th ti="th_api">API</th><th ti="th_use_case">Use Case</th></tr>
 <tr><td><code>&lt;input type="file"&gt;</code></td><td>Read-only, all browsers</td></tr>
 <tr><td><code>a.download</code></td><td>Save-only, all browsers</td></tr>
 <tr><td><code>Origin Private FS</code></td><td>App-private storage, no picker</td></tr>
@@ -219,6 +221,16 @@ td code{color:#ff7043;font-size:.72rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_file_system_access_api_pl':["File System Access API Playground", "文件系统访问 API 演示区"],'metadesc_interactive_file_system_a':["Interactive File System Access API playground: showOpenFilePicker, showSaveFilePicker, showDirectoryPicker, FileSystemHandle, read/write files from browser", "交互式文件系统访问 API 示例：showOpenFilePicker、showSaveFilePicker、showDirectoryPicker、FileSystemHandle、从浏览器读取/写入文件"],'h1_file_system_access_api_pl':["File System Access API Playground", "文件系统访问 API 演示区"],'h3_open_file':["Open File", "打开文件"],'h3_save_file':["Save File", "保存文件"],'h3_browse_directory':["Browse Directory", "浏览目录"],'h3_editor':["Editor", "编辑"],'h3_file_info':["File Info", "文件信息"],'h3_directory_contents':["Directory Contents", "目录内容"],'h3_activity_log':["Activity Log", "活动日志"],'h3_details':["Details", "细节"],'btn_save':["💾 Save", "💾 保存"],'btn_save_as':["📝 Save As...", "📝另存为..."],'placeholder_file_contents_will_appear':["File contents will appear here...", "文件内容将显示在此处……"],'th_method':["Method", "方法"],'th_returns':["Returns", "返回"],'th_type':["Type", "类型"],'th_properties':["Properties", "特性"],'th_api':["API", "API"],'th_use_case':["Use Case", "用例"],'jtlword_name':["Name", "姓名"],'jtlword_size':["Size", "尺寸"],'jtlword_type':["Type", "类型"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentHandle=null;
 
@@ -369,6 +381,24 @@ async function openDir(){
     else log(`Error: ${e.message}`,'error');
   }
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

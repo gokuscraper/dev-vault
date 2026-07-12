@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_filter_visual_image_f" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -55,21 +55,23 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Filter</h1>
-<p class="subtitle">Visual CSS filter generator. Adjust filters, see changes live.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_filter">CSS Filter</h1>
+<p class="subtitle" ti="subtitle_visual_css_filter_generat">Visual CSS filter generator. Adjust filters, see changes live.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="loadPreset('none')">None</button>
-  <button class="preset-btn" onclick="loadPreset('grayscale')">Grayscale</button>
-  <button class="preset-btn" onclick="loadPreset('sepia')">Sepia</button>
-  <button class="preset-btn" onclick="loadPreset('vintage')">Vintage</button>
-  <button class="preset-btn" onclick="loadPreset('vivid')">Vivid</button>
-  <button class="preset-btn" onclick="loadPreset('cold')">Cold</button>
-  <button class="preset-btn" onclick="loadPreset('warm')">Warm</button>
-  <button class="preset-btn" onclick="loadPreset('dramatic')">Dramatic</button>
-  <button class="preset-btn" onclick="loadPreset('faded')">Faded</button>
-  <button class="preset-btn" onclick="loadPreset('blur')">Blur</button>
+  <button class="preset-btn" onclick="loadPreset('none')" ti="btn_none">None</button>
+  <button class="preset-btn" onclick="loadPreset('grayscale')" ti="btn_grayscale">Grayscale</button>
+  <button class="preset-btn" onclick="loadPreset('sepia')" ti="btn_sepia">Sepia</button>
+  <button class="preset-btn" onclick="loadPreset('vintage')" ti="btn_vintage">Vintage</button>
+  <button class="preset-btn" onclick="loadPreset('vivid')" ti="btn_vivid">Vivid</button>
+  <button class="preset-btn" onclick="loadPreset('cold')" ti="btn_cold">Cold</button>
+  <button class="preset-btn" onclick="loadPreset('warm')" ti="btn_warm">Warm</button>
+  <button class="preset-btn" onclick="loadPreset('dramatic')" ti="btn_dramatic">Dramatic</button>
+  <button class="preset-btn" onclick="loadPreset('faded')" ti="btn_faded">Faded</button>
+  <button class="preset-btn" onclick="loadPreset('blur')" ti="btn_blur">Blur</button>
 </div>
 
 <div class="layout">
@@ -78,20 +80,20 @@ footer a:hover{color:#999}
   </div>
   <div class="controls">
     <div class="ctrl-group">
-      <h3>Filters</h3>
-      <div class="ctrl-row"><label>blur</label><input type="range" id="blur" min="0" max="20" step="0.5" value="0" oninput="update()"><span class="val" id="blurVal">0px</span></div>
-      <div class="ctrl-row"><label>brightness</label><input type="range" id="brightness" min="0" max="300" value="100" oninput="update()"><span class="val" id="brightnessVal">100%</span></div>
-      <div class="ctrl-row"><label>contrast</label><input type="range" id="contrast" min="0" max="300" value="100" oninput="update()"><span class="val" id="contrastVal">100%</span></div>
-      <div class="ctrl-row"><label>saturate</label><input type="range" id="saturate" min="0" max="300" value="100" oninput="update()"><span class="val" id="saturateVal">100%</span></div>
-      <div class="ctrl-row"><label>hue-rotate</label><input type="range" id="hue" min="0" max="360" value="0" oninput="update()"><span class="val" id="hueVal">0°</span></div>
-      <div class="ctrl-row"><label>grayscale</label><input type="range" id="grayscale" min="0" max="100" value="0" oninput="update()"><span class="val" id="grayscaleVal">0%</span></div>
-      <div class="ctrl-row"><label>sepia</label><input type="range" id="sepia" min="0" max="100" value="0" oninput="update()"><span class="val" id="sepiaVal">0%</span></div>
-      <div class="ctrl-row"><label>invert</label><input type="range" id="invert" min="0" max="100" value="0" oninput="update()"><span class="val" id="invertVal">0%</span></div>
-      <div class="ctrl-row"><label>opacity</label><input type="range" id="opacity" min="0" max="100" value="100" oninput="update()"><span class="val" id="opacityVal">100%</span></div>
+      <h3 ti="h3_filters">Filters</h3>
+      <div class="ctrl-row"><label ti="label_blur">blur</label><input type="range" id="blur" min="0" max="20" step="0.5" value="0" oninput="update()"><span class="val" id="blurVal">0px</span></div>
+      <div class="ctrl-row"><label ti="label_brightness">brightness</label><input type="range" id="brightness" min="0" max="300" value="100" oninput="update()"><span class="val" id="brightnessVal">100%</span></div>
+      <div class="ctrl-row"><label ti="label_contrast">contrast</label><input type="range" id="contrast" min="0" max="300" value="100" oninput="update()"><span class="val" id="contrastVal">100%</span></div>
+      <div class="ctrl-row"><label ti="label_saturate">saturate</label><input type="range" id="saturate" min="0" max="300" value="100" oninput="update()"><span class="val" id="saturateVal">100%</span></div>
+      <div class="ctrl-row"><label ti="label_hue_rotate">hue-rotate</label><input type="range" id="hue" min="0" max="360" value="0" oninput="update()"><span class="val" id="hueVal">0°</span></div>
+      <div class="ctrl-row"><label ti="label_grayscale">grayscale</label><input type="range" id="grayscale" min="0" max="100" value="0" oninput="update()"><span class="val" id="grayscaleVal">0%</span></div>
+      <div class="ctrl-row"><label ti="label_sepia">sepia</label><input type="range" id="sepia" min="0" max="100" value="0" oninput="update()"><span class="val" id="sepiaVal">0%</span></div>
+      <div class="ctrl-row"><label ti="label_invert">invert</label><input type="range" id="invert" min="0" max="100" value="0" oninput="update()"><span class="val" id="invertVal">0%</span></div>
+      <div class="ctrl-row"><label ti="label_opacity">opacity</label><input type="range" id="opacity" min="0" max="100" value="100" oninput="update()"><span class="val" id="opacityVal">100%</span></div>
     </div>
     <div class="btn-row">
-      <button class="btn" onclick="loadPreset('none')">Reset</button>
-      <button class="btn" onclick="loadImage()">Load Image</button>
+      <button class="btn" onclick="loadPreset('none')" ti="btn_reset">Reset</button>
+      <button class="btn" onclick="loadImage()" ti="btn_load_image">Load Image</button>
     </div>
     <input type="file" id="fileInput" accept="image/*" style="display:none" onchange="handleFile(event)">
   </div>
@@ -104,10 +106,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/css-filter">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/css-filter" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_css_filter_visual_image_f':["CSS Filter — Visual Image Filter Generator", "CSS 滤镜 — 可视化图像滤镜生成器"],'metadesc_visual_css_filter_generat':["Visual CSS filter generator. Blur, brightness, contrast, saturate, hue-rotate, and more. 10 presets. Copy CSS. Free.", "可视化 CSS 滤镜生成器。模糊、亮度、对比度、饱和度、色相旋转等。10 种预设。可复制 CSS 代码。免费。"],'h1_css_filter':["CSS Filter", "CSS过滤器"],'h3_filters':["Filters", "过滤器"],'subtitle_visual_css_filter_generat':["Visual CSS filter generator. Adjust filters, see changes live.", "可视化 CSS 滤镜生成器。调整滤镜，实时查看更改。"],'btn_none':["None", "没有任何"],'btn_grayscale':["Grayscale", "灰度"],'btn_sepia':["Sepia", "棕褐色"],'btn_vintage':["Vintage", "优质的"],'btn_vivid':["Vivid", "生动"],'btn_cold':["Cold", "寒冷的"],'btn_warm':["Warm", "温暖的"],'btn_dramatic':["Dramatic", "戏剧性"],'btn_faded':["Faded", "褪色"],'btn_blur':["Blur", "模糊"],'btn_reset':["Reset", "重置"],'btn_load_image':["Load Image", "加载图像"],'strong_related_tools':["Related Tools", "相关工具"],'label_blur':["blur", "模糊"],'label_brightness':["brightness", "亮度"],'label_contrast':["contrast", "对比"],'label_saturate':["saturate", "饱和"],'label_hue_rotate':["hue-rotate", "色调旋转"],'label_grayscale':["grayscale", "灰度"],'label_sepia':["sepia", "棕褐色"],'label_invert':["invert", "倒置"],'label_opacity':["opacity", "不透明度"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
   none:{blur:0,brightness:100,contrast:100,saturate:100,hue:0,grayscale:0,sepia:0,invert:0,opacity:100},
@@ -185,7 +197,7 @@ function handleFile(e){
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='CSS Copied!';
+  el.className='copied';el.textContent=T("jtc_css_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -193,12 +205,30 @@ function copyCSS(){
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-shadow/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Shadow</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_task_scheduling_visual" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,20 +77,22 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
-<h1>JS Task Scheduling Visualizer</h1>
+<h1 ti="title_js_task_scheduling_visual" ti="h1_js_task_scheduling_visual">JS Task Scheduling Visualizer</h1>
 <p>scheduler.postTask() · requestIdleCallback() · requestAnimationFrame() · setTimeout()</p>
 </div>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
 </div>
 <div class="main">
 <div class="controls">
 <button class="btn primary" id="playBtn" onclick="play()">&#9654; Play</button>
 <button class="btn" id="stepBtn" onclick="step()">Step &rarr;</button>
-<button class="btn" onclick="resetScenario()">Reset</button>
+<button class="btn" onclick="resetScenario()" ti="btn_reset">Reset</button>
 <span class="step-info" id="stepInfo">Step 0 / 0</span>
 </div>
 <div class="legend">
@@ -103,23 +105,33 @@ body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;b
 <div class="legend-item"><div class="legend-dot" style="background:#ec4899"></div>microtask</div>
 </div>
 <div class="section">
-<h3>Task Queue</h3>
+<h3 ti="h3_task_queue">Task Queue</h3>
 <div class="queue-display" id="queueDisplay"></div>
 </div>
 <div class="section">
-<h3>Execution Timeline</h3>
+<h3 ti="h3_execution_timeline">Execution Timeline</h3>
 <div class="timeline" id="timeline"></div>
 </div>
 <div class="section">
-<h3>Execution Log</h3>
+<h3 ti="h3_execution_log">Execution Log</h3>
 <div class="log-area" id="logArea"></div>
 </div>
 </div>
 <div class="ref-panel">
-<h3>Reference</h3>
+<h3 ti="h3_reference">Reference</h3>
 <div id="refContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_js_task_scheduling_visual':["JS Task Scheduling Visualizer", "JS 任务调度可视化工具"],'metadesc_interactive_visualizer_fo':["Interactive visualizer for browser task scheduling APIs: scheduler.postTask(), requestIdleCallback(), requestAnimationFrame(), setTimeout(). Priority queues and execution order.", "浏览器任务调度 API 的交互式可视化工具：scheduler.postTask()、requestIdleCallback()、requestAnimationFrame()、setTimeout()。优先级队列和执行顺序。"],'h1_js_task_scheduling_visual':["JS Task Scheduling Visualizer", "JS 任务调度可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_task_queue':["Task Queue", "任务队列"],'h3_execution_timeline':["Execution Timeline", "执行时间表"],'h3_execution_log':["Execution Log", "执行日志"],'h3_reference':["Reference", "参考"],'btn_play':["▶ Play", "▶ 播放"],'btn_step':["Step →", "步骤 →"],'btn_reset':["Reset", "重置"],'strong_microtasks':["Microtasks", "微任务"],'strong_posttask_user_blocking':["postTask(user-blocking)", "postTask(用户阻塞)"],'strong_posttask_background':["postTask(background)", "postTask(background)"],'strong_settimeout_0':["setTimeout(0)", "设置超时(0)"],'strong_raf':["rAF", "rAF"],'strong_requestidlecallback':["requestIdleCallback", "请求空闲回调"],'th_priority':["Priority", "优先事项"],'th_use_case':["Use Case", "用例"],'jtlword_code':["Code", "代码"],'jtlword_posttask':["postTask", "任务后"],'jtlword_requestanimationframe':["requestAnimationFrame", "请求动画帧"],'jtlword_requestidlecallback':["requestIdleCallback", "请求空闲回调"],'jtlword_const':["const", "常量"],'jtlword_new':["new", "新的"],'jtlword_taskcontroller':["TaskController", "任务控制器"],'jtlword_setpriority':["setPriority", "设置优先级"],'jtlword_abort':["abort", "中止"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -143,7 +155,7 @@ scheduler.<span class="fn">postTask</span>(ub1, {priority:<span class="str">"use
 <span class="cm">// 1. user-blocking (highest)</span>
 <span class="cm">// 2. user-visible (default)</span>
 <span class="cm">// 3. background (lowest)</span>`,
-    ref: '<p><code>scheduler.postTask()</code> has three priority levels. Tasks of the same priority execute in FIFO order.</p><table class="priority-table"><tr><th>Priority</th><th>Use Case</th></tr><tr><td style="color:#ef4444">user-blocking</td><td>Input handling, critical UI updates</td></tr><tr><td style="color:#f59e0b">user-visible</td><td>Default. Rendering updates, data fetch</td></tr><tr><td style="color:#22c55e">background</td><td>Analytics, prefetching, logging</td></tr></table>'
+    ref: '<p><code>scheduler.postTask()</code> has three priority levels. Tasks of the same priority execute in FIFO order.</p><table class="priority-table"><tr><th ti="th_priority">Priority</th><th ti="th_use_case">Use Case</th></tr><tr><td style="color:#ef4444">user-blocking</td><td>Input handling, critical UI updates</td></tr><tr><td style="color:#f59e0b">user-visible</td><td>Default. Rendering updates, data fetch</td></tr><tr><td style="color:#22c55e">background</td><td>Analytics, prefetching, logging</td></tr></table>'
   },
   {
     name: 'API Comparison',
@@ -166,7 +178,7 @@ scheduler.<span class="fn">postTask</span>(fn, {priority:<span class="str">"user
 Promise.<span class="fn">resolve</span>().<span class="fn">then</span>(fn); <span class="cm">// microtask</span>
 
 <span class="cm">// Order: micro → UB → BG → timeout → rAF → idle</span>`,
-    ref: '<p>Different scheduling APIs have different execution priorities in the event loop:</p><p>1. <strong>Microtasks</strong> (Promise.then) run before any macro task</p><p>2. <strong>postTask(user-blocking)</strong> is highest priority macro task</p><p>3. <strong>postTask(background)</strong> still runs before setTimeout(0)</p><p>4. <strong>setTimeout(0)</strong> runs in the task queue</p><p>5. <strong>rAF</strong> runs before paint</p><p>6. <strong>requestIdleCallback</strong> runs when browser is idle</p>'
+    ref: '<p>Different scheduling APIs have different execution priorities in the event loop:</p><p>1. <strong ti="strong_microtasks">Microtasks</strong> (Promise.then) run before any macro task</p><p>2. <strong ti="strong_posttask_user_blocking">postTask(user-blocking)</strong> is highest priority macro task</p><p>3. <strong ti="strong_posttask_background">postTask(background)</strong> still runs before setTimeout(0)</p><p>4. <strong ti="strong_settimeout_0">setTimeout(0)</strong> runs in the task queue</p><p>5. <strong ti="strong_raf">rAF</strong> runs before paint</p><p>6. <strong ti="strong_requestidlecallback">requestIdleCallback</strong> runs when browser is idle</p>'
   },
   {
     name: 'Delayed Tasks',
@@ -422,6 +434,24 @@ ctrl.<span class="fn">abort</span>();</div>
 
 renderPresets();
 selectPreset(0);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

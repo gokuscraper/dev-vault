@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_quick_reference" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,13 +26,17 @@ tr:hover td{background:#0d1520}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Regex Quick Reference</h1>
-  <p class="desc">Common regular expression syntax and patterns</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_regex_quick_reference" ti="h1_regex_quick_reference" ti="title_regex_quick_reference" ti="h1_regex_quick_reference">Regex Quick Reference</h1>
+  <p class="desc" ti="subtitle_common_regular_expression" ti="subtitle_common_regular_expression">Common regular expression syntax and patterns</p>
   <div class="card">
-    <input class="search-box" id="search" placeholder="Search patterns..." spellcheck="false">
+    <input class="search-box" id="search" tp="placeholder_search_patterns" tp="placeholder_search_patterns" placeholder="Search patterns..." spellcheck="false">
     <div id="content">
-      <h2>Anchors</h2>
+      <h2 ti="h2_anchors" ti="h2_anchors">Anchors</h2>
       <table>
         <tr><td>^</td><td>^hello</td><td>Start of string</td></tr>
         <tr><td>$</td><td>world$</td><td>End of string</td></tr>
@@ -40,7 +44,7 @@ tr:hover td{background:#0d1520}
         <tr><td>\B</td><td>\Bword</td><td>Not a word boundary</td></tr>
       </table>
 
-      <h2>Character Classes</h2>
+      <h2 ti="h2_character_classes" ti="h2_character_classes">Character Classes</h2>
       <table>
         <tr><td>.</td><td>h.t</td><td>Any character except newline</td></tr>
         <tr><td>\d</td><td>\d{3}</td><td>Digit [0-9]</td></tr>
@@ -54,7 +58,7 @@ tr:hover td{background:#0d1520}
         <tr><td>[a-z]</td><td>[a-f]</td><td>Range of characters</td></tr>
       </table>
 
-      <h2>Quantifiers</h2>
+      <h2 ti="h2_quantifiers" ti="h2_quantifiers">Quantifiers</h2>
       <table>
         <tr><td>*</td><td>ab*c</td><td>0 or more (greedy)</td></tr>
         <tr><td>+</td><td>ab+c</td><td>1 or more (greedy)</td></tr>
@@ -66,7 +70,7 @@ tr:hover td{background:#0d1520}
         <tr><td>{n,m}</td><td>\d{2,4}</td><td>Between n and m</td></tr>
       </table>
 
-      <h2>Groups & Alternation</h2>
+      <h2 ti="h2_groups_alternation" ti="h2_groups_alternation">Groups & Alternation</h2>
       <table>
         <tr><td>(abc)</td><td>(ha)+</td><td>Capturing group</td></tr>
         <tr><td>(?:abc)</td><td>(?:ha)+</td><td>Non-capturing group</td></tr>
@@ -74,7 +78,7 @@ tr:hover td{background:#0d1520}
         <tr><td>|</td><td>cat|dog</td><td>Alternation (OR)</td></tr>
       </table>
 
-      <h2>Lookahead & Lookbehind</h2>
+      <h2 ti="h2_lookahead_lookbehind" ti="h2_lookahead_lookbehind">Lookahead & Lookbehind</h2>
       <table>
         <tr><td>(?=...)</td><td>(?=\d)</td><td>Positive lookahead</td></tr>
         <tr><td>(?!...)</td><td>(?!\d)</td><td>Negative lookahead</td></tr>
@@ -82,7 +86,7 @@ tr:hover td{background:#0d1520}
         <tr><td>(?<!...)</td><td>(?<!@)</td><td>Negative lookbehind</td></tr>
       </table>
 
-      <h2>Flags</h2>
+      <h2 ti="h2_flags" ti="h2_flags">Flags</h2>
       <table>
         <tr><td>g</td><td>/hello/g</td><td>Global (find all matches)</td></tr>
         <tr><td>i</td><td>/hello/i</td><td>Case-insensitive</td></tr>
@@ -91,7 +95,7 @@ tr:hover td{background:#0d1520}
         <tr><td>u</td><td>/hello/u</td><td>Unicode mode</td></tr>
       </table>
 
-      <h2>Common Patterns</h2>
+      <h2 ti="h2_common_patterns" ti="h2_common_patterns">Common Patterns</h2>
       <table>
         <tr><td>^[a-zA-Z0-9]+$</td><td>Alphanumeric</td><td>Only letters and numbers</td></tr>
         <tr><td>^[a-zA-Z]+$</td><td>Alphabetic</td><td>Only letters</td></tr>
@@ -110,6 +114,26 @@ tr:hover td{background:#0d1520}
     </div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_regex_quick_reference':["Regex Quick Reference", "正则表达式快速参考"],'metadesc_quick_reference_for_regul':["Quick reference for regular expression syntax. Covers anchors, character classes, quantifiers, groups, lookahead/lookbehind, and common patterns.", "正则表达式语法快速参考。内容涵盖锚点、字符类、量词、分组、前瞻/后瞻以及常用模式。"],'h1_regex_quick_reference':["Regex Quick Reference", "正则表达式快速参考"],'h2_anchors':["Anchors", "锚"],'h2_character_classes':["Character Classes", "角色职业"],'h2_quantifiers':["Quantifiers", "量词"],'h2_groups_alternation':["Groups & Alternation", "分组与轮换"],'h2_lookahead_lookbehind':["Lookahead & Lookbehind", "前瞻与后瞻"],'h2_flags':["Flags", "旗帜"],'h2_common_patterns':["Common Patterns", "常见模式"],'subtitle_common_regular_expression':["Common regular expression syntax and patterns", "常用正则表达式语法和模式"],'placeholder_search_patterns':["Search patterns...", "搜索模式……"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_regex_quick_reference':["Regex Quick Reference", "正则表达式快速参考"],'metadesc_quick_reference_for_regul':["Quick reference for regular expression syntax. Covers anchors, character classes, quantifiers, groups, lookahead/lookbehind, and common patterns.", "正则表达式语法快速参考。内容涵盖锚点、字符类、量词、分组、前瞻/后瞻以及常用模式。"],'h1_regex_quick_reference':["Regex Quick Reference", "正则表达式快速参考"],'h2_anchors':["Anchors", "锚"],'h2_character_classes':["Character Classes", "角色职业"],'h2_quantifiers':["Quantifiers", "量词"],'h2_groups_alternation':["Groups & Alternation", "分组与轮换"],'h2_lookahead_lookbehind':["Lookahead & Lookbehind", "前瞻与后瞻"],'h2_flags':["Flags", "旗帜"],'h2_common_patterns':["Common Patterns", "常见模式"],'subtitle_common_regular_expression':["Common regular expression syntax and patterns", "常用正则表达式语法和模式"],'placeholder_search_patterns':["Search patterns...", "搜索模式……"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 document.getElementById('search').addEventListener('input', function() {
   const q = this.value.toLowerCase();
@@ -130,6 +154,42 @@ document.getElementById('search').addEventListener('input', function() {
     h2.style.display = visible ? '' : 'none';
   });
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

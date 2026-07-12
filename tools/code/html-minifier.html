@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_minifier" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -332,19 +332,21 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <a href="https://gokuscraper.github.io/dev-vault/" class="back-link">← Dev Vault</a>
-  <h1>HTML Minifier</h1>
+  <h1 ti="title_html_minifier" ti="h1_html_minifier">HTML Minifier</h1>
   <div class="samples">
-    <span class="sample-label">Samples:</span>
-    <button class="sample-btn" onclick="loadSample('simple')">Simple Page</button>
-    <button class="sample-btn" onclick="loadSample('blog')">Blog Post</button>
-    <button class="sample-btn" onclick="loadSample('form')">Form</button>
+    <span class="sample-label" ti="label_samples">Samples:</span>
+    <button class="sample-btn" onclick="loadSample('simple')" ti="btn_simple_page">Simple Page</button>
+    <button class="sample-btn" onclick="loadSample('blog')" ti="btn_blog_post">Blog Post</button>
+    <button class="sample-btn" onclick="loadSample('form')" ti="btn_form">Form</button>
   </div>
   <div class="mode-toggle">
-    <button class="mode-btn active" id="btn-minify" onclick="setMode('minify')">Minify</button>
-    <button class="mode-btn" id="btn-beautify" onclick="setMode('beautify')">Beautify</button>
+    <button class="mode-btn active" id="btn-minify" onclick="setMode('minify')" ti="btn_minify">Minify</button>
+    <button class="mode-btn" id="btn-beautify" onclick="setMode('beautify')" ti="btn_beautify">Beautify</button>
   </div>
 </header>
 
@@ -355,19 +357,19 @@
   <!-- Stats bar -->
   <div class="stats-bar">
     <div class="stat-item">
-      <span class="stat-label">Original:</span>
+      <span class="stat-label" ti="label_original">Original:</span>
       <span class="stat-value neutral" id="stat-original">—</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">Output:</span>
+      <span class="stat-label" ti="label_output">Output:</span>
       <span class="stat-value neutral" id="stat-output">—</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">Savings:</span>
+      <span class="stat-label" ti="label_savings">Savings:</span>
       <span class="stat-value green" id="stat-savings">—</span>
     </div>
     <div class="stat-item">
-      <span class="stat-label">Ratio:</span>
+      <span class="stat-label" ti="label_ratio">Ratio:</span>
       <span class="stat-value yellow" id="stat-ratio">—</span>
     </div>
   </div>
@@ -377,9 +379,9 @@
     <div class="panel">
       <div class="panel-header">
         <span class="panel-title">Input</span>
-        <button class="clear-btn" onclick="clearInput()">Clear</button>
+        <button class="clear-btn" onclick="clearInput()" ti="btn_clear">Clear</button>
       </div>
-      <textarea id="input" placeholder="Paste your HTML here…" spellcheck="false"></textarea>
+      <textarea id="input" tp="placeholder_paste_your_html_here" placeholder="Paste your HTML here…" spellcheck="false"></textarea>
       <div class="line-count" id="input-lines">0 lines · 0 bytes</div>
     </div>
 
@@ -387,16 +389,26 @@
       <div class="panel-header">
         <span class="panel-title">Output</span>
         <div class="panel-actions">
-          <button class="action-btn" id="copy-btn" onclick="copyOutput()">Copy</button>
-          <button class="action-btn" onclick="downloadOutput()">Download .html</button>
+          <button class="action-btn" id="copy-btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+          <button class="action-btn" onclick="downloadOutput()" ti="btn_download_html">Download .html</button>
         </div>
       </div>
-      <textarea id="output" readonly spellcheck="false" placeholder="Output will appear here…"></textarea>
+      <textarea id="output" readonly spellcheck="false" tp="placeholder_output_will_appear_here" placeholder="Output will appear here…"></textarea>
       <div class="line-count" id="output-lines">0 lines · 0 bytes</div>
     </div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_html_minifier':["HTML Minifier", "HTML 压缩器"],'metadesc_a_sample_blog_post_about':["A sample blog post about web performance", "一篇关于网站性能的博客文章示例"],'h1_html_minifier':["HTML Minifier", "HTML 压缩器"],'h1_hello_world':["Hello, World!", "你好世界！"],'h1_10_web_performance_tips_y':["10 Web Performance Tips You Should Know", "你应该知道的 10 个网站性能优化技巧"],'h2_1_minimize_http_requests':["1. Minimize HTTP Requests", "1. 尽量减少HTTP请求"],'h2_2_use_a_cdn':["2. Use a CDN", "2. 使用 CDN"],'h2_3_enable_compression':["3. Enable Compression", "3. 启用压缩"],'h2_contact_us':["Contact Us", "联系我们"],'btn_simple_page':["Simple Page", "简单页面"],'btn_blog_post':["Blog Post", "博客文章"],'btn_form':["Form", "形式"],'btn_minify':["Minify", "缩小"],'btn_beautify':["Beautify", "美化"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_download_html':["Download .html", "下载 .html"],'btn_send_message':["Send Message", "发送消息"],'label_samples':["Samples:", "示例："],'label_original':["Original:", "原来的："],'label_output':["Output:", "输出："],'label_savings':["Savings:", "节省："],'label_ratio':["Ratio:", "比率："],'label_options':["Options:", "选项："],'label_indent_size':["Indent size:", "缩进大小："],'label_indent_style':["Indent style:", "缩进样式："],'placeholder_paste_your_html_here':["Paste your HTML here…", "把你的HTML代码粘贴到这里……"],'placeholder_output_will_appear_here':["Output will appear here…", "输出结果将显示在此处……"],'placeholder_jane_doe':["Jane Doe", "简·多伊"],'placeholder_jane_example_com':["jane@example.com", "jane@example.com"],'placeholder_tell_us_how_we_can_help':["Tell us how we can help…", "请告诉我们如何才能帮到您……"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'strong_related_tools_3':["Related Tools", "相关工具"],'strong_related_tools_4':["Related Tools", "相关工具"],'label_subject':["Subject", "主题"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_5':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_6':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_7':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_8':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_home':["Home", "家"],'link_about':["About", "关于"],'link_contact':["Contact", "接触"],'link_performance':["performance", "表现"],'link_web':["web", "网站"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ────────────────────────────────────────────────────────────────────
 
@@ -426,7 +438,7 @@ function renderOptions() {
 
   if (currentMode === 'minify') {
     bar.innerHTML = `
-      <span class="options-section-label">Options:</span>
+      <span class="options-section-label" ti="label_options">Options:</span>
       <div class="options-group">
         ${chk('removeComments',          'Remove comments')}
         ${chk('removeWhitespaceBetween', 'Whitespace between tags')}
@@ -441,13 +453,13 @@ function renderOptions() {
     `;
   } else {
     bar.innerHTML = `
-      <span class="options-section-label">Indent size:</span>
+      <span class="options-section-label" ti="label_indent_size">Indent size:</span>
       <div class="options-group">
         ${radio('indentSize', '2', '2 spaces/tabs', beautifyOpts.indentSize === 2)}
         ${radio('indentSize', '4', '4 spaces/tabs', beautifyOpts.indentSize === 4)}
       </div>
       <div class="options-divider"></div>
-      <span class="options-section-label">Indent style:</span>
+      <span class="options-section-label" ti="label_indent_style">Indent style:</span>
       <div class="options-group">
         ${radio('indentStyle', 'spaces', 'Spaces', beautifyOpts.indentStyle === 'spaces')}
         ${radio('indentStyle', 'tabs',   'Tabs',   beautifyOpts.indentStyle === 'tabs')}
@@ -919,10 +931,10 @@ async function copyOutput() {
   try {
     await navigator.clipboard.writeText(text);
     const btn = document.getElementById('copy-btn');
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('success');
     setTimeout(() => {
-      btn.textContent = 'Copy';
+      btn.textContent=T("jtc_copy");
       btn.classList.remove('success');
     }, 1500);
   } catch {
@@ -974,15 +986,15 @@ const samples = {
     </style>
   </head>
   <body>
-    <div class="container">
-      <h1>Hello, World!</h1>
+    <div class="container" style="position:relative">
+      <h1 ti="h1_hello_world">Hello, World!</h1>
       <p>This is a   simple   page with   extra   whitespace.</p>
       <!-- Navigation -->
       <nav>
         <ul>
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/contact">Contact</a></li>
+          <li><a href="/" ti="link_home">Home</a></li>
+          <li><a href="/about" ti="link_about">About</a></li>
+          <li><a href="/contact" ti="link_contact">Contact</a></li>
         </ul>
       </nav>
     </div>
@@ -997,12 +1009,12 @@ const samples = {
       });
     </script>
   <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2" ti="strong_related_tools_3" ti="strong_related_tools_4">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/js-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JS Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-escape/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Escape</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4" ti="footer_dev_vault_101_free_tools_5" ti="footer_dev_vault_101_free_tools_6" ti="footer_dev_vault_101_free_tools_7" ti="footer_dev_vault_101_free_tools_8">Dev Vault — 101 free tools</a></div>
 </footer>
 </body>
 </html>`,
@@ -1056,7 +1068,7 @@ const samples = {
     <article>
       <header>
         <!-- Article header -->
-        <h1>10 Web Performance Tips You Should Know</h1>
+        <h1 ti="h1_10_web_performance_tips_y">10 Web Performance Tips You Should Know</h1>
         <p class="meta" style="color: #888; font-size: 0.9rem;">
           Published on <time datetime="2026-03-05">March 5, 2026</time>
           · 5 min read
@@ -1064,13 +1076,13 @@ const samples = {
       </header>
 
       <section>
-        <h2>1. Minimize HTTP Requests</h2>
+        <h2 ti="h2_1_minimize_http_requests">1. Minimize HTTP Requests</h2>
         <p>
           Every resource your page loads — stylesheets, scripts, images — requires an HTTP request.
           Reduce them by bundling files, using CSS sprites, and inlining small assets.
         </p>
 
-        <h2>2. Use a CDN</h2>
+        <h2 ti="h2_2_use_a_cdn">2. Use a CDN</h2>
         <p>
           A Content Delivery Network serves your static assets from servers geographically
           close to your users, reducing latency significantly.
@@ -1080,7 +1092,7 @@ const samples = {
           <p>"Performance is a feature." — Unknown</p>
         </blockquote>
 
-        <h2>3. Enable Compression</h2>
+        <h2 ti="h2_3_enable_compression">3. Enable Compression</h2>
         <p>
           Configure your server to send responses with <code>gzip</code> or <code>brotli</code>
           compression. This can reduce text-based asset sizes by 60-80%.
@@ -1091,7 +1103,7 @@ Vary: Accept-Encoding</code></pre>
       </section>
 
       <footer style="margin-top: 3em; border-top: 1px solid #eee; padding-top: 1em; color: #888; font-size: 0.85rem;">
-        <p>Tags: <a href="/tag/performance">performance</a>, <a href="/tag/web">web</a></p>
+        <p>Tags: <a href="/tag/performance" ti="link_performance">performance</a>, <a href="/tag/web" ti="link_web">web</a></p>
       </footer>
     </article>
   <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
@@ -1173,7 +1185,7 @@ Vary: Accept-Encoding</code></pre>
   <body>
     <div class="form-card">
       <!-- Contact form -->
-      <h2>Contact Us</h2>
+      <h2 ti="h2_contact_us">Contact Us</h2>
       <form id="contact-form" novalidate onsubmit="handleSubmit(event)">
 
         <div class="field">
@@ -1182,7 +1194,7 @@ Vary: Accept-Encoding</code></pre>
             type="text"
             id="name"
             name="name"
-            placeholder="Jane Doe"
+            tp="placeholder_jane_doe" placeholder="Jane Doe"
             required=""
             autocomplete="name"
           >
@@ -1195,7 +1207,7 @@ Vary: Accept-Encoding</code></pre>
             type="email"
             id="email"
             name="email"
-            placeholder="jane@example.com"
+            tp="placeholder_jane_example_com" placeholder="jane@example.com"
             required=""
             autocomplete="email"
           >
@@ -1203,7 +1215,7 @@ Vary: Accept-Encoding</code></pre>
         </div>
 
         <div class="field">
-          <label for="subject">Subject</label>
+          <label for="subject" ti="label_subject">Subject</label>
           <select id="subject" name="subject">
             <option value="">— Choose a topic —</option>
             <option value="general">General Inquiry</option>
@@ -1218,13 +1230,13 @@ Vary: Accept-Encoding</code></pre>
           <textarea
             id="message"
             name="message"
-            placeholder="Tell us how we can help…"
+            tp="placeholder_tell_us_how_we_can_help" placeholder="Tell us how we can help…"
             required=""
           ></textarea>
           <p class="error" id="message-error">Please enter your message.</p>
         </div>
 
-        <button type="submit" class="submit-btn">Send Message</button>
+        <button type="submit" class="submit-btn" ti="btn_send_message">Send Message</button>
       </form>
     </div>
 
@@ -1293,5 +1305,23 @@ process();
 <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

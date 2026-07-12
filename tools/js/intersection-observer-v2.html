@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_intersection_observer_v2" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -102,11 +102,13 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Intersection Observer v2 Playground</h1>
+  <h1 ti="title_intersection_observer_v2" ti="h1_intersection_observer_v2">Intersection Observer v2 Playground</h1>
   <p>Configure thresholds, rootMargin, trackVisibility, and explore real-world patterns</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- API Support -->
   <div class="card" style="text-align:center">
@@ -116,16 +118,16 @@
 
   <!-- Interactive Observer -->
   <div class="card">
-    <h2>Interactive Observer</h2>
+    <h2 ti="h2_interactive_observer">Interactive Observer</h2>
     <div class="two-col">
       <div>
         <div style="margin-bottom:1rem">
-          <label>Threshold Array</label>
+          <label ti="label_threshold_array">Threshold Array</label>
           <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.5rem">
-            <button class="primary" onclick="setThresholds([0])">Single (0)</button>
-            <button onclick="setThresholds([0,0.25,0.5,0.75,1])">Quarters</button>
-            <button onclick="setThresholds(Array.from({length:11},(_,i)=>i/10))">10 Steps</button>
-            <button onclick="setThresholds(Array.from({length:101},(_,i)=>i/100))">Every 1%</button>
+            <button class="primary" onclick="setThresholds([0])" ti="btn_single_0">Single (0)</button>
+            <button onclick="setThresholds([0,0.25,0.5,0.75,1])" ti="btn_quarters">Quarters</button>
+            <button onclick="setThresholds(Array.from({length:11},(_,i)= ti="btn_i_10_10_steps">i/10))">10 Steps</button>
+            <button onclick="setThresholds(Array.from({length:101},(_,i)= ti="btn_i_100_every_1">i/100))">Every 1%</button>
           </div>
           <input type="text" id="thresholdInput" value="0, 0.25, 0.5, 0.75, 1" style="width:100%" onchange="parseThresholds()">
         </div>
@@ -134,24 +136,24 @@
         <div class="threshold-bar"><div class="threshold-fill" id="thresholdFill" style="width:0%"></div></div>
 
         <div style="margin-top:1rem">
-          <label>rootMargin</label>
+          <label ti="label_rootmargin">rootMargin</label>
           <div class="margin-builder">
-            <div><label>Top</label><input type="text" class="margin-input" id="rmTop" value="0px" onchange="updateRootMargin()"></div>
-            <div><label>Right</label><input type="text" class="margin-input" id="rmRight" value="0px" onchange="updateRootMargin()"></div>
-            <div><label>Bottom</label><input type="text" class="margin-input" id="rmBottom" value="0px" onchange="updateRootMargin()"></div>
-            <div><label>Left</label><input type="text" class="margin-input" id="rmLeft" value="0px" onchange="updateRootMargin()"></div>
+            <div><label ti="label_top">Top</label><input type="text" class="margin-input" id="rmTop" value="0px" onchange="updateRootMargin()"></div>
+            <div><label ti="label_right">Right</label><input type="text" class="margin-input" id="rmRight" value="0px" onchange="updateRootMargin()"></div>
+            <div><label ti="label_bottom">Bottom</label><input type="text" class="margin-input" id="rmBottom" value="0px" onchange="updateRootMargin()"></div>
+            <div><label ti="label_left">Left</label><input type="text" class="margin-input" id="rmLeft" value="0px" onchange="updateRootMargin()"></div>
           </div>
           <div style="font-family:var(--mono);font-size:0.8rem;color:var(--accent);margin-top:0.5rem" id="rmValue">rootMargin: "0px 0px 0px 0px"</div>
         </div>
 
         <div style="margin-top:1rem" id="v2Controls">
-          <label>v2 Features</label>
+          <label ti="label_v2_features">v2 Features</label>
           <div style="display:flex;gap:1rem;align-items:center;margin-top:0.3rem">
             <label style="display:flex;align-items:center;gap:0.3rem;cursor:pointer">
               <input type="checkbox" id="trackVisibility" onchange="rebuildObserver()"> trackVisibility
             </label>
             <div>
-              <label>delay (ms)</label>
+              <label ti="label_delay_ms">delay (ms)</label>
               <input type="number" id="v2Delay" value="100" min="0" max="1000" step="50" style="width:80px" onchange="rebuildObserver()">
             </div>
           </div>
@@ -179,12 +181,12 @@
 
   <!-- Entry Inspector -->
   <div class="card">
-    <h2>Entry Properties Inspector</h2>
+    <h2 ti="h2_entry_properties_inspecto">Entry Properties Inspector</h2>
     <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Scroll the viewport above to update these values in real time.</p>
     <div id="entryTabs" style="display:flex;gap:0.5rem;margin-bottom:1rem">
-      <button class="primary" onclick="showEntry(0)">Target #1</button>
-      <button onclick="showEntry(1)">Target #2</button>
-      <button onclick="showEntry(2)">Target #3</button>
+      <button class="primary" onclick="showEntry(0)" ti="btn_target_1">Target #1</button>
+      <button onclick="showEntry(1)" ti="btn_target_2">Target #2</button>
+      <button onclick="showEntry(2)" ti="btn_target_3">Target #3</button>
     </div>
     <div class="entry-props" id="entryProps">
       <div class="entry-prop"><div class="prop-name">isIntersecting</div><div class="prop-value" id="ep-isIntersecting">--</div></div>
@@ -196,7 +198,7 @@
       <div class="entry-prop"><div class="prop-name">rootBounds</div><div class="prop-value" id="ep-rootBounds">--</div></div>
     </div>
     <div style="margin-top:1rem">
-      <label>Event Log</label>
+      <label ti="label_event_log">Event Log</label>
       <div class="event-log" id="eventLog"></div>
     </div>
   </div>
@@ -205,7 +207,7 @@
   <div class="two-col">
     <!-- Scroll Animations -->
     <div class="card">
-      <h2>Scroll-Triggered Animations</h2>
+      <h2 ti="h2_scroll_triggered_animatio">Scroll-Triggered Animations</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem">Elements animate in as they enter the viewport.</p>
       <div class="scroll-anim-track" id="animTrack">
         <div class="spacer" style="height:100px">Scroll down</div>
@@ -214,7 +216,7 @@
 
     <!-- Lazy Loading -->
     <div class="card">
-      <h2>Lazy Loading Demo</h2>
+      <h2 ti="h2_lazy_loading_demo">Lazy Loading Demo</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem">Images load only when scrolled into view. <span id="lazyCount">0/10 loaded</span></p>
       <div class="demo-scroll" id="lazyScroll"></div>
     </div>
@@ -223,7 +225,7 @@
   <div class="two-col">
     <!-- Infinite Scroll -->
     <div class="card">
-      <h2>Infinite Scroll</h2>
+      <h2 ti="h2_infinite_scroll">Infinite Scroll</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:0.5rem">New items load automatically when you reach the bottom.</p>
       <div class="demo-scroll" id="infScroll">
         <div id="infContent"></div>
@@ -233,9 +235,9 @@
 
     <!-- Performance Comparison -->
     <div class="card">
-      <h2>Performance: scroll event vs IntersectionObserver</h2>
+      <h2 ti="h2_performance_scroll_event">Performance: scroll event vs IntersectionObserver</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Comparing callback frequency during a 2-second scroll simulation.</p>
-      <button class="primary" onclick="runPerfTest()" id="perfBtn">Run Test</button>
+      <button class="primary" onclick="runPerfTest()" id="perfBtn" ti="btn_run_test">Run Test</button>
       <div style="margin-top:1rem">
         <div class="perf-bars">
           <span style="font-size:0.8rem">scroll event</span>
@@ -256,7 +258,7 @@
 
   <!-- Code Reference -->
   <div class="card">
-    <h2>API Reference</h2>
+    <h2 ti="h2_api_reference">API Reference</h2>
     <div class="code-block"><span style="color:var(--purple)">// Basic usage</span>
 const observer = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
@@ -280,6 +282,16 @@ observer.disconnect();</div>
 </div>
 <footer>Intersection Observer v2 Playground &mdash; No external dependencies</footer>
 
+
+<script>var _LANG={'title_intersection_observer_v2':["Intersection Observer v2 Playground", "交叉路口观察器 v2 测试场地"],'metadesc_interactive_playground_fo':["Interactive playground for Intersection Observer API v1 and v2. Configure thresholds, rootMargin, trackVisibility, and explore lazy loading, infinite scroll, and scroll animations.", "Intersection Observer API v1 和 v2 的交互式演示环境。配置阈值、rootMargin、trackVisibility，并探索延迟加载、无限滚动和滚动动画。"],'h1_intersection_observer_v2':["Intersection Observer v2 Playground", "交叉路口观察器 v2 测试场地"],'h2_interactive_observer':["Interactive Observer", "交互式观察者"],'h2_entry_properties_inspecto':["Entry Properties Inspector", "入口属性检查器"],'h2_scroll_triggered_animatio':["Scroll-Triggered Animations", "滚动触发动画"],'h2_lazy_loading_demo':["Lazy Loading Demo", "懒加载演示"],'h2_infinite_scroll':["Infinite Scroll", "无限滚动"],'h2_performance_scroll_event':["Performance: scroll event vs IntersectionObserver", "性能：滚动事件与交叉观察者"],'h2_api_reference':["API Reference", "API 参考"],'btn_single_0':["Single (0)", "单 (0)"],'btn_quarters':["Quarters", "四分之一"],'btn_i_10_10_steps':["i/10))\">10 Steps", "i/10))&quot;&gt;10 步"],'btn_i_100_every_1':["i/100))\">Every 1%", "i/100))&quot;&gt;每 1%"],'btn_apply_rebuild_observer':["Apply & Rebuild Observer", "应用并重建观察者"],'btn_target_1':["Target #1", "目标#1"],'btn_target_2':["Target #2", "目标#2"],'btn_target_3':["Target #3", "目标#3"],'btn_run_test':["Run Test", "运行测试"],'label_threshold_array':["Threshold Array", "阈值阵列"],'label_rootmargin':["rootMargin", "根边距"],'label_top':["Top", "顶部"],'label_right':["Right", "正确的"],'label_bottom':["Bottom", "底部"],'label_left':["Left", "左边"],'label_v2_features':["v2 Features", "v2 功能"],'label_delay_ms':["delay (ms)", "延迟（毫秒）"],'label_event_log':["Event Log", "事件日志"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"],'jtc_animated_element':["Animated Element", "动画元素"],'jtc_image':["Image", "图像"],'jtc_item':["Item #", "物品 ＃"],'jtc_loading_page':["Loading page", "页面正在加载"],'jtc_all_items_loaded':["All items loaded", "所有项目已加载"],'jtc_scroll_for_more':["Scroll for more...", "向下滚动查看更多内容……"],'jtc_running':["Running...", "跑步..."],'jtc_run_test':["Run Test", "运行测试"],'jtcpre_animated_element':["Animated Element ", "动画元素"],'jtcpre_image':["Image ", "图像"],'jtcpre_item':["Item #", "物品 ＃"],'jtcpre_loading_page':["Loading page ", "页面正在加载"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -290,10 +302,10 @@ observer.disconnect();</div>
   const v2Badge = document.getElementById('ioV2Badge');
 
   if (hasIO) {
-    v1Badge.textContent = 'Supported';
+    v1Badge.textContent=T("jtc_supported");
     v1Badge.className = 'badge ok';
   } else {
-    v1Badge.textContent = 'Not Supported';
+    v1Badge.textContent=T("jtc_not_supported");
     v1Badge.className = 'badge no';
   }
 
@@ -450,7 +462,7 @@ observer.disconnect();</div>
     const box = document.createElement('div');
     box.className = 'anim-box';
     box.style.background = ANIM_COLORS[i % ANIM_COLORS.length];
-    box.textContent = 'Animated Element ' + (i + 1);
+    box.textContent=T("jtcpre_animated_element")+ (i + 1);
     animTrack.appendChild(box);
   }
 
@@ -470,7 +482,7 @@ observer.disconnect();</div>
     const img = document.createElement('div');
     img.className = 'lazy-img';
     img.dataset.src = 'image-' + (i + 1);
-    img.textContent = 'Image ' + (i + 1) + ' (not loaded)';
+    img.textContent=T("jtcpre_image")+ (i + 1) + ' (not loaded)';
     lazyScroll.appendChild(img);
   }
 
@@ -501,7 +513,7 @@ observer.disconnect();</div>
     for (let i = 0; i < count; i++) {
       const item = document.createElement('div');
       item.className = 'inf-item';
-      item.textContent = 'Item #' + ((infPage - 1) * count + i + 1) + ' - Page ' + infPage;
+      item.textContent=T("jtc_item") + ((infPage - 1) * count + i + 1) + ' - Page ' + infPage;
       infContent.appendChild(item);
     }
   }
@@ -511,16 +523,16 @@ observer.disconnect();</div>
   const infObserver = new IntersectionObserver((entries) => {
     if (entries[0].isIntersecting && !infLoading && infPage < 5) {
       infLoading = true;
-      infLoader.textContent = 'Loading page ' + (infPage + 1) + '...';
+      infLoader.textContent=T("jtcpre_loading_page")+ (infPage + 1) + '...';
       setTimeout(() => {
         infPage++;
         addInfItems(10);
         infLoading = false;
         if (infPage >= 5) {
-          infLoader.textContent = 'All items loaded';
+          infLoader.textContent=T("jtc_all_items_loaded");
           infObserver.disconnect();
         } else {
-          infLoader.textContent = 'Scroll for more...';
+          infLoader.textContent=T("jtc_scroll_for_more");
         }
       }, 800);
     }
@@ -532,7 +544,7 @@ observer.disconnect();</div>
   window.runPerfTest = function() {
     const btn = document.getElementById('perfBtn');
     btn.disabled = true;
-    btn.textContent = 'Running...';
+    btn.textContent=T("jtc_running");
 
     let scrollCount = 0;
     let ioCount = 0;
@@ -575,7 +587,7 @@ observer.disconnect();</div>
         document.getElementById('perfION').textContent = ioCount;
 
         btn.disabled = false;
-        btn.textContent = 'Run Test';
+        btn.textContent=T("jtc_run_test");
       }
     }, 10);
   };
@@ -584,6 +596,24 @@ observer.disconnect();</div>
   renderThresholdMarkers();
   rebuildObserver();
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

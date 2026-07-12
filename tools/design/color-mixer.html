@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_mixer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -349,22 +349,24 @@
 </style>
 </head>
 <body>
-<div class="container">
-  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-  <h1>Color Mixer</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
+  <h1 ti="title_color_mixer" ti="h1_color_mixer">Color Mixer</h1>
 
   <!-- Mode -->
   <div class="card">
     <div class="card-title">Mixing Mode</div>
     <div class="mode-tabs">
-      <button class="mode-btn active" data-mode="rgb">RGB (Additive)</button>
-      <button class="mode-btn" data-mode="hsl">HSL</button>
-      <button class="mode-btn" data-mode="lab">LAB / Perceptual</button>
+      <button class="mode-btn active" data-mode="rgb" ti="btn_rgb_additive">RGB (Additive)</button>
+      <button class="mode-btn" data-mode="hsl" ti="btn_hsl" ti="label_hsl">HSL</button>
+      <button class="mode-btn" data-mode="lab" ti="btn_lab_perceptual">LAB / Perceptual</button>
     </div>
 
     <div class="card-title">Input Colors</div>
     <div class="color-slots" id="colorSlots"></div>
-    <button class="add-btn" id="addBtn">+ Add Color</button>
+    <button class="add-btn" id="addBtn" ti="btn_add_color">+ Add Color</button>
   </div>
 
   <!-- Result -->
@@ -373,12 +375,12 @@
     <div class="result-swatch" id="resultSwatch"></div>
     <div class="result-values">
       <div class="value-box">
-        <span class="label">HEX</span>
+        <span class="label" ti="label_hex">HEX</span>
         <span class="value" id="resultHex">#000000</span>
-        <button class="copy-btn" data-copy="hex">Copy</button>
+        <button class="copy-btn" data-copy="hex" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button>
       </div>
       <div class="value-box">
-        <span class="label">RGB</span>
+        <span class="label" ti="label_rgb">RGB</span>
         <span class="value" id="resultRgb">rgb(0, 0, 0)</span>
         <button class="copy-btn" data-copy="rgb">Copy</button>
       </div>
@@ -402,11 +404,21 @@
     <div class="card-title">History</div>
     <div class="history-list" id="historyList"></div>
     <div class="section-actions">
-      <button class="clear-btn" id="clearHistory">Clear History</button>
+      <button class="clear-btn" id="clearHistory" ti="btn_clear_history">Clear History</button>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_color_mixer':["Color Mixer", "颜色混合器"],'metadesc_mix_and_blend_colors_visu':["Mix and blend colors visually. Combine two colors with adjustable ratios, preview results in real time, and copy output in HEX, RGB, or HSL.", "直观地混合和调和颜色。以可调节的比例组合两种颜色，实时预览结果，并以 HEX、RGB 或 HSL 格式复制输出。"],'h1_color_mixer':["Color Mixer", "颜色混合器"],'btn_rgb_additive':["RGB (Additive)", "RGB（加色法）"],'btn_hsl':["HSL", "高速铁路"],'btn_lab_perceptual':["LAB / Perceptual", "实验室/感知"],'btn_add_color':["+ Add Color", "+ 添加颜色"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_clear_history':["Clear History", "清除历史记录"],'label_hex':["HEX", "六边形"],'label_rgb':["RGB", "RGB"],'label_hsl':["HSL", "高速铁路"],'strong_related_tools':["Related Tools", "相关工具"],'label_entry_weight':["${entry.weight}%", "${entry.weight}%"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───────────────────────────────────────────────────────────────────
 let mode = 'rgb';
@@ -586,7 +598,7 @@ function createSlot(index) {
     <input type="text" class="hex-input" value="${entry.hex}" maxlength="7" spellcheck="false" data-type="hex">
     <div class="weight-wrap">
       <input type="range" min="0" max="100" value="${entry.weight}" data-type="weight">
-      <label>${entry.weight}%</label>
+      <label ti="label_entry_weight">${entry.weight}%</label>
     </div>
     <button class="remove-btn" data-type="remove" title="Remove color">×</button>
   `;
@@ -688,7 +700,7 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
 
     navigator.clipboard.writeText(value).then(() => {
       const orig = btn.textContent;
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('copied');
       setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
     }).catch(() => {
@@ -699,9 +711,9 @@ document.querySelectorAll('[data-copy]').forEach(btn => {
       ta.select();
       document.execCommand('copy');
       document.body.removeChild(ta);
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('copied');
-      setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+      setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1500);
     });
   });
 });
@@ -864,12 +876,30 @@ update();
 renderHistory();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HSL Picker</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-gradient/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Gradient</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

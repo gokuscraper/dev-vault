@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scroll_state_containe" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -647,6 +647,8 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- Header -->
 <header class="page-header">
@@ -662,28 +664,28 @@ body {
 
 <!-- Demo Nav -->
 <nav class="demo-nav" id="demoNav">
-  <button class="active" data-demo="sticky-header">Sticky Header</button>
-  <button data-demo="sticky-sidebar">Sticky Sidebar</button>
-  <button data-demo="snap-highlight">Snap Highlight</button>
-  <button data-demo="scrollable-indicator">Scrollable Arrows</button>
-  <button data-demo="combined">Combined</button>
+  <button class="active" data-demo="sticky-header" ti="btn_sticky_header">Sticky Header</button>
+  <button data-demo="sticky-sidebar" ti="btn_sticky_sidebar">Sticky Sidebar</button>
+  <button data-demo="snap-highlight" ti="btn_snap_highlight">Snap Highlight</button>
+  <button data-demo="scrollable-indicator" ti="btn_scrollable_arrows">Scrollable Arrows</button>
+  <button data-demo="combined" ti="btn_combined">Combined</button>
 </nav>
 
 <!-- ═══════════════════════════════════════ Demo 1: Sticky Header ═══ -->
 <section class="demo-section active" id="demo-sticky-header">
-  <h2>Sticky Header</h2>
+  <h2 ti="h2_sticky_header">Sticky Header</h2>
   <p class="section-desc">Uses <code>scroll-state(stuck: top)</code> to restyle a sticky header when it adheres to the scroll container edge. Scroll down to see the effect.</p>
 
   <div class="presets-bar" data-preset-group="sticky-header">
-    <button class="preset-btn active" data-preset="shadow">Shadow + Color</button>
-    <button class="preset-btn" data-preset="border">Border Accent</button>
-    <button class="preset-btn" data-preset="scale">Scale Up</button>
-    <button class="preset-btn" data-preset="blur">Glassmorphism</button>
-    <button class="preset-btn" data-preset="minimal">Minimal</button>
+    <button class="preset-btn active" data-preset="shadow" ti="btn_shadow_color">Shadow + Color</button>
+    <button class="preset-btn" data-preset="border" ti="btn_border_accent">Border Accent</button>
+    <button class="preset-btn" data-preset="scale" ti="btn_scale_up">Scale Up</button>
+    <button class="preset-btn" data-preset="blur" ti="btn_glassmorphism">Glassmorphism</button>
+    <button class="preset-btn" data-preset="minimal" ti="btn_minimal">Minimal</button>
   </div>
 
   <div class="state-indicator">
-    <span class="label">scroll-state(stuck: top):</span>
+    <span class="label" ti="label_scroll_state_stuck_top" ti="label_scroll_state_stuck_top_2">scroll-state(stuck: top):</span>
     <span class="value inactive" id="stickyHeaderState">not stuck</span>
   </div>
 
@@ -700,7 +702,7 @@ body {
   <div class="code-block" id="codeSticky">
     <div class="code-block-header">
       <span>CSS — scroll-state(stuck: top)</span>
-      <button class="copy-btn" onclick="copyCode('codeSticky')">Copy</button>
+      <button class="copy-btn" onclick="copyCode('codeSticky')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5">Copy</button>
     </div>
     <pre id="codeStickyPre"></pre>
   </div>
@@ -708,7 +710,7 @@ body {
 
 <!-- ═══════════════════════════════════════ Demo 2: Sticky Sidebar ═══ -->
 <section class="demo-section" id="demo-sticky-sidebar">
-  <h2>Sticky Sidebar</h2>
+  <h2 ti="h2_sticky_sidebar">Sticky Sidebar</h2>
   <p class="section-desc">Uses <code>scroll-state(stuck: top)</code> on a sidebar element. The sidebar stays fixed while main content scrolls, with a visual indicator when stuck.</p>
 
   <div class="state-indicator">
@@ -741,11 +743,11 @@ body {
 
 <!-- ═══════════════════════════════════════ Demo 3: Snap Highlight ═══ -->
 <section class="demo-section" id="demo-snap-highlight">
-  <h2>Snap Highlight</h2>
+  <h2 ti="h2_snap_highlight">Snap Highlight</h2>
   <p class="section-desc">Uses <code>scroll-state(snapped: x)</code> to highlight the currently snapped item in a horizontal carousel. Swipe or scroll horizontally.</p>
 
   <div class="state-indicator">
-    <span class="label">Snapped card:</span>
+    <span class="label" ti="label_snapped_card">Snapped card:</span>
     <span class="value" id="snapState">#1</span>
   </div>
 
@@ -753,23 +755,23 @@ body {
     <div class="snap-demo-scroll" id="snapScroll">
       <div class="snap-item snapped" data-idx="0">
         <span class="card-number">01</span>
-        <span class="card-label">Container Queries</span>
+        <span class="card-label" ti="label_container_queries">Container Queries</span>
       </div>
       <div class="snap-item" data-idx="1">
         <span class="card-number">02</span>
-        <span class="card-label">Scroll-Driven</span>
+        <span class="card-label" ti="label_scroll_driven">Scroll-Driven</span>
       </div>
       <div class="snap-item" data-idx="2">
         <span class="card-number">03</span>
-        <span class="card-label">View Transitions</span>
+        <span class="card-label" ti="label_view_transitions">View Transitions</span>
       </div>
       <div class="snap-item" data-idx="3">
         <span class="card-number">04</span>
-        <span class="card-label">Anchor Position</span>
+        <span class="card-label" ti="label_anchor_position">Anchor Position</span>
       </div>
       <div class="snap-item" data-idx="4">
         <span class="card-number">05</span>
-        <span class="card-label">@starting-style</span>
+        <span class="card-label" ti="label_starting_style">@starting-style</span>
       </div>
     </div>
     <div class="snap-dots" id="snapDots">
@@ -792,15 +794,15 @@ body {
 
 <!-- ═══════════════════════════════════════ Demo 4: Scrollable ═══ -->
 <section class="demo-section" id="demo-scrollable-indicator">
-  <h2>Scrollable Indicator</h2>
+  <h2 ti="h2_scrollable_indicator">Scrollable Indicator</h2>
   <p class="section-desc">Uses <code>scroll-state(scrollable: top)</code> and <code>scroll-state(scrollable: bottom)</code> to show/hide scroll arrows based on whether more content is available.</p>
 
   <div class="state-indicator" style="margin-right: 1rem;">
-    <span class="label">scrollable(top):</span>
+    <span class="label" ti="label_scrollable_top">scrollable(top):</span>
     <span class="value inactive" id="scrollableTopState">no</span>
   </div>
   <div class="state-indicator">
-    <span class="label">scrollable(bottom):</span>
+    <span class="label" ti="label_scrollable_bottom" ti="label_scrollable_bottom_2">scrollable(bottom):</span>
     <span class="value" id="scrollableBottomState">yes</span>
   </div>
 
@@ -829,16 +831,16 @@ body {
 
 <!-- ═══════════════════════════════════════ Demo 5: Combined ═══ -->
 <section class="demo-section" id="demo-combined">
-  <h2>Combined Demo</h2>
+  <h2 ti="h2_combined_demo">Combined Demo</h2>
   <p class="section-desc">All three scroll-state types working together: sticky sidebar, sticky section headers, horizontal snap cards, and scrollable indicators.</p>
 
   <div style="display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 1rem;">
     <div class="state-indicator">
-      <span class="label">sidebar stuck:</span>
+      <span class="label" ti="label_sidebar_stuck">sidebar stuck:</span>
       <span class="value inactive" id="combinedSidebarState">no</span>
     </div>
     <div class="state-indicator">
-      <span class="label">header stuck:</span>
+      <span class="label" ti="label_header_stuck">header stuck:</span>
       <span class="value inactive" id="combinedHeaderState">no</span>
     </div>
     <div class="state-indicator">
@@ -876,6 +878,16 @@ body {
   <p>CSS Scroll State Container Queries Playground &middot; <a href="https://developer.chrome.com/docs/css-ui/scroll-state-container-queries" target="_blank" rel="noopener">Chrome Docs</a> &middot; <a href="https://drafts.csswg.org/css-conditional-5/#scroll-state-container" target="_blank" rel="noopener">Spec Draft</a></p>
 </footer>
 
+
+<script>var _LANG={'title_css_scroll_state_containe':["CSS Scroll State Container Queries Playground", "CSS滚动状态容器查询游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for CSS @container scroll-state() queries — stuck, snapped, and scrollable demos with live code.", "CSS @container scroll-state() 查询的交互式游乐场——带有实时代码的卡顿、吸附和可滚动演示。"],'h2_sticky_header':["Sticky Header", "固定标题"],'h2_sticky_sidebar':["Sticky Sidebar", "置顶侧边栏"],'h2_snap_highlight':["Snap Highlight", "精彩瞬间"],'h2_scrollable_indicator':["Scrollable Indicator", "可滚动指示器"],'h2_combined_demo':["Combined Demo", "综合演示"],'btn_sticky_header':["Sticky Header", "固定标题"],'btn_sticky_sidebar':["Sticky Sidebar", "置顶侧边栏"],'btn_snap_highlight':["Snap Highlight", "精彩瞬间"],'btn_scrollable_arrows':["Scrollable Arrows", "可滚动箭头"],'btn_combined':["Combined", "合并"],'btn_shadow_color':["Shadow + Color", "阴影 + 色彩"],'btn_border_accent':["Border Accent", "边框装饰"],'btn_scale_up':["Scale Up", "扩大规模"],'btn_glassmorphism':["Glassmorphism", "玻璃态"],'btn_minimal':["Minimal", "极简主义"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'label_scroll_state_stuck_top':["scroll-state(stuck: top):", "滚动状态（卡住：顶部）："],'label_scroll_state_stuck_top_2':["scroll-state(stuck: top):", "滚动状态（卡住：顶部）："],'label_snapped_card':["Snapped card:", "拍卡："],'label_container_queries':["Container Queries", "容器查询"],'label_scroll_driven':["Scroll-Driven", "滚动驱动"],'label_view_transitions':["View Transitions", "视图过渡"],'label_anchor_position':["Anchor Position", "锚点位置"],'label_starting_style':["@starting-style", "@starting-style"],'label_scrollable_top':["scrollable(top):", "可滚动（顶部）："],'label_scrollable_bottom':["scrollable(bottom):", "可滚动（底部）："],'label_sidebar_stuck':["sidebar stuck:", "侧边栏卡住了："],'label_header_stuck':["header stuck:", "标题卡住了："],'label_scrollable_bottom_2':["scrollable(bottom):", "可滚动（底部）："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ── Navigation ── */
 const navBtns = document.querySelectorAll('.demo-nav button');
@@ -1370,10 +1382,10 @@ function copyCode(blockId) {
   const pre = document.querySelector('#' + blockId + ' pre');
   const btn = document.querySelector('#' + blockId + ' .copy-btn');
   navigator.clipboard.writeText(pre.textContent).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => {
-      btn.textContent = 'Copy';
+      btn.textContent=T("jtc_copy");
       btn.classList.remove('copied');
     }, 1500);
   });
@@ -1381,6 +1393,24 @@ function copyCode(blockId) {
 
 /* ── Init scroll states ── */
 updateScrollableIndicators();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

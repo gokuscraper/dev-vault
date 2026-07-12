@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_svg_path_editor" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,24 +48,26 @@ svg.canvas{width:100%;height:100%;background:#0f0f0f;cursor:crosshair}
 </style>
 </head>
 <body>
-<h1>SVG Path Editor</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_svg_path_editor" ti="h1_svg_path_editor">SVG Path Editor</h1>
 <div class="app">
 <div class="sidebar">
 <div class="controls">
-<label>Active Command</label>
+<label ti="label_active_command">Active Command</label>
 <div class="toolbar" id="toolbar"></div>
 <div class="btn-row">
-<button onclick="undoLast()">Undo</button>
-<button onclick="clearPath()">Clear</button>
+<button onclick="undoLast()" ti="btn_undo">Undo</button>
+<button onclick="clearPath()" ti="btn_clear">Clear</button>
 </div>
-<label>Canvas Size</label>
+<label ti="label_canvas_size">Canvas Size</label>
 <div class="btn-row">
 <input type="number" id="canvasW" value="500" min="100" max="2000" onchange="updateCanvas()">
 <input type="number" id="canvasH" value="400" min="100" max="2000" onchange="updateCanvas()">
 </div>
-<label>Stroke Width</label>
+<label ti="label_stroke_width">Stroke Width</label>
 <input type="range" id="strokeW" min="1" max="10" value="2" oninput="updateStroke()">
-<label>Fill</label>
+<label ti="label_fill">Fill</label>
 <div class="btn-row">
 <input type="checkbox" id="showFill" style="width:auto;margin-right:8px" onchange="render()">
 <input type="color" id="fillColor" value="#7c9aff" style="width:60px" onchange="render()">
@@ -73,17 +75,17 @@ svg.canvas{width:100%;height:100%;background:#0f0f0f;cursor:crosshair}
 </div>
 <div class="cmd-list" id="cmdList"></div>
 <div class="path-output">
-<label>Path Data</label>
-<textarea id="pathData" placeholder="Paste path data to import..." oninput="importPath()"></textarea>
+<label ti="label_path_data">Path Data</label>
+<textarea id="pathData" tp="placeholder_paste_path_data_to_import" placeholder="Paste path data to import..." oninput="importPath()"></textarea>
 <div class="btn-row">
-<button onclick="copyPath()">Copy</button>
-<button onclick="optimizePath()">Optimize</button>
+<button onclick="copyPath()" ti="btn_copy">Copy</button>
+<button onclick="optimizePath()" ti="btn_optimize">Optimize</button>
 </div>
 </div>
 <details class="reference">
 <summary>Path Command Reference</summary>
 <table>
-<tr><th>Cmd</th><th>Name</th><th>Params</th></tr>
+<tr><th ti="th_cmd">Cmd</th><th ti="th_name">Name</th><th ti="th_params">Params</th></tr>
 <tr><td>M</td><td>Move To</td><td>x, y</td></tr>
 <tr><td>L</td><td>Line To</td><td>x, y</td></tr>
 <tr><td>H</td><td>Horizontal</td><td>x</td></tr>
@@ -115,7 +117,17 @@ svg.canvas{width:100%;height:100%;background:#0f0f0f;cursor:crosshair}
 </svg>
 </div>
 </div>
-<div class="status" id="status">Click on canvas to add points. Select a command type from the toolbar.</div>
+<div class="status" id="status" ti="status_click_on_canvas_to_add_po">Click on canvas to add points. Select a command type from the toolbar.</div>
+
+<script>var _LANG={'title_svg_path_editor':["SVG Path Editor", "SVG路径编辑器"],'h1_svg_path_editor':["SVG Path Editor", "SVG路径编辑器"],'btn_undo':["Undo", "撤销"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_optimize':["Optimize", "优化"],'placeholder_paste_path_data_to_import':["Paste path data to import...", "粘贴路径数据以导入..."],'th_cmd':["Cmd", "命令"],'th_name':["Name", "姓名"],'th_params':["Params", "参数"],'label_active_command':["Active Command", "活动命令"],'label_canvas_size':["Canvas Size", "画布尺寸"],'label_stroke_width':["Stroke Width", "笔画宽度"],'label_fill':["Fill", "充满"],'label_path_data':["Path Data", "路径数据"],'status_click_on_canvas_to_add_po':["Click on canvas to add points. Select a command type from the toolbar.", "点击画布添加点数。从工具栏中选择命令类型。"],'jtc_smooth_cubic_1_2_points_p':["Smooth cubic: 1/2 points placed", "光滑立方：放置 1/2 个点"],'jtc_quadratic_1_2_points_plac':["Quadratic: 1/2 points placed", "二次函数：1/2 分"],'jtc_path_copied':["Path copied!", "路径已复制！"],'jtc_path_optimized':["Path optimized", "路径优化"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const commands=['M','L','H','V','C','S','Q','T','A','Z'];
 let activeCmd='M';
@@ -216,7 +228,7 @@ function handleClick(p){
       tempPoints=[];
       finishAdd();
     }else{
-      status.textContent='Smooth cubic: 1/2 points placed';
+      status.textContent=T("jtc_smooth_cubic_1_2_points_p");
     }
   }else if(activeCmd==='Q'){
     tempPoints.push(p);
@@ -225,7 +237,7 @@ function handleClick(p){
       tempPoints=[];
       finishAdd();
     }else{
-      status.textContent='Quadratic: 1/2 points placed';
+      status.textContent=T("jtc_quadratic_1_2_points_plac");
     }
   }else if(activeCmd==='A'){
     pathCmds.push({cmd:'A',rx:50,ry:50,rotation:0,largeArc:0,sweep:1,x:p.x,y:p.y});
@@ -402,7 +414,7 @@ function updateStroke(){
 }
 
 function copyPath(){
-  navigator.clipboard.writeText(pathData.value).then(()=>{status.textContent='Path copied!'});
+  navigator.clipboard.writeText(pathData.value).then(()=>{status.textContent=T("jtc_path_copied")});
 }
 
 function optimizePath(){
@@ -410,7 +422,7 @@ function optimizePath(){
   let d=pathData.value.replace(/\s+/g,' ').trim();
   d=d.replace(/ ?,/g,',').replace(/, ?/g,',');
   pathData.value=d;
-  status.textContent='Path optimized';
+  status.textContent=T("jtc_path_optimized");
 }
 
 function importPath(){
@@ -450,6 +462,24 @@ function parsePath(d){
 
 render();
 updateStatus();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_payment_handler_api_playg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -249,6 +249,16 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>Payment Handler API</span> Playground</h1>
@@ -298,8 +308,8 @@
 
     <div style="margin-top: 1rem; display: flex; gap: 0.75rem; flex-wrap: wrap;">
       <button class="btn btn-primary" onclick="simulatePayment('success')">&#9654; Simulate Success</button>
-      <button class="btn" onclick="simulatePayment('cancel')">Simulate Cancel</button>
-      <button class="btn" onclick="simulatePayment('error')">Simulate Error</button>
+      <button class="btn" onclick="simulatePayment('cancel')" ti="btn_simulate_cancel" ti="btn_simulate_cancel" ti="btn_simulate_cancel" ti="btn_simulate_cancel" ti="btn_simulate_cancel">Simulate Cancel</button>
+      <button class="btn" onclick="simulatePayment('error')" ti="btn_simulate_error" ti="btn_simulate_error" ti="btn_simulate_error" ti="btn_simulate_error" ti="btn_simulate_error">Simulate Error</button>
       <button class="btn" onclick="resetFlow()">&#8634; Reset</button>
     </div>
 
@@ -341,7 +351,7 @@
     </div>
 
     <div class="info-box">
-      <strong>Note:</strong> The <code>basic-card</code> method is <strong>deprecated</strong> in most browsers. Modern payment flows use URL-based payment method identifiers (e.g., Google Pay, Apple Pay) or custom payment handler URLs registered via the Payment Handler API.
+      <strong ti="strong_note" ti="strong_note" ti="strong_note" ti="strong_note" ti="strong_note">Note:</strong> The <code>basic-card</code> method is <strong ti="strong_deprecated" ti="strong_deprecated" ti="strong_deprecated" ti="strong_deprecated" ti="strong_deprecated">deprecated</strong> in most browsers. Modern payment flows use URL-based payment method identifiers (e.g., Google Pay, Apple Pay) or custom payment handler URLs registered via the Payment Handler API.
     </div>
   </div>
 
@@ -352,7 +362,7 @@
       <p class="card-desc">Configure payment details for the PaymentRequest.</p>
 
       <div class="form-group">
-        <label>Currency</label>
+        <label ti="label_currency" ti="label_currency" ti="label_currency" ti="label_currency" ti="label_currency">Currency</label>
         <select id="currency" onchange="updateOutput()">
           <option value="USD">USD - US Dollar</option>
           <option value="EUR">EUR - Euro</option>
@@ -363,23 +373,23 @@
       </div>
 
       <div class="form-group">
-        <label>Item Label</label>
+        <label ti="label_item_label" ti="label_item_label" ti="label_item_label" ti="label_item_label" ti="label_item_label">Item Label</label>
         <input type="text" id="itemLabel" value="Premium Subscription" onchange="updateOutput()">
       </div>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Amount</label>
+          <label ti="label_amount" ti="label_amount" ti="label_amount" ti="label_amount" ti="label_amount">Amount</label>
           <input type="number" id="itemAmount" value="9.99" step="0.01" onchange="updateOutput()">
         </div>
         <div class="form-group">
-          <label>Tax</label>
+          <label ti="label_tax" ti="label_tax" ti="label_tax" ti="label_tax" ti="label_tax">Tax</label>
           <input type="number" id="taxAmount" value="0.80" step="0.01" onchange="updateOutput()">
         </div>
       </div>
 
       <div class="form-group">
-        <label>Merchant Name</label>
+        <label ti="label_merchant_name" ti="label_merchant_name" ti="label_merchant_name" ti="label_merchant_name" ti="label_merchant_name">Merchant Name</label>
         <input type="text" id="merchantName" value="My Store" onchange="updateOutput()">
       </div>
     </div>
@@ -432,7 +442,7 @@
     </div>
 
     <div class="tab-panel active" id="tabCode">
-      <div class="code-block" id="codeOutput"><button class="copy-btn" onclick="copyCodeBlock(this)">Copy</button>Loading...</div>
+      <div class="code-block" id="codeOutput"><button class="copy-btn" onclick="copyCodeBlock(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4">Copy</button>Loading...</div>
     </div>
 
     <div class="tab-panel" id="tabResponse">
@@ -613,11 +623,51 @@
       </div>
     </div>
     <div class="warning-box" style="margin-top: 1rem;">
-      <strong>Important:</strong> The <code>basic-card</code> payment method has been <strong>removed from Chrome (v100+)</strong> and Firefox. Modern implementations should use platform-specific methods (Google Pay, Apple Pay) or custom URL-based payment handlers. Always check <code>canMakePayment()</code> before showing the UI.
+      <strong ti="strong_important" ti="strong_important" ti="strong_important" ti="strong_important" ti="strong_important">Important:</strong> The <code>basic-card</code> payment method has been <strong ti="strong_removed_from_chrome_v100" ti="strong_removed_from_chrome_v100" ti="strong_removed_from_chrome_v100" ti="strong_removed_from_chrome_v100" ti="strong_removed_from_chrome_v100">removed from Chrome (v100+)</strong> and Firefox. Modern implementations should use platform-specific methods (Google Pay, Apple Pay) or custom URL-based payment handlers. Always check <code>canMakePayment()</code> before showing the UI.
     </div>
   </div>
 </main>
 
+
+
+
+
+<script>var _LANG={'title_payment_handler_api_playg':["Payment Handler API Playground", "支付处理程序 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Payment Request and Payment Handler APIs - visualize payment flows, build payment method data, and explore error handling.", "用于支付请求和支付处理程序 API 的交互式游乐场 - 可视化支付流程、构建支付方式数据并探索错误处理。"],'btn_simulate_success':["▶ Simulate Success", "▶ 模拟成功"],'btn_simulate_cancel':["Simulate Cancel", "模拟取消"],'btn_simulate_error':["Simulate Error", "模拟误差"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'strong_note':["Note:", "笔记："],'strong_deprecated':["deprecated", "已弃用"],'strong_important':["Important:", "重要的："],'strong_removed_from_chrome_v100':["removed from Chrome (v100+)", "从 Chrome (v100+) 中移除"],'label_currency':["Currency", "货币"],'label_item_label':["Item Label", "商品标签"],'label_amount':["Amount", "数量"],'label_tax':["Tax", "税"],'label_merchant_name':["Merchant Name", "商家名称"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_payment_handler_api_playg':["Payment Handler API Playground", "支付处理程序 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Payment Request and Payment Handler APIs - visualize payment flows, build payment method data, and explore error handling.", "用于支付请求和支付处理程序 API 的交互式游乐场 - 可视化支付流程、构建支付方式数据并探索错误处理。"],'btn_simulate_success':["▶ Simulate Success", "▶ 模拟成功"],'btn_simulate_cancel':["Simulate Cancel", "模拟取消"],'btn_simulate_error':["Simulate Error", "模拟误差"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'strong_note':["Note:", "笔记："],'strong_deprecated':["deprecated", "已弃用"],'strong_important':["Important:", "重要的："],'strong_removed_from_chrome_v100':["removed from Chrome (v100+)", "从 Chrome (v100+) 中移除"],'label_currency':["Currency", "货币"],'label_item_label':["Item Label", "商品标签"],'label_amount':["Amount", "数量"],'label_tax':["Tax", "税"],'label_merchant_name':["Merchant Name", "商家名称"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_payment_handler_api_playg':["Payment Handler API Playground", "支付处理程序 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Payment Request and Payment Handler APIs - visualize payment flows, build payment method data, and explore error handling.", "用于支付请求和支付处理程序 API 的交互式游乐场 - 可视化支付流程、构建支付方式数据并探索错误处理。"],'btn_simulate_success':["▶ Simulate Success", "▶ 模拟成功"],'btn_simulate_cancel':["Simulate Cancel", "模拟取消"],'btn_simulate_error':["Simulate Error", "模拟误差"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'strong_note':["Note:", "笔记："],'strong_deprecated':["deprecated", "已弃用"],'strong_important':["Important:", "重要的："],'strong_removed_from_chrome_v100':["removed from Chrome (v100+)", "从 Chrome (v100+) 中移除"],'label_currency':["Currency", "货币"],'label_item_label':["Item Label", "商品标签"],'label_amount':["Amount", "数量"],'label_tax':["Tax", "税"],'label_merchant_name':["Merchant Name", "商家名称"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_payment_handler_api_playg':["Payment Handler API Playground", "支付处理程序 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Payment Request and Payment Handler APIs - visualize payment flows, build payment method data, and explore error handling.", "用于支付请求和支付处理程序 API 的交互式游乐场 - 可视化支付流程、构建支付方式数据并探索错误处理。"],'btn_simulate_success':["▶ Simulate Success", "▶ 模拟成功"],'btn_simulate_cancel':["Simulate Cancel", "模拟取消"],'btn_simulate_error':["Simulate Error", "模拟误差"],'btn_reset':["↺ Reset", "↺ 重置"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'strong_note':["Note:", "笔记："],'strong_deprecated':["deprecated", "已弃用"],'strong_important':["Important:", "重要的："],'strong_removed_from_chrome_v100':["removed from Chrome (v100+)", "从 Chrome (v100+) 中移除"],'label_currency':["Currency", "货币"],'label_item_label':["Item Label", "商品标签"],'label_amount':["Amount", "数量"],'label_tax':["Tax", "税"],'label_merchant_name':["Merchant Name", "商家名称"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Feature detection
   const isSupported = 'PaymentRequest' in window;
@@ -843,8 +893,8 @@ ${methodsCode}
     const block = btn.closest('.code-block');
     const text = block.textContent.replace('Copy', '').trim();
     navigator.clipboard.writeText(text).then(() => {
-      btn.textContent = 'Copied!';
-      setTimeout(() => btn.textContent = 'Copy', 1500);
+      btn.textContent=T("jtc_copied");
+      setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
     });
   }
 
@@ -852,5 +902,95 @@ ${methodsCode}
   updateOutput();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

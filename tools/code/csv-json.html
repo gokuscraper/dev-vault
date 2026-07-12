@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_csv_json_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,49 +68,61 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSV ↔ JSON</h1>
-<p class="subtitle">Convert between CSV and JSON. No upload, no server.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_csv_json">CSV ↔ JSON</h1>
+<p class="subtitle" ti="subtitle_convert_between_csv_and_j">Convert between CSV and JSON. No upload, no server.</p>
 
 <div class="mode-toggle">
-  <button class="mode-btn active" onclick="setMode('csv2json')">CSV → JSON</button>
-  <button class="mode-btn" onclick="setMode('json2csv')">JSON → CSV</button>
+  <button class="mode-btn active" onclick="setMode('csv2json')" ti="btn_csv_json">CSV → JSON</button>
+  <button class="mode-btn" onclick="setMode('json2csv')" ti="btn_json_csv">JSON → CSV</button>
 </div>
 
 <div class="options">
-  <div class="opt"><label>Delimiter</label><select id="delim"><option value=",">,</option><option value="	">Tab</option><option value=";">;</option><option value="|">|</option></select></div>
-  <div class="opt"><label>Quote</label><select id="quote"><option value="&quot;">"</option><option value="'">'</option></select></div>
+  <div class="opt"><label ti="label_delimiter">Delimiter</label><select id="delim"><option value=",">,</option><option value="	">Tab</option><option value=";">;</option><option value="|">|</option></select></div>
+  <div class="opt"><label ti="label_quote">Quote</label><select id="quote"><option value="&quot;">"</option><option value="'">'</option></select></div>
   <div class="opt"><label><input type="checkbox" id="hasHeader" checked> First row is header</label></div>
-  <div class="opt"><label>JSON indent</label><select id="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option><option value="0">Minified</option></select></div>
+  <div class="opt"><label ti="label_json_indent">JSON indent</label><select id="indent"><option value="2">2 spaces</option><option value="4">4 spaces</option><option value="\t">Tab</option><option value="0">Minified</option></select></div>
 </div>
 
 <div class="editor">
-  <div class="pane"><h3 id="inputLabel">CSV Input</h3><textarea id="input" placeholder="Paste CSV here..."></textarea></div>
-  <div class="pane"><h3 id="outputLabel">JSON Output</h3><textarea id="output" readonly placeholder="Result will appear here..."></textarea></div>
+  <div class="pane"><h3 id="inputLabel" ti="h3_csv_input">CSV Input</h3><textarea id="input" tp="placeholder_paste_csv_here" placeholder="Paste CSV here..."></textarea></div>
+  <div class="pane"><h3 id="outputLabel" ti="h3_json_output">JSON Output</h3><textarea id="output" readonly tp="placeholder_result_will_appear_here" placeholder="Result will appear here..."></textarea></div>
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="convert()">Convert</button>
-  <button class="btn" onclick="copyOutput()">Copy Output</button>
-  <button class="btn" onclick="downloadOutput()">Download</button>
-  <button class="btn" onclick="swap()">⇄ Swap</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
-  <button class="btn" onclick="loadSample()">Sample Data</button>
+  <button class="btn primary" onclick="convert()" ti="btn_convert">Convert</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy_output">Copy Output</button>
+  <button class="btn" onclick="downloadOutput()" ti="btn_download">Download</button>
+  <button class="btn" onclick="swap()" ti="btn_swap">⇄ Swap</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
+  <button class="btn" onclick="loadSample()" ti="btn_sample_data">Sample Data</button>
 </div>
 
 <div class="stats" id="stats"></div>
 
 <div class="preview-section" id="previewSection" style="display:none">
-  <h3>Table Preview</h3>
+  <h3 ti="h3_table_preview">Table Preview</h3>
   <div class="table-wrap" id="tableWrap"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/csv-json">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/csv-json" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_csv_json_converter':["CSV ↔ JSON — Converter", "CSV ↔ JSON — 转换器"],'metadesc_convert_csv_to_json_and_j':["Convert CSV to JSON and JSON to CSV. Auto-detect headers, custom delimiters, preview table. Free, no upload.", "CSV 转 JSON，JSON 转 CSV。自动检测标题，支持自定义分隔符，可预览表格。免费，无需上传。"],'h1_csv_json':["CSV ↔ JSON", "CSV ↔ JSON"],'h3_csv_input':["CSV Input", "CSV 输入"],'h3_json_output':["JSON Output", "JSON 输出"],'h3_table_preview':["Table Preview", "表格预览"],'subtitle_convert_between_csv_and_j':["Convert between CSV and JSON. No upload, no server.", "CSV 和 JSON 之间相互转换。无需上传，无需服务器。"],'btn_csv_json':["CSV → JSON", "CSV → JSON"],'btn_json_csv':["JSON → CSV", "JSON → CSV"],'btn_convert':["Convert", "转变"],'btn_copy_output':["Copy Output", "复制输出"],'btn_download':["Download", "下载"],'btn_swap':["⇄ Swap", "⇄ 交换"],'btn_clear':["Clear", "清除"],'btn_sample_data':["Sample Data", "样本数据"],'placeholder_paste_csv_here':["Paste CSV here...", "请将CSV文件粘贴到此处……"],'placeholder_result_will_appear_here':["Result will appear here...", "结果将显示在此处……"],'strong_related_tools':["Related Tools", "相关工具"],'th_esc_h':["${esc(h)}", "${esc(h)}"],'label_delimiter':["Delimiter", "分隔符"],'label_quote':["Quote", "引用"],'label_json_indent':["JSON indent", "JSON 缩进"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let mode='csv2json';
 
@@ -208,7 +220,7 @@ function showPreview(headers,rows){
   const max=100;
   const display=rows.slice(0,max);
   let html='<table>';
-  if(headers){html+='<tr>'+headers.map(h=>`<th>${esc(h)}</th>`).join('')+'</tr>'}
+  if(headers){html+='<tr>'+headers.map(h=>`<th ti="th_esc_h">${esc(h)}</th>`).join('')+'</tr>'}
   display.forEach(r=>{
     html+='<tr>';
     const cells=Array.isArray(r)?r:Object.values(r);
@@ -302,12 +314,30 @@ document.getElementById('input').addEventListener('input',()=>{
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/yaml-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">YAML ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/toml-json/" style="color:#4da6ff;text-decoration:none;margin:0 8px">TOML ↔ JSON</a>
 <a href="https://gokuscraper.github.io/dev-vault/markdown-table/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Markdown Table</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

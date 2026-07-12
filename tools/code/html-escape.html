@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_escape_encode_decode" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,19 +65,21 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>HTML Escape</h1>
-<p class="subtitle">Encode & decode HTML entities. Named entity reference.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_html_escape">HTML Escape</h1>
+<p class="subtitle" ti="subtitle_encode_decode_html_entiti">Encode & decode HTML entities. Named entity reference.</p>
 
 <div class="tabs">
-  <button class="tab active" onclick="setMode('escape')">Escape</button>
-  <button class="tab" onclick="setMode('unescape')">Unescape</button>
+  <button class="tab active" onclick="setMode('escape')" ti="btn_escape">Escape</button>
+  <button class="tab" onclick="setMode('unescape')" ti="btn_unescape">Unescape</button>
 </div>
 
 <div class="editor">
   <div class="pane">
-    <h3><span id="inputLabel">Raw HTML</span><button class="copy-btn" onclick="copyText('input')">Copy</button></h3>
-    <textarea id="input" oninput="convert()" spellcheck="false" placeholder="Paste HTML here..."></textarea>
+    <h3><span id="inputLabel">Raw HTML</span><button class="copy-btn" onclick="copyText('input')" ti="btn_copy" ti="btn_copy_2">Copy</button></h3>
+    <textarea id="input" oninput="convert()" spellcheck="false" tp="placeholder_paste_html_here" placeholder="Paste HTML here..."></textarea>
   </div>
   <div class="pane">
     <h3><span id="outputLabel">Escaped</span><button class="copy-btn" onclick="copyText('output')">Copy</button></h3>
@@ -88,9 +90,9 @@ footer a:hover{color:#999}
 <div class="stats" id="stats"></div>
 
 <div class="ref-section">
-  <h2>HTML Entity Reference</h2>
+  <h2 ti="h2_html_entity_reference">HTML Entity Reference</h2>
   <div class="search-row">
-    <input type="text" id="refSearch" placeholder="Search entities..." oninput="filterRef()">
+    <input type="text" id="refSearch" tp="placeholder_search_entities" placeholder="Search entities..." oninput="filterRef()">
   </div>
   <div class="cat-filters" id="catFilters"></div>
   <div class="ref-grid" id="refGrid"></div>
@@ -98,10 +100,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/html-escape">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/html-escape" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_html_escape_encode_decode':["HTML Escape — Encode & Decode HTML Entities", "HTML 转义 — 对 HTML 实体进行编码和解码"],'metadesc_escape_and_unescape_html':["Escape and unescape HTML entities. Named entities reference. Encode special characters for safe HTML. Free.", "转义和取消转义 HTML 实体。引用命名实体。对特殊字符进行编码，以确保 HTML 安全。免费。"],'h1_html_escape':["HTML Escape", "HTML 转义"],'h2_html_entity_reference':["HTML Entity Reference", "HTML实体引用"],'subtitle_encode_decode_html_entiti':["Encode & decode HTML entities. Named entity reference.", "对 HTML 实体进行编码和解码。命名实体引用。"],'btn_escape':["Escape", "逃脱"],'btn_unescape':["Unescape", "逃脱"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_c_label':["${c.label}", "${c.label}"],'placeholder_paste_html_here':["Paste HTML here...", "在此处粘贴HTML代码……"],'placeholder_search_entities':["Search entities...", "搜索实体..."],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let mode='escape';
 
@@ -212,14 +224,14 @@ function convert(){
 function copyText(id){
   navigator.clipboard.writeText(document.getElementById(id).value);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
 
 function renderCatFilters(){
   document.getElementById('catFilters').innerHTML=CATS.map(c=>
-    `<button class="cat-btn ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')">${c.label}</button>`
+    `<button class="cat-btn ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')" ti="btn_c_label">${c.label}</button>`
   ).join('');
 }
 
@@ -256,12 +268,30 @@ filterRef();
 convert();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
 <a href="https://gokuscraper.github.io/dev-vault/markdown-table/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Markdown Table</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

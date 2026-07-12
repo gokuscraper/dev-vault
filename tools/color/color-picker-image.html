@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_color_picker_extrac" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,9 +68,11 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Color Picker</h1>
-<p class="sub">Pick colors from images — extract palettes — nothing uploaded</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_color_picker">Image Color Picker</h1>
+<p class="sub" ti="subtitle_pick_colors_from_images_e">Pick colors from images — extract palettes — nothing uploaded</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
 <p>Drop an image here or click to select</p>
@@ -86,23 +88,23 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Picked Color</h3>
+<h3 ti="h3_picked_color">Picked Color</h3>
 <div class="picked-color">
 <div class="color-swatch" id="colorSwatch" style="background:#000"></div>
 <div class="color-values">
-<div class="color-row"><label>HEX</label><input id="vHex" value="#000000" readonly><button class="copy-btn" onclick="copyVal('vHex')">Copy</button></div>
-<div class="color-row"><label>RGB</label><input id="vRgb" value="rgb(0, 0, 0)" readonly><button class="copy-btn" onclick="copyVal('vRgb')">Copy</button></div>
-<div class="color-row"><label>HSL</label><input id="vHsl" value="hsl(0, 0%, 0%)" readonly><button class="copy-btn" onclick="copyVal('vHsl')">Copy</button></div>
+<div class="color-row"><label ti="label_hex_2">HEX</label><input id="vHex" value="#000000" readonly><button class="copy-btn" onclick="copyVal('vHex')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button></div>
+<div class="color-row"><label ti="label_rgb">RGB</label><input id="vRgb" value="rgb(0, 0, 0)" readonly><button class="copy-btn" onclick="copyVal('vRgb')">Copy</button></div>
+<div class="color-row"><label ti="label_hsl">HSL</label><input id="vHsl" value="hsl(0, 0%, 0%)" readonly><button class="copy-btn" onclick="copyVal('vHsl')">Copy</button></div>
 </div>
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="addToPalette()">Add to Palette</button>
-<button class="btn" onclick="loadNewImage()">New Image</button>
+<button class="btn btn-primary" onclick="addToPalette()" ti="btn_add_to_palette">Add to Palette</button>
+<button class="btn" onclick="loadNewImage()" ti="btn_new_image">New Image</button>
 </div>
 </div>
 
 <div class="section">
-<h3>Dominant Colors (auto-extracted)</h3>
+<h3 ti="h3_dominant_colors_auto_extr">Dominant Colors (auto-extracted)</h3>
 <div class="dominant-colors" id="dominantColors"></div>
 <div class="info">Click a color to select it</div>
 </div>
@@ -111,20 +113,30 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <h3>Your Palette <span style="font-size:0.75rem;color:#666" id="paletteCount">(0)</span></h3>
 <div class="palette-grid" id="paletteGrid"></div>
 <div class="actions">
-<button class="btn btn-sm" onclick="exportPalette('hex')">Copy HEX List</button>
-<button class="btn btn-sm" onclick="exportPalette('css')">Copy CSS Vars</button>
-<button class="btn btn-sm" onclick="exportPalette('scss')">Copy SCSS</button>
-<button class="btn btn-sm" onclick="exportPalette('tailwind')">Copy Tailwind</button>
-<button class="btn btn-sm btn-danger" onclick="clearPalette()">Clear</button>
+<button class="btn btn-sm" onclick="exportPalette('hex')" ti="btn_copy_hex_list">Copy HEX List</button>
+<button class="btn btn-sm" onclick="exportPalette('css')" ti="btn_copy_css_vars">Copy CSS Vars</button>
+<button class="btn btn-sm" onclick="exportPalette('scss')" ti="btn_copy_scss">Copy SCSS</button>
+<button class="btn btn-sm" onclick="exportPalette('tailwind')" ti="btn_copy_tailwind">Copy Tailwind</button>
+<button class="btn btn-sm btn-danger" onclick="clearPalette()" ti="btn_clear">Clear</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-converter/">Color Converter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/">Image Crop</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/color-converter/" ti="link_color_converter">Color Converter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/" ti="link_image_filter">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/image-crop/" ti="link_image_crop">Image Crop</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_image_color_picker_extrac':["Image Color Picker — Extract Colors & Palettes from Images", "图像颜色选择器 — 从图像中提取颜色和调色板"],'metadesc_pick_colors_from_any_imag':["Pick colors from any image. Extract dominant color palettes. Get HEX, RGB, HSL values. Eyedropper tool. No upload to server.", "从任意图像中拾取颜色。提取主要调色板。获取 HEX、RGB、HSL 值。吸管工具。无需上传到服务器。"],'h1_image_color_picker':["Image Color Picker", "图像颜色选择器"],'h3_picked_color':["Picked Color", "选定颜色"],'h3_dominant_colors_auto_extr':["Dominant Colors (auto-extracted)", "主色（自动提取）"],'subtitle_pick_colors_from_images_e':["Pick colors from images — extract palettes — nothing uploaded", "从图像中提取颜色 — 提取调色板 — 未上传任何内容"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_add_to_palette':["Add to Palette", "添加到调色板"],'btn_new_image':["New Image", "新形象"],'btn_copy_hex_list':["Copy HEX List", "复制十六进制列表"],'btn_copy_css_vars':["Copy CSS Vars", "复制 CSS 变量"],'btn_copy_scss':["Copy SCSS", "复制 SCSS"],'btn_copy_tailwind':["Copy Tailwind", "复制 Tailwind"],'btn_clear':["Clear", "清除"],'label_hex':["${hex}", "${hex}"],'label_hex_2':["HEX", "六边形"],'label_rgb':["RGB", "RGB"],'label_hsl':["HSL", "高速铁路"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_color_converter':["Color Converter", "颜色转换器"],'link_image_filter':["Image Filter", "图像滤波器"],'link_image_crop':["Image Crop", "图片裁剪"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const canvas=document.getElementById('canvas');
 const ctx=canvas.getContext('2d',{willReadFrequently:true});
@@ -273,7 +285,7 @@ function extractDominant(){
     const hex=rgbToHex(c[0],c[1],c[2]);
     const el=document.createElement('div');
     el.className='dominant-item';
-    el.innerHTML=`<div class="dominant-swatch" style="background:${hex}"></div><span class="dominant-label">${hex}</span>`;
+    el.innerHTML=`<div class="dominant-swatch" style="background:${hex}"></div><span class="dominant-label" ti="label_hex">${hex}</span>`;
     el.onclick=()=>pickColor(c[0],c[1],c[2]);
     container.appendChild(el);
   });
@@ -354,6 +366,24 @@ function showToast(msg){
   t.style.display='block';
   setTimeout(()=>t.style.display='none',1500);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

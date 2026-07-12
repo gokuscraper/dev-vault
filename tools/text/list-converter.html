@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_list_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,11 +23,13 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>List Converter</h1>
-  <p class="desc">Convert lists between different formats</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_list_converter" ti="h1_list_converter">List Converter</h1>
+  <p class="desc" ti="subtitle_convert_lists_between_dif">Convert lists between different formats</p>
   <div class="card">
-    <label>Input format</label>
+    <label ti="label_input_format">Input format</label>
     <select id="inputFmt">
       <option value="csv">Comma-separated (item1,item2,item3)</option>
       <option value="newline" selected>Newline-separated (one per line)</option>
@@ -40,7 +42,7 @@ banana
 cherry
 date
 elderberry</textarea>
-    <label>Output format</label>
+    <label ti="label_output_format">Output format</label>
     <select id="outputFmt">
       <option value="csv">Comma-separated</option>
       <option value="newline">Newline-separated</option>
@@ -51,10 +53,20 @@ elderberry</textarea>
     </select>
     <textarea id="outputList" rows="5" readonly></textarea>
     <div class="flex-center">
-      <button id="copyBtn">Copy</button>
+      <button id="copyBtn" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_list_converter':["List Converter", "列表转换器"],'metadesc_convert_lists_between_for':["Convert lists between formats: comma-separated, newline-separated, JSON array, pipe-separated, numbered, and SQL IN clause.", "在以下格式之间转换列表：逗号分隔、换行符分隔、JSON 数组、管道符分隔、编号和 SQL IN 子句。"],'h1_list_converter':["List Converter", "列表转换器"],'subtitle_convert_lists_between_dif':["Convert lists between different formats", "在不同格式之间转换列表"],'btn_copy':["Copy", "复制"],'label_input_format':["Input format", "输入格式"],'label_output_format':["Output format", "输出格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function parseInput(text, fmt) {
   switch(fmt) {
@@ -94,6 +106,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('outputList').value);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

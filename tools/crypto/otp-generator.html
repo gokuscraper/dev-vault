@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_totp_hotp_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -30,18 +30,28 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>TOTP / HOTP Generator</h1>
-  <p class="desc">Generate one-time passwords compatible with authenticator apps</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_totp_hotp_generator" ti="h1_totp_hotp_generator" ti="title_totp_hotp_generator" ti="h1_totp_hotp_generator" ti="title_totp_hotp_generator" ti="h1_totp_hotp_generator" ti="title_totp_hotp_generator" ti="h1_totp_hotp_generator" ti="title_totp_hotp_generator" ti="h1_totp_hotp_generator">TOTP / HOTP Generator</h1>
+  <p class="desc" ti="subtitle_generate_one_time_passwor" ti="subtitle_generate_one_time_passwor" ti="subtitle_generate_one_time_passwor" ti="subtitle_generate_one_time_passwor" ti="subtitle_generate_one_time_passwor">Generate one-time passwords compatible with authenticator apps</p>
   <div class="card">
     <div class="tab-row">
       <span class="tab active" data-tab="totp">TOTP (Time-based)</span>
       <span class="tab" data-tab="hotp">HOTP (Counter-based)</span>
     </div>
     <div id="totpPanel">
-      <label>Secret (base32)</label>
+      <label ti="label_secret_base32" ti="label_secret_base32_2" ti="label_secret_base32" ti="label_secret_base32_2" ti="label_secret_base32" ti="label_secret_base32_2" ti="label_secret_base32" ti="label_secret_base32_2" ti="label_secret_base32" ti="label_secret_base32_2">Secret (base32)</label>
       <input type="text" id="totpSecret" value="JBSWY3DPEHPK3PXP" spellcheck="false">
-      <label>Digits</label>
+      <label ti="label_digits" ti="label_digits_2" ti="label_digits" ti="label_digits_2" ti="label_digits" ti="label_digits_2" ti="label_digits" ti="label_digits_2" ti="label_digits" ti="label_digits_2">Digits</label>
       <select id="totpDigits">
         <option value="6" selected>6</option>
         <option value="8">8</option>
@@ -52,14 +62,14 @@ button:hover{background:#252525;border-color:#3b82f6}
       </div>
       <div class="progress"><div class="progress-bar" id="totpProgress"></div></div>
       <div class="flex-center">
-        <button id="totpCopyBtn">Copy</button>
-        <button id="totpRefreshBtn">Refresh</button>
+        <button id="totpCopyBtn" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2">Copy</button>
+        <button id="totpRefreshBtn" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh" ti="btn_refresh">Refresh</button>
       </div>
     </div>
     <div id="hotpPanel" class="hidden">
       <label>Secret (base32)</label>
       <input type="text" id="hotpSecret" value="JBSWY3DPEHPK3PXP" spellcheck="false">
-      <label>Counter</label>
+      <label ti="label_counter" ti="label_counter" ti="label_counter" ti="label_counter" ti="label_counter">Counter</label>
       <input type="number" id="hotpCounter" value="0" min="0">
       <label>Digits</label>
       <select id="hotpDigits">
@@ -70,12 +80,52 @@ button:hover{background:#252525;border-color:#3b82f6}
         <div class="otp" id="hotpCode">------</div>
       </div>
       <div class="flex-center">
-        <button id="hotpGenerateBtn">Generate (increment)</button>
+        <button id="hotpGenerateBtn" ti="btn_generate_increment" ti="btn_generate_increment" ti="btn_generate_increment" ti="btn_generate_increment" ti="btn_generate_increment">Generate (increment)</button>
         <button id="hotpCopyBtn">Copy</button>
       </div>
     </div>
   </div>
 </div>
+
+
+
+
+<script>var _LANG={'title_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'metadesc_generate_time_based_totp':["Generate Time-based (TOTP) and HMAC-based (HOTP) one-time passwords. Verify 2FA codes compatible with Google Authenticator, Authy, etc.", "生成基于时间（TOTP）和基于HMAC（HOTP）的一次性密码。验证与Google Authenticator、Authy等兼容的双因素身份验证码。"],'h1_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'subtitle_generate_one_time_passwor':["Generate one-time passwords compatible with authenticator apps", "生成与身份验证器应用程序兼容的一次性密码"],'btn_copy':["Copy", "复制"],'btn_refresh':["Refresh", "刷新"],'btn_generate_increment':["Generate (increment)", "生成（递增）"],'btn_copy_2':["Copy", "复制"],'label_secret_base32':["Secret (base32)", "秘密（base32）"],'label_digits':["Digits", "数字"],'label_secret_base32_2':["Secret (base32)", "秘密（base32）"],'label_counter':["Counter", "柜台"],'label_digits_2':["Digits", "数字"],'jtc_error':["ERROR", "错误"],'jtc_error_2':["ERROR", "错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'metadesc_generate_time_based_totp':["Generate Time-based (TOTP) and HMAC-based (HOTP) one-time passwords. Verify 2FA codes compatible with Google Authenticator, Authy, etc.", "生成基于时间（TOTP）和基于HMAC（HOTP）的一次性密码。验证与Google Authenticator、Authy等兼容的双因素身份验证码。"],'h1_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'subtitle_generate_one_time_passwor':["Generate one-time passwords compatible with authenticator apps", "生成与身份验证器应用程序兼容的一次性密码"],'btn_copy':["Copy", "复制"],'btn_refresh':["Refresh", "刷新"],'btn_generate_increment':["Generate (increment)", "生成（递增）"],'btn_copy_2':["Copy", "复制"],'label_secret_base32':["Secret (base32)", "秘密（base32）"],'label_digits':["Digits", "数字"],'label_secret_base32_2':["Secret (base32)", "秘密（base32）"],'label_counter':["Counter", "柜台"],'label_digits_2':["Digits", "数字"],'jtc_error':["ERROR", "错误"],'jtc_error_2':["ERROR", "错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'metadesc_generate_time_based_totp':["Generate Time-based (TOTP) and HMAC-based (HOTP) one-time passwords. Verify 2FA codes compatible with Google Authenticator, Authy, etc.", "生成基于时间（TOTP）和基于HMAC（HOTP）的一次性密码。验证与Google Authenticator、Authy等兼容的双因素身份验证码。"],'h1_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'subtitle_generate_one_time_passwor':["Generate one-time passwords compatible with authenticator apps", "生成与身份验证器应用程序兼容的一次性密码"],'btn_copy':["Copy", "复制"],'btn_refresh':["Refresh", "刷新"],'btn_generate_increment':["Generate (increment)", "生成（递增）"],'btn_copy_2':["Copy", "复制"],'label_secret_base32':["Secret (base32)", "秘密（base32）"],'label_digits':["Digits", "数字"],'label_secret_base32_2':["Secret (base32)", "秘密（base32）"],'label_counter':["Counter", "柜台"],'label_digits_2':["Digits", "数字"],'jtc_error':["ERROR", "错误"],'jtc_error_2':["ERROR", "错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'metadesc_generate_time_based_totp':["Generate Time-based (TOTP) and HMAC-based (HOTP) one-time passwords. Verify 2FA codes compatible with Google Authenticator, Authy, etc.", "生成基于时间（TOTP）和基于HMAC（HOTP）的一次性密码。验证与Google Authenticator、Authy等兼容的双因素身份验证码。"],'h1_totp_hotp_generator':["TOTP / HOTP Generator", "TOTP/HOTP生成器"],'subtitle_generate_one_time_passwor':["Generate one-time passwords compatible with authenticator apps", "生成与身份验证器应用程序兼容的一次性密码"],'btn_copy':["Copy", "复制"],'btn_refresh':["Refresh", "刷新"],'btn_generate_increment':["Generate (increment)", "生成（递增）"],'btn_copy_2':["Copy", "复制"],'label_secret_base32':["Secret (base32)", "秘密（base32）"],'label_digits':["Digits", "数字"],'label_secret_base32_2':["Secret (base32)", "秘密（base32）"],'label_counter':["Counter", "柜台"],'label_digits_2':["Digits", "数字"],'jtc_error':["ERROR", "错误"],'jtc_error_2':["ERROR", "错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Minimal RFC 4648 base32 decoding
 function base32ToBytes(s) {
@@ -136,7 +186,7 @@ async function updateTOTP() {
   try {
     document.getElementById('totpCode').textContent = await generateOTP(secret, counter, digits);
   } catch(e) {
-    document.getElementById('totpCode').textContent = 'ERROR';
+    document.getElementById('totpCode').textContent=T("jtc_error");
   }
 }
 
@@ -163,7 +213,7 @@ async function generateHOTP(increment) {
   try {
     document.getElementById('hotpCode').textContent = await generateOTP(secret, hotpCounter, digits);
   } catch(e) {
-    document.getElementById('hotpCode').textContent = 'ERROR';
+    document.getElementById('hotpCode').textContent=T("jtc_error");
   }
   if (increment) {
     hotpCounter++;
@@ -191,6 +241,96 @@ document.querySelectorAll('.tab').forEach(tab => {
 
 startTOTP();
 generateHOTP(false);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

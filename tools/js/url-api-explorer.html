@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_url_api_explorer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -74,44 +74,46 @@ input, textarea, select { background: var(--surface2); border: 1px solid var(--b
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>URL API Explorer</h1>
+  <h1 ti="title_url_api_explorer" ti="h1_url_api_explorer">URL API Explorer</h1>
   <p>URL constructor, URLSearchParams, pattern matching & encoding</p>
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-panel="constructor">URL Constructor</button>
-  <button class="tab" data-panel="searchparams">URLSearchParams</button>
-  <button class="tab" data-panel="edge">Edge Cases</button>
-  <button class="tab" data-panel="pattern">URLPattern</button>
-  <button class="tab" data-panel="relative">Relative URLs</button>
-  <button class="tab" data-panel="encoding">Encoding</button>
-  <button class="tab" data-panel="comparison">WHATWG vs Legacy</button>
-  <button class="tab" data-panel="patterns">Common Patterns</button>
+  <button class="tab active" data-panel="constructor" ti="btn_url_constructor">URL Constructor</button>
+  <button class="tab" data-panel="searchparams" ti="btn_urlsearchparams">URLSearchParams</button>
+  <button class="tab" data-panel="edge" ti="btn_edge_cases">Edge Cases</button>
+  <button class="tab" data-panel="pattern" ti="btn_urlpattern">URLPattern</button>
+  <button class="tab" data-panel="relative" ti="btn_relative_urls">Relative URLs</button>
+  <button class="tab" data-panel="encoding" ti="btn_encoding">Encoding</button>
+  <button class="tab" data-panel="comparison" ti="btn_whatwg_vs_legacy">WHATWG vs Legacy</button>
+  <button class="tab" data-panel="patterns" ti="btn_common_patterns">Common Patterns</button>
 </div>
 
 <main>
   <!-- Panel 1: URL Constructor -->
   <div class="panel active" id="panel-constructor">
-    <h2>URL Constructor with All Properties</h2>
-    <p class="desc">Enter a URL to see it parsed into all its components. Each part is color-coded.</p>
+    <h2 ti="h2_url_constructor_with_all">URL Constructor with All Properties</h2>
+    <p class="desc" ti="subtitle_enter_a_url_to_see_it_par">Enter a URL to see it parsed into all its components. Each part is color-coded.</p>
 
-    <input id="url-input" placeholder="Enter a URL..." value="https://user:pass@example.com:8080/path/to/page?key=value&foo=bar#section" />
+    <input id="url-input" tp="placeholder_enter_a_url" placeholder="Enter a URL..." value="https://user:pass@example.com:8080/path/to/page?key=value&foo=bar#section" />
     <div class="btn-row">
-      <button class="success" onclick="parseURL()">Parse URL</button>
-      <button onclick="document.getElementById('url-input').value='https://example.com/path?q=hello+world&lang=en#top';parseURL()">Simple</button>
-      <button onclick="document.getElementById('url-input').value='ftp://files.example.com:21/pub/docs/readme.txt';parseURL()">FTP</button>
-      <button onclick="document.getElementById('url-input').value='blob:https://example.com/550e8400-e29b-41d4-a716-446655440000';parseURL()">Blob</button>
-      <button onclick="document.getElementById('url-input').value='data:text/html,<h1>Hello</h1>';parseURL()">Data URI</button>
+      <button class="success" onclick="parseURL()" ti="btn_parse_url">Parse URL</button>
+      <button onclick="document.getElementById('url-input').value='https://example.com/path?q=hello+world&lang=en#top';parseURL()" ti="btn_simple">Simple</button>
+      <button onclick="document.getElementById('url-input').value='ftp://files.example.com:21/pub/docs/readme.txt';parseURL()" ti="btn_ftp">FTP</button>
+      <button onclick="document.getElementById('url-input').value='blob:https://example.com/550e8400-e29b-41d4-a716-446655440000';parseURL()" ti="btn_blob">Blob</button>
+      <button onclick="document.getElementById('url-input').value='data:text/html,<h1 ti="h1_hello">Hello</h1>';parseURL()">Data URI</button>
     </div>
 
     <div class="url-visual" id="url-visual"></div>
 
-    <h3>All Properties</h3>
+    <h3 ti="h3_all_properties">All Properties</h3>
     <div class="prop-grid" id="url-props"></div>
 
-    <h3>Legend</h3>
+    <h3 ti="h3_legend">Legend</h3>
     <div style="font-size:0.8rem;display:flex;flex-wrap:wrap;gap:0.75rem;margin-top:0.5rem;">
       <span><span class="url-part" style="background:rgba(206,147,216,0.3);color:var(--accent5);">protocol</span></span>
       <span><span class="url-part" style="background:rgba(255,183,77,0.3);color:var(--accent3);">username:password</span></span>
@@ -125,162 +127,162 @@ input, textarea, select { background: var(--surface2); border: 1px solid var(--b
 
   <!-- Panel 2: URLSearchParams -->
   <div class="panel" id="panel-searchparams">
-    <h2>URLSearchParams Interactive Builder</h2>
-    <p class="desc">Build, modify, and inspect URL query parameters interactively.</p>
+    <h2 ti="h2_urlsearchparams_interacti">URLSearchParams Interactive Builder</h2>
+    <p class="desc" ti="subtitle_build_modify_and_inspect">Build, modify, and inspect URL query parameters interactively.</p>
 
-    <h3>Start from query string</h3>
-    <input id="sp-input" placeholder="?key=value&foo=bar or key=value&foo=bar" value="name=John&age=30&tags=a&tags=b&lang=en" />
+    <h3 ti="h3_start_from_query_string">Start from query string</h3>
+    <input id="sp-input" tp="placeholder_key_value_foo_bar_or_key" placeholder="?key=value&foo=bar or key=value&foo=bar" value="name=John&age=30&tags=a&tags=b&lang=en" />
     <div class="btn-row">
-      <button class="success" onclick="loadParams()">Load</button>
+      <button class="success" onclick="loadParams()" ti="btn_load">Load</button>
     </div>
 
-    <h3>Add/Modify Parameters</h3>
+    <h3 ti="h3_add_modify_parameters">Add/Modify Parameters</h3>
     <div class="param-row">
-      <input id="sp-key" placeholder="Key" style="width:150px;" />
-      <input id="sp-val" placeholder="Value" style="width:200px;" />
-      <button onclick="addParam()">append()</button>
-      <button class="warn" onclick="setParam()">set()</button>
+      <input id="sp-key" tp="placeholder_key" placeholder="Key" style="width:150px;" />
+      <input id="sp-val" tp="placeholder_value" placeholder="Value" style="width:200px;" />
+      <button onclick="addParam()" ti="btn_append">append()</button>
+      <button class="warn" onclick="setParam()" ti="btn_set">set()</button>
     </div>
 
     <div class="btn-row">
-      <button onclick="sortParams()">sort()</button>
-      <button onclick="deleteParam()">delete(key)</button>
+      <button onclick="sortParams()" ti="btn_sort">sort()</button>
+      <button onclick="deleteParam()" ti="btn_delete_key">delete(key)</button>
     </div>
 
-    <h3>Current Parameters</h3>
+    <h3 ti="h3_current_parameters">Current Parameters</h3>
     <div id="sp-display" class="log-area"><div class="entry system">Load parameters to begin...</div></div>
 
-    <h3>Output</h3>
+    <h3 ti="h3_output">Output</h3>
     <div id="sp-output" class="code-block">// URLSearchParams output will appear here</div>
 
-    <h3>Iteration Methods</h3>
+    <h3 ti="h3_iteration_methods">Iteration Methods</h3>
     <div class="btn-row">
-      <button onclick="iterParams('entries')">entries()</button>
-      <button onclick="iterParams('keys')">keys()</button>
-      <button onclick="iterParams('values')">values()</button>
-      <button onclick="iterParams('foreach')">forEach()</button>
-      <button onclick="iterParams('has')">has() checks</button>
-      <button onclick="iterParams('getall')">getAll()</button>
+      <button onclick="iterParams('entries')" ti="btn_entries">entries()</button>
+      <button onclick="iterParams('keys')" ti="btn_keys">keys()</button>
+      <button onclick="iterParams('values')" ti="btn_values">values()</button>
+      <button onclick="iterParams('foreach')" ti="btn_foreach">forEach()</button>
+      <button onclick="iterParams('has')" ti="btn_has_checks">has() checks</button>
+      <button onclick="iterParams('getall')" ti="btn_getall">getAll()</button>
     </div>
     <div class="log-area" id="sp-iter-log"><div class="entry system">Iteration results...</div></div>
   </div>
 
   <!-- Panel 3: Edge Cases -->
   <div class="panel" id="panel-edge">
-    <h2>URL Parsing Edge Cases</h2>
-    <p class="desc">URLs that trip up many developers. See how the URL parser handles unusual inputs.</p>
+    <h2 ti="h2_url_parsing_edge_cases">URL Parsing Edge Cases</h2>
+    <p class="desc" ti="subtitle_urls_that_trip_up_many_de">URLs that trip up many developers. See how the URL parser handles unusual inputs.</p>
 
     <div class="btn-row">
-      <button onclick="edgeCase('trailing-slash')">Trailing Slash</button>
-      <button onclick="edgeCase('no-protocol')">No Protocol</button>
-      <button onclick="edgeCase('double-slash')">Double Slashes</button>
-      <button onclick="edgeCase('special-chars')">Special Chars in Path</button>
-      <button onclick="edgeCase('unicode')">Unicode Domain</button>
-      <button onclick="edgeCase('empty-params')">Empty Params</button>
-      <button onclick="edgeCase('hash-before-query')">Hash Before Query</button>
-      <button onclick="edgeCase('ipv6')">IPv6</button>
-      <button onclick="edgeCase('port-coercion')">Port Coercion</button>
-      <button onclick="edgeCase('dots-in-path')">Dots in Path</button>
+      <button onclick="edgeCase('trailing-slash')" ti="btn_trailing_slash">Trailing Slash</button>
+      <button onclick="edgeCase('no-protocol')" ti="btn_no_protocol">No Protocol</button>
+      <button onclick="edgeCase('double-slash')" ti="btn_double_slashes">Double Slashes</button>
+      <button onclick="edgeCase('special-chars')" ti="btn_special_chars_in_path">Special Chars in Path</button>
+      <button onclick="edgeCase('unicode')" ti="btn_unicode_domain">Unicode Domain</button>
+      <button onclick="edgeCase('empty-params')" ti="btn_empty_params">Empty Params</button>
+      <button onclick="edgeCase('hash-before-query')" ti="btn_hash_before_query">Hash Before Query</button>
+      <button onclick="edgeCase('ipv6')" ti="btn_ipv6">IPv6</button>
+      <button onclick="edgeCase('port-coercion')" ti="btn_port_coercion">Port Coercion</button>
+      <button onclick="edgeCase('dots-in-path')" ti="btn_dots_in_path">Dots in Path</button>
     </div>
     <div class="log-area" id="edge-log"><div class="entry system">Edge case results...</div></div>
   </div>
 
   <!-- Panel 4: URLPattern -->
   <div class="panel" id="panel-pattern">
-    <h2>URLPattern API</h2>
-    <p class="desc">URLPattern provides pattern matching for URLs, similar to path-to-regexp. Test patterns against URLs.</p>
+    <h2 ti="h2_urlpattern_api">URLPattern API</h2>
+    <p class="desc" ti="subtitle_urlpattern_provides_patte">URLPattern provides pattern matching for URLs, similar to path-to-regexp. Test patterns against URLs.</p>
 
     <span class="support-badge" id="pattern-badge">Checking...</span>
 
-    <h3>Test a Pattern</h3>
+    <h3 ti="h3_test_a_pattern">Test a Pattern</h3>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Pattern:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_pattern">Pattern:</label>
         <input id="pat-pattern" value="https://example.com/users/:id" />
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">URL to test:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_url_to_test">URL to test:</label>
         <input id="pat-url" value="https://example.com/users/42" />
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="testPattern()">Test Match</button>
-      <button onclick="loadPattern('api')">API Route</button>
-      <button onclick="loadPattern('wildcard')">Wildcard</button>
-      <button onclick="loadPattern('optional')">Optional Param</button>
-      <button onclick="loadPattern('ext')">File Extension</button>
+      <button class="success" onclick="testPattern()" ti="btn_test_match">Test Match</button>
+      <button onclick="loadPattern('api')" ti="btn_api_route">API Route</button>
+      <button onclick="loadPattern('wildcard')" ti="btn_wildcard">Wildcard</button>
+      <button onclick="loadPattern('optional')" ti="btn_optional_param">Optional Param</button>
+      <button onclick="loadPattern('ext')" ti="btn_file_extension">File Extension</button>
     </div>
     <div class="log-area" id="pat-log"><div class="entry system">Pattern matching results...</div></div>
   </div>
 
   <!-- Panel 5: Relative URLs -->
   <div class="panel" id="panel-relative">
-    <h2>Relative URL Resolution</h2>
-    <p class="desc">The URL constructor resolves relative URLs against a base URL, following RFC 3986 rules.</p>
+    <h2 ti="h2_relative_url_resolution">Relative URL Resolution</h2>
+    <p class="desc" ti="subtitle_the_url_constructor_resol">The URL constructor resolves relative URLs against a base URL, following RFC 3986 rules.</p>
 
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Base URL:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_base_url">Base URL:</label>
         <input id="rel-base" value="https://example.com/docs/guide/intro.html" />
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Relative URL:</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_relative_url">Relative URL:</label>
         <input id="rel-url" value="../api/reference.html" />
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="resolveRelative()">Resolve</button>
+      <button class="success" onclick="resolveRelative()" ti="btn_resolve">Resolve</button>
     </div>
 
-    <h3>Common Relative Patterns</h3>
+    <h3 ti="h3_common_relative_patterns">Common Relative Patterns</h3>
     <div class="btn-row">
-      <button onclick="relDemo('same-dir')">Same Directory</button>
-      <button onclick="relDemo('parent')">Parent Directory</button>
-      <button onclick="relDemo('root')">Root Relative</button>
-      <button onclick="relDemo('protocol')">Protocol Relative</button>
-      <button onclick="relDemo('query')">Query Only</button>
-      <button onclick="relDemo('hash')">Hash Only</button>
-      <button onclick="relDemo('dot-dot')">Multiple ../</button>
+      <button onclick="relDemo('same-dir')" ti="btn_same_directory">Same Directory</button>
+      <button onclick="relDemo('parent')" ti="btn_parent_directory">Parent Directory</button>
+      <button onclick="relDemo('root')" ti="btn_root_relative">Root Relative</button>
+      <button onclick="relDemo('protocol')" ti="btn_protocol_relative">Protocol Relative</button>
+      <button onclick="relDemo('query')" ti="btn_query_only">Query Only</button>
+      <button onclick="relDemo('hash')" ti="btn_hash_only">Hash Only</button>
+      <button onclick="relDemo('dot-dot')" ti="btn_multiple">Multiple ../</button>
     </div>
     <div class="log-area" id="rel-log"><div class="entry system">Resolution results...</div></div>
   </div>
 
   <!-- Panel 6: Encoding -->
   <div class="panel" id="panel-encoding">
-    <h2>URL Encoding / Decoding</h2>
-    <p class="desc">Different parts of a URL use different encoding rules. The URL API handles encoding automatically, but understanding the rules is important.</p>
+    <h2 ti="h2_url_encoding_decoding">URL Encoding / Decoding</h2>
+    <p class="desc" ti="subtitle_different_parts_of_a_url">Different parts of a URL use different encoding rules. The URL API handles encoding automatically, but understanding the rules is important.</p>
 
-    <h3>Encode / Decode</h3>
-    <input id="enc-input" placeholder="Enter text to encode..." value="Hello World! cafe=latte&price=5$ #section" />
+    <h3 ti="h3_encode_decode">Encode / Decode</h3>
+    <input id="enc-input" tp="placeholder_enter_text_to_encode" placeholder="Enter text to encode..." value="Hello World! cafe=latte&price=5$ #section" />
     <div class="btn-row">
-      <button onclick="encodeDemo('component')">encodeURIComponent</button>
-      <button onclick="encodeDemo('uri')">encodeURI</button>
-      <button onclick="encodeDemo('decode-component')">decodeURIComponent</button>
-      <button onclick="encodeDemo('decode-uri')">decodeURI</button>
+      <button onclick="encodeDemo('component')" ti="btn_encodeuricomponent">encodeURIComponent</button>
+      <button onclick="encodeDemo('uri')" ti="btn_encodeuri">encodeURI</button>
+      <button onclick="encodeDemo('decode-component')" ti="btn_decodeuricomponent">decodeURIComponent</button>
+      <button onclick="encodeDemo('decode-uri')" ti="btn_decodeuri">decodeURI</button>
     </div>
     <div class="log-area" id="enc-log"><div class="entry system">Encoding results...</div></div>
 
-    <h3>Encoding Comparison</h3>
+    <h3 ti="h3_encoding_comparison">Encoding Comparison</h3>
     <div class="btn-row">
-      <button class="warn" onclick="encodingComparison()">Compare All Encoding Methods</button>
+      <button class="warn" onclick="encodingComparison()" ti="btn_compare_all_encoding_meth">Compare All Encoding Methods</button>
     </div>
     <div class="log-area" id="enc-compare-log"><div class="entry system">Comparison results...</div></div>
 
-    <h3>Auto-Encoding by URL Constructor</h3>
+    <h3 ti="h3_auto_encoding_by_url_cons">Auto-Encoding by URL Constructor</h3>
     <div class="btn-row">
-      <button onclick="autoEncoding()">Demo: URL Auto-Encoding</button>
+      <button onclick="autoEncoding()" ti="btn_demo_url_auto_encoding">Demo: URL Auto-Encoding</button>
     </div>
     <div class="log-area" id="auto-enc-log"><div class="entry system">Auto-encoding results...</div></div>
   </div>
 
   <!-- Panel 7: WHATWG vs Legacy -->
   <div class="panel" id="panel-comparison">
-    <h2>WHATWG URL vs Legacy URL Comparison</h2>
-    <p class="desc">The modern URL API (WHATWG) differs from legacy approaches in several important ways.</p>
+    <h2 ti="h2_whatwg_url_vs_legacy_url">WHATWG URL vs Legacy URL Comparison</h2>
+    <p class="desc" ti="subtitle_the_modern_url_api_whatwg">The modern URL API (WHATWG) differs from legacy approaches in several important ways.</p>
 
     <table class="comparison-table">
       <thead>
-        <tr><th>Feature</th><th>WHATWG URL API</th><th>Legacy (string manipulation)</th></tr>
+        <tr><th ti="th_feature">Feature</th><th ti="th_whatwg_url_api">WHATWG URL API</th><th ti="th_legacy_string_manipulatio">Legacy (string manipulation)</th></tr>
       </thead>
       <tbody>
         <tr><td>Parsing</td><td>Strict, spec-compliant parser</td><td>Varies by implementation</td></tr>
@@ -294,42 +296,52 @@ input, textarea, select { background: var(--surface2); border: 1px solid var(--b
       </tbody>
     </table>
 
-    <h3>Live Comparison</h3>
+    <h3 ti="h3_live_comparison">Live Comparison</h3>
     <input id="cmp-url" value="https://Example.COM:443/path/../to/page?b=2&a=1#frag" />
     <div class="btn-row">
-      <button class="success" onclick="liveComparison()">Compare Parsing</button>
+      <button class="success" onclick="liveComparison()" ti="btn_compare_parsing">Compare Parsing</button>
     </div>
     <div class="log-area" id="cmp-log"><div class="entry system">Comparison results...</div></div>
   </div>
 
   <!-- Panel 8: Common Patterns -->
   <div class="panel" id="panel-patterns">
-    <h2>Common URL Manipulation Patterns</h2>
-    <p class="desc">Practical URL operations you'll use frequently.</p>
+    <h2 ti="h2_common_url_manipulation_p">Common URL Manipulation Patterns</h2>
+    <p class="desc" ti="subtitle_practical_url_operations">Practical URL operations you'll use frequently.</p>
 
-    <h3>Recipes</h3>
+    <h3 ti="h3_recipes">Recipes</h3>
     <div class="btn-row">
-      <button onclick="recipe('add-params')">Add Query Params</button>
-      <button onclick="recipe('remove-params')">Remove Params</button>
-      <button onclick="recipe('change-path')">Change Path</button>
-      <button onclick="recipe('build-from-parts')">Build from Parts</button>
-      <button onclick="recipe('extract-domain')">Extract Domain</button>
-      <button onclick="recipe('is-same-origin')">Same Origin Check</button>
-      <button onclick="recipe('clean-url')">Clean/Normalize</button>
-      <button onclick="recipe('url-join')">URL Join</button>
+      <button onclick="recipe('add-params')" ti="btn_add_query_params">Add Query Params</button>
+      <button onclick="recipe('remove-params')" ti="btn_remove_params">Remove Params</button>
+      <button onclick="recipe('change-path')" ti="btn_change_path">Change Path</button>
+      <button onclick="recipe('build-from-parts')" ti="btn_build_from_parts">Build from Parts</button>
+      <button onclick="recipe('extract-domain')" ti="btn_extract_domain">Extract Domain</button>
+      <button onclick="recipe('is-same-origin')" ti="btn_same_origin_check">Same Origin Check</button>
+      <button onclick="recipe('clean-url')" ti="btn_clean_normalize">Clean/Normalize</button>
+      <button onclick="recipe('url-join')" ti="btn_url_join">URL Join</button>
     </div>
     <div class="log-area" id="recipe-log"><div class="entry system">Recipe results...</div></div>
 
-    <h3>URL Validation Patterns</h3>
+    <h3 ti="h3_url_validation_patterns">URL Validation Patterns</h3>
     <div class="btn-row">
-      <button onclick="validate('valid')">Valid URLs</button>
-      <button onclick="validate('invalid')">Invalid URLs</button>
-      <button onclick="validate('canParse')">URL.canParse()</button>
+      <button onclick="validate('valid')" ti="btn_valid_urls">Valid URLs</button>
+      <button onclick="validate('invalid')" ti="btn_invalid_urls">Invalid URLs</button>
+      <button onclick="validate('canParse')" ti="btn_url_canparse">URL.canParse()</button>
     </div>
     <div class="log-area" id="validate-log"><div class="entry system">Validation results...</div></div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_url_api_explorer':["URL API Explorer", "URL API Explorer"],'metadesc_interactive_url_api_explo':["Interactive URL API explorer - URL constructor, URLSearchParams, URL pattern matching, parsing edge cases, and encoding/decoding demos.", "交互式 URL API 浏览器 - URL 构造函数、URLSearchParams、URL 模式匹配、解析边缘情况以及编码/解码演示。"],'h1_url_api_explorer':["URL API Explorer", "URL API Explorer"],'h1_hello':["Hello", "你好"],'h1_hi':["Hi", "你好"],'h2_url_constructor_with_all':["URL Constructor with All Properties", "包含所有属性的 URL 构造函数"],'h2_urlsearchparams_interacti':["URLSearchParams Interactive Builder", "URL搜索参数交互式构建器"],'h2_url_parsing_edge_cases':["URL Parsing Edge Cases", "URL解析的极端情况"],'h2_urlpattern_api':["URLPattern API", "URL模式API"],'h2_relative_url_resolution':["Relative URL Resolution", "相对 URL 解析"],'h2_url_encoding_decoding':["URL Encoding / Decoding", "URL编码/解码"],'h2_whatwg_url_vs_legacy_url':["WHATWG URL vs Legacy URL Comparison", "WHATWG URL 与传统 URL 的比较"],'h2_common_url_manipulation_p':["Common URL Manipulation Patterns", "常见的URL操作模式"],'h3_all_properties':["All Properties", "所有属性"],'h3_legend':["Legend", "传奇"],'h3_start_from_query_string':["Start from query string", "从查询字符串开始"],'h3_add_modify_parameters':["Add/Modify Parameters", "添加/修改参数"],'h3_current_parameters':["Current Parameters", "当前参数"],'h3_output':["Output", "输出"],'h3_iteration_methods':["Iteration Methods", "迭代法"],'h3_test_a_pattern':["Test a Pattern", "测试模式"],'h3_common_relative_patterns':["Common Relative Patterns", "常见相对模式"],'h3_encode_decode':["Encode / Decode", "编码/解码"],'h3_encoding_comparison':["Encoding Comparison", "编码比较"],'h3_auto_encoding_by_url_cons':["Auto-Encoding by URL Constructor", "URL构造函数自动编码"],'h3_live_comparison':["Live Comparison", "实时对比"],'h3_recipes':["Recipes", "食谱"],'h3_url_validation_patterns':["URL Validation Patterns", "URL验证模式"],'subtitle_enter_a_url_to_see_it_par':["Enter a URL to see it parsed into all its components. Each part is color-coded.", "输入网址，即可查看其分解成的所有组成部分。每个部分都用不同颜色区分。"],'subtitle_build_modify_and_inspect':["Build, modify, and inspect URL query parameters interactively.", "以交互方式构建、修改和检查 URL 查询参数。"],'subtitle_urls_that_trip_up_many_de':["URLs that trip up many developers. See how the URL parser handles unusual inputs.", "让许多开发者头疼的URL。看看URL解析器是如何处理不寻常的输入的。"],'subtitle_urlpattern_provides_patte':["URLPattern provides pattern matching for URLs, similar to path-to-regexp. Test patterns against URLs.", "URLPattern 提供 URL 的模式匹配功能，类似于路径到正则表达式的匹配。测试模式与 URL 的匹配情况。"],'subtitle_the_url_constructor_resol':["The URL constructor resolves relative URLs against a base URL, following RFC 3986 rules.", "URL 构造函数根据 RFC 3986 规则，将相对 URL 解析为基本 URL。"],'subtitle_different_parts_of_a_url':["Different parts of a URL use different encoding rules. The URL API handles encoding automatically, but understanding the rules is important.", "URL 的不同部分使用不同的编码规则。URL API 会自动处理编码，但了解这些规则仍然很重要。"],'subtitle_the_modern_url_api_whatwg':["The modern URL API (WHATWG) differs from legacy approaches in several important ways.", "现代 URL API (WHATWG) 与传统方法在几个重要方面有所不同。"],'subtitle_practical_url_operations':["Practical URL operations you'll use frequently.", "你会经常用到的实用 URL 操作。"],'btn_url_constructor':["URL Constructor", "URL构造器"],'btn_urlsearchparams':["URLSearchParams", "URL搜索参数"],'btn_edge_cases':["Edge Cases", "极端情况"],'btn_urlpattern':["URLPattern", "URL模式"],'btn_relative_urls':["Relative URLs", "相对网址"],'btn_encoding':["Encoding", "编码"],'btn_whatwg_vs_legacy':["WHATWG vs Legacy", "WHATWG 对阵 Legacy"],'btn_common_patterns':["Common Patterns", "常见模式"],'btn_parse_url':["Parse URL", "解析URL"],'btn_simple':["Simple", "简单的"],'btn_ftp':["FTP", "FTP"],'btn_blob':["Blob", "布洛布"],'btn_load':["Load", "加载"],'btn_append':["append()", "附加（）"],'btn_set':["set()", "放（）"],'btn_sort':["sort()", "种类（）"],'btn_delete_key':["delete(key)", "删除(键)"],'btn_entries':["entries()", "entries()"],'btn_keys':["keys()", "keys()"],'btn_values':["values()", "values()"],'btn_foreach':["forEach()", "forEach()"],'btn_has_checks':["has() checks", "has() 检查"],'btn_getall':["getAll()", "getAll()"],'btn_trailing_slash':["Trailing Slash", "尾部斜线"],'btn_no_protocol':["No Protocol", "无协议"],'btn_double_slashes':["Double Slashes", "双斜杠"],'btn_special_chars_in_path':["Special Chars in Path", "路径中的特殊字符"],'btn_unicode_domain':["Unicode Domain", "Unicode 域"],'btn_empty_params':["Empty Params", "空参数"],'btn_hash_before_query':["Hash Before Query", "查询前哈希"],'btn_ipv6':["IPv6", "IPv6"],'btn_port_coercion':["Port Coercion", "港口强制"],'btn_dots_in_path':["Dots in Path", "路径上的点"],'btn_test_match':["Test Match", "测试赛"],'btn_api_route':["API Route", "API路由"],'btn_wildcard':["Wildcard", "外卡"],'btn_optional_param':["Optional Param", "可选参数"],'btn_file_extension':["File Extension", "文件扩展名"],'btn_resolve':["Resolve", "解决"],'btn_same_directory':["Same Directory", "同一目录"],'btn_parent_directory':["Parent Directory", "父目录"],'btn_root_relative':["Root Relative", "根关系"],'btn_protocol_relative':["Protocol Relative", "协议相关"],'btn_query_only':["Query Only", "仅查询"],'btn_hash_only':["Hash Only", "仅哈希"],'btn_multiple':["Multiple ../", "多种的 ../"],'btn_encodeuricomponent':["encodeURIComponent", "encodeURIComponent"],'btn_encodeuri':["encodeURI", "编码URI"],'btn_decodeuricomponent':["decodeURIComponent", "decodeURIComponent"],'btn_decodeuri':["decodeURI", "解码URI"],'btn_compare_all_encoding_meth':["Compare All Encoding Methods", "比较所有编码方法"],'btn_demo_url_auto_encoding':["Demo: URL Auto-Encoding", "演示：URL 自动编码"],'btn_compare_parsing':["Compare Parsing", "比较解析"],'btn_add_query_params':["Add Query Params", "添加查询参数"],'btn_remove_params':["Remove Params", "移除参数"],'btn_change_path':["Change Path", "改变路径"],'btn_build_from_parts':["Build from Parts", "由零件组装而成"],'btn_extract_domain':["Extract Domain", "提取域"],'btn_same_origin_check':["Same Origin Check", "同源性检查"],'btn_clean_normalize':["Clean/Normalize", "清洁/标准化"],'btn_url_join':["URL Join", "URL连接"],'btn_valid_urls':["Valid URLs", "有效网址"],'btn_invalid_urls':["Invalid URLs", "无效的网址"],'btn_url_canparse':["URL.canParse()", "URL.canParse()"],'placeholder_enter_a_url':["Enter a URL...", "请输入网址..."],'placeholder_key_value_foo_bar_or_key':["?key=value&foo=bar or key=value&foo=bar", "?key=value&amp;foo=bar 或 key=value&amp;foo=bar"],'placeholder_key':["Key", "钥匙"],'placeholder_value':["Value", "价值"],'placeholder_enter_text_to_encode':["Enter text to encode...", "请输入要编码的文本……"],'th_feature':["Feature", "特征"],'th_whatwg_url_api':["WHATWG URL API", "WHATWG URL API"],'th_legacy_string_manipulatio':["Legacy (string manipulation)", "传统（字符串操作）"],'label_pattern':["Pattern:", "图案："],'label_url_to_test':["URL to test:", "要测试的网址："],'label_base_url':["Base URL:", "基本网址："],'label_relative_url':["Relative URL:", "相对网址："],'jtc_urlpattern_supported':["URLPattern: Supported", "URL模式：支持"],'jtc_urlpattern_not_supported':["URLPattern: Not Supported", "URL模式：不支持"],'jtc_empty':["(empty)", "（空的）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -352,9 +364,9 @@ function clearLog(id) { document.getElementById(id).innerHTML = ''; }
 // Feature detection
 const patBadge = document.getElementById('pattern-badge');
 if (typeof URLPattern !== 'undefined') {
-  patBadge.className = 'support-badge yes'; patBadge.textContent = 'URLPattern: Supported';
+  patBadge.className = 'support-badge yes'; patBadge.textContent=T("jtc_urlpattern_supported");
 } else {
-  patBadge.className = 'support-badge no'; patBadge.textContent = 'URLPattern: Not Supported';
+  patBadge.className = 'support-badge no'; patBadge.textContent=T("jtc_urlpattern_not_supported");
 }
 
 // --- Panel 1: URL Constructor ---
@@ -409,7 +421,7 @@ function renderParams() {
     e.textContent = `${key} = "${value}"`;
     display.appendChild(e);
   }
-  if (count === 0) { const e = document.createElement('div'); e.className = 'entry system'; e.textContent = '(empty)'; display.appendChild(e); }
+  if (count === 0) { const e = document.createElement('div'); e.className = 'entry system'; e.textContent=T("jtc_empty"); display.appendChild(e); }
 
   document.getElementById('sp-output').textContent = `toString(): "${currentSP.toString()}"
 size: ${currentSP.size !== undefined ? currentSP.size : 'N/A'}
@@ -804,7 +816,7 @@ function recipe(name) {
 function validate(type) {
   clearLog('validate-log');
   if (type === 'valid') {
-    const urls = ['https://example.com', 'http://localhost:3000', 'ftp://files.example.com', 'data:text/html,<h1>Hi</h1>', 'blob:https://example.com/uuid'];
+    const urls = ['https://example.com', 'http://localhost:3000', 'ftp://files.example.com', 'data:text/html,<h1 ti="h1_hi">Hi</h1>', 'blob:https://example.com/uuid'];
     urls.forEach(u => {
       try { new URL(u); log('validate-log', `VALID: ${u}`, 'data'); }
       catch(e) { log('validate-log', `INVALID: ${u} - ${e.message}`, 'error'); }
@@ -827,6 +839,24 @@ function validate(type) {
     }
   }
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

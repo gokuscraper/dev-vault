@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_http_3_quic_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,34 +83,36 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>HTTP/3 & QUIC Visualizer</h1>
+<h1 ti="title_http_3_quic_visualizer" ti="h1_http_3_quic_visualizer">HTTP/3 & QUIC Visualizer</h1>
 <p>Explore QUIC transport, HTTP/3 streams, 0-RTT, connection migration, and head-of-line blocking</p>
 </header>
 <div class="app">
 <div class="toolbar">
-<button class="active" onclick="loadScenario(0,this)">QUIC Handshake</button>
-<button onclick="loadScenario(1,this)">0-RTT Resumption</button>
-<button onclick="loadScenario(2,this)">Stream Multiplex</button>
-<button onclick="loadScenario(3,this)">HOL Blocking</button>
-<button onclick="loadScenario(4,this)">Connection Migration</button>
-<button onclick="loadScenario(5,this)">Loss Recovery</button>
+<button class="active" onclick="loadScenario(0,this)" ti="btn_quic_handshake">QUIC Handshake</button>
+<button onclick="loadScenario(1,this)" ti="btn_0_rtt_resumption">0-RTT Resumption</button>
+<button onclick="loadScenario(2,this)" ti="btn_stream_multiplex">Stream Multiplex</button>
+<button onclick="loadScenario(3,this)" ti="btn_hol_blocking">HOL Blocking</button>
+<button onclick="loadScenario(4,this)" ti="btn_connection_migration">Connection Migration</button>
+<button onclick="loadScenario(5,this)" ti="btn_loss_recovery">Loss Recovery</button>
 <div class="controls">
 <button id="prevBtn" onclick="prevStep()" disabled>&larr;</button>
 <button id="nextBtn" onclick="nextStep()">Next &rarr;</button>
 <button id="autoBtn" onclick="toggleAuto()">&#9654; Auto</button>
-<button onclick="resetSteps()">Reset</button>
+<button onclick="resetSteps()" ti="btn_reset">Reset</button>
 <span class="step-info" id="stepInfo">Step 0 / 0</span>
 </div>
 </div>
 <div class="main" id="mainArea"></div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details"></div>
 <div class="detail-box">
 <h4>Protocol Stack</h4>
 <table>
-<tr><th>HTTP/1.1</th><th>HTTP/2</th><th>HTTP/3</th></tr>
+<tr><th ti="th_http_1_1">HTTP/1.1</th><th ti="th_http_2">HTTP/2</th><th ti="th_http_3">HTTP/3</th></tr>
 <tr><td>HTTP</td><td>HTTP/2</td><td>HTTP/3</td></tr>
 <tr><td>TLS 1.2</td><td>TLS 1.2/1.3</td><td style="color:#26c6da">QUIC+TLS 1.3</td></tr>
 <tr><td>TCP</td><td>TCP</td><td style="color:#26c6da">UDP</td></tr>
@@ -120,7 +122,7 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 <div class="detail-box">
 <h4>QUIC Key Features</h4>
 <table>
-<tr><th>Feature</th><th>Benefit</th></tr>
+<tr><th ti="th_feature">Feature</th><th ti="th_benefit">Benefit</th></tr>
 <tr><td>UDP-based</td><td>No TCP head-of-line blocking</td></tr>
 <tr><td>Built-in TLS 1.3</td><td>1-RTT handshake (0-RTT resumption)</td></tr>
 <tr><td>Connection IDs</td><td>Survives IP changes (WiFi→cellular)</td></tr>
@@ -132,7 +134,7 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 <div class="detail-box">
 <h4>HTTP Version Comparison</h4>
 <table>
-<tr><th></th><th>H/1.1</th><th>H/2</th><th>H/3</th></tr>
+<tr><th></th><th ti="th_h_1_1">H/1.1</th><th ti="th_h_2">H/2</th><th ti="th_h_3">H/3</th></tr>
 <tr><td>Transport</td><td>TCP</td><td>TCP</td><td>QUIC/UDP</td></tr>
 <tr><td>Multiplex</td><td>No</td><td>Yes</td><td>Yes</td></tr>
 <tr><td>HOL Block</td><td>TCP+HTTP</td><td>TCP</td><td>None</td></tr>
@@ -144,6 +146,16 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 </div>
 </div>
 
+
+<script>var _LANG={'title_http_3_quic_visualizer':["HTTP/3 & QUIC Visualizer", "HTTP/3 和 QUIC 可视化工具"],'metadesc_interactive_http_3_and_qu':["Interactive HTTP/3 and QUIC protocol visualizer: connection setup, stream multiplexing, 0-RTT, connection migration, and head-of-line blocking comparison", "交互式 HTTP/3 和 QUIC 协议可视化工具：连接建立、流复用、0-RTT、连接迁移和队头阻塞比较"],'h1_http_3_quic_visualizer':["HTTP/3 & QUIC Visualizer", "HTTP/3 和 QUIC 可视化工具"],'h3_details':["Details", "细节"],'h3_connection_flow':["Connection Flow", "连接流程"],'h3_stream_transport_view':["Stream / Transport View", "流/运输视图"],'btn_quic_handshake':["QUIC Handshake", "QUIC握手"],'btn_0_rtt_resumption':["0-RTT Resumption", "0-RTT 恢复"],'btn_stream_multiplex':["Stream Multiplex", "流多路复用"],'btn_hol_blocking':["HOL Blocking", "霍尔阻塞"],'btn_connection_migration':["Connection Migration", "连接迁移"],'btn_loss_recovery':["Loss Recovery", "损失追回"],'btn_next':["Next →", "下一页 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'label_m_label':["${m.label}", "${m.label}"],'label_st_label':["${st.label}", "${st.label}"],'th_http_1_1':["HTTP/1.1", "HTTP/1.1"],'th_http_2':["HTTP/2", "HTTP/2"],'th_http_3':["HTTP/3", "HTTP/3"],'th_feature':["Feature", "特征"],'th_benefit':["Benefit", "益处"],'th_h_1_1':["H/1.1", "水平/1.1"],'th_h_2':["H/2", "H/2"],'th_h_3':["H/3", "H/3"],'jtc_auto':["▶ Auto", "▶ 自动"],'jtc_auto_2':["▶ Auto", "▶ 自动"],'jtc_auto_3':["▶ Auto", "▶ 自动"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtlword_scenario':["Scenario", "设想"],'jtlword_scenario_2':["Scenario", "设想"],'jtlword_instructions':["Instructions", "指示"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const scenarios=[
 {
@@ -250,7 +262,7 @@ const scenarios=[
 let curScenario=0,curStep=-1,autoTimer=null;
 
 function loadScenario(idx,btn){
-  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent='▶ Auto';}
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent=T("jtc_auto");}
   curScenario=idx;curStep=-1;
   document.querySelectorAll('.toolbar > button').forEach(b=>b.classList.remove('active'));
   if(btn)btn.classList.add('active');
@@ -262,7 +274,7 @@ function render(){
   const main=document.getElementById('mainArea');
 
   // Sequence diagram
-  let html=`<div class="sequence"><h3>Connection Flow</h3>`;
+  let html=`<div class="sequence"><h3 ti="h3_connection_flow">Connection Flow</h3>`;
   html+=`<div class="entity-row"><div class="entity client">Client</div><div class="entity server">Server</div></div>`;
 
   s.messages.forEach((m,i)=>{
@@ -270,7 +282,7 @@ function render(){
     const active=i===curStep?'active':'';
     html+=`<div class="msg-row ${cls} ${active}">`;
     html+=`<span class="msg-time">${m.time}</span>`;
-    html+=`<div class="msg-arrow ${m.dir}"><span class="msg-label ${m.cls}">${m.label}</span></div>`;
+    html+=`<div class="msg-arrow ${m.dir}"><span class="msg-label ${m.cls}" ti="label_m_label">${m.label}</span></div>`;
     html+=`<span class="msg-time-r"></span>`;
     html+=`</div>`;
   });
@@ -278,9 +290,9 @@ function render(){
 
   // Stream visualization
   if(s.streams.length>0){
-    html+=`<div class="stream-viz"><h3>Stream / Transport View</h3><div class="streams">`;
+    html+=`<div class="stream-viz"><h3 ti="h3_stream_transport_view">Stream / Transport View</h3><div class="streams">`;
     s.streams.forEach(st=>{
-      html+=`<div class="stream-row"><span class="stream-label">${st.label}</span><div class="stream-bar">`;
+      html+=`<div class="stream-row"><span class="stream-label" ti="label_st_label">${st.label}</span><div class="stream-bar">`;
       st.blocks.forEach(b=>{
         const w=curStep>=0?b.w:0;
         html+=`<div class="stream-block ${b.cls}" style="width:${w}%">${b.text||''}</div>`;
@@ -309,16 +321,34 @@ function nextStep(){if(curStep<scenarios[curScenario].messages.length-1){curStep
 function prevStep(){if(curStep>0){curStep--;render();}}
 function resetSteps(){curStep=-1;render();}
 function toggleAuto(){
-  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent='▶ Auto';return;}
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent=T("jtc_auto");return;}
   if(curStep>=scenarios[curScenario].messages.length-1)resetSteps();
   autoTimer=setInterval(()=>{
-    if(curStep>=scenarios[curScenario].messages.length-1){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent='▶ Auto';return;}
+    if(curStep>=scenarios[curScenario].messages.length-1){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent=T("jtc_auto");return;}
     nextStep();
   },800);
-  document.getElementById('autoBtn').textContent='⏸ Pause';
+  document.getElementById('autoBtn').textContent=T("jtc_pause");
 }
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

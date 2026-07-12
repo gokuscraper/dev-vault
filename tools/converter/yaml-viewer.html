@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_yaml_viewer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -32,11 +32,13 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>YAML Viewer</h1>
-  <p class="desc">Parse, view, and explore YAML content with tree visualization</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_yaml_viewer" ti="h1_yaml_viewer">YAML Viewer</h1>
+  <p class="desc" ti="subtitle_parse_view_and_explore_ya">Parse, view, and explore YAML content with tree visualization</p>
   <div class="card">
-    <label>YAML content</label>
+    <label ti="label_yaml_content">YAML content</label>
     <textarea id="input" rows="6" spellcheck="false">server:
   host: localhost
   port: 8080
@@ -56,10 +58,20 @@ users:
     <div class="tree" id="tree"></div>
     <div class="error" id="error"></div>
     <div class="flex-center">
-      <button id="copyBtn">Copy as JSON</button>
+      <button id="copyBtn" ti="btn_copy_as_json">Copy as JSON</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_yaml_viewer':["YAML Viewer", "YAML 查看器"],'metadesc_view_and_explore_yaml_fil':["View and explore YAML files with collapsible tree view, syntax highlighting, and search. Parse and validate YAML content.", "使用可折叠树状视图、语法高亮和搜索功能查看和浏览 YAML 文件。解析和验证 YAML 内容。"],'h1_yaml_viewer':["YAML Viewer", "YAML 查看器"],'subtitle_parse_view_and_explore_ya':["Parse, view, and explore YAML content with tree visualization", "使用树状可视化解析、查看和探索 YAML 内容"],'btn_copy_as_json':["Copy as JSON", "复制为 JSON"],'label_yaml_content':["YAML content", "YAML 内容"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function escapeHtml(s) {
   return String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -164,7 +176,7 @@ function update() {
     const obj = yamlToObj(input);
     tree.innerHTML = renderTree(obj, 0);
   } catch(e) {
-    error.textContent = 'Error: ' + e.message;
+    error.textContent=T("jtcpre_error")+ e.message;
     tree.innerHTML = '';
   }
 }
@@ -177,6 +189,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   } catch(e) {}
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

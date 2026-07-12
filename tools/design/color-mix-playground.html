@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_color_mix_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,34 +65,36 @@ select:focus{outline:none;border-color:var(--accent)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <h1>CSS <span>color-mix()</span> Playground</h1>
 <p class="subtitle">Mix two colors in any CSS color space — live preview &amp; comparison</p>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Controls -->
   <div class="panel">
     <h2>Colors &amp; Settings</h2>
     <div class="controls-grid">
       <div>
-        <label>Color A</label>
+        <label ti="label_color_a">Color A</label>
         <input type="color" id="colorA" value="#3b82f6">
         <input type="text" class="hex-input" id="hexA" value="#3b82f6" spellcheck="false" maxlength="7">
       </div>
       <div>
-        <label>Color B</label>
+        <label ti="label_color_b">Color B</label>
         <input type="color" id="colorB" value="#ef4444">
         <input type="text" class="hex-input" id="hexB" value="#ef4444" spellcheck="false" maxlength="7">
       </div>
     </div>
     <div class="slider-wrap">
-      <label>Mix Ratio (Color A %)</label>
+      <label ti="label_mix_ratio_color_a">Mix Ratio (Color A %)</label>
       <input type="range" id="ratio" min="0" max="100" value="50">
       <div class="slider-labels"><span>0% A (100% B)</span><span>100% A (0% B)</span></div>
       <div class="slider-value" id="ratioDisplay">50%</div>
     </div>
     <div style="max-width:300px">
-      <label>Color Space</label>
+      <label ti="label_color_space">Color Space</label>
       <select id="colorSpace">
         <option value="srgb">srgb</option>
         <option value="srgb-linear">srgb-linear</option>
@@ -108,7 +110,7 @@ select:focus{outline:none;border-color:var(--accent)}
 
   <!-- Preview -->
   <div class="panel">
-    <h2>Result</h2>
+    <h2 ti="h2_result">Result</h2>
     <div class="preview-area">
       <div class="result-swatch" id="resultSwatch">
         <div class="label" id="resultLabel">Mixed Color</div>
@@ -119,7 +121,7 @@ select:focus{outline:none;border-color:var(--accent)}
       </div>
       <div class="code-block" id="cssCode">
         color-mix(in oklab, #3b82f6 50%, #ef4444)
-        <button class="copy-btn" id="copyBtn" onclick="copyCSS()">Copy</button>
+        <button class="copy-btn" id="copyBtn" onclick="copyCSS()" ti="btn_copy" ti="btn_copy_2">Copy</button>
       </div>
       <div class="output-values">
         <div class="output-val" id="outHex" onclick="copyText(this)" title="Click to copy"><span>HEX</span>—</div>
@@ -131,19 +133,29 @@ select:focus{outline:none;border-color:var(--accent)}
 
   <!-- Presets -->
   <div class="panel">
-    <h2>Presets</h2>
+    <h2 ti="h2_presets">Presets</h2>
     <div class="presets" id="presets"></div>
   </div>
 
   <!-- Comparison -->
   <div class="panel">
-    <h2>Comparison — All Color Spaces</h2>
+    <h2 ti="h2_comparison_all_color_spac">Comparison — All Color Spaces</h2>
     <div class="comparison-grid" id="comparison"></div>
   </div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_css_color_mix_playground':["CSS color-mix() Playground — Dev Vault", "CSS color-mix() 练习场 — 开发者仓库"],'metadesc_mix_colors_with_css_color':["Mix colors with CSS color-mix(). 8 color spaces. Live preview, comparison, presets. Visual color mixing.", "使用 CSS color-mix() 混合颜色。支持 8 种颜色空间。提供实时预览、对比和预设选项。可视化颜色混合。"],'h2_colors_settings':["Colors & Settings", "颜色和设置"],'h2_result':["Result", "结果"],'h2_presets':["Presets", "预设"],'h2_comparison_all_color_spac':["Comparison — All Color Spaces", "对比——所有色彩空间"],'subtitle_mix_two_colors_in_any_css':["Mix two colors in any CSS color space — live preview & comparison", "在任何 CSS 颜色空间中混合两种颜色——实时预览和对比"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'label_color_a':["Color A", "颜色 A"],'label_color_b':["Color B", "颜色 B"],'label_mix_ratio_color_a':["Mix Ratio (Color A %)", "混合比例（颜色 A %）"],'label_color_space':["Color Space", "色彩空间"],'footer_css_color_mix_playground':["CSS color-mix() Playground — Dev Vault", "CSS color-mix() 练习场 — 开发者仓库"],'jtlword_hex':["HEX", "六边形"],'jtlword_rgb':["RGB", "RGB"],'jtlword_hsl':["HSL", "高速铁路"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 const colorA = $('colorA'), colorB = $('colorB');
@@ -323,6 +335,24 @@ colorSpace.addEventListener('change', update);
 /* ---- Init ---- */
 renderPresets();
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

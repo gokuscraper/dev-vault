@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ip_info_ip_address_lookup" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,9 +64,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>IP Info</h1>
-<p class="subtitle">Look up any IP address. Geolocation, ISP, timezone, and more.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_ip_info">IP Info</h1>
+<p class="subtitle" ti="subtitle_look_up_any_ip_address_ge">Look up any IP address. Geolocation, ISP, timezone, and more.</p>
 
 <div class="your-ip">
   <div class="ip" id="yourIp" onclick="copyIp()" title="Click to copy">detecting...</div>
@@ -74,8 +76,8 @@ footer a:hover{color:#999}
 </div>
 
 <div class="search-row">
-  <input type="text" id="ipInput" placeholder="Enter IP address (e.g., 8.8.8.8)" onkeydown="if(event.key==='Enter')lookup()">
-  <button class="btn primary" onclick="lookup()">Lookup</button>
+  <input type="text" id="ipInput" tp="placeholder_enter_ip_address_e_g_8_8" placeholder="Enter IP address (e.g., 8.8.8.8)" onkeydown="if(event.key==='Enter')lookup()">
+  <button class="btn primary" onclick="lookup()" ti="btn_lookup">Lookup</button>
 </div>
 
 <div id="loading" class="loading" style="display:none">Looking up...</div>
@@ -85,7 +87,7 @@ footer a:hover{color:#999}
   <div class="info-grid" id="infoGrid"></div>
 
   <div class="map-section" id="mapSection">
-    <h3>Location</h3>
+    <h3 ti="h3_location">Location</h3>
     <div class="coords" id="coords"></div>
     <a class="map-link" id="mapLink" href="#" target="_blank">Open in Google Maps →</a>
   </div>
@@ -99,10 +101,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/ip-info">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/ip-info" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_ip_info_ip_address_lookup':["IP Info — IP Address Lookup & Geolocation", "IP信息——IP地址查询和地理位置"],'metadesc_look_up_any_ip_address_ge':["Look up any IP address. Geolocation, ISP, timezone, currency. Auto-detect your IP. Free.", "查询任何IP地址。可查询地理位置、网络服务提供商、时区和货币信息。自动检测您的IP地址。免费。"],'h1_ip_info':["IP Info", "IP信息"],'h3_location':["Location", "地点"],'subtitle_look_up_any_ip_address_ge':["Look up any IP address. Geolocation, ISP, timezone, and more.", "查询任何IP地址。包括地理位置、网络服务提供商、时区等信息。"],'btn_lookup':["Lookup", "抬头"],'placeholder_enter_ip_address_e_g_8_8':["Enter IP address (e.g., 8.8.8.8)", "输入 IP 地址（例如，8.8.8.8）"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_unable_to_detect':["unable to detect", "无法检测"],'jtc_lookup_failed_check_the_i':["Lookup failed. Check the IP and try again.", "查找失败。请检查 IP 地址并重试。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let lastData=null;
 
@@ -114,7 +126,7 @@ async function detectIp(){
     lastData=d;
     showResults(d);
   }catch(e){
-    document.getElementById('yourIp').textContent='unable to detect';
+    document.getElementById('yourIp').textContent=T("jtc_unable_to_detect");
   }
 }
 
@@ -135,7 +147,7 @@ async function lookup(){
       showResults(d);
     }
   }catch(e){
-    document.getElementById('error').textContent='Lookup failed. Check the IP and try again.';
+    document.getElementById('error').textContent=T("jtc_lookup_failed_check_the_i");
     document.getElementById('error').style.display='block';
   }
   document.getElementById('loading').style.display='none';
@@ -203,12 +215,30 @@ function toast(msg){
 detectIp();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/dns-lookup/" style="color:#4da6ff;text-decoration:none;margin:0 8px">DNS Lookup</a>
 <a href="https://gokuscraper.github.io/dev-vault/ssl-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SSL Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/subnet-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Subnet Calc</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

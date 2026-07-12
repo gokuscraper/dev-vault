@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_frequency_calculator_musi" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,22 +57,24 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Frequency Calculator</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_frequency_calculator">Frequency Calculator</h1>
 <p class="subtitle">Musical note frequencies — equal temperament reference &amp; converter</p>
 
 <div class="card">
-  <h2>Reference Pitch (A4)</h2>
+  <h2 ti="h2_reference_pitch_a4">Reference Pitch (A4)</h2>
   <div class="slider-row">
-    <label>A4 =</label>
+    <label ti="label_a4">A4 =</label>
     <input type="range" id="a4slider" min="415" max="450" value="440" step="0.1" oninput="setA4(this.value)">
     <span class="slider-val" id="a4val">440.0 Hz</span>
   </div>
   <div class="presets">
-    <button class="preset active" onclick="setA4(440)">440 Hz Standard</button>
-    <button class="preset" onclick="setA4(432)">432 Hz Alternative</button>
-    <button class="preset" onclick="setA4(415)">415 Hz Baroque</button>
-    <button class="preset" onclick="setA4(443)">443 Hz Orchestra</button>
+    <button class="preset active" onclick="setA4(440)" ti="btn_440_hz_standard">440 Hz Standard</button>
+    <button class="preset" onclick="setA4(432)" ti="btn_432_hz_alternative">432 Hz Alternative</button>
+    <button class="preset" onclick="setA4(415)" ti="btn_415_hz_baroque">415 Hz Baroque</button>
+    <button class="preset" onclick="setA4(443)" ti="btn_443_hz_orchestra">443 Hz Orchestra</button>
   </div>
 </div>
 
@@ -80,7 +82,7 @@ footer a:hover{color:#999}
   <div class="card">
     <h2>Frequency &rarr; Note</h2>
     <div class="row">
-      <label>Freq (Hz)</label>
+      <label ti="label_freq_hz">Freq (Hz)</label>
       <input type="number" id="f2nInput" value="440" min="1" max="30000" step="any" oninput="freqToNote()">
     </div>
     <div class="result" id="f2nResult">—</div>
@@ -88,7 +90,7 @@ footer a:hover{color:#999}
   <div class="card">
     <h2>Note &rarr; Frequency</h2>
     <div class="row">
-      <label>Note</label>
+      <label ti="label_note">Note</label>
       <select id="n2fNote" onchange="noteToFreq()"></select>
       <label>Octave</label>
       <select id="n2fOct" onchange="noteToFreq()"></select>
@@ -98,12 +100,12 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <h2>Interval Calculator</h2>
+  <h2 ti="h2_interval_calculator">Interval Calculator</h2>
   <div class="row">
-    <label>Note 1</label>
+    <label ti="label_note_1">Note 1</label>
     <select id="iv1Note" onchange="calcInterval()"></select>
     <select id="iv1Oct" onchange="calcInterval()"></select>
-    <label style="margin-left:12px">Note 2</label>
+    <label style="margin-left:12px" ti="label_note_2">Note 2</label>
     <select id="iv2Note" onchange="calcInterval()"></select>
     <select id="iv2Oct" onchange="calcInterval()"></select>
   </div>
@@ -111,21 +113,31 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card">
-  <h2>Full Frequency Table</h2>
+  <h2 ti="h2_full_frequency_table">Full Frequency Table</h2>
   <p style="font-size:0.78rem;color:#666;margin-bottom:8px">Click any cell to play the tone (200ms)</p>
   <div class="table-wrap" id="tableWrap"></div>
 </div>
 
 <div class="related">
-  <a href="https://gokuscraper.github.io/dev-vault/tone-gen/">Tone Generator</a>
-  <a href="https://gokuscraper.github.io/dev-vault/noise-gen/">Noise Generator</a>
+  <a href="https://gokuscraper.github.io/dev-vault/tone-gen/" ti="link_tone_generator">Tone Generator</a>
+  <a href="https://gokuscraper.github.io/dev-vault/noise-gen/" ti="link_noise_generator">Noise Generator</a>
 </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> — free browser tools for developers
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a> — free browser tools for developers
 </footer>
 
+
+<script>var _LANG={'title_frequency_calculator_musi':["Frequency Calculator — Musical Note Frequencies", "频率计算器——音符频率"],'metadesc_musical_frequency_referen':["Musical frequency reference table, note-to-frequency converter, frequency-to-note finder, interval calculator. Equal temperament, adjustable A4 tuning. Free.", "音乐频率参考表、音符-频率转换器、频率-音符查找器、音程计算器。十二平均律，可调节A4调音。免费。"],'h1_frequency_calculator':["Frequency Calculator", "频率计算器"],'h2_reference_pitch_a4':["Reference Pitch (A4)", "参考音高（A4）"],'h2_frequency_note':["Frequency → Note", "频率 → 音符"],'h2_note_frequency':["Note → Frequency", "注 → 频率"],'h2_interval_calculator':["Interval Calculator", "间隔计算器"],'h2_full_frequency_table':["Full Frequency Table", "完整频率表"],'subtitle_musical_note_frequencies':["Musical note frequencies — equal temperament reference & converter", "音符频率——十二平均律参考及转换器"],'btn_440_hz_standard':["440 Hz Standard", "440赫兹标准"],'btn_432_hz_alternative':["432 Hz Alternative", "432赫兹替代"],'btn_415_hz_baroque':["415 Hz Baroque", "415赫兹巴洛克"],'btn_443_hz_orchestra':["443 Hz Orchestra", "443赫兹管弦乐团"],'th_octave':["Octave", "八度音阶"],'th_n':["'+n+'", "&#39;+n+&#39;"],'label_a4':["A4 =", "A4 ="],'label_freq_hz':["Freq (Hz)", "频率（赫兹）"],'label_note':["Note", "笔记"],'label_octave':["Octave", "八度音阶"],'label_note_1':["Note 1", "注1"],'label_note_2':["Note 2", "注2"],'link_tone_generator':["Tone Generator", "音调发生器"],'link_noise_generator':["Noise Generator", "噪声发生器"],'link_dev_toolkit':["dev-toolkit", "开发工具包"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const NOTES=['C','C#/Db','D','D#/Eb','E','F','F#/Gb','G','G#/Ab','A','A#/Bb','B'];
 const NOTE_SHARP=['C','C#','D','D#','E','F','F#','G','G#','A','A#','B'];
@@ -161,8 +173,8 @@ function setA4(v){
 
 function buildTable(){
   const wrap=document.getElementById('tableWrap');
-  let html='<table><tr><th>Octave</th>';
-  NOTES.forEach((n,i)=>{html+='<th>'+n+'</th>'});
+  let html='<table><tr><th ti="th_octave" ti="label_octave">Octave</th>';
+  NOTES.forEach((n,i)=>{html+='<th ti="th_n">'+n+'</th>'});
   html+='</tr>';
   for(let oct=0;oct<=8;oct++){
     const isA4row=(oct===4);
@@ -280,6 +292,24 @@ buildTable();
 freqToNote();
 noteToFreq();
 calcInterval();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

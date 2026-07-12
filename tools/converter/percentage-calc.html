@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_percentage_calculator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,15 +23,25 @@ input.result-inp{color:#4da6ff;font-weight:600;background:#0d1520;border-color:#
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Percentage Calculator</h1>
-  <p class="desc">Three useful percentage calculations</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_percentage_calculator" ti="h1_percentage_calculator" ti="title_percentage_calculator" ti="h1_percentage_calculator" ti="title_percentage_calculator" ti="h1_percentage_calculator" ti="title_percentage_calculator" ti="h1_percentage_calculator" ti="title_percentage_calculator" ti="h1_percentage_calculator">Percentage Calculator</h1>
+  <p class="desc" ti="subtitle_three_useful_percentage_c" ti="subtitle_three_useful_percentage_c" ti="subtitle_three_useful_percentage_c" ti="subtitle_three_useful_percentage_c" ti="subtitle_three_useful_percentage_c">Three useful percentage calculations</p>
 
   <div class="card">
-    <h2>What is X% of Y?</h2>
+    <h2 ti="h2_what_is_x_of_y" ti="h2_what_is_x_of_y" ti="h2_what_is_x_of_y" ti="h2_what_is_x_of_y" ti="h2_what_is_x_of_y">What is X% of Y?</h2>
     <div class="row">
       <input type="number" id="pctX" value="15" placeholder="X">
-      <span class="inline-label">% of</span>
+      <span class="inline-label" ti="label_of" ti="label_of" ti="label_of" ti="label_of" ti="label_of">% of</span>
       <input type="number" id="pctY" value="200" placeholder="Y">
       <span class="inline-label">=</span>
       <input type="text" id="pctResult" class="result-inp" readonly>
@@ -39,10 +49,10 @@ input.result-inp{color:#4da6ff;font-weight:600;background:#0d1520;border-color:#
   </div>
 
   <div class="card">
-    <h2>X is what percent of Y?</h2>
+    <h2 ti="h2_x_is_what_percent_of_y" ti="h2_x_is_what_percent_of_y" ti="h2_x_is_what_percent_of_y" ti="h2_x_is_what_percent_of_y" ti="h2_x_is_what_percent_of_y">X is what percent of Y?</h2>
     <div class="row">
       <input type="number" id="numX" value="30" placeholder="X">
-      <span class="inline-label">is what % of</span>
+      <span class="inline-label" ti="label_is_what_of" ti="label_is_what_of" ti="label_is_what_of" ti="label_is_what_of" ti="label_is_what_of">is what % of</span>
       <input type="number" id="numY" value="150" placeholder="Y">
       <span class="inline-label">=</span>
       <input type="text" id="numResult" class="result-inp" readonly>
@@ -51,18 +61,58 @@ input.result-inp{color:#4da6ff;font-weight:600;background:#0d1520;border-color:#
   </div>
 
   <div class="card">
-    <h2>Percentage increase / decrease</h2>
+    <h2 ti="h2_percentage_increase_decre" ti="h2_percentage_increase_decre" ti="h2_percentage_increase_decre" ti="h2_percentage_increase_decre" ti="h2_percentage_increase_decre">Percentage increase / decrease</h2>
     <div class="row">
-      <span class="inline-label">From</span>
-      <input type="number" id="incFrom" value="50" placeholder="From">
-      <span class="inline-label">To</span>
-      <input type="number" id="incTo" value="75" placeholder="To">
+      <span class="inline-label" ti="label_from" ti="label_from" ti="label_from" ti="label_from" ti="label_from">From</span>
+      <input type="number" id="incFrom" value="50" tp="placeholder_from" tp="placeholder_from" tp="placeholder_from" tp="placeholder_from" tp="placeholder_from" placeholder="From">
+      <span class="inline-label" ti="label_to" ti="label_to" ti="label_to" ti="label_to" ti="label_to">To</span>
+      <input type="number" id="incTo" value="75" tp="placeholder_to" tp="placeholder_to" tp="placeholder_to" tp="placeholder_to" tp="placeholder_to" placeholder="To">
       <span class="inline-label">=</span>
       <input type="text" id="incResult" class="result-inp" readonly>
       <span class="inline-label">%</span>
     </div>
   </div>
 </div>
+
+
+
+
+<script>var _LANG={'title_percentage_calculator':["Percentage Calculator", "百分比计算器"],'metadesc_three_mode_percentage_cal':["Three-mode percentage calculator: what is X% of Y, X is what % of Y, and percentage increase/decrease.", "三种模式的百分比计算器：X 占 Y 的百分比是多少，X 是 Y 的百分之几，以及百分比增加/减少。"],'h1_percentage_calculator':["Percentage Calculator", "百分比计算器"],'h2_what_is_x_of_y':["What is X% of Y?", "Y 的 X% 是多少？"],'h2_x_is_what_percent_of_y':["X is what percent of Y?", "X 是 Y 的百分之几？"],'h2_percentage_increase_decre':["Percentage increase / decrease", "百分比增加/减少"],'subtitle_three_useful_percentage_c':["Three useful percentage calculations", "三种实用的百分比计算方法"],'label_of':["% of", "％ 的"],'label_is_what_of':["is what % of", "是百分之几"],'label_from':["From", "从"],'label_to':["To", "到"],'placeholder_from':["From", "从"],'placeholder_to':["To", "到"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_percentage_calculator':["Percentage Calculator", "百分比计算器"],'metadesc_three_mode_percentage_cal':["Three-mode percentage calculator: what is X% of Y, X is what % of Y, and percentage increase/decrease.", "三种模式的百分比计算器：X 占 Y 的百分比是多少，X 是 Y 的百分之几，以及百分比增加/减少。"],'h1_percentage_calculator':["Percentage Calculator", "百分比计算器"],'h2_what_is_x_of_y':["What is X% of Y?", "Y 的 X% 是多少？"],'h2_x_is_what_percent_of_y':["X is what percent of Y?", "X 是 Y 的百分之几？"],'h2_percentage_increase_decre':["Percentage increase / decrease", "百分比增加/减少"],'subtitle_three_useful_percentage_c':["Three useful percentage calculations", "三种实用的百分比计算方法"],'label_of':["% of", "％ 的"],'label_is_what_of':["is what % of", "是百分之几"],'label_from':["From", "从"],'label_to':["To", "到"],'placeholder_from':["From", "从"],'placeholder_to':["To", "到"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_percentage_calculator':["Percentage Calculator", "百分比计算器"],'metadesc_three_mode_percentage_cal':["Three-mode percentage calculator: what is X% of Y, X is what % of Y, and percentage increase/decrease.", "三种模式的百分比计算器：X 占 Y 的百分比是多少，X 是 Y 的百分之几，以及百分比增加/减少。"],'h1_percentage_calculator':["Percentage Calculator", "百分比计算器"],'h2_what_is_x_of_y':["What is X% of Y?", "Y 的 X% 是多少？"],'h2_x_is_what_percent_of_y':["X is what percent of Y?", "X 是 Y 的百分之几？"],'h2_percentage_increase_decre':["Percentage increase / decrease", "百分比增加/减少"],'subtitle_three_useful_percentage_c':["Three useful percentage calculations", "三种实用的百分比计算方法"],'label_of':["% of", "％ 的"],'label_is_what_of':["is what % of", "是百分之几"],'label_from':["From", "从"],'label_to':["To", "到"],'placeholder_from':["From", "从"],'placeholder_to':["To", "到"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_percentage_calculator':["Percentage Calculator", "百分比计算器"],'metadesc_three_mode_percentage_cal':["Three-mode percentage calculator: what is X% of Y, X is what % of Y, and percentage increase/decrease.", "三种模式的百分比计算器：X 占 Y 的百分比是多少，X 是 Y 的百分之几，以及百分比增加/减少。"],'h1_percentage_calculator':["Percentage Calculator", "百分比计算器"],'h2_what_is_x_of_y':["What is X% of Y?", "Y 的 X% 是多少？"],'h2_x_is_what_percent_of_y':["X is what percent of Y?", "X 是 Y 的百分之几？"],'h2_percentage_increase_decre':["Percentage increase / decrease", "百分比增加/减少"],'subtitle_three_useful_percentage_c':["Three useful percentage calculations", "三种实用的百分比计算方法"],'label_of':["% of", "％ 的"],'label_is_what_of':["is what % of", "是百分之几"],'label_from':["From", "从"],'label_to':["To", "到"],'placeholder_from':["From", "从"],'placeholder_to':["To", "到"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 ['pctX','pctY'].forEach(id => document.getElementById(id).addEventListener('input', calcPct));
 ['numX','numY'].forEach(id => document.getElementById(id).addEventListener('input', calcNum));
@@ -91,6 +141,96 @@ function calcInc() {
 }
 
 calcPct(); calcNum(); calcInc();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

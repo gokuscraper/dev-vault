@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_tone_generator_generate_a" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,8 +77,14 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Tone Generator</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_tone_generator" ti="h1_tone_generator" ti="h1_tone_generator">Tone Generator</h1>
   <p class="tagline">Generate audio frequencies in your browser. No install, no tracking.</p>
 
   <div class="freq-display">
@@ -87,13 +93,13 @@ footer a:hover{text-decoration:underline}
     <div class="note-cents" id="noteCents">0 cents</div>
   </div>
 
-  <button class="play-btn stopped" id="playBtn">Play</button>
+  <button class="play-btn stopped" id="playBtn" ti="btn_play" ti="btn_play" ti="btn_play">Play</button>
 
   <!-- Frequency -->
   <div class="card">
     <div class="card-title">Frequency</div>
     <div class="slider-row">
-      <label>Freq</label>
+      <label ti="label_freq" ti="label_freq" ti="label_freq">Freq</label>
       <input type="range" id="freqSlider" min="0" max="1000" value="500">
       <input type="number" class="freq-input" id="freqNumInput" min="20" max="20000" value="440" step="0.01">
       <span class="slider-val" style="min-width:24px">Hz</span>
@@ -104,10 +110,10 @@ footer a:hover{text-decoration:underline}
   <div class="card">
     <div class="card-title">Waveform</div>
     <div class="waveform-btns">
-      <button class="wave-btn active" data-wave="sine">Sine</button>
-      <button class="wave-btn" data-wave="square">Square</button>
-      <button class="wave-btn" data-wave="sawtooth">Sawtooth</button>
-      <button class="wave-btn" data-wave="triangle">Triangle</button>
+      <button class="wave-btn active" data-wave="sine" ti="btn_sine" ti="btn_sine" ti="btn_sine">Sine</button>
+      <button class="wave-btn" data-wave="square" ti="btn_square" ti="btn_square" ti="btn_square">Square</button>
+      <button class="wave-btn" data-wave="sawtooth" ti="btn_sawtooth" ti="btn_sawtooth" ti="btn_sawtooth">Sawtooth</button>
+      <button class="wave-btn" data-wave="triangle" ti="btn_triangle" ti="btn_triangle" ti="btn_triangle">Triangle</button>
     </div>
   </div>
 
@@ -115,7 +121,7 @@ footer a:hover{text-decoration:underline}
   <div class="card">
     <div class="card-title">Volume</div>
     <div class="slider-row">
-      <label>Vol</label>
+      <label ti="label_vol" ti="label_vol" ti="label_vol">Vol</label>
       <input type="range" id="volSlider" min="0" max="100" value="50">
       <span class="slider-val" id="volVal">50%</span>
     </div>
@@ -125,7 +131,7 @@ footer a:hover{text-decoration:underline}
   <div class="card">
     <div class="card-title">Detune</div>
     <div class="slider-row">
-      <label>Cents</label>
+      <label ti="label_cents" ti="label_cents" ti="label_cents">Cents</label>
       <input type="range" id="detuneSlider" min="-100" max="100" value="0">
       <span class="slider-val" id="detuneVal">0 cents</span>
     </div>
@@ -147,11 +153,31 @@ footer a:hover{text-decoration:underline}
   </div>
 
   <footer>
-    <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> &mdash; free browser tools for developers
-    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/noise-gen/">Noise Generator</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/">Frequency Calculator</a></div>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> &mdash; free browser tools for developers
+    <div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/noise-gen/" ti="link_noise_generator" ti="link_noise_generator" ti="link_noise_generator">Noise Generator</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/frequency-calc/" ti="link_frequency_calculator" ti="link_frequency_calculator" ti="link_frequency_calculator">Frequency Calculator</a></div>
   </footer>
 </div>
 
+
+
+<script>var _LANG={'title_tone_generator_generate_a':["Tone Generator — Generate Audio Frequencies", "音频发生器——生成音频频率"],'metadesc_browser_based_tone_and_fr':["Browser-based tone and frequency generator. Sine, square, sawtooth, triangle waveforms. Musical note detection, presets, octave shift, detune. No install, no tracking.", "基于浏览器的音调和频率发生器。支持正弦波、方波、锯齿波和三角波波形。具备音符检测、预设、八度音程偏移和音高微调功能。无需安装，不追踪用户行为。"],'h1_tone_generator':["Tone Generator", "音调发生器"],'btn_play':["Play", "玩"],'btn_sine':["Sine", "正弦"],'btn_square':["Square", "正方形"],'btn_sawtooth':["Sawtooth", "锯齿"],'btn_triangle':["Triangle", "三角形"],'btn_1_octave_2':["-1 Octave (÷2)", "-1 个八度 (÷2)"],'btn_1_octave_2_2':["+1 Octave (×2)", "+1 八度 (×2)"],'label_freq':["Freq", "频率"],'label_vol':["Vol", "沃尔"],'label_cents':["Cents", "分"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_noise_generator':["Noise Generator", "噪声发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'jtc_khz':["kHz", "千赫"],'jtc_hz':["Hz", "赫兹"],'jtc_stop':["Stop", "停止"],'jtc_play':["Play", "玩"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_tone_generator_generate_a':["Tone Generator — Generate Audio Frequencies", "音频发生器——生成音频频率"],'metadesc_browser_based_tone_and_fr':["Browser-based tone and frequency generator. Sine, square, sawtooth, triangle waveforms. Musical note detection, presets, octave shift, detune. No install, no tracking.", "基于浏览器的音调和频率发生器。支持正弦波、方波、锯齿波和三角波波形。具备音符检测、预设、八度音程偏移和音高微调功能。无需安装，不追踪用户行为。"],'h1_tone_generator':["Tone Generator", "音调发生器"],'btn_play':["Play", "玩"],'btn_sine':["Sine", "正弦"],'btn_square':["Square", "正方形"],'btn_sawtooth':["Sawtooth", "锯齿"],'btn_triangle':["Triangle", "三角形"],'btn_1_octave_2':["-1 Octave (÷2)", "-1 个八度 (÷2)"],'btn_1_octave_2_2':["+1 Octave (×2)", "+1 八度 (×2)"],'label_freq':["Freq", "频率"],'label_vol':["Vol", "沃尔"],'label_cents':["Cents", "分"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_noise_generator':["Noise Generator", "噪声发生器"],'link_frequency_calculator':["Frequency Calculator", "频率计算器"],'jtc_khz':["kHz", "千赫"],'jtc_hz':["Hz", "赫兹"],'jtc_stop':["Stop", "停止"],'jtc_play':["Play", "玩"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
   // --- State ---
@@ -213,10 +239,10 @@ footer a:hover{text-decoration:underline}
   function updateDisplay() {
     if (freq >= 1000) {
       freqText.textContent = (freq / 1000).toFixed(freq >= 10000 ? 2 : 3);
-      freqUnit.textContent = 'kHz';
+      freqUnit.textContent=T("jtc_khz");
     } else {
       freqText.textContent = freq < 100 ? freq.toFixed(1) : freq.toFixed(freq % 1 === 0 ? 0 : 2);
-      freqUnit.textContent = 'Hz';
+      freqUnit.textContent=T("jtc_hz");
     }
     const note = freqToNote(freq);
     noteName.textContent = note.name;
@@ -264,7 +290,7 @@ footer a:hover{text-decoration:underline}
     // Fade in to avoid click
     gainNode.gain.linearRampToValueAtTime(volume, audioCtx.currentTime + 0.02);
     playing = true;
-    playBtn.textContent = 'Stop';
+    playBtn.textContent=T("jtc_stop");
     playBtn.className = 'play-btn playing';
   }
 
@@ -278,7 +304,7 @@ footer a:hover{text-decoration:underline}
     oscNode = null;
     gainNode = null;
     playing = false;
-    playBtn.textContent = 'Play';
+    playBtn.textContent=T("jtc_play");
     playBtn.className = 'play-btn stopped';
   }
 
@@ -343,6 +369,60 @@ footer a:hover{text-decoration:underline}
   // Init display
   freqSlider.value = freqToSlider(440);
   updateDisplay();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

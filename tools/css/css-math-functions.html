@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_math_functions_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -170,22 +170,24 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>CSS Math Functions Playground</h1>
+  <h1 ti="title_css_math_functions_playgr" ti="h1_css_math_functions_playgr">CSS Math Functions Playground</h1>
   <p>Explore calc(), min/max/clamp, round/mod/rem, trigonometry, exponential functions, and responsive typography</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab-btn active" data-tab="calc">calc()</button>
-    <button class="tab-btn" data-tab="minmax">min/max/clamp</button>
-    <button class="tab-btn" data-tab="round">round/mod/rem</button>
-    <button class="tab-btn" data-tab="trig">sin/cos/tan</button>
-    <button class="tab-btn" data-tab="exp">pow/sqrt/log</button>
-    <button class="tab-btn" data-tab="abs">abs/sign</button>
-    <button class="tab-btn" data-tab="typography">Typography</button>
-    <button class="tab-btn" data-tab="builder">Builder</button>
+    <button class="tab-btn active" data-tab="calc" ti="btn_calc">calc()</button>
+    <button class="tab-btn" data-tab="minmax" ti="btn_min_max_clamp">min/max/clamp</button>
+    <button class="tab-btn" data-tab="round" ti="btn_round_mod_rem">round/mod/rem</button>
+    <button class="tab-btn" data-tab="trig" ti="btn_sin_cos_tan">sin/cos/tan</button>
+    <button class="tab-btn" data-tab="exp" ti="btn_pow_sqrt_log">pow/sqrt/log</button>
+    <button class="tab-btn" data-tab="abs" ti="btn_abs_sign">abs/sign</button>
+    <button class="tab-btn" data-tab="typography" ti="btn_typography">Typography</button>
+    <button class="tab-btn" data-tab="builder" ti="btn_builder">Builder</button>
   </div>
 
   <!-- calc() -->
@@ -226,7 +228,7 @@ width: calc(
 );</div>
           </div>
           <div>
-            <span class="label-text">Live: calc(100% - Xpx)</span>
+            <span class="label-text" ti="label_live_calc_100_xpx">Live: calc(100% - Xpx)</span>
             <div class="slider-group">
               <label>Subtract <span id="calcSubVal">40px</span></label>
               <input type="range" id="calcSub" min="0" max="200" value="40">
@@ -236,7 +238,7 @@ width: calc(
             </div>
             <div class="code-output" id="calcCode"></div>
 
-            <span class="label-text" style="margin-top:1rem;">Grid columns with calc</span>
+            <span class="label-text" style="margin-top:1rem;" ti="label_grid_columns_with_calc">Grid columns with calc</span>
             <div class="slider-group">
               <label>Columns <span id="calcColsVal">3</span></label>
               <input type="range" id="calcCols" min="1" max="6" value="3">
@@ -251,7 +253,7 @@ width: calc(
   <!-- min/max/clamp -->
   <div class="panel" id="panel-minmax">
     <div class="card">
-      <div class="card-header"><h3>min() / max() / clamp()</h3></div>
+      <div class="card-header"><h3 ti="h3_min_max_clamp">min() / max() / clamp()</h3></div>
       <div class="card-body">
         <p class="desc">
           <code>min()</code> picks the smallest value, <code>max()</code> the largest, and <code>clamp(min, preferred, max)</code> constrains a value between bounds. These enable responsive design without media queries.
@@ -279,7 +281,7 @@ padding: clamp(1rem, 5vw, 3rem);
 width: min(1200px, 100% - 2rem);</div>
           </div>
           <div>
-            <span class="label-text">Resize to see clamp() in action</span>
+            <span class="label-text" ti="label_resize_to_see_clamp_in_ac">Resize to see clamp() in action</span>
             <div class="resize-demo">
               <div id="clampDemo" style="background:var(--accent); border-radius:4px; padding:0.5rem; color:#000; font-weight:600; text-align:center; font-size: clamp(0.8rem, 3cqi, 1.5rem);">
                 Responsive Text
@@ -287,7 +289,7 @@ width: min(1200px, 100% - 2rem);</div>
               <div style="margin-top:0.5rem; height:30px; background:var(--accent); opacity:0.5; border-radius:4px; width: clamp(100px, 50%, 300px);"></div>
             </div>
 
-            <span class="label-text" style="margin-top:1rem;">Interactive clamp()</span>
+            <span class="label-text" style="margin-top:1rem;" ti="label_interactive_clamp">Interactive clamp()</span>
             <div class="slider-group">
               <label>Min <span id="clampMinVal">16px</span></label>
               <input type="range" id="clampMin" min="10" max="40" value="16">
@@ -314,11 +316,11 @@ width: min(1200px, 100% - 2rem);</div>
   <div class="panel" id="panel-round">
     <div class="card">
       <div class="card-header">
-        <h3>round() / mod() / rem()</h3>
+        <h3 ti="h3_round_mod_rem">round() / mod() / rem()</h3>
         <span class="badge">CSS Values 4</span>
       </div>
       <div class="card-body">
-        <p class="desc">Stepped value functions for snapping to grids, creating discrete layouts, and rhythmic spacing.</p>
+        <p class="desc" ti="subtitle_stepped_value_functions_f">Stepped value functions for snapping to grids, creating discrete layouts, and rhythmic spacing.</p>
 
         <div class="grid-2">
           <div>
@@ -349,7 +351,7 @@ width: rem(-18px, 5px);
 padding: round(nearest, 1.5rem, 8px);</div>
           </div>
           <div>
-            <span class="label-text">round() — snap to grid</span>
+            <span class="label-text" ti="label_round_snap_to_grid">round() — snap to grid</span>
             <div class="slider-group">
               <label>Value <span id="roundValDisp">100px</span></label>
               <input type="range" id="roundVal" min="0" max="300" value="100">
@@ -369,13 +371,13 @@ padding: round(nearest, 1.5rem, 8px);</div>
             </div>
             <div class="code-output" id="roundCode"></div>
 
-            <span class="label-text" style="margin-top:1rem;">mod() visualization</span>
+            <span class="label-text" style="margin-top:1rem;" ti="label_mod_visualization">mod() visualization</span>
             <div class="slider-group">
               <label>mod(<span id="modADisp">17</span>px, <span id="modBDisp">5</span>px) = <span id="modResult" style="color:var(--accent);">2px</span></label>
               <input type="range" id="modA" min="0" max="50" value="17">
             </div>
             <div class="slider-group">
-              <label>Divisor</label>
+              <label ti="label_divisor">Divisor</label>
               <input type="range" id="modB" min="1" max="20" value="5">
             </div>
           </div>
@@ -387,9 +389,9 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <!-- Trig -->
   <div class="panel" id="panel-trig">
     <div class="card">
-      <div class="card-header"><h3>sin() / cos() / tan() — Circular Patterns</h3></div>
+      <div class="card-header"><h3 ti="h3_sin_cos_tan_circular_patt">sin() / cos() / tan() — Circular Patterns</h3></div>
       <div class="card-body">
-        <p class="desc">CSS trigonometric functions accept angles and return unitless numbers. Perfect for circular layouts, wave effects, and animation paths.</p>
+        <p class="desc" ti="subtitle_css_trigonometric_functio">CSS trigonometric functions accept angles and return unitless numbers. Perfect for circular layouts, wave effects, and animation paths.</p>
 
         <div class="grid-2">
           <div>
@@ -415,7 +417,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
 --angle: atan2(y, x);  /* angle from coordinates */</div>
           </div>
           <div>
-            <span class="label-text">Interactive Circular Layout</span>
+            <span class="label-text" ti="label_interactive_circular_layo">Interactive Circular Layout</span>
             <div class="slider-group">
               <label>Items <span id="trigCountVal">8</span></label>
               <input type="range" id="trigCount" min="3" max="16" value="8">
@@ -428,7 +430,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
           </div>
         </div>
 
-        <span class="label-text">Wave Pattern</span>
+        <span class="label-text" ti="label_wave_pattern">Wave Pattern</span>
         <div class="slider-group">
           <label>Phase <span id="wavePhaseVal">0</span>deg</label>
           <input type="range" id="wavePhase" min="0" max="360" value="0">
@@ -445,9 +447,9 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <!-- Exponential -->
   <div class="panel" id="panel-exp">
     <div class="card">
-      <div class="card-header"><h3>pow() / sqrt() / log() / exp()</h3></div>
+      <div class="card-header"><h3 ti="h3_pow_sqrt_log_exp">pow() / sqrt() / log() / exp()</h3></div>
       <div class="card-body">
-        <p class="desc">Exponential and logarithmic functions for growth curves, easing, and non-linear scaling.</p>
+        <p class="desc" ti="subtitle_exponential_and_logarithm">Exponential and logarithmic functions for growth curves, easing, and non-linear scaling.</p>
 
         <div class="grid-2">
           <div>
@@ -472,7 +474,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
 /* infinity, -infinity, NaN also available */</div>
           </div>
           <div>
-            <span class="label-text">Exponential Growth Curve</span>
+            <span class="label-text" ti="label_exponential_growth_curve">Exponential Growth Curve</span>
             <div class="slider-group">
               <label>Base <span id="expBaseVal">1.5</span></label>
               <input type="range" id="expBase" min="10" max="30" value="15">
@@ -482,7 +484,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
           </div>
         </div>
 
-        <span class="label-text" style="margin-top: 1rem;">Comparison: Linear vs Sqrt vs Log scaling</span>
+        <span class="label-text" style="margin-top: 1rem;" ti="label_comparison_linear_vs_sqrt">Comparison: Linear vs Sqrt vs Log scaling</span>
         <div class="demo-box" style="display:flex; gap:1rem; align-items:flex-end; height:150px; padding-bottom:2rem;">
           <div style="flex:1; text-align:center;">
             <div style="font-size:0.7rem; color:var(--text-dim); margin-bottom:4px;">Linear</div>
@@ -504,7 +506,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <!-- abs/sign -->
   <div class="panel" id="panel-abs">
     <div class="card">
-      <div class="card-header"><h3>abs() / sign()</h3></div>
+      <div class="card-header"><h3 ti="h3_abs_sign">abs() / sign()</h3></div>
       <div class="card-body">
         <p class="desc"><code>abs()</code> returns the absolute value. <code>sign()</code> returns -1, 0, or 1. Useful for direction-aware styling and distance calculations.</p>
 
@@ -533,7 +535,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
 }</div>
           </div>
           <div>
-            <span class="label-text">abs() — Distance from center</span>
+            <span class="label-text" ti="label_abs_distance_from_center">abs() — Distance from center</span>
             <div class="slider-group">
               <label>Position <span id="absVal">50</span>%</label>
               <input type="range" id="absSlider" min="0" max="100" value="50">
@@ -545,7 +547,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
             </div>
             <div class="code-output" id="absCode"></div>
 
-            <span class="label-text" style="margin-top:1rem;">sign() — Direction</span>
+            <span class="label-text" style="margin-top:1rem;" ti="label_sign_direction">sign() — Direction</span>
             <div class="slider-group">
               <label>Value <span id="signVal">0</span></label>
               <input type="range" id="signSlider" min="-50" max="50" value="0">
@@ -564,7 +566,7 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <!-- Typography -->
   <div class="panel" id="panel-typography">
     <div class="card">
-      <div class="card-header"><h3>Responsive Typography Calculator</h3></div>
+      <div class="card-header"><h3 ti="h3_responsive_typography_cal">Responsive Typography Calculator</h3></div>
       <div class="card-body">
         <p class="desc">Generate a <code>clamp()</code> formula for fluid typography that scales smoothly between viewport sizes.</p>
 
@@ -590,20 +592,20 @@ padding: round(nearest, 1.5rem, 8px);</div>
             <div class="code-output" id="typoFormula" style="font-size:0.8rem;"></div>
 
             <div style="margin-top: 0.75rem;">
-              <span class="label-text">Scale steps (modular scale)</span>
+              <span class="label-text" ti="label_scale_steps_modular_scale">Scale steps (modular scale)</span>
               <div id="typoScale"></div>
             </div>
           </div>
           <div>
-            <span class="label-text">Preview (resize window to see change)</span>
+            <span class="label-text" ti="label_preview_resize_window_to">Preview (resize window to see change)</span>
             <div class="typography-preview" id="typoPreview">
-              <h2 id="typoH2" style="margin-bottom:0.5rem;">Heading Two</h2>
-              <h3 id="typoH3" style="margin-bottom:0.5rem;">Heading Three</h3>
+              <h2 id="typoH2" style="margin-bottom:0.5rem;" ti="h2_heading_two">Heading Two</h2>
+              <h3 id="typoH3" style="margin-bottom:0.5rem;" ti="h3_heading_three">Heading Three</h3>
               <p id="typoP">Body text that responds to viewport width smoothly using clamp(). No breakpoints needed for fluid scaling.</p>
             </div>
 
             <div style="margin-top: 1rem;">
-              <span class="label-text">Size at various viewports</span>
+              <span class="label-text" ti="label_size_at_various_viewports">Size at various viewports</span>
               <div id="typoTable" style="font-size: 0.85rem;"></div>
             </div>
           </div>
@@ -615,22 +617,22 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <!-- Builder -->
   <div class="panel" id="panel-builder">
     <div class="card">
-      <div class="card-header"><h3>Interactive Formula Builder</h3></div>
+      <div class="card-header"><h3 ti="h3_interactive_formula_build">Interactive Formula Builder</h3></div>
       <div class="card-body">
-        <p class="desc">Build CSS math expressions interactively. Type a formula and see the computed result.</p>
+        <p class="desc" ti="subtitle_build_css_math_expression">Build CSS math expressions interactively. Type a formula and see the computed result.</p>
 
-        <span class="label-text">CSS Math Expression</span>
-        <input type="text" class="formula-input" id="formulaInput" value="clamp(1rem, 2.5vw + 1rem, 3rem)" placeholder="e.g. calc(100% - 2rem), clamp(1rem, 5vw, 3rem)">
+        <span class="label-text" ti="label_css_math_expression">CSS Math Expression</span>
+        <input type="text" class="formula-input" id="formulaInput" value="clamp(1rem, 2.5vw + 1rem, 3rem)" tp="placeholder_e_g_calc_100_2rem_clamp_1" placeholder="e.g. calc(100% - 2rem), clamp(1rem, 5vw, 3rem)">
 
         <div class="grid-2" style="margin-top: 1rem;">
           <div>
-            <span class="label-text">Applied to width</span>
+            <span class="label-text" ti="label_applied_to_width">Applied to width</span>
             <div class="demo-box">
               <div id="formulaWidthDemo" style="height:40px; background:var(--accent); border-radius:4px; transition: width 0.3s;"></div>
             </div>
           </div>
           <div>
-            <span class="label-text">Applied to font-size</span>
+            <span class="label-text" ti="label_applied_to_font_size">Applied to font-size</span>
             <div class="demo-box">
               <p id="formulaFontDemo" style="transition: font-size 0.3s;">Sample Text</p>
             </div>
@@ -639,18 +641,18 @@ padding: round(nearest, 1.5rem, 8px);</div>
 
         <div class="code-output" id="formulaOutput" style="margin-top: 0.75rem;"></div>
 
-        <span class="label-text" style="margin-top: 1rem;">Quick examples</span>
+        <span class="label-text" style="margin-top: 1rem;" ti="label_quick_examples">Quick examples</span>
         <div style="display:flex; flex-wrap:wrap; gap:0.4rem;">
-          <button class="tab-btn" onclick="setFormula('calc(100% - 4rem)')">calc(100% - 4rem)</button>
-          <button class="tab-btn" onclick="setFormula('min(600px, 90%)')">min(600px, 90%)</button>
-          <button class="tab-btn" onclick="setFormula('max(200px, 30%)')">max(200px, 30%)</button>
-          <button class="tab-btn" onclick="setFormula('clamp(200px, 50%, 600px)')">clamp responsive</button>
-          <button class="tab-btn" onclick="setFormula('calc(100% / 3 - 1rem)')">3-col grid</button>
-          <button class="tab-btn" onclick="setFormula('clamp(1rem, 2.5vw + 0.5rem, 2.5rem)')">fluid type</button>
+          <button class="tab-btn" onclick="setFormula('calc(100% - 4rem)')" ti="btn_calc_100_4rem">calc(100% - 4rem)</button>
+          <button class="tab-btn" onclick="setFormula('min(600px, 90%)')" ti="btn_min_600px_90">min(600px, 90%)</button>
+          <button class="tab-btn" onclick="setFormula('max(200px, 30%)')" ti="btn_max_200px_30">max(200px, 30%)</button>
+          <button class="tab-btn" onclick="setFormula('clamp(200px, 50%, 600px)')" ti="btn_clamp_responsive">clamp responsive</button>
+          <button class="tab-btn" onclick="setFormula('calc(100% / 3 - 1rem)')" ti="btn_3_col_grid">3-col grid</button>
+          <button class="tab-btn" onclick="setFormula('clamp(1rem, 2.5vw + 0.5rem, 2.5rem)')" ti="btn_fluid_type">fluid type</button>
         </div>
 
         <div style="margin-top: 1.5rem;">
-          <span class="label-text">All CSS Math Functions Reference</span>
+          <span class="label-text" ti="label_all_css_math_functions_re">All CSS Math Functions Reference</span>
           <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:0.5rem; font-size:0.85rem;">
             <div style="padding:0.5rem; background:var(--surface-2); border-radius:4px;">
               <code style="color:var(--accent);">calc()</code>
@@ -704,6 +706,16 @@ padding: round(nearest, 1.5rem, 8px);</div>
   <p style="margin-top: 0.5rem;"><a href="https://github.com/gokuscraper/css-math-functions" target="_blank">Source</a></p>
 </footer>
 
+
+<script>var _LANG={'title_css_math_functions_playgr':["CSS Math Functions Playground", "CSS 数学函数游乐场"],'h1_css_math_functions_playgr':["CSS Math Functions Playground", "CSS 数学函数游乐场"],'h2_heading_two':["Heading Two", "标题二"],'h3_calc_nesting_type_mixing':["calc() Nesting & Type Mixing", "calc() 嵌套和类型混合"],'h3_min_max_clamp':["min() / max() / clamp()", "min() / max() / clamp()"],'h3_round_mod_rem':["round() / mod() / rem()", "round() / mod() / rem()"],'h3_sin_cos_tan_circular_patt':["sin() / cos() / tan() — Circular Patterns", "sin() / cos() / tan() — 圆形图案"],'h3_pow_sqrt_log_exp':["pow() / sqrt() / log() / exp()", "pow() / sqrt() / log() / exp()"],'h3_abs_sign':["abs() / sign()", "abs() / sign()"],'h3_responsive_typography_cal':["Responsive Typography Calculator", "响应式排版计算器"],'h3_heading_three':["Heading Three", "第三标题"],'h3_interactive_formula_build':["Interactive Formula Builder", "交互式公式生成器"],'subtitle_stepped_value_functions_f':["Stepped value functions for snapping to grids, creating discrete layouts, and rhythmic spacing.", "阶梯式值函数，用于对齐网格、创建离散布局和节奏间距。"],'subtitle_css_trigonometric_functio':["CSS trigonometric functions accept angles and return unitless numbers. Perfect for circular layouts, wave effects, and animation paths.", "CSS三角函数接受角度作为输入，并返回无单位的数值。非常适合圆形布局、波浪效果和动画路径。"],'subtitle_exponential_and_logarithm':["Exponential and logarithmic functions for growth curves, easing, and non-linear scaling.", "增长曲线、缓和、非线性缩放的指数函数和对数函数。"],'subtitle_build_css_math_expression':["Build CSS math expressions interactively. Type a formula and see the computed result.", "以交互方式构建 CSS 数学表达式。输入公式即可查看计算结果。"],'btn_calc':["calc()", "计算()"],'btn_min_max_clamp':["min/max/clamp", "最小值/最大值/钳位"],'btn_round_mod_rem':["round/mod/rem", "圆角/模切/半径"],'btn_sin_cos_tan':["sin/cos/tan", "正弦/余弦/正切"],'btn_pow_sqrt_log':["pow/sqrt/log", "幂/平方根/对数"],'btn_abs_sign':["abs/sign", "绝对值/符号"],'btn_typography':["Typography", "排版"],'btn_builder':["Builder", "建造者"],'btn_calc_100_4rem':["calc(100% - 4rem)", "calc(100% - 4rem)"],'btn_min_600px_90':["min(600px, 90%)", "最小(600像素，90%)"],'btn_max_200px_30':["max(200px, 30%)", "max(200px, 30%)"],'btn_clamp_responsive':["clamp responsive", "夹钳响应"],'btn_3_col_grid':["3-col grid", "3列网格"],'btn_fluid_type':["fluid type", "流体类型"],'label_live_calc_100_xpx':["Live: calc(100% - Xpx)", "实时：calc(100% - Xpx)"],'label_grid_columns_with_calc':["Grid columns with calc", "带计算的网格列"],'label_resize_to_see_clamp_in_ac':["Resize to see clamp() in action", "调整图片大小以查看 clamp() 函数的实际效果"],'label_interactive_clamp':["Interactive clamp()", "交互式钳位()"],'label_round_snap_to_grid':["round() — snap to grid", "round() — 对齐到网格"],'label_mod_visualization':["mod() visualization", "mod() 可视化"],'label_interactive_circular_layo':["Interactive Circular Layout", "交互式圆形布局"],'label_wave_pattern':["Wave Pattern", "波浪模式"],'label_exponential_growth_curve':["Exponential Growth Curve", "指数增长曲线"],'label_comparison_linear_vs_sqrt':["Comparison: Linear vs Sqrt vs Log scaling", "比较：线性缩放、平方根缩放和对数缩放"],'label_abs_distance_from_center':["abs() — Distance from center", "abs() — 距中心的距离"],'label_sign_direction':["sign() — Direction", "sign() — 方向"],'label_scale_steps_modular_scale':["Scale steps (modular scale)", "规模步骤（模块化规模）"],'label_preview_resize_window_to':["Preview (resize window to see change)", "预览（调整窗口大小以查看更改）"],'label_size_at_various_viewports':["Size at various viewports", "不同视口下的尺寸"],'label_css_math_expression':["CSS Math Expression", "CSS 数学表达式"],'label_applied_to_width':["Applied to width", "应用于宽度"],'label_applied_to_font_size':["Applied to font-size", "应用于字体大小"],'label_quick_examples':["Quick examples", "快速示例"],'label_all_css_math_functions_re':["All CSS Math Functions Reference", "所有 CSS 数学函数参考"],'placeholder_e_g_calc_100_2rem_clamp_1':["e.g. calc(100% - 2rem), clamp(1rem, 5vw, 3rem)", "例如 calc(100% - 2rem), clamp(1rem, 5vw, 3rem)"],'label_divisor':["Divisor", "除数"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -1018,6 +1030,24 @@ padding: round(nearest, 1.5rem, 8px);</div>
     document.getElementById('formulaInput').value = f;
     updateFormula();
   };
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

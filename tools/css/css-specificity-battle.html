@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_specificity_battle_ar" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,51 +67,53 @@ input:focus{outline:none;border-color:#ff5722}
 </style>
 </head>
 <body>
-<h1>CSS Specificity Battle Arena</h1>
-<p class="subtitle">Pit two selectors against each other and see which one wins</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_css_specificity_battle_ar" ti="h1_css_specificity_battle_ar">CSS Specificity Battle Arena</h1>
+<p class="subtitle" ti="subtitle_pit_two_selectors_against">Pit two selectors against each other and see which one wins</p>
 
 <div class="section">
-<h2>Battle Arena</h2>
+<h2 ti="h2_battle_arena">Battle Arena</h2>
 <div class="battle-arena">
 <div class="fighter" id="fighter1">
-<h3 style="color:#81c784">Selector A</h3>
+<h3 style="color:#81c784" ti="h3_selector_a">Selector A</h3>
 <input id="sel1" value="#nav .item a:hover" oninput="updateBattle()">
 <div class="specificity-bars" id="bars1"></div>
 </div>
 <div class="vs">VS</div>
 <div class="fighter" id="fighter2">
-<h3 style="color:#b388ff">Selector B</h3>
+<h3 style="color:#b388ff" ti="h3_selector_b">Selector B</h3>
 <input id="sel2" value="nav ul li a.active" oninput="updateBattle()">
 <div class="specificity-bars" id="bars2"></div>
 </div>
 </div>
 <div class="result-banner" id="resultBanner"></div>
-<button class="primary" onclick="randomBattle()" style="display:block;margin:8px auto 0">Random Battle</button>
+<button class="primary" onclick="randomBattle()" style="display:block;margin:8px auto 0" ti="btn_random_battle">Random Battle</button>
 </div>
 
 <div class="section">
-<h2>Specificity Calculator</h2>
+<h2 ti="h2_specificity_calculator">Specificity Calculator</h2>
 <div class="calc-input">
-<input id="calcInput" placeholder="Enter any CSS selector..." value=".container > #main h2.title::before" oninput="updateCalc()">
+<input id="calcInput" tp="placeholder_enter_any_css_selector" placeholder="Enter any CSS selector..." value=".container > #main h2.title::before" oninput="updateCalc()">
 </div>
 <div class="calc-result" id="calcResult"></div>
 </div>
 
 <div class="section">
-<h2>Quiz Mode</h2>
+<h2 ti="h2_quiz_mode">Quiz Mode</h2>
 <div class="quiz-card" id="quizCard">
 <p style="color:#888;margin-bottom:8px">Which selector has higher specificity?</p>
 <div class="quiz-selectors" id="quizSelectors"></div>
 <div class="quiz-score" id="quizScore">Score: 0/0</div>
-<button class="primary" onclick="nextQuiz()">Next Question</button>
+<button class="primary" onclick="nextQuiz()" ti="btn_next_question">Next Question</button>
 </div>
 </div>
 
 <div class="section">
-<h2>The Cascade Order</h2>
+<h2 ti="h2_the_cascade_order">The Cascade Order</h2>
 <p style="color:#888;font-size:0.85rem;margin-bottom:12px">When two declarations compete, the browser resolves them in this order (highest priority first):</p>
 <table class="cascade-table">
-<thead><tr><th>#</th><th>Origin & Importance</th><th>Example</th></tr></thead>
+<thead><tr><th>#</th><th ti="th_origin_importance">Origin & Importance</th><th ti="th_example">Example</th></tr></thead>
 <tbody>
 <tr><td>1</td><td>Transition declarations</td><td>Active CSS transitions</td></tr>
 <tr><td>2</td><td>User agent !important</td><td>Browser defaults with !important</td></tr>
@@ -123,12 +125,12 @@ input:focus{outline:none;border-color:#ff5722}
 <tr><td>8</td><td>User agent normal</td><td>Browser defaults</td></tr>
 </tbody></table>
 <p style="color:#888;font-size:0.85rem;margin-top:12px">Within the same origin & importance, specificity determines the winner. If specificity is equal, source order (last one wins).</p>
-<h3>@layer Impact</h3>
+<h3 ti="h3_layer_impact">@layer Impact</h3>
 <p style="color:#888;font-size:0.85rem">Cascade layers (<code>@layer</code>) sit between origins. Unlayered styles beat all layers. Later-declared layers beat earlier ones. !important reverses layer order.</p>
 </div>
 
 <div class="section">
-<h2>Common Gotchas</h2>
+<h2 ti="h2_common_gotchas">Common Gotchas</h2>
 <div class="gotcha">
 <h4>:is() and :not() inherit highest specificity</h4>
 <p><code>:is(.foo, #bar)</code> has specificity of <code>#bar</code> (1,0,0) even when matching <code>.foo</code>. Use <code>:where()</code> for zero specificity.</p>
@@ -163,6 +165,16 @@ input:focus{outline:none;border-color:#ff5722}
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_specificity_battle_ar':["CSS Specificity Battle Arena", "CSS 特性之战"],'h1_css_specificity_battle_ar':["CSS Specificity Battle Arena", "CSS 特性之战"],'h2_battle_arena':["Battle Arena", "战斗竞技场"],'h2_specificity_calculator':["Specificity Calculator", "特异性计算器"],'h2_quiz_mode':["Quiz Mode", "测验模式"],'h2_the_cascade_order':["The Cascade Order", "级联顺序"],'h2_common_gotchas':["Common Gotchas", "常见陷阱"],'h3_selector_a':["Selector A", "选择器 A"],'h3_selector_b':["Selector B", "选择器 B"],'h3_layer_impact':["@layer Impact", "@layer Impact"],'subtitle_pit_two_selectors_against':["Pit two selectors against each other and see which one wins", "让两位评测员进行对决，看看谁能胜出。"],'btn_random_battle':["Random Battle", "随机战斗"],'btn_next_question':["Next Question", "下一个问题"],'placeholder_enter_any_css_selector':["Enter any CSS selector...", "输入任意 CSS 选择器..."],'strong_v':["${v}", "${v}"],'th_origin_importance':["Origin & Importance", "起源与重要性"],'th_example':["Example", "例子"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function calculateSpecificity(selector) {
   let inline = 0, ids = 0, classes = 0, elements = 0;
@@ -299,7 +311,7 @@ function updateCalc() {
       Specificity: (${spec.join(', ')})
     </div>
     <div class="breakdown">
-      ${spec.map((v, i) => `<div class="breakdown-item"><span class="dot" style="background:${colors[i]}"></span>${labels[i]}: <strong>${v}</strong></div>`).join('')}
+      ${spec.map((v, i) => `<div class="breakdown-item"><span class="dot" style="background:${colors[i]}"></span>${labels[i]}: <strong ti="strong_v">${v}</strong></div>`).join('')}
     </div>`;
 }
 
@@ -360,6 +372,24 @@ function answerQuiz(chosen, winner, el) {
 updateBattle();
 updateCalc();
 nextQuiz();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

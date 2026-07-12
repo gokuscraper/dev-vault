@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_font_performance_anal" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -56,17 +56,19 @@ pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;f
 </style>
 </head>
 <body>
-<h1>Web Font Performance Analyzer</h1>
-<p class="subtitle">Analyze font loading performance and generate optimized configurations</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_web_font_performance_anal" ti="h1_web_font_performance_anal">Web Font Performance Analyzer</h1>
+<p class="subtitle" ti="subtitle_analyze_font_loading_perf">Analyze font loading performance and generate optimized configurations</p>
 
 <div class="section">
-<h2>Input</h2>
+<h2 ti="h2_input">Input</h2>
 <div class="tabs">
-<button class="active" onclick="switchInput('css',this)">@font-face CSS</button>
-<button onclick="switchInput('google',this)">Google Fonts URL</button>
+<button class="active" onclick="switchInput('css',this)" ti="btn_font_face_css">@font-face CSS</button>
+<button onclick="switchInput('google',this)" ti="btn_google_fonts_url">Google Fonts URL</button>
 </div>
 <div class="tab-content active" id="inputCss">
-<textarea id="cssInput" rows="8" placeholder="@font-face {
+<textarea id="cssInput" rows="8" tp="placeholder_font_face_font_family_my" placeholder="@font-face {
   font-family: 'MyFont';
   src: url('/fonts/myfont.woff2') format('woff2'),
        url('/fonts/myfont.woff') format('woff');
@@ -77,56 +79,66 @@ pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;f
 }"></textarea>
 </div>
 <div class="tab-content" id="inputGoogle">
-<input id="googleInput" placeholder="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap">
+<input id="googleInput" tp="placeholder_https_fonts_googleapis_co" placeholder="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap">
 </div>
-<button class="primary" onclick="analyze()" style="margin-top:8px">Analyze</button>
+<button class="primary" onclick="analyze()" style="margin-top:8px" ti="btn_analyze">Analyze</button>
 </div>
 
 <div id="results" style="display:none">
 <div class="section">
-<h2>Parsed Font Faces</h2>
+<h2 ti="h2_parsed_font_faces">Parsed Font Faces</h2>
 <div id="fontFaces"></div>
 </div>
 
 <div class="section">
-<h2>Font Loading Timeline</h2>
+<h2 ti="h2_font_loading_timeline">Font Loading Timeline</h2>
 <p class="info">How the browser handles text rendering before and after font loads</p>
 <div id="timeline"></div>
 </div>
 
 <div class="section">
-<h2>font-display Comparison</h2>
+<h2 ti="h2_font_display_comparison">font-display Comparison</h2>
 <p class="info">Click a strategy to see its behavior</p>
 <div class="display-grid" id="displayGrid"></div>
 <div id="displayDetail"></div>
 </div>
 
 <div class="section">
-<h2>Format Size Comparison</h2>
+<h2 ti="h2_format_size_comparison">Format Size Comparison</h2>
 <p class="info">Estimated sizes for a typical 250-glyph Latin font</p>
 <div class="format-compare" id="formatCompare"></div>
 <div class="bar-chart" id="formatBars"></div>
 </div>
 
 <div class="section">
-<h2>Unicode Range Coverage</h2>
+<h2 ti="h2_unicode_range_coverage">Unicode Range Coverage</h2>
 <div id="subsets"></div>
 </div>
 
 <div class="section">
-<h2>Preload Tag Generator</h2>
+<h2 ti="h2_preload_tag_generator">Preload Tag Generator</h2>
 <div class="copy-area">
 <pre id="preloadOutput"></pre>
-<button onclick="copyPreload()">Copy</button>
+<button onclick="copyPreload()" ti="btn_copy">Copy</button>
 </div>
 </div>
 
 <div class="section">
-<h2>Font Loading API</h2>
+<h2 ti="h2_font_loading_api">Font Loading API</h2>
 <pre id="apiDemo"></pre>
 </div>
 </div>
 
+
+<script>var _LANG={'title_web_font_performance_anal':["Web Font Performance Analyzer", "网页字体性能分析器"],'h1_web_font_performance_anal':["Web Font Performance Analyzer", "网页字体性能分析器"],'h2_input':["Input", "输入"],'h2_parsed_font_faces':["Parsed Font Faces", "已解析字体"],'h2_font_loading_timeline':["Font Loading Timeline", "字体加载时间线"],'h2_font_display_comparison':["font-display Comparison", "字体显示比较"],'h2_format_size_comparison':["Format Size Comparison", "格式尺寸比较"],'h2_unicode_range_coverage':["Unicode Range Coverage", "Unicode 范围覆盖"],'h2_preload_tag_generator':["Preload Tag Generator", "预加载标签生成器"],'h2_font_loading_api':["Font Loading API", "字体加载 API"],'subtitle_analyze_font_loading_perf':["Analyze font loading performance and generate optimized configurations", "分析字体加载性能并生成优化配置"],'btn_font_face_css':["@font-face CSS", "@font-face CSS"],'btn_google_fonts_url':["Google Fonts URL", "Google Fonts 网址"],'btn_analyze':["Analyze", "分析"],'btn_copy':["Copy", "复制"],'label_weight':["Weight:", "重量："],'label_style':["Style:", "风格："],'label_display':["Display:", "展示："],'label_unicode_range':["Unicode Range:", "Unicode 范围："],'label_sources':["Sources:", "资料来源："],'label_f_name':["${f.name}", "${f.name}"],'placeholder_font_face_font_family_my':["@font-face {\n  font-family: 'MyFont';\n  src: url('/fonts/myfont.woff2') format('woff2'),\n       url('/fonts/myfont.woff') format('woff');\n  font-weight: 400;\n  font-style: normal;\n  font-display: swap;\n  unicode-range: U+0000-00FF;\n}", "@font-face { font-family: &#39;MyFont&#39;; src: url(&#39;/fonts/myfont.woff2&#39;) format(&#39;woff2&#39;), url(&#39;/fonts/myfont.woff&#39;) format(&#39;woff&#39;); font-weight: 400; font-style: normal; font-display: swap; unicode-range: U+0000-00FF; }"],'placeholder_https_fonts_googleapis_co':["https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans&display=swap", "https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&amp;family=Open+Sans&amp;display=swap"],'strong_current_font_display_disp':["Current: font-display: ${display}", "当前：字体显示：${display}"],'strong_foit':["FOIT", "FOIT"],'strong_fout':["FOUT", "火"],'strong_foft':["FOFT", "FOFT"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_block':["Block", "堵塞"],'jtlword_swap':["Swap", "交换"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function switchInput(type, btn) {
   document.querySelectorAll('.tabs button').forEach(b=>b.classList.remove('active'));
@@ -219,11 +231,11 @@ function renderResults(faces) {
   document.getElementById('fontFaces').innerHTML = faces.map(f => `
     <div class="font-face-card">
       <h4>${f.family}</h4>
-      <div class="prop"><span class="label">Weight:</span><span class="value">${f.weight}</span></div>
-      <div class="prop"><span class="label">Style:</span><span class="value">${f.style}</span></div>
-      <div class="prop"><span class="label">Display:</span><span class="value">${f.display}</span></div>
-      <div class="prop"><span class="label">Unicode Range:</span><span class="value">${f.unicodeRange}</span></div>
-      <div class="prop"><span class="label">Sources:</span><span class="value">${f.sources.map(s=>`${s.format}: ${s.url}`).join('<br>')}</span></div>
+      <div class="prop"><span class="label" ti="label_weight">Weight:</span><span class="value">${f.weight}</span></div>
+      <div class="prop"><span class="label" ti="label_style">Style:</span><span class="value">${f.style}</span></div>
+      <div class="prop"><span class="label" ti="label_display">Display:</span><span class="value">${f.display}</span></div>
+      <div class="prop"><span class="label" ti="label_unicode_range">Unicode Range:</span><span class="value">${f.unicodeRange}</span></div>
+      <div class="prop"><span class="label" ti="label_sources">Sources:</span><span class="value">${f.sources.map(s=>`${s.format}: ${s.url}`).join('<br>')}</span></div>
     </div>`).join('');
 
   // Timeline
@@ -285,7 +297,7 @@ function renderTimeline(display) {
   };
   const t = timelines[display] || timelines.auto;
   document.getElementById('timeline').innerHTML = `
-    <p style="margin-bottom:12px"><strong>Current: font-display: ${display}</strong> &mdash; ${t.desc}</p>
+    <p style="margin-bottom:12px"><strong ti="strong_current_font_display_disp">Current: font-display: ${display}</strong> &mdash; ${t.desc}</p>
     <div style="margin-left:90px">
       <div style="display:flex;align-items:center;margin:6px 0">
         <span style="width:80px;text-align:right;font-size:0.8rem;color:#888;margin-right:8px">Block</span>
@@ -301,9 +313,9 @@ function renderTimeline(display) {
       </div>`:''}
     </div>
     <div style="margin-top:12px;padding:12px;background:#1a1a1a;border-radius:4px;font-size:0.85rem">
-      <strong style="color:#f06292">FOIT</strong> (Flash of Invisible Text): Text hidden while font loads. Caused by <code>block</code>.<br>
-      <strong style="color:#f06292">FOUT</strong> (Flash of Unstyled Text): Fallback shown, then swaps. Caused by <code>swap</code>.<br>
-      <strong style="color:#f06292">FOFT</strong> (Flash of Faux Text): Load subset first, then full. Advanced optimization.
+      <strong style="color:#f06292" ti="strong_foit">FOIT</strong> (Flash of Invisible Text): Text hidden while font loads. Caused by <code>block</code>.<br>
+      <strong style="color:#f06292" ti="strong_fout">FOUT</strong> (Flash of Unstyled Text): Fallback shown, then swaps. Caused by <code>swap</code>.<br>
+      <strong style="color:#f06292" ti="strong_foft">FOFT</strong> (Flash of Faux Text): Load subset first, then full. Advanced optimization.
     </div>`;
 }
 
@@ -340,7 +352,7 @@ function renderFormatCompare() {
 
   document.getElementById('formatBars').innerHTML = formats.map(f => `
     <div class="bar-row">
-      <span class="bar-label">${f.name}</span>
+      <span class="bar-label" ti="label_f_name">${f.name}</span>
       <div class="bar-fill" style="background:${f.color};width:${f.size/60*100}%">${f.size}KB</div>
     </div>`).join('');
 }
@@ -385,10 +397,28 @@ function copyPreload() {
   const text = document.getElementById('preloadOutput').textContent;
   navigator.clipboard.writeText(text).then(()=>{
     const btn = document.querySelector('.copy-area button');
-    btn.textContent='Copied!';
-    setTimeout(()=>btn.textContent='Copy',1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(()=>btn.textContent=T("jtc_copy"),1500);
   });
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

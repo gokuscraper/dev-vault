@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_slugify" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,11 +24,13 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Slugify</h1>
-  <p class="desc">Convert text to URL-friendly slugs</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_slugify" ti="h1_slugify">Slugify</h1>
+  <p class="desc" ti="subtitle_convert_text_to_url_frien">Convert text to URL-friendly slugs</p>
   <div class="card">
-    <label>Input text</label>
+    <label ti="label_input_text">Input text</label>
     <input type="text" id="inputText" value="Hello World! How are you?" spellcheck="false">
     <div class="row">
       <label><input type="radio" name="separator" value="-" checked> Hyphen (-)</label>
@@ -37,13 +39,23 @@ button:hover{background:#252525;border-color:#3b82f6}
       <label><input type="checkbox" id="lowercase" checked> Lowercase</label>
       <label><input type="checkbox" id="trim" checked> Trim</label>
     </div>
-    <label>Slug</label>
+    <label ti="label_slug">Slug</label>
     <textarea id="output" rows="2" readonly></textarea>
     <div class="flex-center">
-      <button id="copyBtn">Copy</button>
+      <button id="copyBtn" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_slugify':["Slugify", "蛞蝓化"],'metadesc_convert_text_to_url_frien':["Convert text to URL-friendly slugs. Remove accents, special characters, and replace spaces with hyphens.", "将文本转换为适合URL的别名。移除重音符号、特殊字符，并将空格替换为连字符。"],'h1_slugify':["Slugify", "蛞蝓化"],'subtitle_convert_text_to_url_frien':["Convert text to URL-friendly slugs", "将文本转换为 URL 友好的别名"],'btn_copy':["Copy", "复制"],'label_input_text':["Input text", "输入文本"],'label_slug':["Slug", "蛞蝓"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const accentMap = {
   'àáâãäå': 'a', 'èéêë': 'e', 'ìíîï': 'i', 'òóôõö': 'o', 'ùúûü': 'u',
@@ -95,6 +107,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('output').value);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

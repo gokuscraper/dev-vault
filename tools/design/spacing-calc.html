@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_spacing_calc_design_syste" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,39 +59,41 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Spacing Calc</h1>
-<p class="subtitle">Design system spacing scale generator.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_spacing_calc">Spacing Calc</h1>
+<p class="subtitle" ti="subtitle_design_system_spacing_sca">Design system spacing scale generator.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="loadPreset('tailwind')">Tailwind</button>
-  <button class="preset-btn" onclick="loadPreset('material')">Material</button>
-  <button class="preset-btn" onclick="loadPreset('bootstrap')">Bootstrap</button>
-  <button class="preset-btn" onclick="loadPreset('linear4')">Linear ×4</button>
-  <button class="preset-btn" onclick="loadPreset('linear8')">Linear ×8</button>
-  <button class="preset-btn" onclick="loadPreset('golden')">Golden Ratio</button>
-  <button class="preset-btn" onclick="loadPreset('fibonacci')">Fibonacci</button>
+  <button class="preset-btn" onclick="loadPreset('tailwind')" ti="btn_tailwind">Tailwind</button>
+  <button class="preset-btn" onclick="loadPreset('material')" ti="btn_material">Material</button>
+  <button class="preset-btn" onclick="loadPreset('bootstrap')" ti="btn_bootstrap">Bootstrap</button>
+  <button class="preset-btn" onclick="loadPreset('linear4')" ti="btn_linear_4">Linear ×4</button>
+  <button class="preset-btn" onclick="loadPreset('linear8')" ti="btn_linear_8">Linear ×8</button>
+  <button class="preset-btn" onclick="loadPreset('golden')" ti="btn_golden_ratio">Golden Ratio</button>
+  <button class="preset-btn" onclick="loadPreset('fibonacci')" ti="btn_fibonacci">Fibonacci</button>
 </div>
 
 <div class="config">
   <div class="config-row">
-    <div class="config-item"><label>Base (px)</label><input type="number" id="base" value="4" min="1" max="16" onchange="generate()"></div>
-    <div class="config-item"><label>Steps</label><input type="number" id="steps" value="12" min="4" max="20" onchange="generate()"></div>
-    <div class="config-item"><label>Scale</label><select id="scaleType" onchange="generate()"><option value="linear">Linear</option><option value="ratio">Ratio</option><option value="custom">Custom</option></select></div>
-    <div class="config-item"><label>Ratio</label><input type="number" id="ratio" value="1.5" min="1.1" max="3" step="0.1" onchange="generate()"></div>
-    <div class="config-item"><label>Root font-size</label><input type="number" id="rootSize" value="16" min="10" max="24" onchange="generate()"></div>
+    <div class="config-item"><label ti="label_base_px">Base (px)</label><input type="number" id="base" value="4" min="1" max="16" onchange="generate()"></div>
+    <div class="config-item"><label ti="label_steps">Steps</label><input type="number" id="steps" value="12" min="4" max="20" onchange="generate()"></div>
+    <div class="config-item"><label ti="label_scale">Scale</label><select id="scaleType" onchange="generate()"><option value="linear">Linear</option><option value="ratio">Ratio</option><option value="custom">Custom</option></select></div>
+    <div class="config-item"><label ti="label_ratio">Ratio</label><input type="number" id="ratio" value="1.5" min="1.1" max="3" step="0.1" onchange="generate()"></div>
+    <div class="config-item"><label ti="label_root_font_size">Root font-size</label><input type="number" id="rootSize" value="16" min="10" max="24" onchange="generate()"></div>
   </div>
 </div>
 
 <table class="scale-table">
-  <thead><tr><th>Name</th><th>px</th><th>rem</th><th>Preview</th></tr></thead>
+  <thead><tr><th ti="th_name">Name</th><th ti="th_px">px</th><th ti="th_rem">rem</th><th ti="th_preview">Preview</th></tr></thead>
   <tbody id="scaleBody"></tbody>
 </table>
 
 <div class="output-tabs">
-  <button class="out-tab active" onclick="setFormat('css')">CSS Variables</button>
-  <button class="out-tab" onclick="setFormat('tailwind')">Tailwind Config</button>
-  <button class="out-tab" onclick="setFormat('scss')">SCSS Variables</button>
+  <button class="out-tab active" onclick="setFormat('css')" ti="btn_css_variables">CSS Variables</button>
+  <button class="out-tab" onclick="setFormat('tailwind')" ti="btn_tailwind_config">Tailwind Config</button>
+  <button class="out-tab" onclick="setFormat('scss')" ti="btn_scss_variables">SCSS Variables</button>
 </div>
 
 <div class="output" onclick="copyCSS()">
@@ -101,10 +103,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/spacing-calc">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/spacing-calc" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_spacing_calc_design_syste':["Spacing Calc — Design System Spacing Scale Generator", "间距计算 — 设计系统间距比例生成器"],'metadesc_generate_consistent_spaci':["Generate consistent spacing scales for design systems. Tailwind, custom base, ratio-based. CSS/Tailwind export. Free.", "为设计系统生成一致的间距比例。支持 Tailwind、自定义基准和比例缩放。支持导出 CSS/Tailwind 代码。免费。"],'h1_spacing_calc':["Spacing Calc", "间距计算"],'subtitle_design_system_spacing_sca':["Design system spacing scale generator.", "设计系统间距比例尺生成器。"],'btn_tailwind':["Tailwind", "顺风"],'btn_material':["Material", "材料"],'btn_bootstrap':["Bootstrap", "Bootstrap"],'btn_linear_4':["Linear ×4", "线性×4"],'btn_linear_8':["Linear ×8", "线性×8"],'btn_golden_ratio':["Golden Ratio", "黄金比例"],'btn_fibonacci':["Fibonacci", "斐波那契"],'btn_css_variables':["CSS Variables", "CSS变量"],'btn_tailwind_config':["Tailwind Config", "Tailwind 配置"],'btn_scss_variables':["SCSS Variables", "SCSS变量"],'strong_related_tools':["Related Tools", "相关工具"],'th_name':["Name", "姓名"],'th_px':["px", "像素"],'th_rem':["rem", "rem"],'th_preview':["Preview", "预览"],'label_base_px':["Base (px)", "基准（像素）"],'label_steps':["Steps", "步骤"],'label_scale':["Scale", "规模"],'label_ratio':["Ratio", "比率"],'label_root_font_size':["Root font-size", "根字体大小"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let scale=[];
 let format='css';
@@ -197,7 +209,7 @@ function renderOutput(){
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Copied!';
+  el.className='copied';el.textContent=T("jtc_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -205,12 +217,30 @@ function copyCSS(){
 loadPreset('tailwind');
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
 <a href="https://gokuscraper.github.io/dev-vault/tailwind-converter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Tailwind Converter</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

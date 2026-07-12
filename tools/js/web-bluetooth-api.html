@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_bluetooth_api_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -123,6 +123,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>&#x1f4e1; Web Bluetooth <span>API</span> Playground</h1>
@@ -131,7 +133,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
 <div class="support-bar" id="supportBar"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="grid">
 
     <!-- Device Request -->
@@ -143,7 +145,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         <div class="info-box info">Use <code>navigator.bluetooth.requestDevice()</code> to prompt the user to select a BLE device. Requires a user gesture.</div>
 
         <div class="field">
-          <label>Filter Mode</label>
+          <label ti="label_filter_mode">Filter Mode</label>
           <select id="filterMode" onchange="updateFilterUI()">
             <option value="acceptAllDevices">Accept All Devices</option>
             <option value="filters">Use Filters</option>
@@ -151,7 +153,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         </div>
 
         <div id="filtersSection" style="display:none">
-          <label>Service Filters</label>
+          <label ti="label_service_filters">Service Filters</label>
           <div id="filterList">
             <div class="filter-row">
               <select onchange="this.nextElementSibling.style.display=this.value==='custom'?'block':'none'">
@@ -162,26 +164,26 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
                 <option value="health_thermometer">Health Thermometer (0x1809)</option>
                 <option value="custom">Custom UUID...</option>
               </select>
-              <input type="text" style="display:none" placeholder="Custom UUID">
+              <input type="text" style="display:none" tp="placeholder_custom_uuid" tp="placeholder_custom_uuid_2" placeholder="Custom UUID">
               <button class="danger" onclick="this.parentElement.remove()">&#x2715;</button>
             </div>
           </div>
-          <button onclick="addFilter()" style="margin-top:4px">+ Add Filter</button>
+          <button onclick="addFilter()" style="margin-top:4px" ti="btn_add_filter">+ Add Filter</button>
 
           <div class="field" style="margin-top:8px">
-            <label>Name Prefix (optional)</label>
-            <input type="text" id="namePrefix" placeholder="e.g. Polar, Mi, Fitbit">
+            <label ti="label_name_prefix_optional">Name Prefix (optional)</label>
+            <input type="text" id="namePrefix" tp="placeholder_e_g_polar_mi_fitbit" placeholder="e.g. Polar, Mi, Fitbit">
           </div>
         </div>
 
         <div class="field" style="margin-top:8px">
-          <label>Optional Services (for GATT access)</label>
-          <input type="text" id="optionalServices" value="battery_service,device_information" placeholder="comma-separated service names or UUIDs">
+          <label ti="label_optional_services_for_gat">Optional Services (for GATT access)</label>
+          <input type="text" id="optionalServices" value="battery_service,device_information" tp="placeholder_comma_separated_service_n" placeholder="comma-separated service names or UUIDs">
         </div>
 
         <div class="btn-row" style="margin-top:12px">
           <button class="primary" onclick="requestDevice()" id="btnScan">&#x1f4e1; Scan for Devices</button>
-          <button class="danger" onclick="disconnect()" id="btnDisconnect" disabled>Disconnect</button>
+          <button class="danger" onclick="disconnect()" id="btnDisconnect" disabled ti="btn_disconnect">Disconnect</button>
         </div>
       </div>
     </div>
@@ -212,7 +214,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f333;</span> GATT Service / Characteristic Explorer</h2>
-        <button onclick="discoverServices()" id="btnDiscover" disabled>Discover Services</button>
+        <button onclick="discoverServices()" id="btnDiscover" disabled ti="btn_discover_services">Discover Services</button>
       </div>
       <div class="card-body">
         <div class="info-box info">After connecting, discover GATT services and their characteristics. You can read, write, and subscribe to notifications.</div>
@@ -221,9 +223,9 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         </div>
 
         <div class="write-panel" id="writePanel">
-          <label id="writePanelLabel">Write to Characteristic</label>
+          <label id="writePanelLabel" ti="label_write_to_characteristic">Write to Characteristic</label>
           <div class="field">
-            <label>Data Format</label>
+            <label ti="label_data_format">Data Format</label>
             <select id="writeFormat">
               <option value="utf8">UTF-8 Text</option>
               <option value="hex">Hex (e.g. 01FF00)</option>
@@ -232,13 +234,13 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
             </select>
           </div>
           <div class="field">
-            <label>Value</label>
-            <input type="text" id="writeValue" placeholder="Enter value">
+            <label ti="label_value">Value</label>
+            <input type="text" id="writeValue" tp="placeholder_enter_value" placeholder="Enter value">
           </div>
           <div class="btn-row">
-            <button class="warn" onclick="doWrite()">Write</button>
-            <button class="warn" onclick="doWriteWithoutResponse()">Write Without Response</button>
-            <button onclick="closeWritePanel()">Cancel</button>
+            <button class="warn" onclick="doWrite()" ti="btn_write" ti="btn_write_2">Write</button>
+            <button class="warn" onclick="doWriteWithoutResponse()" ti="btn_write_without_response">Write Without Response</button>
+            <button onclick="closeWritePanel()" ti="btn_cancel">Cancel</button>
           </div>
         </div>
       </div>
@@ -252,7 +254,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
       <div class="card-body">
         <div class="info-box info">Standard Bluetooth GATT service UUIDs. Click to copy.</div>
         <div class="field">
-          <input type="text" id="uuidSearch" placeholder="Search services..." oninput="filterUUIDs()">
+          <input type="text" id="uuidSearch" tp="placeholder_search_services" placeholder="Search services..." oninput="filterUUIDs()">
         </div>
         <div class="uuid-grid" id="uuidGrid"></div>
       </div>
@@ -305,7 +307,7 @@ button.onclick = () => {
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f4dc;</span> Event Log</h2>
-        <button onclick="clearLog()">Clear</button>
+        <button onclick="clearLog()" ti="btn_clear">Clear</button>
       </div>
       <div class="card-body">
         <div class="log" id="eventLog">
@@ -318,9 +320,19 @@ button.onclick = () => {
 </div>
 
 <footer>
-  Web Bluetooth API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> project
+  Web Bluetooth API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a> project
 </footer>
 
+
+<script>var _LANG={'title_web_bluetooth_api_playgro':["Web Bluetooth API Playground", "Web Bluetooth API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the Web Bluetooth API — scan for devices, explore GATT services and characteristics, read/write/notify, and learn Bluetooth Low Energy concepts.", "Web Bluetooth API 的交互式游乐场——扫描设备、探索 GATT 服务和特性、读取/写入/通知，以及学习蓝牙低功耗概念。"],'btn_add_filter':["+ Add Filter", "+ 添加筛选器"],'btn_scan_for_devices':["📡 Scan for Devices", "📡 扫描设备"],'btn_disconnect':["Disconnect", "断开"],'btn_discover_services':["Discover Services", "探索服务"],'btn_write':["Write", "写"],'btn_write_without_response':["Write Without Response", "无需回复"],'btn_cancel':["Cancel", "取消"],'btn_clear':["Clear", "清除"],'btn_read':["Read", "读"],'btn_write_2':["Write", "写"],'btn_start_notify':["Start Notify", "启动通知"],'placeholder_custom_uuid':["Custom UUID", "自定义 UUID"],'placeholder_e_g_polar_mi_fitbit':["e.g. Polar, Mi, Fitbit", "例如 Polar、小米、Fitbit"],'placeholder_comma_separated_service_n':["comma-separated service names or UUIDs", "以逗号分隔的服务名称或 UUID"],'placeholder_enter_value':["Enter value", "输入数值"],'placeholder_search_services':["Search services...", "搜索服务……"],'placeholder_custom_uuid_2':["Custom UUID", "自定义 UUID"],'label_filter_mode':["Filter Mode", "过滤模式"],'label_service_filters':["Service Filters", "服务过滤器"],'label_name_prefix_optional':["Name Prefix (optional)", "名称前缀（可选）"],'label_optional_services_for_gat':["Optional Services (for GATT access)", "可选服务（用于 GATT 接入）"],'label_write_to_characteristic':["Write to Characteristic", "写给特征"],'label_data_format':["Data Format", "数据格式"],'label_value':["Value", "价值"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtc_u_1f7e2':["\\u{1f7e2}", "\\u{1f7e2}"],'jtc_u_1f534':["\\u{1f534}", "\\u{1f534}"],'jtc_no_device_connected':["No device connected", "未连接任何设备"],'jtc_scan_for_a_device_to_conn':["Scan for a device to connect", "扫描要连接的设备"],'jtc_start_notify':["Start Notify", "启动通知"],'jtc_stop_notify':["Stop Notify", "停止通知"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ── Feature Detection ── */
 const hasBluetooth = !!navigator.bluetooth;
@@ -582,7 +594,7 @@ function updateConnectionUI(connected) {
 
   if (connected && device) {
     status.className = 'conn-status connected';
-    icon.textContent = '\u{1f7e2}';
+    icon.textContent=T("jtc_u_1f7e2");
     name.textContent = device.name || 'Unknown Device';
     details.textContent = `ID: ${device.id.slice(0, 20)}...`;
 
@@ -601,9 +613,9 @@ function updateConnectionUI(connected) {
     });
   } else {
     status.className = 'conn-status disconnected';
-    icon.textContent = '\u{1f534}';
-    name.textContent = 'No device connected';
-    details.textContent = 'Scan for a device to connect';
+    icon.textContent=T("jtc_u_1f534");
+    name.textContent=T("jtc_no_device_connected");
+    details.textContent=T("jtc_scan_for_a_device_to_conn");
     infoTable.style.display = 'none';
     document.getElementById('serviceTree').innerHTML = '<p style="color:var(--text2);font-size:.85rem">Connect to a device and click "Discover Services" to explore.</p>';
   }
@@ -683,11 +695,11 @@ async function loadCharacteristics(service, container) {
       if (props.indicate) propsHtml += '<span class="char-prop indicate">indicate</span>';
 
       let actionsHtml = '';
-      if (props.read) actionsHtml += `<button onclick="readChar('${char.uuid}', '${service.uuid}')">Read</button>`;
+      if (props.read) actionsHtml += `<button onclick="readChar('${char.uuid}', '${service.uuid}')" ti="btn_read">Read</button>`;
       if (props.write || props.writeWithoutResponse) actionsHtml += `<button class="warn" onclick="openWritePanel('${char.uuid}', '${service.uuid}', '${charName}')">Write</button>`;
       if (props.notify) {
         const notifyId = `notify-${char.uuid}`;
-        actionsHtml += `<button class="success" id="${notifyId}" onclick="toggleNotify('${char.uuid}', '${service.uuid}', this)">Start Notify</button>`;
+        actionsHtml += `<button class="success" id="${notifyId}" onclick="toggleNotify('${char.uuid}', '${service.uuid}', this)" ti="btn_start_notify">Start Notify</button>`;
       }
 
       item.innerHTML = `
@@ -789,7 +801,7 @@ async function toggleNotify(charUuid, serviceUuid, btn) {
       await char.stopNotifications();
       char.removeEventListener('characteristicvaluechanged', onNotify);
       activeNotifications.delete(key);
-      btn.textContent = 'Start Notify';
+      btn.textContent=T("jtc_start_notify");
       btn.classList.remove('danger');
       btn.classList.add('success');
       addLog(`Stopped notifications for ${charUuid}`, 'warn');
@@ -803,7 +815,7 @@ async function toggleNotify(charUuid, serviceUuid, btn) {
       char.addEventListener('characteristicvaluechanged', onNotify);
       await char.startNotifications();
       activeNotifications.set(key, char);
-      btn.textContent = 'Stop Notify';
+      btn.textContent=T("jtc_stop_notify");
       btn.classList.remove('success');
       btn.classList.add('danger');
       addLog(`Started notifications for ${charUuid}`, 'ok');
@@ -861,6 +873,24 @@ if (hasBluetooth && navigator.bluetooth.getAvailability) {
     addLog(`Bluetooth available: ${available}`, available ? 'ok' : 'warn');
   }).catch(() => {});
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

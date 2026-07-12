@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_docker_compose_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,28 +48,40 @@ textarea{min-height:60px;resize:vertical}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Docker Compose Generator</h1>
-<p class="sub">Build docker-compose.yml visually — services, volumes, networks</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_docker_compose_generator">Docker Compose Generator</h1>
+<p class="sub" ti="subtitle_build_docker_compose_yml">Build docker-compose.yml visually — services, volumes, networks</p>
 
 <div class="presets" id="presetBtns"></div>
 
 <div class="section">
-<h3>Services</h3>
+<h3 ti="h3_services">Services</h3>
 <div id="svcList"></div>
-<button class="add-btn" onclick="addSvc()">+ Add Service</button>
+<button class="add-btn" onclick="addSvc()" ti="btn_add_service">+ Add Service</button>
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/env-gen/">Env Gen</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dockerfile-gen/" ti="link_dockerfile_gen">Dockerfile Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config_gen">Nginx Config Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/env-gen/" ti="link_env_gen">Env Gen</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_docker_compose_generator':["Docker Compose Generator — Build docker-compose.yml Visually", "Docker Compose 生成器 — 以可视化方式构建 docker-compose.yml 文件"],'metadesc_generate_docker_compose_y':["Generate docker-compose.yml visually. Add services, volumes, networks, environment variables. 8 stack presets. No signup.", "以可视化方式生成 docker-compose.yml 文件。添加服务、卷、网络和环境变量。8 个堆栈预设。无需注册。"],'h1_docker_compose_generator':["Docker Compose Generator", "Docker Compose 生成器"],'h3_services':["Services", "服务"],'subtitle_build_docker_compose_yml':["Build docker-compose.yml visually — services, volumes, networks", "以可视化方式构建 docker-compose.yml 文件——服务、卷、网络"],'btn_add_service':["+ Add Service", "+ 添加服务"],'btn_copy':["Copy", "复制"],'placeholder_node_20_alpine':["node:20-alpine", "节点：20-高山"],'placeholder_app_leave_empty_to_use_i':["./app (leave empty to use image)", "./app（留空则使用图片）"],'placeholder_npm_start':["npm start", "npm start"],'label_service_name':["Service Name", "服务名称"],'label_image':["Image", "图像"],'label_build_context':["Build Context", "构建上下文"],'label_restart_policy':["Restart Policy", "重启策略"],'label_ports_one_per_line_host_c':["Ports (one per line, host:container)", "端口（每行一个，格式为主机:容器）"],'label_volumes_one_per_line':["Volumes (one per line)", "卷号（每行一个）"],'label_environment_key_value_per':["Environment (KEY=VALUE per line)", "环境（每行 KEY=VALUE）"],'label_depends_on_comma_sep':["Depends On (comma-sep)", "取决于（逗号分隔）"],'label_command':["Command", "命令"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dockerfile_gen':["Dockerfile Gen", "Dockerfile 生成"],'link_nginx_config_gen':["Nginx Config Gen", "Nginx 配置生成器"],'link_env_gen':["Env Gen", "环境遗传"],'jtc_add_a_service_to_generat':["# Add a service to generate docker-compose.yml", "# 添加一个服务来生成 docker-compose.yml 文件"],'jtlword_image':["Image", "图像"],'jtlword_no':["no", "不"],'jtlword_always':["always", "总是"],'jtlword_command':["Command", "命令"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
 'Node + Postgres':[
@@ -138,12 +150,12 @@ function renderSvcs(){
     const d=document.createElement('div');d.className='svc-item';
     d.innerHTML=`<span class="remove" onclick="removeSvc(${i})">✕</span>
     <div class="row">
-      <div class="col"><label>Service Name</label><input value="${esc(s.name)}" onchange="svcs[${i}].name=this.value;gen()"></div>
-      <div class="col"><label>Image</label><input value="${esc(s.image)}" onchange="svcs[${i}].image=this.value;gen()" placeholder="node:20-alpine"></div>
+      <div class="col"><label ti="label_service_name">Service Name</label><input value="${esc(s.name)}" onchange="svcs[${i}].name=this.value;gen()"></div>
+      <div class="col"><label ti="label_image">Image</label><input value="${esc(s.image)}" onchange="svcs[${i}].image=this.value;gen()" tp="placeholder_node_20_alpine" placeholder="node:20-alpine"></div>
     </div>
     <div class="row">
-      <div class="col"><label>Build Context</label><input value="${esc(s.build)}" onchange="svcs[${i}].build=this.value;gen()" placeholder="./app (leave empty to use image)"></div>
-      <div class="col"><label>Restart Policy</label><select onchange="svcs[${i}].restart=this.value;gen()">
+      <div class="col"><label ti="label_build_context">Build Context</label><input value="${esc(s.build)}" onchange="svcs[${i}].build=this.value;gen()" tp="placeholder_app_leave_empty_to_use_i" placeholder="./app (leave empty to use image)"></div>
+      <div class="col"><label ti="label_restart_policy">Restart Policy</label><select onchange="svcs[${i}].restart=this.value;gen()">
         <option${s.restart==='no'?' selected':''}>no</option>
         <option${s.restart==='always'?' selected':''}>always</option>
         <option${s.restart==='unless-stopped'?' selected':''}>unless-stopped</option>
@@ -151,22 +163,22 @@ function renderSvcs(){
       </select></div>
     </div>
     <div class="row">
-      <div class="col"><label>Ports (one per line, host:container)</label><textarea rows="2" onchange="svcs[${i}].ports=this.value;gen()">${esc(s.ports)}</textarea></div>
-      <div class="col"><label>Volumes (one per line)</label><textarea rows="2" onchange="svcs[${i}].volumes=this.value;gen()">${esc(s.volumes)}</textarea></div>
+      <div class="col"><label ti="label_ports_one_per_line_host_c">Ports (one per line, host:container)</label><textarea rows="2" onchange="svcs[${i}].ports=this.value;gen()">${esc(s.ports)}</textarea></div>
+      <div class="col"><label ti="label_volumes_one_per_line">Volumes (one per line)</label><textarea rows="2" onchange="svcs[${i}].volumes=this.value;gen()">${esc(s.volumes)}</textarea></div>
     </div>
     <div class="row">
-      <div class="col"><label>Environment (KEY=VALUE per line)</label><textarea rows="2" onchange="svcs[${i}].env=this.value;gen()">${esc(s.env)}</textarea></div>
+      <div class="col"><label ti="label_environment_key_value_per">Environment (KEY=VALUE per line)</label><textarea rows="2" onchange="svcs[${i}].env=this.value;gen()">${esc(s.env)}</textarea></div>
     </div>
     <div class="row">
-      <div class="col"><label>Depends On (comma-sep)</label><input value="${esc(s.depends)}" onchange="svcs[${i}].depends=this.value;gen()"></div>
-      <div class="col"><label>Command</label><input value="${esc(s.command)}" onchange="svcs[${i}].command=this.value;gen()" placeholder="npm start"></div>
+      <div class="col"><label ti="label_depends_on_comma_sep">Depends On (comma-sep)</label><input value="${esc(s.depends)}" onchange="svcs[${i}].depends=this.value;gen()"></div>
+      <div class="col"><label ti="label_command">Command</label><input value="${esc(s.command)}" onchange="svcs[${i}].command=this.value;gen()" tp="placeholder_npm_start" placeholder="npm start"></div>
     </div>`;
     c.appendChild(d);
   });
 }
 
 function gen(){
-  if(svcs.length===0){document.getElementById('out').textContent='# Add a service to generate docker-compose.yml';return}
+  if(svcs.length===0){document.getElementById('out').textContent=T("jtc_add_a_service_to_generat");return}
 
   let y='services:\n';
   const namedVolumes=new Set();
@@ -231,6 +243,24 @@ function copyOut(){
 
 initPresets();
 loadPreset('Node + Postgres');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

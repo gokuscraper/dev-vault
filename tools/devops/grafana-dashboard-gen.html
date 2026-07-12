@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_grafana_dashboard_generat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,21 +45,23 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Grafana Dashboard Generator</h1>
-<p class="sub">Create import-ready Grafana dashboard JSON — no Grafana needed</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_grafana_dashboard_generat">Grafana Dashboard Generator</h1>
+<p class="sub" ti="subtitle_create_import_ready_grafa">Create import-ready Grafana dashboard JSON — no Grafana needed</p>
 
 <div class="section">
-<h3>Dashboard</h3>
+<h3 ti="h3_dashboard">Dashboard</h3>
 <div class="field-row">
-<div class="field"><label>Title</label><input id="dTitle" value="My Dashboard" oninput="gen()"></div>
-<div class="field"><label>Refresh Interval</label><select id="dRefresh" onchange="gen()"><option value="5s">5s</option><option value="10s">10s</option><option value="30s" selected>30s</option><option value="1m">1m</option><option value="5m">5m</option></select></div>
+<div class="field"><label ti="label_title" ti="label_title_2">Title</label><input id="dTitle" value="My Dashboard" oninput="gen()"></div>
+<div class="field"><label ti="label_refresh_interval">Refresh Interval</label><select id="dRefresh" onchange="gen()"><option value="5s">5s</option><option value="10s">10s</option><option value="30s" selected>30s</option><option value="1m">1m</option><option value="5m">5m</option></select></div>
 </div>
-<div class="field"><label>Tags (comma-separated)</label><input id="dTags" value="monitoring" oninput="gen()"></div>
+<div class="field"><label ti="label_tags_comma_separated">Tags (comma-separated)</label><input id="dTags" value="monitoring" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets">
 <div class="preset" onclick="loadPreset('node-exporter')">Node Exporter</div>
 <div class="preset" onclick="loadPreset('docker')">Docker</div>
@@ -72,26 +74,36 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Panels</h3>
+<h3 ti="h3_panels">Panels</h3>
 <div id="panelsList"></div>
-<button class="btn btn-sm" onclick="addPanel()">+ Add Panel</button>
+<button class="btn btn-sm" onclick="addPanel()" ti="btn_add_panel">+ Add Panel</button>
 </div>
 </div>
 
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyJSON()">Copy JSON</button>
-<button class="btn" onclick="downloadJSON()">Download .json</button>
+<button class="btn btn-primary" onclick="copyJSON()" ti="btn_copy_json">Copy JSON</button>
+<button class="btn" onclick="downloadJSON()" ti="btn_download_json">Download .json</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/k8s-yaml-gen/">K8s YAML</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/json-formatter/">JSON Formatter</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/k8s-yaml-gen/" ti="link_k8s_yaml">K8s YAML</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/" ti="link_docker_compose">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/json-formatter/" ti="link_json_formatter">JSON Formatter</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_grafana_dashboard_generat':["Grafana Dashboard Generator — Create Dashboard JSON Visually", "Grafana仪表盘生成器——以可视化方式创建仪表盘JSON"],'metadesc_generate_grafana_dashboar':["Generate Grafana dashboard JSON visually. Add panels, set queries, configure thresholds. Import-ready JSON. No signup required.", "以可视化方式生成 Grafana 仪表盘 JSON 文件。添加面板、设置查询、配置阈值。生成可直接导入的 JSON 文件。无需注册。"],'h1_grafana_dashboard_generat':["Grafana Dashboard Generator", "Grafana仪表盘生成器"],'h3_dashboard':["Dashboard", "仪表板"],'h3_presets':["Presets", "预设"],'h3_panels':["Panels", "面板"],'subtitle_create_import_ready_grafa':["Create import-ready Grafana dashboard JSON — no Grafana needed", "创建可直接导入的 Grafana 仪表盘 JSON 文件——无需 Grafana 客户端"],'btn_add_panel':["+ Add Panel", "+ 添加面板"],'btn_copy_json':["Copy JSON", "复制 JSON"],'btn_download_json':["Download .json", "下载 .json 文件"],'label_title':["Title", "标题"],'label_refresh_interval':["Refresh Interval", "刷新间隔"],'label_tags_comma_separated':["Tags (comma-separated)", "标签（逗号分隔）"],'label_title_2':["Title", "标题"],'label_type':["Type", "类型"],'label_unit':["Unit", "单元"],'label_promql_query':["PromQL Query", "PromQL 查询"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_k8s_yaml':["K8s YAML", "K8s YAML"],'link_docker_compose':["Docker Compose", "Docker Compose"],'link_json_formatter':["JSON Formatter", "JSON格式化程序"],'jtlword_title':["Title", "标题"],'jtlword_type':["Type", "类型"],'jtlword_stat':["Stat", "统计"],'jtlword_gauge':["Gauge", "测量"],'jtlword_table':["Table", "桌子"],'jtlword_heatmap':["Heatmap", "热图"],'jtlword_unit':["Unit", "单元"],'jtlword_short':["Short", "短的"],'jtlword_percent':["Percent", "百分比"],'jtlword_bytes':["Bytes", "字节"],'jtlword_seconds':["Seconds", "秒"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let panels=[];
 let nextId=1;
@@ -125,7 +137,7 @@ function renderPanels(){
       <button class="remove" onclick="removePanel(${p.id})">×</button>
       <div class="field"><label>Title</label><input value="${esc(p.title)}" onchange="panels[${i}].title=this.value;gen()"></div>
       <div class="field-row">
-        <div class="field"><label>Type</label><select onchange="panels[${i}].type=this.value;gen()">
+        <div class="field"><label ti="label_type">Type</label><select onchange="panels[${i}].type=this.value;gen()">
           <option value="timeseries"${p.type==='timeseries'?' selected':''}>Time Series</option>
           <option value="stat"${p.type==='stat'?' selected':''}>Stat</option>
           <option value="gauge"${p.type==='gauge'?' selected':''}>Gauge</option>
@@ -133,7 +145,7 @@ function renderPanels(){
           <option value="table"${p.type==='table'?' selected':''}>Table</option>
           <option value="heatmap"${p.type==='heatmap'?' selected':''}>Heatmap</option>
         </select></div>
-        <div class="field"><label>Unit</label><select onchange="panels[${i}].unit=this.value;gen()">
+        <div class="field"><label ti="label_unit">Unit</label><select onchange="panels[${i}].unit=this.value;gen()">
           <option value="short"${p.unit==='short'?' selected':''}>Short</option>
           <option value="percent"${p.unit==='percent'?' selected':''}>Percent</option>
           <option value="bytes"${p.unit==='bytes'?' selected':''}>Bytes</option>
@@ -142,7 +154,7 @@ function renderPanels(){
           <option value="decbytes"${p.unit==='decbytes'?' selected':''}>Dec Bytes</option>
         </select></div>
       </div>
-      <div class="field"><label>PromQL Query</label><input value="${esc(p.query)}" onchange="panels[${i}].query=this.value;gen()"></div>
+      <div class="field"><label ti="label_promql_query">PromQL Query</label><input value="${esc(p.query)}" onchange="panels[${i}].query=this.value;gen()"></div>
     `;
     list.appendChild(card);
   });
@@ -252,6 +264,24 @@ function showToast(msg){
 
 // Init with example
 addPanel('Example','timeseries','up','short');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_text_to_speech_browser_sp" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,58 +47,84 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<h1>Text to Speech</h1>
-<p class="subtitle">Browser Speech Synthesis</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="h1_text_to_speech" ti="h1_text_to_speech" ti="h1_text_to_speech">Text to Speech</h1>
+<p class="subtitle" ti="subtitle_browser_speech_synthesis" ti="subtitle_browser_speech_synthesis" ti="subtitle_browser_speech_synthesis">Browser Speech Synthesis</p>
 
 <div class="card">
-<h2>Text</h2>
-<textarea id="txt" placeholder="Enter text to speak...">The quick brown fox jumps over the lazy dog.</textarea>
+<h2 ti="h2_text" ti="h2_text" ti="h2_text">Text</h2>
+<textarea id="txt" tp="placeholder_enter_text_to_speak" tp="placeholder_enter_text_to_speak" tp="placeholder_enter_text_to_speak" placeholder="Enter text to speak...">The quick brown fox jumps over the lazy dog.</textarea>
 <div class="highlight-box" id="hlBox"></div>
 <div class="meta"><span id="charCount">0 chars</span><span id="estDur">~0s</span></div>
 <div class="samples" style="margin-top:.5rem">
-<label style="width:100%">Sample texts:</label>
-<button onclick="setSample('pangram')">Pangram</button>
-<button onclick="setSample('lorem')">Lorem ipsum</button>
-<button onclick="setSample('numbers')">Numbers 1-10</button>
-<button onclick="setSample('alphabet')">Alphabet</button>
+<label style="width:100%" ti="label_sample_texts" ti="label_sample_texts" ti="label_sample_texts">Sample texts:</label>
+<button onclick="setSample('pangram')" ti="btn_pangram" ti="btn_pangram" ti="btn_pangram">Pangram</button>
+<button onclick="setSample('lorem')" ti="btn_lorem_ipsum" ti="btn_lorem_ipsum" ti="btn_lorem_ipsum">Lorem ipsum</button>
+<button onclick="setSample('numbers')" ti="btn_numbers_1_10" ti="btn_numbers_1_10" ti="btn_numbers_1_10">Numbers 1-10</button>
+<button onclick="setSample('alphabet')" ti="btn_alphabet" ti="btn_alphabet" ti="btn_alphabet">Alphabet</button>
 </div>
 </div>
 
 <div class="card">
-<h2>Voice</h2>
+<h2 ti="h2_voice" ti="h2_voice" ti="h2_voice">Voice</h2>
 <select id="voiceSelect"><option>Loading voices...</option></select>
 </div>
 
 <div class="card">
-<h2>Settings</h2>
+<h2 ti="h2_settings" ti="h2_settings" ti="h2_settings">Settings</h2>
 <div class="presets">
-<button onclick="applyPreset(1,1)">Normal</button>
-<button onclick="applyPreset(1.5,1)">Fast</button>
-<button onclick="applyPreset(0.7,1)">Slow</button>
-<button onclick="applyPreset(1,1.5)">High Pitch</button>
-<button onclick="applyPreset(0.8,0.1)">Robot</button>
-<button onclick="applyPreset(1.5,2)">Chipmunk</button>
+<button onclick="applyPreset(1,1)" ti="btn_normal" ti="btn_normal" ti="btn_normal">Normal</button>
+<button onclick="applyPreset(1.5,1)" ti="btn_fast" ti="btn_fast" ti="btn_fast">Fast</button>
+<button onclick="applyPreset(0.7,1)" ti="btn_slow" ti="btn_slow" ti="btn_slow">Slow</button>
+<button onclick="applyPreset(1,1.5)" ti="btn_high_pitch" ti="btn_high_pitch" ti="btn_high_pitch">High Pitch</button>
+<button onclick="applyPreset(0.8,0.1)" ti="btn_robot" ti="btn_robot" ti="btn_robot">Robot</button>
+<button onclick="applyPreset(1.5,2)" ti="btn_chipmunk" ti="btn_chipmunk" ti="btn_chipmunk">Chipmunk</button>
 </div>
-<div class="slider-row"><label>Rate</label><input type="range" id="rate" min="0.1" max="3" step="0.1" value="1"><span class="val" id="rateVal">1.0</span></div>
-<div class="slider-row"><label>Pitch</label><input type="range" id="pitch" min="0" max="2" step="0.1" value="1"><span class="val" id="pitchVal">1.0</span></div>
-<div class="slider-row"><label>Volume</label><input type="range" id="volume" min="0" max="1" step="0.05" value="1"><span class="val" id="volumeVal">1.0</span></div>
+<div class="slider-row"><label ti="label_rate" ti="label_rate" ti="label_rate">Rate</label><input type="range" id="rate" min="0.1" max="3" step="0.1" value="1"><span class="val" id="rateVal">1.0</span></div>
+<div class="slider-row"><label ti="label_pitch" ti="label_pitch" ti="label_pitch">Pitch</label><input type="range" id="pitch" min="0" max="2" step="0.1" value="1"><span class="val" id="pitchVal">1.0</span></div>
+<div class="slider-row"><label ti="label_volume" ti="label_volume" ti="label_volume">Volume</label><input type="range" id="volume" min="0" max="1" step="0.05" value="1"><span class="val" id="volumeVal">1.0</span></div>
 </div>
 
 <div class="card">
-<h2>Controls</h2>
+<h2 ti="h2_controls" ti="h2_controls" ti="h2_controls">Controls</h2>
 <div class="controls">
-<button class="btn-play" id="btnPlay" onclick="doPlay()">Play</button>
-<button class="btn-pause" id="btnPause" onclick="doPause()" disabled>Pause</button>
-<button class="btn-resume" id="btnResume" onclick="doResume()" disabled>Resume</button>
-<button class="btn-stop" id="btnStop" onclick="doStop()" disabled>Stop</button>
+<button class="btn-play" id="btnPlay" onclick="doPlay()" ti="btn_play" ti="btn_play" ti="btn_play">Play</button>
+<button class="btn-pause" id="btnPause" onclick="doPause()" disabled ti="btn_pause" ti="btn_pause" ti="btn_pause">Pause</button>
+<button class="btn-resume" id="btnResume" onclick="doResume()" disabled ti="btn_resume" ti="btn_resume" ti="btn_resume">Resume</button>
+<button class="btn-stop" id="btnStop" onclick="doStop()" disabled ti="btn_stop" ti="btn_stop" ti="btn_stop">Stop</button>
 </div>
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> &mdash; free browser tools
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/">word-count</a> | <a href="https://gokuscraper.github.io/dev-vault/text-transform/">text-transform</a></div>
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit" ti="link_dev_toolkit" ti="link_dev_toolkit">dev-toolkit</a> &mdash; free browser tools
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count" ti="link_word_count" ti="link_word_count">word-count</a> | <a href="https://gokuscraper.github.io/dev-vault/text-transform/" ti="link_text_transform" ti="link_text_transform" ti="link_text_transform">text-transform</a></div>
 </footer>
 
+
+
+<script>var _LANG={'title_text_to_speech_browser_sp':["Text to Speech — Browser Speech Synthesis", "文本转语音——浏览器语音合成"],'metadesc_free_browser_based_text_t':["Free browser-based text-to-speech tool using Web Speech API. Select voices, adjust rate/pitch/volume, and hear your text spoken aloud with word highlighting.", "一款基于浏览器的免费文本转语音工具，使用 Web Speech API。您可以选择语音，调整语速/音调/音量，并聆听文本朗读，同时还能高亮显示单词。"],'h1_text_to_speech':["Text to Speech", "文本转语音"],'h2_text':["Text", "文本"],'h2_voice':["Voice", "嗓音"],'h2_settings':["Settings", "设置"],'h2_controls':["Controls", "控制"],'subtitle_browser_speech_synthesis':["Browser Speech Synthesis", "浏览器语音合成"],'btn_pangram':["Pangram", "全字母"],'btn_lorem_ipsum':["Lorem ipsum", "Lorem ipsum"],'btn_numbers_1_10':["Numbers 1-10", "数字 1-10"],'btn_alphabet':["Alphabet", "字母"],'btn_normal':["Normal", "普通的"],'btn_fast':["Fast", "快速地"],'btn_slow':["Slow", "慢的"],'btn_high_pitch':["High Pitch", "高音"],'btn_robot':["Robot", "机器人"],'btn_chipmunk':["Chipmunk", "花栗鼠"],'btn_play':["Play", "玩"],'btn_pause':["Pause", "暂停"],'btn_resume':["Resume", "恢复"],'btn_stop':["Stop", "停止"],'placeholder_enter_text_to_speak':["Enter text to speak...", "输入文字即可朗读……"],'label_sample_texts':["Sample texts:", "示例文本："],'label_rate':["Rate", "速度"],'label_pitch':["Pitch", "沥青"],'label_volume':["Volume", "体积"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_word_count':["word-count", "字数统计"],'link_text_transform':["text-transform", "文本转换"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_text_to_speech_browser_sp':["Text to Speech — Browser Speech Synthesis", "文本转语音——浏览器语音合成"],'metadesc_free_browser_based_text_t':["Free browser-based text-to-speech tool using Web Speech API. Select voices, adjust rate/pitch/volume, and hear your text spoken aloud with word highlighting.", "一款基于浏览器的免费文本转语音工具，使用 Web Speech API。您可以选择语音，调整语速/音调/音量，并聆听文本朗读，同时还能高亮显示单词。"],'h1_text_to_speech':["Text to Speech", "文本转语音"],'h2_text':["Text", "文本"],'h2_voice':["Voice", "嗓音"],'h2_settings':["Settings", "设置"],'h2_controls':["Controls", "控制"],'subtitle_browser_speech_synthesis':["Browser Speech Synthesis", "浏览器语音合成"],'btn_pangram':["Pangram", "全字母"],'btn_lorem_ipsum':["Lorem ipsum", "Lorem ipsum"],'btn_numbers_1_10':["Numbers 1-10", "数字 1-10"],'btn_alphabet':["Alphabet", "字母"],'btn_normal':["Normal", "普通的"],'btn_fast':["Fast", "快速地"],'btn_slow':["Slow", "慢的"],'btn_high_pitch':["High Pitch", "高音"],'btn_robot':["Robot", "机器人"],'btn_chipmunk':["Chipmunk", "花栗鼠"],'btn_play':["Play", "玩"],'btn_pause':["Pause", "暂停"],'btn_resume':["Resume", "恢复"],'btn_stop':["Stop", "停止"],'placeholder_enter_text_to_speak':["Enter text to speak...", "输入文字即可朗读……"],'label_sample_texts':["Sample texts:", "示例文本："],'label_rate':["Rate", "速度"],'label_pitch':["Pitch", "沥青"],'label_volume':["Volume", "体积"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_word_count':["word-count", "字数统计"],'link_text_transform':["text-transform", "文本转换"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const synth=window.speechSynthesis;
 const txt=document.getElementById('txt');
@@ -256,6 +282,60 @@ utter.onerror=()=>{clearInterval(keepAlive);setButtons('idle');speaking=false};
 function doPause(){synth.pause();setButtons('paused')}
 function doResume(){synth.resume();setButtons('playing')}
 function doStop(){synth.cancel();setButtons('idle');speaking=false;hlBox.querySelectorAll('span').forEach(s=>s.classList.remove('active'))}
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

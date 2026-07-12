@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_transform_generator" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -475,13 +475,15 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <a href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-  <h1>CSS Transform Generator</h1>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">← Dev Vault</a>
+  <h1 ti="title_css_transform_generator" ti="h1_css_transform_generator">CSS Transform Generator</h1>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Left: Controls -->
   <div class="controls">
 
@@ -572,7 +574,7 @@
     <!-- Transition toggle -->
     <div class="section">
       <div class="toggle-row">
-        <span class="toggle-label">Smooth transition (0.3s ease)</span>
+        <span class="toggle-label" ti="label_smooth_transition_0_3s_ea">Smooth transition (0.3s ease)</span>
         <label class="toggle">
           <input type="checkbox" id="transition-toggle" checked>
           <span class="toggle-slider"></span>
@@ -603,8 +605,8 @@
       <div class="output-header">
         <span class="output-title">Generated CSS</span>
         <div class="output-actions">
-          <button class="btn btn-reset" id="btn-reset">Reset All</button>
-          <button class="btn btn-copy" id="btn-copy">Copy CSS</button>
+          <button class="btn btn-reset" id="btn-reset" ti="btn_reset_all">Reset All</button>
+          <button class="btn btn-copy" id="btn-copy" ti="btn_copy_css">Copy CSS</button>
         </div>
       </div>
       <div class="output-code" id="output-code"></div>
@@ -612,6 +614,16 @@
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_transform_generator':["CSS Transform Generator", "CSS转换生成器"],'h1_css_transform_generator':["CSS Transform Generator", "CSS转换生成器"],'btn_reset_all':["Reset All", "全部重置"],'btn_copy_css':["Copy CSS", "复制 CSS"],'label_smooth_transition_0_3s_ea':["Smooth transition (0.3s ease)", "平滑过渡（缓动时间 0.3 秒）"],'footer_dev_vault':["← Dev Vault", "← 开发者宝库"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_css':["Copy CSS", "复制 CSS"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // ─── State ───────────────────────────────────────────────────────────────────
   const state = {
@@ -849,10 +861,10 @@
     const css = buildCSSOutput(transformStr);
     navigator.clipboard.writeText(css).then(() => {
       const btn = document.getElementById('btn-copy');
-      btn.textContent = 'Copied!';
+      btn.textContent=T("jtc_copied");
       btn.classList.add('copied');
       setTimeout(() => {
-        btn.textContent = 'Copy CSS';
+        btn.textContent=T("jtc_copy_css");
         btn.classList.remove('copied');
       }, 1500);
     });
@@ -884,6 +896,24 @@
 
   // ─── Init ─────────────────────────────────────────────────────────────────────
   applyTransform();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_nginx_config_visual_nginx" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -67,9 +67,19 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Nginx Config</h1>
-<p class="subtitle">Generate nginx server block configuration visually.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_nginx_config" ti="h1_nginx_config" ti="h1_nginx_config" ti="h1_nginx_config" ti="h1_nginx_config">Nginx Config</h1>
+<p class="subtitle" ti="subtitle_generate_nginx_server_blo" ti="subtitle_generate_nginx_server_blo" ti="subtitle_generate_nginx_server_blo" ti="subtitle_generate_nginx_server_blo" ti="subtitle_generate_nginx_server_blo">Generate nginx server block configuration visually.</p>
 
 <div class="presets">
   <span style="color:#555;font-size:0.72rem;padding:5px 0">Presets:</span>
@@ -83,31 +93,31 @@ footer a:hover{color:#999}
 
 <!-- Server Basics -->
 <div class="section">
-  <h3>Server</h3>
-  <div class="input-row"><label>Domain</label><input id="domain" value="example.com" placeholder="example.com"></div>
-  <div class="input-row"><label>Listen port</label><input id="port" value="80" placeholder="80"></div>
-  <div class="input-row"><label>Root</label><input id="root" value="/var/www/html" placeholder="/var/www/html"></div>
-  <div class="input-row"><label>Index</label><input id="indexFile" value="index.html" placeholder="index.html index.php"></div>
+  <h3 ti="h3_server" ti="h3_server" ti="h3_server" ti="h3_server" ti="h3_server">Server</h3>
+  <div class="input-row"><label ti="label_domain" ti="label_domain" ti="label_domain" ti="label_domain" ti="label_domain">Domain</label><input id="domain" value="example.com" tp="placeholder_example_com" tp="placeholder_example_com" tp="placeholder_example_com" tp="placeholder_example_com" tp="placeholder_example_com" placeholder="example.com"></div>
+  <div class="input-row"><label ti="label_listen_port" ti="label_listen_port" ti="label_listen_port" ti="label_listen_port" ti="label_listen_port">Listen port</label><input id="port" value="80" tp="placeholder_80" tp="placeholder_80" tp="placeholder_80" tp="placeholder_80" tp="placeholder_80" placeholder="80"></div>
+  <div class="input-row"><label ti="label_root" ti="label_root" ti="label_root" ti="label_root" ti="label_root">Root</label><input id="root" value="/var/www/html" tp="placeholder_var_www_html" tp="placeholder_var_www_html" tp="placeholder_var_www_html" tp="placeholder_var_www_html" tp="placeholder_var_www_html" placeholder="/var/www/html"></div>
+  <div class="input-row"><label ti="label_index" ti="label_index" ti="label_index" ti="label_index" ti="label_index">Index</label><input id="indexFile" value="index.html" tp="placeholder_index_html_index_php" tp="placeholder_index_html_index_php" tp="placeholder_index_html_index_php" tp="placeholder_index_html_index_php" tp="placeholder_index_html_index_php" placeholder="index.html index.php"></div>
 </div>
 
 <!-- SSL -->
 <div class="section">
-  <h3>SSL / TLS</h3>
+  <h3 ti="h3_ssl_tls" ti="h3_ssl_tls" ti="h3_ssl_tls" ti="h3_ssl_tls" ti="h3_ssl_tls">SSL / TLS</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="ssl"><div><div class="label">Enable SSL (443)</div><div class="desc">Listen on port 443 with SSL</div></div></label>
     <label class="check-item"><input type="checkbox" id="sslRedirect"><div><div class="label">Redirect HTTP → HTTPS</div><div class="desc">Separate server block for 80→443</div></div></label>
     <label class="check-item"><input type="checkbox" id="http2"><div><div class="label">HTTP/2</div><div class="desc">Enable HTTP/2 protocol</div></div></label>
     <label class="check-item"><input type="checkbox" id="hsts"><div><div class="label">HSTS header</div><div class="desc">Strict-Transport-Security (1 year)</div></div></label>
   </div>
-  <div class="input-row" style="margin-top:10px"><label>Certificate</label><input id="sslCert" value="/etc/letsencrypt/live/example.com/fullchain.pem" placeholder="Path to SSL cert"></div>
-  <div class="input-row"><label>Key</label><input id="sslKey" value="/etc/letsencrypt/live/example.com/privkey.pem" placeholder="Path to SSL key"></div>
+  <div class="input-row" style="margin-top:10px"><label ti="label_certificate" ti="label_certificate" ti="label_certificate" ti="label_certificate" ti="label_certificate">Certificate</label><input id="sslCert" value="/etc/letsencrypt/live/example.com/fullchain.pem" tp="placeholder_path_to_ssl_cert" tp="placeholder_path_to_ssl_cert" tp="placeholder_path_to_ssl_cert" tp="placeholder_path_to_ssl_cert" tp="placeholder_path_to_ssl_cert" placeholder="Path to SSL cert"></div>
+  <div class="input-row"><label ti="label_key" ti="label_key" ti="label_key" ti="label_key" ti="label_key">Key</label><input id="sslKey" value="/etc/letsencrypt/live/example.com/privkey.pem" tp="placeholder_path_to_ssl_key" tp="placeholder_path_to_ssl_key" tp="placeholder_path_to_ssl_key" tp="placeholder_path_to_ssl_key" tp="placeholder_path_to_ssl_key" placeholder="Path to SSL key"></div>
 </div>
 
 <!-- Reverse Proxy -->
 <div class="section">
-  <h3>Reverse Proxy</h3>
+  <h3 ti="h3_reverse_proxy" ti="h3_reverse_proxy" ti="h3_reverse_proxy" ti="h3_reverse_proxy" ti="h3_reverse_proxy">Reverse Proxy</h3>
   <label class="check-item" style="margin-bottom:10px"><input type="checkbox" id="proxy"><div><div class="label">Enable reverse proxy</div><div class="desc">Forward requests to a backend</div></div></label>
-  <div class="input-row"><label>Backend URL</label><input id="proxyPass" value="http://127.0.0.1:3000" placeholder="http://127.0.0.1:3000"></div>
+  <div class="input-row"><label ti="label_backend_url" ti="label_backend_url" ti="label_backend_url" ti="label_backend_url" ti="label_backend_url">Backend URL</label><input id="proxyPass" value="http://127.0.0.1:3000" tp="placeholder_http_127_0_0_1_3000" tp="placeholder_http_127_0_0_1_3000" tp="placeholder_http_127_0_0_1_3000" tp="placeholder_http_127_0_0_1_3000" tp="placeholder_http_127_0_0_1_3000" placeholder="http://127.0.0.1:3000"></div>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="proxyWebsocket"><div><div class="label">WebSocket support</div><div class="desc">Upgrade headers for WS</div></div></label>
     <label class="check-item"><input type="checkbox" id="proxyHeaders"><div><div class="label">Forward headers</div><div class="desc">X-Real-IP, X-Forwarded-For/Proto</div></div></label>
@@ -116,19 +126,19 @@ footer a:hover{color:#999}
 
 <!-- Performance -->
 <div class="section">
-  <h3>Performance</h3>
+  <h3 ti="h3_performance" ti="h3_performance" ti="h3_performance" ti="h3_performance" ti="h3_performance">Performance</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="gzip"><div><div class="label">Gzip compression</div><div class="desc">Compress text, CSS, JS, JSON</div></div></label>
     <label class="check-item"><input type="checkbox" id="cacheStatic"><div><div class="label">Cache static assets</div><div class="desc">Images, CSS, JS (30 days)</div></div></label>
     <label class="check-item"><input type="checkbox" id="cacheControl"><div><div class="label">Cache-Control headers</div><div class="desc">public, max-age for static files</div></div></label>
     <label class="check-item"><input type="checkbox" id="clientMaxBody"><div><div class="label">Client max body size</div><div class="desc">Set upload limit (default 10M)</div></div></label>
   </div>
-  <div class="input-row" style="margin-top:10px"><label>Max body size</label><input id="maxBodySize" value="10M" placeholder="10M"></div>
+  <div class="input-row" style="margin-top:10px"><label ti="label_max_body_size" ti="label_max_body_size" ti="label_max_body_size" ti="label_max_body_size" ti="label_max_body_size">Max body size</label><input id="maxBodySize" value="10M" tp="placeholder_10m" tp="placeholder_10m" tp="placeholder_10m" tp="placeholder_10m" tp="placeholder_10m" placeholder="10M"></div>
 </div>
 
 <!-- Security -->
 <div class="section">
-  <h3>Security</h3>
+  <h3 ti="h3_security" ti="h3_security" ti="h3_security" ti="h3_security" ti="h3_security">Security</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="secXFrame"><div><div class="label">X-Frame-Options</div><div class="desc">SAMEORIGIN (anti-clickjacking)</div></div></label>
     <label class="check-item"><input type="checkbox" id="secXContent"><div><div class="label">X-Content-Type-Options</div><div class="desc">nosniff (anti-MIME sniffing)</div></div></label>
@@ -141,7 +151,7 @@ footer a:hover{color:#999}
 
 <!-- URL Rewriting -->
 <div class="section">
-  <h3>URL Handling</h3>
+  <h3 ti="h3_url_handling" ti="h3_url_handling" ti="h3_url_handling" ti="h3_url_handling" ti="h3_url_handling">URL Handling</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="spaFallback"><div><div class="label">SPA fallback</div><div class="desc">try_files → index.html (React/Vue)</div></div></label>
     <label class="check-item"><input type="checkbox" id="trailingSlash"><div><div class="label">Remove trailing slash</div><div class="desc">/page/ → /page (301)</div></div></label>
@@ -151,16 +161,16 @@ footer a:hover{color:#999}
 
 <!-- CORS -->
 <div class="section">
-  <h3>CORS</h3>
+  <h3 ti="h3_cors" ti="h3_cors" ti="h3_cors" ti="h3_cors" ti="h3_cors">CORS</h3>
   <label class="check-item" style="margin-bottom:10px"><input type="checkbox" id="cors"><div><div class="label">Enable CORS</div><div class="desc">Cross-origin resource sharing</div></div></label>
-  <div class="input-row"><label>Allow origin</label><input id="corsOrigin" value="*" placeholder="* or https://example.com"></div>
+  <div class="input-row"><label ti="label_allow_origin" ti="label_allow_origin" ti="label_allow_origin" ti="label_allow_origin" ti="label_allow_origin">Allow origin</label><input id="corsOrigin" value="*" tp="placeholder_or_https_example_com" tp="placeholder_or_https_example_com" tp="placeholder_or_https_example_com" tp="placeholder_or_https_example_com" tp="placeholder_or_https_example_com" placeholder="* or https://example.com"></div>
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="generate()">Generate</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="downloadOutput()">Download</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="generate()" ti="btn_generate" ti="btn_generate" ti="btn_generate" ti="btn_generate" ti="btn_generate">Generate</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadOutput()" ti="btn_download" ti="btn_download" ti="btn_download" ti="btn_download" ti="btn_download">Download</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
 </div>
 
 <div class="output-section" id="outputSection">
@@ -169,18 +179,58 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/nginx-config">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/nginx-config" ti="link_github" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/">htaccess Gen</a>
-    <a href="https://gokuscraper.github.io/dev-vault/ssl-check/">SSL Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/headers-check/">Headers Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/cors-test/">CORS Test</a>
+    <strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/" ti="link_htaccess_gen" ti="link_htaccess_gen" ti="link_htaccess_gen" ti="link_htaccess_gen" ti="link_htaccess_gen">htaccess Gen</a>
+    <a href="https://gokuscraper.github.io/dev-vault/ssl-check/" ti="link_ssl_check" ti="link_ssl_check" ti="link_ssl_check" ti="link_ssl_check" ti="link_ssl_check">SSL Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/headers-check/" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check">Headers Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/cors-test/" ti="link_cors_test" ti="link_cors_test" ti="link_cors_test" ti="link_cors_test" ti="link_cors_test">CORS Test</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 110+ free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_110_free_tools" ti="footer_dev_vault_110_free_tools_2" ti="f
+
+<script>var _LANG={'title_nginx_config_visual_nginx':["Nginx Config — Visual Nginx Configuration Generator", "Nginx 配置 — 可视化 Nginx 配置生成器"],'metadesc_generate_nginx_conf_visua':["Generate nginx.conf visually. Reverse proxy, SSL/TLS, caching, gzip, security headers, rate limiting. 6 presets. Free.", "可视化生成 nginx.conf 文件。支持反向代理、SSL/TLS、缓存、gzip 压缩、安全标头和速率限制。提供 6 种预设方案。免费。"],'h1_nginx_config':["Nginx Config", "Nginx 配置"],'h3_server':["Server", "服务器"],'h3_ssl_tls':["SSL / TLS", "SSL/TLS"],'h3_reverse_proxy':["Reverse Proxy", "反向代理"],'h3_performance':["Performance", "表现"],'h3_security':["Security", "安全"],'h3_url_handling':["URL Handling", "URL处理"],'h3_cors':["CORS", "CORS"],'subtitle_generate_nginx_server_blo':["Generate nginx server block configuration visually.", "以可视化方式生成nginx服务器块配置。"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear':["Clear", "清除"],'placeholder_example_com':["example.com", "example.com"],'placeholder_80':["80", "80"],'placeholder_var_www_html':["/var/www/html", "/var/www/html"],'placeholder_index_html_index_php':["index.html index.php", "index.html index.php"],'placeholder_path_to_ssl_cert':["Path to SSL cert", "SSL证书路径"],'placeholder_path_to_ssl_key':["Path to SSL key", "SSL密钥路径"],'placeholder_http_127_0_0_1_3000':["http://127.0.0.1:3000", "http://127.0.0.1:3000"],'placeholder_10m':["10M", "1000万"],'placeholder_or_https_example_com':["* or https://example.com", "* 或 https://example.com"],'strong_related_tools':["Related Tools", "相关工具"],'label_domain':["Domain", "领域"],'label_listen_port':["Listen port", "监听端口"],'label_root':["Root", "根"],'label_index':["Index", "指数"],'label_certificate':["Certificate", "证书"],'label_key':["Key", "钥匙"],'label_backend_url':["Backend URL", "后端 URL"],'label_max_body_size':["Max body size", "最大体型"],'label_allow_origin':["Allow origin", "允许源"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_110_free_tools':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'footer_dev_vault_110_free_tools_2':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_htaccess_gen':["htaccess Gen", ".htaccess 生成器"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_headers_check':["Headers Check", "标头检查"],'link_cors_test':["CORS Test", "CORS 测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_nginx_config_visual_nginx':["Nginx Config — Visual Nginx Configuration Generator", "Nginx 配置 — 可视化 Nginx 配置生成器"],'metadesc_generate_nginx_conf_visua':["Generate nginx.conf visually. Reverse proxy, SSL/TLS, caching, gzip, security headers, rate limiting. 6 presets. Free.", "可视化生成 nginx.conf 文件。支持反向代理、SSL/TLS、缓存、gzip 压缩、安全标头和速率限制。提供 6 种预设方案。免费。"],'h1_nginx_config':["Nginx Config", "Nginx 配置"],'h3_server':["Server", "服务器"],'h3_ssl_tls':["SSL / TLS", "SSL/TLS"],'h3_reverse_proxy':["Reverse Proxy", "反向代理"],'h3_performance':["Performance", "表现"],'h3_security':["Security", "安全"],'h3_url_handling':["URL Handling", "URL处理"],'h3_cors':["CORS", "CORS"],'subtitle_generate_nginx_server_blo':["Generate nginx server block configuration visually.", "以可视化方式生成nginx服务器块配置。"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear':["Clear", "清除"],'placeholder_example_com':["example.com", "example.com"],'placeholder_80':["80", "80"],'placeholder_var_www_html':["/var/www/html", "/var/www/html"],'placeholder_index_html_index_php':["index.html index.php", "index.html index.php"],'placeholder_path_to_ssl_cert':["Path to SSL cert", "SSL证书路径"],'placeholder_path_to_ssl_key':["Path to SSL key", "SSL密钥路径"],'placeholder_http_127_0_0_1_3000':["http://127.0.0.1:3000", "http://127.0.0.1:3000"],'placeholder_10m':["10M", "1000万"],'placeholder_or_https_example_com':["* or https://example.com", "* 或 https://example.com"],'strong_related_tools':["Related Tools", "相关工具"],'label_domain':["Domain", "领域"],'label_listen_port':["Listen port", "监听端口"],'label_root':["Root", "根"],'label_index':["Index", "指数"],'label_certificate':["Certificate", "证书"],'label_key':["Key", "钥匙"],'label_backend_url':["Backend URL", "后端 URL"],'label_max_body_size':["Max body size", "最大体型"],'label_allow_origin':["Allow origin", "允许源"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_110_free_tools':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'footer_dev_vault_110_free_tools_2':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_htaccess_gen':["htaccess Gen", ".htaccess 生成器"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_headers_check':["Headers Check", "标头检查"],'link_cors_test':["CORS Test", "CORS 测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+ooter_dev_vault_110_free_tools" ti="footer_dev_vault_110_fre
+<script>var _LANG={'title_nginx_config_visual_nginx':["Nginx Config — Visual Nginx Configuration Generator", "Nginx 配置 — 可视化 Nginx 配置生成器"],'metadesc_generate_nginx_conf_visua':["Generate nginx.conf visually. Reverse proxy, SSL/TLS, caching, gzip, security headers, rate limiting. 6 presets. Free.", "可视化生成 nginx.conf 文件。支持反向代理、SSL/TLS、缓存、gzip 压缩、安全标头和速率限制。提供 6 种预设方案。免费。"],'h1_nginx_config':["Nginx Config", "Nginx 配置"],'h3_server':["Server", "服务器"],'h3_ssl_tls':["SSL / TLS", "SSL/TLS"],'h3_reverse_proxy':["Reverse Proxy", "反向代理"],'h3_performance':["Performance", "表现"],'h3_security':["Security", "安全"],'h3_url_handling':["URL Handling", "URL处理"],'h3_cors':["CORS", "CORS"],'subtitle_generate_nginx_server_blo':["Generate nginx server block configuration visually.", "以可视化方式生成nginx服务器块配置。"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear':["Clear", "清除"],'placeholder_example_com':["example.com", "example.com"],'placeholder_80':["80", "80"],'placeholder_var_www_html':["/var/www/html", "/var/www/html"],'placeholder_index_html_index_php':["index.html index.php", "index.html index.php"],'placeholder_path_to_ssl_cert':["Path to SSL cert", "SSL证书路径"],'placeholder_path_to_ssl_key':["Path to SSL key", "SSL密钥路径"],'placeholder_http_127_0_0_1_3000':["http://127.0.0.1:3000", "http://127.0.0.1:3000"],'placeholder_10m':["10M", "1000万"],'placeholder_or_https_example_com':["* or https://example.com", "* 或 https://example.com"],'strong_related_tools':["Related Tools", "相关工具"],'label_domain':["Domain", "领域"],'label_listen_port':["Listen port", "监听端口"],'label_root':["Root", "根"],'label_index':["Index", "指数"],'label_certificate':["Certificate", "证书"],'label_key':["Key", "钥匙"],'label_backend_url':["Backend URL", "后端 URL"],'label_max_body_size':["Max body size", "最大体型"],'label_allow_origin':["Allow origin", "允许源"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_110_free_tools':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'footer_dev_vault_110_free_tools_2':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_htaccess_gen':["htaccess Gen", ".htaccess 生成器"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_headers_check':["Headers Check", "标头检查"],'link_cors_test':["CORS Test", "CORS 测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+e_tools_2">Dev Vault — 110+ free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_nginx_config_visual_nginx':["Nginx Config — Visual Nginx Configuration Generator", "Nginx 配置 — 可视化 Nginx 配置生成器"],'metadesc_generate_nginx_conf_visua':["Generate nginx.conf visually. Reverse proxy, SSL/TLS, caching, gzip, security headers, rate limiting. 6 presets. Free.", "可视化生成 nginx.conf 文件。支持反向代理、SSL/TLS、缓存、gzip 压缩、安全标头和速率限制。提供 6 种预设方案。免费。"],'h1_nginx_config':["Nginx Config", "Nginx 配置"],'h3_server':["Server", "服务器"],'h3_ssl_tls':["SSL / TLS", "SSL/TLS"],'h3_reverse_proxy':["Reverse Proxy", "反向代理"],'h3_performance':["Performance", "表现"],'h3_security':["Security", "安全"],'h3_url_handling':["URL Handling", "URL处理"],'h3_cors':["CORS", "CORS"],'subtitle_generate_nginx_server_blo':["Generate nginx server block configuration visually.", "以可视化方式生成nginx服务器块配置。"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear':["Clear", "清除"],'placeholder_example_com':["example.com", "example.com"],'placeholder_80':["80", "80"],'placeholder_var_www_html':["/var/www/html", "/var/www/html"],'placeholder_index_html_index_php':["index.html index.php", "index.html index.php"],'placeholder_path_to_ssl_cert':["Path to SSL cert", "SSL证书路径"],'placeholder_path_to_ssl_key':["Path to SSL key", "SSL密钥路径"],'placeholder_http_127_0_0_1_3000':["http://127.0.0.1:3000", "http://127.0.0.1:3000"],'placeholder_10m':["10M", "1000万"],'placeholder_or_https_example_com':["* or https://example.com", "* 或 https://example.com"],'strong_related_tools':["Related Tools", "相关工具"],'label_domain':["Domain", "领域"],'label_listen_port':["Listen port", "监听端口"],'label_root':["Root", "根"],'label_index':["Index", "指数"],'label_certificate':["Certificate", "证书"],'label_key':["Key", "钥匙"],'label_backend_url':["Backend URL", "后端 URL"],'label_max_body_size':["Max body size", "最大体型"],'label_allow_origin':["Allow origin", "允许源"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_110_free_tools':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'footer_dev_vault_110_free_tools_2':["Dev Vault — 110+ free tools", "开发者宝库——110多种免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_htaccess_gen':["htaccess Gen", ".htaccess 生成器"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_headers_check':["Headers Check", "标头检查"],'link_cors_test':["CORS Test", "CORS 测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS={
   static:{domain:'example.com',port:'80',root:'/var/www/html',indexFile:'index.html',checks:['gzip','cacheStatic','cacheControl','secXFrame','secXContent','blockDotFiles']},
@@ -434,6 +484,96 @@ function toast(msg){
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

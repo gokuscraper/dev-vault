@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_grid_track_sizing_alg" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -65,25 +65,27 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Grid Track Sizing Algorithm</h1>
-<p class="subtitle">Watch how the browser calculates column widths from fr, minmax(), auto, and fixed values</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_grid_track_sizing_alg">CSS Grid Track Sizing Algorithm</h1>
+<p class="subtitle" ti="subtitle_watch_how_the_browser_cal">Watch how the browser calculates column widths from fr, minmax(), auto, and fixed values</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('visualizer')">Visualizer</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('visualizer')" ti="btn_visualizer">Visualizer</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-visualizer" class="panel active">
 <div class="presets" id="presets"></div>
 <div class="controls">
-<label>Columns:</label>
-<input type="text" id="columns" value="1fr 2fr 1fr" placeholder="e.g. 1fr 2fr minmax(100px, 1fr)">
-<label>Container:</label>
+<label ti="label_columns">Columns:</label>
+<input type="text" id="columns" value="1fr 2fr 1fr" tp="placeholder_e_g_1fr_2fr_minmax_100px" placeholder="e.g. 1fr 2fr minmax(100px, 1fr)">
+<label ti="label_container">Container:</label>
 <input type="number" id="container-width" value="600" min="100" max="1200" step="10"> px
-<label>Gap:</label>
+<label ti="label_gap">Gap:</label>
 <input type="number" id="gap" value="0" min="0" max="40" step="2"> px
-<button class="btn btn-primary" onclick="calculate()">Calculate</button>
+<button class="btn btn-primary" onclick="calculate()" ti="btn_calculate">Calculate</button>
 </div>
 
 <div class="grid-preview">
@@ -91,7 +93,7 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </div>
 
 <div class="steps-panel">
-<h3>Algorithm Steps</h3>
+<h3 ti="h3_algorithm_steps">Algorithm Steps</h3>
 <div id="steps"></div>
 </div>
 
@@ -100,21 +102,21 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>Grid Track Sizing Algorithm</h3>
+<h3 ti="h3_grid_track_sizing_algorit">Grid Track Sizing Algorithm</h3>
 <p>When the browser encounters <span class="code">grid-template-columns</span>, it runs a multi-phase algorithm to resolve each track's final size. The algorithm handles fixed sizes first, then intrinsic sizes, and finally flexible (fr) sizes.</p>
 </div>
 <div class="ref-section">
-<h3>Algorithm Phases</h3>
+<h3 ti="h3_algorithm_phases">Algorithm Phases</h3>
 <ul>
-<li><strong>Phase 1: Initialize</strong> — Set fixed tracks (px, rem, %) to their exact sizes. Set base size of all other tracks to 0.</li>
-<li><strong>Phase 2: Resolve Intrinsic Sizes</strong> — For <span class="code">auto</span>, <span class="code">min-content</span>, <span class="code">max-content</span>, <span class="code">fit-content()</span>: calculate based on content.</li>
-<li><strong>Phase 3: Maximize Tracks</strong> — If there's remaining space and non-fr tracks can grow, distribute space.</li>
-<li><strong>Phase 4: Resolve Flexible (fr) Tracks</strong> — Calculate the fr unit value: remaining space ÷ total fr count. Apply to each fr track.</li>
-<li><strong>Phase 5: Apply Constraints</strong> — Enforce <span class="code">minmax()</span> constraints. If a track is below its minimum, clamp it and redistribute.</li>
+<li><strong ti="strong_phase_1_initialize">Phase 1: Initialize</strong> — Set fixed tracks (px, rem, %) to their exact sizes. Set base size of all other tracks to 0.</li>
+<li><strong ti="strong_phase_2_resolve_intrinsic">Phase 2: Resolve Intrinsic Sizes</strong> — For <span class="code">auto</span>, <span class="code">min-content</span>, <span class="code">max-content</span>, <span class="code">fit-content()</span>: calculate based on content.</li>
+<li><strong ti="strong_phase_3_maximize_tracks">Phase 3: Maximize Tracks</strong> — If there's remaining space and non-fr tracks can grow, distribute space.</li>
+<li><strong ti="strong_phase_4_resolve_flexible">Phase 4: Resolve Flexible (fr) Tracks</strong> — Calculate the fr unit value: remaining space ÷ total fr count. Apply to each fr track.</li>
+<li><strong ti="strong_phase_5_apply_constraints">Phase 5: Apply Constraints</strong> — Enforce <span class="code">minmax()</span> constraints. If a track is below its minimum, clamp it and redistribute.</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Track Size Types</h3>
+<h3 ti="h3_track_size_types">Track Size Types</h3>
 <ul>
 <li><span class="code">200px</span> — Fixed: exactly 200px regardless of container</li>
 <li><span class="code">1fr</span> — Flexible: 1 fraction of remaining space after fixed sizes are placed</li>
@@ -126,8 +128,8 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </ul>
 </div>
 <div class="ref-section">
-<h3>The fr Unit In Detail</h3>
-<p>The fr unit represents a fraction of the <strong>leftover space</strong> after all fixed, intrinsic, and percentage tracks are resolved. If the container is 600px, a fixed track takes 200px, and you have <span class="code">200px 1fr 2fr</span>:</p>
+<h3 ti="h3_the_fr_unit_in_detail">The fr Unit In Detail</h3>
+<p>The fr unit represents a fraction of the <strong ti="strong_leftover_space">leftover space</strong> after all fixed, intrinsic, and percentage tracks are resolved. If the container is 600px, a fixed track takes 200px, and you have <span class="code">200px 1fr 2fr</span>:</p>
 <ul>
 <li>Remaining space = 600 - 200 = 400px</li>
 <li>Total fr = 1 + 2 = 3</li>
@@ -136,7 +138,7 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </ul>
 </div>
 <div class="ref-section">
-<h3>minmax() Gotchas</h3>
+<h3 ti="h3_minmax_gotchas">minmax() Gotchas</h3>
 <ul>
 <li><span class="code">minmax(200px, 1fr)</span> — The track is at least 200px. If 1fr resolves to less than 200px, the track stays at 200px and steals space from other fr tracks.</li>
 <li><span class="code">minmax(0, 1fr)</span> — Equivalent to just <span class="code">1fr</span> (can shrink to 0)</li>
@@ -147,6 +149,16 @@ h1{text-align:center;font-size:1.5rem;color:#fff;margin-bottom:4px}
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_grid_track_sizing_alg':["CSS Grid Track Sizing Algorithm — Step-by-Step Visualization", "CSS 网格轨道尺寸调整算法——逐步可视化"],'metadesc_interactive_css_grid_trac':["Interactive CSS grid track sizing algorithm visualizer. Watch how fr, minmax(), auto, and fit-content() resolve step by step.", "交互式 CSS 网格轨道尺寸算法可视化工具。逐步观察 fr、minmax()、auto 和 fit-content() 的计算过程。"],'h1_css_grid_track_sizing_alg':["CSS Grid Track Sizing Algorithm", "CSS 网格轨道尺寸调整算法"],'h3_algorithm_steps':["Algorithm Steps", "算法步骤"],'h3_grid_track_sizing_algorit':["Grid Track Sizing Algorithm", "网格轨道尺寸算法"],'h3_algorithm_phases':["Algorithm Phases", "算法阶段"],'h3_track_size_types':["Track Size Types", "轨道尺寸类型"],'h3_the_fr_unit_in_detail':["The fr Unit In Detail", "fr 单元详解"],'h3_minmax_gotchas':["minmax() Gotchas", "minmax() 注意事项"],'subtitle_watch_how_the_browser_cal':["Watch how the browser calculates column widths from fr, minmax(), auto, and fixed values", "观察浏览器如何根据 fr、minmax()、auto 和 fixed 值计算列宽。"],'btn_visualizer':["Visualizer", "可视化工具"],'btn_reference':["Reference", "参考"],'btn_calculate':["Calculate", "计算"],'btn_p_name':["${p.name}", "${p.name}"],'label_t_def_raw':["${t.def.raw}", "${t.def.raw}"],'placeholder_e_g_1fr_2fr_minmax_100px':["e.g. 1fr 2fr minmax(100px, 1fr)", "例如 1fr 2fr minmax(100px, 1fr)"],'strong_phase_1_initialize':["Phase 1: Initialize", "第一阶段：初始化"],'strong_phase_2_resolve_intrinsic':["Phase 2: Resolve Intrinsic Sizes", "第二阶段：确定固有尺寸"],'strong_phase_3_maximize_tracks':["Phase 3: Maximize Tracks", "第三阶段：最大化轨道数量"],'strong_phase_4_resolve_flexible':["Phase 4: Resolve Flexible (fr) Tracks", "第四阶段：解决柔性（fr）轨道"],'strong_phase_5_apply_constraints':["Phase 5: Apply Constraints", "第五阶段：应用约束"],'strong_leftover_space':["leftover space", "剩余空间"],'th_definition':["Definition", "定义"],'th_type':["Type", "类型"],'th_base_size':["Base Size", "底座尺寸"],'th_final_size':["Final Size", "最终尺寸"],'th_of_container':["% of Container", "容器百分比"],'label_columns':["Columns:", "列："],'label_container':["Container:", "容器："],'label_gap':["Gap:", "差距："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COLORS = ['#3b82f6','#10b981','#f59e0b','#ef4444','#a78bfa','#ec4899','#06b6d4','#84cc16'];
 
@@ -172,7 +184,7 @@ function showTab(id) {
 
 function renderPresets() {
   document.getElementById('presets').innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -373,7 +385,7 @@ function renderGrid(tracks, containerWidth, gap) {
     div.style.background = COLORS[i % COLORS.length] + '20';
     div.style.borderColor = COLORS[i % COLORS.length] + '60';
     div.innerHTML = `<span style="color:${COLORS[i%COLORS.length]}">${t.resolved.toFixed(0)}px</span>
-      <span class="track-label">${t.def.raw}</span>
+      <span class="track-label" ti="label_t_def_raw">${t.def.raw}</span>
       <span class="track-size" style="color:${COLORS[i%COLORS.length]}">${t.resolved.toFixed(1)}px</span>`;
     container.appendChild(div);
     offset += t.resolved + gap;
@@ -392,7 +404,7 @@ function renderSteps(steps) {
 
 function renderCalcTable(tracks, available, totalGap) {
   const html = `<table class="calc-table">
-    <thead><tr><th>#</th><th>Definition</th><th>Type</th><th>Base Size</th><th>Final Size</th><th>% of Container</th></tr></thead>
+    <thead><tr><th>#</th><th ti="th_definition">Definition</th><th ti="th_type">Type</th><th ti="th_base_size">Base Size</th><th ti="th_final_size">Final Size</th><th ti="th_of_container">% of Container</th></tr></thead>
     <tbody>${tracks.map((t,i) => `<tr>
       <td style="color:${COLORS[i%COLORS.length]};font-weight:700">${i+1}</td>
       <td>${t.def.raw}</td>
@@ -407,6 +419,24 @@ function renderCalcTable(tracks, available, totalGap) {
 
 renderPresets();
 calculate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_env_gen_env_file_generato" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,9 +77,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Env Gen</h1>
-<p class="subtitle">Generate .env files for any framework or project.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_env_gen">Env Gen</h1>
+<p class="subtitle" ti="subtitle_generate_env_files_for_an">Generate .env files for any framework or project.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab('templates')">Templates</div>
@@ -90,7 +92,7 @@ footer a:hover{color:#999}
 <!-- TEMPLATES TAB -->
 <div class="tab-panel active" id="tab-templates">
 <div class="section">
-  <h3>Select a framework template</h3>
+  <h3 ti="h3_select_a_framework_templa">Select a framework template</h3>
   <div class="template-grid" id="templateGrid"></div>
 </div>
 <div id="templateVars"></div>
@@ -100,8 +102,8 @@ footer a:hover{color:#999}
 <div class="tab-panel" id="tab-editor">
 <div class="section">
   <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-    <h3 style="margin:0">Environment Variables</h3>
-    <button class="btn small" onclick="addVar()">+ Add Variable</button>
+    <h3 style="margin:0" ti="h3_environment_variables">Environment Variables</h3>
+    <button class="btn small" onclick="addVar()" ti="btn_add_variable">+ Add Variable</button>
   </div>
   <div class="var-list" id="editorVars"></div>
 </div>
@@ -110,12 +112,12 @@ footer a:hover{color:#999}
 <!-- TIPS TAB -->
 <div class="tab-panel" id="tab-tips">
 <div class="info">
-  <h3>What is a .env file?</h3>
+  <h3 ti="h3_what_is_a_env_file">What is a .env file?</h3>
   <p>A <code>.env</code> file stores environment variables — configuration values that change between environments (development, staging, production). It keeps secrets out of source code.</p>
 </div>
 <div class="info">
-  <h3>Best Practices</h3>
-  <p>1. <strong>Never commit .env to git.</strong> Add it to <code>.gitignore</code>.</p>
+  <h3 ti="h3_best_practices">Best Practices</h3>
+  <p>1. <strong ti="strong_never_commit_env_to_git">Never commit .env to git.</strong> Add it to <code>.gitignore</code>.</p>
   <p style="margin-top:6px">2. Create a <code>.env.example</code> with placeholder values (no real secrets) and commit that.</p>
   <p style="margin-top:6px">3. Use different .env files per environment: <code>.env.development</code>, <code>.env.production</code>.</p>
   <p style="margin-top:6px">4. Use strong, random values for secrets. Never reuse passwords.</p>
@@ -123,26 +125,26 @@ footer a:hover{color:#999}
   <p style="margin-top:6px">6. Quote values that contain spaces: <code>APP_NAME="My App"</code>.</p>
 </div>
 <div class="info">
-  <h3>Loading .env files</h3>
-  <p><strong>Node.js:</strong> <code>npm install dotenv</code> → <code>require('dotenv').config()</code></p>
-  <p style="margin-top:6px"><strong>Python:</strong> <code>pip install python-dotenv</code> → <code>from dotenv import load_dotenv; load_dotenv()</code></p>
-  <p style="margin-top:6px"><strong>Next.js / Vite:</strong> Loaded automatically. Prefix with <code>NEXT_PUBLIC_</code> or <code>VITE_</code> for client-side access.</p>
-  <p style="margin-top:6px"><strong>Docker:</strong> <code>docker run --env-file .env myapp</code></p>
-  <p style="margin-top:6px"><strong>Ruby:</strong> <code>gem 'dotenv-rails'</code> → loaded automatically in development.</p>
+  <h3 ti="h3_loading_env_files">Loading .env files</h3>
+  <p><strong ti="strong_node_js">Node.js:</strong> <code>npm install dotenv</code> → <code>require('dotenv').config()</code></p>
+  <p style="margin-top:6px"><strong ti="strong_python">Python:</strong> <code>pip install python-dotenv</code> → <code>from dotenv import load_dotenv; load_dotenv()</code></p>
+  <p style="margin-top:6px"><strong ti="strong_next_js_vite">Next.js / Vite:</strong> Loaded automatically. Prefix with <code>NEXT_PUBLIC_</code> or <code>VITE_</code> for client-side access.</p>
+  <p style="margin-top:6px"><strong ti="strong_docker">Docker:</strong> <code>docker run --env-file .env myapp</code></p>
+  <p style="margin-top:6px"><strong ti="strong_ruby">Ruby:</strong> <code>gem 'dotenv-rails'</code> → loaded automatically in development.</p>
 </div>
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="generateOutput()">Generate .env</button>
-  <button class="btn" onclick="generateExample()">Generate .env.example</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="downloadOutput('.env')">Download .env</button>
-  <button class="btn" onclick="clearAll()">Clear</button>
+  <button class="btn primary" onclick="generateOutput()" ti="btn_generate_env">Generate .env</button>
+  <button class="btn" onclick="generateExample()" ti="btn_generate_env_example">Generate .env.example</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadOutput('.env')" ti="btn_download_env">Download .env</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
 </div>
 
 <div class="output-section" id="outputSection" style="display:none">
   <div class="output-header">
-    <h3 id="outputTitle">.env</h3>
+    <h3 id="outputTitle" ti="h3_env">.env</h3>
     <span class="output-stats" id="outputStats"></span>
   </div>
   <textarea class="output" id="outputArea" readonly></textarea>
@@ -151,17 +153,27 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/env-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/env-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">gitignore Gen</a>
-    <a href="https://gokuscraper.github.io/dev-vault/password-gen/">Password Gen</a>
-    <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/">htaccess Gen</a>
+    <strong style="color:#888" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen">gitignore Gen</a>
+    <a href="https://gokuscraper.github.io/dev-vault/password-gen/" ti="link_password_gen">Password Gen</a>
+    <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/" ti="link_htaccess_gen">htaccess Gen</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 101 free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_env_gen_env_file_generato':["Env Gen — .env File Generator", "Env Gen — .env 文件生成器"],'metadesc_generate_env_files_for_an':["Generate .env files for any framework. Next.js, Express, Django, Rails, Laravel templates. Random secrets, database URLs. Free.", "为任何框架生成 .env 文件。支持 Next.js、Express、Django、Rails 和 Laravel 模板。可生成随机密钥和数据库 URL。免费。"],'h1_env_gen':["Env Gen", "环境遗传"],'h3_select_a_framework_templa':["Select a framework template", "选择框架模板"],'h3_environment_variables':["Environment Variables", "环境变量"],'h3_what_is_a_env_file':["What is a .env file?", "什么是.env文件？"],'h3_best_practices':["Best Practices", "最佳实践"],'h3_loading_env_files':["Loading .env files", "正在加载 .env 文件"],'h3_env':[".env", ".env"],'h3_variables':["Variables", "变量"],'subtitle_generate_env_files_for_an':["Generate .env files for any framework or project.", "为任何框架或项目生成 .env 文件。"],'btn_add_variable':["+ Add Variable", "+ 添加变量"],'btn_generate_env':["Generate .env", "生成 .env"],'btn_generate_env_example':["Generate .env.example", "生成 .env.example"],'btn_copy':["Copy", "复制"],'btn_download_env':["Download .env", "下载 .env"],'btn_clear':["Clear", "清除"],'btn_add':["+ Add", "+ 添加"],'placeholder_variable_name':["VARIABLE_NAME", "变量名"],'placeholder_value':["value", "价值"],'strong_never_commit_env_to_git':["Never commit .env to git.", "永远不要将 .env 文件提交到 git。"],'strong_node_js':["Node.js:", "Node.js："],'strong_python':["Python:", "Python："],'strong_next_js_vite':["Next.js / Vite:", "Next.js / Vite："],'strong_docker':["Docker:", "Docker："],'strong_ruby':["Ruby:", "红宝石："],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gitignore_gen':["gitignore Gen", "gitignore Gen"],'link_password_gen':["Password Gen", "密码生成器"],'link_htaccess_gen':["htaccess Gen", ".htaccess 生成器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TEMPLATES={
   'Next.js':{vars:[
@@ -306,7 +318,7 @@ function renderTemplateVars(){
     document.getElementById('templateVars').innerHTML='';
     return;
   }
-  let html='<div class="section"><h3>Variables</h3><div class="var-list">';
+  let html='<div class="section"><h3 ti="h3_variables">Variables</h3><div class="var-list">';
   currentVars.forEach((v,i)=>{
     html+=`<div class="var-row">
       <input class="key" value="${esc(v.k)}" onchange="currentVars[${i}].k=this.value">
@@ -317,7 +329,7 @@ function renderTemplateVars(){
       </div>
     </div>`;
   });
-  html+=`</div><div style="margin-top:8px"><button class="btn small" onclick="currentVars.push({k:'NEW_VAR',v:'value',c:''});renderTemplateVars()">+ Add</button></div></div>`;
+  html+=`</div><div style="margin-top:8px"><button class="btn small" onclick="currentVars.push({k:'NEW_VAR',v:'value',c:''});renderTemplateVars()" ti="btn_add">+ Add</button></div></div>`;
   document.getElementById('templateVars').innerHTML=html;
 }
 
@@ -329,8 +341,8 @@ function addVar(){
 function renderEditorVars(){
   const el=document.getElementById('editorVars');
   el.innerHTML=editorVars.map((v,i)=>`<div class="var-row">
-    <input class="key" placeholder="VARIABLE_NAME" value="${esc(v.k)}" onchange="editorVars[${i}].k=this.value">
-    <input class="val" placeholder="value" value="${esc(v.v)}" onchange="editorVars[${i}].v=this.value">
+    <input class="key" tp="placeholder_variable_name" placeholder="VARIABLE_NAME" value="${esc(v.k)}" onchange="editorVars[${i}].k=this.value">
+    <input class="val" tp="placeholder_value" placeholder="value" value="${esc(v.v)}" onchange="editorVars[${i}].v=this.value">
     <span class="act-btn" onclick="editorVars[${i}].v=randomHex(32);renderEditorVars()" title="Random">🎲</span>
     <span class="act-btn danger" onclick="editorVars.splice(${i},1);renderEditorVars()">×</span>
   </div>`).join('');
@@ -417,6 +429,24 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 
 renderTemplateGrid();
 renderEditorVars();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

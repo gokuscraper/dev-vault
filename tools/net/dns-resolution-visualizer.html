@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_dns_resolution_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,27 +77,29 @@ h1{text-align:center;font-size:1.6rem;color:#fff;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>DNS Resolution Visualizer</h1>
-<p class="subtitle">Watch DNS queries travel from browser to root servers and back</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_dns_resolution_visualizer">DNS Resolution Visualizer</h1>
+<p class="subtitle" ti="subtitle_watch_dns_queries_travel">Watch DNS queries travel from browser to root servers and back</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('visualizer')">Visualizer</button>
-<button class="tab" onclick="showTab('cache')">Cache Inspector</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('visualizer')" ti="btn_visualizer">Visualizer</button>
+<button class="tab" onclick="showTab('cache')" ti="btn_cache_inspector">Cache Inspector</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-visualizer" class="panel active">
 <div class="presets" id="presets"></div>
 <div class="controls">
-<label>Domain:</label>
-<input type="text" id="domain" value="www.example.com" placeholder="e.g. www.example.com">
-<label>Type:</label>
+<label ti="label_domain">Domain:</label>
+<input type="text" id="domain" value="www.example.com" tp="placeholder_e_g_www_example_com" placeholder="e.g. www.example.com">
+<label ti="label_type">Type:</label>
 <select id="qtype"><option>A</option><option>AAAA</option><option>CNAME</option><option>MX</option><option>NS</option><option>TXT</option></select>
-<div class="speed-control"><label>Speed:</label><input type="range" id="speed" min="1" max="5" value="3"><span id="speed-label">3×</span></div>
-<button class="btn btn-primary" id="btn-run" onclick="runSimulation()">▶ Resolve</button>
-<button class="btn btn-secondary" onclick="stepSimulation()">Step</button>
-<button class="btn btn-secondary" onclick="resetSimulation()">Reset</button>
+<div class="speed-control"><label ti="label_speed">Speed:</label><input type="range" id="speed" min="1" max="5" value="3"><span id="speed-label">3×</span></div>
+<button class="btn btn-primary" id="btn-run" onclick="runSimulation()" ti="btn_resolve">▶ Resolve</button>
+<button class="btn btn-secondary" onclick="stepSimulation()" ti="btn_step">Step</button>
+<button class="btn btn-secondary" onclick="resetSimulation()" ti="btn_reset">Reset</button>
 </div>
 
 <div class="diagram" id="diagram">
@@ -108,32 +110,32 @@ h1{text-align:center;font-size:1.6rem;color:#fff;margin-bottom:4px}
 </div>
 
 <div id="tab-cache" class="panel">
-<h3 style="color:#fff;margin-bottom:12px">DNS Cache State</h3>
+<h3 style="color:#fff;margin-bottom:12px" ti="h3_dns_cache_state">DNS Cache State</h3>
 <p style="color:#888;font-size:0.8rem;margin-bottom:12px">Records cached during simulation. TTL counts down in real-time.</p>
 <table class="cache-table">
-<thead><tr><th>Domain</th><th>Type</th><th>Value</th><th>TTL</th><th>Remaining</th></tr></thead>
+<thead><tr><th ti="th_domain">Domain</th><th ti="th_type">Type</th><th ti="th_value">Value</th><th ti="th_ttl">TTL</th><th ti="th_remaining">Remaining</th></tr></thead>
 <tbody id="cache-body"></tbody>
 </table>
 </div>
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>How DNS Resolution Works</h3>
+<h3 ti="h3_how_dns_resolution_works">How DNS Resolution Works</h3>
 <p>DNS (Domain Name System) translates human-readable domain names into IP addresses. The process involves multiple servers working together in a hierarchical system.</p>
 </div>
 <div class="ref-section">
-<h3>Resolution Steps</h3>
+<h3 ti="h3_resolution_steps">Resolution Steps</h3>
 <ul>
-<li><strong>Browser Cache</strong> — Browser checks its own DNS cache first (Chrome: chrome://net-internals/#dns)</li>
-<li><strong>OS Cache</strong> — Operating system's DNS resolver cache (stub resolver)</li>
-<li><strong>Recursive Resolver</strong> — ISP or configured DNS server (e.g., 8.8.8.8). Does the heavy lifting</li>
-<li><strong>Root Server</strong> — 13 root server clusters (a.root-servers.net through m.root-servers.net). Returns TLD nameserver</li>
-<li><strong>TLD Server</strong> — Top-Level Domain server (.com, .org, .net). Returns authoritative nameserver</li>
-<li><strong>Authoritative NS</strong> — The domain's own nameserver. Returns the actual DNS record</li>
+<li><strong ti="strong_browser_cache">Browser Cache</strong> — Browser checks its own DNS cache first (Chrome: chrome://net-internals/#dns)</li>
+<li><strong ti="strong_os_cache">OS Cache</strong> — Operating system's DNS resolver cache (stub resolver)</li>
+<li><strong ti="strong_recursive_resolver">Recursive Resolver</strong> — ISP or configured DNS server (e.g., 8.8.8.8). Does the heavy lifting</li>
+<li><strong ti="strong_root_server">Root Server</strong> — 13 root server clusters (a.root-servers.net through m.root-servers.net). Returns TLD nameserver</li>
+<li><strong ti="strong_tld_server">TLD Server</strong> — Top-Level Domain server (.com, .org, .net). Returns authoritative nameserver</li>
+<li><strong ti="strong_authoritative_ns">Authoritative NS</strong> — The domain's own nameserver. Returns the actual DNS record</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Record Types</h3>
+<h3 ti="h3_record_types">Record Types</h3>
 <p>
 <span class="record-type">A</span> IPv4 address
 <span class="record-type">AAAA</span> IPv6 address
@@ -146,19 +148,29 @@ h1{text-align:center;font-size:1.6rem;color:#fff;margin-bottom:4px}
 </p>
 </div>
 <div class="ref-section">
-<h3>Key Concepts</h3>
+<h3 ti="h3_key_concepts">Key Concepts</h3>
 <ul>
-<li><strong>TTL (Time To Live)</strong> — How long a record can be cached (seconds). Low TTL = fresher data but more queries</li>
-<li><strong>Recursive vs Iterative</strong> — Recursive: resolver does all work. Iterative: each server refers to the next</li>
-<li><strong>DNSSEC</strong> — Cryptographic signatures that verify DNS responses haven't been tampered with</li>
-<li><strong>DNS over HTTPS (DoH)</strong> — Encrypts DNS queries over HTTPS (port 443). Used by browsers</li>
-<li><strong>DNS over TLS (DoT)</strong> — Encrypts DNS queries over TLS (port 853). Used by OS resolvers</li>
-<li><strong>Anycast</strong> — Root/TLD servers use anycast routing — same IP, nearest physical server responds</li>
+<li><strong ti="strong_ttl_time_to_live">TTL (Time To Live)</strong> — How long a record can be cached (seconds). Low TTL = fresher data but more queries</li>
+<li><strong ti="strong_recursive_vs_iterative">Recursive vs Iterative</strong> — Recursive: resolver does all work. Iterative: each server refers to the next</li>
+<li><strong ti="strong_dnssec">DNSSEC</strong> — Cryptographic signatures that verify DNS responses haven't been tampered with</li>
+<li><strong ti="strong_dns_over_https_doh">DNS over HTTPS (DoH)</strong> — Encrypts DNS queries over HTTPS (port 443). Used by browsers</li>
+<li><strong ti="strong_dns_over_tls_dot">DNS over TLS (DoT)</strong> — Encrypts DNS queries over TLS (port 853). Used by OS resolvers</li>
+<li><strong ti="strong_anycast">Anycast</strong> — Root/TLD servers use anycast routing — same IP, nearest physical server responds</li>
 </ul>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_dns_resolution_visualizer':["DNS Resolution Visualizer — Step-by-Step DNS Lookup", "DNS解析可视化工具——逐​​步DNS查找"],'metadesc_interactive_dns_resolutio':["Interactive DNS resolution visualizer. Watch recursive and iterative queries, cache hits, DNSSEC validation, and TTL countdown step by step.", "交互式 DNS 解析可视化工具。逐步观察递归和迭代查询、缓存命中、DNSSEC 验证和 TTL 倒计时。"],'h1_dns_resolution_visualizer':["DNS Resolution Visualizer", "DNS解析可视化工具"],'h3_dns_cache_state':["DNS Cache State", "DNS缓存状态"],'h3_how_dns_resolution_works':["How DNS Resolution Works", "DNS解析的工作原理"],'h3_resolution_steps':["Resolution Steps", "解决方法"],'h3_record_types':["Record Types", "记录类型"],'h3_key_concepts':["Key Concepts", "关键概念"],'subtitle_watch_dns_queries_travel':["Watch DNS queries travel from browser to root servers and back", "观察 DNS 查询从浏览器到根服务器再返回的路径。"],'btn_visualizer':["Visualizer", "可视化工具"],'btn_cache_inspector':["Cache Inspector", "缓存检查器"],'btn_reference':["Reference", "参考"],'btn_resolve':["▶ Resolve", "▶ 解决"],'btn_step':["Step", "步"],'btn_reset':["Reset", "重置"],'btn_p_name':["${p.name}", "${p.name}"],'placeholder_e_g_www_example_com':["e.g. www.example.com", "例如 www.example.com"],'strong_browser_cache':["Browser Cache", "浏览器缓存"],'strong_os_cache':["OS Cache", "操作系统缓存"],'strong_recursive_resolver':["Recursive Resolver", "递归解析器"],'strong_root_server':["Root Server", "根服务器"],'strong_tld_server':["TLD Server", "顶级域名服务器"],'strong_authoritative_ns':["Authoritative NS", "权威的NS"],'strong_ttl_time_to_live':["TTL (Time To Live)", "TTL（生存时间）"],'strong_recursive_vs_iterative':["Recursive vs Iterative", "递归与迭代"],'strong_dnssec':["DNSSEC", "DNSSEC"],'strong_dns_over_https_doh':["DNS over HTTPS (DoH)", "基于 HTTPS 的 DNS（DoH）"],'strong_dns_over_tls_dot':["DNS over TLS (DoT)", "基于TLS的DNS（DoT）"],'strong_anycast':["Anycast", "任意播"],'th_domain':["Domain", "领域"],'th_type':["Type", "类型"],'th_value':["Value", "价值"],'th_ttl':["TTL", "TTL"],'th_remaining':["Remaining", "其余的"],'label_domain':["Domain:", "领域："],'label_type':["Type:", "类型："],'label_speed':["Speed:", "速度："],'jtc_resolve':["▶ Resolve", "▶ 解决"],'jtc_resolve_2':["▶ Resolve", "▶ 解决"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_resolve_3':["▶ Resolve", "▶ 解决"],'jtc_resolve_4':["▶ Resolve", "▶ 解决"],'jtc_resolve_5':["▶ Resolve", "▶ 解决"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {name:'Standard Lookup',domain:'www.example.com',type:'A',desc:'Full recursive resolution through all 6 steps',cacheHit:null},
@@ -199,7 +211,7 @@ function showTab(id) {
 function renderPresets() {
   const el = document.getElementById('presets');
   el.innerHTML = PRESETS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.desc}" ti="btn_p_name">${p.name}</button>`
   ).join('');
 }
 
@@ -409,7 +421,7 @@ function highlightNode(id, cached) {
 function executeStep() {
   if (stepIndex >= steps.length) {
     running = false;
-    document.getElementById('btn-run').textContent = '▶ Resolve';
+    document.getElementById('btn-run').textContent=T("jtc_resolve");
     return false;
   }
 
@@ -433,7 +445,7 @@ function runSimulation() {
   if (running) {
     running = false;
     clearTimeout(autoRunTimer);
-    document.getElementById('btn-run').textContent = '▶ Resolve';
+    document.getElementById('btn-run').textContent=T("jtc_resolve");
     return;
   }
 
@@ -447,7 +459,7 @@ function runSimulation() {
   }
 
   running = true;
-  document.getElementById('btn-run').textContent = '⏸ Pause';
+  document.getElementById('btn-run').textContent=T("jtc_pause");
 
   function tick() {
     if (!running) return;
@@ -455,7 +467,7 @@ function runSimulation() {
       autoRunTimer = setTimeout(tick, getDelay());
     } else {
       running = false;
-      document.getElementById('btn-run').textContent = '▶ Resolve';
+      document.getElementById('btn-run').textContent=T("jtc_resolve");
     }
   }
   tick();
@@ -472,7 +484,7 @@ function stepSimulation() {
   }
   running = false;
   clearTimeout(autoRunTimer);
-  document.getElementById('btn-run').textContent = '▶ Resolve';
+  document.getElementById('btn-run').textContent=T("jtc_resolve");
   executeStep();
 }
 
@@ -482,7 +494,7 @@ function resetSimulation() {
   steps = [];
   stepIndex = 0;
   document.getElementById('log').innerHTML = '';
-  document.getElementById('btn-run').textContent = '▶ Resolve';
+  document.getElementById('btn-run').textContent=T("jtc_resolve");
   highlightNode(null);
   renderDiagram();
   initArrowDefs();
@@ -521,6 +533,24 @@ initArrowDefs();
 setInterval(() => {
   if (document.getElementById('tab-cache').classList.contains('active')) renderCacheTable();
 }, 1000);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

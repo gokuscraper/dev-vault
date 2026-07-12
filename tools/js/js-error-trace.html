@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_error_stack_trace_visu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -77,34 +77,46 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>JS Error Stack Trace Visualizer</h1>
+  <h1 ti="title_js_error_stack_trace_visu" ti="h1_js_error_stack_trace_visu">JS Error Stack Trace Visualizer</h1>
   <span>Run code, catch errors, visualize the call stack</span>
 </div>
 
 <div class="main">
   <div class="left">
-    <label>JavaScript Code</label>
+    <label ti="label_javascript_code">JavaScript Code</label>
     <textarea id="codeInput" spellcheck="false"></textarea>
     <div class="presets-bar" id="presetsBar"></div>
     <div class="controls">
-      <button class="btn btn-primary" onclick="runCode()">Run & Trace</button>
-      <button class="btn-sm" onclick="clearAll()">Clear</button>
+      <button class="btn btn-primary" onclick="runCode()" ti="btn_run_trace">Run & Trace</button>
+      <button class="btn-sm" onclick="clearAll()" ti="btn_clear">Clear</button>
     </div>
   </div>
   <div class="right">
     <div id="errorBanner"></div>
     <div class="frames-area" id="framesArea">
-      <div style="color:var(--dim);text-align:center;padding-top:60px;font-size:12px">Click <strong>Run & Trace</strong> to execute code and visualize any errors</div>
+      <div style="color:var(--dim);text-align:center;padding-top:60px;font-size:12px">Click <strong ti="strong_run_trace" ti="strong_run_trace_2">Run & Trace</strong> to execute code and visualize any errors</div>
     </div>
     <div class="flow-area" id="flowArea" style="display:none">
-      <h3>Error Propagation</h3>
+      <h3 ti="h3_error_propagation">Error Propagation</h3>
       <div id="flowSteps"></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_js_error_stack_trace_visu':["JS Error Stack Trace Visualizer", "JS 错误堆栈跟踪可视化工具"],'metadesc_interactive_javascript_er':["Interactive JavaScript error stack trace visualizer. Generate errors, see the call stack visually, understand error propagation and try/catch flow.", "交互式 JavaScript 错误堆栈跟踪可视化工具。生成错误，直观查看调用堆栈，了解错误传播和 try/catch 流程。"],'h1_js_error_stack_trace_visu':["JS Error Stack Trace Visualizer", "JS 错误堆栈跟踪可视化工具"],'h1_name':["' + name + '", "&#39; + 姓名 + &#39;"],'h3_error_propagation':["Error Propagation", "错误传播"],'btn_run_trace':["Run & Trace", "运行与追踪"],'btn_clear':["Clear", "清除"],'strong_run_trace':["Run & Trace", "运行与追踪"],'strong_run_trace_2':["Run & Trace", "运行与追踪"],'label_javascript_code':["JavaScript Code", "JavaScript 代码"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -135,7 +147,7 @@ function getDisplayName(data) {
 
 function renderProfile(config) {
   const name = getDisplayName(config);
-  return '<h1>' + name + '</h1>';
+  return '<h1 ti="h1_name">' + name + '</h1>';
 }
 
 renderProfile({ user: null });`
@@ -554,6 +566,24 @@ function esc(s) {
 
 // Auto-run first preset
 runCode();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

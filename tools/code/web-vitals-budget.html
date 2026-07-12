@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_vitals_budget_calcula" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -130,6 +130,8 @@ pre .copy-btn {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>Web Vitals <span>Budget</span> Calculator</h1>
@@ -138,17 +140,17 @@ pre .copy-btn {
 
 <main>
   <div class="tabs" role="tablist">
-    <button class="tab active" data-panel="vitals" role="tab">Vitals Budget</button>
-    <button class="tab" data-panel="resources" role="tab">Resource Budget</button>
-    <button class="tab" data-panel="thirdparty" role="tab">Third-Party Cost</button>
-    <button class="tab" data-panel="comparison" role="tab">Before/After</button>
-    <button class="tab" data-panel="export" role="tab">Export Config</button>
+    <button class="tab active" data-panel="vitals" role="tab" ti="btn_vitals_budget">Vitals Budget</button>
+    <button class="tab" data-panel="resources" role="tab" ti="btn_resource_budget">Resource Budget</button>
+    <button class="tab" data-panel="thirdparty" role="tab" ti="btn_third_party_cost">Third-Party Cost</button>
+    <button class="tab" data-panel="comparison" role="tab" ti="btn_before_after">Before/After</button>
+    <button class="tab" data-panel="export" role="tab" ti="btn_export_config">Export Config</button>
   </div>
 
   <!-- Vitals Budget Panel -->
   <div class="panel active" id="vitals">
     <div class="card">
-      <h2>Core Web Vitals Budget</h2>
+      <h2 ti="h2_core_web_vitals_budget">Core Web Vitals Budget</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Set target thresholds for each Core Web Vital. Values are based on Google's recommended p75 thresholds.</p>
 
       <div class="form-row-3" style="margin-bottom:1.5rem;">
@@ -188,19 +190,19 @@ pre .copy-btn {
       </div>
 
       <div class="card" style="background:var(--surface-2);">
-        <h3>Budget Summary</h3>
+        <h3 ti="h3_budget_summary">Budget Summary</h3>
         <div id="budgetSummary" style="font-size:0.9rem;"></div>
       </div>
     </div>
 
     <div class="card">
-      <h2>Google Thresholds Reference</h2>
+      <h2 ti="h2_google_thresholds_referen">Google Thresholds Reference</h2>
       <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
         <tr style="border-bottom:1px solid var(--border);">
-          <th style="text-align:left;padding:0.5rem;">Metric</th>
-          <th style="text-align:center;padding:0.5rem;color:var(--good);">Good</th>
-          <th style="text-align:center;padding:0.5rem;color:var(--needs-improvement);">Needs Improvement</th>
-          <th style="text-align:center;padding:0.5rem;color:var(--poor);">Poor</th>
+          <th style="text-align:left;padding:0.5rem;" ti="th_metric">Metric</th>
+          <th style="text-align:center;padding:0.5rem;color:var(--good);" ti="th_good">Good</th>
+          <th style="text-align:center;padding:0.5rem;color:var(--needs-improvement);" ti="th_needs_improvement">Needs Improvement</th>
+          <th style="text-align:center;padding:0.5rem;color:var(--poor);" ti="th_poor">Poor</th>
         </tr>
         <tr style="border-bottom:1px solid var(--border);">
           <td style="padding:0.5rem;">LCP</td>
@@ -215,7 +217,7 @@ pre .copy-btn {
           <td style="text-align:center;padding:0.5rem;">&gt; 500ms</td>
         </tr>
         <tr>
-          <td style="padding:0.5rem;">CLS</td>
+          <td style="padding:0.5rem;" ti="label_cls" ti="label_cls_2">CLS</td>
           <td style="text-align:center;padding:0.5rem;">≤ 0.1</td>
           <td style="text-align:center;padding:0.5rem;">0.1 – 0.25</td>
           <td style="text-align:center;padding:0.5rem;">&gt; 0.25</td>
@@ -227,54 +229,54 @@ pre .copy-btn {
   <!-- Resource Budget Panel -->
   <div class="panel" id="resources">
     <div class="card">
-      <h2>Resource Budget Allocation</h2>
+      <h2 ti="h2_resource_budget_allocatio">Resource Budget Allocation</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Set transfer size budgets for each resource type. Total affects LCP and load time.</p>
 
       <div class="form-group">
-        <label for="totalBudget">Total Page Weight Budget (KB)</label>
+        <label for="totalBudget" ti="label_total_page_weight_budget">Total Page Weight Budget (KB)</label>
         <input type="number" id="totalBudget" value="500" min="50" max="10000" oninput="updateResourceBudget()">
       </div>
 
       <div style="margin-top:1rem;">
         <div class="resource-row" style="font-weight:600;color:var(--text-dim);border-bottom:2px solid var(--border);">
-          <label style="margin-bottom:0;">Resource</label>
+          <label style="margin-bottom:0;" ti="label_resource">Resource</label>
           <span>Budget Allocation</span>
           <span>Size (KB)</span>
           <span>%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">JavaScript</label>
-          <div class="budget-bar"><div class="budget-bar-fill" id="jsBar" style="width:30%;background:var(--needs-improvement);"></div><span class="budget-bar-label" id="jsBarLabel">150 KB</span></div>
+          <label style="margin-bottom:0;" ti="label_javascript">JavaScript</label>
+          <div class="budget-bar"><div class="budget-bar-fill" id="jsBar" style="width:30%;background:var(--needs-improvement);"></div><span class="budget-bar-label" id="jsBarLabel" ti="label_150_kb">150 KB</span></div>
           <input type="number" id="jsBudget" value="150" min="0" oninput="updateResourceBudget()">
           <span id="jsPercent">30%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">CSS</label>
-          <div class="budget-bar"><div class="budget-bar-fill" id="cssBar" style="width:10%;background:var(--accent);"></div><span class="budget-bar-label" id="cssBarLabel">50 KB</span></div>
+          <label style="margin-bottom:0;" ti="label_css">CSS</label>
+          <div class="budget-bar"><div class="budget-bar-fill" id="cssBar" style="width:10%;background:var(--accent);"></div><span class="budget-bar-label" id="cssBarLabel" ti="label_50_kb" ti="label_50_kb_2">50 KB</span></div>
           <input type="number" id="cssBudget" value="50" min="0" oninput="updateResourceBudget()">
           <span id="cssPercent">10%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">Images</label>
-          <div class="budget-bar"><div class="budget-bar-fill" id="imgBar" style="width:40%;background:var(--good);"></div><span class="budget-bar-label" id="imgBarLabel">200 KB</span></div>
+          <label style="margin-bottom:0;" ti="label_images">Images</label>
+          <div class="budget-bar"><div class="budget-bar-fill" id="imgBar" style="width:40%;background:var(--good);"></div><span class="budget-bar-label" id="imgBarLabel" ti="label_200_kb">200 KB</span></div>
           <input type="number" id="imgBudget" value="200" min="0" oninput="updateResourceBudget()">
           <span id="imgPercent">40%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">Fonts</label>
+          <label style="margin-bottom:0;" ti="label_fonts">Fonts</label>
           <div class="budget-bar"><div class="budget-bar-fill" id="fontBar" style="width:10%;background:#9c27b0;"></div><span class="budget-bar-label" id="fontBarLabel">50 KB</span></div>
           <input type="number" id="fontBudget" value="50" min="0" oninput="updateResourceBudget()">
           <span id="fontPercent">10%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">HTML</label>
-          <div class="budget-bar"><div class="budget-bar-fill" id="htmlBar" style="width:4%;background:#607d8b;"></div><span class="budget-bar-label" id="htmlBarLabel">20 KB</span></div>
+          <label style="margin-bottom:0;" ti="label_html">HTML</label>
+          <div class="budget-bar"><div class="budget-bar-fill" id="htmlBar" style="width:4%;background:#607d8b;"></div><span class="budget-bar-label" id="htmlBarLabel" ti="label_20_kb">20 KB</span></div>
           <input type="number" id="htmlBudget" value="20" min="0" oninput="updateResourceBudget()">
           <span id="htmlPercent">4%</span>
         </div>
         <div class="resource-row">
-          <label style="margin-bottom:0;">Other</label>
-          <div class="budget-bar"><div class="budget-bar-fill" id="otherBar" style="width:6%;background:#795548;"></div><span class="budget-bar-label" id="otherBarLabel">30 KB</span></div>
+          <label style="margin-bottom:0;" ti="label_other">Other</label>
+          <div class="budget-bar"><div class="budget-bar-fill" id="otherBar" style="width:6%;background:#795548;"></div><span class="budget-bar-label" id="otherBarLabel" ti="label_30_kb">30 KB</span></div>
           <input type="number" id="otherBudget" value="30" min="0" oninput="updateResourceBudget()">
           <span id="otherPercent">6%</span>
         </div>
@@ -292,7 +294,7 @@ pre .copy-btn {
     </div>
 
     <div class="card">
-      <h3>Transfer Size Impact on Load Time</h3>
+      <h3 ti="h3_transfer_size_impact_on_l">Transfer Size Impact on Load Time</h3>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.75rem;">Estimated load time at different connection speeds:</p>
       <div class="form-row-3" id="loadTimeEstimates"></div>
     </div>
@@ -301,7 +303,7 @@ pre .copy-btn {
   <!-- Third-Party Panel -->
   <div class="panel" id="thirdparty">
     <div class="card">
-      <h2>Third-Party Script Cost Estimator</h2>
+      <h2 ti="h2_third_party_script_cost_e">Third-Party Script Cost Estimator</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Estimate the performance impact of common third-party scripts.</p>
 
       <div id="thirdPartyList">
@@ -314,7 +316,7 @@ pre .copy-btn {
       </div>
 
       <div style="margin-top:1rem;padding:0.75rem;background:var(--surface-2);border-radius:var(--radius);border:1px solid var(--border);">
-        <h3 style="margin-bottom:0.5rem;">Total Third-Party Impact</h3>
+        <h3 style="margin-bottom:0.5rem;" ti="h3_total_third_party_impact">Total Third-Party Impact</h3>
         <div id="tpSummary"></div>
       </div>
     </div>
@@ -323,18 +325,18 @@ pre .copy-btn {
   <!-- Before/After Panel -->
   <div class="panel" id="comparison">
     <div class="card">
-      <h2>Before / After Comparison</h2>
+      <h2 ti="h2_before_after_comparison">Before / After Comparison</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Compare current performance with your budget targets.</p>
 
       <div class="two-col">
         <div>
-          <h3 style="color:var(--poor);margin-bottom:0.75rem;">Before (Current)</h3>
+          <h3 style="color:var(--poor);margin-bottom:0.75rem;" ti="h3_before_current">Before (Current)</h3>
           <div class="form-group">
-            <label>LCP (ms)</label>
+            <label ti="label_lcp_ms" ti="label_lcp_ms_2">LCP (ms)</label>
             <input type="number" id="beforeLcp" value="4200" oninput="updateComparison()">
           </div>
           <div class="form-group">
-            <label>INP (ms)</label>
+            <label ti="label_inp_ms" ti="label_inp_ms_2">INP (ms)</label>
             <input type="number" id="beforeInp" value="380" oninput="updateComparison()">
           </div>
           <div class="form-group">
@@ -342,12 +344,12 @@ pre .copy-btn {
             <input type="number" id="beforeCls" value="0.28" step="0.01" oninput="updateComparison()">
           </div>
           <div class="form-group">
-            <label>Total Page Weight (KB)</label>
+            <label ti="label_total_page_weight_kb" ti="label_total_page_weight_kb_2">Total Page Weight (KB)</label>
             <input type="number" id="beforeWeight" value="1800" oninput="updateComparison()">
           </div>
         </div>
         <div>
-          <h3 style="color:var(--good);margin-bottom:0.75rem;">After (Budget Target)</h3>
+          <h3 style="color:var(--good);margin-bottom:0.75rem;" ti="h3_after_budget_target">After (Budget Target)</h3>
           <div class="form-group">
             <label>LCP (ms)</label>
             <input type="number" id="afterLcp" value="2500" oninput="updateComparison()">
@@ -370,19 +372,19 @@ pre .copy-btn {
 
     <div class="two-col">
       <div class="card comparison-col">
-        <h3 style="color:var(--poor);">Before Score</h3>
+        <h3 style="color:var(--poor);" ti="h3_before_score">Before Score</h3>
         <div class="score-circle" id="beforeScore" style="border-color:var(--poor);color:var(--poor);">35</div>
         <div id="beforeDetails"></div>
       </div>
       <div class="card comparison-col">
-        <h3 style="color:var(--good);">After Score</h3>
+        <h3 style="color:var(--good);" ti="h3_after_score">After Score</h3>
         <div class="score-circle" id="afterScore" style="border-color:var(--good);color:var(--good);">92</div>
         <div id="afterDetails"></div>
       </div>
     </div>
 
     <div class="card">
-      <h3>Improvement Summary</h3>
+      <h3 ti="h3_improvement_summary">Improvement Summary</h3>
       <div id="improvementSummary"></div>
     </div>
   </div>
@@ -390,21 +392,31 @@ pre .copy-btn {
   <!-- Export Panel -->
   <div class="panel" id="export">
     <div class="card">
-      <h2>Export Performance Budget</h2>
+      <h2 ti="h2_export_performance_budget">Export Performance Budget</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">Generate configuration files for CI/CD integration.</p>
 
       <div class="btn-row" style="margin-bottom:1rem;">
-        <button onclick="generateExport('json')">JSON</button>
-        <button onclick="generateExport('yaml')">YAML</button>
-        <button onclick="generateExport('lighthouse')">Lighthouse CI</button>
-        <button onclick="generateExport('bundlesize')">bundlesize</button>
+        <button onclick="generateExport('json')" ti="btn_json">JSON</button>
+        <button onclick="generateExport('yaml')" ti="btn_yaml">YAML</button>
+        <button onclick="generateExport('lighthouse')" ti="btn_lighthouse_ci">Lighthouse CI</button>
+        <button onclick="generateExport('bundlesize')" ti="btn_bundlesize">bundlesize</button>
       </div>
 
-      <pre id="exportOutput"><button class="copy-btn" onclick="copyCode('exportOutput')">Copy</button>Select a format above to generate configuration.</pre>
+      <pre id="exportOutput"><button class="copy-btn" onclick="copyCode('exportOutput')" ti="btn_copy" ti="btn_copy_2">Copy</button>Select a format above to generate configuration.</pre>
     </div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_web_vitals_budget_calcula':["Web Vitals Budget Calculator", "网络预算计算器"],'metadesc_calculate_performance_bud':["Calculate performance budgets for Core Web Vitals (LCP, INP, CLS). Allocate resource budgets, estimate third-party costs, and export Lighthouse CI configs.", "计算核心 Web 指标（LCP、INP、CLS）的性能预算。分配资源预算，估算第三方成本，并导出 Lighthouse CI 配置。"],'h2_core_web_vitals_budget':["Core Web Vitals Budget", "核心网站指标预算"],'h2_google_thresholds_referen':["Google Thresholds Reference", "Google 阈值参考"],'h2_resource_budget_allocatio':["Resource Budget Allocation", "资源预算分配"],'h2_third_party_script_cost_e':["Third-Party Script Cost Estimator", "第三方脚本成本估算器"],'h2_before_after_comparison':["Before / After Comparison", "前后对比"],'h2_export_performance_budget':["Export Performance Budget", "出口绩效预算"],'h3_budget_summary':["Budget Summary", "预算概要"],'h3_transfer_size_impact_on_l':["Transfer Size Impact on Load Time", "传输尺寸对加载时间的影响"],'h3_total_third_party_impact':["Total Third-Party Impact", "第三方总影响"],'h3_before_current':["Before (Current)", "之前（当前）"],'h3_after_budget_target':["After (Budget Target)", "（预算目标之后）"],'h3_before_score':["Before Score", "得分前"],'h3_after_score':["After Score", "得分后"],'h3_improvement_summary':["Improvement Summary", "改进概要"],'btn_vitals_budget':["Vitals Budget", "重要预算"],'btn_resource_budget':["Resource Budget", "资源预算"],'btn_third_party_cost':["Third-Party Cost", "第三方费用"],'btn_before_after':["Before/After", "之前/之后"],'btn_export_config':["Export Config", "导出配置"],'btn_json':["JSON", "JSON"],'btn_yaml':["YAML", "YAML"],'btn_lighthouse_ci':["Lighthouse CI", "灯塔 CI"],'btn_bundlesize':["bundlesize", "捆绑包大小"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'label_150_kb':["150 KB", "150 KB"],'label_50_kb':["50 KB", "50 KB"],'label_200_kb':["200 KB", "200 KB"],'label_50_kb_2':["50 KB", "50 KB"],'label_20_kb':["20 KB", "20 KB"],'label_30_kb':["30 KB", "30 KB"],'th_metric':["Metric", "指标"],'th_good':["Good", "好的"],'th_needs_improvement':["Needs Improvement", "需要改进"],'th_poor':["Poor", "贫穷的"],'label_total_page_weight_budget':["Total Page Weight Budget (KB)", "总页面重量预算（KB）"],'label_resource':["Resource", "资源"],'label_javascript':["JavaScript", "JavaScript"],'label_css':["CSS", "CSS"],'label_images':["Images", "图片"],'label_fonts':["Fonts", "字体"],'label_html':["HTML", "HTML"],'label_other':["Other", "其他"],'label_lcp_ms':["LCP (ms)", "LCP（毫秒）"],'label_inp_ms':["INP (ms)", "INP（毫秒）"],'label_cls':["CLS", "临床实验室科学"],'label_total_page_weight_kb':["Total Page Weight (KB)", "页面总大小（KB）"],'label_lcp_ms_2':["LCP (ms)", "LCP（毫秒）"],'label_inp_ms_2':["INP (ms)", "INP（毫秒）"],'label_cls_2':["CLS", "临床实验室科学"],'label_total_page_weight_kb_2':["Total Page Weight (KB)", "页面总大小（KB）"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_good':["Good", "好的"],'jtc_needs_improvement':["Needs Improvement", "需要改进"],'jtc_poor':["Poor", "贫穷的"],'jtlword_lcp':["LCP", "液晶聚合物"],'jtlword_inp':["INP", "国立国际"],'jtlword_cls':["CLS", "临床实验室科学"],'jtlword_weight':["Weight", "重量"],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab Navigation ===
 document.querySelectorAll('.tab').forEach(tab => {
@@ -421,7 +433,7 @@ function copyCode(preId) {
   const text = pre.textContent.replace(/^Copy/, '').trim();
   navigator.clipboard.writeText(text).then(() => {
     const btn = pre.querySelector('.copy-btn');
-    if (btn) { btn.textContent = 'Copied!'; setTimeout(() => btn.textContent = 'Copy', 1500); }
+    if (btn) { btn.textContent=T("jtc_copied"); setTimeout(() => btn.textContent=T("jtc_copy"), 1500); }
   });
 }
 
@@ -442,13 +454,13 @@ function updateVital(metric) {
 
   const compareVal = metric === 'cls' ? val : val;
   if (compareVal <= t.good) {
-    ratingEl.textContent = 'Good';
+    ratingEl.textContent=T("jtc_good");
     ratingEl.className = 'metric-rating rating-good';
   } else if (compareVal <= t.poor) {
-    ratingEl.textContent = 'Needs Improvement';
+    ratingEl.textContent=T("jtc_needs_improvement");
     ratingEl.className = 'metric-rating rating-needs';
   } else {
-    ratingEl.textContent = 'Poor';
+    ratingEl.textContent=T("jtc_poor");
     ratingEl.className = 'metric-rating rating-poor';
   }
 
@@ -803,6 +815,24 @@ function escapeHtml(str) {
   d.textContent = str;
   return d.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

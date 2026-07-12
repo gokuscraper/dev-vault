@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_safelink_decoder" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,19 +25,43 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Safelink Decoder</h1>
-  <p class="desc">Decode protected URLs from Microsoft Defender, Google, and other safelink services</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_safelink_decoder" ti="h1_safelink_decoder" ti="title_safelink_decoder" ti="h1_safelink_decoder">Safelink Decoder</h1>
+  <p class="desc" ti="subtitle_decode_protected_urls_fro" ti="subtitle_decode_protected_urls_fro">Decode protected URLs from Microsoft Defender, Google, and other safelink services</p>
   <div class="card">
-    <label>Paste a safelink URL or raw encoded URL</label>
+    <label ti="label_paste_a_safelink_url_or_r" ti="label_paste_a_safelink_url_or_r">Paste a safelink URL or raw encoded URL</label>
     <textarea id="input" rows="4" spellcheck="false">https://nam12.safelinks.protection.outlook.com/?url=https%3A%2F%2Fexample.com%2Fpage%3Fq%3Dtest&amp;data=05%7C02%7C</textarea>
     <div id="results"></div>
     <div class="flex-center">
-      <button id="decodeBtn">Decode</button>
-      <button id="clearBtn">Clear</button>
+   
+<script>var _LANG={'title_safelink_decoder':["Safelink Decoder", "Safelink解码器"],'metadesc_decode_microsoft_defender':["Decode Microsoft Defender, Google Safe Browsing, and other URL protection safelinks to reveal the original destination URL.", "解码 Microsoft Defender、Google 安全浏览和其他 URL 保护安全链接，以显示原始目标 URL。"],'h1_safelink_decoder':["Safelink Decoder", "Safelink解码器"],'subtitle_decode_protected_urls_fro':["Decode protected URLs from Microsoft Defender, Google, and other safelink services", "解码来自 Microsoft Defender、Google 和其他 Safelink 服务的受保护 URL"],'btn_decode':["Decode", "解码"],'btn_clear':["Clear", "清除"],'label_paste_a_safelink_url_or_r':["Paste a safelink URL or raw encoded URL", "粘贴安全链接 URL 或原始编码 URL"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+   <button id="decodeBtn" ti="btn_decode" ti="btn_decode">Decode</button>
+      <button id="clearBtn" ti="btn_clear" ti="btn_clear">Clear</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_safelink_decoder':["Safelink Decoder", "Safelink解码器"],'metadesc_decode_microsoft_defender':["Decode Microsoft Defender, Google Safe Browsing, and other URL protection safelinks to reveal the original destination URL.", "解码 Microsoft Defender、Google 安全浏览和其他 URL 保护安全链接，以显示原始目标 URL。"],'h1_safelink_decoder':["Safelink Decoder", "Safelink解码器"],'subtitle_decode_protected_urls_fro':["Decode protected URLs from Microsoft Defender, Google, and other safelink services", "解码来自 Microsoft Defender、Google 和其他 Safelink 服务的受保护 URL"],'btn_decode':["Decode", "解码"],'btn_clear':["Clear", "清除"],'label_paste_a_safelink_url_or_r':["Paste a safelink URL or raw encoded URL", "粘贴安全链接 URL 或原始编码 URL"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function decodeSafelink(url) {
   const results = [];
@@ -121,6 +145,42 @@ document.getElementById('clearBtn').addEventListener('click', () => {
 });
 // Auto-decode on input
 document.getElementById('input').addEventListener('input', decode);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

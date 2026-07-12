@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_wifi_qr_code_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,36 +29,48 @@ button.primary:hover{background:#2563eb}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>WiFi QR Code Generator</h1>
-  <p class="desc">Generate a QR code for sharing WiFi credentials</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_wifi_qr_code_generator" ti="h1_wifi_qr_code_generator">WiFi QR Code Generator</h1>
+  <p class="desc" ti="subtitle_generate_a_qr_code_for_sh">Generate a QR code for sharing WiFi credentials</p>
   <script src="https://cdn.jsdelivr.net/npm/qr-code-styling@1.9.1/lib/qr-code-styling.min.js"></script>
   <div class="card">
-    <label>Encryption</label>
+    <label ti="label_encryption">Encryption</label>
     <select id="encryption">
       <option value="WPA">WPA/WPA2</option>
       <option value="nopass">No password</option>
       <option value="WEP">WEP</option>
       <option value="WPA2-EAP">WPA2-EAP</option>
     </select>
-    <label>SSID</label>
+    <label ti="label_ssid">SSID</label>
     <input type="text" id="ssid" value="My WiFi" spellcheck="false">
     <div class="check-row">
       <input type="checkbox" id="hiddenSsid">
-      <label for="hiddenSsid">Hidden SSID</label>
+      <label for="hiddenSsid" ti="label_hidden_ssid">Hidden SSID</label>
     </div>
     <div id="passwordRow">
-      <label>Password</label>
+      <label ti="label_password">Password</label>
       <input type="text" id="password" value="password123" spellcheck="false">
     </div>
   </div>
   <div class="card">
     <div class="qr-box" id="qrBox">
       <div id="qrPlaceholder" style="width:220px;height:220px;margin:0 auto 12px;background:#161616;border:1px solid #333;border-radius:8px;display:flex;align-items:center;justify-content:center;color:#555;font-size:0.85rem">Generating...</div>
-      <button class="primary" id="downloadBtn">Download QR code</button>
+      <button class="primary" id="downloadBtn" ti="btn_download_qr_code">Download QR code</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_wifi_qr_code_generator':["WiFi QR Code Generator", "WiFi二维码生成器"],'metadesc_generate_a_qr_code_for_sh':["Generate a QR code for sharing WiFi network credentials. Supports WPA/WPA2, WEP, no password, and WPA2-EAP.", "生成用于分享 WiFi 网络凭据的二维码。支持 WPA/WPA2、WEP、无密码和 WPA2-EAP 加密方式。"],'h1_wifi_qr_code_generator':["WiFi QR Code Generator", "WiFi二维码生成器"],'subtitle_generate_a_qr_code_for_sh':["Generate a QR code for sharing WiFi credentials", "生成用于共享 WiFi 凭据的二维码"],'btn_download_qr_code':["Download QR code", "下载二维码"],'label_encryption':["Encryption", "加密"],'label_ssid':["SSID", "SSID"],'label_hidden_ssid':["Hidden SSID", "隐藏的 SSID"],'label_password':["Password", "密码"],'jtc_generating':["Generating...", "正在生成..."],'jtc_error_generating_qr':["Error generating QR", "生成二维码时出错"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let qrCode = null;
 
@@ -84,7 +96,7 @@ function update() {
 
   if (qrCode) { try { qrCode.update({ data: wifiStr }); } catch(e) {} }
   else {
-    placeholder.textContent = 'Generating...';
+    placeholder.textContent=T("jtc_generating");
     setTimeout(() => {
       try {
         qrCode = new QRCodeStyling({
@@ -96,7 +108,7 @@ function update() {
           backgroundOptions: { color: '#000000' },
         });
         qrCode.append(placeholder);
-      } catch(e) { placeholder.textContent = 'Error generating QR'; }
+      } catch(e) { placeholder.textContent=T("jtc_error_generating_qr"); }
     }, 100);
   }
 }
@@ -110,6 +122,24 @@ document.getElementById('downloadBtn').addEventListener('click', () => {
 });
 
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

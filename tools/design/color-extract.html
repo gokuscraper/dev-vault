@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_extract_extract_col" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,9 +57,11 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Color Extract</h1>
-  <p class="subtitle">Drop an image. Get its color palette.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_color_extract">Color Extract</h1>
+  <p class="subtitle" ti="subtitle_drop_an_image_get_its_col">Drop an image. Get its color palette.</p>
 
   <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
     <input type="file" id="fileInput" accept="image/*" onchange="handleFile(this.files[0])">
@@ -69,7 +71,7 @@ footer a{color:var(--accent);text-decoration:none}
   </div>
 
   <div class="controls" id="controls" style="display:none">
-    <label>Colors:</label>
+    <label ti="label_colors">Colors:</label>
     <select id="colorCount" onchange="reExtract()">
       <option value="5">5</option>
       <option value="6" selected>6</option>
@@ -77,7 +79,7 @@ footer a{color:var(--accent);text-decoration:none}
       <option value="10">10</option>
       <option value="12">12</option>
     </select>
-    <label>Format:</label>
+    <label ti="label_format">Format:</label>
     <select id="format">
       <option value="hex">HEX</option>
       <option value="rgb">RGB</option>
@@ -90,8 +92,8 @@ footer a{color:var(--accent);text-decoration:none}
       <img id="previewImg">
       <div class="palette-section">
         <div class="palette-header">
-          <h3>Dominant Colors</h3>
-          <button onclick="downloadPalette()">⬇ Download PNG</button>
+          <h3 ti="h3_dominant_colors">Dominant Colors</h3>
+          <button onclick="downloadPalette()" ti="btn_download_png">⬇ Download PNG</button>
         </div>
         <div class="color-list" id="colorList"></div>
         <div class="palette-strip" id="paletteStrip"></div>
@@ -104,9 +106,19 @@ footer a{color:var(--accent);text-decoration:none}
 <canvas id="canvas"></canvas>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 61+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 61+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_color_extract_extract_col':["Color Extract — Extract Color Palette from Images", "颜色提取 — 从图像中提取调色板"],'metadesc_upload_an_image_and_extra':["Upload an image and extract its dominant color palette. Get HEX, RGB, HSL values. Download palette as PNG.", "上传图片并提取其主色调。获取 HEX、RGB 和 HSL 值。将色调下载为 PNG 文件。"],'h1_color_extract':["Color Extract", "颜色提取物"],'h3_dominant_colors':["Dominant Colors", "主色调"],'subtitle_drop_an_image_get_its_col':["Drop an image. Get its color palette.", "拖放一张图片，获取它的调色板。"],'btn_download_png':["⬇ Download PNG", "⬇ 下载 PNG"],'strong_related_tools':["Related Tools", "相关工具"],'label_colors':["Colors:", "颜色："],'label_format':["Format:", "格式："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 let currentColors = [];
@@ -295,12 +307,30 @@ function downloadPalette() {
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/contrast-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Contrast Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/image-resize/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Image Resize</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

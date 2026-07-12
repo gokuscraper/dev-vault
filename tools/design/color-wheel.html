@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_wheel_interactive_c" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,8 +68,10 @@ canvas{cursor:crosshair;border-radius:50%}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Color Wheel — Interactive Color Picker</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_color_wheel_interactive_c" ti="h1_color_wheel_interactive_c">Color Wheel — Interactive Color Picker</h1>
 <p class="sub">Click the wheel to pick a hue, then adjust saturation &amp; lightness. Choose a harmony mode.</p>
 
 <div class="top">
@@ -83,23 +85,23 @@ canvas{cursor:crosshair;border-radius:50%}
     <div class="swatch-big" id="mainSwatch" title="Click to copy HEX"></div>
     <div class="card">
       <div class="values">
-        <div><label>HEX</label><input id="vHex" maxlength="7"></div>
-        <div><label>RGB</label><input id="vRgb"></div>
-        <div><label>HSL</label><input id="vHsl"></div>
-        <div><label>HSV</label><input id="vHsv"></div>
+        <div><label ti="label_hex">HEX</label><input id="vHex" maxlength="7"></div>
+        <div><label ti="label_rgb">RGB</label><input id="vRgb"></div>
+        <div><label ti="label_hsl">HSL</label><input id="vHsl"></div>
+        <div><label ti="label_hsv">HSV</label><input id="vHsv"></div>
       </div>
     </div>
     <div class="card">
       <div class="section-title">Harmony Mode</div>
       <div class="modes">
-        <button class="active" data-mode="complementary">Complementary</button>
-        <button data-mode="analogous">Analogous</button>
-        <button data-mode="triadic">Triadic</button>
-        <button data-mode="split">Split-Comp</button>
-        <button data-mode="tetradic">Tetradic</button>
+        <button class="active" data-mode="complementary" ti="btn_complementary">Complementary</button>
+        <button data-mode="analogous" ti="btn_analogous">Analogous</button>
+        <button data-mode="triadic" ti="btn_triadic">Triadic</button>
+        <button data-mode="split" ti="btn_split_comp">Split-Comp</button>
+        <button data-mode="tetradic" ti="btn_tetradic">Tetradic</button>
       </div>
       <div class="harmony-swatches" id="harmonySwatches"></div>
-      <button class="export-btn" id="exportBtn">Copy as CSS Variables</button>
+      <button class="export-btn" id="exportBtn" ti="btn_copy_as_css_variables">Copy as CSS Variables</button>
     </div>
     <div class="card">
       <div class="section-title">Tints &amp; Shades</div>
@@ -114,12 +116,22 @@ canvas{cursor:crosshair;border-radius:50%}
 
 <div class="footer">
   Built by <a href="https://github.com/gokuscraper" target="_blank">gokuscraper</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a><br>
+  <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault">Dev Vault</a><br>
   Related: <a href="https://gokuscraper.github.io/dev-vault/color-harmony/" target="_blank">Color Harmony</a> ·
   <a href="https://gokuscraper.github.io/dev-vault/color-palette/" target="_blank">Color Palette</a> ·
   <a href="https://gokuscraper.github.io/dev-vault/color-name/" target="_blank">Color Name</a>
 </div>
 
+
+<script>var _LANG={'title_color_wheel_interactive_c':["Color Wheel — Interactive Color Picker", "色轮——交互式颜色选择器"],'metadesc_interactive_color_wheel_p':["Interactive color wheel picker with harmony rules. Complementary, analogous, triadic, split-complementary, tetradic. Shade and tint generator. Free, no signup.", "交互式色轮选择器，具备色彩和谐规则。支持互补色、邻近色、三色、分裂互补色和四色配色。可生成色调和明暗度。免费，无需注册。"],'h1_color_wheel_interactive_c':["Color Wheel — Interactive Color Picker", "色轮——交互式颜色选择器"],'subtitle_click_the_wheel_to_pick_a':["Click the wheel to pick a hue, then adjust saturation & lightness. Choose a harmony mode.", "点击转轮选择色调，然后调整饱和度和亮度。选择一种和谐模式。"],'btn_complementary':["Complementary", "补充"],'btn_analogous':["Analogous", "类似物"],'btn_triadic':["Triadic", "三元"],'btn_split_comp':["Split-Comp", "分体式"],'btn_tetradic':["Tetradic", "四重奏"],'btn_copy_as_css_variables':["Copy as CSS Variables", "复制为 CSS 变量"],'label_hex':["HEX", "六边形"],'label_rgb':["RGB", "RGB"],'label_hsl':["HSL", "高速铁路"],'label_hsv':["HSV", "单纯疱疹病毒"],'footer_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 let H=210,S=80,L=55;
@@ -304,6 +316,24 @@ function toast(msg){
 }
 
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

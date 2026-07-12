@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_font_size_adjust_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -491,24 +491,26 @@ select { cursor: pointer; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <nav class="nav">
   <div class="nav-inner">
     <span class="nav-title">font-size-adjust</span>
-    <a href="#basic">Basic</a>
-    <a href="#calculator">Calculator</a>
-    <a href="#matcher">Matcher</a>
-    <a href="#two-value">Two-Value</a>
-    <a href="#metrics">Metrics</a>
-    <a href="#cls">Layout Shift</a>
-    <a href="#google-fonts">Google Fonts</a>
-    <a href="#codegen">Code Gen</a>
-    <a href="#compat">Support</a>
+    <a href="#basic" ti="link_basic">Basic</a>
+    <a href="#calculator" ti="link_calculator">Calculator</a>
+    <a href="#matcher" ti="link_matcher">Matcher</a>
+    <a href="#two-value" ti="link_two_value">Two-Value</a>
+    <a href="#metrics" ti="link_metrics">Metrics</a>
+    <a href="#cls" ti="link_layout_shift">Layout Shift</a>
+    <a href="#google-fonts" ti="link_google_fonts">Google Fonts</a>
+    <a href="#codegen" ti="link_code_gen">Code Gen</a>
+    <a href="#compat" ti="link_support">Support</a>
   </div>
 </nav>
 
 <header class="hero">
-  <h1>CSS font-size-adjust Playground</h1>
+  <h1 ti="title_css_font_size_adjust_play" ti="h1_css_font_size_adjust_play">CSS font-size-adjust Playground</h1>
   <p>Normalize x-height across font families, prevent layout shifts during font loading, and generate production-ready CSS.</p>
   <div class="badge-row">
     <span class="badge badge--interop">Interop 2025</span>
@@ -522,13 +524,13 @@ select { cursor: pointer; }
   <section class="section" id="basic">
     <div class="section-header">
       <span class="section-num">1</span>
-      <h2>Basic Demo</h2>
+      <h2 ti="h2_basic_demo">Basic Demo</h2>
     </div>
     <div class="card">
       <p class="card-desc">Toggle font-size-adjust to see how x-height normalization affects different font pairs. The red lines show x-height alignment.</p>
       <div class="controls">
         <div>
-          <label>Primary Font</label><br>
+          <label ti="label_primary_font">Primary Font</label><br>
           <select id="basic-primary">
             <option value="Georgia">Georgia</option>
             <option value="Times New Roman">Times New Roman</option>
@@ -539,7 +541,7 @@ select { cursor: pointer; }
           </select>
         </div>
         <div>
-          <label>Fallback Font</label><br>
+          <label ti="label_fallback_font">Fallback Font</label><br>
           <select id="basic-fallback">
             <option value="Arial">Arial</option>
             <option value="Verdana">Verdana</option>
@@ -550,7 +552,7 @@ select { cursor: pointer; }
           </select>
         </div>
         <div>
-          <label>Font Size</label><br>
+          <label ti="label_font_size">Font Size</label><br>
           <input type="number" id="basic-size" value="32" min="12" max="72" style="width:80px"> px
         </div>
         <button class="toggle-btn" id="basic-toggle" onclick="toggleBasic()">
@@ -560,12 +562,12 @@ select { cursor: pointer; }
       </div>
       <div class="grid-2">
         <div class="demo-box" style="position:relative">
-          <span class="demo-label">Primary</span>
+          <span class="demo-label" ti="label_primary">Primary</span>
           <div class="demo-text" id="basic-primary-text">Axbpqy Hamburgefons</div>
           <div class="x-line" id="basic-xline-1"></div>
         </div>
         <div class="demo-box" style="position:relative">
-          <span class="demo-label">Fallback</span>
+          <span class="demo-label" ti="label_fallback">Fallback</span>
           <div class="demo-text" id="basic-fallback-text">Axbpqy Hamburgefons</div>
           <div class="x-line" id="basic-xline-2"></div>
         </div>
@@ -578,20 +580,20 @@ select { cursor: pointer; }
   <section class="section" id="calculator">
     <div class="section-header">
       <span class="section-num">2</span>
-      <h2>Aspect Value Calculator</h2>
+      <h2 ti="h2_aspect_value_calculator">Aspect Value Calculator</h2>
     </div>
     <div class="card">
       <p class="card-desc">Calculate the aspect value (x-height / font-size) for any available font. This value is used in font-size-adjust.</p>
       <div class="controls">
         <div>
-          <label>Font Family</label><br>
-          <input type="text" id="calc-font" value="Arial" placeholder="Enter font name" style="width:200px">
+          <label ti="label_font_family">Font Family</label><br>
+          <input type="text" id="calc-font" value="Arial" tp="placeholder_enter_font_name" placeholder="Enter font name" style="width:200px">
         </div>
         <div>
-          <label>Sample Size (px)</label><br>
+          <label ti="label_sample_size_px">Sample Size (px)</label><br>
           <input type="number" id="calc-size" value="100" min="20" max="500" style="width:100px">
         </div>
-        <button class="btn btn-primary" onclick="calcAspect()">Calculate</button>
+        <button class="btn btn-primary" onclick="calcAspect()" ti="btn_calculate">Calculate</button>
       </div>
       <div class="aspect-result">
         <span class="aspect-value" id="calc-result">--</span>
@@ -605,13 +607,13 @@ select { cursor: pointer; }
   <section class="section" id="matcher">
     <div class="section-header">
       <span class="section-num">3</span>
-      <h2>Font Fallback Matcher</h2>
+      <h2 ti="h2_font_fallback_matcher">Font Fallback Matcher</h2>
     </div>
     <div class="card">
       <p class="card-desc">Pick a web font and its system fallback. The tool calculates the ideal font-size-adjust value so the fallback matches the web font's x-height.</p>
       <div class="controls">
         <div>
-          <label>Web Font</label><br>
+          <label ti="label_web_font" ti="label_web_font_2">Web Font</label><br>
           <select id="match-web">
             <option value="Roboto">Roboto</option>
             <option value="Open Sans">Open Sans</option>
@@ -626,7 +628,7 @@ select { cursor: pointer; }
           </select>
         </div>
         <div>
-          <label>System Fallback</label><br>
+          <label ti="label_system_fallback" ti="label_system_fallback_2">System Fallback</label><br>
           <select id="match-fallback">
             <option value="Arial">Arial</option>
             <option value="Helvetica">Helvetica</option>
@@ -639,16 +641,16 @@ select { cursor: pointer; }
             <option value="monospace">monospace</option>
           </select>
         </div>
-        <button class="btn btn-primary" onclick="matchFonts()">Match</button>
+        <button class="btn btn-primary" onclick="matchFonts()" ti="btn_match">Match</button>
       </div>
       <div id="match-result" style="margin-top:12px;"></div>
       <div class="grid-2" style="margin-top:16px;">
         <div class="demo-box" style="position:relative">
-          <span class="demo-label">Without adjust</span>
+          <span class="demo-label" ti="label_without_adjust">Without adjust</span>
           <div id="match-before" class="demo-text" style="font-size:28px;">The quick brown fox jumps</div>
         </div>
         <div class="demo-box" style="position:relative">
-          <span class="demo-label">With adjust</span>
+          <span class="demo-label" ti="label_with_adjust">With adjust</span>
           <div id="match-after" class="demo-text" style="font-size:28px;">The quick brown fox jumps</div>
         </div>
       </div>
@@ -659,20 +661,20 @@ select { cursor: pointer; }
   <section class="section" id="two-value">
     <div class="section-header">
       <span class="section-num">4</span>
-      <h2>Two-Value Syntax</h2>
+      <h2 ti="h2_two_value_syntax">Two-Value Syntax</h2>
     </div>
     <div class="card">
       <p class="card-desc">CSS Fonts Level 5 introduces a two-value syntax: <code style="color:var(--accent-light)">font-size-adjust: &lt;metric&gt; &lt;number&gt;</code>. Choose which metric to normalize.</p>
       <div class="syntax-pills" id="syntax-pills">
-        <button class="syntax-pill active" data-metric="ex-height" onclick="setMetric(this)">ex-height</button>
-        <button class="syntax-pill" data-metric="cap-height" onclick="setMetric(this)">cap-height</button>
-        <button class="syntax-pill" data-metric="ch-width" onclick="setMetric(this)">ch-width</button>
-        <button class="syntax-pill" data-metric="ic-width" onclick="setMetric(this)">ic-width</button>
-        <button class="syntax-pill" data-metric="ic-height" onclick="setMetric(this)">ic-height</button>
+        <button class="syntax-pill active" data-metric="ex-height" onclick="setMetric(this)" ti="btn_ex_height">ex-height</button>
+        <button class="syntax-pill" data-metric="cap-height" onclick="setMetric(this)" ti="btn_cap_height">cap-height</button>
+        <button class="syntax-pill" data-metric="ch-width" onclick="setMetric(this)" ti="btn_ch_width" ti="th_ch_width">ch-width</button>
+        <button class="syntax-pill" data-metric="ic-width" onclick="setMetric(this)" ti="btn_ic_width" ti="th_ic_width">ic-width</button>
+        <button class="syntax-pill" data-metric="ic-height" onclick="setMetric(this)" ti="btn_ic_height">ic-height</button>
       </div>
       <div class="controls">
         <div>
-          <label>Adjust Value</label><br>
+          <label ti="label_adjust_value">Adjust Value</label><br>
           <input type="number" id="tv-value" value="0.52" step="0.01" min="0" max="2" style="width:100px">
         </div>
         <div>
@@ -685,7 +687,7 @@ select { cursor: pointer; }
             <option value="Courier New">Courier New</option>
           </select>
         </div>
-        <button class="btn btn-primary" onclick="updateTwoValue()">Apply</button>
+        <button class="btn btn-primary" onclick="updateTwoValue()" ti="btn_apply">Apply</button>
       </div>
       <div class="demo-box" style="margin-top:12px;">
         <div id="tv-demo" class="demo-text" style="font-size:28px;">AaBbCcDdEeFfGgHhIiJjKkLlMm</div>
@@ -698,24 +700,24 @@ select { cursor: pointer; }
   <section class="section" id="metrics">
     <div class="section-header">
       <span class="section-num">5</span>
-      <h2>Metrics Comparison</h2>
+      <h2 ti="h2_metrics_comparison">Metrics Comparison</h2>
     </div>
     <div class="card">
       <p class="card-desc">Compare font metrics across different typefaces. Values are ratios relative to font-size (measured at 100px).</p>
       <div class="controls">
-        <button class="btn btn-secondary" onclick="measureAllMetrics()">Measure All Fonts</button>
+        <button class="btn btn-secondary" onclick="measureAllMetrics()" ti="btn_measure_all_fonts">Measure All Fonts</button>
       </div>
       <div style="overflow-x:auto;">
         <table class="metric-table" id="metrics-table">
           <thead>
             <tr>
-              <th>Font</th>
-              <th>x-height (ex)</th>
-              <th>Cap Height</th>
+              <th ti="th_font" ti="label_font">Font</th>
+              <th ti="th_x_height_ex">x-height (ex)</th>
+              <th ti="th_cap_height">Cap Height</th>
               <th>ch-width</th>
               <th>ic-width</th>
-              <th>Ascent</th>
-              <th>Descent</th>
+              <th ti="th_ascent">Ascent</th>
+              <th ti="th_descent">Descent</th>
             </tr>
           </thead>
           <tbody id="metrics-body"></tbody>
@@ -728,17 +730,17 @@ select { cursor: pointer; }
   <section class="section" id="cls">
     <div class="section-header">
       <span class="section-num">6</span>
-      <h2>Layout Shift Prevention</h2>
+      <h2 ti="h2_layout_shift_prevention">Layout Shift Prevention</h2>
     </div>
     <div class="card">
       <p class="card-desc">See how font-size-adjust prevents Cumulative Layout Shift (CLS) when web fonts load. Click "Simulate Load" to swap from fallback to web font.</p>
       <div class="controls">
-        <button class="btn btn-primary" onclick="simulateCLS()">Simulate Font Load</button>
-        <button class="btn btn-secondary" onclick="resetCLS()">Reset</button>
+        <button class="btn btn-primary" onclick="simulateCLS()" ti="btn_simulate_font_load">Simulate Font Load</button>
+        <button class="btn btn-secondary" onclick="resetCLS()" ti="btn_reset">Reset</button>
       </div>
       <div class="grid-2">
         <div>
-          <h3 style="font-size:14px; margin-bottom:8px; color:var(--red);">Without font-size-adjust</h3>
+          <h3 style="font-size:14px; margin-bottom:8px; color:var(--red);" ti="h3_without_font_size_adjust">Without font-size-adjust</h3>
           <div class="cls-demo" id="cls-without">
             <span class="cls-indicator cls-bad" id="cls-bad-indicator" style="display:none;">CLS detected</span>
             <div id="cls-text-bad" style="font-family: Arial; font-size: 18px; line-height: 1.6;">
@@ -747,7 +749,7 @@ select { cursor: pointer; }
           </div>
         </div>
         <div>
-          <h3 style="font-size:14px; margin-bottom:8px; color:var(--green);">With font-size-adjust</h3>
+          <h3 style="font-size:14px; margin-bottom:8px; color:var(--green);" ti="h3_with_font_size_adjust">With font-size-adjust</h3>
           <div class="cls-demo" id="cls-with">
             <span class="cls-indicator cls-good" id="cls-good-indicator" style="display:none;">No CLS</span>
             <div id="cls-text-good" style="font-family: Arial; font-size: 18px; line-height: 1.6;">
@@ -764,12 +766,12 @@ select { cursor: pointer; }
   <section class="section" id="google-fonts">
     <div class="section-header">
       <span class="section-num">7</span>
-      <h2>Google Fonts Integration</h2>
+      <h2 ti="h2_google_fonts_integration">Google Fonts Integration</h2>
     </div>
     <div class="card">
       <p class="card-desc">Load popular Google Fonts and see their calculated aspect ratios. Click a card to use it in the Code Generator.</p>
       <div class="controls">
-        <button class="btn btn-primary" onclick="loadGoogleFonts()">Load & Measure All</button>
+        <button class="btn btn-primary" onclick="loadGoogleFonts()" ti="btn_load_measure_all">Load & Measure All</button>
         <span id="gf-status" style="font-size:13px; color:var(--text-dim);"></span>
       </div>
       <div class="gf-grid" id="gf-grid"></div>
@@ -780,7 +782,7 @@ select { cursor: pointer; }
   <section class="section" id="codegen">
     <div class="section-header">
       <span class="section-num">8</span>
-      <h2>Code Generator</h2>
+      <h2 ti="h2_code_generator">Code Generator</h2>
     </div>
     <div class="card">
       <p class="card-desc">Generate production-ready @font-face CSS with font-size-adjust for common font pairs.</p>
@@ -810,7 +812,7 @@ select { cursor: pointer; }
           </select>
         </div>
         <div>
-          <label>Metric</label><br>
+          <label ti="label_metric">Metric</label><br>
           <select id="cg-metric">
             <option value="">auto (ex-height)</option>
             <option value="ex-height">ex-height</option>
@@ -818,11 +820,11 @@ select { cursor: pointer; }
             <option value="ch-width">ch-width</option>
           </select>
         </div>
-        <button class="btn btn-primary" onclick="generateCode()">Generate</button>
+        <button class="btn btn-primary" onclick="generateCode()" ti="btn_generate">Generate</button>
       </div>
       <div style="position:relative; margin-top:16px;">
         <div class="code-output" id="cg-output">/* Click "Generate" to create CSS code */</div>
-        <button class="copy-btn" onclick="copyCode()">Copy</button>
+        <button class="copy-btn" onclick="copyCode()" ti="btn_copy">Copy</button>
       </div>
     </div>
   </section>
@@ -831,7 +833,7 @@ select { cursor: pointer; }
   <section class="section" id="compat">
     <div class="section-header">
       <span class="section-num">9</span>
-      <h2>Browser Support</h2>
+      <h2 ti="h2_browser_support">Browser Support</h2>
     </div>
     <div class="card">
       <p class="card-desc">font-size-adjust browser compatibility (single-value and two-value syntax).</p>
@@ -892,7 +894,7 @@ select { cursor: pointer; }
       </div>
 
       <div class="card-desc">
-        <strong>Interop 2025 focus area:</strong> font-size-adjust is part of the Interop 2025 initiative, ensuring consistent cross-browser implementation. As of early 2026, all major browsers support at least the single-value syntax. The two-value syntax with metric keywords (ex-height, cap-height, ch-width, ic-width, ic-height) has broad support across modern browsers.
+        <strong ti="strong_interop_2025_focus_area">Interop 2025 focus area:</strong> font-size-adjust is part of the Interop 2025 initiative, ensuring consistent cross-browser implementation. As of early 2026, all major browsers support at least the single-value syntax. The two-value syntax with metric keywords (ex-height, cap-height, ch-width, ic-width, ic-height) has broad support across modern browsers.
       </div>
 
       <div id="compat-live" style="margin-top:16px;"></div>
@@ -907,6 +909,16 @@ select { cursor: pointer; }
 
 <canvas id="measure-canvas" class="measure-canvas" width="600" height="200"></canvas>
 
+
+<script>var _LANG={'title_css_font_size_adjust_play':["CSS font-size-adjust Playground", "CSS 字体大小调整 Playground"],'metadesc_interactive_playground_fo':["Interactive playground for CSS font-size-adjust. Calculate aspect ratios, match font fallbacks, prevent layout shifts, and generate production-ready code.", "用于 CSS 字体大小调整的交互式练习场。计算宽高比，匹配字体回退，防止布局偏移，并生成可用于生产环境的代码。"],'h1_css_font_size_adjust_play':["CSS font-size-adjust Playground", "CSS 字体大小调整 Playground"],'h2_basic_demo':["Basic Demo", "基本演示"],'h2_aspect_value_calculator':["Aspect Value Calculator", "方面值计算器"],'h2_font_fallback_matcher':["Font Fallback Matcher", "字体回退匹配器"],'h2_two_value_syntax':["Two-Value Syntax", "双值语法"],'h2_metrics_comparison':["Metrics Comparison", "指标比较"],'h2_layout_shift_prevention':["Layout Shift Prevention", "布局偏移预防"],'h2_google_fonts_integration':["Google Fonts Integration", "Google Fonts 集成"],'h2_code_generator':["Code Generator", "代码生成器"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_without_font_size_adjust':["Without font-size-adjust", "不调整字体大小"],'h3_with_font_size_adjust':["With font-size-adjust", "调整字体大小"],'h3_your_browser':["Your Browser", "您的浏览器"],'btn_calculate':["Calculate", "计算"],'btn_match':["Match", "匹配"],'btn_ex_height':["ex-height", "前身高"],'btn_cap_height':["cap-height", "帽高"],'btn_ch_width':["ch-width", "通道宽度"],'btn_ic_width':["ic-width", "ic-width"],'btn_ic_height':["ic-height", "ic-height"],'btn_apply':["Apply", "申请"],'btn_measure_all_fonts':["Measure All Fonts", "测量所有字体"],'btn_simulate_font_load':["Simulate Font Load", "模拟字体加载"],'btn_reset':["Reset", "重置"],'btn_load_measure_all':["Load & Measure All", "装载和测量所有"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'label_primary':["Primary", "基本的"],'label_fallback':["Fallback", "倒退"],'label_without_adjust':["Without adjust", "无需调整"],'label_with_adjust':["With adjust", "调整"],'placeholder_enter_font_name':["Enter font name", "输入字体名称"],'strong_interop_2025_focus_area':["Interop 2025 focus area:", "Interop 2025 重点领域："],'strong_caph_tofixed_4':["${capH.toFixed(4)}", "${capH.toFixed(4)}"],'strong_ch_tofixed_4':["${ch.toFixed(4)}", "${ch.toFixed(4)}"],'strong_webaspect_tofixed_4':["${webAspect.toFixed(4)}", "${webAspect.toFixed(4)}"],'strong_fallbackaspect_tofixed_4':["${fallbackAspect.toFixed(4)}", "${fallbackAspect.toFixed(4)}"],'strong_shiftbad_px':["${shiftBad}px", "${shiftBad}px"],'strong_shiftgood_px':["${shiftGood}px", "${shiftGood}px"],'th_font':["Font", "字体"],'th_x_height_ex':["x-height (ex)", "x 高度（例如）"],'th_cap_height':["Cap Height", "帽高"],'th_ch_width':["ch-width", "通道宽度"],'th_ic_width':["ic-width", "ic-width"],'th_ascent':["Ascent", "上升"],'th_descent':["Descent", "下降"],'label_primary_font':["Primary Font", "主要字体"],'label_fallback_font':["Fallback Font", "备用字体"],'label_font_size':["Font Size", "字体大小"],'label_font_family':["Font Family", "字体系列"],'label_sample_size_px':["Sample Size (px)", "样本大小（像素）"],'label_web_font':["Web Font", "网络字体"],'label_system_fallback':["System Fallback", "系统回退"],'label_adjust_value':["Adjust Value", "调整值"],'label_font':["Font", "字体"],'label_web_font_2':["Web Font", "网络字体"],'label_system_fallback_2':["System Fallback", "系统回退"],'label_metric':["Metric", "指标"],'link_basic':["Basic", "基本的"],'link_calculator':["Calculator", "计算器"],'link_matcher':["Matcher", "匹配器"],'link_two_value':["Two-Value", "双值"],'link_metrics':["Metrics", "指标"],'link_layout_shift':["Layout Shift", "布局偏移"],'link_google_fonts':["Google Fonts", "Google字体"],'link_code_gen':["Code Gen", "代码生成器"],'link_support':["Support", "支持"],'jtc_loading_fonts':["Loading fonts...", "正在加载字体……"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_axgpq':["Axgpq", "Axgpq"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Measurement Utilities ──
 
@@ -1120,8 +1132,8 @@ function calcAspect() {
   const visual = document.getElementById('calc-visual');
   visual.innerHTML = `
     <div style="display:flex; gap:24px; flex-wrap:wrap; font-size:13px; color:var(--text-dim);">
-      <div>Cap Height: <strong style="color:var(--text)">${capH.toFixed(4)}</strong></div>
-      <div>ch-width: <strong style="color:var(--text)">${ch.toFixed(4)}</strong></div>
+      <div>Cap Height: <strong style="color:var(--text)" ti="strong_caph_tofixed_4">${capH.toFixed(4)}</strong></div>
+      <div>ch-width: <strong style="color:var(--text)" ti="strong_ch_tofixed_4">${ch.toFixed(4)}</strong></div>
       <div style="font-family:'${font}'; font-size:48px; color:var(--text); margin-top:8px;">xHp — ${font}</div>
     </div>
   `;
@@ -1170,8 +1182,8 @@ async function matchFonts() {
   const result = document.getElementById('match-result');
   result.innerHTML = `
     <div style="display:flex; gap:24px; flex-wrap:wrap; font-size:14px;">
-      <div><span style="color:var(--text-dim);">${webFont} aspect:</span> <strong>${webAspect.toFixed(4)}</strong></div>
-      <div><span style="color:var(--text-dim);">${fallback} aspect:</span> <strong>${fallbackAspect.toFixed(4)}</strong></div>
+      <div><span style="color:var(--text-dim);">${webFont} aspect:</span> <strong ti="strong_webaspect_tofixed_4">${webAspect.toFixed(4)}</strong></div>
+      <div><span style="color:var(--text-dim);">${fallback} aspect:</span> <strong ti="strong_fallbackaspect_tofixed_4">${fallbackAspect.toFixed(4)}</strong></div>
       <div><span style="color:var(--text-dim);">Recommended:</span> <code style="color:var(--accent-light);">font-size-adjust: ${adjustValue.toFixed(4)}</code></div>
     </div>
   `;
@@ -1301,8 +1313,8 @@ async function simulateCLS() {
 
     document.getElementById('cls-metrics').innerHTML =
       `<div style="display:flex; gap:24px;">
-        <div>Without: height changed by <strong style="color:var(--red);">${shiftBad}px</strong></div>
-        <div>With adjust: height changed by <strong style="color:var(--green);">${shiftGood}px</strong></div>
+        <div>Without: height changed by <strong style="color:var(--red);" ti="strong_shiftbad_px">${shiftBad}px</strong></div>
+        <div>With adjust: height changed by <strong style="color:var(--green);" ti="strong_shiftgood_px">${shiftGood}px</strong></div>
         <div>font-size-adjust: <code style="color:var(--accent-light);">${playfairAspect.toFixed(4)}</code></div>
       </div>`;
   });
@@ -1332,7 +1344,7 @@ function resetCLS() {
 
 async function loadGoogleFonts() {
   const status = document.getElementById('gf-status');
-  status.textContent = 'Loading fonts...';
+  status.textContent=T("jtc_loading_fonts");
 
   await loadGoogleFontsLink();
 
@@ -1416,8 +1428,8 @@ function copyCode() {
   const code = document.getElementById('cg-output').textContent;
   navigator.clipboard.writeText(code).then(() => {
     const btn = document.querySelector('.copy-btn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1454,7 +1466,7 @@ function checkLiveCompat() {
 
   const container = document.getElementById('compat-live');
   container.innerHTML = `
-    <h3 style="font-size:15px; margin-bottom:12px;">Your Browser</h3>
+    <h3 style="font-size:15px; margin-bottom:12px;" ti="h3_your_browser">Your Browser</h3>
     <div style="display:flex; gap:12px; flex-wrap:wrap;">
       ${tests.map(t => `
         <div style="display:flex; align-items:center; gap:6px; padding:6px 12px; border-radius:6px;
@@ -1478,6 +1490,24 @@ document.addEventListener('DOMContentLoaded', () => {
   checkLiveCompat();
   updateTwoValue();
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

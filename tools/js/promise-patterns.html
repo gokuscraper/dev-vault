@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_promise_patterns_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -58,6 +58,8 @@ code { background: var(--surface-2); padding: 0.1rem 0.35rem; border-radius: 3px
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>Promise</span> Patterns Playground</h1>
   <p>Visualize and compare async patterns in real-time</p>
@@ -65,9 +67,19 @@ code { background: var(--surface-2); padding: 0.1rem 0.35rem; border-radius: 3px
 <nav id="nav"></nav>
 <main id="main"></main>
 
+
+<script>var _LANG={'title_promise_patterns_playgrou':["Promise Patterns Playground", "承诺模式游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for JavaScript Promise patterns — all/allSettled/race/any, retry, timeout, cancellation, and visualization.", "JavaScript Promise 模式的交互式游乐场——all/allSettled/race/any、重试、超时、取消和可视化。"],'h3_promise_all_allsettled_ra':["Promise.all / allSettled / race / any", "承诺.all / allSettled / race / any"],'h3_quick_reference':["Quick Reference", "快速参考"],'h3_error_handling_patterns':["Error Handling Patterns", "错误处理模式"],'h3_sequential_vs_parallel_ex':["Sequential vs Parallel Execution", "顺序执行与并行执行"],'h3_promise_withresolvers':["Promise.withResolvers()", "Promise.withResolvers()"],'h3_use_case_event_to_promise':["Use Case: Event-to-Promise", "用例：事件到承诺"],'h3_retry_with_exponential_ba':["Retry with Exponential Backoff", "使用指数退避重试"],'h3_timeout_patterns':["Timeout Patterns", "超时模式"],'h3_cancellable_promise_patte':["Cancellable Promise Patterns", "可取消承诺模式"],'h3_cancellable_fetch_pattern':["Cancellable Fetch Pattern", "可取消的获取模式"],'h3_memory_leak_patterns_to_a':["Memory Leak Patterns to Avoid", "避免内存泄漏模式"],'h3_promise_resolution_guaran':["Promise Resolution Guarantee", "承诺解决保证"],'btn_run_all_combinators':["Run All Combinators", "运行所有组合子"],'btn_run_all_patterns':["Run All Patterns", "运行所有模式"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_run_demo':["Run Demo", "运行演示"],'btn_run_demo_2':["Run Demo", "运行演示"],'btn_run_retry':["Run Retry", "运行重试"],'btn_run_timeout_demo':["Run Timeout Demo", "运行超时演示"],'btn_start_long_operation':["Start Long Operation", "开始长期运营"],'btn_cancel':["Cancel", "取消"],'btn_run_leak_detection_demo':["Run Leak Detection Demo", "运行泄漏检测演示"],'label_label':["${label}:", "${label}:"],'label_pattern':["Pattern:", "图案："],'th_method':["Method", "方法"],'th_resolves_when':["Resolves when", "解决于"],'th_rejects_when':["Rejects when", "拒绝"],'th_result_type':["Result type", "结果类型"],'label_fail_rate':["Fail rate", "故障率"],'label_max_retries':["Max retries", "最大重试次数"],'jtlword_method':["Method", "方法"],'jtlword_sequential':["Sequential", "顺序"],'jtlword_parallel':["Parallel", "平行线"],'jtlword_cancel':["Cancel", "取消"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function ln(label, value, cls='value') {
-  return `<span class="label">${label}: </span><span class="${cls}">${value}</span>\n`;
+  return `<span class="label" ti="label_label">${label}: </span><span class="${cls}">${value}</span>\n`;
 }
 
 function delay(ms, value, shouldFail=false) {
@@ -108,16 +120,16 @@ sec1.id = 'sec-combinators';
 sec1.className = 'section active';
 sec1.innerHTML = `
 <div class="card">
-  <h3>Promise.all / allSettled / race / any</h3>
+  <h3 ti="h3_promise_all_allsettled_ra">Promise.all / allSettled / race / any</h3>
   <p>Visual comparison of all four combinators with the same set of promises (200ms OK, 400ms OK, 300ms FAIL).</p>
-  <button class="run" onclick="runCombinators()" id="combBtn">Run All Combinators</button>
+  <button class="run" onclick="runCombinators()" id="combBtn" ti="btn_run_all_combinators">Run All Combinators</button>
   <div class="timeline" id="combTimeline"></div>
   <div class="output" id="combOut" style="margin-top:0.75rem"></div>
 </div>
 <div class="card">
-  <h3>Quick Reference</h3>
+  <h3 ti="h3_quick_reference">Quick Reference</h3>
   <table>
-    <thead><tr><th>Method</th><th>Resolves when</th><th>Rejects when</th><th>Result type</th></tr></thead>
+    <thead><tr><th ti="th_method">Method</th><th ti="th_resolves_when">Resolves when</th><th ti="th_rejects_when">Rejects when</th><th ti="th_result_type">Result type</th></tr></thead>
     <tbody>
       <tr><td><code>Promise.all</code></td><td>ALL fulfill</td><td>ANY rejects</td><td>Array of values</td></tr>
       <tr><td><code>Promise.allSettled</code></td><td>ALL settle</td><td>Never rejects</td><td>Array of {status, value/reason}</td></tr>
@@ -231,9 +243,9 @@ sec2.id = 'sec-errors';
 sec2.className = 'section';
 sec2.innerHTML = `
 <div class="card">
-  <h3>Error Handling Patterns</h3>
+  <h3 ti="h3_error_handling_patterns">Error Handling Patterns</h3>
   <p>Compare different approaches to handling async errors.</p>
-  <button class="run" onclick="runErrorPatterns()">Run All Patterns</button>
+  <button class="run" onclick="runErrorPatterns()" ti="btn_run_all_patterns">Run All Patterns</button>
   <div class="output" id="errOut"></div>
 </div>`;
 main.appendChild(sec2);
@@ -289,9 +301,9 @@ sec3.id = 'sec-seqpar';
 sec3.className = 'section';
 sec3.innerHTML = `
 <div class="card">
-  <h3>Sequential vs Parallel Execution</h3>
+  <h3 ti="h3_sequential_vs_parallel_ex">Sequential vs Parallel Execution</h3>
   <p>See the dramatic difference between running promises sequentially vs in parallel.</p>
-  <button class="run" onclick="runSeqPar()" id="spBtn">Run Comparison</button>
+  <button class="run" onclick="runSeqPar()" id="spBtn" ti="btn_run_comparison">Run Comparison</button>
   <div class="timeline" id="spTimeline"></div>
   <div class="output" id="spOut" style="margin-top:0.75rem"></div>
 </div>`;
@@ -348,13 +360,13 @@ sec4.id = 'sec-resolvers';
 sec4.className = 'section';
 sec4.innerHTML = `
 <div class="card">
-  <h3>Promise.withResolvers()</h3>
+  <h3 ti="h3_promise_withresolvers">Promise.withResolvers()</h3>
   <p>ES2024: Create a promise with externally accessible resolve/reject functions.</p>
-  <button class="run" onclick="runWithResolvers()">Run Demo</button>
+  <button class="run" onclick="runWithResolvers()" ti="btn_run_demo" ti="btn_run_demo_2">Run Demo</button>
   <div class="output" id="wrOut"></div>
 </div>
 <div class="card">
-  <h3>Use Case: Event-to-Promise</h3>
+  <h3 ti="h3_use_case_event_to_promise">Use Case: Event-to-Promise</h3>
   <p>Convert event-based APIs to promises using withResolvers.</p>
   <button class="run" onclick="runEventToPromise()">Run Demo</button>
   <div class="output" id="etpOut"></div>
@@ -425,15 +437,15 @@ sec5.id = 'sec-retry';
 sec5.className = 'section';
 sec5.innerHTML = `
 <div class="card">
-  <h3>Retry with Exponential Backoff</h3>
+  <h3 ti="h3_retry_with_exponential_ba">Retry with Exponential Backoff</h3>
   <p>Watch retry attempts in real-time with increasing delays.</p>
   <div style="margin-bottom:0.75rem;display:flex;gap:0.75rem;flex-wrap:wrap;align-items:center">
-    <label style="color:var(--text-dim);font-size:0.85rem">Fail rate</label>
+    <label style="color:var(--text-dim);font-size:0.85rem" ti="label_fail_rate">Fail rate</label>
     <select id="retryRate"><option value="0.7">70%</option><option value="0.5">50%</option><option value="0.9" selected>90%</option><option value="1">100%</option></select>
-    <label style="color:var(--text-dim);font-size:0.85rem">Max retries</label>
+    <label style="color:var(--text-dim);font-size:0.85rem" ti="label_max_retries">Max retries</label>
     <select id="retryMax"><option value="3">3</option><option value="5" selected>5</option><option value="8">8</option></select>
   </div>
-  <button class="run" onclick="runRetry()" id="retryBtn">Run Retry</button>
+  <button class="run" onclick="runRetry()" id="retryBtn" ti="btn_run_retry">Run Retry</button>
   <div class="output" id="retryOut"></div>
 </div>`;
 main.appendChild(sec5);
@@ -490,9 +502,9 @@ sec6.id = 'sec-timeout';
 sec6.className = 'section';
 sec6.innerHTML = `
 <div class="card">
-  <h3>Timeout Patterns</h3>
+  <h3 ti="h3_timeout_patterns">Timeout Patterns</h3>
   <p>Add timeouts to any promise. Compare Promise.race timeout vs AbortSignal.timeout.</p>
-  <button class="run" onclick="runTimeout()" id="toBtn">Run Timeout Demo</button>
+  <button class="run" onclick="runTimeout()" id="toBtn" ti="btn_run_timeout_demo">Run Timeout Demo</button>
   <div class="output" id="toOut"></div>
 </div>`;
 main.appendChild(sec6);
@@ -553,15 +565,15 @@ sec7.id = 'sec-cancel';
 sec7.className = 'section';
 sec7.innerHTML = `
 <div class="card">
-  <h3>Cancellable Promise Patterns</h3>
+  <h3 ti="h3_cancellable_promise_patte">Cancellable Promise Patterns</h3>
   <p>Implement cancellation using AbortController.</p>
-  <button class="run" onclick="runCancel()" id="cancelBtn">Start Long Operation</button>
-  <button class="run" onclick="cancelOp()" id="cancelAbort" style="background:var(--red)" disabled>Cancel</button>
+  <button class="run" onclick="runCancel()" id="cancelBtn" ti="btn_start_long_operation">Start Long Operation</button>
+  <button class="run" onclick="cancelOp()" id="cancelAbort" style="background:var(--red)" disabled ti="btn_cancel">Cancel</button>
   <div class="output" id="cancelOut"></div>
 </div>
 <div class="card">
-  <h3>Cancellable Fetch Pattern</h3>
-  <div class="output"><span class="label">Pattern:</span>
+  <h3 ti="h3_cancellable_fetch_pattern">Cancellable Fetch Pattern</h3>
+  <div class="output"><span class="label" ti="label_pattern">Pattern:</span>
 const controller = new AbortController();
 
 // Start fetch
@@ -631,7 +643,7 @@ sec8.id = 'sec-leaks';
 sec8.className = 'section';
 sec8.innerHTML = `
 <div class="card">
-  <h3>Memory Leak Patterns to Avoid</h3>
+  <h3 ti="h3_memory_leak_patterns_to_a">Memory Leak Patterns to Avoid</h3>
   <div class="output"><span class="error">BAD: Unresolved promise with closure</span>
 function fetchData() {
   const largeData = new Array(1000000).fill('x');
@@ -682,9 +694,9 @@ element.addEventListener('click', async () => {
 });</div>
 </div>
 <div class="card">
-  <h3>Promise Resolution Guarantee</h3>
+  <h3 ti="h3_promise_resolution_guaran">Promise Resolution Guarantee</h3>
   <p>Always ensure promises eventually settle — a never-settling promise leaks memory.</p>
-  <button class="run" onclick="runLeakDemo()">Run Leak Detection Demo</button>
+  <button class="run" onclick="runLeakDemo()" ti="btn_run_leak_detection_demo">Run Leak Detection Demo</button>
   <div class="output" id="leakOut"></div>
 </div>`;
 main.appendChild(sec8);
@@ -723,6 +735,24 @@ function runLeakDemo() {
     '\n' +
     ln('Rule', 'Every Promise must eventually settle. Add timeouts as safety nets.', 'warn');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

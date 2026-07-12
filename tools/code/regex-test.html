@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_test_live_regular_e" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,29 +72,33 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Regex Test</h1>
-<p class="subtitle">Live regular expression tester. Type and see matches instantly.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_regex_test" ti="h1_regex_test">Regex Test</h1>
+<p class="subtitle" ti="subtitle_live_regular_expression_t" ti="subtitle_live_regular_expression_t">Live regular expression tester. Type and see matches instantly.</p>
 
 <div class="regex-row">
   <div class="regex-slash">/</div>
-  <input type="text" id="regexInput" value="(\w+)@(\w+)\.(\w+)" placeholder="pattern" autocomplete="off">
+  <input type="text" id="regexInput" value="(\w+)@(\w+)\.(\w+)" tp="placeholder_pattern" tp="placeholder_pattern" placeholder="pattern" autocomplete="off">
   <div class="regex-slash">/</div>
-  <input type="text" id="flagsInput" value="g" placeholder="gi" autocomplete="off">
+  <input type="text" id="flagsInput" value="g" tp="placeholder_gi" tp="placeholder_gi" placeholder="gi" autocomplete="off">
 </div>
 
 <div class="flag-toggles">
-  <button class="flag-btn active" data-flag="g" onclick="toggleFlag('g')">g global</button>
-  <button class="flag-btn" data-flag="i" onclick="toggleFlag('i')">i ignore case</button>
-  <button class="flag-btn" data-flag="m" onclick="toggleFlag('m')">m multiline</button>
-  <button class="flag-btn" data-flag="s" onclick="toggleFlag('s')">s dotAll</button>
-  <button class="flag-btn" data-flag="u" onclick="toggleFlag('u')">u unicode</button>
+  <button class="flag-btn active" data-flag="g" onclick="toggleFlag('g')" ti="btn_g_global" ti="btn_g_global">g global</button>
+  <button class="flag-btn" data-flag="i" onclick="toggleFlag('i')" ti="btn_i_ignore_case" ti="btn_i_ignore_case">i ignore case</button>
+  <button class="flag-btn" data-flag="m" onclick="toggleFlag('m')" ti="btn_m_multiline" ti="btn_m_multiline">m multiline</button>
+  <button class="flag-btn" data-flag="s" onclick="toggleFlag('s')" ti="btn_s_dotall" ti="btn_s_dotall">s dotAll</button>
+  <button class="flag-btn" data-flag="u" onclick="toggleFlag('u')" ti="btn_u_unicode" ti="btn_u_unicode">u unicode</button>
 </div>
 
 <div id="error"></div>
 
 <div class="test-area">
-  <textarea id="testInput" placeholder="Enter test string here...">Hello user@example.com and admin@test.org
+  <textarea id="testInput" tp="placeholder_enter_test_string_here" tp="placeholder_enter_test_string_here" placeholder="Enter test string here...">Hello user@example.com and admin@test.org
 Contact support@company.net for help
 Invalid: not-an-email, @missing, no@dots</textarea>
 </div>
@@ -102,18 +106,38 @@ Invalid: not-an-email, @missing, no@dots</textarea>
 <div class="match-info" id="matchInfo"></div>
 
 <div class="cheatsheet">
-  <h2>Common Patterns</h2>
+  <h2 ti="h2_common_patterns" ti="h2_common_patterns">Common Patterns</h2>
   <div class="patterns" id="patterns"></div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/regex-test">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/cron-explain/">Cron Explain</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/npm-health/">npm Health</a>
+  <a href="https://github.com/gokuscraper/regex-test" ti="link_github" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/cron-explain/" ti="link_cron_explain" ti="link_cron_e
+<script>var _LANG={'title_regex_test_live_regular_e':["Regex Test — Live Regular Expression Tester", "正则表达式测试 — 在线正则表达式测试器"],'metadesc_test_regular_expressions':["Test regular expressions in real-time. See matches highlighted, capture groups, and match details. Common patterns included. Free, instant.", "实时测试正则表达式。查看匹配项高亮显示、捕获组和匹配详情。包含常用模式。免费，即时生效。"],'h1_regex_test':["Regex Test", "正则表达式测试"],'h2_common_patterns':["Common Patterns", "常见模式"],'h3_no_pattern':["No pattern", "没有规律"],'h3_results':["Results", "结果"],'subtitle_live_regular_expression_t':["Live regular expression tester. Type and see matches instantly.", "在线正则表达式测试器。输入内容即可立即查看匹配结果。"],'btn_g_global':["g global", "全球"],'btn_i_ignore_case':["i ignore case", "我忽略这种情况"],'btn_m_multiline':["m multiline", "m 多行"],'btn_s_dotall':["s dotAll", "s dotAll"],'btn_u_unicode':["u unicode", "u Unicode"],'placeholder_pattern':["pattern", "图案"],'placeholder_gi':["gi", "gi"],'placeholder_enter_test_string_here':["Enter test string here...", "请在此处输入测试字符串..."],'strong_related_tools':["Related Tools", "相关工具"],'th_match':["Match", "匹配"],'th_groups':["Groups", "团体"],'th_position':["Position", "位置"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_cron_explain':["Cron Explain", "定时任务解释"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+xplain">Cron Explain</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats" ti="link_gh_stats">gh-stats</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/npm-health/" ti="link_npm_health" ti="link_npm_health">npm Health</a>
 </footer>
 
+
+<script>var _LANG={'title_regex_test_live_regular_e':["Regex Test — Live Regular Expression Tester", "正则表达式测试 — 在线正则表达式测试器"],'metadesc_test_regular_expressions':["Test regular expressions in real-time. See matches highlighted, capture groups, and match details. Common patterns included. Free, instant.", "实时测试正则表达式。查看匹配项高亮显示、捕获组和匹配详情。包含常用模式。免费，即时生效。"],'h1_regex_test':["Regex Test", "正则表达式测试"],'h2_common_patterns':["Common Patterns", "常见模式"],'h3_no_pattern':["No pattern", "没有规律"],'h3_results':["Results", "结果"],'subtitle_live_regular_expression_t':["Live regular expression tester. Type and see matches instantly.", "在线正则表达式测试器。输入内容即可立即查看匹配结果。"],'btn_g_global':["g global", "全球"],'btn_i_ignore_case':["i ignore case", "我忽略这种情况"],'btn_m_multiline':["m multiline", "m 多行"],'btn_s_dotall':["s dotAll", "s dotAll"],'btn_u_unicode':["u unicode", "u Unicode"],'placeholder_pattern':["pattern", "图案"],'placeholder_gi':["gi", "gi"],'placeholder_enter_test_string_here':["Enter test string here...", "请在此处输入测试字符串..."],'strong_related_tools':["Related Tools", "相关工具"],'th_match':["Match", "匹配"],'th_groups':["Groups", "团体"],'th_position':["Position", "位置"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_cron_explain':["Cron Explain", "定时任务解释"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 
@@ -161,7 +185,7 @@ function run(){
 
   if(!pattern){
     $('error').textContent='';
-    $('matchInfo').innerHTML='<h3>No pattern</h3>';
+    $('matchInfo').innerHTML='<h3 ti="h3_no_pattern" ti="h3_no_pattern">No pattern</h3>';
     return;
   }
 
@@ -189,13 +213,13 @@ function run(){
   }
 
   // Match info
-  let html=`<h3>Results</h3>`;
+  let html=`<h3 ti="h3_results" ti="h3_results">Results</h3>`;
   html+=`<div class="match-summary">
     <div class="match-stat"><span class="n">${matches.length}</span> <span class="l">match${matches.length!==1?'es':''}</span></div>
   </div>`;
 
   if(matches.length){
-    html+=`<table class="match-table"><thead><tr><th>#</th><th>Match</th>${matches[0].groups.length?'<th>Groups</th>':''}<th>Position</th></tr></thead><tbody>`;
+    html+=`<table class="match-table"><thead><tr><th>#</th><th ti="th_match" ti="th_match">Match</th>${matches[0].groups.length?'<th ti="th_groups" ti="th_groups">Groups</th>':''}<th ti="th_position" ti="th_position">Position</th></tr></thead><tbody>`;
     matches.forEach((m,i)=>{
       html+=`<tr>
         <td class="idx">${i+1}</td>
@@ -231,12 +255,48 @@ syncFlags();
 run();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-cheatsheet/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Cheatsheet</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

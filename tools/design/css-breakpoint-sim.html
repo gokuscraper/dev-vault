@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_breakpoint_simulator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,9 +89,11 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>CSS Breakpoint Simulator</h1>
+  <h1 ti="title_css_breakpoint_simulator" ti="h1_css_breakpoint_simulator">CSS Breakpoint Simulator</h1>
   <span>Design responsive breakpoints visually</span>
 </div>
 
@@ -99,7 +101,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="left">
     <div class="section-header">
       <span>Breakpoints</span>
-      <button class="btn-sm" onclick="addBreakpoint()">+ Add</button>
+      <button class="btn-sm" onclick="addBreakpoint()" ti="btn_add">+ Add</button>
     </div>
     <div class="bp-list" id="bpList"></div>
     <div class="presets-row" id="presetsRow"></div>
@@ -107,7 +109,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="right">
     <div class="viewport-bar">
       <div class="viewport-row">
-        <span class="vp-label">Viewport:</span>
+        <span class="vp-label" ti="label_viewport">Viewport:</span>
         <span class="vp-value" id="vpValue">1024px</span>
         <input type="range" id="vpSlider" min="320" max="1920" value="1024" oninput="updateViewport(this.value)">
       </div>
@@ -115,17 +117,27 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
     </div>
     <div class="timeline-area" id="timelineArea"></div>
     <div class="active-rules" id="activeRules">
-      <h3>Active Rules at Current Width</h3>
+      <h3 ti="h3_active_rules_at_current_w">Active Rules at Current Width</h3>
       <div id="activeRulesList"></div>
     </div>
     <div class="export-area">
-      <button class="btn btn-primary" onclick="exportCSS()">Export CSS</button>
-      <button class="btn-sm" onclick="exportJSON()">Export JSON</button>
+      <button class="btn btn-primary" onclick="exportCSS()" ti="btn_export_css">Export CSS</button>
+      <button class="btn-sm" onclick="exportJSON()" ti="btn_export_json">Export JSON</button>
       <span style="font-size:10px;color:var(--dim);margin-left:auto" id="summaryText"></span>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_breakpoint_simulator':["CSS Breakpoint Simulator", "CSS断点模拟器"],'metadesc_interactive_css_media_que':["Interactive CSS media query breakpoint simulator. Design responsive breakpoints visually, see which rules apply at any viewport width, and export clean CSS.", "交互式 CSS 媒体查询断点模拟器。以可视化的方式设计响应式断点，查看在任何视口宽度下应用的规则，并导出简洁的 CSS 代码。"],'h1_css_breakpoint_simulator':["CSS Breakpoint Simulator", "CSS断点模拟器"],'h3_active_rules_at_current_w':["Active Rules at Current Width", "当前宽度下的活动规则"],'btn_add':["+ Add", "+ 添加"],'btn_export_css':["Export CSS", "导出 CSS"],'btn_export_json':["Export JSON", "导出 JSON"],'label_viewport':["Viewport:", "视口："],'placeholder_e_g_display_grid_columns':["e.g. display: grid; columns: 3;", "例如：显示方式：网格；列数：3；"],'label_name':["Name", "姓名"],'label_type':["Type", "类型"],'label_min':["Min", "敏"],'label_max':["Max", "最大限度"],'label_css':["CSS", "CSS"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // State
 let breakpoints = [];
@@ -312,11 +324,11 @@ function renderBPList() {
         <button class="btn-danger" onclick="removeBreakpoint(${bp.id})">×</button>
       </div>
       <div class="bp-row">
-        <label>Name</label>
+        <label ti="label_name">Name</label>
         <input type="text" value="${escHTML(bp.name)}" onchange="updateBP(${bp.id},'name',this.value)">
       </div>
       <div class="bp-row">
-        <label>Type</label>
+        <label ti="label_type">Type</label>
         <select onchange="updateBP(${bp.id},'type',this.value)">
           <option value="min"${bp.type === 'min' ? ' selected' : ''}>min-width</option>
           <option value="max"${bp.type === 'max' ? ' selected' : ''}>max-width</option>
@@ -324,18 +336,18 @@ function renderBPList() {
         </select>
       </div>
       ${bp.type !== 'max' ? `<div class="bp-row">
-        <label>Min</label>
+        <label ti="label_min">Min</label>
         <input type="number" value="${bp.min}" min="0" max="1920" onchange="updateBP(${bp.id},'min',parseInt(this.value))">
         <span style="font-size:10px;color:var(--dim)">px</span>
       </div>` : ''}
       ${bp.type !== 'min' ? `<div class="bp-row">
-        <label>Max</label>
+        <label ti="label_max">Max</label>
         <input type="number" value="${bp.max}" min="0" max="1920" onchange="updateBP(${bp.id},'max',parseInt(this.value))">
         <span style="font-size:10px;color:var(--dim)">px</span>
       </div>` : ''}
       <div class="bp-row">
-        <label>CSS</label>
-        <input type="text" value="${escHTML(bp.css)}" onchange="updateBP(${bp.id},'css',this.value)" placeholder="e.g. display: grid; columns: 3;">
+        <label ti="label_css">CSS</label>
+        <input type="text" value="${escHTML(bp.css)}" onchange="updateBP(${bp.id},'css',this.value)" tp="placeholder_e_g_display_grid_columns" placeholder="e.g. display: grid; columns: 3;">
       </div>
       <div class="bp-css">${escHTML(query)} { ... }</div>
     </div>`;
@@ -454,7 +466,7 @@ function copyToClipboard(text) {
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.querySelector('.export-area .btn-primary');
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     setTimeout(() => btn.textContent = orig, 1500);
   });
 }
@@ -476,6 +488,24 @@ PRESETS[0].bps.forEach(bp => {
   });
 });
 renderAll();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

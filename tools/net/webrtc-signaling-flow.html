@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_webrtc_signaling_flow_vis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -66,27 +66,39 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>WebRTC Signaling Flow</h1>
+<h1 ti="h1_webrtc_signaling_flow">WebRTC Signaling Flow</h1>
 <select id="scenarioSelect"></select>
 <div class="controls">
-<button onclick="stepBack()">← Back</button>
-<button onclick="stepForward()" class="primary">Step →</button>
-<button onclick="autoPlay()">▶ Auto</button>
-<button onclick="reset()">Reset</button>
+<button onclick="stepBack()" ti="btn_back">← Back</button>
+<button onclick="stepForward()" class="primary" ti="btn_step">Step →</button>
+<button onclick="autoPlay()" ti="btn_auto">▶ Auto</button>
+<button onclick="reset()" ti="btn_reset">Reset</button>
 </div>
 </header>
 <div class="main">
 <div class="seq-col" id="seqCol"></div>
 <div class="sidebar">
 <div class="tab-bar">
-<button class="active" onclick="switchTab('detail')">Details</button>
-<button onclick="switchTab('sdp')">SDP</button>
-<button onclick="switchTab('reference')">Reference</button>
+<button class="active" onclick="switchTab('detail')" ti="btn_details">Details</button>
+<button onclick="switchTab('sdp')" ti="btn_sdp">SDP</button>
+<button onclick="switchTab('reference')" ti="btn_reference">Reference</button>
 </div>
 <div class="tab-content" id="tabContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_webrtc_signaling_flow_vis':["WebRTC Signaling Flow Visualizer", "WebRTC 信令流可视化工具"],'metadesc_interactive_webrtc_connec':["Interactive WebRTC connection flow visualizer. SDP Offer/Answer, ICE candidates, STUN/TURN servers, Trickle ICE, connection states. Step-through signaling sequence diagrams.", "交互式 WebRTC 连接流程可视化工具。SDP Offer/Answer、ICE 候选连接、STUN/TURN 服务器、Trickle ICE、连接状态。逐步演示信令序列图。"],'h1_webrtc_signaling_flow':["WebRTC Signaling Flow", "WebRTC信令流"],'btn_back':["← Back", "← 返回"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'btn_details':["Details", "细节"],'btn_sdp':["SDP", "社会主义民主党"],'btn_reference':["Reference", "参考"],'th_type':["Type", "类型"],'th_source':["Source", "来源"],'th_priority':["Priority", "优先事项"],'th_state':["State", "状态"],'th_meaning':["Meaning", "意义"],'th_protocol':["Protocol", "协议"],'th_role':["Role", "角色"],'th_type_2':["Type", "类型"],'th_p2p':["P2P?", "P2P？"],'jtlword_type':["Type", "类型"],'jtlword_source':["Source", "来源"],'jtlword_priority':["Priority", "优先事项"],'jtlword_host':["host", "主持人"],'jtlword_highest':["Highest", "最高"],'jtlword_srflx':["srflx", "srflx"],'jtlword_medium':["Medium", "中等的"],'jtlword_prflx':["prflx", "prflx"],'jtlword_medium_2':["Medium", "中等的"],'jtlword_relay':["relay", "中继"],'jtlword_lowest':["Lowest", "最低"],'jtlword_state':["State", "状态"],'jtlword_meaning':["Meaning", "意义"],'jtlword_new':["new", "新的"],'jtlword_checking':["checking", "检查"],'jtlword_connected':["connected", "连接"],'jtlword_completed':["completed", "完全的"],'jtlword_disconnected':["disconnected", "断开连接"],'jtlword_failed':["failed", "失败的"],'jtlword_closed':["closed", "关闭"],'jtlword_protocols':["Protocols", "协议"],'jtlword_protocol':["Protocol", "协议"],'jtlword_role':["Role", "角色"],'jtlword_sdp':["SDP", "社会主义民主党"],'jtlword_ice':["ICE", "冰"],'jtlword_stun':["STUN", "眩晕"],'jtlword_turn':["TURN", "转动"],'jtlword_dtls':["DTLS", "DTLS"],'jtlword_srtp':["SRTP", "SRTP"],'jtlword_sctp':["SCTP", "SCTP"],'jtlword_type_2':["Type", "类型"],'jtlword_symmetric':["Symmetric", "对称"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS=[
 {name:'Basic P2P (STUN)',
@@ -309,7 +321,7 @@ a=fmtp:111 minptime=10;useinbandfec=1</div>`;
     el.innerHTML=`
     <div class="info-card"><h4>ICE Candidate Types</h4>
     <table class="ref-table">
-    <tr><th>Type</th><th>Source</th><th>Priority</th></tr>
+    <tr><th ti="th_type" ti="th_type_2">Type</th><th ti="th_source">Source</th><th ti="th_priority">Priority</th></tr>
     <tr><td>host</td><td>Local network interface</td><td>Highest</td></tr>
     <tr><td>srflx</td><td>STUN server (public IP)</td><td>Medium</td></tr>
     <tr><td>prflx</td><td>Peer connectivity check</td><td>Medium</td></tr>
@@ -317,7 +329,7 @@ a=fmtp:111 minptime=10;useinbandfec=1</div>`;
     </table></div>
     <div class="info-card"><h4>Connection States</h4>
     <table class="ref-table">
-    <tr><th>State</th><th>Meaning</th></tr>
+    <tr><th ti="th_state">State</th><th ti="th_meaning">Meaning</th></tr>
     <tr><td>new</td><td>Initial state, no networking</td></tr>
     <tr><td>checking</td><td>ICE connectivity checks in progress</td></tr>
     <tr><td>connected</td><td>At least one working candidate pair</td></tr>
@@ -328,7 +340,7 @@ a=fmtp:111 minptime=10;useinbandfec=1</div>`;
     </table></div>
     <div class="info-card"><h4>Protocols</h4>
     <table class="ref-table">
-    <tr><th>Protocol</th><th>Role</th></tr>
+    <tr><th ti="th_protocol">Protocol</th><th ti="th_role">Role</th></tr>
     <tr><td>SDP</td><td>Describes media capabilities + ICE params</td></tr>
     <tr><td>ICE</td><td>NAT traversal + connectivity checking</td></tr>
     <tr><td>STUN</td><td>Discover public IP (server-reflexive)</td></tr>
@@ -339,7 +351,7 @@ a=fmtp:111 minptime=10;useinbandfec=1</div>`;
     </table></div>
     <div class="info-card"><h4>NAT Types</h4>
     <table class="ref-table">
-    <tr><th>Type</th><th>P2P?</th></tr>
+    <tr><th>Type</th><th ti="th_p2p">P2P?</th></tr>
     <tr><td>Full Cone</td><td>Easy — any external host can send</td></tr>
     <tr><td>Restricted Cone</td><td>OK — must send first to allow incoming</td></tr>
     <tr><td>Port Restricted</td><td>Harder — port must also match</td></tr>
@@ -372,6 +384,24 @@ function switchTab(t){
 }
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

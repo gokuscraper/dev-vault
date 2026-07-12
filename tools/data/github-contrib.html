@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_github_contrib_activity_v" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,22 +91,24 @@ footer a{color:var(--blue)}
 </style>
 </head>
 <body>
-<header><div class="container"><h1><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub Contrib</h1></div></header>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<header><div class="container" style="position:relative"><h1><svg viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0016 8c0-4.42-3.58-8-8-8z"/></svg> GitHub Contrib</h1></div></header>
 
 <main>
 <div class="container">
 <div class="search-section">
 <div class="search-row">
-<input type="text" id="usernameInput" placeholder="Enter GitHub username..." autocomplete="off">
-<button id="searchBtn" onclick="fetchUser()">Search</button>
+<input type="text" id="usernameInput" tp="placeholder_enter_github_username" placeholder="Enter GitHub username..." autocomplete="off">
+<button id="searchBtn" onclick="fetchUser()" ti="btn_search">Search</button>
 </div>
 <div class="presets">
 <span>Try:</span>
-<button class="preset-btn" onclick="loadPreset('sindresorhus')">sindresorhus</button>
-<button class="preset-btn" onclick="loadPreset('tj')">tj</button>
-<button class="preset-btn" onclick="loadPreset('yyx990803')">yyx990803</button>
-<button class="preset-btn" onclick="loadPreset('gaearon')">gaearon</button>
-<button class="preset-btn" onclick="loadPreset('torvalds')">torvalds</button>
+<button class="preset-btn" onclick="loadPreset('sindresorhus')" ti="btn_sindresorhus">sindresorhus</button>
+<button class="preset-btn" onclick="loadPreset('tj')" ti="btn_tj">tj</button>
+<button class="preset-btn" onclick="loadPreset('yyx990803')" ti="btn_yyx990803">yyx990803</button>
+<button class="preset-btn" onclick="loadPreset('gaearon')" ti="btn_gaearon">gaearon</button>
+<button class="preset-btn" onclick="loadPreset('torvalds')" ti="btn_torvalds">torvalds</button>
 </div>
 </div>
 
@@ -119,31 +121,41 @@ footer a{color:var(--blue)}
 
 <div class="grid">
 <div class="card">
-<h3>Event Breakdown</h3>
+<h3 ti="h3_event_breakdown">Event Breakdown</h3>
 <canvas id="donutChart" width="280" height="280"></canvas>
 <div class="legend-row" id="donutLegend"></div>
 </div>
 <div class="card">
-<h3>Top Languages</h3>
+<h3 ti="h3_top_languages">Top Languages</h3>
 <div id="langBars"></div>
 </div>
 </div>
 
 <div class="repos-section">
-<h3>Most Active Repos (recently updated)</h3>
+<h3 ti="h3_most_active_repos_recentl">Most Active Repos (recently updated)</h3>
 <div id="reposList"></div>
 </div>
 
 <div class="timeline">
-<h3>Recent Activity</h3>
+<h3 ti="h3_recent_activity">Recent Activity</h3>
 <div id="activityTimeline"></div>
 </div>
 </div>
 </div>
 </main>
 
-<footer><div class="container">Data from <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener">GitHub API</a> | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">Dev Vault</a></div></footer>
+<footer><div class="container">Data from <a href="https://docs.github.com/en/rest" target="_blank" rel="noopener">GitHub API</a> | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener" ti="footer_dev_vault">Dev Vault</a></div></footer>
 
+
+<script>var _LANG={'title_github_contrib_activity_v':["GitHub Contrib — Activity Viewer", "GitHub Contrib — 活动查看器"],'metadesc_view_github_contribution':["View GitHub contribution activity, event breakdown, top languages, and most active repos for any user.", "查看 GitHub 用户贡献活动、事件细分、热门语言和最活跃的仓库。"],'h2_eschtml_u_name_u_login':["${escHtml(u.name || u.login)}", "${escHtml(u.name || u.login)}"],'h3_event_breakdown':["Event Breakdown", "事件分解"],'h3_top_languages':["Top Languages", "热门语言"],'h3_most_active_repos_recentl':["Most Active Repos (recently updated)", "最活跃的存储库（最近更新）"],'h3_recent_activity':["Recent Activity", "近期活动"],'btn_search':["Search", "搜索"],'btn_sindresorhus':["sindresorhus", "辛德雷索鲁斯"],'btn_tj':["tj", "tj"],'btn_yyx990803':["yyx990803", "yyx990803"],'btn_gaearon':["gaearon", "盖亚隆"],'btn_torvalds':["torvalds", "托瓦尔兹"],'placeholder_enter_github_username':["Enter GitHub username...", "请输入GitHub用户名……"],'strong_u_followers':["${u.followers}", "${u.followers}"],'strong_u_following':["${u.following}", "${u.following}"],'strong_u_public_repos':["${u.public_repos}", "${u.public_repos}"],'strong_formatdate_u_created_at':["${formatDate(u.created_at)}", "${formatDate(u.created_at)}"],'strong_meta_label':["${meta.label}", "${meta.label}"],'footer_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const EVENT_META = {
   PushEvent:              { icon: '⬆', cls: 'push',    label: 'Push' },
@@ -269,14 +281,14 @@ function renderProfile(u) {
   $('profileCard').innerHTML = `
     <img src="${u.avatar_url}" alt="${u.login}" width="96" height="96">
     <div class="profile-info">
-      <h2>${escHtml(u.name || u.login)}</h2>
+      <h2 ti="h2_eschtml_u_name_u_login">${escHtml(u.name || u.login)}</h2>
       <div class="username"><a href="${u.html_url}" target="_blank" rel="noopener">@${escHtml(u.login)}</a></div>
       ${u.bio ? `<div class="bio">${escHtml(u.bio)}</div>` : ''}
       <div class="profile-stats">
-        <div class="stat"><strong>${u.followers}</strong> <span>followers</span></div>
-        <div class="stat"><strong>${u.following}</strong> <span>following</span></div>
-        <div class="stat"><strong>${u.public_repos}</strong> <span>repos</span></div>
-        <div class="stat"><span>Joined</span> <strong>${formatDate(u.created_at)}</strong></div>
+        <div class="stat"><strong ti="strong_u_followers">${u.followers}</strong> <span>followers</span></div>
+        <div class="stat"><strong ti="strong_u_following">${u.following}</strong> <span>following</span></div>
+        <div class="stat"><strong ti="strong_u_public_repos">${u.public_repos}</strong> <span>repos</span></div>
+        <div class="stat"><span>Joined</span> <strong ti="strong_formatdate_u_created_at">${formatDate(u.created_at)}</strong></div>
       </div>
     </div>`;
 }
@@ -429,7 +441,7 @@ function renderTimeline(events) {
     return `<div class="event-item">
       <div class="event-icon ${meta.cls}">${meta.icon}</div>
       <div class="event-body">
-        <div class="event-title"><strong>${meta.label}</strong> in <a href="https://github.com/${repo}" target="_blank" rel="noopener">${escHtml(repo)}</a></div>
+        <div class="event-title"><strong ti="strong_meta_label">${meta.label}</strong> in <a href="https://github.com/${repo}" target="_blank" rel="noopener">${escHtml(repo)}</a></div>
         ${detail ? `<div class="event-detail">${escHtml(detail)}</div>` : ''}
         <div class="event-time">${timeAgo(e.created_at)}</div>
       </div>
@@ -458,6 +470,24 @@ function loadPreset(name) {
   $('usernameInput').addEventListener('keydown', e => {
     if (e.key === 'Enter') fetchUser();
   });
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

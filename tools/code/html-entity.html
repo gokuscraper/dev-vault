@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_entity_reference_sea" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -44,12 +44,14 @@ footer .links{margin-top:6px;display:flex;gap:16px;justify-content:center;flex-w
 </style>
 </head>
 <body>
-<div class="container">
-<h1>HTML Entity Reference</h1>
-<p class="subtitle">Click any entity to copy. 200+ characters across 8 categories.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_html_entity_reference">HTML Entity Reference</h1>
+<p class="subtitle" ti="subtitle_click_any_entity_to_copy">Click any entity to copy. 200+ characters across 8 categories.</p>
 
 <div class="converter">
-<h2>Character Converter</h2>
+<h2 ti="h2_character_converter">Character Converter</h2>
 <div class="conv-row">
 <input id="convInput" maxlength="2" placeholder="A">
 <div class="conv-results" id="convResults"></div>
@@ -57,7 +59,7 @@ footer .links{margin-top:6px;display:flex;gap:16px;justify-content:center;flex-w
 </div>
 
 <div class="controls">
-<input id="search" type="text" placeholder="Search by name, character, or code...">
+<input id="search" type="text" tp="placeholder_search_by_name_character" placeholder="Search by name, character, or code...">
 <select id="catFilter"><option value="">All Categories</option></select>
 </div>
 <div class="stats" id="stats"></div>
@@ -67,13 +69,23 @@ footer .links{margin-top:6px;display:flex;gap:16px;justify-content:center;flex-w
 <div class="toast" id="toast"></div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> &mdash; Browser-based developer tools
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a> &mdash; Browser-based developer tools
 <div class="links">
-<a href="https://gokuscraper.github.io/dev-vault/html-escape/">HTML Escape</a>
-<a href="https://gokuscraper.github.io/dev-vault/emoji-picker/">Emoji Picker</a>
+<a href="https://gokuscraper.github.io/dev-vault/html-escape/" ti="link_html_escape">HTML Escape</a>
+<a href="https://gokuscraper.github.io/dev-vault/emoji-picker/" ti="link_emoji_picker">Emoji Picker</a>
 </div>
 </footer>
 
+
+<script>var _LANG={'title_html_entity_reference_sea':["HTML Entity Reference — Search HTML Entities", "HTML实体引用 — 搜索HTML实体"],'metadesc_search_and_browse_200_htm':["Search and browse 200+ HTML entities by name, character, or code point. Quick copy arrows, math symbols, currency, Greek letters, and more.", "按名称、字符或代码点搜索和浏览 200 多个 HTML 实体。快速复制箭头、数学符号、货币、希腊字母等等。"],'h1_html_entity_reference':["HTML Entity Reference", "HTML实体引用"],'h2_character_converter':["Character Converter", "字符转换器"],'subtitle_click_any_entity_to_copy':["Click any entity to copy. 200+ characters across 8 categories.", "点击任意实体即可复制。超过 200 个字符，涵盖 8 个类别。"],'placeholder_search_by_name_character':["Search by name, character, or code...", "按名称、字符或代码搜索……"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'link_html_escape':["HTML Escape", "HTML 转义"],'link_emoji_picker':["Emoji Picker", "表情符号选择器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Why: pre-built array avoids runtime generation; keeps file self-contained
 const E=[
@@ -282,6 +294,24 @@ convResults.addEventListener('click',e=>{
 });
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

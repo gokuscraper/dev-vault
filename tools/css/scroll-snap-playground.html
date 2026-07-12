@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scroll_snap_builder_d" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -215,6 +215,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">Ss</span>
@@ -222,7 +224,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">Scroll Snap</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
@@ -231,17 +233,17 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <div class="controls-panel">
     <div class="section-title">Presets</div>
     <div class="presets">
-      <button class="preset-btn active" data-preset="carousel">Carousel</button>
-      <button class="preset-btn" data-preset="pages">Full Pages</button>
-      <button class="preset-btn" data-preset="gallery">Gallery</button>
-      <button class="preset-btn" data-preset="cards">Card Stack</button>
-      <button class="preset-btn" data-preset="padded">Padded Peek</button>
+      <button class="preset-btn active" data-preset="carousel" ti="btn_carousel">Carousel</button>
+      <button class="preset-btn" data-preset="pages" ti="btn_full_pages">Full Pages</button>
+      <button class="preset-btn" data-preset="gallery" ti="btn_gallery">Gallery</button>
+      <button class="preset-btn" data-preset="cards" ti="btn_card_stack">Card Stack</button>
+      <button class="preset-btn" data-preset="padded" ti="btn_padded_peek">Padded Peek</button>
     </div>
 
     <div class="section-title">Container</div>
     <div class="control-group">
       <div class="control-row">
-        <label>Direction</label>
+        <label ti="label_direction">Direction</label>
         <select id="opt-direction">
           <option value="x">Horizontal (x)</option>
           <option value="y">Vertical (y)</option>
@@ -249,19 +251,19 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
         </select>
       </div>
       <div class="control-row">
-        <label>snap-type</label>
+        <label ti="label_snap_type">snap-type</label>
         <select id="opt-type">
           <option value="mandatory">mandatory</option>
           <option value="proximity">proximity</option>
         </select>
       </div>
       <div class="control-row">
-        <label>scroll-padding</label>
+        <label ti="label_scroll_padding">scroll-padding</label>
         <input type="range" id="opt-padding" min="0" max="80" step="2" value="0">
         <span class="val-display" id="val-padding">0px</span>
       </div>
       <div class="control-row">
-        <label>Items</label>
+        <label ti="label_items">Items</label>
         <input type="range" id="opt-items" min="3" max="8" step="1" value="5">
         <span class="val-display" id="val-items">5</span>
       </div>
@@ -270,7 +272,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <div class="section-title">Child Defaults</div>
     <div class="control-group">
       <div class="control-row">
-        <label>snap-align</label>
+        <label ti="label_snap_align" ti="label_snap_align_2">snap-align</label>
         <select id="opt-align">
           <option value="start">start</option>
           <option value="center" selected>center</option>
@@ -279,14 +281,14 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
         </select>
       </div>
       <div class="control-row">
-        <label>snap-stop</label>
+        <label ti="label_snap_stop" ti="label_snap_stop_2">snap-stop</label>
         <select id="opt-stop">
           <option value="normal">normal</option>
           <option value="always">always</option>
         </select>
       </div>
       <div class="control-row">
-        <label>scroll-margin</label>
+        <label ti="label_scroll_margin">scroll-margin</label>
         <input type="range" id="opt-margin" min="0" max="40" step="2" value="0">
         <span class="val-display" id="val-margin">0px</span>
       </div>
@@ -299,10 +301,10 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- Preview -->
   <div class="preview-panel">
     <div class="panel-header">
-      <h3>Preview</h3>
+      <h3 ti="h3_preview">Preview</h3>
       <div class="dir-btns">
-        <button class="dir-btn active" data-dir="x">Horizontal</button>
-        <button class="dir-btn" data-dir="y">Vertical</button>
+        <button class="dir-btn active" data-dir="x" ti="btn_horizontal">Horizontal</button>
+        <button class="dir-btn" data-dir="y" ti="btn_vertical">Vertical</button>
       </div>
     </div>
     <div class="preview-area">
@@ -318,13 +320,23 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
   <!-- Code -->
   <div class="code-panel">
     <div class="panel-header">
-      <h3>CSS</h3>
-      <button class="btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_css">CSS</h3>
+      <button class="btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output"><pre id="codeContent"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_scroll_snap_builder_d':["CSS Scroll Snap Builder — Dev Vault", "CSS滚动捕捉生成器 — 开发者宝库"],'metadesc_visual_css_scroll_snap_bu':["Visual CSS Scroll Snap builder. Configure snap-type, snap-align, scroll-padding, scroll-margin, snap-stop with live preview and CSS export.", "可视化 CSS 滚动捕捉构建器。可配置捕捉类型、捕捉对齐方式、滚动内边距、滚动外边距和捕捉停止位置，并支持实时预览和 CSS 导出。"],'h3_preview':["Preview", "预览"],'h3_css':["CSS", "CSS"],'btn_carousel':["Carousel", "旋转木马"],'btn_full_pages':["Full Pages", "整页"],'btn_gallery':["Gallery", "画廊"],'btn_card_stack':["Card Stack", "牌堆"],'btn_padded_peek':["Padded Peek", "带衬垫的窥视"],'btn_horizontal':["Horizontal", "水平的"],'btn_vertical':["Vertical", "垂直的"],'btn_copy':["Copy", "复制"],'label_direction':["Direction", "方向"],'label_snap_type':["snap-type", "卡扣式"],'label_scroll_padding':["scroll-padding", "滚动边距"],'label_items':["Items", "项目"],'label_snap_align':["snap-align", "对齐"],'label_snap_stop':["snap-stop", "卡扣式"],'label_scroll_margin':["scroll-margin", "滚动边距"],'label_snap_align_2':["snap-align", "对齐"],'label_snap_stop_2':["snap-stop", "卡扣式"],'footer_css_scroll_snap_builder_d':["CSS Scroll Snap Builder — Dev Vault", "CSS滚动捕捉生成器 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const container = document.getElementById('snapContainer');
@@ -601,14 +613,32 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 
   copyBtn.onclick = () => {
     navigator.clipboard.writeText(getPlainCode()).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 2000);
     });
   };
 
   // Init
   loadPreset('carousel');
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

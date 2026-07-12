@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_license_pick_find_the_rig" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -499,9 +499,11 @@ footer a { color: var(--accent); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <div class="container">
+  <div class="container" style="position:relative">
     <div>
       <div class="logo">
         <span class="logo-icon">&#9878;&#65039;</span> license-pick
@@ -509,8 +511,8 @@ footer a { color: var(--accent); }
       <span class="subtitle">Find the right open source license in seconds</span>
     </div>
     <div class="mode-tabs">
-      <button class="mode-tab active" onclick="switchMode('quiz')">Quiz</button>
-      <button class="mode-tab" onclick="switchMode('compare')">Compare</button>
+      <button class="mode-tab active" onclick="switchMode('quiz')" ti="btn_quiz">Quiz</button>
+      <button class="mode-tab" onclick="switchMode('compare')" ti="btn_compare">Compare</button>
     </div>
   </div>
 </header>
@@ -520,7 +522,7 @@ footer a { color: var(--accent); }
   <!-- QUIZ MODE -->
   <div class="quiz-section active" id="quizSection">
     <div class="quiz-intro">
-      <h2>Find Your License</h2>
+      <h2 ti="h2_find_your_license">Find Your License</h2>
       <p>Answer 4 quick questions and we'll recommend the best license for your project.</p>
     </div>
 
@@ -528,26 +530,26 @@ footer a { color: var(--accent); }
 
     <div class="question-card" id="q1">
       <span class="question-number">Q1 of 4</span>
-      <h3>Can others use your code commercially?</h3>
+      <h3 ti="h3_can_others_use_your_code">Can others use your code commercially?</h3>
       <div class="options">
-        <button class="option-btn" onclick="answer(1,'yes')">Yes</button>
-        <button class="option-btn" onclick="answer(1,'no')">No</button>
+        <button class="option-btn" onclick="answer(1,'yes')" ti="btn_yes" ti="btn_yes_2">Yes</button>
+        <button class="option-btn" onclick="answer(1,'no')" ti="btn_no" ti="btn_no_2">No</button>
       </div>
     </div>
 
     <div class="question-card disabled" id="q2">
       <span class="question-number">Q2 of 4</span>
-      <h3>Must derivative works use the same license?</h3>
+      <h3 ti="h3_must_derivative_works_use">Must derivative works use the same license?</h3>
       <div class="options">
-        <button class="option-btn" onclick="answer(2,'yes')">Yes (Copyleft)</button>
-        <button class="option-btn" onclick="answer(2,'no')">No (Permissive)</button>
-        <button class="option-btn" onclick="answer(2,'any')">Don't care</button>
+        <button class="option-btn" onclick="answer(2,'yes')" ti="btn_yes_copyleft">Yes (Copyleft)</button>
+        <button class="option-btn" onclick="answer(2,'no')" ti="btn_no_permissive">No (Permissive)</button>
+        <button class="option-btn" onclick="answer(2,'any')" ti="btn_don_t_care" ti="btn_don_t_care_2" ti="btn_don_t_care_3">Don't care</button>
       </div>
     </div>
 
     <div class="question-card disabled" id="q3">
       <span class="question-number">Q3 of 4</span>
-      <h3>Do you want patent protection?</h3>
+      <h3 ti="h3_do_you_want_patent_protec">Do you want patent protection?</h3>
       <div class="options">
         <button class="option-btn" onclick="answer(3,'yes')">Yes</button>
         <button class="option-btn" onclick="answer(3,'no')">No</button>
@@ -557,10 +559,10 @@ footer a { color: var(--accent); }
 
     <div class="question-card disabled" id="q4">
       <span class="question-number">Q4 of 4</span>
-      <h3>How simple do you want the license?</h3>
+      <h3 ti="h3_how_simple_do_you_want_th">How simple do you want the license?</h3>
       <div class="options">
-        <button class="option-btn" onclick="answer(4,'simple')">Very simple</button>
-        <button class="option-btn" onclick="answer(4,'standard')">Standard</button>
+        <button class="option-btn" onclick="answer(4,'simple')" ti="btn_very_simple">Very simple</button>
+        <button class="option-btn" onclick="answer(4,'standard')" ti="btn_standard">Standard</button>
         <button class="option-btn" onclick="answer(4,'any')">Don't care</button>
       </div>
     </div>
@@ -572,7 +574,7 @@ footer a { color: var(--accent); }
   <!-- COMPARE MODE -->
   <div class="compare-section" id="compareSection">
     <div class="compare-intro">
-      <h2>Compare Licenses</h2>
+      <h2 ti="h2_compare_licenses">Compare Licenses</h2>
       <p>Click any row to see the full license text and details.</p>
     </div>
 
@@ -580,13 +582,13 @@ footer a { color: var(--accent); }
       <table class="compare-table" id="compareTable">
         <thead>
           <tr>
-            <th>License</th>
-            <th>Commercial</th>
-            <th>Modify</th>
-            <th>Distribute</th>
-            <th>Patent</th>
-            <th>Copyleft</th>
-            <th>Simplicity</th>
+            <th ti="th_license">License</th>
+            <th ti="th_commercial">Commercial</th>
+            <th ti="th_modify">Modify</th>
+            <th ti="th_distribute">Distribute</th>
+            <th ti="th_patent">Patent</th>
+            <th ti="th_copyleft">Copyleft</th>
+            <th ti="th_simplicity">Simplicity</th>
           </tr>
         </thead>
         <tbody id="compareBody"></tbody>
@@ -609,6 +611,16 @@ footer a { color: var(--accent); }
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_license_pick_find_the_rig':["license-pick — Find the Right Open Source License", "license-pick — 找到合适的开源许可证"],'metadesc_answer_a_few_questions_to':["Answer a few questions to find the perfect open source license for your project. Compare 10 popular licenses side by side.", "回答几个问题，即可找到最适合您项目的开源许可证。并排比较 10 种常用许可证。"],'h2_find_your_license':["Find Your License", "查找您的许可证"],'h2_compare_licenses':["Compare Licenses", "比较许可证"],'h2_your_recommended_licenses':["Your Recommended Licenses", "您推荐的许可证"],'h3_can_others_use_your_code':["Can others use your code commercially?", "其他人可以将你的代码用于商业用途吗？"],'h3_must_derivative_works_use':["Must derivative works use the same license?", "衍生作品必须使用相同的许可协议吗？"],'h3_do_you_want_patent_protec':["Do you want patent protection?", "您想要专利保护吗？"],'h3_how_simple_do_you_want_th':["How simple do you want the license?", "您希望许可证有多简单？"],'btn_quiz':["Quiz", "测验"],'btn_compare':["Compare", "比较"],'btn_yes':["Yes", "是的"],'btn_no':["No", "不"],'btn_yes_copyleft':["Yes (Copyleft)", "是的（版权所有）"],'btn_no_permissive':["No (Permissive)", "否（允许的）"],'btn_don_t_care':["Don't care", "不在乎"],'btn_yes_2':["Yes", "是的"],'btn_no_2':["No", "不"],'btn_don_t_care_2':["Don't care", "不在乎"],'btn_very_simple':["Very simple", "非常简单"],'btn_standard':["Standard", "标准"],'btn_don_t_care_3':["Don't care", "不在乎"],'btn_start_over':["↻ Start Over", "↻ 重新开始"],'btn_copy_license_text':["📋 Copy License Text", "📋 复制许可文本"],'btn_generate_license_file':["📄 Generate LICENSE File", "📄 生成许可证文件"],'btn_view_full_text':["📜 View Full Text", "📜 查看全文"],'btn_copy_license_text_2':["📋 Copy License Text", "📋 复制许可文本"],'btn_generate_license_file_2':["📄 Generate LICENSE File", "📄 生成许可证文件"],'btn_view_full_text_2':["📜 View Full Text", "📜 查看全文"],'label_label':["${label}", "${label}"],'strong_why_this_license':["Why this license:", "为什么需要此许可证："],'strong_used_by':["Used by:", "使用者："],'strong_used_by_2':["Used by:", "使用者："],'th_license':["License", "执照"],'th_commercial':["Commercial", "商业的"],'th_modify':["Modify", "调整"],'th_distribute':["Distribute", "分发"],'th_patent':["Patent", "专利"],'th_copyleft':["Copyleft", "版权所有"],'th_simplicity':["Simplicity", "简单"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── License Data ──
 const LICENSES = {
@@ -1142,7 +1154,7 @@ function showResults() {
 
   let html = `
     <div class="results-header">
-      <h2>Your Recommended Licenses</h2>
+      <h2 ti="h2_your_recommended_licenses">Your Recommended Licenses</h2>
       <p>Based on your answers, here are the best matches.</p>
       <button class="restart-btn" onclick="restartQuiz()">&#x21bb; Start Over</button>
     </div>
@@ -1165,12 +1177,12 @@ function buildLicenseCard(key, label, labelClass, reason) {
     <div class="license-card">
       <div class="license-card-header">
         <span class="license-card-title">${l.name}</span>
-        ${label ? `<span class="license-match ${labelClass}">${label}</span>` : ''}
+        ${label ? `<span class="license-match ${labelClass}" ti="label_label">${label}</span>` : ''}
       </div>
       <div class="license-card-body">
         <p class="license-summary">${l.summary}</p>
-        ${reason ? `<div class="license-why"><strong>Why this license:</strong> ${reason}</div>` : ''}
-        <p class="license-projects"><strong>Used by:</strong> ${l.projects}</p>
+        ${reason ? `<div class="license-why"><strong ti="strong_why_this_license">Why this license:</strong> ${reason}</div>` : ''}
+        <p class="license-projects"><strong ti="strong_used_by" ti="strong_used_by_2">Used by:</strong> ${l.projects}</p>
         <div class="license-actions">
           <button class="btn btn-primary" onclick="copyLicense('${key}')">&#128203; Copy License Text</button>
           <button class="btn btn-secondary" onclick="generateFile('${key}')">&#128196; Generate LICENSE File</button>
@@ -1308,6 +1320,24 @@ function showToast(msg) {
 
 // ── Init ──
 buildCompareTable();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

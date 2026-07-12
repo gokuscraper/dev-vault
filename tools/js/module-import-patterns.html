@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_es_module_import_patterns" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -340,55 +340,61 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>ES Module Import Patterns</h1>
+  <h1 ti="h1_es_module_import_patterns" ti="h1_es_module_import_patterns" ti="h1_es_module_import_patterns">ES Module Import Patterns</h1>
   <p>Interactive playground for modern JavaScript module system patterns</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab active" data-tab="static">Static Import</button>
-    <button class="tab" data-tab="dynamic">Dynamic import()</button>
-    <button class="tab" data-tab="assertions">Import Assertions</button>
-    <button class="tab" data-tab="maps">Import Maps</button>
-    <button class="tab" data-tab="tla">Top-Level Await</button>
-    <button class="tab" data-tab="namespace">Namespace Objects</button>
-    <button class="tab" data-tab="reexport">Re-export Patterns</button>
-    <button class="tab" data-tab="circular">Circular Dependencies</button>
-    <button class="tab" data-tab="evalorder">Evaluation Order</button>
+    <button class="tab active" data-tab="static" ti="btn_static_import" ti="btn_static_import" ti="btn_static_import">Static Import</button>
+    <button class="tab" data-tab="dynamic" ti="btn_dynamic_import" ti="btn_dynamic_import" ti="btn_dynamic_import">Dynamic import()</button>
+    <button class="tab" data-tab="assertions" ti="btn_import_assertions" ti="btn_import_assertions" ti="btn_import_assertions">Import Assertions</button>
+    <button class="tab" data-tab="maps" ti="btn_import_maps" ti="btn_import_maps" ti="btn_import_maps">Import Maps</button>
+    <button class="tab" data-tab="tla" ti="btn_top_level_await" ti="btn_top_level_await" ti="btn_top_level_await">Top-Level Await</button>
+    <button class="tab" data-tab="namespace" ti="btn_namespace_objects" ti="btn_namespace_objects" ti="btn_namespace_objects">Namespace Objects</button>
+    <button class="tab" data-tab="reexport" ti="btn_re_export_patterns" ti="btn_re_export_patterns" ti="btn_re_export_patterns">Re-export Patterns</button>
+    <button class="tab" data-tab="circular" ti="btn_circular_dependencies" ti="btn_circular_dependencies" ti="btn_circular_dependencies">Circular Dependencies</button>
+    <button class="tab" data-tab="evalorder" ti="btn_evaluation_order" ti="btn_evaluation_order" ti="btn_evaluation_order">Evaluation Order</button>
   </div>
 
   <!-- Static Import -->
   <div class="panel active" id="panel-static">
     <div class="card">
-      <h2>Static Import Declarations</h2>
+      <h2 ti="h2_static_import_declaration" ti="h2_static_import_declaration" ti="h2_static_import_declaration">Static Import Declarations</h2>
       <p>Static imports are hoisted, evaluated at parse time, and create live bindings to the exported values.</p>
 
-      <h3>Named Imports</h3>
+      <h3 ti="h3_named_imports" ti="h3_named_imports" ti="h3_named_imports">Named Imports</h3>
 <pre><span class="keyword">import</span> { <span class="type">useState</span>, <span class="type">useEffect</span> } <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> { <span class="type">readFile</span> <span class="keyword">as</span> <span class="type">read</span> } <span class="keyword">from</span> <span class="string">'node:fs/promises'</span>;</pre>
 
-      <h3>Default Import</h3>
+      <h3 ti="h3_default_import" ti="h3_default_import" ti="h3_default_import">Default Import</h3>
 <pre><span class="keyword">import</span> <span class="type">React</span> <span class="keyword">from</span> <span class="string">'react'</span>;
 <span class="keyword">import</span> <span class="type">myDefault</span>, { <span class="type">named1</span>, <span class="type">named2</span> } <span class="keyword">from</span> <span class="string">'./module.js'</span>;</pre>
 
-      <h3>Namespace Import</h3>
+      <h3 ti="h3_namespace_import" ti="h3_namespace_import" ti="h3_namespace_import">Namespace Import</h3>
 <pre><span class="keyword">import</span> * <span class="keyword">as</span> <span class="type">utils</span> <span class="keyword">from</span> <span class="string">'./utils.js'</span>;
 <span class="comment">// utils.functionA(), utils.functionB()</span></pre>
 
-      <h3>Side-effect Import</h3>
+      <h3 ti="h3_side_effect_import" ti="h3_side_effect_import" ti="h3_side_effect_import">Side-effect Import</h3>
 <pre><span class="keyword">import</span> <span class="string">'./polyfills.js'</span>;
 <span class="comment">// Executes module code, imports nothing</span></pre>
 
       <div class="highlight-box">
-        Static imports are <strong>hoisted</strong> to the top of the module. They create <strong>live bindings</strong>: if the exporting module changes the value, the importing module sees the change.
+        Static imports are <strong ti="strong_hoisted" ti="strong_hoisted" ti="strong_hoisted">hoisted</strong> to the top of the module. They create <strong ti="strong_live_bindings" ti="strong_live_bindings_2" ti="strong_live_bindings" ti="strong_live_bindings_2" ti="strong_live_bindings" ti="strong_live_bindings_2">live bindings</strong>: if the exporting module changes the value, the importing module sees the change.
       </div>
 
-      <h3>Interactive Demo: Live Bindings</h3>
+      <h3 ti="h3_interactive_demo_live_bin" ti="h3_interactive_demo_live_bin" ti="h3_interactive_demo_live_bin">Interactive Demo: Live Bindings</h3>
       <p>Demonstrate how static imports create live bindings (unlike CommonJS copies):</p>
       <div class="interactive-area">
-        <button class="btn" onclick="demoLiveBindings()">Run Live Binding Demo</button>
+        <button class="btn" onclick="demoLiveBindings()" ti="btn_run_live_binding_demo" ti="btn_run_live_binding_demo" ti="btn_run_live_binding_demo">Run Live Binding Demo</button>
         <div class="output" id="live-binding-output"></div>
       </div>
     </div>
@@ -397,7 +403,7 @@
   <!-- Dynamic import() -->
   <div class="panel" id="panel-dynamic">
     <div class="card">
-      <h2>Dynamic import()</h2>
+      <h2 ti="h2_dynamic_import" ti="h2_dynamic_import" ti="h2_dynamic_import">Dynamic import()</h2>
       <p>Dynamic import returns a Promise that resolves to the module namespace object. It enables lazy loading, conditional loading, and computed specifiers.</p>
 
       <div class="comparison">
@@ -417,7 +423,7 @@
         </div>
       </div>
 
-      <h3>Use Cases</h3>
+      <h3 ti="h3_use_cases" ti="h3_use_cases" ti="h3_use_cases">Use Cases</h3>
 <pre><span class="comment">// 1. Conditional loading</span>
 <span class="keyword">if</span> (user.isAdmin) {
   <span class="keyword">const</span> { <span class="type">AdminPanel</span> } = <span class="keyword">await</span> <span class="func">import</span>(<span class="string">'./admin.js'</span>);
@@ -433,15 +439,15 @@ button.<span class="func">addEventListener</span>(<span class="string">'click'</
   <span class="func">showChart</span>(data);
 });</pre>
 
-      <h3>Interactive Demo: Simulated Dynamic Loading</h3>
+      <h3 ti="h3_interactive_demo_simulate" ti="h3_interactive_demo_simulate" ti="h3_interactive_demo_simulate">Interactive Demo: Simulated Dynamic Loading</h3>
       <div class="interactive-area">
-        <label>Select a module to dynamically load:</label>
+        <label ti="label_select_a_module_to_dynami" ti="label_select_a_module_to_dynami" ti="label_select_a_module_to_dynami">Select a module to dynamically load:</label>
         <select id="dynamic-module-select">
           <option value="math">math-utils (add, multiply, PI)</option>
           <option value="string">string-utils (capitalize, reverse)</option>
           <option value="date">date-utils (format, diff)</option>
         </select>
-        <button class="btn" style="margin-top: 0.75rem" onclick="demoDynamicImport()">Load Module</button>
+        <button class="btn" style="margin-top: 0.75rem" onclick="demoDynamicImport()" ti="btn_load_module" ti="btn_load_module" ti="btn_load_module">Load Module</button>
         <div class="output" id="dynamic-output"></div>
       </div>
     </div>
@@ -450,14 +456,14 @@ button.<span class="func">addEventListener</span>(<span class="string">'click'</
   <!-- Import Assertions -->
   <div class="panel" id="panel-assertions">
     <div class="card">
-      <h2>Import Assertions / Attributes</h2>
-      <p>Import assertions (now called <strong>import attributes</strong> in the latest spec) let you specify metadata about the module being imported, such as its type.</p>
+      <h2 ti="h2_import_assertions_attribu" ti="h2_import_assertions_attribu" ti="h2_import_assertions_attribu">Import Assertions / Attributes</h2>
+      <p>Import assertions (now called <strong ti="strong_import_attributes" ti="strong_import_attributes" ti="strong_import_attributes">import attributes</strong> in the latest spec) let you specify metadata about the module being imported, such as its type.</p>
 
       <div class="highlight-box">
-        <strong>Spec evolution:</strong> The <code class="inline-code">assert</code> keyword was renamed to <code class="inline-code">with</code> in the final spec. Both may appear in the wild.
+        <strong ti="strong_spec_evolution" ti="strong_spec_evolution" ti="strong_spec_evolution">Spec evolution:</strong> The <code class="inline-code">assert</code> keyword was renamed to <code class="inline-code">with</code> in the final spec. Both may appear in the wild.
       </div>
 
-      <h3>JSON Import</h3>
+      <h3 ti="h3_json_import" ti="h3_json_import" ti="h3_json_import">JSON Import</h3>
 <pre><span class="comment">// Old syntax (deprecated)</span>
 <span class="keyword">import</span> data <span class="keyword">from</span> <span class="string">'./data.json'</span> <span class="keyword">assert</span> { <span class="type">type</span>: <span class="string">'json'</span> };
 
@@ -469,19 +475,19 @@ button.<span class="func">addEventListener</span>(<span class="string">'click'</
   <span class="keyword">with</span>: { <span class="type">type</span>: <span class="string">'json'</span> }
 });</pre>
 
-      <h3>CSS Module Import</h3>
+      <h3 ti="h3_css_module_import" ti="h3_css_module_import" ti="h3_css_module_import">CSS Module Import</h3>
 <pre><span class="keyword">import</span> sheet <span class="keyword">from</span> <span class="string">'./styles.css'</span> <span class="keyword">with</span> { <span class="type">type</span>: <span class="string">'css'</span> };
 document.adoptedStyleSheets = [sheet];</pre>
 
-      <h3>Browser Support</h3>
+      <h3 ti="h3_browser_support" ti="h3_browser_support" ti="h3_browser_support">Browser Support</h3>
       <div class="interactive-area">
-        <button class="btn" onclick="checkImportAssertions()">Check Browser Support</button>
+        <button class="btn" onclick="checkImportAssertions()" ti="btn_check_browser_support" ti="btn_check_browser_support" ti="btn_check_browser_support">Check Browser Support</button>
         <div class="output" id="assertions-output"></div>
       </div>
 
       <table class="mapping-table">
         <thead>
-          <tr><th>Type</th><th>Syntax</th><th>Use Case</th><th>Status</th></tr>
+          <tr><th ti="th_type" ti="th_type" ti="th_type">Type</th><th ti="th_syntax" ti="th_syntax_2" ti="th_syntax" ti="th_syntax_2" ti="th_syntax" ti="th_syntax_2">Syntax</th><th ti="th_use_case" ti="th_use_case" ti="th_use_case">Use Case</th><th ti="th_status" ti="th_status" ti="th_status">Status</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -510,7 +516,7 @@ document.adoptedStyleSheets = [sheet];</pre>
   <!-- Import Maps -->
   <div class="panel" id="panel-maps">
     <div class="card">
-      <h2>Import Maps</h2>
+      <h2 ti="h2_import_maps" ti="h2_import_maps" ti="h2_import_maps">Import Maps</h2>
       <p>Import maps let you control module resolution in the browser — mapping bare specifiers to URLs, creating scoped overrides, and managing package versions.</p>
 
 <pre><span class="comment">&lt;!-- Must appear before any module scripts --&gt;</span>
@@ -529,7 +535,7 @@ document.adoptedStyleSheets = [sheet];</pre>
 }
 &lt;/<span class="keyword">script</span>&gt;</pre>
 
-      <h3>Key Features</h3>
+      <h3 ti="h3_key_features" ti="h3_key_features" ti="h3_key_features">Key Features</h3>
       <div class="two-col">
         <div>
           <h4 style="color: var(--green); margin-bottom: 0.5rem;">Bare Specifiers</h4>
@@ -549,11 +555,11 @@ document.adoptedStyleSheets = [sheet];</pre>
         </div>
       </div>
 
-      <h3>Import Map Resolution Simulator</h3>
+      <h3 ti="h3_import_map_resolution_sim" ti="h3_import_map_resolution_sim" ti="h3_import_map_resolution_sim">Import Map Resolution Simulator</h3>
       <div class="interactive-area">
-        <label>Enter a module specifier to resolve:</label>
-        <input type="text" id="importmap-specifier" value="lodash" placeholder="e.g., lodash, @utils/format, react">
-        <button class="btn" style="margin-top: 0.75rem" onclick="simulateImportMap()">Resolve</button>
+        <label ti="label_enter_a_module_specifier" ti="label_enter_a_module_specifier" ti="label_enter_a_module_specifier">Enter a module specifier to resolve:</label>
+        <input type="text" id="importmap-specifier" value="lodash" tp="placeholder_e_g_lodash_utils_format_r" tp="placeholder_e_g_lodash_utils_format_r" tp="placeholder_e_g_lodash_utils_format_r" placeholder="e.g., lodash, @utils/format, react">
+        <button class="btn" style="margin-top: 0.75rem" onclick="simulateImportMap()" ti="btn_resolve" ti="btn_resolve" ti="btn_resolve">Resolve</button>
         <div class="output" id="importmap-output"></div>
       </div>
     </div>
@@ -562,7 +568,7 @@ document.adoptedStyleSheets = [sheet];</pre>
   <!-- Top-Level Await -->
   <div class="panel" id="panel-tla">
     <div class="card">
-      <h2>Top-Level Await</h2>
+      <h2 ti="h2_top_level_await" ti="h2_top_level_await" ti="h2_top_level_await">Top-Level Await</h2>
       <p>Top-level await allows using <code class="inline-code">await</code> at the top level of a module, turning the module itself into an async function.</p>
 
 <pre><span class="comment">// config.js — module blocks until fetch completes</span>
@@ -573,7 +579,7 @@ document.adoptedStyleSheets = [sheet];</pre>
 <span class="keyword">import</span> { <span class="type">config</span> } <span class="keyword">from</span> <span class="string">'./config.js'</span>;
 console.<span class="func">log</span>(config); <span class="comment">// guaranteed resolved</span></pre>
 
-      <h3>Execution Model</h3>
+      <h3 ti="h3_execution_model" ti="h3_execution_model" ti="h3_execution_model">Execution Model</h3>
       <div class="flow-diagram">
         <div class="flow-node" style="border-color: var(--accent); background: var(--accent-dim);">Parse modules</div>
         <div class="flow-arrow">&rarr;</div>
@@ -604,15 +610,15 @@ console.<span class="func">log</span>(config); <span class="comment">// guarante
         </div>
       </div>
 
-      <h3>Interactive Demo: Top-Level Await Simulation</h3>
+      <h3 ti="h3_interactive_demo_top_leve" ti="h3_interactive_demo_top_leve" ti="h3_interactive_demo_top_leve">Interactive Demo: Top-Level Await Simulation</h3>
       <div class="interactive-area">
-        <label>Simulates async module loading with configurable delay:</label>
+        <label ti="label_simulates_async_module_lo" ti="label_simulates_async_module_lo" ti="label_simulates_async_module_lo">Simulates async module loading with configurable delay:</label>
         <select id="tla-delay">
           <option value="500">Fast (500ms)</option>
           <option value="1500" selected>Normal (1.5s)</option>
           <option value="3000">Slow (3s)</option>
         </select>
-        <button class="btn" style="margin-top: 0.75rem" onclick="demoTopLevelAwait()">Load Module Graph</button>
+        <button class="btn" style="margin-top: 0.75rem" onclick="demoTopLevelAwait()" ti="btn_load_module_graph" ti="btn_load_module_graph" ti="btn_load_module_graph">Load Module Graph</button>
         <div class="output" id="tla-output"></div>
       </div>
     </div>
@@ -621,7 +627,7 @@ console.<span class="func">log</span>(config); <span class="comment">// guarante
   <!-- Namespace Objects -->
   <div class="panel" id="panel-namespace">
     <div class="card">
-      <h2>Module Namespace Objects</h2>
+      <h2 ti="h2_module_namespace_objects" ti="h2_module_namespace_objects" ti="h2_module_namespace_objects">Module Namespace Objects</h2>
       <p>When you use <code class="inline-code">import * as ns from 'module'</code>, you get a module namespace object — a sealed, non-extensible object with a <code class="inline-code">null</code> prototype.</p>
 
 <pre><span class="keyword">import</span> * <span class="keyword">as</span> <span class="type">math</span> <span class="keyword">from</span> <span class="string">'./math.js'</span>;
@@ -639,10 +645,10 @@ math.counter;  <span class="comment">// reflects current value from the module</
 math.newProp = <span class="number">42</span>;  <span class="comment">// TypeError in strict mode</span>
 <span class="keyword">delete</span> math.add;     <span class="comment">// TypeError</span></pre>
 
-      <h3>Namespace Object Properties</h3>
+      <h3 ti="h3_namespace_object_properti" ti="h3_namespace_object_properti" ti="h3_namespace_object_properti">Namespace Object Properties</h3>
       <table class="mapping-table">
         <thead>
-          <tr><th>Property</th><th>Value</th><th>Notes</th></tr>
+          <tr><th ti="th_property" ti="th_property" ti="th_property">Property</th><th ti="th_value" ti="th_value" ti="th_value">Value</th><th ti="th_notes" ti="th_notes" ti="th_notes">Notes</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -668,9 +674,9 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
         </tbody>
       </table>
 
-      <h3>Interactive Demo</h3>
+      <h3 ti="h3_interactive_demo" ti="h3_interactive_demo" ti="h3_interactive_demo">Interactive Demo</h3>
       <div class="interactive-area">
-        <button class="btn" onclick="demoNamespace()">Inspect Namespace Object</button>
+        <button class="btn" onclick="demoNamespace()" ti="btn_inspect_namespace_object" ti="btn_inspect_namespace_object" ti="btn_inspect_namespace_object">Inspect Namespace Object</button>
         <div class="output" id="namespace-output"></div>
       </div>
     </div>
@@ -679,7 +685,7 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
   <!-- Re-export Patterns -->
   <div class="panel" id="panel-reexport">
     <div class="card">
-      <h2>Re-export Patterns</h2>
+      <h2 ti="h2_re_export_patterns" ti="h2_re_export_patterns" ti="h2_re_export_patterns">Re-export Patterns</h2>
       <p>Re-exports allow you to aggregate exports from multiple modules into a single entry point — the "barrel file" pattern.</p>
 
 <pre><span class="comment">// components/index.js — Barrel file</span>
@@ -697,10 +703,10 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
 <span class="comment">// Wildcard with namespace (Stage 3)</span>
 <span class="keyword">export</span> * <span class="keyword">as</span> <span class="type">utils</span> <span class="keyword">from</span> <span class="string">'./utils.js'</span>;</pre>
 
-      <h3>Re-export Pattern Comparison</h3>
+      <h3 ti="h3_re_export_pattern_compari" ti="h3_re_export_pattern_compari" ti="h3_re_export_pattern_compari">Re-export Pattern Comparison</h3>
       <table class="mapping-table">
         <thead>
-          <tr><th>Pattern</th><th>Syntax</th><th>Includes Default?</th><th>Tree-Shakeable?</th></tr>
+          <tr><th ti="th_pattern" ti="th_pattern" ti="th_pattern">Pattern</th><th>Syntax</th><th ti="th_includes_default" ti="th_includes_default" ti="th_includes_default">Includes Default?</th><th ti="th_tree_shakeable" ti="th_tree_shakeable" ti="th_tree_shakeable">Tree-Shakeable?</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -730,9 +736,9 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
         </tbody>
       </table>
 
-      <h3>Interactive: Build a Barrel File</h3>
+      <h3 ti="h3_interactive_build_a_barre" ti="h3_interactive_build_a_barre" ti="h3_interactive_build_a_barre">Interactive: Build a Barrel File</h3>
       <div class="interactive-area">
-        <label>Select modules to re-export:</label>
+        <label ti="label_select_modules_to_re_expo" ti="label_select_modules_to_re_expo" ti="label_select_modules_to_re_expo">Select modules to re-export:</label>
         <div style="display: flex; flex-direction: column; gap: 0.5rem; margin: 0.5rem 0">
           <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
             <input type="checkbox" id="barrel-button" checked> Button.js (default + named: ButtonGroup)
@@ -747,7 +753,7 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
             <input type="checkbox" id="barrel-utils"> utils.js (all named exports)
           </label>
         </div>
-        <button class="btn" onclick="generateBarrel()">Generate Barrel</button>
+        <button class="btn" onclick="generateBarrel()" ti="btn_generate_barrel" ti="btn_generate_barrel" ti="btn_generate_barrel">Generate Barrel</button>
         <div class="output" id="barrel-output"></div>
       </div>
     </div>
@@ -756,10 +762,10 @@ math.newProp = <span class="number">42</span>;  <span class="comment">// TypeErr
   <!-- Circular Dependencies -->
   <div class="panel" id="panel-circular">
     <div class="card">
-      <h2>Circular Dependencies</h2>
+      <h2 ti="h2_circular_dependencies" ti="h2_circular_dependencies" ti="h2_circular_dependencies">Circular Dependencies</h2>
       <p>ES modules handle circular dependencies through <strong>live bindings</strong>. Unlike CommonJS (which copies values), ESM creates references that are resolved when accessed.</p>
 
-      <h3>The Problem</h3>
+      <h3 ti="h3_the_problem" ti="h3_the_problem" ti="h3_the_problem">The Problem</h3>
       <div class="dep-graph">
         <div class="dep-row">
           <div class="dep-module" style="background: var(--accent-dim); border: 1px solid var(--accent); color: var(--accent);">a.js</div>
@@ -805,18 +811,18 @@ console.<span class="func">log</span>(a); <span class="comment">// TDZ error if 
       </div>
 
       <div class="highlight-box">
-        <strong>Key insight:</strong> ESM live bindings solve some circular dependency issues, but execution order still matters. If module B tries to read <code class="inline-code">a</code> before module A has executed the <code class="inline-code">const a = 'A'</code> line, you get a TDZ (Temporal Dead Zone) error.
+        <strong ti="strong_key_insight" ti="strong_key_insight" ti="strong_key_insight">Key insight:</strong> ESM live bindings solve some circular dependency issues, but execution order still matters. If module B tries to read <code class="inline-code">a</code> before module A has executed the <code class="inline-code">const a = 'A'</code> line, you get a TDZ (Temporal Dead Zone) error.
       </div>
 
-      <h3>Interactive: Circular Dependency Simulator</h3>
+      <h3 ti="h3_interactive_circular_depe" ti="h3_interactive_circular_depe" ti="h3_interactive_circular_depe">Interactive: Circular Dependency Simulator</h3>
       <div class="interactive-area">
-        <label>Scenario:</label>
+        <label ti="label_scenario" ti="label_scenario" ti="label_scenario">Scenario:</label>
         <select id="circular-scenario">
           <option value="safe">Safe: Functions (late-bound)</option>
           <option value="unsafe">Unsafe: Constants (TDZ risk)</option>
           <option value="class">Class Inheritance Circular</option>
         </select>
-        <button class="btn" style="margin-top: 0.75rem" onclick="demoCircular()">Simulate</button>
+        <button class="btn" style="margin-top: 0.75rem" onclick="demoCircular()" ti="btn_simulate" ti="btn_simulate" ti="btn_simulate">Simulate</button>
         <div class="output" id="circular-output"></div>
       </div>
     </div>
@@ -825,10 +831,10 @@ console.<span class="func">log</span>(a); <span class="comment">// TDZ error if 
   <!-- Evaluation Order -->
   <div class="panel" id="panel-evalorder">
     <div class="card">
-      <h2>Module Evaluation Order</h2>
-      <p>ES modules are evaluated in <strong>post-order depth-first</strong> traversal. Dependencies are evaluated before the modules that import them.</p>
+      <h2 ti="h2_module_evaluation_order" ti="h2_module_evaluation_order" ti="h2_module_evaluation_order">Module Evaluation Order</h2>
+      <p>ES modules are evaluated in <strong ti="strong_post_order_depth_first" ti="strong_post_order_depth_first" ti="strong_post_order_depth_first">post-order depth-first</strong> traversal. Dependencies are evaluated before the modules that import them.</p>
 
-      <h3>Example Module Graph</h3>
+      <h3 ti="h3_example_module_graph" ti="h3_example_module_graph" ti="h3_example_module_graph">Example Module Graph</h3>
 <pre><span class="comment">// main.js imports a.js and b.js</span>
 <span class="comment">// a.js imports c.js</span>
 <span class="comment">// b.js imports c.js (shared dependency)</span>
@@ -839,7 +845,7 @@ console.<span class="func">log</span>(a); <span class="comment">// TDZ error if 
 <span class="comment">// 3. b.js (c.js already done, skipped)</span>
 <span class="comment">// 4. main.js (all deps ready)</span></pre>
 
-      <h3>Evaluation Steps</h3>
+      <h3 ti="h3_evaluation_steps" ti="h3_evaluation_steps" ti="h3_evaluation_steps">Evaluation Steps</h3>
       <div class="eval-order">
         <div class="eval-step"><div class="eval-num">1</div><div class="eval-label">Parse</div></div>
         <span class="flow-arrow">&rarr;</span>
@@ -848,26 +854,46 @@ console.<span class="func">log</span>(a); <span class="comment">// TDZ error if 
         <div class="eval-step"><div class="eval-num">3</div><div class="eval-label">Evaluate</div></div>
       </div>
       <ul style="margin-top: 0.5rem">
-        <li><strong>Parse:</strong> Build module record, find imports/exports</li>
-        <li><strong>Instantiate:</strong> Create live bindings (memory allocated, not yet initialized)</li>
-        <li><strong>Evaluate:</strong> Execute module body (depth-first, post-order)</li>
+        <li><strong ti="strong_parse" ti="strong_parse" ti="strong_parse">Parse:</strong> Build module record, find imports/exports</li>
+        <li><strong ti="strong_instantiate" ti="strong_instantiate" ti="strong_instantiate">Instantiate:</strong> Create live bindings (memory allocated, not yet initialized)</li>
+        <li><strong ti="strong_evaluate" ti="strong_evaluate" ti="strong_evaluate">Evaluate:</strong> Execute module body (depth-first, post-order)</li>
       </ul>
 
-      <h3>Interactive: Module Graph Evaluator</h3>
+      <h3 ti="h3_interactive_module_graph" ti="h3_interactive_module_graph" ti="h3_interactive_module_graph">Interactive: Module Graph Evaluator</h3>
       <div class="interactive-area">
-        <label>Select module graph to trace:</label>
+        <label ti="label_select_module_graph_to_tr" ti="label_select_module_graph_to_tr" ti="label_select_module_graph_to_tr">Select module graph to trace:</label>
         <select id="eval-graph">
           <option value="simple">Simple (A → B → C)</option>
           <option value="diamond">Diamond (A → B,C; B,C → D)</option>
           <option value="complex">Complex (6 modules, shared deps)</option>
         </select>
-        <button class="btn" style="margin-top: 0.75rem" onclick="demoEvalOrder()">Trace Evaluation</button>
+        <button class="btn" style="margin-top: 0.75rem" onclick="demoEvalOrder()" ti="btn_trace_evaluation" ti="btn_trace_evaluation" ti="btn_trace_evaluation">Trace Evaluation</button>
         <div class="output" id="eval-output"></div>
       </div>
     </div>
   </div>
 </div>
 
+
+
+<script>var _LANG={'title_es_module_import_patterns':["ES Module Import Patterns Playground", "ES 模块导入模式练习场"],'metadesc_interactive_playground_fo':["Interactive playground for exploring ES Module import patterns: static imports, dynamic import(), import maps, top-level await, and more.", "用于探索 ES 模块导入模式的交互式游乐场：静态导入、动态 import()、导入映射、顶级 await 等。"],'h1_es_module_import_patterns':["ES Module Import Patterns", "ES模块导入模式"],'h2_static_import_declaration':["Static Import Declarations", "静态导入声明"],'h2_dynamic_import':["Dynamic import()", "动态导入()"],'h2_import_assertions_attribu':["Import Assertions / Attributes", "导入断言/属性"],'h2_import_maps':["Import Maps", "导入地图"],'h2_top_level_await':["Top-Level Await", "顶级等待"],'h2_module_namespace_objects':["Module Namespace Objects", "模块命名空间对象"],'h2_re_export_patterns':["Re-export Patterns", "重新导出模式"],'h2_circular_dependencies':["Circular Dependencies", "循环依赖"],'h2_module_evaluation_order':["Module Evaluation Order", "模块评估顺序"],'h3_named_imports':["Named Imports", "指定导入"],'h3_default_import':["Default Import", "默认导入"],'h3_namespace_import':["Namespace Import", "命名空间导入"],'h3_side_effect_import':["Side-effect Import", "副作用导入"],'h3_interactive_demo_live_bin':["Interactive Demo: Live Bindings", "交互式演示：实时绑定"],'h3_use_cases':["Use Cases", "用例"],'h3_interactive_demo_simulate':["Interactive Demo: Simulated Dynamic Loading", "交互式演示：模拟动态载荷"],'h3_json_import':["JSON Import", "JSON 导入"],'h3_css_module_import':["CSS Module Import", "CSS 模块导入"],'h3_browser_support':["Browser Support", "浏览器支持"],'h3_key_features':["Key Features", "主要特点"],'h3_import_map_resolution_sim':["Import Map Resolution Simulator", "导入地图分辨率模拟器"],'h3_execution_model':["Execution Model", "执行模型"],'h3_interactive_demo_top_leve':["Interactive Demo: Top-Level Await Simulation", "交互式演示：顶层等待模拟"],'h3_namespace_object_properti':["Namespace Object Properties", "命名空间对象属性"],'h3_interactive_demo':["Interactive Demo", "交互式演示"],'h3_re_export_pattern_compari':["Re-export Pattern Comparison", "重新导出模式比较"],'h3_interactive_build_a_barre':["Interactive: Build a Barrel File", "互动式：构建桶文件"],'h3_the_problem':["The Problem", "问题"],'h3_interactive_circular_depe':["Interactive: Circular Dependency Simulator", "交互式：循环依赖模拟器"],'h3_example_module_graph':["Example Module Graph", "示例模块图"],'h3_evaluation_steps':["Evaluation Steps", "评估步骤"],'h3_interactive_module_graph':["Interactive: Module Graph Evaluator", "交互式：模块图评估器"],'btn_static_import':["Static Import", "静态导入"],'btn_dynamic_import':["Dynamic import()", "动态导入()"],'btn_import_assertions':["Import Assertions", "导入断言"],'btn_import_maps':["Import Maps", "导入地图"],'btn_top_level_await':["Top-Level Await", "顶级等待"],'btn_namespace_objects':["Namespace Objects", "命名空间对象"],'btn_re_export_patterns':["Re-export Patterns", "重新导出模式"],'btn_circular_dependencies':["Circular Dependencies", "循环依赖"],'btn_evaluation_order':["Evaluation Order", "评估令"],'btn_run_live_binding_demo':["Run Live Binding Demo", "运行实时绑定演示"],'btn_load_module':["Load Module", "加载模块"],'btn_check_browser_support':["Check Browser Support", "检查浏览器支持"],'btn_resolve':["Resolve", "解决"],'btn_load_module_graph':["Load Module Graph", "加载模块图"],'btn_inspect_namespace_object':["Inspect Namespace Object", "检查命名空间对象"],'btn_generate_barrel':["Generate Barrel", "生成桶"],'btn_simulate':["Simulate", "模拟"],'btn_trace_evaluation':["Trace Evaluation", "痕迹评估"],'placeholder_e_g_lodash_utils_format_r':["e.g., lodash, @utils/format, react", "例如，lodash、@utils/format、react"],'strong_hoisted':["hoisted", "吊起"],'strong_live_bindings':["live bindings", "活体绑定"],'strong_import_attributes':["import attributes", "导入属性"],'strong_spec_evolution':["Spec evolution:", "物种演化："],'strong_live_bindings_2':["live bindings", "活体绑定"],'strong_key_insight':["Key insight:", "关键见解："],'strong_post_order_depth_first':["post-order depth-first", "后序深度优先"],'strong_parse':["Parse:", "解析："],'strong_instantiate':["Instantiate:", "实例化："],'strong_evaluate':["Evaluate:", "评价："],'th_type':["Type", "类型"],'th_syntax':["Syntax", "句法"],'th_use_case':["Use Case", "用例"],'th_status':["Status", "地位"],'th_property':["Property", "财产"],'th_value':["Value", "价值"],'th_notes':["Notes", "笔记"],'th_pattern':["Pattern", "图案"],'th_syntax_2':["Syntax", "句法"],'th_includes_default':["Includes Default?", "包含默认值吗？"],'th_tree_shakeable':["Tree-Shakeable?", "可进行摇树优化吗？"],'label_select_a_module_to_dynami':["Select a module to dynamically load:", "选择要动态加载的模块："],'label_enter_a_module_specifier':["Enter a module specifier to resolve:", "请输入模块说明符以进行解析："],'label_simulates_async_module_lo':["Simulates async module loading with configurable delay:", "模拟异步模块加载，延迟时间可配置："],'label_select_modules_to_re_expo':["Select modules to re-export:", "选择要重新导出的模块："],'label_scenario':["Scenario:", "设想："],'label_select_module_graph_to_tr':["Select module graph to trace:", "选择要跟踪的模块图："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_es_module_import_patterns':["ES Module Import Patterns Playground", "ES 模块导入模式练习场"],'metadesc_interactive_playground_fo':["Interactive playground for exploring ES Module import patterns: static imports, dynamic import(), import maps, top-level await, and more.", "用于探索 ES 模块导入模式的交互式游乐场：静态导入、动态 import()、导入映射、顶级 await 等。"],'h1_es_module_import_patterns':["ES Module Import Patterns", "ES模块导入模式"],'h2_static_import_declaration':["Static Import Declarations", "静态导入声明"],'h2_dynamic_import':["Dynamic import()", "动态导入()"],'h2_import_assertions_attribu':["Import Assertions / Attributes", "导入断言/属性"],'h2_import_maps':["Import Maps", "导入地图"],'h2_top_level_await':["Top-Level Await", "顶级等待"],'h2_module_namespace_objects':["Module Namespace Objects", "模块命名空间对象"],'h2_re_export_patterns':["Re-export Patterns", "重新导出模式"],'h2_circular_dependencies':["Circular Dependencies", "循环依赖"],'h2_module_evaluation_order':["Module Evaluation Order", "模块评估顺序"],'h3_named_imports':["Named Imports", "指定导入"],'h3_default_import':["Default Import", "默认导入"],'h3_namespace_import':["Namespace Import", "命名空间导入"],'h3_side_effect_import':["Side-effect Import", "副作用导入"],'h3_interactive_demo_live_bin':["Interactive Demo: Live Bindings", "交互式演示：实时绑定"],'h3_use_cases':["Use Cases", "用例"],'h3_interactive_demo_simulate':["Interactive Demo: Simulated Dynamic Loading", "交互式演示：模拟动态载荷"],'h3_json_import':["JSON Import", "JSON 导入"],'h3_css_module_import':["CSS Module Import", "CSS 模块导入"],'h3_browser_support':["Browser Support", "浏览器支持"],'h3_key_features':["Key Features", "主要特点"],'h3_import_map_resolution_sim':["Import Map Resolution Simulator", "导入地图分辨率模拟器"],'h3_execution_model':["Execution Model", "执行模型"],'h3_interactive_demo_top_leve':["Interactive Demo: Top-Level Await Simulation", "交互式演示：顶层等待模拟"],'h3_namespace_object_properti':["Namespace Object Properties", "命名空间对象属性"],'h3_interactive_demo':["Interactive Demo", "交互式演示"],'h3_re_export_pattern_compari':["Re-export Pattern Comparison", "重新导出模式比较"],'h3_interactive_build_a_barre':["Interactive: Build a Barrel File", "互动式：构建桶文件"],'h3_the_problem':["The Problem", "问题"],'h3_interactive_circular_depe':["Interactive: Circular Dependency Simulator", "交互式：循环依赖模拟器"],'h3_example_module_graph':["Example Module Graph", "示例模块图"],'h3_evaluation_steps':["Evaluation Steps", "评估步骤"],'h3_interactive_module_graph':["Interactive: Module Graph Evaluator", "交互式：模块图评估器"],'btn_static_import':["Static Import", "静态导入"],'btn_dynamic_import':["Dynamic import()", "动态导入()"],'btn_import_assertions':["Import Assertions", "导入断言"],'btn_import_maps':["Import Maps", "导入地图"],'btn_top_level_await':["Top-Level Await", "顶级等待"],'btn_namespace_objects':["Namespace Objects", "命名空间对象"],'btn_re_export_patterns':["Re-export Patterns", "重新导出模式"],'btn_circular_dependencies':["Circular Dependencies", "循环依赖"],'btn_evaluation_order':["Evaluation Order", "评估令"],'btn_run_live_binding_demo':["Run Live Binding Demo", "运行实时绑定演示"],'btn_load_module':["Load Module", "加载模块"],'btn_check_browser_support':["Check Browser Support", "检查浏览器支持"],'btn_resolve':["Resolve", "解决"],'btn_load_module_graph':["Load Module Graph", "加载模块图"],'btn_inspect_namespace_object':["Inspect Namespace Object", "检查命名空间对象"],'btn_generate_barrel':["Generate Barrel", "生成桶"],'btn_simulate':["Simulate", "模拟"],'btn_trace_evaluation':["Trace Evaluation", "痕迹评估"],'placeholder_e_g_lodash_utils_format_r':["e.g., lodash, @utils/format, react", "例如，lodash、@utils/format、react"],'strong_hoisted':["hoisted", "吊起"],'strong_live_bindings':["live bindings", "活体绑定"],'strong_import_attributes':["import attributes", "导入属性"],'strong_spec_evolution':["Spec evolution:", "物种演化："],'strong_live_bindings_2':["live bindings", "活体绑定"],'strong_key_insight':["Key insight:", "关键见解："],'strong_post_order_depth_first':["post-order depth-first", "后序深度优先"],'strong_parse':["Parse:", "解析："],'strong_instantiate':["Instantiate:", "实例化："],'strong_evaluate':["Evaluate:", "评价："],'th_type':["Type", "类型"],'th_syntax':["Syntax", "句法"],'th_use_case':["Use Case", "用例"],'th_status':["Status", "地位"],'th_property':["Property", "财产"],'th_value':["Value", "价值"],'th_notes':["Notes", "笔记"],'th_pattern':["Pattern", "图案"],'th_syntax_2':["Syntax", "句法"],'th_includes_default':["Includes Default?", "包含默认值吗？"],'th_tree_shakeable':["Tree-Shakeable?", "可进行摇树优化吗？"],'label_select_a_module_to_dynami':["Select a module to dynamically load:", "选择要动态加载的模块："],'label_enter_a_module_specifier':["Enter a module specifier to resolve:", "请输入模块说明符以进行解析："],'label_simulates_async_module_lo':["Simulates async module loading with configurable delay:", "模拟异步模块加载，延迟时间可配置："],'label_select_modules_to_re_expo':["Select modules to re-export:", "选择要重新导出的模块："],'label_scenario':["Scenario:", "设想："],'label_select_module_graph_to_tr':["Select module graph to trace:", "选择要跟踪的模块图："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // Tab switching
   document.querySelectorAll('.tab').forEach(tab => {
@@ -1293,6 +1319,60 @@ console.<span class="func">log</span>(a); <span class="comment">// TDZ error if 
     log(out, 'Key: Each module is evaluated exactly once, even if', 'info');
     log(out, 'imported by multiple modules (e.g., shared deps).', 'info');
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_cascade_layer_debugge" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,21 +75,23 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>CSS Cascade + @layer Debugger</h1>
+<h1 ti="title_css_cascade_layer_debugge" ti="h1_css_cascade_layer_debugge">CSS Cascade + @layer Debugger</h1>
 <p>See exactly why one CSS rule wins over another — layers, specificity, source order</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" data-tab="debugger">Debugger</button>
-<button class="tab" data-tab="presets">Presets</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="debugger" ti="btn_debugger">Debugger</button>
+<button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+<button class="tab" data-tab="reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="debugger">
 <div class="controls">
-<button class="btn" id="analyzeBtn">🔍 Analyze Cascade</button>
+<button class="btn" id="analyzeBtn" ti="btn_analyze_cascade">🔍 Analyze Cascade</button>
 <label style="color:#888;font-size:0.8rem">Target property:
 <input id="targetProp" type="text" value="color" style="padding:4px 8px;border-radius:4px;border:1px solid #333;background:#0a0a0a;color:#e6e6e6;font-size:0.8rem;width:120px">
 </label>
@@ -99,7 +101,7 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 </div>
 <div class="split">
 <div class="edit-panel">
-<h3>CSS Rules</h3>
+<h3 ti="h3_css_rules">CSS Rules</h3>
 <textarea id="cssInput">/* Rules competing for .card's color */
 @layer base, theme, utilities;
 
@@ -127,7 +129,7 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 }</textarea>
 </div>
 <div class="result-panel">
-<h3>Cascade Resolution</h3>
+<h3 ti="h3_cascade_resolution">Cascade Resolution</h3>
 <div id="results">
 <div style="color:#555;padding:20px;text-align:center">Click "Analyze Cascade" to see which rule wins and why</div>
 </div>
@@ -141,37 +143,47 @@ textarea{flex:1;background:#0a0a0a;border:1px solid #222;border-radius:8px;paddi
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>The CSS Cascade (Priority Order)</h3>
-<p>When multiple rules target the same property on the same element, the cascade determines the winner using these criteria <strong>in order</strong>:</p>
+<h3 ti="h3_the_css_cascade_priority">The CSS Cascade (Priority Order)</h3>
+<p>When multiple rules target the same property on the same element, the cascade determines the winner using these criteria <strong ti="strong_in_order">in order</strong>:</p>
 <ol>
-<li><strong>Origin & Importance</strong>: User-agent → Author → Author <code>!important</code> → User-agent <code>!important</code></li>
-<li><strong>Inline styles</strong>: <code>style=""</code> attribute beats all selectors (except <code>!important</code> in layers)</li>
-<li><strong>@layer order</strong>: Unlayered rules beat all layers. Later layers beat earlier layers. <code>!important</code> <em>reverses</em> layer order.</li>
-<li><strong>Specificity</strong>: (ID count, Class/Attr/Pseudo-class count, Element/Pseudo-element count)</li>
-<li><strong>Source order</strong>: Last rule wins when everything else is equal</li>
+<li><strong ti="strong_origin_importance">Origin & Importance</strong>: User-agent → Author → Author <code>!important</code> → User-agent <code>!important</code></li>
+<li><strong ti="strong_inline_styles">Inline styles</strong>: <code>style=""</code> attribute beats all selectors (except <code>!important</code> in layers)</li>
+<li><strong ti="strong_layer_order">@layer order</strong>: Unlayered rules beat all layers. Later layers beat earlier layers. <code>!important</code> <em>reverses</em> layer order.</li>
+<li><strong ti="strong_specificity">Specificity</strong>: (ID count, Class/Attr/Pseudo-class count, Element/Pseudo-element count)</li>
+<li><strong ti="strong_source_order">Source order</strong>: Last rule wins when everything else is equal</li>
 </ol>
 </div>
 <div class="ref-section">
-<h3>@layer and !important</h3>
+<h3 ti="h3_layer_and_important">@layer and !important</h3>
 <p>This is the most confusing part of modern CSS cascade:</p>
 <ul>
 <li>Normal rules: Unlayered > later layers > earlier layers</li>
-<li><code>!important</code> rules: Earlier layers > later layers > unlayered. <strong>The order reverses!</strong></li>
+<li><code>!important</code> rules: Earlier layers > later layers > unlayered. <strong ti="strong_the_order_reverses">The order reverses!</strong></li>
 <li>This means <code>!important</code> in an early <code>@layer</code> can beat <code>!important</code> in a later layer</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Specificity Calculation</h3>
+<h3 ti="h3_specificity_calculation">Specificity Calculation</h3>
 <ul>
-<li><strong>ID selectors</strong> (<code>#id</code>): 1-0-0</li>
-<li><strong>Class, attribute, pseudo-class</strong> (<code>.class</code>, <code>[attr]</code>, <code>:hover</code>): 0-1-0</li>
-<li><strong>Element, pseudo-element</strong> (<code>div</code>, <code>::before</code>): 0-0-1</li>
+<li><strong ti="strong_id_selectors">ID selectors</strong> (<code>#id</code>): 1-0-0</li>
+<li><strong ti="strong_class_attribute_pseudo_cl">Class, attribute, pseudo-class</strong> (<code>.class</code>, <code>[attr]</code>, <code>:hover</code>): 0-1-0</li>
+<li><strong ti="strong_element_pseudo_element">Element, pseudo-element</strong> (<code>div</code>, <code>::before</code>): 0-0-1</li>
 <li><code>:where()</code> contributes 0 specificity. <code>:is()</code> and <code>:not()</code> use their most specific argument.</li>
 </ul>
 </div>
 </div>
 </div>
 
+
+<script>var _LANG={'title_css_cascade_layer_debugge':["CSS Cascade + @layer Debugger", "CSS Cascade + @layer 调试器"],'metadesc_interactive_css_cascade_d':["Interactive CSS cascade debugger. See how @layer, specificity, and source order determine which rule wins. Visual cascade evaluation with step-by-step explanations.", "交互式 CSS 层叠调试器。查看 @layer、优先级和源顺序如何决定哪个规则生效。可视化层叠评估，并提供逐步解释。"],'h1_css_cascade_layer_debugge':["CSS Cascade + @layer Debugger", "CSS Cascade + @layer 调试器"],'h3_css_rules':["CSS Rules", "CSS 规则"],'h3_cascade_resolution':["Cascade Resolution", "级联分辨率"],'h3_the_css_cascade_priority':["The CSS Cascade (Priority Order)", "CSS 级联（优先级顺序）"],'h3_layer_and_important':["@layer and !important", "@layer 和 !important"],'h3_specificity_calculation':["Specificity Calculation", "特异性计算"],'btn_debugger':["Debugger", "调试器"],'btn_presets':["Presets", "预设"],'btn_reference':["Reference", "参考"],'btn_analyze_cascade':["🔍 Analyze Cascade", "🔍 分析级联"],'strong_in_order':["in order", "为了"],'strong_origin_importance':["Origin & Importance", "起源与重要性"],'strong_inline_styles':["Inline styles", "内联样式"],'strong_layer_order':["@layer order", "@layer 顺序"],'strong_specificity':["Specificity", "特异性"],'strong_source_order':["Source order", "源订单"],'strong_the_order_reverses':["The order reverses!", "顺序颠倒了！"],'strong_id_selectors':["ID selectors", "ID 选择器"],'strong_class_attribute_pseudo_cl':["Class, attribute, pseudo-class", "类、属性、伪类"],'strong_element_pseudo_element':["Element, pseudo-element", "元素，伪元素"],'strong_winner_value':["${winner.value}", "${winner.value}"],'jtc_all_competing_rules_lowes':["All Competing Rules (lowest → highest priority)", "所有竞争规则（优先级从低到高）"],'jtc_cascade_resolution_steps':["Cascade Resolution Steps", "级联分辨率步骤"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   {
@@ -381,14 +393,14 @@ function renderResults(analysis) {
   const winnerDiv = document.createElement('div');
   winnerDiv.style.cssText = 'background:#22c55e0a;border:1px solid #22c55e33;border-radius:8px;padding:12px;margin-bottom:16px;text-align:center';
   winnerDiv.innerHTML = `<div style="color:#22c55e;font-weight:700;font-size:0.9rem">🏆 Winner</div>
-    <div style="font-family:'Fira Code',monospace;color:#fff;font-size:1rem;margin:6px 0"><span style="color:#4da6ff">${winner.selector}</span> { ${document.getElementById('targetProp').value}: <strong>${winner.value}</strong> }</div>
+    <div style="font-family:'Fira Code',monospace;color:#fff;font-size:1rem;margin:6px 0"><span style="color:#4da6ff">${winner.selector}</span> { ${document.getElementById('targetProp').value}: <strong ti="strong_winner_value">${winner.value}</strong> }</div>
     <div style="color:#888;font-size:0.8rem">${winner.layer ? `@layer ${winner.layer}` : 'Unlayered'}${winner.important ? ' !important' : ''} · Specificity (${winner.specificity.join(',')})</div>`;
   container.appendChild(winnerDiv);
 
   // All rules ranked
   const heading = document.createElement('h4');
   heading.style.cssText = 'color:#aaa;font-size:0.85rem;margin-bottom:8px';
-  heading.textContent = 'All Competing Rules (lowest → highest priority)';
+  heading.textContent=T("jtc_all_competing_rules_lowes");
   container.appendChild(heading);
 
   analysis.candidates.forEach((rule, i) => {
@@ -418,7 +430,7 @@ function renderResults(analysis) {
   stepsDiv.className = 'cascade-steps';
   const stepsHeading = document.createElement('h4');
   stepsHeading.style.cssText = 'color:#aaa;font-size:0.85rem;margin:16px 0 8px';
-  stepsHeading.textContent = 'Cascade Resolution Steps';
+  stepsHeading.textContent=T("jtc_cascade_resolution_steps");
   container.appendChild(stepsHeading);
 
   const allRules = analysis.candidates;
@@ -530,6 +542,24 @@ PRESETS.forEach(p => {
 
 // Initial analysis
 document.getElementById('analyzeBtn').click();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

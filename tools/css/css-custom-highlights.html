@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_custom_highlights_api" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -534,8 +534,10 @@ button {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <header>
     <h1>CSS Custom Highlights API <code>::highlight()</code></h1>
     <p>Style arbitrary text ranges without modifying the DOM. Uses <code>CSS.highlights</code> registry and the <code>::highlight()</code> pseudo-element.</p>
@@ -550,13 +552,13 @@ button {
 
   <!-- Presets -->
   <div class="presets-bar" id="presetsBar">
-    <button class="preset-btn active" data-preset="all">All Demos</button>
-    <button class="preset-btn" data-preset="search">Search</button>
-    <button class="preset-btn" data-preset="multicolor">Multi-Color</button>
-    <button class="preset-btn" data-preset="spellcheck">Spellcheck</button>
-    <button class="preset-btn" data-preset="syntax">Syntax</button>
-    <button class="preset-btn" data-preset="cursors">Cursors</button>
-    <button class="preset-btn" data-preset="range">Range Inspector</button>
+    <button class="preset-btn active" data-preset="all" ti="btn_all_demos">All Demos</button>
+    <button class="preset-btn" data-preset="search" ti="btn_search">Search</button>
+    <button class="preset-btn" data-preset="multicolor" ti="btn_multi_color">Multi-Color</button>
+    <button class="preset-btn" data-preset="spellcheck" ti="btn_spellcheck">Spellcheck</button>
+    <button class="preset-btn" data-preset="syntax" ti="btn_syntax">Syntax</button>
+    <button class="preset-btn" data-preset="cursors" ti="btn_cursors">Cursors</button>
+    <button class="preset-btn" data-preset="range" ti="btn_range_inspector">Range Inspector</button>
   </div>
 
   <div class="demos">
@@ -569,7 +571,7 @@ button {
       <div class="demo-body">
         <p class="description">Type a query to highlight all matching text ranges. The API creates <code>StaticRange</code> objects for each match and registers them as a <code>Highlight</code>.</p>
         <div class="controls-row">
-          <input type="text" id="searchInput" placeholder="Type to search... try 'highlight' or 'API'" autocomplete="off">
+          <input type="text" id="searchInput" tp="placeholder_type_to_search_try_highli" placeholder="Type to search... try 'highlight' or 'API'" autocomplete="off">
           <span class="match-count" id="searchCount"></span>
         </div>
         <div class="text-content" id="searchText">The CSS Custom Highlights API provides a mechanism for styling arbitrary text ranges on a document. Unlike traditional approaches that require wrapping text in span elements, the Highlight API lets you create ranges and apply styles through CSS without modifying the DOM structure.
@@ -611,7 +613,7 @@ Each Highlight object can contain multiple StaticRange or Range objects, making 
           <div class="legend-item" data-color="red">
             <span class="legend-swatch" style="background: rgba(255, 123, 114, 0.5);"></span> Red
           </div>
-          <button class="btn-small" id="clearColors">Clear All</button>
+          <button class="btn-small" id="clearColors" ti="btn_clear_all">Clear All</button>
         </div>
         <div class="text-content" id="multicolorText">JavaScript is a versatile programming language that powers the modern web. It enables dynamic content, interactive features, and complex applications. From simple form validation to full-stack development with Node.js, JavaScript continues to evolve and adapt.
 
@@ -732,7 +734,7 @@ console.log("Fibonacci:", results);
             <span class="cursor-dot" style="background: #d2a8ff;"></span>
             <span>Carol</span>
           </div>
-          <button class="btn-small" id="shuffleCursors">Shuffle Selections</button>
+          <button class="btn-small" id="shuffleCursors" ti="btn_shuffle_selections">Shuffle Selections</button>
         </div>
         <div class="text-content" id="cursorsText">Collaborative editing is one of the most powerful features in modern applications. Multiple users can work on the same document simultaneously, seeing each other's cursors and selections in real time. The CSS Custom Highlights API makes it possible to render these selections efficiently without inserting wrapper elements into the document, preserving the original DOM structure while providing rich visual feedback for each participant.</div>
 
@@ -775,27 +777,27 @@ console.log("Fibonacci:", results);
 
         <div class="range-info" id="rangeInfo">
           <div class="range-info-item">
-            <span class="label">Start Node</span>
+            <span class="label" ti="label_start_node">Start Node</span>
             <span class="value" id="riStartNode">Text #0</span>
           </div>
           <div class="range-info-item">
-            <span class="label">Start Offset</span>
+            <span class="label" ti="label_start_offset" ti="label_start_offset_2">Start Offset</span>
             <span class="value" id="riStartOffset">0</span>
           </div>
           <div class="range-info-item">
-            <span class="label">End Node</span>
+            <span class="label" ti="label_end_node">End Node</span>
             <span class="value" id="riEndNode">Text #0</span>
           </div>
           <div class="range-info-item">
-            <span class="label">End Offset</span>
+            <span class="label" ti="label_end_offset" ti="label_end_offset_2">End Offset</span>
             <span class="value" id="riEndOffset">25</span>
           </div>
           <div class="range-info-item">
-            <span class="label">Selected Text</span>
+            <span class="label" ti="label_selected_text">Selected Text</span>
             <span class="value" id="riSelectedText">&mdash;</span>
           </div>
           <div class="range-info-item">
-            <span class="label">Length</span>
+            <span class="label" ti="label_length">Length</span>
             <span class="value" id="riLength">25</span>
           </div>
         </div>
@@ -813,6 +815,16 @@ console.log("Fibonacci:", results);
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_custom_highlights_api':["CSS Custom Highlights API Playground", "CSS 自定义高亮 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the CSS Custom Highlights API. Explore search highlighting, multi-color highlights, spellcheck simulation, syntax highlighting, collaborative cursors, and range inspection.", "CSS 自定义高亮 API 的交互式演示环境。探索搜索高亮、多色高亮、拼写检查模拟、语法高亮、协作光标和范围检查等功能。"],'btn_all_demos':["All Demos", "所有演示"],'btn_search':["Search", "搜索"],'btn_multi_color':["Multi-Color", "多色的"],'btn_spellcheck':["Spellcheck", "拼写检查"],'btn_syntax':["Syntax", "句法"],'btn_cursors':["Cursors", "光标"],'btn_range_inspector':["Range Inspector", "靶场检查员"],'btn_clear_all':["Clear All", "全部清除"],'btn_shuffle_selections':["Shuffle Selections", "随机选择"],'label_start_node':["Start Node", "起始节点"],'label_start_offset':["Start Offset", "起始偏移量"],'label_end_node':["End Node", "末端节点"],'label_end_offset':["End Offset", "末端偏移"],'label_selected_text':["Selected Text", "选定文本"],'label_length':["Length", "长度"],'placeholder_type_to_search_try_highli':["Type to search... try 'highlight' or 'API'", "输入关键词进行搜索……试试“高亮显示”或“API”"],'strong_ranges_length':["${ranges.length}", "${ranges.length}"],'label_start_offset_2':["Start Offset", "起始偏移量"],'label_end_offset_2':["End Offset", "末端偏移"],'jtc_css_highlights_api_is_ava':["CSS.highlights API is available in this browser", "此浏览器支持 CSS.highlights API"],'jtc_css_highlights_api_is_not':["CSS.highlights API is NOT available in this browser. Demos will not work.", "此浏览器不支持 CSS.highlights API。演示功能将无法运行。"],'jtc_invalid_range':["Invalid range", "无效范围"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   'use strict';
@@ -822,10 +834,10 @@ console.log("Fibonacci:", results);
   const statusEl = document.getElementById('apiStatus');
   if (apiAvailable) {
     statusEl.className = 'api-status available';
-    statusEl.textContent = 'CSS.highlights API is available in this browser';
+    statusEl.textContent=T("jtc_css_highlights_api_is_ava");
   } else {
     statusEl.className = 'api-status unavailable';
-    statusEl.textContent = 'CSS.highlights API is NOT available in this browser. Demos will not work.';
+    statusEl.textContent=T("jtc_css_highlights_api_is_not");
     // Still set up listeners so the code structure is visible
   }
 
@@ -893,7 +905,7 @@ console.log("Fibonacci:", results);
       CSS.highlights.set('search-result', highlight);
     }
     searchCount.innerHTML = ranges.length > 0
-      ? `<strong>${ranges.length}</strong> match${ranges.length > 1 ? 'es' : ''}`
+      ? `<strong ti="strong_ranges_length">${ranges.length}</strong> match${ranges.length > 1 ? 'es' : ''}`
       : 'No matches';
   }
 
@@ -1205,7 +1217,7 @@ console.log("Fibonacci:", results);
         : selectedText || '\u2014';
       document.getElementById('riLength').textContent = endOff - startOff;
     } catch (e) {
-      document.getElementById('riSelectedText').textContent = 'Invalid range';
+      document.getElementById('riSelectedText').textContent=T("jtc_invalid_range");
     }
   }
 
@@ -1243,6 +1255,24 @@ console.log("Fibonacci:", results);
       }
     });
   });
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

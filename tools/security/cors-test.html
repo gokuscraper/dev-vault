@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cors_test_cross_origin_re" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -91,9 +91,17 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CORS Test</h1>
-<p class="subtitle">Test Cross-Origin Resource Sharing headers for any URL.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_cors_test" ti="h1_cors_test" ti="h1_cors_test" ti="h1_cors_test">CORS Test</h1>
+<p class="subtitle" ti="subtitle_test_cross_origin_resourc" ti="subtitle_test_cross_origin_resourc" ti="subtitle_test_cross_origin_resourc" ti="subtitle_test_cross_origin_resourc">Test Cross-Origin Resource Sharing headers for any URL.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab('test')">Test</div>
@@ -104,11 +112,11 @@ footer a:hover{color:#999}
 
 <div class="input-section">
   <div class="input-row">
-    <label>URL</label>
-    <input type="url" id="urlInput" placeholder="https://api.example.com/data" value="">
+    <label ti="label_url" ti="label_url" ti="label_url" ti="label_url">URL</label>
+    <input type="url" id="urlInput" tp="placeholder_https_api_example_com_dat" tp="placeholder_https_api_example_com_dat" tp="placeholder_https_api_example_com_dat" tp="placeholder_https_api_example_com_dat" placeholder="https://api.example.com/data" value="">
   </div>
   <div class="input-row">
-    <label>Method</label>
+    <label ti="label_method" ti="label_method" ti="label_method" ti="label_method">Method</label>
     <select id="methodSelect">
       <option value="GET">GET</option>
       <option value="POST">POST</option>
@@ -119,8 +127,8 @@ footer a:hover{color:#999}
     </select>
   </div>
   <div class="input-row">
-    <label>Origin</label>
-    <input type="text" id="originInput" placeholder="https://example.com (auto-detected from this page)">
+    <label ti="label_origin" ti="label_origin" ti="label_origin" ti="label_origin">Origin</label>
+    <input type="text" id="originInput" tp="placeholder_https_example_com_auto_de" tp="placeholder_https_example_com_auto_de" tp="placeholder_https_example_com_auto_de" tp="placeholder_https_example_com_auto_de" placeholder="https://example.com (auto-detected from this page)">
   </div>
   <div class="presets">
     <span style="color:#555;font-size:0.72rem;padding:4px 0">Try:</span>
@@ -137,8 +145,8 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="runTest()">Test CORS</button>
-  <button class="btn" onclick="clearResults()">Clear</button>
+  <button class="btn primary" onclick="runTest()" ti="btn_test_cors" ti="btn_test_cors" ti="btn_test_cors" ti="btn_test_cors">Test CORS</button>
+  <button class="btn" onclick="clearResults()" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
 </div>
 
 <div id="status"></div>
@@ -149,19 +157,19 @@ footer a:hover{color:#999}
 <div class="tab-panel" id="tab-learn">
 
 <div class="info">
-  <h3>What is CORS?</h3>
+  <h3 ti="h3_what_is_cors" ti="h3_what_is_cors" ti="h3_what_is_cors" ti="h3_what_is_cors">What is CORS?</h3>
   <p>Cross-Origin Resource Sharing (CORS) is a security mechanism that controls which websites can access resources from another domain. When your frontend at <code>app.example.com</code> tries to fetch data from <code>api.another.com</code>, the browser checks CORS headers to decide whether to allow it.</p>
 </div>
 
 <div class="info">
-  <h3>How it works</h3>
-  <p><strong>Simple requests</strong> (GET/POST with standard headers) go directly. The browser checks the response for <code>Access-Control-Allow-Origin</code>.</p>
-  <p style="margin-top:8px"><strong>Preflighted requests</strong> (PUT/DELETE, custom headers, non-standard content types) trigger an OPTIONS request first. The server must respond with allowed methods and headers before the actual request proceeds.</p>
-  <p style="margin-top:8px"><strong>Credentialed requests</strong> (cookies, auth headers) require <code>Access-Control-Allow-Credentials: true</code> and a specific origin (not <code>*</code>).</p>
+  <h3 ti="h3_how_it_works" ti="h3_how_it_works" ti="h3_how_it_works" ti="h3_how_it_works">How it works</h3>
+  <p><strong ti="strong_simple_requests" ti="strong_simple_requests" ti="strong_simple_requests" ti="strong_simple_requests">Simple requests</strong> (GET/POST with standard headers) go directly. The browser checks the response for <code>Access-Control-Allow-Origin</code>.</p>
+  <p style="margin-top:8px"><strong ti="strong_preflighted_requests" ti="strong_preflighted_requests" ti="strong_preflighted_requests" ti="strong_preflighted_requests">Preflighted requests</strong> (PUT/DELETE, custom headers, non-standard content types) trigger an OPTIONS request first. The server must respond with allowed methods and headers before the actual request proceeds.</p>
+  <p style="margin-top:8px"><strong ti="strong_credentialed_requests" ti="strong_credentialed_requests" ti="strong_credentialed_requests" ti="strong_credentialed_requests">Credentialed requests</strong> (cookies, auth headers) require <code>Access-Control-Allow-Credentials: true</code> and a specific origin (not <code>*</code>).</p>
 </div>
 
 <div class="info">
-  <h3>Key CORS Headers</h3>
+  <h3 ti="h3_key_cors_headers" ti="h3_key_cors_headers" ti="h3_key_cors_headers" ti="h3_key_cors_headers">Key CORS Headers</h3>
   <p><code>Access-Control-Allow-Origin</code> — Which origins can access. <code>*</code> = any origin.</p>
   <p style="margin-top:6px"><code>Access-Control-Allow-Methods</code> — Allowed HTTP methods (GET, POST, PUT, etc.).</p>
   <p style="margin-top:6px"><code>Access-Control-Allow-Headers</code> — Allowed custom request headers.</p>
@@ -171,20 +179,20 @@ footer a:hover{color:#999}
 </div>
 
 <div class="info">
-  <h3>Common CORS Errors</h3>
-  <p><strong>"No 'Access-Control-Allow-Origin' header"</strong> — The server doesn't include CORS headers. Fix: add the header server-side.</p>
-  <p style="margin-top:6px"><strong>"Wildcard with credentials"</strong> — Can't use <code>*</code> with <code>credentials: include</code>. Fix: echo the specific origin.</p>
-  <p style="margin-top:6px"><strong>"Method not allowed"</strong> — The preflight didn't include the method. Fix: add it to <code>Access-Control-Allow-Methods</code>.</p>
-  <p style="margin-top:6px"><strong>"Request header not allowed"</strong> — Custom header not in <code>Access-Control-Allow-Headers</code>. Fix: add it.</p>
+  <h3 ti="h3_common_cors_errors" ti="h3_common_cors_errors" ti="h3_common_cors_errors" ti="h3_common_cors_errors">Common CORS Errors</h3>
+  <p><strong ti="strong_no_access_control_allow" ti="strong_no_access_control_allow" ti="strong_no_access_control_allow" ti="strong_no_access_control_allow">"No 'Access-Control-Allow-Origin' header"</strong> — The server doesn't include CORS headers. Fix: add the header server-side.</p>
+  <p style="margin-top:6px"><strong ti="strong_wildcard_with_credential" ti="strong_wildcard_with_credential" ti="strong_wildcard_with_credential" ti="strong_wildcard_with_credential">"Wildcard with credentials"</strong> — Can't use <code>*</code> with <code>credentials: include</code>. Fix: echo the specific origin.</p>
+  <p style="margin-top:6px"><strong ti="strong_method_not_allowed" ti="strong_method_not_allowed" ti="strong_method_not_allowed" ti="strong_method_not_allowed">"Method not allowed"</strong> — The preflight didn't include the method. Fix: add it to <code>Access-Control-Allow-Methods</code>.</p>
+  <p style="margin-top:6px"><strong ti="strong_request_header_not_allow" ti="strong_request_header_not_allow" ti="strong_request_header_not_allow" ti="strong_request_header_not_allow">"Request header not allowed"</strong> — Custom header not in <code>Access-Control-Allow-Headers</code>. Fix: add it.</p>
 </div>
 
 <div class="info">
-  <h3>Server-Side Fix Examples</h3>
-  <p><strong>Express.js:</strong></p>
+  <h3 ti="h3_server_side_fix_examples" ti="h3_server_side_fix_examples" ti="h3_server_side_fix_examples" ti="h3_server_side_fix_examples">Server-Side Fix Examples</h3>
+  <p><strong ti="strong_express_js" ti="strong_express_js" ti="strong_express_js" ti="strong_express_js">Express.js:</strong></p>
   <p><code>app.use(cors({ origin: 'https://myapp.com', credentials: true }))</code></p>
-  <p style="margin-top:8px"><strong>Nginx:</strong></p>
+  <p style="margin-top:8px"><strong ti="strong_nginx" ti="strong_nginx" ti="strong_nginx" ti="strong_nginx">Nginx:</strong></p>
   <p><code>add_header Access-Control-Allow-Origin "https://myapp.com";</code></p>
-  <p style="margin-top:8px"><strong>Apache (.htaccess):</strong></p>
+  <p style="margin-top:8px"><strong ti="strong_apache_htaccess" ti="strong_apache_htaccess" ti="strong_apache_htaccess" ti="strong_apache_htaccess">Apache (.htaccess):</strong></p>
   <p><code>Header set Access-Control-Allow-Origin "https://myapp.com"</code></p>
 </div>
 
@@ -192,18 +200,48 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/cors-test">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/cors-test" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/headers-check/">Headers Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/ssl-check/">SSL Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/api-tester/">API Tester</a>
-    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/">CSP Builder</a>
+    <strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/headers-check/" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check" ti="link_headers_check">Headers Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/ssl-check/" ti="link_ssl_check" ti="link_ssl_check" ti="link_ssl_check" ti="link_ssl_check">SSL Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/api-tester/" ti="link_api_tester" ti="link_api_tester" ti="link_api_tester" ti="link_api_tester">API Tester</a>
+    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/" ti="link_csp_builder" ti="link_csp_builder" ti="link_csp_builder" ti="link_csp_builder">CSP Builder</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 101 free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
 
+
+
+
+<script>var _LANG={'title_cors_test_cross_origin_re':["CORS Test — Cross-Origin Request Checker", "CORS 测试 — 跨域请求检查器"],'metadesc_test_cors_headers_for_any':["Test CORS headers for any URL. Check Access-Control-Allow-Origin, methods, headers, credentials. Diagnose cross-origin issues. Free.", "测试任意 URL 的 CORS 标头。检查 Access-Control-Allow-Origin、方法、标头和凭据。诊断跨域问题。免费。"],'h1_cors_test':["CORS Test", "CORS 测试"],'h3_what_is_cors':["What is CORS?", "什么是 CORS？"],'h3_how_it_works':["How it works", "工作原理"],'h3_key_cors_headers':["Key CORS Headers", "关键 CORS 标头"],'h3_common_cors_errors':["Common CORS Errors", "常见的 CORS 错误"],'h3_server_side_fix_examples':["Server-Side Fix Examples", "服务器端修复示例"],'h3_response':["Response", "回复"],'h3_cors_headers_keys_length':["CORS Headers (${keys.length})", "CORS 标头（${keys.length}）"],'h3_other_headers_keys_length':["Other Headers (${keys.length})", "其他标头（${keys.length}）"],'h3_diagnosis':["Diagnosis", "诊断"],'subtitle_test_cross_origin_resourc':["Test Cross-Origin Resource Sharing headers for any URL.", "对任意 URL 测试跨域资源共享 (CORS) 标头。"],'btn_test_cors':["Test CORS", "测试 CORS"],'btn_clear':["Clear", "清除"],'placeholder_https_api_example_com_dat':["https://api.example.com/data", "https://api.example.com/data"],'placeholder_https_example_com_auto_de':["https://example.com (auto-detected from this page)", "https://example.com（从此页面自动检测到）"],'strong_simple_requests':["Simple requests", "简单请求"],'strong_preflighted_requests':["Preflighted requests", "预检请求"],'strong_credentialed_requests':["Credentialed requests", "已认证请求"],'strong_no_access_control_allow':["\"No 'Access-Control-Allow-Origin' header\"", "“没有‘Access-Control-Allow-Origin’标头”"],'strong_wildcard_with_credential':["\"Wildcard with credentials\"", "“带凭证的通配符”"],'strong_method_not_allowed':["\"Method not allowed\"", "“方法不允许”"],'strong_request_header_not_allow':["\"Request header not allowed\"", "“请求头不允许”"],'strong_express_js':["Express.js:", "Express.js："],'strong_nginx':["Nginx:", "Nginx："],'strong_apache_htaccess':["Apache (.htaccess):", "Apache（.htaccess）："],'strong_related_tools':["Related Tools", "相关工具"],'label_url':["URL", "URL"],'label_method':["Method", "方法"],'label_origin':["Origin", "起源"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_headers_check':["Headers Check", "标头检查"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_api_tester':["API Tester", "API 测试员"],'link_csp_builder':["CSP Builder", "CSP 构建器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_test_cross_origin_re':["CORS Test — Cross-Origin Request Checker", "CORS 测试 — 跨域请求检查器"],'metadesc_test_cors_headers_for_any':["Test CORS headers for any URL. Check Access-Control-Allow-Origin, methods, headers, credentials. Diagnose cross-origin issues. Free.", "测试任意 URL 的 CORS 标头。检查 Access-Control-Allow-Origin、方法、标头和凭据。诊断跨域问题。免费。"],'h1_cors_test':["CORS Test", "CORS 测试"],'h3_what_is_cors':["What is CORS?", "什么是 CORS？"],'h3_how_it_works':["How it works", "工作原理"],'h3_key_cors_headers':["Key CORS Headers", "关键 CORS 标头"],'h3_common_cors_errors':["Common CORS Errors", "常见的 CORS 错误"],'h3_server_side_fix_examples':["Server-Side Fix Examples", "服务器端修复示例"],'h3_response':["Response", "回复"],'h3_cors_headers_keys_length':["CORS Headers (${keys.length})", "CORS 标头（${keys.length}）"],'h3_other_headers_keys_length':["Other Headers (${keys.length})", "其他标头（${keys.length}）"],'h3_diagnosis':["Diagnosis", "诊断"],'subtitle_test_cross_origin_resourc':["Test Cross-Origin Resource Sharing headers for any URL.", "对任意 URL 测试跨域资源共享 (CORS) 标头。"],'btn_test_cors':["Test CORS", "测试 CORS"],'btn_clear':["Clear", "清除"],'placeholder_https_api_example_com_dat':["https://api.example.com/data", "https://api.example.com/data"],'placeholder_https_example_com_auto_de':["https://example.com (auto-detected from this page)", "https://example.com（从此页面自动检测到）"],'strong_simple_requests':["Simple requests", "简单请求"],'strong_preflighted_requests':["Preflighted requests", "预检请求"],'strong_credentialed_requests':["Credentialed requests", "已认证请求"],'strong_no_access_control_allow':["\"No 'Access-Control-Allow-Origin' header\"", "“没有‘Access-Control-Allow-Origin’标头”"],'strong_wildcard_with_credential':["\"Wildcard with credentials\"", "“带凭证的通配符”"],'strong_method_not_allowed':["\"Method not allowed\"", "“方法不允许”"],'strong_request_header_not_allow':["\"Request header not allowed\"", "“请求头不允许”"],'strong_express_js':["Express.js:", "Express.js："],'strong_nginx':["Nginx:", "Nginx："],'strong_apache_htaccess':["Apache (.htaccess):", "Apache（.htaccess）："],'strong_related_tools':["Related Tools", "相关工具"],'label_url':["URL", "URL"],'label_method':["Method", "方法"],'label_origin':["Origin", "起源"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_headers_check':["Headers Check", "标头检查"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_api_tester':["API Tester", "API 测试员"],'link_csp_builder':["CSP Builder", "CSP 构建器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cors_test_cross_origin_re':["CORS Test — Cross-Origin Request Checker", "CORS 测试 — 跨域请求检查器"],'metadesc_test_cors_headers_for_any':["Test CORS headers for any URL. Check Access-Control-Allow-Origin, methods, headers, credentials. Diagnose cross-origin issues. Free.", "测试任意 URL 的 CORS 标头。检查 Access-Control-Allow-Origin、方法、标头和凭据。诊断跨域问题。免费。"],'h1_cors_test':["CORS Test", "CORS 测试"],'h3_what_is_cors':["What is CORS?", "什么是 CORS？"],'h3_how_it_works':["How it works", "工作原理"],'h3_key_cors_headers':["Key CORS Headers", "关键 CORS 标头"],'h3_common_cors_errors':["Common CORS Errors", "常见的 CORS 错误"],'h3_server_side_fix_examples':["Server-Side Fix Examples", "服务器端修复示例"],'h3_response':["Response", "回复"],'h3_cors_headers_keys_length':["CORS Headers (${keys.length})", "CORS 标头（${keys.length}）"],'h3_other_headers_keys_length':["Other Headers (${keys.length})", "其他标头（${keys.length}）"],'h3_diagnosis':["Diagnosis", "诊断"],'subtitle_test_cross_origin_resourc':["Test Cross-Origin Resource Sharing headers for any URL.", "对任意 URL 测试跨域资源共享 (CORS) 标头。"],'btn_test_cors':["Test CORS", "测试 CORS"],'btn_clear':["Clear", "清除"],'placeholder_https_api_example_com_dat':["https://api.example.com/data", "https://api.example.com/data"],'placeholder_https_example_com_auto_de':["https://example.com (auto-detected from this page)", "https://example.com（从此页面自动检测到）"],'strong_simple_requests':["Simple requests", "简单请求"],'strong_preflighted_requests':["Preflighted requests", "预检请求"],'strong_credentialed_requests':["Credentialed requests", "已认证请求"],'strong_no_access_control_allow':["\"No 'Access-Control-Allow-Origin' header\"", "“没有‘Access-Control-Allow-Origin’标头”"],'strong_wildcard_with_credential':["\"Wildcard with credentials\"", "“带凭证的通配符”"],'strong_method_not_allowed':["\"Method not allowed\"", "“方法不允许”"],'strong_request_header_not_allow':["\"Request header not allowed\"", "“请求头不允许”"],'strong_express_js':["Express.js:", "Express.js："],'strong_nginx':["Nginx:", "Nginx："],'strong_apache_htaccess':["Apache (.htaccess):", "Apache（.htaccess）："],'strong_related_tools':["Related Tools", "相关工具"],'label_url':["URL", "URL"],'label_method':["Method", "方法"],'label_origin':["Origin", "起源"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_headers_check':["Headers Check", "标头检查"],'link_ssl_check':["SSL Check", "SSL 检查"],'link_api_tester':["API Tester", "API 测试员"],'link_csp_builder':["CSP Builder", "CSP 构建器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const CORS_HEADERS=[
   'access-control-allow-origin',
@@ -358,7 +396,7 @@ function renderResults(results,checks,url,method){
   // Request info
   if(results.simple.ok){
     html+=`<div class="result-section">
-      <h3>Response</h3>
+      <h3 ti="h3_response" ti="h3_response" ti="h3_response" ti="h3_response">Response</h3>
       <div class="header-row"><span class="header-name">Status</span><span class="header-value">${results.simple.status} ${results.simple.statusText}</span></div>
       <div class="header-row"><span class="header-name">Time</span><span class="header-value">${results.simple.elapsed}ms</span></div>
       <div class="header-row"><span class="header-name">URL</span><span class="header-value" style="font-size:0.75rem">${esc(url)}</span></div>
@@ -370,7 +408,7 @@ function renderResults(results,checks,url,method){
     const ch=results.simple.corsHeaders;
     const keys=Object.keys(ch);
     if(keys.length>0){
-      html+=`<div class="result-section"><h3>CORS Headers (${keys.length})</h3>`;
+      html+=`<div class="result-section"><h3 ti="h3_cors_headers_keys_length" ti="h3_cors_headers_keys_length" ti="h3_cors_headers_keys_length" ti="h3_cors_headers_keys_length">CORS Headers (${keys.length})</h3>`;
       keys.forEach(k=>{
         html+=`<div class="header-row"><span class="header-name">${esc(k)}</span><span class="header-value">${esc(ch[k])}</span></div>`;
       });
@@ -383,7 +421,7 @@ function renderResults(results,checks,url,method){
     const ah=results.simple.allHeaders;
     const keys=Object.keys(ah).filter(k=>!CORS_HEADERS.includes(k.toLowerCase()));
     if(keys.length>0){
-      html+=`<div class="result-section"><h3>Other Headers (${keys.length})</h3>`;
+      html+=`<div class="result-section"><h3 ti="h3_other_headers_keys_length" ti="h3_other_headers_keys_length" ti="h3_other_headers_keys_length" ti="h3_other_headers_keys_length">Other Headers (${keys.length})</h3>`;
       keys.forEach(k=>{
         html+=`<div class="header-row"><span class="header-name">${esc(k)}</span><span class="header-value">${esc(ah[k])}</span></div>`;
       });
@@ -393,7 +431,7 @@ function renderResults(results,checks,url,method){
 
   // Checks
   if(checks.length>0){
-    html+=`<div class="result-section"><h3>Diagnosis</h3><ul class="detail-list">`;
+    html+=`<div class="result-section"><h3 ti="h3_diagnosis" ti="h3_diagnosis" ti="h3_diagnosis" ti="h3_diagnosis">Diagnosis</h3><ul class="detail-list">`;
     checks.forEach(c=>{
       const iconClass=c.icon==='pass'?'pass-icon':c.icon==='fail'?'fail-icon':'warn-icon';
       const iconChar=c.icon==='pass'?'✓':c.icon==='fail'?'✗':'⚠';
@@ -413,6 +451,78 @@ function toast(msg){
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_tailwind_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -414,26 +414,32 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+
+<a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">← Dev Vault</a>
 
 <header>
-  <h1>Tailwind Converter</h1>
+  <h1 ti="title_tailwind_converter" ti="h1_tailwind_converter" ti="title_tailwind_converter" ti="h1_tailwind_converter" ti="title_tailwind_converter" ti="h1_tailwind_converter">Tailwind Converter</h1>
   <p>Bidirectional conversion between vanilla CSS and Tailwind CSS utility classes</p>
 </header>
 
 <div class="mode-toggle">
-  <button class="mode-btn active" id="btn-css-to-tw" onclick="setMode('css-to-tw')">CSS → Tailwind</button>
-  <button class="mode-btn" id="btn-tw-to-css" onclick="setMode('tw-to-css')">Tailwind → CSS</button>
+  <button class="mode-btn active" id="btn-css-to-tw" onclick="setMode('css-to-tw')" ti="btn_css_tailwind" ti="btn_css_tailwind" ti="btn_css_tailwind">CSS → Tailwind</button>
+  <button class="mode-btn" id="btn-tw-to-css" onclick="setMode('tw-to-css')" ti="btn_tailwind_css" ti="btn_tailwind_css" ti="btn_tailwind_css">Tailwind → CSS</button>
 </div>
 
 <div class="samples-bar">
-  <span class="samples-label">Samples:</span>
-  <button class="sample-btn" onclick="loadSample('button')">Button</button>
-  <button class="sample-btn" onclick="loadSample('card')">Card</button>
-  <button class="sample-btn" onclick="loadSample('navbar')">Navbar</button>
-  <button class="sample-btn" onclick="loadSample('form')">Form</button>
-  <button class="sample-btn" onclick="loadSample('grid')">Grid Layout</button>
+  <span class="samples-label" ti="label_samples" ti="label_samples" ti="label_samples">Samples:</span>
+  <button class="sample-btn" onclick="loadSample('button')" ti="btn_button" ti="btn_button" ti="btn_button">Button</button>
+  <button class="sample-btn" onclick="loadSample('card')" ti="btn_card" ti="btn_card" ti="btn_card">Card</button>
+  <button class="sample-btn" onclick="loadSample('navbar')" ti="btn_navbar" ti="btn_navbar" ti="btn_navbar">Navbar</button>
+  <button class="sample-btn" onclick="loadSample('form')" ti="btn_form" ti="btn_form" ti="btn_form">Form</button>
+  <button class="sample-btn" onclick="loadSample('grid')" ti="btn_grid_layout" ti="btn_grid_layout" ti="btn_grid_layout">Grid Layout</button>
 </div>
 
 <div class="converter">
@@ -443,10 +449,10 @@
       <span class="panel-title" id="input-label">CSS Input</span>
       <div style="display:flex;gap:8px;align-items:center;">
         <span class="panel-meta" id="input-count">0 props</span>
-        <button class="clear-btn" onclick="clearInput()">Clear</button>
+        <button class="clear-btn" onclick="clearInput()" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
       </div>
     </div>
-    <textarea id="input-area" placeholder="Paste your CSS here..." oninput="onInput()"></textarea>
+    <textarea id="input-area" tp="placeholder_paste_your_css_here" tp="placeholder_paste_your_css_here" tp="placeholder_paste_your_css_here" placeholder="Paste your CSS here..." oninput="onInput()"></textarea>
   </div>
 
   <!-- Output Panel -->
@@ -608,6 +614,26 @@
   </div>
 </div>
 
+
+
+<script>var _LANG={'title_tailwind_converter':["Tailwind Converter", "顺风转换器"],'metadesc_convert_plain_css_to_tail':["Convert plain CSS to Tailwind CSS utility classes. Paste your CSS and get equivalent Tailwind classes with instant preview and copy support.", "将纯 CSS 转换为 Tailwind CSS 实用类。粘贴您的 CSS 代码，即可获得等效的 Tailwind 类，并支持即时预览和复制。"],'h1_tailwind_converter':["Tailwind Converter", "顺风转换器"],'btn_css_tailwind':["CSS → Tailwind", "CSS → Tailwind"],'btn_tailwind_css':["Tailwind → CSS", "Tailwind → CSS"],'btn_button':["Button", "按钮"],'btn_card':["Card", "卡片"],'btn_navbar':["Navbar", "导航栏"],'btn_form':["Form", "形式"],'btn_grid_layout':["Grid Layout", "网格布局"],'btn_clear':["Clear", "清除"],'label_samples':["Samples:", "示例："],'placeholder_paste_your_css_here':["Paste your CSS here...", "把你的CSS代码粘贴到这里……"],'strong_result_classcount':["${result.classCount}", "${result.classCount}"],'strong_result_warnings_length':["${result.warnings.length}", "${result.warnings.length}"],'strong_all_mapped':["all mapped", "所有地图"],'strong_result_propcount':["${result.propCount}", "${result.propCount}"],'strong_result_warnings_length_2':["${result.warnings.length}", "${result.warnings.length}"],'strong_all_resolved':["all resolved", "所有问题已解决"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_css_input':["CSS Input", "CSS 输入"],'jtc_tailwind_output':["Tailwind Output", "顺风输出"],'jtc_tailwind_classes':["Tailwind Classes", "顺风课程"],'jtc_css_output':["CSS Output", "CSS 输出"],'jtc_0_classes':["0 classes", "0 个班级"],'jtc_0_props':["0 props", "0 个道具"],'jtc_copied':["✓ Copied", "✓ 已复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_tailwind_converter':["Tailwind Converter", "顺风转换器"],'metadesc_convert_plain_css_to_tail':["Convert plain CSS to Tailwind CSS utility classes. Paste your CSS and get equivalent Tailwind classes with instant preview and copy support.", "将纯 CSS 转换为 Tailwind CSS 实用类。粘贴您的 CSS 代码，即可获得等效的 Tailwind 类，并支持即时预览和复制。"],'h1_tailwind_converter':["Tailwind Converter", "顺风转换器"],'btn_css_tailwind':["CSS → Tailwind", "CSS → Tailwind"],'btn_tailwind_css':["Tailwind → CSS", "Tailwind → CSS"],'btn_button':["Button", "按钮"],'btn_card':["Card", "卡片"],'btn_navbar':["Navbar", "导航栏"],'btn_form':["Form", "形式"],'btn_grid_layout':["Grid Layout", "网格布局"],'btn_clear':["Clear", "清除"],'label_samples':["Samples:", "示例："],'placeholder_paste_your_css_here':["Paste your CSS here...", "把你的CSS代码粘贴到这里……"],'strong_result_classcount':["${result.classCount}", "${result.classCount}"],'strong_result_warnings_length':["${result.warnings.length}", "${result.warnings.length}"],'strong_all_mapped':["all mapped", "所有地图"],'strong_result_propcount':["${result.propCount}", "${result.propCount}"],'strong_result_warnings_length_2':["${result.warnings.length}", "${result.warnings.length}"],'strong_all_resolved':["all resolved", "所有问题已解决"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_css_input':["CSS Input", "CSS 输入"],'jtc_tailwind_output':["Tailwind Output", "顺风输出"],'jtc_tailwind_classes':["Tailwind Classes", "顺风课程"],'jtc_css_output':["CSS Output", "CSS 输出"],'jtc_0_classes':["0 classes", "0 个班级"],'jtc_0_props':["0 props", "0 个道具"],'jtc_copied':["✓ Copied", "✓ 已复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ============================================================
 // STATE
@@ -2129,12 +2155,12 @@ function setMode(mode) {
   const inputArea = document.getElementById('input-area');
 
   if (mode === 'css-to-tw') {
-    inputLabel.textContent = 'CSS Input';
-    outputLabel.textContent = 'Tailwind Output';
+    inputLabel.textContent=T("jtc_css_input");
+    outputLabel.textContent=T("jtc_tailwind_output");
     inputArea.placeholder = 'Paste your CSS here...';
   } else {
-    inputLabel.textContent = 'Tailwind Classes';
-    outputLabel.textContent = 'CSS Output';
+    inputLabel.textContent=T("jtc_tailwind_classes");
+    outputLabel.textContent=T("jtc_css_output");
     inputArea.placeholder = 'Paste Tailwind classes here (e.g., flex items-center p-4 bg-white)...';
   }
 
@@ -2149,8 +2175,8 @@ function clearInput() {
 
 function clearOutput() {
   document.getElementById('output-area').innerHTML = '';
-  document.getElementById('output-count').textContent = '0 classes';
-  document.getElementById('input-count').textContent = '0 props';
+  document.getElementById('output-count').textContent=T("jtc_0_classes");
+  document.getElementById('input-count').textContent=T("jtc_0_props");
   document.getElementById('stat-converted').textContent = '';
   document.getElementById('stat-unsupported').textContent = '';
   document.getElementById('warnings-panel').classList.remove('visible');
@@ -2172,18 +2198,18 @@ function doConvert() {
     result = convertCSSToTailwind(input);
     document.getElementById('input-count').textContent = result.propCount + ' props';
     document.getElementById('output-count').textContent = result.classCount + ' classes';
-    document.getElementById('stat-converted').innerHTML = `<strong>${result.classCount}</strong> classes`;
+    document.getElementById('stat-converted').innerHTML = `<strong ti="strong_result_classcount" ti="strong_result_classcount" ti="strong_result_classcount">${result.classCount}</strong> classes`;
     document.getElementById('stat-unsupported').innerHTML = result.warnings.length
-      ? `<strong style="color:var(--yellow)">${result.warnings.length}</strong> unsupported`
-      : `<strong style="color:var(--green)">all mapped</strong>`;
+      ? `<strong style="color:var(--yellow)" ti="strong_result_warnings_length" ti="strong_result_warnings_length_2" ti="strong_result_warnings_length" ti="strong_result_warnings_length_2" ti="strong_result_warnings_length" ti="strong_result_warnings_length_2">${result.warnings.length}</strong> unsupported`
+      : `<strong style="color:var(--green)" ti="strong_all_mapped" ti="strong_all_mapped" ti="strong_all_mapped">all mapped</strong>`;
   } else {
     result = convertTailwindToCSS(input);
     document.getElementById('input-count').textContent = result.classCount + ' classes';
     document.getElementById('output-count').textContent = result.propCount + ' props';
-    document.getElementById('stat-converted').innerHTML = `<strong>${result.propCount}</strong> properties`;
+    document.getElementById('stat-converted').innerHTML = `<strong ti="strong_result_propcount" ti="strong_result_propcount" ti="strong_result_propcount">${result.propCount}</strong> properties`;
     document.getElementById('stat-unsupported').innerHTML = result.warnings.length
       ? `<strong style="color:var(--yellow)">${result.warnings.length}</strong> unknown`
-      : `<strong style="color:var(--green)">all resolved</strong>`;
+      : `<strong style="color:var(--green)" ti="strong_all_resolved" ti="strong_all_resolved" ti="strong_all_resolved">all resolved</strong>`;
   }
 
   document.getElementById('output-area').innerHTML = result.html || '<span style="color:var(--text2)">No output</span>';
@@ -2211,7 +2237,7 @@ function copyOutput() {
   if (!outputText) return;
   navigator.clipboard.writeText(outputText).then(() => {
     const btn = document.getElementById('copy-btn');
-    btn.textContent = '✓ Copied';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => {
       btn.innerHTML = `<svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M0 6.75C0 5.784.784 5 1.75 5h1.5a.75.75 0 0 1 0 1.5h-1.5a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-1.5a.75.75 0 0 1 1.5 0v1.5A1.75 1.75 0 0 1 9.25 16h-7.5A1.75 1.75 0 0 1 0 14.25Z"/><path d="M5 1.75C5 .784 5.784 0 6.75 0h7.5C15.216 0 16 .784 16 1.75v7.5A1.75 1.75 0 0 1 14.25 11h-7.5A1.75 1.75 0 0 1 5 9.25Zm1.75-.25a.25.25 0 0 0-.25.25v7.5c0 .138.112.25.25.25h7.5a.25.25 0 0 0 .25-.25v-7.5a.25.25 0 0 0-.25-.25Z"/></svg> Copy`;
@@ -2231,12 +2257,66 @@ function toggleReference() {
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-to-jsx/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML To Jsx</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

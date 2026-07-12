@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_type_coercion_visualiz" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -51,15 +51,27 @@ header h1{font-size:1.1rem;color:#e599f7}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Type Coercion</h1>
+<h1 ti="h1_js_type_coercion">JS Type Coercion</h1>
 <div class="tab-bar">
-<button class="active" onclick="switchView('compare')">Compare</button>
-<button onclick="switchView('table')">Truth Table</button>
-<button onclick="switchView('reference')">Reference</button>
+<button class="active" onclick="switchView('compare')" ti="btn_compare" ti="btn_compare_2">Compare</button>
+<button onclick="switchView('table')" ti="btn_truth_table">Truth Table</button>
+<button onclick="switchView('reference')" ti="btn_reference">Reference</button>
 </div>
 </header>
 <div class="main" id="mainContent"></div>
+
+<script>var _LANG={'title_js_type_coercion_visualiz':["JS Type Coercion Visualizer", "JS 类型强制转换可视化工具"],'metadesc_interactive_javascript_ty':["Interactive JavaScript type coercion visualizer. == vs ===, Abstract Equality, ToPrimitive, ToNumber, ToString. Step-through coercion algorithm with truth table.", "交互式 JavaScript 类型转换可视化工具。== 与 === 的区别、抽象相等性、ToPrimitive、ToNumber、ToString。使用真值表逐步演示类型转换算法。"],'h1_js_type_coercion':["JS Type Coercion", "JS 类型强制转换"],'h3_compare_two_values':["Compare Two Values", "比较两个值"],'h3_coercion_steps':["Coercion Steps", "胁迫步骤"],'h3_truth_table_loose_equali':["== Truth Table (Loose Equality)", "== 真值表（宽松等式）"],'h3_truth_table_strict_equal':["=== Truth Table (Strict Equality)", "=== 真值表（严格相等）"],'h3_abstract_equality_algorit':["Abstract Equality Algorithm (==)", "抽象等式算法（==）"],'h3_type_conversion_functions':["Type Conversion Functions", "类型转换函数"],'h3_toprimitive_algorithm':["ToPrimitive Algorithm", "原始算法"],'h3_infamous_examples':["Infamous Examples", "臭名昭著的例子"],'btn_compare':["Compare", "比较"],'btn_truth_table':["Truth Table", "真值表"],'btn_reference':["Reference", "参考"],'btn_compare_2':["Compare", "比较"],'btn_v':["${v}", "${v}"],'placeholder_left_value':["Left value", "左值"],'placeholder_right_value':["Right value", "正确价值"],'th_l':["${l}", "${l}"],'th_labels_i':["${labels[i]}", "${labels[i]}"],'th_l_2':["${l}", "${l}"],'th_labels_i_2':["${labels[i]}", "${labels[i]}"],'th_function':["Function", "功能"],'th_input_output':["Input → Output", "输入 → 输出"],'th_step':["Step", "步"],'th_description':["Description", "描述"],'th_expression':["Expression", "表达"],'th_result':["Result", "结果"],'th_why':["Why", "为什么"],'jtlword_compare':["Compare", "比较"],'jtlword_function':["Function", "功能"],'jtlword_nan':["NaN", "钠"],'jtlword_nan_2':["NaN", "钠"],'jtlword_step':["Step", "步"],'jtlword_description':["Description", "描述"],'jtlword_expression':["Expression", "表达"],'jtlword_result':["Result", "结果"],'jtlword_why':["Why", "为什么"],'jtlword_true':["true", "真的"],'jtlword_true_2':["true", "真的"],'jtlword_true_3':["true", "真的"],'jtlword_true_4':["true", "真的"],'jtlword_false':["false", "错误的"],'jtlword_false_2':["false", "错误的"],'jtlword_true_5':["true", "真的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentView='compare';
 const VALUES=['false','0','""','null','undefined','NaN','true','1','"1"','[]','{}','"0"','[0]','"false"','-0','0n'];
@@ -89,21 +101,21 @@ function render(){
 function renderCompare(el){
   el.innerHTML=`
   <div class="panel">
-  <h3>Compare Two Values</h3>
+  <h3 ti="h3_compare_two_values">Compare Two Values</h3>
   <div class="compare-row">
-    <input class="compare-input" id="leftVal" value='0' placeholder="Left value">
+    <input class="compare-input" id="leftVal" value='0' tp="placeholder_left_value" placeholder="Left value">
     <span class="compare-op op-loose" id="opBtn" onclick="toggleOp()">==</span>
-    <input class="compare-input" id="rightVal" value='"0"' placeholder="Right value">
+    <input class="compare-input" id="rightVal" value='"0"' tp="placeholder_right_value" placeholder="Right value">
     <button class="compare-btn" onclick="doCompare()">Compare</button>
   </div>
   <div style="display:flex;gap:6px;flex-wrap:wrap;margin-bottom:12px">
     ${['false','0','""','null','undefined','NaN','true','1','"1"','[]','{}','"0"','-0','Infinity'].map(v=>
-      `<button style="padding:3px 8px;border:1px solid #2a2a4a;border-radius:10px;background:#111128;color:#aaa;cursor:pointer;font-size:.7rem;font-family:monospace" onclick="quickSet('${v.replace(/'/g,"\\'")}')">${v}</button>`
+      `<button style="padding:3px 8px;border:1px solid #2a2a4a;border-radius:10px;background:#111128;color:#aaa;cursor:pointer;font-size:.7rem;font-family:monospace" onclick="quickSet('${v.replace(/'/g,"\\'")}')" ti="btn_v">${v}</button>`
     ).join('')}
   </div>
   <div id="compareResult"></div>
   </div>
-  <div class="panel" id="stepsPanel"><h3>Coercion Steps</h3><div id="steps"><p style="color:#555;font-size:.8rem">Click Compare to see the step-by-step coercion algorithm.</p></div></div>`;
+  <div class="panel" id="stepsPanel"><h3 ti="h3_coercion_steps">Coercion Steps</h3><div id="steps"><p style="color:#555;font-size:.8rem">Click Compare to see the step-by-step coercion algorithm.</p></div></div>`;
   doCompare();
 }
 
@@ -241,11 +253,11 @@ function getLooseSteps(l,r,lStr,rStr){
 function renderTable(el){
   const vals=VALUES.slice(0,14); // Skip bigint for table
   const labels=LABELS.slice(0,14);
-  let html='<div class="panel"><h3>== Truth Table (Loose Equality)</h3><div class="truth-table"><table class="tt"><tr><th></th>';
-  labels.forEach(l=>{html+=`<th class="tt-header">${l}</th>`});
+  let html='<div class="panel"><h3 ti="h3_truth_table_loose_equali">== Truth Table (Loose Equality)</h3><div class="truth-table"><table class="tt"><tr><th></th>';
+  labels.forEach(l=>{html+=`<th class="tt-header" ti="th_l" ti="th_l_2">${l}</th>`});
   html+='</tr>';
   vals.forEach((v1,i)=>{
-    html+=`<tr><th class="tt-header">${labels[i]}</th>`;
+    html+=`<tr><th class="tt-header" ti="th_labels_i" ti="th_labels_i_2">${labels[i]}</th>`;
     vals.forEach((v2,j)=>{
       let result;
       try{result=evalVal(v1)==evalVal(v2)}catch(e){result=false}
@@ -255,7 +267,7 @@ function renderTable(el){
   });
   html+='</table></div></div>';
 
-  html+='<div class="panel"><h3>=== Truth Table (Strict Equality)</h3><div class="truth-table"><table class="tt"><tr><th></th>';
+  html+='<div class="panel"><h3 ti="h3_truth_table_strict_equal">=== Truth Table (Strict Equality)</h3><div class="truth-table"><table class="tt"><tr><th></th>';
   labels.forEach(l=>{html+=`<th class="tt-header">${l}</th>`});
   html+='</tr>';
   vals.forEach((v1,i)=>{
@@ -273,7 +285,7 @@ function renderTable(el){
 
 function renderReference(el){
   el.innerHTML=`
-  <div class="panel"><h3>Abstract Equality Algorithm (==)</h3>
+  <div class="panel"><h3 ti="h3_abstract_equality_algorit">Abstract Equality Algorithm (==)</h3>
   <div class="coerce-grid">
   <div class="info-card"><h4>1. Same Type</h4><p>Use strict comparison (===). No coercion.</p></div>
   <div class="info-card"><h4>2. null == undefined</h4><p>Always true. They only equal each other (and nothing else).</p></div>
@@ -282,9 +294,9 @@ function renderReference(el){
   <div class="info-card"><h4>5. Object == Primitive</h4><p>Call ToPrimitive(object): try valueOf(), then toString(). Then compare.</p></div>
   <div class="info-card"><h4>6. Otherwise</h4><p>Return false.</p></div>
   </div></div>
-  <div class="panel"><h3>Type Conversion Functions</h3>
+  <div class="panel"><h3 ti="h3_type_conversion_functions">Type Conversion Functions</h3>
   <table class="ref-table">
-  <tr><th>Function</th><th>Input → Output</th></tr>
+  <tr><th ti="th_function">Function</th><th ti="th_input_output">Input → Output</th></tr>
   <tr><td>ToNumber("")</td><td>0</td></tr>
   <tr><td>ToNumber("123")</td><td>123</td></tr>
   <tr><td>ToNumber("abc")</td><td>NaN</td></tr>
@@ -296,17 +308,17 @@ function renderReference(el){
   <tr><td>ToNumber([1])</td><td>1 (via "1" → 1)</td></tr>
   <tr><td>ToNumber({})</td><td>NaN (via "[object Object]")</td></tr>
   </table></div>
-  <div class="panel"><h3>ToPrimitive Algorithm</h3>
+  <div class="panel"><h3 ti="h3_toprimitive_algorithm">ToPrimitive Algorithm</h3>
   <table class="ref-table">
-  <tr><th>Step</th><th>Description</th></tr>
+  <tr><th ti="th_step">Step</th><th ti="th_description">Description</th></tr>
   <tr><td>1</td><td>If [Symbol.toPrimitive] exists, call it with hint</td></tr>
   <tr><td>2</td><td>If hint is "number": try valueOf() first, then toString()</td></tr>
   <tr><td>3</td><td>If hint is "string": try toString() first, then valueOf()</td></tr>
   <tr><td>4</td><td>Default hint for == is "number" (except Date → "string")</td></tr>
   </table></div>
-  <div class="panel"><h3>Infamous Examples</h3>
+  <div class="panel"><h3 ti="h3_infamous_examples">Infamous Examples</h3>
   <table class="ref-table">
-  <tr><th>Expression</th><th>Result</th><th>Why</th></tr>
+  <tr><th ti="th_expression">Expression</th><th ti="th_result">Result</th><th ti="th_why">Why</th></tr>
   <tr><td>[] == false</td><td>true</td><td>[] → "" → 0, false → 0</td></tr>
   <tr><td>[] == ![]</td><td>true</td><td>![] is false, [] → 0, false → 0</td></tr>
   <tr><td>"" == false</td><td>true</td><td>"" → 0, false → 0</td></tr>
@@ -318,6 +330,24 @@ function renderReference(el){
 }
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

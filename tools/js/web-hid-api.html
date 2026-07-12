@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_hid_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -412,13 +412,15 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Web HID API Playground</h1>
+  <h1 ti="title_web_hid_api_playground" ti="h1_web_hid_api_playground">Web HID API Playground</h1>
   <p>Connect and communicate with Human Interface Devices from your browser</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Support Detection -->
   <div id="supportBanner" class="support-banner"></div>
 
@@ -433,23 +435,23 @@
       <div class="filter-builder">
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.75rem;">
           <span style="font-size:0.85rem;font-weight:600;">Device Filters</span>
-          <button class="btn btn-sm btn-secondary" onclick="addFilter()">+ Add Filter</button>
+          <button class="btn btn-sm btn-secondary" onclick="addFilter()" ti="btn_add_filter">+ Add Filter</button>
         </div>
         <div id="filtersContainer">
           <div class="filter-row">
-            <input type="text" placeholder="vendorId (hex, e.g. 0x054C)" data-field="vendorId">
-            <input type="text" placeholder="productId (hex, e.g. 0x0CE6)" data-field="productId">
-            <input type="text" placeholder="usagePage (hex)" data-field="usagePage">
-            <input type="text" placeholder="usage (hex)" data-field="usage">
+            <input type="text" tp="placeholder_vendorid_hex_e_g_0x054c" placeholder="vendorId (hex, e.g. 0x054C)" data-field="vendorId">
+            <input type="text" tp="placeholder_productid_hex_e_g_0x0ce6" placeholder="productId (hex, e.g. 0x0CE6)" data-field="productId">
+            <input type="text" tp="placeholder_usagepage_hex" tp="placeholder_usagepage_hex_2" placeholder="usagePage (hex)" data-field="usagePage">
+            <input type="text" tp="placeholder_usage_hex" tp="placeholder_usage_hex_2" placeholder="usage (hex)" data-field="usage">
             <button class="remove-filter" onclick="removeFilter(this)">&times;</button>
           </div>
         </div>
       </div>
 
       <div style="display:flex;gap:0.5rem;flex-wrap:wrap;">
-        <button class="btn" id="connectBtn" onclick="connectDevice()">Request Device</button>
-        <button class="btn btn-secondary" id="connectAnyBtn" onclick="connectAny()">Connect Any</button>
-        <button class="btn btn-danger btn-sm" id="disconnectBtn" onclick="disconnectDevice()" disabled>Disconnect</button>
+        <button class="btn" id="connectBtn" onclick="connectDevice()" ti="btn_request_device">Request Device</button>
+        <button class="btn btn-secondary" id="connectAnyBtn" onclick="connectAny()" ti="btn_connect_any">Connect Any</button>
+        <button class="btn btn-danger btn-sm" id="disconnectBtn" onclick="disconnectDevice()" disabled ti="btn_disconnect">Disconnect</button>
       </div>
 
       <div id="generatedCode" class="code-block" style="margin-top:1rem;display:none;"></div>
@@ -481,20 +483,20 @@
       <h2><span class="icon">&#x1F4E4;</span> Send Reports</h2>
 
       <div class="tabs">
-        <button class="tab active" onclick="switchSendTab('output')">Output Report</button>
-        <button class="tab" onclick="switchSendTab('feature')">Feature Report</button>
+        <button class="tab active" onclick="switchSendTab('output')" ti="btn_output_report">Output Report</button>
+        <button class="tab" onclick="switchSendTab('feature')" ti="btn_feature_report">Feature Report</button>
       </div>
 
       <div id="sendOutput" class="tab-content active">
         <div class="form-group">
-          <label>Report ID</label>
+          <label ti="label_report_id" ti="label_report_id_2">Report ID</label>
           <input type="number" id="outputReportId" value="0" min="0" max="255">
         </div>
         <div class="form-group">
-          <label>Data (hex bytes, space-separated)</label>
-          <input type="text" id="outputData" placeholder="e.g. 01 FF 00 A5 3C" style="font-family:var(--font-mono);">
+          <label ti="label_data_hex_bytes_space_sepa" ti="label_data_hex_bytes_space_sepa_2">Data (hex bytes, space-separated)</label>
+          <input type="text" id="outputData" tp="placeholder_e_g_01_ff_00_a5_3c" placeholder="e.g. 01 FF 00 A5 3C" style="font-family:var(--font-mono);">
         </div>
-        <button class="btn" onclick="sendOutputReport()" id="sendOutputBtn" disabled>Send Output Report</button>
+        <button class="btn" onclick="sendOutputReport()" id="sendOutputBtn" disabled ti="btn_send_output_report">Send Output Report</button>
       </div>
 
       <div id="sendFeature" class="tab-content">
@@ -504,9 +506,9 @@
         </div>
         <div class="form-group">
           <label>Data (hex bytes, space-separated)</label>
-          <input type="text" id="featureData" placeholder="e.g. 02 00 FF" style="font-family:var(--font-mono);">
+          <input type="text" id="featureData" tp="placeholder_e_g_02_00_ff" placeholder="e.g. 02 00 FF" style="font-family:var(--font-mono);">
         </div>
-        <button class="btn" onclick="sendFeatureReport()" id="sendFeatureBtn" disabled>Send Feature Report</button>
+        <button class="btn" onclick="sendFeatureReport()" id="sendFeatureBtn" disabled ti="btn_send_feature_report">Send Feature Report</button>
       </div>
     </div>
 
@@ -514,8 +516,8 @@
       <h2><span class="icon">&#x1F4E5;</span> Receive Reports</h2>
 
       <div class="tabs">
-        <button class="tab active" onclick="switchRecvTab('input')">Input Reports</button>
-        <button class="tab" onclick="switchRecvTab('featureRecv')">Read Feature</button>
+        <button class="tab active" onclick="switchRecvTab('input')" ti="btn_input_reports">Input Reports</button>
+        <button class="tab" onclick="switchRecvTab('featureRecv')" ti="btn_read_feature">Read Feature</button>
       </div>
 
       <div id="recvInput" class="tab-content active">
@@ -523,8 +525,8 @@
           Input reports arrive automatically via the <code>inputreport</code> event.
         </p>
         <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
-          <button class="btn btn-sm btn-secondary" id="toggleInputBtn" onclick="toggleInputCapture()" disabled>Start Capture</button>
-          <button class="btn btn-sm btn-secondary" onclick="clearInputLog()">Clear</button>
+          <button class="btn btn-sm btn-secondary" id="toggleInputBtn" onclick="toggleInputCapture()" disabled ti="btn_start_capture">Start Capture</button>
+          <button class="btn btn-sm btn-secondary" onclick="clearInputLog()" ti="btn_clear">Clear</button>
         </div>
         <div id="inputReportViewer" class="hex-viewer" style="min-height:120px;">
           <span class="offset">Waiting for input reports...</span>
@@ -533,10 +535,10 @@
 
       <div id="recvFeature" class="tab-content">
         <div class="form-group">
-          <label>Report ID to read</label>
+          <label ti="label_report_id_to_read">Report ID to read</label>
           <input type="number" id="featureReadReportId" value="0" min="0" max="255">
         </div>
-        <button class="btn btn-sm" onclick="readFeatureReport()" id="readFeatureBtn" disabled>Read Feature Report</button>
+        <button class="btn btn-sm" onclick="readFeatureReport()" id="readFeatureBtn" disabled ti="btn_read_feature_report">Read Feature Report</button>
         <div id="featureReadViewer" class="hex-viewer" style="min-height:80px;margin-top:0.75rem;">
           <span class="offset">No data yet.</span>
         </div>
@@ -548,7 +550,7 @@
   <div class="card">
     <h2><span class="icon">&#x1F4DC;</span> Event Log</h2>
     <div style="display:flex;gap:0.5rem;margin-bottom:0.75rem;">
-      <button class="btn btn-sm btn-secondary" onclick="clearLog()">Clear Log</button>
+      <button class="btn btn-sm btn-secondary" onclick="clearLog()" ti="btn_clear_log">Clear Log</button>
     </div>
     <div id="eventLog" class="log-area">
       <div class="log-entry info"><span class="time">[--:--:--]</span> <span class="msg">Playground initialized. Connect a device to begin.</span></div>
@@ -560,14 +562,14 @@
     <h2><span class="icon">&#x1F4D6;</span> Usage Page / Usage ID Reference</h2>
 
     <div class="tabs">
-      <button class="tab active" onclick="switchRefTab('usagePages')">Usage Pages</button>
-      <button class="tab" onclick="switchRefTab('commonDevices')">Common Devices</button>
-      <button class="tab" onclick="switchRefTab('apiRef')">API Quick Ref</button>
+      <button class="tab active" onclick="switchRefTab('usagePages')" ti="btn_usage_pages">Usage Pages</button>
+      <button class="tab" onclick="switchRefTab('commonDevices')" ti="btn_common_devices">Common Devices</button>
+      <button class="tab" onclick="switchRefTab('apiRef')" ti="btn_api_quick_ref">API Quick Ref</button>
     </div>
 
     <div id="refUsagePages" class="tab-content active">
       <table>
-        <thead><tr><th>Usage Page</th><th>Hex</th><th>Description</th></tr></thead>
+        <thead><tr><th ti="th_usage_page">Usage Page</th><th ti="th_hex">Hex</th><th ti="th_description">Description</th></tr></thead>
         <tbody>
           <tr><td>Generic Desktop</td><td>0x01</td><td>Mouse, keyboard, joystick, gamepad</td></tr>
           <tr><td>Simulation Controls</td><td>0x02</td><td>Flight sim, driving sim</td></tr>
@@ -590,7 +592,7 @@
 
     <div id="refCommonDevices" class="tab-content">
       <table>
-        <thead><tr><th>Device</th><th>Vendor ID</th><th>Product ID (example)</th><th>Notes</th></tr></thead>
+        <thead><tr><th ti="th_device">Device</th><th>Vendor ID</th><th ti="th_product_id_example">Product ID (example)</th><th ti="th_notes">Notes</th></tr></thead>
         <tbody>
           <tr><td>DualSense (PS5)</td><td>0x054C</td><td>0x0CE6</td><td>Sony. Rumble, LED, touchpad, gyro</td></tr>
           <tr><td>DualShock 4 (PS4)</td><td>0x054C</td><td>0x09CC</td><td>Sony. Light bar, touchpad</td></tr>
@@ -636,6 +638,16 @@ device.addEventListener(<span class="string">'inputreport'</span>, (event) => {
   </div>
 </div>
 
+
+<script>var _LANG={'title_web_hid_api_playground':["Web HID API Playground", "Web HID API 实践场"],'metadesc_interactive_playground_fo':["Interactive playground for the Web HID API - connect and communicate with Human Interface Devices from your browser.", "Web HID API 的交互式游乐场 - 通过浏览器连接和与人机接口设备通信。"],'h1_web_hid_api_playground':["Web HID API Playground", "Web HID API 实践场"],'btn_add_filter':["+ Add Filter", "+ 添加筛选器"],'btn_request_device':["Request Device", "请求设备"],'btn_connect_any':["Connect Any", "连接任意"],'btn_disconnect':["Disconnect", "断开"],'btn_output_report':["Output Report", "输出报告"],'btn_feature_report':["Feature Report", "专题报道"],'btn_send_output_report':["Send Output Report", "发送输出报告"],'btn_send_feature_report':["Send Feature Report", "发送功能报告"],'btn_input_reports':["Input Reports", "输入报告"],'btn_read_feature':["Read Feature", "阅读专题报道"],'btn_start_capture':["Start Capture", "开始捕获"],'btn_clear':["Clear", "清除"],'btn_read_feature_report':["Read Feature Report", "阅读专题报道"],'btn_clear_log':["Clear Log", "清除日志"],'btn_usage_pages':["Usage Pages", "使用页面"],'btn_common_devices':["Common Devices", "常用设备"],'btn_api_quick_ref':["API Quick Ref", "API快速参考"],'label_product_name':["Product Name", "产品名称"],'label_vendor_id':["Vendor ID", "供应商 ID"],'label_product_id':["Product ID", "产品 ID"],'label_opened':["Opened", "已打开"],'label_collections':["Collections", "收藏"],'placeholder_vendorid_hex_e_g_0x054c':["vendorId (hex, e.g. 0x054C)", "供应商 ID（十六进制，例如 0x054C）"],'placeholder_productid_hex_e_g_0x0ce6':["productId (hex, e.g. 0x0CE6)", "产品 ID（十六进制，例如 0x0CE6）"],'placeholder_usagepage_hex':["usagePage (hex)", "用法页（十六进制）"],'placeholder_usage_hex':["usage (hex)", "用法（十六进制）"],'placeholder_e_g_01_ff_00_a5_3c':["e.g. 01 FF 00 A5 3C", "例如 01 FF 00 A5 3C"],'placeholder_e_g_02_00_ff':["e.g. 02 00 FF", "例如 02 00 FF"],'placeholder_vendorid_hex':["vendorId (hex)", "供应商 ID（十六进制）"],'placeholder_productid_hex':["productId (hex)", "产品 ID（十六进制）"],'placeholder_usagepage_hex_2':["usagePage (hex)", "用法页（十六进制）"],'placeholder_usage_hex_2':["usage (hex)", "用法（十六进制）"],'strong_escapehtml_device_produc':["${escapeHtml(device.productName || 'Unknown Device')}", "${escapeHtml(device.productName || &#39;未知设备&#39;)}"],'th_usage_page':["Usage Page", "使用说明页面"],'th_hex':["Hex", "十六进制"],'th_description':["Description", "描述"],'th_device':["Device", "设备"],'th_vendor_id':["Vendor ID", "供应商 ID"],'th_product_id_example':["Product ID (example)", "产品 ID（示例）"],'th_notes':["Notes", "笔记"],'label_report_id':["Report ID", "报告 ID"],'label_data_hex_bytes_space_sepa':["Data (hex bytes, space-separated)", "数据（十六进制字节，空格分隔）"],'label_report_id_2':["Report ID", "报告 ID"],'label_data_hex_bytes_space_sepa_2':["Data (hex bytes, space-separated)", "数据（十六进制字节，空格分隔）"],'label_report_id_to_read':["Report ID to read", "要读取的报告 ID"],'jtc_start_capture':["Start Capture", "开始捕获"],'jtlword_const':["const", "常量"],'jtlword_await':["await", "等待"],'jtlword_opened':["Opened", "已打开"],'jtlword_collections':["Collections", "收藏"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   /* ===== State ===== */
   let currentDevice = null;
@@ -682,8 +694,8 @@ device.addEventListener(<span class="string">'inputreport'</span>, (event) => {
     const row = document.createElement('div');
     row.className = 'filter-row';
     row.innerHTML = `
-      <input type="text" placeholder="vendorId (hex)" data-field="vendorId">
-      <input type="text" placeholder="productId (hex)" data-field="productId">
+      <input type="text" tp="placeholder_vendorid_hex" placeholder="vendorId (hex)" data-field="vendorId">
+      <input type="text" tp="placeholder_productid_hex" placeholder="productId (hex)" data-field="productId">
       <input type="text" placeholder="usagePage (hex)" data-field="usagePage">
       <input type="text" placeholder="usage (hex)" data-field="usage">
       <button class="remove-filter" onclick="removeFilter(this)">&times;</button>
@@ -811,7 +823,7 @@ device.addEventListener(<span class="string">'inputreport'</span>, (event) => {
     document.getElementById('sendFeatureBtn').disabled = true;
     document.getElementById('toggleInputBtn').disabled = true;
     document.getElementById('readFeatureBtn').disabled = true;
-    document.getElementById('toggleInputBtn').textContent = 'Start Capture';
+    document.getElementById('toggleInputBtn').textContent=T("jtc_start_capture");
     document.getElementById('deviceInfoArea').innerHTML = '<div class="empty-state">No device connected.</div>';
     document.getElementById('collectionsArea').innerHTML = '<div class="empty-state">Connect a device to view its HID collections.</div>';
   }
@@ -822,14 +834,14 @@ device.addEventListener(<span class="string">'inputreport'</span>, (event) => {
     area.innerHTML = `
       <div style="display:flex;align-items:center;gap:0.5rem;margin-bottom:0.75rem;">
         <span class="status-dot connected"></span>
-        <strong>${escapeHtml(device.productName || 'Unknown Device')}</strong>
+        <strong ti="strong_escapehtml_device_produc">${escapeHtml(device.productName || 'Unknown Device')}</strong>
       </div>
       <div class="device-info">
-        <div class="row"><span class="label">Product Name</span><span class="value">${escapeHtml(device.productName || 'N/A')}</span></div>
-        <div class="row"><span class="label">Vendor ID</span><span class="value">0x${device.vendorId.toString(16).padStart(4, '0').toUpperCase()}</span></div>
-        <div class="row"><span class="label">Product ID</span><span class="value">0x${device.productId.toString(16).padStart(4, '0').toUpperCase()}</span></div>
-        <div class="row"><span class="label">Opened</span><span class="value">${device.opened}</span></div>
-        <div class="row"><span class="label">Collections</span><span class="value">${device.collections.length}</span></div>
+        <div class="row"><span class="label" ti="label_product_name">Product Name</span><span class="value">${escapeHtml(device.productName || 'N/A')}</span></div>
+        <div class="row"><span class="label" ti="label_vendor_id" ti="th_vendor_id">Vendor ID</span><span class="value">0x${device.vendorId.toString(16).padStart(4, '0').toUpperCase()}</span></div>
+        <div class="row"><span class="label" ti="label_product_id">Product ID</span><span class="value">0x${device.productId.toString(16).padStart(4, '0').toUpperCase()}</span></div>
+        <div class="row"><span class="label" ti="label_opened">Opened</span><span class="value">${device.opened}</span></div>
+        <div class="row"><span class="label" ti="label_collections">Collections</span><span class="value">${device.collections.length}</span></div>
       </div>
     `;
   }
@@ -1022,6 +1034,24 @@ device.addEventListener(<span class="string">'inputreport'</span>, (event) => {
       log(`Device disconnected: ${e.device.productName || 'Unknown'}`, 'warn');
     });
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

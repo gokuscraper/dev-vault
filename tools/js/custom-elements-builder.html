@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_custom_elements_builder_w" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -148,13 +148,15 @@ header h1 .icon{font-size:1.3rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
     <h1><span class="icon">&#x1F9E9;</span> Custom Elements Builder</h1>
     <div class="header-actions">
-      <button class="btn btn-sm" onclick="resetAll()">Reset</button>
-      <button class="btn btn-sm btn-primary" onclick="copyCode()">Copy Code</button>
-      <button class="btn btn-sm" onclick="downloadCode()">Download .js</button>
+      <button class="btn btn-sm" onclick="resetAll()" ti="btn_reset">Reset</button>
+      <button class="btn btn-sm btn-primary" onclick="copyCode()" ti="btn_copy_code">Copy Code</button>
+      <button class="btn btn-sm" onclick="downloadCode()" ti="btn_download_js">Download .js</button>
     </div>
   </header>
 
@@ -162,13 +164,13 @@ header h1 .icon{font-size:1.3rem}
     <!-- Left Panel: Config -->
     <div class="panel">
       <div class="panel-header">
-        <h2>Configuration</h2>
+        <h2 ti="h2_configuration">Configuration</h2>
       </div>
       <div class="panel-body">
         <!-- Presets -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>Presets</h3>
+            <h3 ti="h3_presets">Presets</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
@@ -179,21 +181,21 @@ header h1 .icon{font-size:1.3rem}
         <!-- Element Name -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>Element Definition</h3>
+            <h3 ti="h3_element_definition">Element Definition</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
             <div class="field">
-              <label>Tag Name</label>
-              <input type="text" id="tagName" value="my-counter" placeholder="my-element" oninput="onTagNameChange(this.value)">
+              <label ti="label_tag_name">Tag Name</label>
+              <input type="text" id="tagName" value="my-counter" tp="placeholder_my_element" placeholder="my-element" oninput="onTagNameChange(this.value)">
               <div class="hint">Must contain a hyphen (e.g., my-element)</div>
             </div>
             <div class="field">
-              <label>Class Name</label>
-              <input type="text" id="className" value="MyCounter" placeholder="MyElement" oninput="generate()">
+              <label ti="label_class_name">Class Name</label>
+              <input type="text" id="className" value="MyCounter" tp="placeholder_myelement" placeholder="MyElement" oninput="generate()">
             </div>
             <div class="field">
-              <label>Extends</label>
+              <label ti="label_extends">Extends</label>
               <select id="extendsEl" onchange="generate()">
                 <option value="HTMLElement">HTMLElement (autonomous)</option>
                 <option value="HTMLButtonElement">HTMLButtonElement</option>
@@ -204,11 +206,11 @@ header h1 .icon{font-size:1.3rem}
             </div>
             <div class="check-row">
               <input type="checkbox" id="useShadow" checked onchange="generate()">
-              <label for="useShadow">Use Shadow DOM</label>
+              <label for="useShadow" ti="label_use_shadow_dom">Use Shadow DOM</label>
             </div>
             <div class="check-row">
               <input type="checkbox" id="shadowMode" checked onchange="generate()">
-              <label for="shadowMode">Shadow DOM open mode</label>
+              <label for="shadowMode" ti="label_shadow_dom_open_mode">Shadow DOM open mode</label>
             </div>
           </div>
         </div>
@@ -216,15 +218,15 @@ header h1 .icon{font-size:1.3rem}
         <!-- Observed Attributes -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>Observed Attributes</h3>
+            <h3 ti="h3_observed_attributes">Observed Attributes</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
             <div class="field-row">
               <div class="field">
-                <input type="text" id="newAttr" placeholder="attribute-name" onkeydown="if(event.key==='Enter'){addAttribute()}">
+                <input type="text" id="newAttr" tp="placeholder_attribute_name" placeholder="attribute-name" onkeydown="if(event.key==='Enter'){addAttribute()}">
               </div>
-              <button class="btn btn-sm" onclick="addAttribute()">Add</button>
+              <button class="btn btn-sm" onclick="addAttribute()" ti="btn_add" ti="btn_add_2">Add</button>
             </div>
             <div class="tag-list" id="attrList"></div>
           </div>
@@ -233,13 +235,13 @@ header h1 .icon{font-size:1.3rem}
         <!-- Properties -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>Properties (Getters/Setters)</h3>
+            <h3 ti="h3_properties_getters_setter">Properties (Getters/Setters)</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
             <div class="field-row" style="margin-bottom:8px">
               <div class="field">
-                <input type="text" id="newPropName" placeholder="propertyName" onkeydown="if(event.key==='Enter'){addProperty()}">
+                <input type="text" id="newPropName" tp="placeholder_propertyname" placeholder="propertyName" onkeydown="if(event.key==='Enter'){addProperty()}">
               </div>
               <div class="field" style="max-width:100px">
                 <select id="newPropType">
@@ -254,7 +256,7 @@ header h1 .icon{font-size:1.3rem}
             </div>
             <div class="check-row">
               <input type="checkbox" id="propReflect" checked>
-              <label for="propReflect">Reflect to attribute</label>
+              <label for="propReflect" ti="label_reflect_to_attribute">Reflect to attribute</label>
             </div>
             <div id="propList"></div>
           </div>
@@ -263,25 +265,25 @@ header h1 .icon{font-size:1.3rem}
         <!-- Lifecycle Callbacks -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>Lifecycle Callbacks</h3>
+            <h3 ti="h3_lifecycle_callbacks">Lifecycle Callbacks</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
             <div class="check-row">
               <input type="checkbox" id="cbConnected" checked onchange="generate()">
-              <label for="cbConnected">connectedCallback</label>
+              <label for="cbConnected" ti="label_connectedcallback">connectedCallback</label>
             </div>
             <div class="check-row">
               <input type="checkbox" id="cbDisconnected" onchange="generate()">
-              <label for="cbDisconnected">disconnectedCallback</label>
+              <label for="cbDisconnected" ti="label_disconnectedcallback">disconnectedCallback</label>
             </div>
             <div class="check-row">
               <input type="checkbox" id="cbAttributeChanged" checked onchange="generate()">
-              <label for="cbAttributeChanged">attributeChangedCallback</label>
+              <label for="cbAttributeChanged" ti="label_attributechangedcallback">attributeChangedCallback</label>
             </div>
             <div class="check-row">
               <input type="checkbox" id="cbAdopted" onchange="generate()">
-              <label for="cbAdopted">adoptedCallback</label>
+              <label for="cbAdopted" ti="label_adoptedcallback">adoptedCallback</label>
             </div>
           </div>
         </div>
@@ -294,11 +296,11 @@ header h1 .icon{font-size:1.3rem}
           </div>
           <div class="section-body">
             <div class="field">
-              <label>CSS (inside Shadow DOM)</label>
-              <textarea id="elStyles" rows="4" oninput="generate()" placeholder=":host { display: block; }"></textarea>
+              <label ti="label_css_inside_shadow_dom">CSS (inside Shadow DOM)</label>
+              <textarea id="elStyles" rows="4" oninput="generate()" tp="placeholder_host_display_block" placeholder=":host { display: block; }"></textarea>
             </div>
             <div class="field">
-              <label>HTML Template</label>
+              <label ti="label_html_template">HTML Template</label>
               <textarea id="elTemplate" rows="4" oninput="generate()" placeholder="<div>Hello</div>"></textarea>
             </div>
           </div>
@@ -307,12 +309,12 @@ header h1 .icon{font-size:1.3rem}
         <!-- Connected Callback Body -->
         <div class="section">
           <div class="section-header" onclick="toggleSection(this)">
-            <h3>connectedCallback Body</h3>
+            <h3 ti="h3_connectedcallback_body">connectedCallback Body</h3>
             <span class="toggle">&#9660;</span>
           </div>
           <div class="section-body">
             <div class="field">
-              <textarea id="connectedBody" rows="4" oninput="generate()" placeholder="// Setup logic here"></textarea>
+              <textarea id="connectedBody" rows="4" oninput="generate()" tp="placeholder_setup_logic_here" placeholder="// Setup logic here"></textarea>
             </div>
           </div>
         </div>
@@ -322,8 +324,8 @@ header h1 .icon{font-size:1.3rem}
     <!-- Middle Panel: Code Output -->
     <div class="panel">
       <div class="output-tabs">
-        <button class="output-tab active" data-tab="code" onclick="switchTab('code')">Generated Code</button>
-        <button class="output-tab" data-tab="usage" onclick="switchTab('usage')">Usage Example</button>
+        <button class="output-tab active" data-tab="code" onclick="switchTab('code')" ti="btn_generated_code">Generated Code</button>
+        <button class="output-tab" data-tab="usage" onclick="switchTab('usage')" ti="btn_usage_example">Usage Example</button>
       </div>
       <div class="panel-body" style="padding:0;display:flex;flex-direction:column">
         <div id="codeOutput" class="code-area" style="flex:1;margin:0;border:none;border-radius:0"></div>
@@ -334,9 +336,9 @@ header h1 .icon{font-size:1.3rem}
     <!-- Right Panel: Preview -->
     <div class="panel">
       <div class="panel-header">
-        <h2>Live Preview</h2>
+        <h2 ti="h2_live_preview">Live Preview</h2>
         <div class="btn-group">
-          <button class="btn btn-sm" onclick="refreshPreview()">Refresh</button>
+          <button class="btn btn-sm" onclick="refreshPreview()" ti="btn_refresh">Refresh</button>
         </div>
       </div>
       <div class="preview-container">
@@ -350,6 +352,16 @@ header h1 .icon{font-size:1.3rem}
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_custom_elements_builder_w':["Custom Elements Builder — Web Components Visual Editor", "自定义元素构建器 — Web 组件可视化编辑器"],'metadesc_build_web_components_visu':["Build Web Components visually. Define custom elements with lifecycle callbacks, observed attributes, properties, and shadow DOM. Live preview, ES6 export, 5+ presets.", "以可视化方式构建 Web 组件。使用生命周期回调、观察属性、特性和 Shadow DOM 定义自定义元素。支持实时预览、ES6 导出和 5 种以上的预设样式。"],'h2_configuration':["Configuration", "配置"],'h2_live_preview':["Live Preview", "实时预览"],'h2_modal_title':["Modal Title", "模态标题"],'h3_presets':["Presets", "预设"],'h3_element_definition':["Element Definition", "元素定义"],'h3_observed_attributes':["Observed Attributes", "观察到的属性"],'h3_properties_getters_setter':["Properties (Getters/Setters)", "属性（Getter/Setter）"],'h3_lifecycle_callbacks':["Lifecycle Callbacks", "生命周期回调"],'h3_template_styles':["Template & Styles", "模板和样式"],'h3_connectedcallback_body':["connectedCallback Body", "连接回调主体"],'h3_live_preview':["Live Preview", "实时预览"],'btn_reset':["Reset", "重置"],'btn_copy_code':["Copy Code", "复制代码"],'btn_download_js':["Download .js", "下载 .js"],'btn_add':["Add", "添加"],'btn_add_2':["Add", "添加"],'btn_generated_code':["Generated Code", "生成的代码"],'btn_usage_example':["Usage Example", "使用示例"],'btn_refresh':["Refresh", "刷新"],'btn_open_modal':["Open Modal", "打开模态框"],'placeholder_my_element':["my-element", "我的元素"],'placeholder_myelement':["MyElement", "我的元素"],'placeholder_attribute_name':["attribute-name", "属性名称"],'placeholder_propertyname':["propertyName", "属性名称"],'placeholder_host_display_block':[":host { display: block; }", ":host { display: block; }"],'placeholder_setup_logic_here':["// Setup logic here", "// 在此处设置逻辑"],'label_tag_name':["Tag Name", "标签名称"],'label_class_name':["Class Name", "类名"],'label_extends':["Extends", "扩展"],'label_use_shadow_dom':["Use Shadow DOM", "使用 Shadow DOM"],'label_shadow_dom_open_mode':["Shadow DOM open mode", "Shadow DOM 打开模式"],'label_reflect_to_attribute':["Reflect to attribute", "反思归因"],'label_connectedcallback':["connectedCallback", "连接回调"],'label_disconnectedcallback':["disconnectedCallback", "断开连接的回调"],'label_attributechangedcallback':["attributeChangedCallback", "attributeChangedCallback"],'label_adoptedcallback':["adoptedCallback", "已采用回调"],'label_css_inside_shadow_dom':["CSS (inside Shadow DOM)", "CSS（在 Shadow DOM 内部）"],'label_html_template':["HTML Template", "HTML模板"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 const state = {
@@ -551,11 +563,11 @@ button:hover { background: #2563eb; }
 .close-btn:hover { color: #fff; }
 .trigger { padding: 10px 20px; background: #3b82f6; color: #fff; border: none; border-radius: 8px; cursor: pointer; font-size: 14px; }
 .trigger:hover { background: #2563eb; }`,
-      template: `<button class="trigger">Open Modal</button>
+      template: `<button class="trigger" ti="btn_open_modal">Open Modal</button>
 <div class="overlay">
   <div class="dialog">
     <button class="close-btn">&times;</button>
-    <h2>Modal Title</h2>
+    <h2 ti="h2_modal_title">Modal Title</h2>
     <slot></slot>
   </div>
 </div>`,
@@ -1014,7 +1026,7 @@ function updatePreview(code, tagName) {
 </style>
 </head>
 <body>
-<h3>Live Preview</h3>
+<h3 ti="h3_live_preview">Live Preview</h3>
 <${tagName}></${tagName}>
 <script type="module">
 ${code}
@@ -1061,6 +1073,24 @@ function showToast(msg) {
 
 // --- Boot ---
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

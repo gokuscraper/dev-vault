@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_hmac_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,17 +25,19 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>HMAC Generator</h1>
-  <p class="desc">Generate Hash-based Message Authentication Codes</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_hmac_generator" ti="h1_hmac_generator">HMAC Generator</h1>
+  <p class="desc" ti="subtitle_generate_hash_based_messa">Generate Hash-based Message Authentication Codes</p>
   <div class="card">
-    <label>Plain text</label>
+    <label ti="label_plain_text">Plain text</label>
     <textarea id="plainText" rows="3" spellcheck="false">Hello World</textarea>
-    <label class="mt-10">Secret key</label>
+    <label class="mt-10" ti="label_secret_key">Secret key</label>
     <input type="text" id="secretKey" value="my-secret-key" spellcheck="false">
     <div class="row mt-10">
       <div>
-        <label>Hash function</label>
+        <label ti="label_hash_function">Hash function</label>
         <select id="hashFunc">
           <option value="SHA-1">SHA-1</option>
           <option value="SHA-256" selected>SHA-256</option>
@@ -44,20 +46,30 @@ button:hover{background:#252525;border-color:#3b82f6}
         </select>
       </div>
       <div>
-        <label>Output encoding</label>
+        <label ti="label_output_encoding">Output encoding</label>
         <select id="encoding">
           <option value="hex">Hexadecimal</option>
           <option value="base64">Base64</option>
         </select>
       </div>
     </div>
-    <label class="mt-10">HMAC result</label>
+    <label class="mt-10" ti="label_hmac_result">HMAC result</label>
     <textarea id="hmacOutput" readonly rows="2"></textarea>
     <div class="flex-center">
-      <button id="copyBtn">Copy HMAC</button>
+      <button id="copyBtn" ti="btn_copy_hmac">Copy HMAC</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_hmac_generator':["HMAC Generator", "HMAC生成器"],'metadesc_generate_hmac_hash_based':["Generate HMAC (Hash-based Message Authentication Code) using various hash algorithms. Supports SHA-1, SHA-256, SHA-384, SHA-512.", "使用多种哈希算法生成HMAC（基于哈希的消息认证码）。支持SHA-1、SHA-256、SHA-384、SHA-512。"],'h1_hmac_generator':["HMAC Generator", "HMAC生成器"],'subtitle_generate_hash_based_messa':["Generate Hash-based Message Authentication Codes", "生成基于哈希的消息认证码"],'btn_copy_hmac':["Copy HMAC", "复制 HMAC"],'label_plain_text':["Plain text", "纯文本"],'label_secret_key':["Secret key", "密钥"],'label_hash_function':["Hash function", "哈希函数"],'label_output_encoding':["Output encoding", "输出编码"],'label_hmac_result':["HMAC result", "HMAC结果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 async function hmac(str, secret, algo) {
   const enc = new TextEncoder();
@@ -96,6 +108,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   const v = document.getElementById('hmacOutput').value;
   if (v) navigator.clipboard.writeText(v);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

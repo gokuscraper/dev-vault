@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_execution_context_call" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,29 +54,41 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>Execution Context & Call Stack</h1>
+<h1 ti="h1_execution_context_call_st">Execution Context & Call Stack</h1>
 <select id="scenarioSelect"></select>
 <div class="controls">
-<button onclick="stepBack()">← Back</button>
-<button onclick="stepForward()" class="primary">Step →</button>
-<button onclick="autoPlay()">▶ Auto</button>
-<button onclick="reset()">Reset</button>
+<button onclick="stepBack()" ti="btn_back">← Back</button>
+<button onclick="stepForward()" class="primary" ti="btn_step">Step →</button>
+<button onclick="autoPlay()" ti="btn_auto">▶ Auto</button>
+<button onclick="reset()" ti="btn_reset">Reset</button>
 </div>
 </header>
 <div class="main">
 <div class="code-col">
 <div class="panel" id="codePanel"></div>
-<div class="panel"><h3>Console Output</h3><div id="output"></div></div>
+<div class="panel"><h3 ti="h3_console_output">Console Output</h3><div id="output"></div></div>
 </div>
 <div class="stack-col">
-<div class="panel"><h3>Call Stack</h3><div id="callStack"></div></div>
+<div class="panel"><h3 ti="h3_call_stack">Call Stack</h3><div id="callStack"></div></div>
 </div>
 <div class="detail-col">
 <div class="step-desc" id="stepDesc">Step through to see how JavaScript creates and executes code.</div>
 <div id="detailPanel"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_js_execution_context_call':["JS Execution Context & Call Stack", "JS 执行上下文和调用堆栈"],'metadesc_interactive_javascript_ex':["Interactive JavaScript execution context visualizer. Call stack, creation phase, execution phase, hoisting, closures, this binding, variable/lexical environment. Step-through code execution.", "交互式 JavaScript 执行上下文可视化工具。调用栈、创建阶段、执行阶段、提升、闭包、this 绑定、变量/词法环境。单步执行代码。"],'h1_execution_context_call_st':["Execution Context & Call Stack", "执行上下文和调用堆栈"],'h3_console_output':["Console Output", "控制台输出"],'h3_call_stack':["Call Stack", "调用栈"],'h3_source_code':["Source Code", "源代码"],'btn_back':["← Back", "← 返回"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS=[
 {name:'Hoisting (var vs let)',
@@ -149,7 +161,7 @@ function render(){
   const step=s.steps[curStep];
 
   // Code
-  let codeHtml='<h3>Source Code</h3><div class="code-block">';
+  let codeHtml='<h3 ti="h3_source_code">Source Code</h3><div class="code-block">';
   s.code.forEach((line,i)=>{
     let cls='';
     if(step&&step.line===i)cls='active';
@@ -231,6 +243,24 @@ function autoPlay(){
 }
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

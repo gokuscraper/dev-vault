@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_emoji_picker_search_copy" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,18 +57,20 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Emoji Picker</h1>
-<p class="subtitle">Search and copy emojis instantly.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_emoji_picker">Emoji Picker</h1>
+<p class="subtitle" ti="subtitle_search_and_copy_emojis_in">Search and copy emojis instantly.</p>
 
 <div class="search-row">
-  <input type="text" id="search" placeholder="Search emojis..." oninput="filter()">
+  <input type="text" id="search" tp="placeholder_search_emojis" placeholder="Search emojis..." oninput="filter()">
 </div>
 
 <div class="cats" id="cats"></div>
 
 <div class="recent" id="recentSection" style="display:none">
-  <h3>Recently Used</h3>
+  <h3 ti="h3_recently_used">Recently Used</h3>
   <div class="recent-grid" id="recentGrid"></div>
 </div>
 
@@ -82,10 +84,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/emoji-picker">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/emoji-picker" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_emoji_picker_search_copy':["Emoji Picker — Search & Copy Emoji", "表情符号选择器 — 搜索和复制表情符号"],'metadesc_search_1000_emojis_by_nam':["Search 1000+ emojis by name. Click to copy. Category filter, skin tone, recently used. Free.", "按名称搜索 1000 多个表情符号。点击即可复制。可按类别、肤色和最近使用情况筛选。免费。"],'h1_emoji_picker':["Emoji Picker", "表情符号选择器"],'h3_recently_used':["Recently Used", "最近使用过"],'subtitle_search_and_copy_emojis_in':["Search and copy emojis instantly.", "立即搜索并复制表情符号。"],'btn_c_icon':["${c.icon}", "${c.icon}"],'btn_e_e':["${e.e}", "${ee}"],'btn_e':["${e}", "${e}"],'placeholder_search_emojis':["Search emojis...", "搜索表情符号……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const EMOJIS=[
   // Smileys
@@ -120,7 +132,7 @@ let recent=JSON.parse(localStorage.getItem('emoji-recent')||'[]');
 
 function renderCats(){
   document.getElementById('cats').innerHTML=CATS.map(c=>
-    `<button class="cat-btn ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')" title="${c.label}">${c.icon}</button>`
+    `<button class="cat-btn ${c.id===activeCat?'active':''}" onclick="setCat('${c.id}')" title="${c.label}" ti="btn_c_icon">${c.icon}</button>`
   ).join('');
 }
 
@@ -135,7 +147,7 @@ function filter(){
   });
   document.getElementById('count').textContent=filtered.length+' emojis';
   document.getElementById('grid').innerHTML=filtered.map(e=>
-    `<button class="emoji" onclick="pick('${e.e}')" title="${e.n}">${e.e}</button>`
+    `<button class="emoji" onclick="pick('${e.e}')" title="${e.n}" ti="btn_e_e">${e.e}</button>`
   ).join('')||'<div style="grid-column:1/-1;text-align:center;color:#555;padding:30px">No emojis found</div>';
 }
 
@@ -167,7 +179,7 @@ function renderRecent(){
   if(recent.length===0){document.getElementById('recentSection').style.display='none';return}
   document.getElementById('recentSection').style.display='block';
   document.getElementById('recentGrid').innerHTML=recent.map(e=>
-    `<button class="emoji" onclick="pick('${e}')" style="width:36px;height:36px;font-size:1.2rem">${e}</button>`
+    `<button class="emoji" onclick="pick('${e}')" style="width:36px;height:36px;font-size:1.2rem" ti="btn_e">${e}</button>`
   ).join('');
 }
 
@@ -183,12 +195,30 @@ filter();
 renderRecent();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/favicon-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Favicon Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/keycode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Keycode</a>
 <a href="https://gokuscraper.github.io/dev-vault/char-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Char Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

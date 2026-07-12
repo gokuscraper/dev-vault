@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_es2025_iterator_helpers_i" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -208,6 +208,8 @@ section .desc{color:var(--text2);font-size:.9rem;margin-bottom:.8rem}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1><span class="hl">Iterator Helpers</span> Playground</h1>
@@ -226,19 +228,19 @@ section .desc{color:var(--text2);font-size:.9rem;margin-bottom:.8rem}
 </div>
 
 <nav class="nav" aria-label="Methods">
-  <a href="#map">.map()</a>
-  <a href="#filter">.filter()</a>
-  <a href="#take">.take()</a>
-  <a href="#drop">.drop()</a>
-  <a href="#flatMap">.flatMap()</a>
-  <a href="#reduce">.reduce()</a>
-  <a href="#toArray">.toArray()</a>
-  <a href="#forEach">.forEach()</a>
-  <a href="#some">.some()</a>
-  <a href="#every">.every()</a>
-  <a href="#find">.find()</a>
-  <a href="#lazy">Lazy Eval</a>
-  <a href="#pipeline">Pipeline</a>
+  <a href="#map" ti="link_map">.map()</a>
+  <a href="#filter" ti="link_filter">.filter()</a>
+  <a href="#take" ti="link_take">.take()</a>
+  <a href="#drop" ti="link_drop">.drop()</a>
+  <a href="#flatMap" ti="link_flatmap">.flatMap()</a>
+  <a href="#reduce" ti="link_reduce">.reduce()</a>
+  <a href="#toArray" ti="link_toarray">.toArray()</a>
+  <a href="#forEach" ti="link_foreach">.forEach()</a>
+  <a href="#some" ti="link_some">.some()</a>
+  <a href="#every" ti="link_every">.every()</a>
+  <a href="#find" ti="link_find">.find()</a>
+  <a href="#lazy" ti="link_lazy_eval">Lazy Eval</a>
+  <a href="#pipeline" ti="link_pipeline">Pipeline</a>
 </nav>
 
 <main class="container">
@@ -259,8 +261,8 @@ const doubled = numbers.values()
 const result = doubled.toArray();
 console.log(result); // [2, 4, 6, 8, 10]</textarea>
     <div class="btn-row">
-      <button class="btn btn-run" onclick="runPlayground('map')">Run</button>
-      <button class="btn btn-reset" onclick="resetPlayground('map')">Reset</button>
+      <button class="btn btn-run" onclick="runPlayground('map')" ti="btn_run" ti="btn_run_2" ti="btn_run_3" ti="btn_run_4" ti="btn_run_5" ti="btn_run_6" ti="btn_run_7" ti="btn_run_8" ti="btn_run_9" ti="btn_run_10" ti="btn_run_11" ti="btn_run_12">Run</button>
+      <button class="btn btn-reset" onclick="resetPlayground('map')" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3" ti="btn_reset_4" ti="btn_reset_5" ti="btn_reset_6" ti="btn_reset_7" ti="btn_reset_8" ti="btn_reset_9" ti="btn_reset_10" ti="btn_reset_11" ti="btn_reset_12">Reset</button>
     </div>
     <div class="output-area" id="output-map"></div>
   </div>
@@ -351,7 +353,7 @@ console.log(allWords.toArray());
 
 <section id="reduce">
   <h2><span class="method-badge">.reduce(fn, init)</span> Accumulate into a single value</h2>
-  <p class="desc">Consumes the iterator, reducing all values into a single result. Eager operation.</p>
+  <p class="desc" ti="subtitle_consumes_the_iterator_red">Consumes the iterator, reducing all values into a single result. Eager operation.</p>
   <div class="playground">
     <div class="toolbar"><span class="dots"><span></span><span></span><span></span></span><span>reduce.js</span><span class="shortcut">Ctrl+Enter to run</span></div>
     <textarea class="code-area" data-id="reduce">// .reduce() — accumulate a result
@@ -501,8 +503,8 @@ console.log('First prime > 100:', big); // 101</textarea>
 <!-- ====== Lazy Evaluation Demo ====== -->
 
 <section id="lazy">
-  <h2>Lazy Evaluation Demo</h2>
-  <p class="desc">Iterator helpers are <strong>lazy</strong> -- intermediate steps like <code>.map()</code> and <code>.filter()</code> only execute when a value is actually consumed. This demo proves it by logging which elements get processed.</p>
+  <h2 ti="h2_lazy_evaluation_demo">Lazy Evaluation Demo</h2>
+  <p class="desc">Iterator helpers are <strong ti="strong_lazy">lazy</strong> -- intermediate steps like <code>.map()</code> and <code>.filter()</code> only execute when a value is actually consumed. This demo proves it by logging which elements get processed.</p>
 
   <div class="playground">
     <div class="toolbar"><span class="dots"><span></span><span></span><span></span></span><span>lazy-proof.js</span><span class="shortcut">Ctrl+Enter to run</span></div>
@@ -537,46 +539,46 @@ console.log(`\nOnly ${log.length} steps instead of 2000! That is lazy evaluation
 
   <div class="lazy-grid" style="margin-top:1rem">
     <div class="lazy-card">
-      <h3 style="color:var(--red)">Eager: Array methods</h3>
+      <h3 style="color:var(--red)" ti="h3_eager_array_methods">Eager: Array methods</h3>
       <pre id="lazy-eager">Click "Run Comparison" to see the difference.</pre>
     </div>
     <div class="lazy-card">
-      <h3 style="color:var(--accent2)">Lazy: Iterator Helpers</h3>
+      <h3 style="color:var(--accent2)" ti="h3_lazy_iterator_helpers">Lazy: Iterator Helpers</h3>
       <pre id="lazy-lazy">Click "Run Comparison" to see the difference.</pre>
     </div>
   </div>
   <div style="margin-top:.6rem;text-align:center">
-    <button class="btn btn-run" onclick="runLazyComparison()">Run Comparison</button>
+    <button class="btn btn-run" onclick="runLazyComparison()" ti="btn_run_comparison">Run Comparison</button>
   </div>
 </section>
 
 <!-- ====== Pipeline Builder ====== -->
 
 <section id="pipeline">
-  <h2>Pipeline Builder</h2>
-  <p class="desc">Chain multiple iterator helpers visually. Add steps, configure arguments, and run the pipeline. Each step executes lazily.</p>
+  <h2 ti="h2_pipeline_builder">Pipeline Builder</h2>
+  <p class="desc" ti="subtitle_chain_multiple_iterator_h">Chain multiple iterator helpers visually. Add steps, configure arguments, and run the pipeline. Each step executes lazily.</p>
 
   <div class="pipeline-zone">
     <div style="margin-bottom:.8rem">
-      <label class="pipe-label">Source data (comma-separated numbers or quoted strings):</label>
+      <label class="pipe-label" ti="label_source_data_comma_separat">Source data (comma-separated numbers or quoted strings):</label>
       <input type="text" id="pipe-source" class="pipe-input" value="1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20" style="width:100%">
     </div>
 
-    <label class="pipe-label">Add helpers to the chain:</label>
+    <label class="pipe-label" ti="label_add_helpers_to_the_chain">Add helpers to the chain:</label>
     <div class="pipeline-controls">
-      <button class="pipe-btn" onclick="addPipeStep('map')">+ .map()</button>
-      <button class="pipe-btn" onclick="addPipeStep('filter')">+ .filter()</button>
-      <button class="pipe-btn" onclick="addPipeStep('take')">+ .take()</button>
-      <button class="pipe-btn" onclick="addPipeStep('drop')">+ .drop()</button>
-      <button class="pipe-btn" onclick="addPipeStep('flatMap')">+ .flatMap()</button>
+      <button class="pipe-btn" onclick="addPipeStep('map')" ti="btn_map">+ .map()</button>
+      <button class="pipe-btn" onclick="addPipeStep('filter')" ti="btn_filter">+ .filter()</button>
+      <button class="pipe-btn" onclick="addPipeStep('take')" ti="btn_take">+ .take()</button>
+      <button class="pipe-btn" onclick="addPipeStep('drop')" ti="btn_drop">+ .drop()</button>
+      <button class="pipe-btn" onclick="addPipeStep('flatMap')" ti="btn_flatmap">+ .flatMap()</button>
     </div>
 
-    <label class="pipe-label">Pipeline chain:</label>
+    <label class="pipe-label" ti="label_pipeline_chain">Pipeline chain:</label>
     <div class="pipeline-chain" id="pipe-chain">
       <span style="color:var(--text2);font-size:.8rem;font-family:var(--font-mono)">source.values()</span>
     </div>
 
-    <label class="pipe-label">Terminal operation:</label>
+    <label class="pipe-label" ti="label_terminal_operation">Terminal operation:</label>
     <div style="display:flex;gap:.5rem;flex-wrap:wrap;margin-bottom:.8rem">
       <select id="pipe-terminal" class="pipe-input">
         <option value="toArray">.toArray()</option>
@@ -589,8 +591,8 @@ console.log(`\nOnly ${log.length} steps instead of 2000! That is lazy evaluation
     </div>
 
     <div style="display:flex;gap:.5rem;margin-bottom:.8rem">
-      <button class="btn btn-run" onclick="runPipeline()">Run Pipeline</button>
-      <button class="btn btn-reset" onclick="clearPipeline()">Clear Chain</button>
+      <button class="btn btn-run" onclick="runPipeline()" ti="btn_run_pipeline">Run Pipeline</button>
+      <button class="btn btn-reset" onclick="clearPipeline()" ti="btn_clear_chain">Clear Chain</button>
     </div>
 
     <div class="output-area" id="output-pipeline" style="border:1px solid var(--border);border-radius:6px"></div>
@@ -604,6 +606,16 @@ console.log(`\nOnly ${log.length} steps instead of 2000! That is lazy evaluation
   <p style="margin-top:.3rem">ES2025 Iterator Helpers -- <a href="https://github.com/tc39/proposal-iterator-helpers" target="_blank" rel="noopener">TC39 Proposal</a></p>
 </footer>
 
+
+<script>var _LANG={'title_es2025_iterator_helpers_i':["ES2025 Iterator Helpers — Interactive Playground", "ES2025 迭代器助手 — 交互式演示"],'metadesc_interactive_playground_fo':["Interactive playground for ES2025 Iterator Helpers: map, filter, take, drop, flatMap, reduce, toArray, forEach, some, every, find. Explore lazy evaluation and pipeline chaining.", "ES2025迭代器辅助函数交互式演示：map、filter、take、drop、flatMap、reduce、toArray、forEach、some、every、find。探索惰性求值和流水线式调用。"],'h2_lazy_evaluation_demo':["Lazy Evaluation Demo", "懒人评估演示"],'h2_pipeline_builder':["Pipeline Builder", "管道建​​设者"],'h3_eager_array_methods':["Eager: Array methods", "渴望：数组方法"],'h3_lazy_iterator_helpers':["Lazy: Iterator Helpers", "懒惰：迭代器助手"],'subtitle_consumes_the_iterator_red':["Consumes the iterator, reducing all values into a single result. Eager operation.", "消耗迭代器，将所有值合并为一个结果。此操作为急切操作。"],'subtitle_chain_multiple_iterator_h':["Chain multiple iterator helpers visually. Add steps, configure arguments, and run the pipeline. Each step executes lazily.", "以可视化的方式串联多个迭代器辅助函数。添加步骤、配置参数并运行管道。每个步骤都会延迟执行。"],'btn_run':["Run", "跑步"],'btn_reset':["Reset", "重置"],'btn_run_2':["Run", "跑步"],'btn_reset_2':["Reset", "重置"],'btn_run_3':["Run", "跑步"],'btn_reset_3':["Reset", "重置"],'btn_run_4':["Run", "跑步"],'btn_reset_4':["Reset", "重置"],'btn_run_5':["Run", "跑步"],'btn_reset_5':["Reset", "重置"],'btn_run_6':["Run", "跑步"],'btn_reset_6':["Reset", "重置"],'btn_run_7':["Run", "跑步"],'btn_reset_7':["Reset", "重置"],'btn_run_8':["Run", "跑步"],'btn_reset_8':["Reset", "重置"],'btn_run_9':["Run", "跑步"],'btn_reset_9':["Reset", "重置"],'btn_run_10':["Run", "跑步"],'btn_reset_10':["Reset", "重置"],'btn_run_11':["Run", "跑步"],'btn_reset_11':["Reset", "重置"],'btn_run_12':["Run", "跑步"],'btn_reset_12':["Reset", "重置"],'btn_run_comparison':["Run Comparison", "运行比较"],'btn_map':["+ .map()", "+ .map()"],'btn_filter':["+ .filter()", "+ .filter()"],'btn_take':["+ .take()", "+ .take()"],'btn_drop':["+ .drop()", "+ .drop()"],'btn_flatmap':["+ .flatMap()", "+ .flatMap()"],'btn_run_pipeline':["Run Pipeline", "运行管道"],'btn_clear_chain':["Clear Chain", "清晰链条"],'strong_lazy':["lazy", "懒惰的"],'label_source_data_comma_separat':["Source data (comma-separated numbers or quoted strings):", "源数据（以逗号分隔的数字或带引号的字符串）："],'label_add_helpers_to_the_chain':["Add helpers to the chain:", "向链中添加助手："],'label_pipeline_chain':["Pipeline chain:", "管道链："],'label_terminal_operation':["Terminal operation:", "终端操作："],'link_map':[".map()", "。地图（）"],'link_filter':[".filter()", "。筛选（）"],'link_take':[".take()", "。拿（）"],'link_drop':[".drop()", "。降低（）"],'link_flatmap':[".flatMap()", ".flatMap()"],'link_reduce':[".reduce()", "。减少（）"],'link_toarray':[".toArray()", ".toArray()"],'link_foreach':[".forEach()", ".forEach()"],'link_some':[".some()", "。一些（）"],'link_every':[".every()", "。每一个（）"],'link_find':[".find()", "。寻找（）"],'link_lazy_eval':["Lazy Eval", "懒惰的评估"],'link_pipeline':["Pipeline", "管道"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ===== Browser support detection =====
 (function detectSupport() {
@@ -864,6 +876,24 @@ document.addEventListener('keydown', function(e) {
     ta.selectionStart = ta.selectionEnd = start + 2;
   }
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

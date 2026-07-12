@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_data_uri_converter_file_t" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -140,17 +140,19 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>Data URI Converter</h1>
+<h1 ti="h1_data_uri_converter">Data URI Converter</h1>
 <p>Convert files to data URIs and back — everything runs locally in your browser, no upload needed.</p>
 </header>
 <main>
 <div class="tabs">
-  <button class="tab active" data-tab="file">File → Data URI</button>
-  <button class="tab" data-tab="decode">Data URI → File</button>
-  <button class="tab" data-tab="text">Text → Data URI</button>
-  <button class="tab" data-tab="examples">Examples</button>
-  <button class="tab" data-tab="info">Info</button>
+  <button class="tab active" data-tab="file" ti="btn_file_data_uri">File → Data URI</button>
+  <button class="tab" data-tab="decode" ti="btn_data_uri_file">Data URI → File</button>
+  <button class="tab" data-tab="text" ti="btn_text_data_uri">Text → Data URI</button>
+  <button class="tab" data-tab="examples" ti="btn_examples">Examples</button>
+  <button class="tab" data-tab="info" ti="btn_info">Info</button>
 </div>
 
 <!-- ===== FILE TO DATA URI ===== -->
@@ -173,10 +175,10 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
 
   <div id="fileOutputWrap" class="hidden">
     <div class="section-label">Data URI</div>
-    <textarea id="fileOutput" readonly placeholder="Data URI will appear here…"></textarea>
+    <textarea id="fileOutput" readonly tp="placeholder_data_uri_will_appear_here" tp="placeholder_data_uri_will_appear_here_2" placeholder="Data URI will appear here…"></textarea>
     <div class="actions">
-      <button class="primary" onclick="copyText('fileOutput','Data URI copied')">Copy Data URI</button>
-      <button onclick="copyCss()">CSS background-image</button>
+      <button class="primary" onclick="copyText('fileOutput','Data URI copied')" ti="btn_copy_data_uri" ti="btn_copy_data_uri_2" ti="btn_copy_data_uri_3">Copy Data URI</button>
+      <button onclick="copyCss()" ti="btn_css_background_image">CSS background-image</button>
       <button onclick="copyImg()">HTML &lt;img&gt; tag</button>
     </div>
   </div>
@@ -185,15 +187,15 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
 <!-- ===== DATA URI TO FILE ===== -->
 <div id="panel-decode" class="panel">
   <div class="form-group">
-    <label>Paste a data URI</label>
-    <textarea id="decodeInput" placeholder="data:image/png;base64,iVBORw0KGgo…" rows="5"></textarea>
+    <label ti="label_paste_a_data_uri">Paste a data URI</label>
+    <textarea id="decodeInput" tp="placeholder_data_image_png_base64_ivb" placeholder="data:image/png;base64,iVBORw0KGgo…" rows="5"></textarea>
   </div>
-  <button class="primary" onclick="decodeUri()">Decode</button>
+  <button class="primary" onclick="decodeUri()" ti="btn_decode">Decode</button>
   <div id="decodeMeta" class="meta hidden" style="margin-top:1rem"></div>
   <div id="decodeSizeCompare" class="size-compare hidden"></div>
   <div id="decodePreview" class="preview hidden"></div>
   <div id="decodeActions" class="actions hidden">
-    <button class="primary" onclick="downloadDecoded()">Download File</button>
+    <button class="primary" onclick="downloadDecoded()" ti="btn_download_file">Download File</button>
     <button onclick="copyDecodeUri()">Copy Data URI</button>
   </div>
 </div>
@@ -201,12 +203,12 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
 <!-- ===== TEXT TO DATA URI ===== -->
 <div id="panel-text" class="panel">
   <div class="form-group">
-    <label>Text input</label>
-    <textarea id="textInput" placeholder="Enter text, HTML, CSS, JSON, SVG, JavaScript…" rows="7"></textarea>
+    <label ti="label_text_input">Text input</label>
+    <textarea id="textInput" tp="placeholder_enter_text_html_css_json" placeholder="Enter text, HTML, CSS, JSON, SVG, JavaScript…" rows="7"></textarea>
   </div>
   <div style="display:flex;gap:1rem;flex-wrap:wrap">
     <div class="form-group" style="flex:1;min-width:200px">
-      <label>MIME type</label>
+      <label ti="label_mime_type">MIME type</label>
       <select id="textMime">
         <option value="text/plain">text/plain</option>
         <option value="text/html">text/html</option>
@@ -217,7 +219,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
       </select>
     </div>
     <div class="form-group" style="flex:1;min-width:150px">
-      <label>Character encoding</label>
+      <label ti="label_character_encoding">Character encoding</label>
       <select id="textCharset">
         <option value="utf-8">UTF-8</option>
         <option value="ascii">ASCII</option>
@@ -228,7 +230,7 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
     <label class="toggle"><input type="checkbox" id="textBase64" checked><span class="slider"></span></label>
     <span style="font-size:.85rem">Base64 encode</span>
   </div>
-  <button class="primary" onclick="encodeText()">Generate Data URI</button>
+  <button class="primary" onclick="encodeText()" ti="btn_generate_data_uri">Generate Data URI</button>
   <div id="textMeta" class="meta hidden" style="margin-top:1rem"></div>
   <div id="textSizeCompare" class="size-compare hidden"></div>
   <div id="textPreview" class="preview hidden"></div>
@@ -250,49 +252,59 @@ footer{text-align:center;padding:1.5rem;color:var(--text2);font-size:.85rem;bord
 <!-- ===== INFO ===== -->
 <div id="panel-info" class="panel">
   <div class="info-section" style="margin-top:0">
-    <h2>What are Data URIs?</h2>
+    <h2 ti="h2_what_are_data_uris">What are Data URIs?</h2>
     <p>Data URIs (RFC 2397) embed file content directly in HTML, CSS, or JavaScript as a string — no separate HTTP request needed. The format is:</p>
     <p><code>data:[mediatype][;base64],data</code></p>
     <p>Example — a 1×1 transparent PNG:</p>
     <p><code>data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mNk+M9QDwADhgGAWjR9awAAAABJRU5ErkJggg==</code></p>
   </div>
   <div class="info-section">
-    <h2>Common Use Cases</h2>
+    <h2 ti="h2_common_use_cases">Common Use Cases</h2>
     <ul>
-      <li><strong>CSS backgrounds</strong> — embed small icons or patterns directly in stylesheets to eliminate HTTP requests</li>
-      <li><strong>Inline images in HTML</strong> — reduce requests for critical above-the-fold images</li>
-      <li><strong>SVG icons</strong> — inline SVG without extra files or XSS concerns</li>
-      <li><strong>Favicons</strong> — <code>&lt;link rel="icon" href="data:image/..."&gt;</code> avoids an extra request</li>
-      <li><strong>Email HTML</strong> — some email clients support inline images via data URI</li>
-      <li><strong>Offline / single-file apps</strong> — bundle all assets into one HTML file</li>
+      <li><strong ti="strong_css_backgrounds">CSS backgrounds</strong> — embed small icons or patterns directly in stylesheets to eliminate HTTP requests</li>
+      <li><strong ti="strong_inline_images_in_html">Inline images in HTML</strong> — reduce requests for critical above-the-fold images</li>
+      <li><strong ti="strong_svg_icons">SVG icons</strong> — inline SVG without extra files or XSS concerns</li>
+      <li><strong ti="strong_favicons">Favicons</strong> — <code>&lt;link rel="icon" href="data:image/..."&gt;</code> avoids an extra request</li>
+      <li><strong ti="strong_email_html">Email HTML</strong> — some email clients support inline images via data URI</li>
+      <li><strong ti="strong_offline_single_file_apps">Offline / single-file apps</strong> — bundle all assets into one HTML file</li>
     </ul>
   </div>
   <div class="info-section">
-    <h2>Size Overhead</h2>
+    <h2 ti="h2_size_overhead">Size Overhead</h2>
     <ul>
-      <li><strong>Base64</strong> adds ~33% overhead — 3 bytes become 4 ASCII characters</li>
-      <li><strong>URL-encoding</strong> is smaller for text content (SVG, HTML, CSS) because many characters don't need escaping</li>
-      <li><strong>Practical limit</strong> — modern browsers handle multi-megabyte data URIs, but gzip/cache wins make separate files better above ~5–10 KB</li>
-      <li><strong>Best candidates</strong> — icons under 2 KB, 1×1 tracking pixels, CSS spinner animations, inline SVG logos</li>
+      <li><strong ti="strong_base64">Base64</strong> adds ~33% overhead — 3 bytes become 4 ASCII characters</li>
+      <li><strong ti="strong_url_encoding">URL-encoding</strong> is smaller for text content (SVG, HTML, CSS) because many characters don't need escaping</li>
+      <li><strong ti="strong_practical_limit">Practical limit</strong> — modern browsers handle multi-megabyte data URIs, but gzip/cache wins make separate files better above ~5–10 KB</li>
+      <li><strong ti="strong_best_candidates">Best candidates</strong> — icons under 2 KB, 1×1 tracking pixels, CSS spinner animations, inline SVG logos</li>
     </ul>
   </div>
   <div class="info-section">
-    <h2>Base64 vs URL-Encoding</h2>
+    <h2 ti="h2_base64_vs_url_encoding">Base64 vs URL-Encoding</h2>
     <p>Binary files (PNG, JPEG, fonts, PDFs) <em>must</em> use base64. Text-based formats (SVG, HTML, CSS, JSON) can skip base64 — just URL-encode special characters. URL-encoding is typically 10–30% smaller for SVG content.</p>
   </div>
   <div class="info-section">
-    <h2>Browser Support</h2>
+    <h2 ti="h2_browser_support">Browser Support</h2>
     <p>Data URIs are supported in all modern browsers. The old IE 8 limit of 32 KB no longer applies. There is no hard spec limit, though very large data URIs (10 MB+) can cause performance issues.</p>
   </div>
 </div>
 </main>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 100+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 100+ free browser-based developer tools
 </footer>
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_data_uri_converter_file_t':["Data URI Converter — File, Text & Decode", "数据 URI 转换器 — 文件、文本和解码"],'metadesc_convert_files_to_data_uri':["Convert files to data URIs and back. Drag & drop any file, encode text, decode data URIs. No upload — runs 100% in your browser.", "将文件转换为数据 URI，反之亦然。拖放任意文件，即可对文本进行编码，解码数据 URI。无需上传——100% 在浏览器中运行。"],'h1_data_uri_converter':["Data URI Converter", "数据URI转换器"],'h2_what_are_data_uris':["What are Data URIs?", "什么是数据URI？"],'h2_common_use_cases':["Common Use Cases", "常见用例"],'h2_size_overhead':["Size Overhead", "规模开销"],'h2_base64_vs_url_encoding':["Base64 vs URL-Encoding", "Base64 与 URL 编码"],'h2_browser_support':["Browser Support", "浏览器支持"],'h3_ex_title':["${ex.title}", "${ex.title}"],'btn_file_data_uri':["File → Data URI", "文件 → 数据 URI"],'btn_data_uri_file':["Data URI → File", "数据 URI → 文件"],'btn_text_data_uri':["Text → Data URI", "文本 → 数据 URI"],'btn_examples':["Examples", "示例"],'btn_info':["Info", "信息"],'btn_copy_data_uri':["Copy Data URI", "复制数据 URI"],'btn_css_background_image':["CSS background-image", "CSS背景图片"],'btn_html_img_tag':["HTML <img> tag", "HTML<img>标签"],'btn_decode':["Decode", "解码"],'btn_download_file':["Download File", "下载文件"],'btn_copy_data_uri_2':["Copy Data URI", "复制数据 URI"],'btn_generate_data_uri':["Generate Data URI", "生成数据 URI"],'btn_copy_data_uri_3':["Copy Data URI", "复制数据 URI"],'btn_load_in_decoder':["Load in decoder", "解码器加载"],'btn_copy_data_uri_4':["Copy data URI", "复制数据URI"],'label_original_size':["Original size", "原尺寸"],'label_data_uri_size':["Data URI size", "数据 URI 大小"],'label_size_increase':["Size increase", "尺寸增大"],'placeholder_data_uri_will_appear_here':["Data URI will appear here…", "数据URI将显示在此处……"],'placeholder_data_image_png_base64_ivb':["data:image/png;base64,iVBORw0KGgo…", "data:image/png;base64,iVBORw0KGgo…"],'placeholder_enter_text_html_css_json':["Enter text, HTML, CSS, JSON, SVG, JavaScript…", "输入文本、HTML、CSS、JSON、SVG、JavaScript……"],'placeholder_data_uri_will_appear_here_2':["Data URI will appear here…", "数据URI将显示在此处……"],'strong_css_backgrounds':["CSS backgrounds", "CSS背景"],'strong_inline_images_in_html':["Inline images in HTML", "HTML中的内嵌图片"],'strong_svg_icons':["SVG icons", "SVG图标"],'strong_favicons':["Favicons", "网站图标"],'strong_email_html':["Email HTML", "电子邮件 HTML"],'strong_offline_single_file_apps':["Offline / single-file apps", "离线/单文件应用程序"],'strong_base64':["Base64", "Base64"],'strong_url_encoding':["URL-encoding", "URL编码"],'strong_practical_limit':["Practical limit", "实际限制"],'strong_best_candidates':["Best candidates", "最佳候选人"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'label_paste_a_data_uri':["Paste a data URI", "粘贴数据 URI"],'label_text_input':["Text input", "文本输入"],'label_mime_type':["MIME type", "MIME 类型"],'label_character_encoding':["Character encoding", "字符编码"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_preview':["Preview", "预览"],'jtlword_preview_2':["Preview", "预览"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ============================================================
    Tabs
@@ -354,9 +366,9 @@ function makeSizeCompare(origSize, dataUriLength) {
   const pct = origSize > 0 ? ((overhead / origSize) * 100).toFixed(1) : '—';
   const warnClass = parseFloat(pct) > 50 ? ' warn' : '';
   return `
-    <div class="size-box"><span class="label">Original size</span><span class="value">${fmt(origSize)}</span></div>
-    <div class="size-box"><span class="label">Data URI size</span><span class="value">${fmt(dataUriLength)}</span></div>
-    <div class="size-box${warnClass}"><span class="label">Size increase</span><span class="value">+${pct}%</span></div>
+    <div class="size-box"><span class="label" ti="label_original_size">Original size</span><span class="value">${fmt(origSize)}</span></div>
+    <div class="size-box"><span class="label" ti="label_data_uri_size">Data URI size</span><span class="value">${fmt(dataUriLength)}</span></div>
+    <div class="size-box${warnClass}"><span class="label" ti="label_size_increase">Size increase</span><span class="value">+${pct}%</span></div>
   `;
 }
 
@@ -658,13 +670,13 @@ function buildExamples() {
     }
 
     card.innerHTML = `
-      <h3>${ex.title}</h3>
+      <h3 ti="h3_ex_title">${ex.title}</h3>
       <p>${ex.desc}</p>
       ${previewHtml}
       <div class="example-uri">${truncate(ex.uri, 120)}</div>
       <div class="example-actions">
-        <button onclick="loadExampleToDecode(${i})">Load in decoder</button>
-        <button onclick="copyExample(${i})">Copy data URI</button>
+        <button onclick="loadExampleToDecode(${i})" ti="btn_load_in_decoder">Load in decoder</button>
+        <button onclick="copyExample(${i})" ti="btn_copy_data_uri_4">Copy data URI</button>
       </div>
     `;
     grid.appendChild(card);
@@ -691,12 +703,12 @@ function copyExample(i) {
 buildExamples();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/base64-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Base64 Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/svg-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SVG Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/image-resize/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Image Resize</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -706,5 +718,23 @@ buildExamples();
 <a href="https://gokuscraper.github.io/dev-vault/image-resize/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Image Resize</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

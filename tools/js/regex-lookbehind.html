@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_lookbehind_advanced" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -307,52 +307,56 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>Regex Lookbehind &amp; Advanced Features</h1>
   <p>Interactive playground for lookbehind assertions, named captures, Unicode properties, matchAll, and the v flag</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="tabs">
-    <button class="tab-btn active" data-tab="builder">Builder</button>
-    <button class="tab-btn" data-tab="lookbehind">Lookbehind</button>
-    <button class="tab-btn" data-tab="named">Named Groups</button>
-    <button class="tab-btn" data-tab="unicode">Unicode</button>
-    <button class="tab-btn" data-tab="dotall">dotAll (s)</button>
-    <button class="tab-btn" data-tab="matchall">matchAll</button>
-    <button class="tab-btn" data-tab="vflag">v Flag</button>
-    <button class="tab-btn" data-tab="tests">Test Suite</button>
+    <button class="tab-btn active" data-tab="builder" ti="btn_builder" ti="btn_builder">Builder</button>
+    <button class="tab-btn" data-tab="lookbehind" ti="btn_lookbehind" ti="btn_lookbehind">Lookbehind</button>
+    <button class="tab-btn" data-tab="named" ti="btn_named_groups" ti="btn_named_groups_2" ti="btn_named_groups" ti="btn_named_groups_2">Named Groups</button>
+    <button class="tab-btn" data-tab="unicode" ti="btn_unicode" ti="btn_unicode">Unicode</button>
+    <button class="tab-btn" data-tab="dotall" ti="btn_dotall_s" ti="btn_dotall_s">dotAll (s)</button>
+    <button class="tab-btn" data-tab="matchall" ti="btn_matchall" ti="btn_matchall">matchAll</button>
+    <button class="tab-btn" data-tab="vflag" ti="btn_v_flag" ti="btn_v_flag_2" ti="btn_v_flag" ti="btn_v_flag_2">v Flag</button>
+    <button class="tab-btn" data-tab="tests" ti="btn_test_suite" ti="btn_test_suite">Test Suite</button>
   </div>
 
   <!-- Interactive Builder -->
   <div class="panel active" id="panel-builder">
     <div class="card">
       <div class="card-header">
-        <h3>Interactive Regex Builder</h3>
+        <h3 ti="h3_interactive_regex_builder" ti="h3_interactive_regex_builder">Interactive Regex Builder</h3>
         <span class="badge">Live</span>
       </div>
       <div class="card-body">
-        <span class="label">Regex Pattern</span>
+        <span class="label" ti="label_regex_pattern" ti="label_regex_pattern">Regex Pattern</span>
         <div class="regex-input-group">
-          <input type="text" class="regex-input" id="builderPattern" value="(?<=\$)\d+\.?\d*" placeholder="Enter regex pattern">
-          <input type="text" class="flags-input" id="builderFlags" value="g" placeholder="flags">
+          <input type="text" class="regex-input" id="builderPattern" value="(?<=\$)\d+\.?\d*" tp="placeholder_enter_regex_pattern" tp="placeholder_enter_regex_pattern" placeholder="Enter regex pattern">
+          <input type="text" class="flags-input" id="builderFlags" value="g" tp="placeholder_flags" tp="placeholder_flags" placeholder="flags">
         </div>
 
-        <span class="label">Test String</span>
+        <span class="label" ti="label_test_string" ti="label_test_string">Test String</span>
         <textarea class="test-input" id="builderText">The price is $19.99 and the discount is $5.00 off. Total: $14.99</textarea>
 
         <div class="examples-row" style="margin-top: 0.75rem;">
-          <button class="example-btn" onclick="loadExample('lookbehind1')">Lookbehind $</button>
-          <button class="example-btn" onclick="loadExample('lookbehind2')">Negative Lookbehind</button>
+          <button class="example-btn" onclick="loadExample('lookbehind1')" ti="btn_lookbehind_2" ti="btn_lookbehind_2">Lookbehind $</button>
+          <button class="example-btn" onclick="loadExample('lookbehind2')" ti="btn_negative_lookbehind" ti="btn_negative_lookbehind">Negative Lookbehind</button>
           <button class="example-btn" onclick="loadExample('named1')">Named Groups</button>
-          <button class="example-btn" onclick="loadExample('unicode1')">Unicode Letter</button>
-          <button class="example-btn" onclick="loadExample('unicode2')">Emoji</button>
-          <button class="example-btn" onclick="loadExample('dotall1')">dotAll</button>
+          <button class="example-btn" onclick="loadExample('unicode1')" ti="btn_unicode_letter" ti="btn_unicode_letter">Unicode Letter</button>
+          <button class="example-btn" onclick="loadExample('unicode2')" ti="btn_emoji" ti="btn_emoji">Emoji</button>
+          <button class="example-btn" onclick="loadExample('dotall1')" ti="btn_dotall" ti="btn_dotall">dotAll</button>
           <button class="example-btn" onclick="loadExample('vflag1')">v Flag</button>
         </div>
 
-        <span class="label" style="margin-top: 0.5rem;">Highlighted Matches</span>
+        <span class="label" style="margin-top: 0.5rem;" ti="label_highlighted_matches" ti="label_highlighted_matches">Highlighted Matches</span>
         <div class="result-area" id="builderHighlight"></div>
 
         <div class="match-info" id="builderMatches"></div>
@@ -367,7 +371,7 @@
         <h3>Positive Lookbehind (?&lt;=...)</h3>
       </div>
       <div class="card-body">
-        <p class="desc">Matches a pattern only if it's preceded by another pattern. The lookbehind itself is zero-width: it doesn't consume characters.</p>
+        <p class="desc" ti="subtitle_matches_a_pattern_only_if" ti="subtitle_matches_a_pattern_only_if">Matches a pattern only if it's preceded by another pattern. The lookbehind itself is zero-width: it doesn't consume characters.</p>
 
         <div class="grid-2">
           <div>
@@ -378,7 +382,7 @@ const re = /(?<=@)\w+/g;
 // Matches: "alice", "bob"
 // The @ is NOT included in the match</div>
 
-            <span class="label">Try it</span>
+            <span class="label" ti="label_try_it" ti="label_try_it_2" ti="label_try_it" ti="label_try_it_2">Try it</span>
             <div class="regex-input-group">
               <input type="text" class="regex-input" id="lb1Pattern" value="(?<=@)\w+">
               <input type="text" class="flags-input" id="lb1Flags" value="g">
@@ -410,7 +414,7 @@ const re = /(?<=\d{3}-)\d{4}/g;
         <h3>Negative Lookbehind (?&lt;!...)</h3>
       </div>
       <div class="card-body">
-        <p class="desc">Matches only if NOT preceded by the given pattern.</p>
+        <p class="desc" ti="subtitle_matches_only_if_not_prece" ti="subtitle_matches_only_if_not_prece">Matches only if NOT preceded by the given pattern.</p>
 
         <span class="label">Pattern: <code>(?&lt;!un)happy</code></span>
         <div class="regex-input-group">
@@ -445,7 +449,7 @@ const re = /(?<=\d{3}-)\d{4}/g;
 
         <div class="grid-2">
           <div>
-            <span class="label">Date Parsing</span>
+            <span class="label" ti="label_date_parsing" ti="label_date_parsing">Date Parsing</span>
             <div class="code-block">const re = /(?&lt;year&gt;\d{4})-(?&lt;month&gt;\d{2})-(?&lt;day&gt;\d{2})/;
 const m = "2025-03-12".match(re);
 m.groups.year  // "2025"
@@ -461,7 +465,7 @@ m.groups.day   // "12"</div>
             <div class="match-info" id="ng1Matches"></div>
           </div>
           <div>
-            <span class="label">URL Parsing</span>
+            <span class="label" ti="label_url_parsing" ti="label_url_parsing">URL Parsing</span>
             <div class="code-block">const re = /(?&lt;proto&gt;\w+):\/\/(?&lt;host&gt;[^\/]+)(?&lt;path&gt;\/[^\s]*)?/;
 const m = "https://example.com/path".match(re);
 m.groups.proto // "https"
@@ -482,7 +486,7 @@ m.groups.path  // "/path"</div>
 
     <div class="card">
       <div class="card-header">
-        <h3>Backreferences with Named Groups</h3>
+        <h3 ti="h3_backreferences_with_named" ti="h3_backreferences_with_named">Backreferences with Named Groups</h3>
       </div>
       <div class="card-body">
         <p class="desc">Use <code>\k&lt;name&gt;</code> to backreference a named group within the pattern.</p>
@@ -501,7 +505,7 @@ m.groups.path  // "/path"</div>
   <div class="panel" id="panel-unicode">
     <div class="card">
       <div class="card-header">
-        <h3>Unicode Property Escapes \p{...}</h3>
+        <h3 ti="h3_unicode_property_escapes" ti="h3_unicode_property_escapes">Unicode Property Escapes \p{...}</h3>
       </div>
       <div class="card-body">
         <p class="desc">Unicode property escapes match characters by their Unicode property. Requires the <code>u</code> flag. Categories include <code>Letter</code>, <code>Number</code>, <code>Script</code>, <code>Emoji</code>, and more.</p>
@@ -518,7 +522,7 @@ m.groups.path  // "/path"</div>
 
         <div class="grid-2">
           <div>
-            <span class="label">Match all letters (any script)</span>
+            <span class="label" ti="label_match_all_letters_any_scr" ti="label_match_all_letters_any_scr">Match all letters (any script)</span>
             <div class="regex-input-group">
               <input type="text" class="regex-input" id="uc1Pattern" value="\p{Letter}+">
               <input type="text" class="flags-input" id="uc1Flags" value="gu">
@@ -527,7 +531,7 @@ m.groups.path  // "/path"</div>
             <div class="result-area" id="uc1Result" style="margin-top: 0.5rem;"></div>
           </div>
           <div>
-            <span class="label">Match emoji</span>
+            <span class="label" ti="label_match_emoji" ti="label_match_emoji">Match emoji</span>
             <div class="regex-input-group">
               <input type="text" class="regex-input" id="uc2Pattern" value="\p{Emoji_Presentation}">
               <input type="text" class="flags-input" id="uc2Flags" value="gu">
@@ -538,7 +542,7 @@ m.groups.path  // "/path"</div>
         </div>
 
         <div style="margin-top: 1rem;">
-          <span class="label">Match specific scripts</span>
+          <span class="label" ti="label_match_specific_scripts" ti="label_match_specific_scripts">Match specific scripts</span>
           <div class="regex-input-group">
             <input type="text" class="regex-input" id="uc3Pattern" value="\p{Script=Han}+">
             <input type="text" class="flags-input" id="uc3Flags" value="gu">
@@ -554,7 +558,7 @@ m.groups.path  // "/path"</div>
   <div class="panel" id="panel-dotall">
     <div class="card">
       <div class="card-header">
-        <h3>dotAll Flag (s)</h3>
+        <h3 ti="h3_dotall_flag_s" ti="h3_dotall_flag_s">dotAll Flag (s)</h3>
       </div>
       <div class="card-body">
         <p class="desc">The <code>s</code> flag makes <code>.</code> match any character including <code>\n</code>, <code>\r</code>, line separator (U+2028), and paragraph separator (U+2029). Without it, <code>.</code> only matches non-newline characters.</p>
@@ -585,7 +589,7 @@ m.groups.path  // "/path"</div>
         </div>
 
         <div style="margin-top: 1rem;">
-          <span class="label">Multiline content extraction</span>
+          <span class="label" ti="label_multiline_content_extract" ti="label_multiline_content_extract">Multiline content extraction</span>
           <div class="regex-input-group">
             <input type="text" class="regex-input" id="da3Pattern" value="```(?<lang>\w+)\n(?<code>.+?)```">
             <input type="text" class="flags-input" id="da3Flags" value="gs">
@@ -612,7 +616,7 @@ def greet():
   <div class="panel" id="panel-matchall">
     <div class="card">
       <div class="card-header">
-        <h3>String.prototype.matchAll()</h3>
+        <h3 ti="h3_string_prototype_matchall" ti="h3_string_prototype_matchall">String.prototype.matchAll()</h3>
       </div>
       <div class="card-body">
         <p class="desc"><code>matchAll()</code> returns an iterator of all matches with full group information. Unlike <code>match()</code> with <code>g</code> flag, it preserves capture groups.</p>
@@ -626,7 +630,7 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
   // m[0] = "b2", m[1] = "b", m[2] = "2", m.index = 3
 }</div>
 
-        <span class="label">Try matchAll</span>
+        <span class="label" ti="label_try_matchall" ti="label_try_matchall">Try matchAll</span>
         <div class="regex-input-group">
           <input type="text" class="regex-input" id="ma1Pattern" value="(?<key>\w+)=(?<value>[^&\s]+)">
           <input type="text" class="flags-input" id="ma1Flags" value="g">
@@ -636,7 +640,7 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
         <div class="match-info" id="ma1Matches"></div>
 
         <div style="margin-top: 1rem;">
-          <span class="label">Extract function calls</span>
+          <span class="label" ti="label_extract_function_calls" ti="label_extract_function_calls">Extract function calls</span>
           <div class="regex-input-group">
             <input type="text" class="regex-input" id="ma2Pattern" value="(?<fn>\w+)\((?<args>[^)]*)\)">
             <input type="text" class="flags-input" id="ma2Flags" value="g">
@@ -653,7 +657,7 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
   <div class="panel" id="panel-vflag">
     <div class="card">
       <div class="card-header">
-        <h3>v Flag (UnicodeSets)</h3>
+        <h3 ti="h3_v_flag_unicodesets" ti="h3_v_flag_unicodesets">v Flag (UnicodeSets)</h3>
         <span class="badge">ES2024</span>
       </div>
       <div class="card-body">
@@ -663,7 +667,7 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
 
         <div class="grid-2">
           <div>
-            <span class="label">Set Intersection: Letters AND ASCII</span>
+            <span class="label" ti="label_set_intersection_letters" ti="label_set_intersection_letters">Set Intersection: Letters AND ASCII</span>
             <div class="regex-input-group">
               <input type="text" class="regex-input" id="vf1Pattern" value="[\p{Letter}&&\p{ASCII}]+">
               <input type="text" class="flags-input" id="vf1Flags" value="gv">
@@ -672,7 +676,7 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
             <div class="result-area" id="vf1Result" style="margin-top: 0.5rem;"></div>
           </div>
           <div>
-            <span class="label">Set Subtraction: Digits minus 0-5</span>
+            <span class="label" ti="label_set_subtraction_digits_mi" ti="label_set_subtraction_digits_mi">Set Subtraction: Digits minus 0-5</span>
             <div class="regex-input-group">
               <input type="text" class="regex-input" id="vf2Pattern" value="[\d--[0-5]]">
               <input type="text" class="flags-input" id="vf2Flags" value="gv">
@@ -683,7 +687,17 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
         </div>
 
         <div style="margin-top: 1rem;">
-          <span class="label">String literals in classes (multi-codepoint)</span>
+          <span class="label" ti="label_string_literals_in_classe" ti="label_string_literals_in_classe">String literals in classe
+<script>var _LANG={'title_regex_lookbehind_advanced':["Regex Lookbehind & Advanced Features Playground", "正则表达式后向断言和高级功能演示"],'h1_regex_lookbehind_advanced':["Regex Lookbehind & Advanced Features", "正则表达式后向断言和高级功能"],'h3_interactive_regex_builder':["Interactive Regex Builder", "交互式正则表达式生成器"],'h3_positive_lookbehind':["Positive Lookbehind (?<=...)", "正向后视（?&lt;=...）"],'h3_negative_lookbehind':["Negative Lookbehind (?<!...)", "负向后视（？"],'h3_named_capture_groups_name':["Named Capture Groups (?<name>...)", "命名捕获组（？<name> （……）"],'h3_backreferences_with_named':["Backreferences with Named Groups", "带命名组的反向引用"],'h3_unicode_property_escapes':["Unicode Property Escapes \\p{...}", "Unicode 属性转义 \\p{...}"],'h3_dotall_flag_s':["dotAll Flag (s)", "dotAll 标志"],'h3_string_prototype_matchall':["String.prototype.matchAll()", "String.prototype.matchAll()"],'h3_v_flag_unicodesets':["v Flag (UnicodeSets)", "v 标志（UnicodeSets）"],'h3_edge_case_test_suite':["Edge Case Test Suite", "边缘案例测试套件"],'subtitle_matches_a_pattern_only_if':["Matches a pattern only if it's preceded by another pattern. The lookbehind itself is zero-width: it doesn't consume characters.", "仅当目标模式前面存在另一个模式时，才会匹配该模式。后向断言本身宽度为零：它不占用任何字符。"],'subtitle_matches_only_if_not_prece':["Matches only if NOT preceded by the given pattern.", "仅当前面没有给定模式时才匹配。"],'subtitle_automated_tests_for_regex':["Automated tests for regex edge cases. Tests run in your browser to verify actual engine behavior.", "针对正则表达式极端情况的自动化测试。测试在浏览器中运行，以验证引擎的实际行为。"],'btn_builder':["Builder", "建造者"],'btn_lookbehind':["Lookbehind", "后视"],'btn_named_groups':["Named Groups", "命名组"],'btn_unicode':["Unicode", "Unicode"],'btn_dotall_s':["dotAll (s)", "dotAll(s)"],'btn_matchall':["matchAll", "匹配所有"],'btn_v_flag':["v Flag", "v 旗帜"],'btn_test_suite':["Test Suite", "测试套件"],'btn_lookbehind_2':["Lookbehind $", "后视 $"],'btn_negative_lookbehind':["Negative Lookbehind", "负面后视"],'btn_named_groups_2':["Named Groups", "命名组"],'btn_unicode_letter':["Unicode Letter", "Unicode字母"],'btn_emoji':["Emoji", "表情符号"],'btn_dotall':["dotAll", "全部"],'btn_v_flag_2':["v Flag", "v 旗帜"],'btn_run_all_tests':["Run All Tests", "运行所有测试"],'label_regex_pattern':["Regex Pattern", "正则表达式模式"],'label_test_string':["Test String", "测试字符串"],'label_highlighted_matches':["Highlighted Matches", "精彩比赛"],'label_try_it':["Try it", "试试看"],'label_try_it_2':["Try it", "试试看"],'label_date_parsing':["Date Parsing", "日期解析"],'label_url_parsing':["URL Parsing", "URL解析"],'label_match_all_letters_any_scr':["Match all letters (any script)", "匹配所有字母（任何字体）"],'label_match_emoji':["Match emoji", "匹配表情符号"],'label_match_specific_scripts':["Match specific scripts", "匹配特定脚本"],'label_multiline_content_extract':["Multiline content extraction", "多行内容提取"],'label_try_matchall':["Try matchAll", "尝试 matchAll"],'label_extract_function_calls':["Extract function calls", "提取函数调用"],'label_set_intersection_letters':["Set Intersection: Letters AND ASCII", "集合交集：字母 AND ASCII"],'label_set_subtraction_digits_mi':["Set Subtraction: Digits minus 0-5", "集合减法：数字减去 0-5"],'label_string_literals_in_classe':["String literals in classes (multi-codepoint)", "类中的字符串字面量（多码点）"],'placeholder_enter_regex_pattern':["Enter regex pattern", "输入正则表达式模式"],'placeholder_flags':["flags", "旗帜"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+s (multi-codepoint)</span>
           <div class="regex-input-group">
             <input type="text" class="regex-input" id="vf3Pattern" value="[\q{abc|def|xyz}]">
             <input type="text" class="flags-input" id="vf3Flags" value="gv">
@@ -706,11 +720,11 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
   <div class="panel" id="panel-tests">
     <div class="card">
       <div class="card-header">
-        <h3>Edge Case Test Suite</h3>
-        <button class="run-btn" onclick="runTests()">Run All Tests</button>
+        <h3 ti="h3_edge_case_test_suite" ti="h3_edge_case_test_suite">Edge Case Test Suite</h3>
+        <button class="run-btn" onclick="runTests()" ti="btn_run_all_tests" ti="btn_run_all_tests">Run All Tests</button>
       </div>
       <div class="card-body">
-        <p class="desc">Automated tests for regex edge cases. Tests run in your browser to verify actual engine behavior.</p>
+        <p class="desc" ti="subtitle_automated_tests_for_regex" ti="subtitle_automated_tests_for_regex">Automated tests for regex edge cases. Tests run in your browser to verify actual engine behavior.</p>
         <div class="test-suite" id="testResults">Click "Run All Tests" to execute the test suite.</div>
       </div>
     </div>
@@ -722,6 +736,16 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
   <p style="margin-top: 0.5rem;"><a href="https://github.com/gokuscraper/regex-lookbehind" target="_blank">Source</a></p>
 </footer>
 
+
+<script>var _LANG={'title_regex_lookbehind_advanced':["Regex Lookbehind & Advanced Features Playground", "正则表达式后向断言和高级功能演示"],'h1_regex_lookbehind_advanced':["Regex Lookbehind & Advanced Features", "正则表达式后向断言和高级功能"],'h3_interactive_regex_builder':["Interactive Regex Builder", "交互式正则表达式生成器"],'h3_positive_lookbehind':["Positive Lookbehind (?<=...)", "正向后视（?&lt;=...）"],'h3_negative_lookbehind':["Negative Lookbehind (?<!...)", "负向后视（？"],'h3_named_capture_groups_name':["Named Capture Groups (?<name>...)", "命名捕获组（？<name> （……）"],'h3_backreferences_with_named':["Backreferences with Named Groups", "带命名组的反向引用"],'h3_unicode_property_escapes':["Unicode Property Escapes \\p{...}", "Unicode 属性转义 \\p{...}"],'h3_dotall_flag_s':["dotAll Flag (s)", "dotAll 标志"],'h3_string_prototype_matchall':["String.prototype.matchAll()", "String.prototype.matchAll()"],'h3_v_flag_unicodesets':["v Flag (UnicodeSets)", "v 标志（UnicodeSets）"],'h3_edge_case_test_suite':["Edge Case Test Suite", "边缘案例测试套件"],'subtitle_matches_a_pattern_only_if':["Matches a pattern only if it's preceded by another pattern. The lookbehind itself is zero-width: it doesn't consume characters.", "仅当目标模式前面存在另一个模式时，才会匹配该模式。后向断言本身宽度为零：它不占用任何字符。"],'subtitle_matches_only_if_not_prece':["Matches only if NOT preceded by the given pattern.", "仅当前面没有给定模式时才匹配。"],'subtitle_automated_tests_for_regex':["Automated tests for regex edge cases. Tests run in your browser to verify actual engine behavior.", "针对正则表达式极端情况的自动化测试。测试在浏览器中运行，以验证引擎的实际行为。"],'btn_builder':["Builder", "建造者"],'btn_lookbehind':["Lookbehind", "后视"],'btn_named_groups':["Named Groups", "命名组"],'btn_unicode':["Unicode", "Unicode"],'btn_dotall_s':["dotAll (s)", "dotAll(s)"],'btn_matchall':["matchAll", "匹配所有"],'btn_v_flag':["v Flag", "v 旗帜"],'btn_test_suite':["Test Suite", "测试套件"],'btn_lookbehind_2':["Lookbehind $", "后视 $"],'btn_negative_lookbehind':["Negative Lookbehind", "负面后视"],'btn_named_groups_2':["Named Groups", "命名组"],'btn_unicode_letter':["Unicode Letter", "Unicode字母"],'btn_emoji':["Emoji", "表情符号"],'btn_dotall':["dotAll", "全部"],'btn_v_flag_2':["v Flag", "v 旗帜"],'btn_run_all_tests':["Run All Tests", "运行所有测试"],'label_regex_pattern':["Regex Pattern", "正则表达式模式"],'label_test_string':["Test String", "测试字符串"],'label_highlighted_matches':["Highlighted Matches", "精彩比赛"],'label_try_it':["Try it", "试试看"],'label_try_it_2':["Try it", "试试看"],'label_date_parsing':["Date Parsing", "日期解析"],'label_url_parsing':["URL Parsing", "URL解析"],'label_match_all_letters_any_scr':["Match all letters (any script)", "匹配所有字母（任何字体）"],'label_match_emoji':["Match emoji", "匹配表情符号"],'label_match_specific_scripts':["Match specific scripts", "匹配特定脚本"],'label_multiline_content_extract':["Multiline content extraction", "多行内容提取"],'label_try_matchall':["Try matchAll", "尝试 matchAll"],'label_extract_function_calls':["Extract function calls", "提取函数调用"],'label_set_intersection_letters':["Set Intersection: Letters AND ASCII", "集合交集：字母 AND ASCII"],'label_set_subtraction_digits_mi':["Set Subtraction: Digits minus 0-5", "集合减法：数字减去 0-5"],'label_string_literals_in_classe':["String literals in classes (multi-codepoint)", "类中的字符串字面量（多码点）"],'placeholder_enter_regex_pattern':["Enter regex pattern", "输入正则表达式模式"],'placeholder_flags':["flags", "旗帜"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -952,6 +976,42 @@ for (const m of "a1 b2".matchAll(/(\w)(\d)/g)) {
     html = `<div style="margin-bottom:0.75rem;color:var(--text-dim);">${pass}/${pass + fail} tests passed</div>` + html;
     container.innerHTML = html;
   };
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

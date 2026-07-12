@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_keyboard_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -156,10 +156,12 @@ footer a{color:var(--accent)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <div class="container">
-    <h1>Keyboard API Playground</h1>
+  <div class="container" style="position:relative">
+    <h1 ti="title_keyboard_api_playground" ti="h1_keyboard_api_playground">Keyboard API Playground</h1>
     <p>Explore keyboard layouts, key events, keyboard lock, and input composition &mdash; all in your browser.</p>
     <div class="compat-banner" id="compat"></div>
   </div>
@@ -168,23 +170,23 @@ footer a{color:var(--accent)}
 <nav>
   <div class="container">
     <a href="#layout-map" class="active">Layout Map</a>
-    <a href="#key-inspector">Key Inspector</a>
+    <a href="#key-inspector" ti="link_key_inspector">Key Inspector</a>
     <a href="#keyboard-lock">Keyboard Lock</a>
-    <a href="#layout-compare">Layout Compare</a>
-    <a href="#shortcut-tester">Shortcuts</a>
-    <a href="#dead-keys">Dead Keys</a>
+    <a href="#layout-compare" ti="link_layout_compare">Layout Compare</a>
+    <a href="#shortcut-tester" ti="link_shortcuts">Shortcuts</a>
+    <a href="#dead-keys" ti="link_dead_keys">Dead Keys</a>
   </div>
 </nav>
 
 <!-- 1. Layout Map -->
 <section id="layout-map">
   <div class="container">
-    <h2>Keyboard Layout Map</h2>
+    <h2 ti="h2_keyboard_layout_map">Keyboard Layout Map</h2>
     <p class="desc">Uses <code>navigator.keyboard.getLayoutMap()</code> to read your physical-to-logical key mapping.</p>
     <div class="card">
       <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:12px">
-        <h3>Your Layout</h3>
-        <button class="btn" id="btn-refresh-layout">Refresh Layout</button>
+        <h3 ti="h3_your_layout">Your Layout</h3>
+        <button class="btn" id="btn-refresh-layout" ti="btn_refresh_layout">Refresh Layout</button>
       </div>
       <div id="layout-map-grid" class="layout-grid">
         <p style="color:var(--text2);grid-column:1/-1;text-align:center;padding:20px">Loading layout map...</p>
@@ -205,10 +207,10 @@ for (const [code, key] of layoutMap) {
 <!-- 2. Key Inspector -->
 <section id="key-inspector">
   <div class="container">
-    <h2>Key Event Inspector</h2>
-    <p class="desc">Press any key to see its properties. The visual keyboard highlights the pressed key.</p>
+    <h2 ti="h2_key_event_inspector">Key Event Inspector</h2>
+    <p class="desc" ti="subtitle_press_any_key_to_see_its">Press any key to see its properties. The visual keyboard highlights the pressed key.</p>
     <div class="card">
-      <h3>Visual Keyboard</h3>
+      <h3 ti="h3_visual_keyboard">Visual Keyboard</h3>
       <div class="keyboard" id="visual-kb"></div>
     </div>
     <div class="card" tabindex="0" id="key-capture" style="outline:none;cursor:text">
@@ -226,11 +228,11 @@ for (const [code, key] of layoutMap) {
       </div>
       <div class="event-history">
         <table>
-          <thead><tr><th>Type</th><th>Key</th><th>Code</th><th>Mods</th></tr></thead>
+          <thead><tr><th ti="th_type">Type</th><th ti="th_key">Key</th><th ti="th_code">Code</th><th ti="th_mods">Mods</th></tr></thead>
           <tbody id="event-log"></tbody>
         </table>
       </div>
-      <button class="btn btn-outline" style="margin-top:8px" id="btn-clear-log">Clear Log</button>
+      <button class="btn btn-outline" style="margin-top:8px" id="btn-clear-log" ti="btn_clear_log">Clear Log</button>
     </div>
   </div>
 </section>
@@ -238,10 +240,10 @@ for (const [code, key] of layoutMap) {
 <!-- 3. Keyboard Lock -->
 <section id="keyboard-lock">
   <div class="container">
-    <h2>Keyboard Lock</h2>
-    <p class="desc">Lock specific keys so the browser captures them instead of the OS. Requires fullscreen in most browsers.</p>
+    <h2 ti="h2_keyboard_lock" ti="link_keyboard_lock">Keyboard Lock</h2>
+    <p class="desc" ti="subtitle_lock_specific_keys_so_the">Lock specific keys so the browser captures them instead of the OS. Requires fullscreen in most browsers.</p>
     <div class="card">
-      <h3>Lock Control</h3>
+      <h3 ti="h3_lock_control">Lock Control</h3>
       <div class="lock-status">
         <div class="lock-dot" id="lock-dot"></div>
         <span id="lock-status-text">Unlocked</span>
@@ -249,10 +251,10 @@ for (const [code, key] of layoutMap) {
       <p style="font-size:0.82rem;color:var(--text2);margin-bottom:12px">Select keys to lock, then click Lock. Most browsers require fullscreen mode.</p>
       <div class="lock-keys" id="lock-keys"></div>
       <div style="display:flex;gap:8px;margin-top:12px;flex-wrap:wrap">
-        <button class="btn" id="btn-lock">Lock Selected Keys</button>
-        <button class="btn btn-outline" id="btn-lock-all">Lock All Keys</button>
-        <button class="btn btn-outline" id="btn-unlock">Unlock</button>
-        <button class="btn btn-outline" id="btn-fullscreen">Enter Fullscreen</button>
+        <button class="btn" id="btn-lock" ti="btn_lock_selected_keys">Lock Selected Keys</button>
+        <button class="btn btn-outline" id="btn-lock-all" ti="btn_lock_all_keys">Lock All Keys</button>
+        <button class="btn btn-outline" id="btn-unlock" ti="btn_unlock">Unlock</button>
+        <button class="btn btn-outline" id="btn-fullscreen" ti="btn_enter_fullscreen">Enter Fullscreen</button>
       </div>
       <div id="lock-log" style="margin-top:12px;font-size:0.82rem;color:var(--text2)"></div>
     </div>
@@ -270,13 +272,13 @@ navigator.keyboard.unlock();</pre>
 <!-- 4. Layout Comparison -->
 <section id="layout-compare">
   <div class="container">
-    <h2>Layout Comparison</h2>
-    <p class="desc">See how the same physical keys produce different characters across keyboard layouts.</p>
+    <h2 ti="h2_layout_comparison">Layout Comparison</h2>
+    <p class="desc" ti="subtitle_see_how_the_same_physical">See how the same physical keys produce different characters across keyboard layouts.</p>
     <div class="card">
-      <h3>QWERTY vs AZERTY vs Dvorak vs QWERTZ</h3>
+      <h3 ti="h3_qwerty_vs_azerty_vs_dvora">QWERTY vs AZERTY vs Dvorak vs QWERTZ</h3>
       <div style="overflow-x:auto">
         <table class="compare-table" id="compare-table">
-          <thead><tr><th>Physical Key</th><th>QWERTY</th><th>AZERTY</th><th>Dvorak</th><th>QWERTZ</th></tr></thead>
+          <thead><tr><th ti="th_physical_key">Physical Key</th><th ti="th_qwerty">QWERTY</th><th ti="th_azerty">AZERTY</th><th ti="th_dvorak">Dvorak</th><th ti="th_qwertz">QWERTZ</th></tr></thead>
           <tbody></tbody>
         </table>
       </div>
@@ -287,17 +289,17 @@ navigator.keyboard.unlock();</pre>
 <!-- 5. Shortcut Tester -->
 <section id="shortcut-tester">
   <div class="container">
-    <h2>Shortcut Tester</h2>
-    <p class="desc">Register keyboard shortcuts and test them. Detects conflicts with browser defaults.</p>
+    <h2 ti="h2_shortcut_tester">Shortcut Tester</h2>
+    <p class="desc" ti="subtitle_register_keyboard_shortcu">Register keyboard shortcuts and test them. Detects conflicts with browser defaults.</p>
     <div class="card">
-      <h3>Register a Shortcut</h3>
+      <h3 ti="h3_register_a_shortcut">Register a Shortcut</h3>
       <div class="shortcut-input">
-        <input type="text" id="shortcut-capture" placeholder="Press a key combination..." readonly>
-        <input type="text" id="shortcut-name" placeholder="Action name">
-        <button class="btn" id="btn-add-shortcut">Add</button>
+        <input type="text" id="shortcut-capture" tp="placeholder_press_a_key_combination" placeholder="Press a key combination..." readonly>
+        <input type="text" id="shortcut-name" tp="placeholder_action_name" placeholder="Action name">
+        <button class="btn" id="btn-add-shortcut" ti="btn_add">Add</button>
       </div>
       <div id="shortcut-conflict" style="font-size:0.82rem;margin-bottom:8px"></div>
-      <h3 style="margin-top:16px">Registered Shortcuts</h3>
+      <h3 style="margin-top:16px" ti="h3_registered_shortcuts">Registered Shortcuts</h3>
       <div class="shortcut-list" id="shortcut-list">
         <p style="color:var(--text2);font-size:0.85rem;padding:8px">No shortcuts registered yet.</p>
       </div>
@@ -310,9 +312,9 @@ navigator.keyboard.unlock();</pre>
 <section id="dead-keys">
   <div class="container">
     <h2>Dead Keys &amp; Compose</h2>
-    <p class="desc">Dead keys are keys that don't produce a character immediately but modify the next keypress. Common in international keyboards.</p>
+    <p class="desc" ti="subtitle_dead_keys_are_keys_that_d">Dead keys are keys that don't produce a character immediately but modify the next keypress. Common in international keyboards.</p>
     <div class="card">
-      <h3>How Dead Keys Work</h3>
+      <h3 ti="h3_how_dead_keys_work">How Dead Keys Work</h3>
       <div class="compose-area">
         <div class="compose-box">
           <div class="compose-output">
@@ -326,9 +328,9 @@ navigator.keyboard.unlock();</pre>
         </div>
       </div>
       <div class="compose-input-area" style="margin-top:16px">
-        <h3>Try It: Type Here</h3>
+        <h3 ti="h3_try_it_type_here">Try It: Type Here</h3>
         <p style="font-size:0.82rem;color:var(--text2);margin-bottom:8px">Type to see <code>isComposing</code> and <code>compositionstart</code>/<code>compositionend</code> events. On international keyboards, try dead key sequences.</p>
-        <textarea id="compose-textarea" placeholder="Type here to see composition events..."></textarea>
+        <textarea id="compose-textarea" tp="placeholder_type_here_to_see_composit" placeholder="Type here to see composition events..."></textarea>
         <div class="compose-log" id="compose-log"></div>
       </div>
     </div>
@@ -342,6 +344,16 @@ navigator.keyboard.unlock();</pre>
   </div>
 </footer>
 
+
+<script>var _LANG={'title_keyboard_api_playground':["Keyboard API Playground", "键盘 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Keyboard API. Explore keyboard layouts, key detection, keyboard lock, shortcut testing, and dead key composition in your browser.", "键盘 API 的交互式演示环境。在浏览器中探索键盘布局、按键检测、键盘锁定、快捷键测试和死键组合等功能。"],'h1_keyboard_api_playground':["Keyboard API Playground", "键盘 API 演示"],'h2_keyboard_layout_map':["Keyboard Layout Map", "键盘布局图"],'h2_key_event_inspector':["Key Event Inspector", "关键事件检查员"],'h2_keyboard_lock':["Keyboard Lock", "键盘锁定"],'h2_layout_comparison':["Layout Comparison", "布局比较"],'h2_shortcut_tester':["Shortcut Tester", "快捷键测试器"],'h2_dead_keys_compose':["Dead Keys & Compose", "死键与作曲"],'h3_your_layout':["Your Layout", "您的布局"],'h3_visual_keyboard':["Visual Keyboard", "可视化键盘"],'h3_lock_control':["Lock Control", "锁定控制"],'h3_qwerty_vs_azerty_vs_dvora':["QWERTY vs AZERTY vs Dvorak vs QWERTZ", "QWERTY 键盘 vs AZERTY 键盘 vs Dvorak 键盘 vs QWERTZ 键盘"],'h3_register_a_shortcut':["Register a Shortcut", "注册快捷方式"],'h3_registered_shortcuts':["Registered Shortcuts", "已注册快捷方式"],'h3_how_dead_keys_work':["How Dead Keys Work", "死键的工作原理"],'h3_try_it_type_here':["Try It: Type Here", "试试看：在这里输入"],'subtitle_press_any_key_to_see_its':["Press any key to see its properties. The visual keyboard highlights the pressed key.", "按下任意键即可查看其属性。可视化键盘会高亮显示按下的键。"],'subtitle_lock_specific_keys_so_the':["Lock specific keys so the browser captures them instead of the OS. Requires fullscreen in most browsers.", "锁定特定按键，使其由浏览器而非操作系统捕获。大多数浏览器需要全屏模式。"],'subtitle_see_how_the_same_physical':["See how the same physical keys produce different characters across keyboard layouts.", "看看同样的物理按键在不同的键盘布局中如何产生不同的字符。"],'subtitle_register_keyboard_shortcu':["Register keyboard shortcuts and test them. Detects conflicts with browser defaults.", "注册键盘快捷键并进行测试。检测与浏览器默认设置的冲突。"],'subtitle_dead_keys_are_keys_that_d':["Dead keys are keys that don't produce a character immediately but modify the next keypress. Common in international keyboards.", "死键是指那些不会立即产生字符，但会影响下一次按键的按键。常见于国际键盘。"],'btn_refresh_layout':["Refresh Layout", "刷新布局"],'btn_clear_log':["Clear Log", "清除日志"],'btn_lock_selected_keys':["Lock Selected Keys", "锁定选定的钥匙"],'btn_lock_all_keys':["Lock All Keys", "锁好所有钥匙"],'btn_unlock':["Unlock", "开锁"],'btn_enter_fullscreen':["Enter Fullscreen", "进入全屏模式"],'btn_add':["Add", "添加"],'placeholder_press_a_key_combination':["Press a key combination...", "按下组合键……"],'placeholder_action_name':["Action name", "动作名称"],'placeholder_type_here_to_see_composit':["Type here to see composition events...", "在此输入以查看合成事件..."],'strong_eschtml_s_name':["${escHtml(s.name)}", "${escHtml(s.name)}"],'th_type':["Type", "类型"],'th_key':["Key", "钥匙"],'th_code':["Code", "代码"],'th_mods':["Mods", "模组"],'th_physical_key':["Physical Key", "实体钥匙"],'th_qwerty':["QWERTY", "QWERTY"],'th_azerty':["AZERTY", "阿泽蒂"],'th_dvorak':["Dvorak", "德沃拉克"],'th_qwertz':["QWERTZ", "QWERTZ"],'link_key_inspector':["Key Inspector", "关键检查员"],'link_keyboard_lock':["Keyboard Lock", "键盘锁定"],'link_layout_compare':["Layout Compare", "布局比较"],'link_shortcuts':["Shortcuts", "快捷方式"],'link_dead_keys':["Dead Keys", "死钥匙"],'jtc_all_keys_locked':["All keys locked", "所有钥匙都已锁好"],'jtc_unlocked':["Unlocked", "已解锁"],'jtlword_supported':["Supported", "支持"],'jtlword_yes':["Yes", "是的"],'jtlword_no':["No", "不"],'jtlword_yes_2':["Yes", "是的"],'jtlword_no_2':["No", "不"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function(){
 'use strict';
@@ -550,7 +562,7 @@ document.getElementById('btn-lock-all').addEventListener('click', async () => {
     await navigator.keyboard.lock();
     isLocked = true;
     lockDot.classList.add('locked');
-    lockText.textContent = 'All keys locked';
+    lockText.textContent=T("jtc_all_keys_locked");
     logLock('<span style="color:var(--green)">All keys locked</span>');
   } catch (err) {
     logLock(`<span style="color:var(--red)">Error: ${escHtml(err.message)}</span>`);
@@ -563,7 +575,7 @@ document.getElementById('btn-unlock').addEventListener('click', () => {
     navigator.keyboard.unlock();
     isLocked = false;
     lockDot.classList.remove('locked');
-    lockText.textContent = 'Unlocked';
+    lockText.textContent=T("jtc_unlocked");
     logLock('Unlocked');
   } catch(e) {}
 });
@@ -686,7 +698,7 @@ function checkShortcut(e) {
     if (s.mods.meta !== e.metaKey) continue;
     if (s.code !== e.code) continue;
     shortcutTriggered.style.display = 'block';
-    shortcutTriggered.innerHTML = `<span style="color:var(--green)">Triggered: <strong>${escHtml(s.name)}</strong></span> <span style="color:var(--text2)">(${escHtml(s.combo)})</span>`;
+    shortcutTriggered.innerHTML = `<span style="color:var(--green)">Triggered: <strong ti="strong_eschtml_s_name">${escHtml(s.name)}</strong></span> <span style="color:var(--text2)">(${escHtml(s.combo)})</span>`;
     setTimeout(() => { shortcutTriggered.style.display = 'none'; }, 2000);
     break;
   }
@@ -739,6 +751,24 @@ function escHtml(s) {
   return d.innerHTML;
 }
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

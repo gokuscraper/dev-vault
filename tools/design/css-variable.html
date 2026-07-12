@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_variables" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -567,6 +567,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div id="preview-style-container">
   <style id="preview-style"></style>
@@ -574,18 +576,18 @@
 
 <!-- Header -->
 <header class="header">
-  <a href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-  <h1>CSS Variables</h1>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">← Dev Vault</a>
+  <h1 ti="title_css_variables" ti="h1_css_variables">CSS Variables</h1>
   <div class="header-actions">
-    <button class="btn sm" id="btn-import">Import CSS</button>
-    <button class="btn sm primary" id="btn-export-toggle">Export</button>
+    <button class="btn sm" id="btn-import" ti="btn_import_css">Import CSS</button>
+    <button class="btn sm primary" id="btn-export-toggle" ti="btn_export">Export</button>
   </div>
 </header>
 
 <!-- Tabs -->
 <div class="tabs">
-  <button class="tab active" data-view="editor">Variable Editor</button>
-  <button class="tab" data-view="theme">Theme Builder</button>
+  <button class="tab active" data-view="editor" ti="btn_variable_editor">Variable Editor</button>
+  <button class="tab" data-view="theme" ti="btn_theme_builder">Theme Builder</button>
 </div>
 
 <!-- Main layout -->
@@ -604,12 +606,12 @@
           <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M3 5l4 4 4-4" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </div>
         <div class="starter-themes" id="starter-themes">
-          <button class="theme-chip" data-theme="github-dark">GitHub Dark</button>
-          <button class="theme-chip" data-theme="dracula">Dracula</button>
-          <button class="theme-chip" data-theme="nord">Nord</button>
-          <button class="theme-chip" data-theme="solarized">Solarized Dark</button>
-          <button class="theme-chip" data-theme="catppuccin">Catppuccin</button>
-          <button class="theme-chip" data-theme="one-dark">One Dark</button>
+          <button class="theme-chip" data-theme="github-dark" ti="btn_github_dark">GitHub Dark</button>
+          <button class="theme-chip" data-theme="dracula" ti="btn_dracula">Dracula</button>
+          <button class="theme-chip" data-theme="nord" ti="btn_nord">Nord</button>
+          <button class="theme-chip" data-theme="solarized" ti="btn_solarized_dark">Solarized Dark</button>
+          <button class="theme-chip" data-theme="catppuccin" ti="btn_catppuccin">Catppuccin</button>
+          <button class="theme-chip" data-theme="one-dark" ti="btn_one_dark">One Dark</button>
         </div>
       </div>
 
@@ -623,7 +625,7 @@
           <div class="empty-state" id="vars-empty">No variables yet. Add one below or load a starter theme.</div>
         </div>
         <div class="add-var-row">
-          <button class="btn sm" id="btn-add-var" style="width:100%">+ Add Variable</button>
+          <button class="btn sm" id="btn-add-var" style="width:100%" ti="btn_add_variable">+ Add Variable</button>
         </div>
       </div>
     </div><!-- /view-editor -->
@@ -698,7 +700,7 @@
       <div class="preview-toolbar">
         <span>Live Preview</span>
         <div style="flex:1"></div>
-        <button class="btn sm" id="btn-reset-preview">Reset</button>
+        <button class="btn sm" id="btn-reset-preview" ti="btn_reset">Reset</button>
       </div>
       <div class="preview-area" id="preview-area">
         <!-- injected dynamically -->
@@ -708,16 +710,16 @@
     <!-- Export -->
     <div id="panel-export" class="export-panel">
       <div class="export-tabs">
-        <button class="export-tab active" data-fmt="css">CSS :root</button>
-        <button class="export-tab" data-fmt="scss">SCSS</button>
-        <button class="export-tab" data-fmt="json">JSON</button>
-        <button class="export-tab" data-fmt="tailwind">Tailwind</button>
+        <button class="export-tab active" data-fmt="css" ti="btn_css_root">CSS :root</button>
+        <button class="export-tab" data-fmt="scss" ti="btn_scss">SCSS</button>
+        <button class="export-tab" data-fmt="json" ti="btn_json">JSON</button>
+        <button class="export-tab" data-fmt="tailwind" ti="btn_tailwind">Tailwind</button>
       </div>
       <pre class="export-code" id="export-code"></pre>
       <div class="export-actions">
-        <button class="btn primary" id="btn-copy-export">Copy to Clipboard</button>
-        <button class="btn" id="btn-download-export">Download</button>
-        <button class="btn" id="btn-close-export">Close</button>
+        <button class="btn primary" id="btn-copy-export" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
+        <button class="btn" id="btn-download-export" ti="btn_download">Download</button>
+        <button class="btn" id="btn-close-export" ti="btn_close">Close</button>
       </div>
     </div>
 
@@ -728,22 +730,22 @@
 <div class="modal-overlay" id="import-modal">
   <div class="modal">
     <div class="modal-header">
-      <h2>Import CSS Variables</h2>
+      <h2 ti="h2_import_css_variables">Import CSS Variables</h2>
       <button class="btn-icon" id="btn-close-import">
         <svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
       </button>
     </div>
     <div class="modal-body">
       <p style="color:var(--text2);font-size:13px;margin-bottom:12px;">Paste your CSS <code style="background:var(--bg);padding:2px 6px;border-radius:4px;font-size:11px;">:root { }</code> block below. Variables will be parsed and added to the editor.</p>
-      <textarea class="import-area" id="import-textarea" placeholder=":root {
+      <textarea class="import-area" id="import-textarea" tp="placeholder_root_primary_58a6ff_back" placeholder=":root {
   --primary: #58a6ff;
   --background: #0d1117;
   --text: #e6edf3;
 }"></textarea>
     </div>
     <div class="modal-footer">
-      <button class="btn" id="btn-cancel-import">Cancel</button>
-      <button class="btn primary" id="btn-do-import">Import Variables</button>
+      <button class="btn" id="btn-cancel-import" ti="btn_cancel">Cancel</button>
+      <button class="btn primary" id="btn-do-import" ti="btn_import_variables">Import Variables</button>
     </div>
   </div>
 </div>
@@ -751,6 +753,16 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_css_variables':["CSS Variables", "CSS变量"],'metadesc_explore_and_manage_css_cu':["Explore and manage CSS custom properties. Define variables, see inheritance in real time, and generate reusable design token stylesheets.", "探索和管理 CSS 自定义属性。定义变量，实时查看继承关系，并生成可重用的设计令牌样式表。"],'h1_css_variables':["CSS Variables", "CSS变量"],'h2_import_css_variables':["Import CSS Variables", "导入 CSS 变量"],'h3_buttons':["Buttons", "按钮"],'h3_card':["Card", "卡片"],'h3_typography_scale':["Typography Scale", "字体比例尺"],'h3_input':["Input", "输入"],'h3_badges':["Badges", "徽章"],'h3_spacing_scale':["Spacing Scale", "间距比例"],'h3_color_palette':["Color Palette", "调色板"],'btn_import_css':["Import CSS", "导入 CSS"],'btn_export':["Export", "出口"],'btn_variable_editor':["Variable Editor", "变量编辑器"],'btn_theme_builder':["Theme Builder", "主题生成器"],'btn_github_dark':["GitHub Dark", "GitHub Dark"],'btn_dracula':["Dracula", "德古拉"],'btn_nord':["Nord", "诺德"],'btn_solarized_dark':["Solarized Dark", "太阳化的黑暗"],'btn_catppuccin':["Catppuccin", "猫布奇宁"],'btn_one_dark':["One Dark", "黑暗"],'btn_add_variable':["+ Add Variable", "+ 添加变量"],'btn_reset':["Reset", "重置"],'btn_css_root':["CSS :root", "CSS：根"],'btn_scss':["SCSS", "SCSS"],'btn_json':["JSON", "JSON"],'btn_tailwind':["Tailwind", "顺风"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_download':["Download", "下载"],'btn_close':["Close", "关闭"],'btn_cancel':["Cancel", "取消"],'btn_import_variables':["Import Variables", "导入变量"],'btn_primary':["Primary", "基本的"],'btn_secondary':["Secondary", "次要"],'btn_success':["Success", "成功"],'btn_danger':["Danger", "危险"],'btn_action':["Action", "行动"],'placeholder_root_primary_58a6ff_back':[":root {\n  --primary: #58a6ff;\n  --background: #0d1117;\n  --text: #e6edf3;\n}", ":root { --primary: #58a6ff; --background: #0d1117; --text: #e6edf3; }"],'placeholder_var_name':["--var-name", "--var-name"],'placeholder_value':["value", "价值"],'placeholder_description_optional':["Description (optional)", "描述（可选）"],'placeholder_input_field':["Input field…", "输入框…"],'strong_related_tools':["Related Tools", "相关工具"],'label_f_label':["${f.label}", "${f.label}"],'label_f_label_f_key':["${f.label} (--${f.key})", "${f.label} (--${f.key})"],'label_f_label_f_key_2':["${f.label} (--${f.key})", "${f.label} (--${f.key})"],'label_f_label_f_key_3':["${f.label} (--${f.key})", "${f.label} (--${f.key})"],'label_f_label_f_key_4':["${f.label} (--${f.key})", "${f.label} (--${f.key})"],'footer_dev_vault':["← Dev Vault", "← 开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtlword_buttons':["Buttons", "按钮"],'jtlword_primary':["Primary", "基本的"],'jtlword_secondary':["Secondary", "次要"],'jtlword_success':["Success", "成功"],'jtlword_danger':["Danger", "危险"],'jtlword_card':["Card", "卡片"],'jtlword_info':["Info", "信息"],'jtlword_action':["Action", "行动"],'jtlword_active':["Active", "积极的"],'jtlword_pending':["Pending", "待办的"],'jtlword_input':["Input", "输入"],'jtlword_badges':["Badges", "徽章"],'jtlword_primary_2':["Primary", "基本的"],'jtlword_success_2':["Success", "成功"],'jtlword_warning':["Warning", "警告"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ══════════════════════════════════════════════════════════════════════
 // STATE
@@ -1037,17 +1049,17 @@ function renderVariables() {
 
     wrap.innerHTML = `
       <div class="var-row">
-        <input class="input mono" placeholder="--var-name" value="${escHtml(v.name)}" data-field="name">
+        <input class="input mono" tp="placeholder_var_name" placeholder="--var-name" value="${escHtml(v.name)}" data-field="name">
         <div class="color-wrap">
           ${isCol ? `<input type="color" value="${escHtml(toHex(v.value))}" data-field="color-picker">` : ''}
-          <input class="input mono" placeholder="value" value="${escHtml(v.value)}" data-field="value">
+          <input class="input mono" tp="placeholder_value" placeholder="value" value="${escHtml(v.value)}" data-field="value">
         </div>
         <button class="btn-icon" title="Remove">
           <svg width="12" height="12" viewBox="0 0 14 14" fill="none"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg>
         </button>
       </div>
       <div class="var-row" style="grid-template-columns:1fr auto;gap:6px;margin-bottom:10px;margin-top:-2px">
-        <input class="input" placeholder="Description (optional)" value="${escHtml(v.description || '')}" data-field="description" style="font-size:12px;color:var(--text2)">
+        <input class="input" tp="placeholder_description_optional" placeholder="Description (optional)" value="${escHtml(v.description || '')}" data-field="description" style="font-size:12px;color:var(--text2)">
       </div>
     `;
 
@@ -1103,24 +1115,24 @@ function renderPreview() {
 
   area.innerHTML = `
     <div class="preview-section">
-      <h3>Buttons</h3>
+      <h3 ti="h3_buttons">Buttons</h3>
       <div class="preview-row">
-        <button class="pv-btn primary">Primary</button>
-        <button class="pv-btn secondary">Secondary</button>
-        <button class="pv-btn success">Success</button>
-        <button class="pv-btn danger">Danger</button>
+        <button class="pv-btn primary" ti="btn_primary">Primary</button>
+        <button class="pv-btn secondary" ti="btn_secondary">Secondary</button>
+        <button class="pv-btn success" ti="btn_success">Success</button>
+        <button class="pv-btn danger" ti="btn_danger">Danger</button>
       </div>
     </div>
 
     <div class="preview-section">
-      <h3>Card</h3>
+      <h3 ti="h3_card">Card</h3>
       <div class="preview-row">
         <div class="pv-card">
           <h4>Card Title</h4>
           <p>This card uses your CSS variables for background, border, shadow, and typography settings.</p>
           <div class="pv-card-footer">
             <span class="pv-badge info">Info</span>
-            <button class="pv-btn primary" style="padding:5px 12px;font-size:12px">Action</button>
+            <button class="pv-btn primary" style="padding:5px 12px;font-size:12px" ti="btn_action">Action</button>
           </div>
         </div>
         <div class="pv-card" style="flex:1;max-width:280px">
@@ -1135,7 +1147,7 @@ function renderPreview() {
     </div>
 
     <div class="preview-section">
-      <h3>Typography Scale</h3>
+      <h3 ti="h3_typography_scale">Typography Scale</h3>
       <div class="pv-text-scale">
         <div class="pv-t" style="font-size:var(--pv-font-size-2xl,32px);font-weight:700">2XL Heading <span>--font-size-2xl</span></div>
         <div class="pv-t" style="font-size:var(--pv-font-size-xl,24px);font-weight:600">XL Heading <span>--font-size-xl</span></div>
@@ -1149,14 +1161,14 @@ function renderPreview() {
     <hr class="pv-divider">
 
     <div class="preview-section">
-      <h3>Input</h3>
+      <h3 ti="h3_input">Input</h3>
       <div class="preview-row">
-        <input class="pv-input-demo" placeholder="Input field…" value="">
+        <input class="pv-input-demo" tp="placeholder_input_field" placeholder="Input field…" value="">
       </div>
     </div>
 
     <div class="preview-section">
-      <h3>Badges</h3>
+      <h3 ti="h3_badges">Badges</h3>
       <div class="preview-row">
         <span class="pv-badge info">Primary</span>
         <span class="pv-badge success">Success</span>
@@ -1165,7 +1177,7 @@ function renderPreview() {
     </div>
 
     <div class="preview-section">
-      <h3>Spacing Scale</h3>
+      <h3 ti="h3_spacing_scale">Spacing Scale</h3>
       <div class="pv-spacing-demo">
         ${[['xs','var(--pv-spacing-xs,4px)'],['sm','var(--pv-spacing-sm,8px)'],['base','var(--pv-spacing-base,16px)'],['lg','var(--pv-spacing-lg,24px)'],['xl','var(--pv-spacing-xl,32px)']].map(([l,s])=>`<div style="display:flex;flex-direction:column;align-items:center;gap:4px"><div class="pv-swatch" style="width:${s};height:${s}"></div><span style="font-size:10px;color:var(--text2)">${l}</span></div>`).join('')}
       </div>
@@ -1173,7 +1185,7 @@ function renderPreview() {
 
     ${colorVars.length > 0 ? `
     <div class="preview-section">
-      <h3>Color Palette</h3>
+      <h3 ti="h3_color_palette">Color Palette</h3>
       <div class="pv-color-row">
         ${colorVars.map(v => {
           const mapped = v.name.startsWith('--') ? v.name : '--' + v.name;
@@ -1195,7 +1207,7 @@ function buildThemeBuilder() {
   THEME_FIELDS.colors.forEach(f => {
     const div = document.createElement('div');
     div.className = 'theme-field';
-    div.innerHTML = `<label>${f.label}</label><div class="color-wrap"><input type="color" value="${f.default}" id="th-${f.key}-cp"><input class="input mono" value="${f.default}" id="th-${f.key}" style="font-size:12px"></div>`;
+    div.innerHTML = `<label ti="label_f_label">${f.label}</label><div class="color-wrap"><input type="color" value="${f.default}" id="th-${f.key}-cp"><input class="input mono" value="${f.default}" id="th-${f.key}" style="font-size:12px"></div>`;
     colGrid.appendChild(div);
     // Sync
     const cp = div.querySelector(`#th-${f.key}-cp`);
@@ -1212,7 +1224,7 @@ function buildThemeBuilder() {
     div.className = 'theme-field';
     div.style.marginBottom = '6px';
     if (f.wide) div.style.gridColumn = '1/-1';
-    div.innerHTML = `<label>${f.label} (--${f.key})</label><input class="input mono" value="${f.default}" id="th-${f.key}" style="font-size:12px">`;
+    div.innerHTML = `<label ti="label_f_label_f_key" ti="label_f_label_f_key_2" ti="label_f_label_f_key_3" ti="label_f_label_f_key_4">${f.label} (--${f.key})</label><input class="input mono" value="${f.default}" id="th-${f.key}" style="font-size:12px">`;
     typoGrid.appendChild(div);
     div.querySelector(`#th-${f.key}`).addEventListener('input', e => syncThemeField(f.key, e.target.value));
   });
@@ -1545,12 +1557,30 @@ renderPreview(); // Initial empty preview
 })();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-gradient/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Gradient</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
 <a href="https://gokuscraper.github.io/dev-vault/tailwind-converter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Tailwind Converter</a>
 <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Spacing Calc</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

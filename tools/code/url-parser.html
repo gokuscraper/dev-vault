@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_url_parser_decode_analyze" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,17 +73,19 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>URL Parser</h1>
-<p class="subtitle">Parse, decode, and analyze any URL.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<input type="text" class="url-input" id="urlInput" placeholder="Paste a URL here..." oninput="parse()" value="https://example.com:8080/api/users?name=John%20Doe&page=2&sort=desc#results">
+<div class="container" style="position:relative">
+<h1 ti="h1_url_parser">URL Parser</h1>
+<p class="subtitle" ti="subtitle_parse_decode_and_analyze">Parse, decode, and analyze any URL.</p>
+
+<input type="text" class="url-input" id="urlInput" tp="placeholder_paste_a_url_here" placeholder="Paste a URL here..." oninput="parse()" value="https://example.com:8080/api/users?name=John%20Doe&page=2&sort=desc#results">
 
 <div class="quick-row">
-  <button class="quick-btn" onclick="setUrl('https://api.github.com/repos/octocat/Hello-World/issues?state=open&per_page=30')">GitHub API</button>
-  <button class="quick-btn" onclick="setUrl('https://www.google.com/search?q=hello+world&hl=en&safe=active')">Google Search</button>
-  <button class="quick-btn" onclick="setUrl('postgres://user:pass@db.example.com:5432/mydb?sslmode=require')">Postgres DSN</button>
-  <button class="quick-btn" onclick="setUrl('mailto:user@example.com?subject=Hello&body=World')">mailto:</button>
+  <button class="quick-btn" onclick="setUrl('https://api.github.com/repos/octocat/Hello-World/issues?state=open&per_page=30')" ti="btn_github_api">GitHub API</button>
+  <button class="quick-btn" onclick="setUrl('https://www.google.com/search?q=hello+world&hl=en&safe=active')" ti="btn_google_search">Google Search</button>
+  <button class="quick-btn" onclick="setUrl('postgres://user:pass@db.example.com:5432/mydb?sslmode=require')" ti="btn_postgres_dsn">Postgres DSN</button>
+  <button class="quick-btn" onclick="setUrl('mailto:user@example.com?subject=Hello&body=World')" ti="btn_mailto">mailto:</button>
 </div>
 
 <div class="results" id="results">
@@ -92,24 +94,34 @@ footer a:hover{color:#999}
   <div class="parts-grid" id="partsGrid"></div>
 
   <div class="params-section" id="paramsSection">
-    <h3>Query Parameters</h3>
+    <h3 ti="h3_query_parameters">Query Parameters</h3>
     <div id="paramsContent"></div>
   </div>
 
   <div class="encode-section">
-    <button class="btn" onclick="encodeUrl()">URL Encode</button>
-    <button class="btn" onclick="decodeUrl()">URL Decode</button>
-    <button class="btn" onclick="copyUrl()">Copy Parsed</button>
-    <button class="btn" onclick="copyParams()">Copy Params as JSON</button>
+    <button class="btn" onclick="encodeUrl()" ti="btn_url_encode">URL Encode</button>
+    <button class="btn" onclick="decodeUrl()" ti="btn_url_decode">URL Decode</button>
+    <button class="btn" onclick="copyUrl()" ti="btn_copy_parsed">Copy Parsed</button>
+    <button class="btn" onclick="copyParams()" ti="btn_copy_params_as_json">Copy Params as JSON</button>
   </div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/url-parser">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/url-parser" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_url_parser_decode_analyze':["URL Parser — Decode & Analyze URLs", "URL解析器——解码和分析URL"],'metadesc_parse_and_analyze_urls_pr':["Parse and analyze URLs. Protocol, host, path, query params, fragment. Encode/decode. Free.", "解析和分析 URL。支持协议、主机、路径、查询参数和片段。支持编码/解码。免费。"],'h1_url_parser':["URL Parser", "URL解析器"],'h3_query_parameters':["Query Parameters", "查询参数"],'subtitle_parse_decode_and_analyze':["Parse, decode, and analyze any URL.", "解析、解码和分析任何URL。"],'btn_github_api':["GitHub API", "GitHub API"],'btn_google_search':["Google Search", "谷歌搜索"],'btn_postgres_dsn':["Postgres DSN", "Postgres DSN"],'btn_mailto':["mailto:", "邮件地址："],'btn_url_encode':["URL Encode", "URL编码"],'btn_url_decode':["URL Decode", "URL解码"],'btn_copy_parsed':["Copy Parsed", "已解析副本"],'btn_copy_params_as_json':["Copy Params as JSON", "将参数复制为 JSON"],'placeholder_paste_a_url_here':["Paste a URL here...", "在此粘贴网址……"],'strong_related_tools':["Related Tools", "相关工具"],'th_key':["Key", "钥匙"],'th_value':["Value", "价值"],'th_decoded':["Decoded", "解码"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtlword_key':["Key", "钥匙"],'jtlword_value':["Value", "价值"],'jtlword_decoded':["Decoded", "解码"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function setUrl(u){document.getElementById('urlInput').value=u;parse()}
 
@@ -171,7 +183,7 @@ function parse(){
   if(params.length>0){
     document.getElementById('paramsContent').innerHTML=`
       <table class="param-table">
-        <thead><tr><th>#</th><th>Key</th><th>Value</th><th>Decoded</th></tr></thead>
+        <thead><tr><th>#</th><th ti="th_key">Key</th><th ti="th_value">Value</th><th ti="th_decoded">Decoded</th></tr></thead>
         <tbody>${params.map(([k,v],i)=>`
           <tr>
             <td style="color:#555">${i+1}</td>
@@ -236,12 +248,30 @@ function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').repl
 parse();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/base64-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Base64 Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/meta-tags/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Meta Tags</a>
 <a href="https://gokuscraper.github.io/dev-vault/http-status/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Http Status</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

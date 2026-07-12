@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_screen_wake_lock_api_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -106,6 +106,8 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1>&#x1f4f1; Wake Lock <span>API</span> Playground</h1>
@@ -114,7 +116,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 
 <div class="support-bar" id="supportBar"></div>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div class="grid">
 
     <!-- Status & Controls -->
@@ -167,11 +169,11 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
         <div class="info-box warn">When a tab is hidden, the browser automatically releases the wake lock. You must reacquire it when the tab becomes visible again.</div>
 
         <div style="font-size:.85rem;margin-bottom:12px">
-          <div>Current visibility: <strong id="visibilityState">visible</strong></div>
-          <div>Document hidden: <strong id="docHidden">false</strong></div>
+          <div>Current visibility: <strong id="visibilityState" ti="strong_visible">visible</strong></div>
+          <div>Document hidden: <strong id="docHidden" ti="strong_false">false</strong></div>
         </div>
 
-        <label>Auto-reacquire Pattern</label>
+        <label ti="label_auto_reacquire_pattern">Auto-reacquire Pattern</label>
         <pre>document.addEventListener('visibilitychange', async () => {
   if (wakeLock !== null && document.visibilityState === 'visible') {
     wakeLock = await navigator.wakeLock.request('screen');
@@ -195,18 +197,18 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
             <div class="battery-fill" id="batteryFill" style="width:100%;background:var(--accent2)"></div>
           </div>
           <div class="battery-info">
-            <div>Level: <strong id="batteryLevel">N/A</strong></div>
+            <div>Level: <strong id="batteryLevel" ti="strong_n_a" ti="strong_n_a_2">N/A</strong></div>
             <div>Charging: <strong id="batteryCharging">N/A</strong></div>
           </div>
         </div>
 
         <div class="field" style="margin-top:12px">
-          <label>Minimum battery level (%)</label>
+          <label ti="label_minimum_battery_level">Minimum battery level (%)</label>
           <input type="range" id="minBattery" min="5" max="50" value="20" oninput="document.getElementById('minBatteryVal').textContent=this.value+'%'">
           <span id="minBatteryVal" style="font-size:.8rem;color:var(--text2)">20%</span>
         </div>
 
-        <label>Battery-Aware Pattern</label>
+        <label ti="label_battery_aware_pattern">Battery-Aware Pattern</label>
         <pre>async function smartWakeLock() {
   if (!('getBattery' in navigator)) {
     return navigator.wakeLock.request('screen');
@@ -220,7 +222,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
   console.warn('Battery too low for wake lock');
   return null;
 }</pre>
-        <button style="margin-top:8px" onclick="smartAcquire()">Try Smart Acquire</button>
+        <button style="margin-top:8px" onclick="smartAcquire()" ti="btn_try_smart_acquire">Try Smart Acquire</button>
       </div>
     </div>
 
@@ -273,7 +275,7 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
     <div class="card full">
       <div class="card-head">
         <h2><span class="icon">&#x1f4dc;</span> Event Log</h2>
-        <button onclick="clearLog()">Clear</button>
+        <button onclick="clearLog()" ti="btn_clear">Clear</button>
       </div>
       <div class="card-body">
         <div class="info-box info">Tracks wake lock acquisitions, releases, visibility changes, and the <code>release</code> event on <code>WakeLockSentinel</code>.</div>
@@ -287,9 +289,19 @@ footer{text-align:center;padding:2rem 1rem;color:var(--text2);font-size:.8rem;bo
 </div>
 
 <footer>
-  Screen Wake Lock API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a> project
+  Screen Wake Lock API Playground &mdash; A <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a> project
 </footer>
 
+
+<script>var _LANG={'title_screen_wake_lock_api_play':["Screen Wake Lock API Playground", "屏幕唤醒锁定 API 演示"],'metadesc_interactive_playground_fo':["Interactive playground for the Screen Wake Lock API — acquire and release wake locks, handle visibility changes, track lock duration, and explore use cases.", "屏幕唤醒锁定 API 的交互式游乐场——获取和释放唤醒锁、处理可见性更改、跟踪锁定持续时间以及探索用例。"],'btn_acquire_lock':["🔒 Acquire Lock", "🔒 获取锁定"],'btn_release_lock':["🔓 Release Lock", "🔓 释放锁定"],'btn_try_smart_acquire':["Try Smart Acquire", "尝试智能获取"],'btn_clear':["Clear", "清除"],'strong_visible':["visible", "可见的"],'strong_false':["false", "错误的"],'strong_n_a':["N/A", "不适用"],'strong_n_a_2':["N/A", "不适用"],'label_auto_reacquire_pattern':["Auto-reacquire Pattern", "自动重新获取模式"],'label_minimum_battery_level':["Minimum battery level (%)", "最低电池电量 (%)"],'label_battery_aware_pattern':["Battery-Aware Pattern", "电池感知模式"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtc_u_1f512':["\\u{1f512}", "\\u{1f512}"],'jtc_locked':["Locked", "已锁定"],'jtc_screen_will_stay_awake':["Screen will stay awake", "屏幕将保持唤醒状态"],'jtc_u_1f513':["\\u{1f513}", "\\u{1f513}"],'jtc_unlocked':["Unlocked", "已解锁"],'jtc_screen_can_dim_and_lock_n':["Screen can dim and lock normally", "屏幕可以正常变暗和锁定"],'jtc_00_00_00':["00:00:00", "00:00:00"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* ── Feature Detection ── */
 const hasWakeLock = 'wakeLock' in navigator;
@@ -389,18 +401,18 @@ function updateStatus(locked) {
 
   if (locked) {
     display.className = 'status-display locked';
-    icon.textContent = '\u{1f512}';
-    label.textContent = 'Locked';
+    icon.textContent=T("jtc_u_1f512");
+    label.textContent=T("jtc_locked");
     label.style.color = 'var(--accent2)';
-    sub.textContent = 'Screen will stay awake';
+    sub.textContent=T("jtc_screen_will_stay_awake");
     btnAcquire.disabled = true;
     btnRelease.disabled = false;
   } else {
     display.className = 'status-display unlocked';
-    icon.textContent = '\u{1f513}';
-    label.textContent = 'Unlocked';
+    icon.textContent=T("jtc_u_1f513");
+    label.textContent=T("jtc_unlocked");
     label.style.color = 'var(--err)';
-    sub.textContent = 'Screen can dim and lock normally';
+    sub.textContent=T("jtc_screen_can_dim_and_lock_n");
     btnAcquire.disabled = false;
     btnRelease.disabled = true;
   }
@@ -422,7 +434,7 @@ function startTimer() {
 
 function stopTimer() {
   if (timerInterval) { clearInterval(timerInterval); timerInterval = null; }
-  if (!lockStartTime) document.getElementById('timerDisplay').textContent = '00:00:00';
+  if (!lockStartTime) document.getElementById('timerDisplay').textContent=T("jtc_00_00_00");
 }
 
 function updateTimer() {
@@ -670,6 +682,24 @@ if (!hasWakeLock) {
 } else {
   addLog('Wake Lock API available. Ready to acquire.', 'info');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

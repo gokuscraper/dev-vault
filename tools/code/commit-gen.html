@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_commit_message_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -48,61 +48,73 @@ textarea{font-family:'Fira Code',monospace;resize:vertical}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Commit Message Generator</h1>
-<p class="sub">Build conventional commit messages</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_commit_message_generator">Commit Message Generator</h1>
+<p class="sub" ti="subtitle_build_conventional_commit">Build conventional commit messages</p>
 
 <div class="section">
-<h3>Type</h3>
+<h3 ti="h3_type">Type</h3>
 <div class="type-grid" id="typeGrid"></div>
 </div>
 
 <div class="section">
-<h3>Header</h3>
+<h3 ti="h3_header">Header</h3>
 <div class="row">
-<div class="col" style="max-width:200px"><label>Scope (optional)</label><input id="scope" oninput="gen()" placeholder="api, auth, ui..."></div>
-<div class="col"><label>Description (imperative mood)</label><input id="desc" oninput="gen()" placeholder="add login endpoint" maxlength="100"></div>
+<div class="col" style="max-width:200px"><label ti="label_scope_optional">Scope (optional)</label><input id="scope" oninput="gen()" tp="placeholder_api_auth_ui" placeholder="api, auth, ui..."></div>
+<div class="col"><label ti="label_description_imperative_mo">Description (imperative mood)</label><input id="desc" oninput="gen()" tp="placeholder_add_login_endpoint" placeholder="add login endpoint" maxlength="100"></div>
 </div>
 <div class="char-count" id="headerCount"></div>
 </div>
 
 <div class="section">
-<h3>Body (optional)</h3>
-<textarea id="body" rows="3" oninput="gen()" placeholder="Explain what and why, not how..."></textarea>
+<h3 ti="h3_body_optional">Body (optional)</h3>
+<textarea id="body" rows="3" oninput="gen()" tp="placeholder_explain_what_and_why_not" placeholder="Explain what and why, not how..."></textarea>
 </div>
 
 <div class="section">
-<h3>Footer (optional)</h3>
-<div class="check-row"><input type="checkbox" id="isBreaking" onchange="gen()"><label for="isBreaking">BREAKING CHANGE</label></div>
+<h3 ti="h3_footer_optional">Footer (optional)</h3>
+<div class="check-row"><input type="checkbox" id="isBreaking" onchange="gen()"><label for="isBreaking" ti="label_breaking_change">BREAKING CHANGE</label></div>
 <div id="breakingRow" style="display:none;margin-bottom:10px">
-<label>Breaking change description</label>
-<input id="breakingDesc" oninput="gen()" placeholder="The API endpoint now requires authentication">
+<label ti="label_breaking_change_descripti">Breaking change description</label>
+<input id="breakingDesc" oninput="gen()" tp="placeholder_the_api_endpoint_now_requ" placeholder="The API endpoint now requires authentication">
 </div>
 <div class="row">
-<div class="col"><label>Closes issue (optional)</label><input id="closes" oninput="gen()" placeholder="#123, #456"></div>
-<div class="col"><label>Co-authored-by (optional)</label><input id="coauthor" oninput="gen()" placeholder="Name <email>"></div>
+<div class="col"><label ti="label_closes_issue_optional">Closes issue (optional)</label><input id="closes" oninput="gen()" tp="placeholder_123_456" placeholder="#123, #456"></div>
+<div class="col"><label ti="label_co_authored_by_optional">Co-authored-by (optional)</label><input id="coauthor" oninput="gen()" tp="placeholder_name_email" placeholder="Name <email>"></div>
 </div>
-<div class="check-row"><input type="checkbox" id="useEmoji" onchange="gen()"><label for="useEmoji">Include emoji prefix (gitmoji)</label></div>
+<div class="check-row"><input type="checkbox" id="useEmoji" onchange="gen()"><label for="useEmoji" ti="label_include_emoji_prefix_gitm">Include emoji prefix (gitmoji)</label></div>
 </div>
 
 <div class="section">
-<h3>Preview</h3>
+<h3 ti="h3_preview">Preview</h3>
 <div class="preview"><pre id="preview"></pre></div>
 </div>
 
 <div class="section">
-<h3>Git Command</h3>
+<h3 ti="h3_git_command">Git Command</h3>
 <div class="output">
-<button class="copy-btn" onclick="copyCmd()">Copy</button>
+<button class="copy-btn" onclick="copyCmd()" ti="btn_copy">Copy</button>
 <pre id="cmd"></pre>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/git-cheatsheet/">Git Cheatsheet</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-gen/">README Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/diff-text/">Diff Text</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/git-cheatsheet/" ti="link_git_cheatsheet">Git Cheatsheet</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-gen/" ti="link_readme_gen">README Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/diff-text/" ti="link_diff_text">Diff Text</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_commit_message_generator':["Commit Message Generator — Conventional Commits Builder", "提交消息生成器 — 传统提交构建器"],'metadesc_generate_conventional_com':["Generate conventional commit messages. Type, scope, description, body, breaking changes, co-authors. Copy git command.", "生成规范的提交信息。包括类型、范围、描述、正文、重大变更、共同作者。复制 git 命令。"],'h1_commit_message_generator':["Commit Message Generator", "提交消息生成器"],'h3_type':["Type", "类型"],'h3_header':["Header", "标题"],'h3_body_optional':["Body (optional)", "正文（可选）"],'h3_footer_optional':["Footer (optional)", "页脚（可选）"],'h3_preview':["Preview", "预览"],'h3_git_command':["Git Command", "Git 命令"],'subtitle_build_conventional_commit':["Build conventional commit messages", "构建常规的提交消息"],'btn_copy':["Copy", "复制"],'placeholder_api_auth_ui':["api, auth, ui...", "API、身份验证、用户界面……"],'placeholder_add_login_endpoint':["add login endpoint", "添加登录端点"],'placeholder_explain_what_and_why_not':["Explain what and why, not how...", "解释是什么以及为什么，而不是如何做……"],'placeholder_the_api_endpoint_now_requ':["The API endpoint now requires authentication", "API 端点现在需要身份验证"],'placeholder_123_456':["#123, #456", "#123，#456"],'placeholder_name_email':["Name <email>", "姓名<email>"],'label_scope_optional':["Scope (optional)", "范围（可选）"],'label_description_imperative_mo':["Description (imperative mood)", "描述（祈使语气）"],'label_breaking_change':["BREAKING CHANGE", "重大变革"],'label_breaking_change_descripti':["Breaking change description", "重大变更描述"],'label_closes_issue_optional':["Closes issue (optional)", "关闭问题（可选）"],'label_co_authored_by_optional':["Co-authored-by (optional)", "共同作者（可选）"],'label_include_emoji_prefix_gitm':["Include emoji prefix (gitmoji)", "添加表情符号前缀（gitmoji）"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_git_cheatsheet':["Git Cheatsheet", "Git 速查表"],'link_readme_gen':["README Gen", "README Gen"],'link_diff_text':["Diff Text", "差异文本"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const TYPES=[
   {name:'feat',emoji:'✨',desc:'New feature'},
@@ -179,6 +191,24 @@ function copyCmd(){
 
 initTypes();
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

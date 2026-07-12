@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_subgrid_playground_de" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,10 +117,12 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--acce
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header class="header">
     <h1>CSS <span>Subgrid</span> Playground</h1>
-    <h2>Align nested grids to parent tracks</h2>
+    <h2 ti="h2_align_nested_grids_to_par">Align nested grids to parent tracks</h2>
   </header>
 
   <div class="main">
@@ -129,10 +131,10 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--acce
       <div class="panel">
         <div class="panel-title">Presets</div>
         <div class="presets">
-          <button class="preset-btn active" data-preset="card">Card Grid</button>
-          <button class="preset-btn" data-preset="form">Form Layout</button>
-          <button class="preset-btn" data-preset="dashboard">Dashboard</button>
-          <button class="preset-btn" data-preset="table">Table-like</button>
+          <button class="preset-btn active" data-preset="card" ti="btn_card_grid">Card Grid</button>
+          <button class="preset-btn" data-preset="form" ti="btn_form_layout">Form Layout</button>
+          <button class="preset-btn" data-preset="dashboard" ti="btn_dashboard">Dashboard</button>
+          <button class="preset-btn" data-preset="table" ti="btn_table_like">Table-like</button>
         </div>
       </div>
 
@@ -205,7 +207,7 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--acce
 
       <!-- Compare Tab -->
       <div class="tab-content" id="tab-compare">
-        <h3>Side-by-Side: Subgrid vs No Subgrid</h3>
+        <h3 ti="h3_side_by_side_subgrid_vs_n">Side-by-Side: Subgrid vs No Subgrid</h3>
         <div class="comparison">
           <div class="compare-box">
             <div class="compare-title"><span class="badge badge-on">With Subgrid</span></div>
@@ -220,9 +222,9 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--acce
 
       <!-- Code Tab -->
       <div class="tab-content" id="tab-code">
-        <h3>Generated CSS</h3>
+        <h3 ti="h3_generated_css">Generated CSS</h3>
         <div class="code-area">
-          <button class="copy-btn" id="copyBtn">Copy CSS</button>
+          <button class="copy-btn" id="copyBtn" ti="btn_copy_css">Copy CSS</button>
           <div class="code-block" id="codeOutput"></div>
         </div>
       </div>
@@ -230,6 +232,16 @@ input[type=range]::-moz-range-thumb{width:14px;height:14px;background:var(--acce
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_subgrid_playground_de':["CSS Subgrid Playground — Dev Vault", "CSS 子网格练习场 — 开发者宝库"],'metadesc_interactive_css_subgrid_p':["Interactive CSS subgrid playground. Align nested grids to parent tracks. Visual builder with presets.", "交互式 CSS 子网格示例。将嵌套网格与父轨道对齐。带有预设的可视化构建器。"],'h2_align_nested_grids_to_par':["Align nested grids to parent tracks", "将嵌套网格与父轨道对齐"],'h3_side_by_side_subgrid_vs_n':["Side-by-Side: Subgrid vs No Subgrid", "并排比较：带子网格 vs 不带子网格"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'btn_card_grid':["Card Grid", "卡片网格"],'btn_form_layout':["Form Layout", "表单布局"],'btn_dashboard':["Dashboard", "仪表板"],'btn_table_like':["Table-like", "桌子状"],'btn_copy_css':["Copy CSS", "复制 CSS"],'footer_css_subgrid_playground_de':["CSS Subgrid Playground — Dev Vault", "CSS 子网格练习场 — 开发者宝库"],'jtc_subgrid_off':["subgrid off", "子网格关闭"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_css':["Copy CSS", "复制 CSS"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = s => document.querySelector(s);
 const $$ = s => document.querySelectorAll(s);
@@ -537,7 +549,7 @@ function updateBadge() {
     badge.textContent = `subgrid: ${parts.join(' + ')}`;
     badge.className = 'badge badge-on';
   } else {
-    badge.textContent = 'subgrid off';
+    badge.textContent=T("jtc_subgrid_off");
     badge.className = 'badge badge-off';
   }
 }
@@ -681,14 +693,32 @@ $('#copyBtn').addEventListener('click', () => {
   const css = getPlainCSS();
   navigator.clipboard.writeText(css).then(() => {
     const btn = $('#copyBtn');
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy CSS'; btn.classList.remove('copied'); }, 1500);
+    setTimeout(() => { btn.textContent=T("jtc_copy_css"); btn.classList.remove('copied'); }, 1500);
   });
 });
 
 // Init
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

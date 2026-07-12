@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_svg_optimizer_clean_minif" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -63,58 +63,60 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>SVG Optimizer</h1>
-<p class="sub">Clean, minify, and preview SVG code</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_svg_optimizer">SVG Optimizer</h1>
+<p class="sub" ti="subtitle_clean_minify_and_preview">Clean, minify, and preview SVG code</p>
 
 <div class="presets">
-  <button class="preset" onclick="loadSample(0)">Simple Icon</button>
-  <button class="preset" onclick="loadSample(1)">Logo Shape</button>
-  <button class="preset" onclick="loadSample(2)">Illustration</button>
+  <button class="preset" onclick="loadSample(0)" ti="btn_simple_icon">Simple Icon</button>
+  <button class="preset" onclick="loadSample(1)" ti="btn_logo_shape">Logo Shape</button>
+  <button class="preset" onclick="loadSample(2)" ti="btn_illustration">Illustration</button>
 </div>
 
 <div class="layout">
 <div class="left-col">
 
   <div class="section">
-    <h3>Input</h3>
+    <h3 ti="h3_input">Input</h3>
     <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
       Drop SVG file here or click to upload
       <input type="file" id="fileInput" accept=".svg,image/svg+xml">
     </div>
     <div class="field">
-      <label>SVG Code</label>
-      <textarea id="svgInput" placeholder="Paste your SVG code here..."></textarea>
+      <label ti="label_svg_code">SVG Code</label>
+      <textarea id="svgInput" tp="placeholder_paste_your_svg_code_here" placeholder="Paste your SVG code here..."></textarea>
     </div>
   </div>
 
   <div class="section">
-    <h3>Optimization Options</h3>
-    <div class="check-row"><input type="checkbox" id="optComments" checked><label for="optComments">Remove comments</label></div>
-    <div class="check-row"><input type="checkbox" id="optXml" checked><label for="optXml">Remove XML declaration</label></div>
-    <div class="check-row"><input type="checkbox" id="optDoctype" checked><label for="optDoctype">Remove DOCTYPE</label></div>
-    <div class="check-row"><input type="checkbox" id="optMetadata" checked><label for="optMetadata">Remove metadata</label></div>
-    <div class="check-row"><input type="checkbox" id="optEmptyGroups" checked><label for="optEmptyGroups">Remove empty groups</label></div>
-    <div class="check-row"><input type="checkbox" id="optEditorNs" checked><label for="optEditorNs">Remove editor namespaces</label></div>
-    <div class="check-row"><input type="checkbox" id="optEditorAttrs" checked><label for="optEditorAttrs">Remove editor attributes</label></div>
-    <div class="check-row"><input type="checkbox" id="optWhitespace" checked><label for="optWhitespace">Minify whitespace</label></div>
-    <div class="check-row"><input type="checkbox" id="optDefaults" checked><label for="optDefaults">Remove default attribute values</label></div>
-    <div class="check-row"><input type="checkbox" id="optStyles" checked><label for="optStyles">Clean style attributes</label></div>
-    <div class="check-row"><input type="checkbox" id="optColors" checked><label for="optColors">Shorten color values</label></div>
+    <h3 ti="h3_optimization_options">Optimization Options</h3>
+    <div class="check-row"><input type="checkbox" id="optComments" checked><label for="optComments" ti="label_remove_comments">Remove comments</label></div>
+    <div class="check-row"><input type="checkbox" id="optXml" checked><label for="optXml" ti="label_remove_xml_declaration">Remove XML declaration</label></div>
+    <div class="check-row"><input type="checkbox" id="optDoctype" checked><label for="optDoctype" ti="label_remove_doctype">Remove DOCTYPE</label></div>
+    <div class="check-row"><input type="checkbox" id="optMetadata" checked><label for="optMetadata" ti="label_remove_metadata">Remove metadata</label></div>
+    <div class="check-row"><input type="checkbox" id="optEmptyGroups" checked><label for="optEmptyGroups" ti="label_remove_empty_groups">Remove empty groups</label></div>
+    <div class="check-row"><input type="checkbox" id="optEditorNs" checked><label for="optEditorNs" ti="label_remove_editor_namespaces">Remove editor namespaces</label></div>
+    <div class="check-row"><input type="checkbox" id="optEditorAttrs" checked><label for="optEditorAttrs" ti="label_remove_editor_attributes">Remove editor attributes</label></div>
+    <div class="check-row"><input type="checkbox" id="optWhitespace" checked><label for="optWhitespace" ti="label_minify_whitespace">Minify whitespace</label></div>
+    <div class="check-row"><input type="checkbox" id="optDefaults" checked><label for="optDefaults" ti="label_remove_default_attribute">Remove default attribute values</label></div>
+    <div class="check-row"><input type="checkbox" id="optStyles" checked><label for="optStyles" ti="label_clean_style_attributes">Clean style attributes</label></div>
+    <div class="check-row"><input type="checkbox" id="optColors" checked><label for="optColors" ti="label_shorten_color_values">Shorten color values</label></div>
   </div>
 
 </div>
 <div class="right-col">
 
   <div class="section">
-    <h3>Preview</h3>
+    <h3 ti="h3_preview">Preview</h3>
     <div class="preview-box" id="previewBox">
       <span style="color:#555;font-size:0.8rem">Paste SVG to preview</span>
     </div>
   </div>
 
   <div class="section">
-    <h3>Statistics</h3>
+    <h3 ti="h3_statistics">Statistics</h3>
     <div class="stats-grid">
       <div class="stat"><div class="stat-label">Original Size</div><div class="stat-value" id="statOriginal">—</div></div>
       <div class="stat"><div class="stat-label">Optimized Size</div><div class="stat-value" id="statOptimized">—</div></div>
@@ -126,9 +128,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
   </div>
 
   <div class="section">
-    <h3>Output</h3>
+    <h3 ti="h3_output">Output</h3>
     <div class="toggle-row">
-      <label for="outputFormat">Format:</label>
+      <label for="outputFormat" ti="label_format">Format:</label>
       <select id="outputFormat" onchange="optimize()">
         <option value="pretty">Pretty-print</option>
         <option value="minified">Minified</option>
@@ -136,22 +138,32 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
     </div>
     <div class="output-area" id="outputArea">Optimized SVG will appear here...</div>
     <div class="actions">
-      <button class="btn btn-primary" onclick="copySvg()">Copy SVG</button>
-      <button class="btn" onclick="downloadSvg()">Download</button>
-      <button class="btn" onclick="copyDataUri()">Copy Data URI</button>
-      <button class="btn" onclick="copyCssBg()">Copy CSS BG</button>
+      <button class="btn btn-primary" onclick="copySvg()" ti="btn_copy_svg">Copy SVG</button>
+      <button class="btn" onclick="downloadSvg()" ti="btn_download">Download</button>
+      <button class="btn" onclick="copyDataUri()" ti="btn_copy_data_uri">Copy Data URI</button>
+      <button class="btn" onclick="copyCssBg()" ti="btn_copy_css_bg">Copy CSS BG</button>
     </div>
   </div>
 
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/svg-preview/">SVG Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/image-to-base64/">Image to Base64</a> | <a href="https://gokuscraper.github.io/dev-vault/html-minifier/">HTML Minifier</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/svg-preview/" ti="link_svg_preview">SVG Preview</a> | <a href="https://gokuscraper.github.io/dev-vault/image-to-base64/" ti="link_image_to_base64">Image to Base64</a> | <a href="https://gokuscraper.github.io/dev-vault/html-minifier/" ti="link_html_minifier">HTML Minifier</a></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_svg_optimizer_clean_minif':["SVG Optimizer — Clean, Minify & Preview SVG Code", "SVG优化器 — 清理、压缩和预览SVG代码"],'metadesc_optimize_svg_files_remove':["Optimize SVG files. Remove comments, metadata, editor attributes. Minify whitespace. Preview live. Copy as data URI. No upload needed.", "优化 SVG 文件。移除注释、元数据和编辑器属性。压缩空白字符。实时预览。复制为数据 URI。无需上传。"],'h1_svg_optimizer':["SVG Optimizer", "SVG优化器"],'h3_input':["Input", "输入"],'h3_optimization_options':["Optimization Options", "优化选项"],'h3_preview':["Preview", "预览"],'h3_statistics':["Statistics", "统计数据"],'h3_output':["Output", "输出"],'subtitle_clean_minify_and_preview':["Clean, minify, and preview SVG code", "清理、压缩和预览 SVG 代码"],'btn_simple_icon':["Simple Icon", "简单图标"],'btn_logo_shape':["Logo Shape", "标志形状"],'btn_illustration':["Illustration", "插图"],'btn_copy_svg':["Copy SVG", "复制 SVG"],'btn_download':["Download", "下载"],'btn_copy_data_uri':["Copy Data URI", "复制数据 URI"],'btn_copy_css_bg':["Copy CSS BG", "复制 CSS 背景"],'placeholder_paste_your_svg_code_here':["Paste your SVG code here...", "请将您的SVG代码粘贴到这里……"],'label_svg_code':["SVG Code", "SVG 代码"],'label_remove_comments':["Remove comments", "删除评论"],'label_remove_xml_declaration':["Remove XML declaration", "删除 XML 声明"],'label_remove_doctype':["Remove DOCTYPE", "移除 DOCTYPE"],'label_remove_metadata':["Remove metadata", "移除元数据"],'label_remove_empty_groups':["Remove empty groups", "移除空组"],'label_remove_editor_namespaces':["Remove editor namespaces", "移除编辑器命名空间"],'label_remove_editor_attributes':["Remove editor attributes", "移除编辑器属性"],'label_minify_whitespace':["Minify whitespace", "减少空格"],'label_remove_default_attribute':["Remove default attribute values", "移除默认属性值"],'label_clean_style_attributes':["Clean style attributes", "简洁的风格属性"],'label_shorten_color_values':["Shorten color values", "缩短颜色值"],'label_format':["Format:", "格式："],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_svg_preview':["SVG Preview", "SVG预览"],'link_image_to_base64':["Image to Base64", "图像转换为 Base64"],'link_html_minifier':["HTML Minifier", "HTML 压缩器"],'jtc_optimized_svg_will_appear':["Optimized SVG will appear here...", "优化后的SVG将显示在此处……"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const samples = [
   `<?xml version="1.0" encoding="UTF-8"?>
@@ -377,7 +389,7 @@ function optimize() {
   const raw = input.value;
   if (!raw.trim()) {
     document.getElementById('previewBox').innerHTML = '<span style="color:#555;font-size:0.8rem">Paste SVG to preview</span>';
-    document.getElementById('outputArea').textContent = 'Optimized SVG will appear here...';
+    document.getElementById('outputArea').textContent=T("jtc_optimized_svg_will_appear");
     ['statOriginal','statOptimized','statSavings','statElements','statPaths','statDimensions'].forEach(id => {
       document.getElementById(id).textContent = '—';
     });
@@ -478,6 +490,24 @@ function copyCssBg() {
   const encoded = 'url("data:image/svg+xml,' + encodeURIComponent(optimizedSvg) + '")';
   navigator.clipboard.writeText(encoded).then(() => showToast('CSS background copied'));
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

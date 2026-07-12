@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_regex_engine_visualize" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -80,26 +80,28 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Regex Engine Visualizer</h1>
+<h1 ti="title_js_regex_engine_visualize" ti="h1_js_regex_engine_visualize">JS Regex Engine Visualizer</h1>
 <p>Step through regex matching: NFA states, backtracking, and character consumption</p>
 </header>
 <div class="app">
 <div class="input-bar">
-<label>Regex:</label>
-<input id="regexInput" value="a(b|c)*d" placeholder="/pattern/">
-<label>String:</label>
-<input id="stringInput" value="abcbd" placeholder="test string">
-<button onclick="startMatch()" style="background:#7c4dff;color:#fff;border:1px solid #7c4dff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:.8rem">Run</button>
+<label ti="label_regex">Regex:</label>
+<input id="regexInput" value="a(b|c)*d" tp="placeholder_pattern" placeholder="/pattern/">
+<label ti="label_string">String:</label>
+<input id="stringInput" value="abcbd" tp="placeholder_test_string" placeholder="test string">
+<button onclick="startMatch()" style="background:#7c4dff;color:#fff;border:1px solid #7c4dff;padding:6px 14px;border-radius:4px;cursor:pointer;font-size:.8rem" ti="btn_run">Run</button>
 <div class="presets">
-<button class="active" onclick="loadPreset(0,this)">Alternation</button>
-<button onclick="loadPreset(1,this)">Greedy★</button>
-<button onclick="loadPreset(2,this)">Lazy★?</button>
-<button onclick="loadPreset(3,this)">Backtrack</button>
-<button onclick="loadPreset(4,this)">Catastrophic</button>
-<button onclick="loadPreset(5,this)">Anchors</button>
-<button onclick="loadPreset(6,this)">Groups</button>
-<button onclick="loadPreset(7,this)">Lookahead</button>
+<button class="active" onclick="loadPreset(0,this)" ti="btn_alternation">Alternation</button>
+<button onclick="loadPreset(1,this)" ti="btn_greedy">Greedy★</button>
+<button onclick="loadPreset(2,this)" ti="btn_lazy">Lazy★?</button>
+<button onclick="loadPreset(3,this)" ti="btn_backtrack">Backtrack</button>
+<button onclick="loadPreset(4,this)" ti="btn_catastrophic">Catastrophic</button>
+<button onclick="loadPreset(5,this)" ti="btn_anchors">Anchors</button>
+<button onclick="loadPreset(6,this)" ti="btn_groups">Groups</button>
+<button onclick="loadPreset(7,this)" ti="btn_lookahead">Lookahead</button>
 </div>
 </div>
 <div class="main">
@@ -107,24 +109,24 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 <button id="prevBtn" onclick="prevStep()" disabled>&larr; Prev</button>
 <button id="nextBtn" onclick="nextStep()">Next &rarr;</button>
 <button id="autoBtn" onclick="toggleAuto()">&#9654; Auto</button>
-<button onclick="resetSteps()">Reset</button>
+<button onclick="resetSteps()" ti="btn_reset">Reset</button>
 <span class="step-info" id="stepInfo">Step 0 / 0</span>
 </div>
 <div class="string-view">
-<h3>Input String</h3>
+<h3 ti="h3_input_string">Input String</h3>
 <div class="char-row" id="charRow"></div>
 </div>
 <div class="nfa-view">
-<h3>NFA State Graph</h3>
+<h3 ti="h3_nfa_state_graph">NFA State Graph</h3>
 <div class="nfa-canvas" id="nfaCanvas"></div>
 </div>
 <div class="log-view">
-<h3>Execution Log</h3>
+<h3 ti="h3_execution_log">Execution Log</h3>
 <div id="logEntries"></div>
 </div>
 </div>
 <div class="sidebar">
-<h3>Details</h3>
+<h3 ti="h3_details">Details</h3>
 <div id="details">
 <div class="detail-box">
 <h4>How It Works</h4>
@@ -148,7 +150,7 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 <div class="detail-box">
 <h4>Reference</h4>
 <table>
-<tr><th>Concept</th><th>Description</th></tr>
+<tr><th ti="th_concept">Concept</th><th ti="th_description">Description</th></tr>
 <tr><td>NFA</td><td>Non-deterministic finite automaton. Multiple paths explored via backtracking</td></tr>
 <tr><td>Backtracking</td><td>Engine returns to previous choice point when current path fails</td></tr>
 <tr><td>Greedy</td><td>Quantifiers (*, +, {n,m}) match as much as possible first</td></tr>
@@ -157,7 +159,7 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 <tr><td>Lookahead</td><td>(?=...) asserts what follows without consuming characters</td></tr>
 </table>
 <table>
-<tr><th>Symbol</th><th>Meaning</th></tr>
+<tr><th ti="th_symbol">Symbol</th><th ti="th_meaning">Meaning</th></tr>
 <tr><td>ε</td><td>Epsilon transition (no character consumed)</td></tr>
 <tr><td>●</td><td>Start state</td></tr>
 <tr><td>◎</td><td>Accept state (match found)</td></tr>
@@ -167,6 +169,16 @@ td{padding:4px 8px;border-bottom:1px solid #1a1a1a;color:#aaa}
 </div>
 </div>
 
+
+<script>var _LANG={'title_js_regex_engine_visualize':["JS Regex Engine Visualizer", "JS 正则表达式引擎可视化工具"],'metadesc_interactive_regex_engine':["Interactive regex engine visualizer showing NFA state transitions, backtracking, and match steps", "交互式正则表达式引擎可视化工具，展示 NFA 状态转换、回溯和匹配步骤"],'h1_js_regex_engine_visualize':["JS Regex Engine Visualizer", "JS 正则表达式引擎可视化工具"],'h3_input_string':["Input String", "输入字符串"],'h3_nfa_state_graph':["NFA State Graph", "NFA状态图"],'h3_execution_log':["Execution Log", "执行日志"],'h3_details':["Details", "细节"],'btn_run':["Run", "跑步"],'btn_alternation':["Alternation", "交替"],'btn_greedy':["Greedy★", "贪婪★"],'btn_lazy':["Lazy★?", "懒惰★？"],'btn_backtrack':["Backtrack", "回溯"],'btn_catastrophic':["Catastrophic", "灾难性的"],'btn_anchors':["Anchors", "锚"],'btn_groups':["Groups", "团体"],'btn_lookahead':["Lookahead", "展望未来"],'btn_prev':["← Prev", "← 上一页"],'btn_next':["Next →", "下一页 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'placeholder_pattern':["/pattern/", "/图案/"],'placeholder_test_string':["test string", "测试字符串"],'th_concept':["Concept", "概念"],'th_description':["Description", "描述"],'th_symbol':["Symbol", "象征"],'th_meaning':["Meaning", "意义"],'label_regex':["Regex:", "正则表达式："],'label_string':["String:", "细绳："],'jtc_auto':["▶ Auto", "▶ 自动"],'jtc_parse_error':["Parse error:", "解析错误："],'jtc_reset_press_next_to_begin':["Reset. Press Next to begin.", "重置。按“下一步”开始。"],'jtc_auto_2':["▶ Auto", "▶ 自动"],'jtc_auto_3':["▶ Auto", "▶ 自动"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtcpre_parse_error':["Parse error: ", "解析错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const presets=[
 {regex:'a(b|c)*d',str:'abcbd',desc:'Alternation with Kleene star. Engine tries b|c repeatedly, then matches d.'},
@@ -530,13 +542,13 @@ function breakdownRegex(pattern){
 
 let nfa=null;
 function startMatch(){
-  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent='▶ Auto';}
+  if(autoTimer){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent=T("jtc_auto");}
   const pattern=document.getElementById('regexInput').value;
   const str=document.getElementById('stringInput').value;
   try{
     nfa=buildNFA(pattern);
   }catch(e){
-    document.getElementById('stepDetail').textContent='Parse error: '+e.message;
+    document.getElementById('stepDetail').textContent=T("jtcpre_parse_error")+e.message;
     return;
   }
   const result=simulateMatch(nfa,str);
@@ -606,25 +618,43 @@ function resetSteps(){
   document.getElementById('stepInfo').textContent=`Step 0 / ${steps.length}`;
   document.getElementById('prevBtn').disabled=true;
   document.getElementById('nextBtn').disabled=steps.length===0;
-  document.getElementById('stepDetail').textContent='Reset. Press Next to begin.';
+  document.getElementById('stepDetail').textContent=T("jtc_reset_press_next_to_begin");
 }
 
 function toggleAuto(){
   if(autoTimer){
     clearInterval(autoTimer);autoTimer=null;
-    document.getElementById('autoBtn').textContent='▶ Auto';
+    document.getElementById('autoBtn').textContent=T("jtc_auto");
   }else{
     if(curStep>=steps.length-1)resetSteps();
     autoTimer=setInterval(()=>{
-      if(curStep>=steps.length-1){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent='▶ Auto';return;}
+      if(curStep>=steps.length-1){clearInterval(autoTimer);autoTimer=null;document.getElementById('autoBtn').textContent=T("jtc_auto");return;}
       nextStep();
     },400);
-    document.getElementById('autoBtn').textContent='⏸ Pause';
+    document.getElementById('autoBtn').textContent=T("jtc_pause");
   }
 }
 
 // Init
 startMatch();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

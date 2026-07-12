@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_fullscreen_api_playground" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -165,12 +165,14 @@ button.fs-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Fullscreen API Playground</h1>
+  <h1 ti="title_fullscreen_api_playground" ti="h1_fullscreen_api_playground">Fullscreen API Playground</h1>
   <p>Element-level fullscreen, CSS :fullscreen pseudo-class, orientation lock, and interactive demos</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="no-support" class="no-support" style="display:none;">
     Your browser does not support the Fullscreen API.
   </div>
@@ -178,7 +180,7 @@ button.fs-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
   <div id="main-content">
     <!-- Status -->
     <div class="card">
-      <h2>📊 Fullscreen Status</h2>
+      <h2 ti="h2_fullscreen_status">📊 Fullscreen Status</h2>
       <div class="status-bar">
         <div class="status-indicator">
           <div class="status-dot off" id="fs-dot"></div>
@@ -192,10 +194,10 @@ button.fs-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
     <!-- requestFullscreen with Options -->
     <div class="card">
-      <h2>🖥️ requestFullscreen() with Options</h2>
+      <h2 ti="h2_requestfullscreen_with_o">🖥️ requestFullscreen() with Options</h2>
       <div class="options-panel">
         <div class="option-group">
-          <label>Navigation UI</label>
+          <label ti="label_navigation_ui">Navigation UI</label>
           <select id="nav-ui-select">
             <option value="auto">auto (default)</option>
             <option value="hide">hide</option>
@@ -203,15 +205,15 @@ button.fs-btn:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
           </select>
         </div>
         <div class="option-group">
-          <label>Target Element</label>
+          <label ti="label_target_element">Target Element</label>
           <select id="target-select">
             <option value="document">Document (html)</option>
             <option value="custom-box">Custom Box (below)</option>
             <option value="canvas-box">Canvas Demo</option>
           </select>
         </div>
-        <button class="fs-btn" id="enter-fs-btn">Enter Fullscreen</button>
-        <button class="fs-btn exit" id="exit-fs-btn" disabled>Exit Fullscreen</button>
+        <button class="fs-btn" id="enter-fs-btn" ti="btn_enter_fullscreen" ti="btn_enter_fullscreen_2">Enter Fullscreen</button>
+        <button class="fs-btn exit" id="exit-fs-btn" disabled ti="btn_exit_fullscreen" ti="btn_exit_fullscreen_2">Exit Fullscreen</button>
       </div>
       <div class="code-block" id="code-preview">// Click "Enter Fullscreen" to see the generated code
 document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
@@ -219,7 +221,7 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
 
     <!-- Element-Level Fullscreen Demos -->
     <div class="card">
-      <h2>🎯 Element-Level Fullscreen</h2>
+      <h2 ti="h2_element_level_fullscreen">🎯 Element-Level Fullscreen</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">
         Click any element below to toggle it into fullscreen mode. Each element is independently fullscreen-capable.
       </p>
@@ -228,7 +230,7 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
           <div class="target-label">Div Element</div>
           <div class="target-icon">📦</div>
           <div class="target-name">&lt;div&gt;</div>
-          <button class="fs-btn" onclick="toggleFS(this.parentElement)">Fullscreen This</button>
+          <button class="fs-btn" onclick="toggleFS(this.parentElement)" ti="btn_fullscreen_this" ti="btn_fullscreen_this_2" ti="btn_fullscreen_this_3">Fullscreen This</button>
         </div>
         <div class="demo-target" id="demo-section" tabindex="0">
           <div class="target-label">Section Element</div>
@@ -248,7 +250,7 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
 
     <!-- CSS :fullscreen Demo -->
     <div class="card">
-      <h2>🎨 CSS :fullscreen Pseudo-Class Demo</h2>
+      <h2 ti="h2_css_fullscreen_pseudo_cl">🎨 CSS :fullscreen Pseudo-Class Demo</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">
         The <code style="background:var(--surface2);padding:0.1rem 0.3rem;border-radius:3px;">:fullscreen</code> pseudo-class lets you style elements differently when they are in fullscreen mode.
       </p>
@@ -281,22 +283,22 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
     <div class="two-col">
       <!-- Canvas Demo -->
       <div class="card">
-        <h2>🎮 Canvas Fullscreen Demo</h2>
+        <h2 ti="h2_canvas_fullscreen_demo">🎮 Canvas Fullscreen Demo</h2>
         <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.75rem;">
           Move your mouse over the canvas. Click "Fullscreen" for immersive view.
         </p>
         <div class="canvas-container" id="canvas-box">
           <canvas id="demo-canvas"></canvas>
         </div>
-        <button class="fs-btn" style="margin-top:0.75rem;" onclick="toggleFS(document.getElementById('canvas-box'))">Fullscreen Canvas</button>
+        <button class="fs-btn" style="margin-top:0.75rem;" onclick="toggleFS(document.getElementById('canvas-box'))" ti="btn_fullscreen_canvas">Fullscreen Canvas</button>
       </div>
 
       <!-- Event Log -->
       <div class="card">
-        <h2>📋 Fullscreen Events</h2>
+        <h2 ti="h2_fullscreen_events">📋 Fullscreen Events</h2>
         <div class="event-log" id="event-log"></div>
         <div style="margin-top:0.75rem;">
-          <h3 style="font-size:0.9rem;color:var(--accent);margin-bottom:0.5rem;">Keyboard Input in Fullscreen</h3>
+          <h3 style="font-size:0.9rem;color:var(--accent);margin-bottom:0.5rem;" ti="h3_keyboard_input_in_fullscr">Keyboard Input in Fullscreen</h3>
           <p style="font-size:0.85rem;color:var(--text-dim);">
             Press any key while in fullscreen mode. Key events are logged below.
             Note: <span class="key-hint">Esc</span> exits fullscreen and is not captured by JavaScript.
@@ -307,7 +309,7 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
 
     <!-- Screen Orientation Lock -->
     <div class="card">
-      <h2>🔄 Screen Orientation Lock Integration</h2>
+      <h2 ti="h2_screen_orientation_lock">🔄 Screen Orientation Lock Integration</h2>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:1rem;">
         Screen orientation can be locked when in fullscreen mode (supported on mobile devices and some desktop browsers).
         The orientation lock API requires fullscreen mode to be active first.
@@ -321,9 +323,9 @@ document.documentElement.requestFullscreen({ navigationUI: "auto" });</div>
           <div class="label">Orientation Angle</div>
           <div class="value" id="orientation-angle">--</div>
         </div>
-        <button class="fs-btn" id="lock-landscape" disabled>Lock Landscape</button>
-        <button class="fs-btn" id="lock-portrait" disabled>Lock Portrait</button>
-        <button class="fs-btn exit" id="unlock-orientation" disabled>Unlock</button>
+        <button class="fs-btn" id="lock-landscape" disabled ti="btn_lock_landscape">Lock Landscape</button>
+        <button class="fs-btn" id="lock-portrait" disabled ti="btn_lock_portrait">Lock Portrait</button>
+        <button class="fs-btn exit" id="unlock-orientation" disabled ti="btn_unlock">Unlock</button>
       </div>
       <div class="code-block" style="margin-top:1rem;">// Orientation lock requires fullscreen
 async function lockLandscape() {
@@ -338,14 +340,14 @@ document.exitFullscreen();</div>
 
     <!-- Fullscreen for Different Elements -->
     <div class="card">
-      <h2>📝 Fullscreen Compatibility Notes</h2>
+      <h2 ti="h2_fullscreen_compatibility">📝 Fullscreen Compatibility Notes</h2>
       <div style="overflow-x:auto;">
         <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
           <thead>
             <tr style="border-bottom:2px solid var(--border);text-align:left;">
-              <th style="padding:0.5rem;color:var(--accent2);">Element</th>
-              <th style="padding:0.5rem;color:var(--accent2);">Fullscreen</th>
-              <th style="padding:0.5rem;color:var(--accent2);">Notes</th>
+              <th style="padding:0.5rem;color:var(--accent2);" ti="th_element">Element</th>
+              <th style="padding:0.5rem;color:var(--accent2);" ti="th_fullscreen">Fullscreen</th>
+              <th style="padding:0.5rem;color:var(--accent2);" ti="th_notes">Notes</th>
             </tr>
           </thead>
           <tbody style="color:var(--text-dim);">
@@ -386,6 +388,16 @@ document.exitFullscreen();</div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_fullscreen_api_playground':["Fullscreen API Playground", "全屏 API Playground"],'metadesc_interactive_fullscreen_ap':["Interactive Fullscreen API explorer — requestFullscreen options, events, CSS :fullscreen pseudo-class, element-level fullscreen, orientation lock, and canvas/video demos.", "交互式全屏 API 浏览器 — requestFullscreen 选项、事件、CSS :fullscreen 伪类、元素级全屏、方向锁定和画布/视频演示。"],'h1_fullscreen_api_playground':["Fullscreen API Playground", "全屏 API Playground"],'h2_fullscreen_status':["📊 Fullscreen Status", "📊 全屏状态"],'h2_requestfullscreen_with_o':["🖥️ requestFullscreen() with Options", "🖥️ 带选项的 requestFullscreen()"],'h2_element_level_fullscreen':["🎯 Element-Level Fullscreen", "🎯 元素级全屏"],'h2_css_fullscreen_pseudo_cl':["🎨 CSS :fullscreen Pseudo-Class Demo", "🎨 CSS :fullscreen 伪类演示"],'h2_canvas_fullscreen_demo':["🎮 Canvas Fullscreen Demo", "🎮 Canvas 全屏演示"],'h2_fullscreen_events':["📋 Fullscreen Events", "📋 全屏活动"],'h2_screen_orientation_lock':["🔄 Screen Orientation Lock Integration", "🔄 屏幕方向锁定集成"],'h2_fullscreen_compatibility':["📝 Fullscreen Compatibility Notes", "📝 全屏兼容性说明"],'h3_keyboard_input_in_fullscr':["Keyboard Input in Fullscreen", "全屏键盘输入"],'btn_enter_fullscreen':["Enter Fullscreen", "进入全屏模式"],'btn_exit_fullscreen':["Exit Fullscreen", "退出全屏模式"],'btn_fullscreen_this':["Fullscreen This", "全屏显示此内容"],'btn_fullscreen_this_2':["Fullscreen This", "全屏显示此内容"],'btn_fullscreen_this_3':["Fullscreen This", "全屏显示此内容"],'btn_exit_fullscreen_2':["Exit Fullscreen", "退出全屏模式"],'btn_enter_fullscreen_2':["Enter Fullscreen", "进入全屏模式"],'btn_fullscreen_canvas':["Fullscreen Canvas", "全屏画布"],'btn_lock_landscape':["Lock Landscape", "洛克景观"],'btn_lock_portrait':["Lock Portrait", "锁定肖像"],'btn_unlock':["Unlock", "开锁"],'th_element':["Element", "元素"],'th_fullscreen':["Fullscreen", "全屏"],'th_notes':["Notes", "笔记"],'label_navigation_ui':["Navigation UI", "导航用户界面"],'label_target_element':["Target Element", "目标元素"],'jtc_not_supported':["Not supported", "不支持"],'jtc_n_a':["N/A", "不适用"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -544,8 +556,8 @@ document.exitFullscreen();</div>
       $('orientation-value').textContent = o.type;
       $('orientation-angle').textContent = o.angle + ' degrees';
     } else {
-      $('orientation-value').textContent = 'Not supported';
-      $('orientation-angle').textContent = 'N/A';
+      $('orientation-value').textContent=T("jtc_not_supported");
+      $('orientation-angle').textContent=T("jtc_n_a");
     }
   }
 
@@ -675,6 +687,24 @@ document.exitFullscreen();</div>
   updateStatus();
   updateCodePreview();
   logEvent('init', 'Fullscreen API ready', 'evt-enter');
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

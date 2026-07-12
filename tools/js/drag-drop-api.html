@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_drag_and_drop_api_playgro" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -190,19 +190,21 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>Drag and Drop API Playground</h1>
+  <h1 ti="title_drag_and_drop_api_playgro" ti="h1_drag_and_drop_api_playgro">Drag and Drop API Playground</h1>
   <p>Explore drag events, DataTransfer, effects, file drops, sortable lists, and accessibility patterns</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- Event Visualization -->
   <div class="card">
-    <h2>Drag Event Visualization</h2>
+    <h2 ti="h2_drag_event_visualization">Drag Event Visualization</h2>
     <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Drag the source element to the drop zone. All events are logged in real time.</p>
     <div class="two-col">
       <div>
-        <label style="margin-bottom:0.5rem;display:block">Drag Source</label>
+        <label style="margin-bottom:0.5rem;display:block" ti="label_drag_source">Drag Source</label>
         <div class="drag-source" id="eventSource" draggable="true">
           <span style="font-size:1.2rem">&#9776;</span>
           <span>Drag me to the zone</span>
@@ -211,14 +213,14 @@
           Drop here
         </div>
         <div style="margin-top:0.75rem">
-          <label>DataTransfer Contents</label>
+          <label ti="label_datatransfer_contents">DataTransfer Contents</label>
           <div class="dt-display" id="dtDisplay">Drag an item to see DataTransfer data</div>
         </div>
       </div>
       <div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:0.5rem">
-          <label>Event Log</label>
-          <button onclick="document.getElementById('eventTimeline').innerHTML='';eventCount=0">Clear</button>
+          <label ti="label_event_log">Event Log</label>
+          <button onclick="document.getElementById('eventTimeline').innerHTML='';eventCount=0" ti="btn_clear">Clear</button>
         </div>
         <div class="event-log" id="eventTimeline"></div>
       </div>
@@ -233,7 +235,7 @@
         effectAllowed is set on dragstart (source). dropEffect is set on dragover (target). The browser matches them to determine the cursor.
       </p>
       <div style="margin-bottom:1rem">
-        <label>effectAllowed (set on source)</label>
+        <label ti="label_effectallowed_set_on_sour">effectAllowed (set on source)</label>
         <select id="effectAllowed" style="margin-top:0.3rem">
           <option value="none">none</option>
           <option value="copy">copy</option>
@@ -254,19 +256,19 @@
       </div>
       <div style="margin-top:1rem;display:grid;grid-template-columns:repeat(auto-fill,minmax(140px,1fr));gap:0.5rem">
         <div class="drop-zone" data-dropeffect="copy" style="min-height:80px;font-size:0.8rem">
-          <strong style="color:var(--accent)">copy</strong>
+          <strong style="color:var(--accent)" ti="strong_copy">copy</strong>
           <span>Drop for copy</span>
         </div>
         <div class="drop-zone" data-dropeffect="move" style="min-height:80px;font-size:0.8rem">
-          <strong style="color:var(--green)">move</strong>
+          <strong style="color:var(--green)" ti="strong_move">move</strong>
           <span>Drop for move</span>
         </div>
         <div class="drop-zone" data-dropeffect="link" style="min-height:80px;font-size:0.8rem">
-          <strong style="color:var(--purple)">link</strong>
+          <strong style="color:var(--purple)" ti="strong_link">link</strong>
           <span>Drop for link</span>
         </div>
         <div class="drop-zone" data-dropeffect="none" style="min-height:80px;font-size:0.8rem">
-          <strong style="color:var(--red)">none</strong>
+          <strong style="color:var(--red)" ti="strong_none">none</strong>
           <span>No drop allowed</span>
         </div>
       </div>
@@ -275,7 +277,7 @@
 
     <!-- File Drop -->
     <div class="card">
-      <h2>File Drop Zone</h2>
+      <h2 ti="h2_file_drop_zone">File Drop Zone</h2>
       <div class="file-drop-zone" id="fileDrop">
         <div style="font-size:2rem;margin-bottom:0.5rem">&#128193;</div>
         <div style="font-size:1rem;color:var(--text)">Drop files here</div>
@@ -288,7 +290,7 @@
   <div class="two-col">
     <!-- Custom Drag Image -->
     <div class="card">
-      <h2>Custom Drag Preview (setDragImage)</h2>
+      <h2 ti="h2_custom_drag_preview_setdr">Custom Drag Preview (setDragImage)</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Each item uses a custom drag image. Drag them to see different previews.</p>
       <div class="custom-drag-area" id="customDragArea">
         <div class="custom-drag-item" draggable="true" data-preview="emoji" style="background:linear-gradient(135deg,#ff6b6b,#ee5a24);color:#fff">
@@ -311,7 +313,7 @@
 
     <!-- Inter-element Drag -->
     <div class="card">
-      <h2>Inter-Element Drag and Drop</h2>
+      <h2 ti="h2_inter_element_drag_and_dr">Inter-Element Drag and Drop</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Drag colored chips between the three containers.</p>
       <div class="three-col">
         <div class="drop-zone" id="bin1" style="min-height:150px;align-items:flex-start;flex-wrap:wrap;flex-direction:row;justify-content:flex-start;gap:0.3rem;padding:0.5rem">
@@ -333,7 +335,7 @@
   <div class="two-col">
     <!-- Sortable List -->
     <div class="card">
-      <h2>Sortable List</h2>
+      <h2 ti="h2_sortable_list">Sortable List</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">Drag items to reorder. Uses the native Drag and Drop API.</p>
       <ul class="sortable-list" id="sortableList">
         <li class="sortable-item" draggable="true"><span class="grip">&#x2630;</span><span class="item-num">1</span><span class="item-text">Learn HTML Drag and Drop</span></li>
@@ -344,12 +346,12 @@
         <li class="sortable-item" draggable="true"><span class="grip">&#x2630;</span><span class="item-num">6</span><span class="item-text">Handle file drops</span></li>
         <li class="sortable-item" draggable="true"><span class="grip">&#x2630;</span><span class="item-num">7</span><span class="item-text">Test cross-browser behavior</span></li>
       </ul>
-      <button style="margin-top:0.75rem" onclick="resetSortable()">Reset Order</button>
+      <button style="margin-top:0.75rem" onclick="resetSortable()" ti="btn_reset_order">Reset Order</button>
     </div>
 
     <!-- Accessible Drag & Drop -->
     <div class="card">
-      <h2>Accessible Drag and Drop</h2>
+      <h2 ti="h2_accessible_drag_and_drop">Accessible Drag and Drop</h2>
       <p style="font-size:0.8rem;color:var(--text-dim);margin-bottom:1rem">
         Keyboard-accessible reordering. Select an item, then use buttons or arrow keys to move it.
       </p>
@@ -389,7 +391,7 @@
 
   <!-- API Reference -->
   <div class="card">
-    <h2>API Reference</h2>
+    <h2 ti="h2_api_reference">API Reference</h2>
     <div class="code-block"><span style="color:var(--purple)">// Basic drag and drop setup</span>
 source.addEventListener('dragstart', (e) => {
   e.dataTransfer.setData('text/plain', 'Hello');
@@ -423,6 +425,16 @@ target.addEventListener('drop', (e) => {
 </div>
 <footer>Drag and Drop API Playground &mdash; No external dependencies</footer>
 
+
+<script>var _LANG={'title_drag_and_drop_api_playgro':["Drag and Drop API Playground", "拖放式 API 实验场"],'metadesc_interactive_playground_fo':["Interactive playground for the HTML Drag and Drop API. Explore events, DataTransfer, effectAllowed, dropEffect, file drops, custom drag images, sortable lists, and accessibility patterns.", "HTML 拖放 API 的交互式演示环境。探索事件、数据传输、effectAllowed、dropEffect、文件拖放、自定义拖放图像、可排序列表和辅助功能模式。"],'h1_drag_and_drop_api_playgro':["Drag and Drop API Playground", "拖放式 API 实验场"],'h2_drag_event_visualization':["Drag Event Visualization", "拖拽事件可​​视化"],'h2_effectallowed_dropeffect':["effectAllowed & dropEffect", "效果允许 &amp; 下降效果"],'h2_file_drop_zone':["File Drop Zone", "文件投放区"],'h2_custom_drag_preview_setdr':["Custom Drag Preview (setDragImage)", "自定义拖拽预览（setDragImage）"],'h2_inter_element_drag_and_dr':["Inter-Element Drag and Drop", "元素间拖放"],'h2_sortable_list':["Sortable List", "可排序列表"],'h2_accessible_drag_and_drop':["Accessible Drag and Drop", "易于操作的拖放"],'h2_api_reference':["API Reference", "API 参考"],'btn_clear':["Clear", "清除"],'btn_reset_order':["Reset Order", "重置顺序"],'strong_copy':["copy", "复制"],'strong_move':["move", "移动"],'strong_link':["link", "关联"],'strong_none':["none", "没有任何"],'label_drag_source':["Drag Source", "拖源"],'label_datatransfer_contents':["DataTransfer Contents", "数据传输内容"],'label_event_log':["Event Log", "事件日志"],'label_effectallowed_set_on_sour':["effectAllowed (set on source)", "effectAllowed（在源上设置）"],'jtc_127775':["&#127775;", "🌟"],'jtc_custom_text_preview':["Custom text preview", "自定义文本预览"],'jtc_dropped':["Dropped:", "已删除："],'jtc_drop_custom_items_here':["Drop custom items here", "在此处放置自定义物品"],'jtc_cancelled':["Cancelled.", "取消。"],'jtcpre_dropped':["Dropped: ", "已删除："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -574,7 +586,7 @@ target.addEventListener('drop', (e) => {
 
       if (type === 'emoji') {
         const el = document.createElement('div');
-        el.textContent = '&#127775;';
+        el.textContent=T("jtc_127775");
         el.style.cssText = 'font-size:40px;position:absolute;top:-999px';
         document.body.appendChild(el);
         e.dataTransfer.setDragImage(el, 20, 20);
@@ -592,7 +604,7 @@ target.addEventListener('drop', (e) => {
         e.dataTransfer.setDragImage(cvs, 40, 20);
       } else if (type === 'text') {
         const el = document.createElement('div');
-        el.textContent = 'Custom text preview';
+        el.textContent=T("jtc_custom_text_preview");
         el.style.cssText = 'background:#4caf50;color:#fff;padding:4px 12px;border-radius:4px;font-size:14px;position:absolute;top:-999px';
         document.body.appendChild(el);
         e.dataTransfer.setDragImage(el, 0, 0);
@@ -610,9 +622,9 @@ target.addEventListener('drop', (e) => {
   customDZ.addEventListener('drop', e => {
     e.preventDefault();
     customDZ.classList.remove('drag-over');
-    customDZ.textContent = 'Dropped: ' + e.dataTransfer.getData('text/plain') + ' preview';
+    customDZ.textContent=T("jtcpre_dropped")+ e.dataTransfer.getData('text/plain') + ' preview';
     customDZ.classList.add('drop-success');
-    setTimeout(() => { customDZ.classList.remove('drop-success'); customDZ.textContent = 'Drop custom items here'; }, 2000);
+    setTimeout(() => { customDZ.classList.remove('drop-success'); customDZ.textContent=T("jtc_drop_custom_items_here"); }, 2000);
   });
 
   // --- Inter-element Drag ---
@@ -762,7 +774,7 @@ target.addEventListener('drop', (e) => {
       }
     } else if (e.key === 'Escape' && a11yGrabbed) {
       a11yGrabbed = false;
-      document.getElementById('a11yStatus').textContent = 'Cancelled.';
+      document.getElementById('a11yStatus').textContent=T("jtc_cancelled");
       highlightA11y(a11ySelected);
     }
   });
@@ -789,6 +801,24 @@ target.addEventListener('drop', (e) => {
     }
   });
 
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

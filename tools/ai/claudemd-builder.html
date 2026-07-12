@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_claude_md_builder_generat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -111,9 +111,11 @@ footer a{color:var(--accent)}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>📋 CLAUDE.md Builder</h1>
+<h1 ti="h1_claude_md_builder">📋 CLAUDE.md Builder</h1>
 <p>Answer a few questions about your project. Get a production-ready CLAUDE.md in 2 minutes.</p>
 </header>
 
@@ -122,18 +124,18 @@ footer a{color:var(--accent)}
 <div id="wizard">
 <!-- Step 1: Project Basics -->
 <div class="step active" data-step="1">
-<h2>1/7 — Project Basics</h2>
+<h2 ti="h2_1_7_project_basics">1/7 — Project Basics</h2>
 <p class="step-desc">What are you building?</p>
 <div class="field">
-<label>Project name</label>
-<input type="text" id="projectName" placeholder="my-awesome-app">
+<label ti="label_project_name">Project name</label>
+<input type="text" id="projectName" tp="placeholder_my_awesome_app" placeholder="my-awesome-app">
 </div>
 <div class="field">
-<label>One-line description</label>
-<input type="text" id="projectDesc" placeholder="A real-time collaboration tool for distributed teams">
+<label ti="label_one_line_description">One-line description</label>
+<input type="text" id="projectDesc" tp="placeholder_a_real_time_collaboration" placeholder="A real-time collaboration tool for distributed teams">
 </div>
 <div class="field">
-<label>Primary language</label>
+<label ti="label_primary_language">Primary language</label>
 <div class="chips" id="langChips">
 <div class="chip" data-val="TypeScript">TypeScript</div>
 <div class="chip" data-val="JavaScript">JavaScript</div>
@@ -150,16 +152,16 @@ footer a{color:var(--accent)}
 </div>
 </div>
 <div class="btn-row">
-<button class="btn btn-primary" onclick="nextStep()">Next →</button>
+<button class="btn btn-primary" onclick="nextStep()" ti="btn_next" ti="btn_next_2" ti="btn_next_3" ti="btn_next_4" ti="btn_next_5" ti="btn_next_6">Next →</button>
 </div>
 </div>
 
 <!-- Step 2: Framework & Stack -->
 <div class="step" data-step="2">
-<h2>2/7 — Framework & Stack</h2>
+<h2 ti="h2_2_7_framework_stack">2/7 — Framework & Stack</h2>
 <p class="step-desc">What tools does your project use?</p>
 <div class="field">
-<label>Framework (select all that apply)</label>
+<label ti="label_framework_select_all_that">Framework (select all that apply)</label>
 <div class="chips" id="fwChips" data-multi="true">
 <div class="chip" data-val="React">React</div>
 <div class="chip" data-val="Next.js">Next.js</div>
@@ -179,7 +181,7 @@ footer a{color:var(--accent)}
 </div>
 </div>
 <div class="field">
-<label>Package manager</label>
+<label ti="label_package_manager">Package manager</label>
 <div class="chips" id="pmChips">
 <div class="chip" data-val="npm">npm</div>
 <div class="chip" data-val="pnpm">pnpm</div>
@@ -193,7 +195,7 @@ footer a{color:var(--accent)}
 </div>
 </div>
 <div class="field">
-<label>Database (optional)</label>
+<label ti="label_database_optional">Database (optional)</label>
 <div class="chips" id="dbChips" data-multi="true">
 <div class="chip" data-val="PostgreSQL">PostgreSQL</div>
 <div class="chip" data-val="MySQL">MySQL</div>
@@ -205,33 +207,33 @@ footer a{color:var(--accent)}
 </div>
 </div>
 <div class="btn-row">
-<button class="btn btn-secondary" onclick="prevStep()">← Back</button>
+<button class="btn btn-secondary" onclick="prevStep()" ti="btn_back" ti="btn_back_2" ti="btn_back_3" ti="btn_back_4" ti="btn_back_5" ti="btn_back_6">← Back</button>
 <button class="btn btn-primary" onclick="nextStep()">Next →</button>
 </div>
 </div>
 
 <!-- Step 3: Build & Test -->
 <div class="step" data-step="3">
-<h2>3/7 — Build & Test</h2>
+<h2 ti="h2_3_7_build_test">3/7 — Build & Test</h2>
 <p class="step-desc">How does your project build and test?</p>
 <div class="field">
-<label>Build command</label>
-<input type="text" id="buildCmd" placeholder="npm run build">
+<label ti="label_build_command">Build command</label>
+<input type="text" id="buildCmd" tp="placeholder_npm_run_build" placeholder="npm run build">
 </div>
 <div class="field">
-<label>Dev server command</label>
-<input type="text" id="devCmd" placeholder="npm run dev">
+<label ti="label_dev_server_command">Dev server command</label>
+<input type="text" id="devCmd" tp="placeholder_npm_run_dev" placeholder="npm run dev">
 </div>
 <div class="field">
-<label>Test command</label>
-<input type="text" id="testCmd" placeholder="npm test">
+<label ti="label_test_command">Test command</label>
+<input type="text" id="testCmd" tp="placeholder_npm_test" placeholder="npm test">
 </div>
 <div class="field">
-<label>Lint command</label>
-<input type="text" id="lintCmd" placeholder="npm run lint">
+<label ti="label_lint_command">Lint command</label>
+<input type="text" id="lintCmd" tp="placeholder_npm_run_lint" placeholder="npm run lint">
 </div>
 <div class="field">
-<label>Test framework</label>
+<label ti="label_test_framework">Test framework</label>
 <div class="chips" id="testFwChips">
 <div class="chip" data-val="Jest">Jest</div>
 <div class="chip" data-val="Vitest">Vitest</div>
@@ -252,10 +254,10 @@ footer a{color:var(--accent)}
 
 <!-- Step 4: Code Style -->
 <div class="step" data-step="4">
-<h2>4/7 — Code Style & Conventions</h2>
+<h2 ti="h2_4_7_code_style_convention">4/7 — Code Style & Conventions</h2>
 <p class="step-desc">What standards should Claude follow?</p>
 <div class="field">
-<label>Coding style preferences</label>
+<label ti="label_coding_style_preferences">Coding style preferences</label>
 <div class="toggle-group" id="styleToggles">
 <div class="toggle-item" data-val="prefer-functional" onclick="toggleItem(this)">
 <div class="toggle-title">Functional style</div>
@@ -292,8 +294,8 @@ footer a{color:var(--accent)}
 </div>
 </div>
 <div class="field">
-<label>Additional style rules (optional)</label>
-<textarea id="customStyle" placeholder="e.g. Use snake_case for Python, camelCase for JS. Prefer early returns. No default exports."></textarea>
+<label ti="label_additional_style_rules_op">Additional style rules (optional)</label>
+<textarea id="customStyle" tp="placeholder_e_g_use_snake_case_for_py" placeholder="e.g. Use snake_case for Python, camelCase for JS. Prefer early returns. No default exports."></textarea>
 </div>
 <div class="btn-row">
 <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
@@ -303,18 +305,18 @@ footer a{color:var(--accent)}
 
 <!-- Step 5: Project Structure -->
 <div class="step" data-step="5">
-<h2>5/7 — Project Structure</h2>
+<h2 ti="h2_5_7_project_structure">5/7 — Project Structure</h2>
 <p class="step-desc">Help Claude understand your codebase layout.</p>
 <div class="field">
-<label>Key directories (one per line)</label>
-<textarea id="dirs" rows="5" placeholder="src/        — application source
+<label ti="label_key_directories_one_per_l">Key directories (one per line)</label>
+<textarea id="dirs" rows="5" tp="placeholder_src_application_source_te" placeholder="src/        — application source
 tests/      — test files
 docs/       — documentation
 scripts/    — build and deploy scripts"></textarea>
 </div>
 <div class="field">
-<label>Important files Claude should know about</label>
-<textarea id="keyFiles" rows="3" placeholder="src/config.ts  — all configuration
+<label ti="label_important_files_claude_sh">Important files Claude should know about</label>
+<textarea id="keyFiles" rows="3" tp="placeholder_src_config_ts_all_configu" placeholder="src/config.ts  — all configuration
 src/db.ts       — database connection
 .env.example    — required environment variables"></textarea>
 </div>
@@ -326,16 +328,16 @@ src/db.ts       — database connection
 
 <!-- Step 6: Safety & Boundaries -->
 <div class="step" data-step="6">
-<h2>6/7 — Safety & Boundaries</h2>
+<h2 ti="h2_6_7_safety_boundaries">6/7 — Safety & Boundaries</h2>
 <p class="step-desc">What should Claude never do?</p>
 <div class="field">
-<label>Files/directories Claude should never modify</label>
-<textarea id="noTouch" rows="3" placeholder=".env
+<label ti="label_files_directories_claude">Files/directories Claude should never modify</label>
+<textarea id="noTouch" rows="3" tp="placeholder_env_migrations_vendor" placeholder=".env
 migrations/
 vendor/"></textarea>
 </div>
 <div class="field">
-<label>Dangerous commands to warn about</label>
+<label ti="label_dangerous_commands_to_war">Dangerous commands to warn about</label>
 <div class="chips" id="dangerChips" data-multi="true">
 <div class="chip selected" data-val="rm -rf">rm -rf</div>
 <div class="chip selected" data-val="git push --force">git push --force</div>
@@ -346,8 +348,8 @@ vendor/"></textarea>
 </div>
 </div>
 <div class="field">
-<label>Environment-specific warnings (optional)</label>
-<textarea id="envWarnings" rows="2" placeholder="e.g. Never run migrations against production DB. Always use --dry-run for deployments."></textarea>
+<label ti="label_environment_specific_warn">Environment-specific warnings (optional)</label>
+<textarea id="envWarnings" rows="2" tp="placeholder_e_g_never_run_migrations" placeholder="e.g. Never run migrations against production DB. Always use --dry-run for deployments."></textarea>
 </div>
 <div class="btn-row">
 <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
@@ -357,10 +359,10 @@ vendor/"></textarea>
 
 <!-- Step 7: Extras -->
 <div class="step" data-step="7">
-<h2>7/7 — Final Touches</h2>
+<h2 ti="h2_7_7_final_touches">7/7 — Final Touches</h2>
 <p class="step-desc">Optional extras for a production-grade CLAUDE.md.</p>
 <div class="field">
-<label>Include sections</label>
+<label ti="label_include_sections">Include sections</label>
 <div class="toggle-group" id="extraToggles">
 <div class="toggle-item selected" data-val="git-conventions" onclick="toggleItem(this)">
 <div class="toggle-title">Git conventions</div>
@@ -389,12 +391,12 @@ vendor/"></textarea>
 </div>
 </div>
 <div class="field">
-<label>Anything else Claude should know?</label>
-<textarea id="extraNotes" rows="3" placeholder="e.g. This is a monorepo. The API and frontend are deployed separately. We use feature flags via LaunchDarkly."></textarea>
+<label ti="label_anything_else_claude_shou">Anything else Claude should know?</label>
+<textarea id="extraNotes" rows="3" tp="placeholder_e_g_this_is_a_monorepo_th" placeholder="e.g. This is a monorepo. The API and frontend are deployed separately. We use feature flags via LaunchDarkly."></textarea>
 </div>
 <div class="btn-row">
 <button class="btn btn-secondary" onclick="prevStep()">← Back</button>
-<button class="btn btn-generate" onclick="generate()">Generate CLAUDE.md ✨</button>
+<button class="btn btn-generate" onclick="generate()" ti="btn_generate_claude_md">Generate CLAUDE.md ✨</button>
 </div>
 </div>
 </div>
@@ -402,11 +404,11 @@ vendor/"></textarea>
 <!-- Output -->
 <div id="outputSection" class="output-section" style="display:none">
 <div class="output-header">
-<h2>Your CLAUDE.md</h2>
+<h2 ti="h2_your_claude_md">Your CLAUDE.md</h2>
 <div class="output-actions">
-<button class="btn btn-secondary" onclick="copyOutput()">📋 Copy</button>
-<button class="btn btn-secondary" onclick="downloadOutput()">⬇ Download</button>
-<button class="btn btn-secondary" onclick="startOver()">↺ Start Over</button>
+<button class="btn btn-secondary" onclick="copyOutput()" ti="btn_copy">📋 Copy</button>
+<button class="btn btn-secondary" onclick="downloadOutput()" ti="btn_download">⬇ Download</button>
+<button class="btn btn-secondary" onclick="startOver()" ti="btn_start_over">↺ Start Over</button>
 </div>
 </div>
 <div class="score-card" id="scoreCard"></div>
@@ -424,6 +426,16 @@ vendor/"></textarea>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_claude_md_builder_generat':["CLAUDE.md Builder — Generate the Perfect Instructions for Claude Code", "CLAUDE.md 生成器 — 为 Claude 代码生成完美的指令"],'metadesc_interactive_claude_md_gen':["Interactive CLAUDE.md generator. Answer questions about your project, get a production-ready CLAUDE.md file for Claude Code.", "交互式 CLAUDE.md 生成器。回答有关您项目的问题，即可获得可用于 Claude Code 的生产级 CLAUDE.md 文件。"],'h1_claude_md_builder':["📋 CLAUDE.md Builder", "📋 CLAUDE.md 建筑商"],'h1_1':["$1", "1美元"],'h2_1_7_project_basics':["1/7 — Project Basics", "1/7 — 项目基础知识"],'h2_2_7_framework_stack':["2/7 — Framework & Stack", "2/7 — 框架与技术栈"],'h2_3_7_build_test':["3/7 — Build & Test", "3/7 — 构建与测试"],'h2_4_7_code_style_convention':["4/7 — Code Style & Conventions", "4/7 — 代码风格与规范"],'h2_5_7_project_structure':["5/7 — Project Structure", "5/7 — 项目结构"],'h2_6_7_safety_boundaries':["6/7 — Safety & Boundaries", "6/7 — 安全与界限"],'h2_7_7_final_touches':["7/7 — Final Touches", "7/7 — 最后润色"],'h2_your_claude_md':["Your CLAUDE.md", "你的 CLAUDE.md"],'h2_1':["$1", "1美元"],'h3_label':["${label}", "${label}"],'h3_1':["$1", "1美元"],'btn_next':["Next →", "下一页 →"],'btn_back':["← Back", "← 返回"],'btn_next_2':["Next →", "下一页 →"],'btn_back_2':["← Back", "← 返回"],'btn_next_3':["Next →", "下一页 →"],'btn_back_3':["← Back", "← 返回"],'btn_next_4':["Next →", "下一页 →"],'btn_back_4':["← Back", "← 返回"],'btn_next_5':["Next →", "下一页 →"],'btn_back_5':["← Back", "← 返回"],'btn_next_6':["Next →", "下一页 →"],'btn_back_6':["← Back", "← 返回"],'btn_generate_claude_md':["Generate CLAUDE.md ✨", "生成 CLAUDE.md ✨"],'btn_copy':["📋 Copy", "📋 复制"],'btn_download':["⬇ Download", "⬇ 下载"],'btn_start_over':["↺ Start Over", "↺ 重新开始"],'placeholder_my_awesome_app':["my-awesome-app", "我的超棒应用"],'placeholder_a_real_time_collaboration':["A real-time collaboration tool for distributed teams", "面向分布式团队的实时协作工具"],'placeholder_npm_run_build':["npm run build", "npm run build"],'placeholder_npm_run_dev':["npm run dev", "npm run dev"],'placeholder_npm_test':["npm test", "npm 测试"],'placeholder_npm_run_lint':["npm run lint", "npm run lint"],'placeholder_e_g_use_snake_case_for_py':["e.g. Use snake_case for Python, camelCase for JS. Prefer early returns. No default exports.", "例如，Python 使用 snake_case 命名法，JS 使用 camelCase 命名法。优先使用早期返回值。不默认导出任何函数。"],'placeholder_src_application_source_te':["src/        — application source\ntests/      — test files\ndocs/       — documentation\nscripts/    — build and deploy scripts", "src/ — 应用程序源代码 tests/ — 测试文件 docs/ — 文档 scripts/ — 构建和部署脚本"],'placeholder_src_config_ts_all_configu':["src/config.ts  — all configuration\nsrc/db.ts       — database connection\n.env.example    — required environment variables", "src/config.ts — 所有配置 src/db.ts — 数据库连接 .env.example — 必需的环境变量"],'placeholder_env_migrations_vendor':[".env\nmigrations/\nvendor/", ".env 迁移/供应商/"],'placeholder_e_g_never_run_migrations':["e.g. Never run migrations against production DB. Always use --dry-run for deployments.", "例如，永远不要在生产数据库上运行迁移。部署时务必使用 --dry-run 参数。"],'placeholder_e_g_this_is_a_monorepo_th':["e.g. This is a monorepo. The API and frontend are deployed separately. We use feature flags via LaunchDarkly.", "例如，这是一个单体仓库。API 和前端是分开部署的。我们使用 LaunchDarkly 的功能开关。"],'strong_1':["$1", "1美元"],'label_project_name':["Project name", "项目名称"],'label_one_line_description':["One-line description", "一句话描述"],'label_primary_language':["Primary language", "主要语言"],'label_framework_select_all_that':["Framework (select all that apply)", "框架（选择所有适用项）"],'label_package_manager':["Package manager", "软件包管理器"],'label_database_optional':["Database (optional)", "数据库（可选）"],'label_build_command':["Build command", "构建命令"],'label_dev_server_command':["Dev server command", "开发服务器命令"],'label_test_command':["Test command", "测试命令"],'label_lint_command':["Lint command", "Lint 命令"],'label_test_framework':["Test framework", "测试框架"],'label_coding_style_preferences':["Coding style preferences", "编码风格偏好"],'label_additional_style_rules_op':["Additional style rules (optional)", "附加样式规则（可选）"],'label_key_directories_one_per_l':["Key directories (one per line)", "关键目录（每行一个）"],'label_important_files_claude_sh':["Important files Claude should know about", "克劳德应该了解的重要文件"],'label_files_directories_claude':["Files/directories Claude should never modify", "克劳德绝不应该修改的文件/目录"],'label_dangerous_commands_to_war':["Dangerous commands to warn about", "危险指令，需引起警惕"],'label_environment_specific_warn':["Environment-specific warnings (optional)", "环境特定警告（可选）"],'label_include_sections':["Include sections", "包含部分"],'label_anything_else_claude_shou':["Anything else Claude should know?", "克劳德还有什么需要知道的吗？"],'jtc_copied':["✓ Copied!", "✓ 已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentStep = 1;
 const totalSteps = 7;
@@ -803,7 +815,7 @@ function renderScore(s) {
       <div class="score-value">${s.score}</div>
     </div>
     <div class="score-details">
-      <h3>${label}</h3>
+      <h3 ti="h3_label">${label}</h3>
       <p>${s.checks.filter(c=>c.pass).length}/${s.checks.length} sections completed</p>
       <div class="score-items">
         ${s.checks.map(c => `<span class="score-item ${c.pass?'pass':'miss'}">${c.pass?'✓':'○'} ${c.name}</span>`).join('')}
@@ -829,12 +841,12 @@ function showTab(tab) {
 function markdownToHtml(md) {
   return md
     .replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')
-    .replace(/^### (.+)$/gm, '<h3 style="margin:16px 0 8px;font-size:1rem">$1</h3>')
-    .replace(/^## (.+)$/gm, '<h2 style="margin:20px 0 8px;font-size:1.15rem;border-bottom:1px solid var(--border);padding-bottom:4px">$1</h2>')
-    .replace(/^# (.+)$/gm, '<h1 style="margin:0 0 12px;font-size:1.4rem">$1</h1>')
+    .replace(/^### (.+)$/gm, '<h3 style="margin:16px 0 8px;font-size:1rem" ti="h3_1">$1</h3>')
+    .replace(/^## (.+)$/gm, '<h2 style="margin:20px 0 8px;font-size:1.15rem;border-bottom:1px solid var(--border);padding-bottom:4px" ti="h2_1">$1</h2>')
+    .replace(/^# (.+)$/gm, '<h1 style="margin:0 0 12px;font-size:1.4rem" ti="h1_1">$1</h1>')
     .replace(/```(\w*)\n([\s\S]*?)```/g, '<pre style="background:#0d1117;padding:12px;border-radius:6px;overflow-x:auto;margin:8px 0">$2</pre>')
     .replace(/`([^`]+)`/g, '<code style="background:rgba(88,166,255,.1);padding:2px 5px;border-radius:3px">$1</code>')
-    .replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>')
+    .replace(/\*\*([^*]+)\*\*/g, '<strong ti="strong_1">$1</strong>')
     .replace(/^\- \[x\] (.+)$/gm, '<div>☑ $1</div>')
     .replace(/^\- \[ \] (.+)$/gm, '<div>☐ $1</div>')
     .replace(/^\- (.+)$/gm, '<div style="margin:2px 0;padding-left:16px">• $1</div>')
@@ -846,7 +858,7 @@ function copyOutput() {
   navigator.clipboard.writeText(document.getElementById('outputRaw').textContent);
   const btn = document.querySelector('.output-actions .btn');
   const orig = btn.textContent;
-  btn.textContent = '✓ Copied!';
+  btn.textContent=T("jtc_copied");
   setTimeout(() => btn.textContent = orig, 1500);
 }
 
@@ -869,6 +881,24 @@ function startOver() {
   updateProgress();
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

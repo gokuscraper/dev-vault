@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_device_orientation_motion" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -145,6 +145,8 @@ a{color:var(--accent)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- Header -->
 <div class="header">
@@ -158,8 +160,8 @@ a{color:var(--accent)}
 <div class="perm-bar">
   <div class="status-dot" id="statusDot"></div>
   <span style="font-size:.75rem;color:var(--text2)" id="statusText">Sensors inactive</span>
-  <button id="btnPermission" onclick="requestSensorPermission()">Request Sensor Access</button>
-  <button onclick="toggleSimulator()" style="background:var(--accent2)">Toggle Simulator</button>
+  <button id="btnPermission" onclick="requestSensorPermission()" ti="btn_request_sensor_access">Request Sensor Access</button>
+  <button onclick="toggleSimulator()" style="background:var(--accent2)" ti="btn_toggle_simulator">Toggle Simulator</button>
 </div>
 
 <div class="grid">
@@ -185,7 +187,7 @@ a{color:var(--accent)}
       </div>
       <div class="code-panel">
         <div class="code-title">Pattern: Orientation Listener</div>
-        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>window.addEventListener('deviceorientation', (e) => {
+        <div class="code-block"><button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10" ti="btn_copy_11">Copy</button>window.addEventListener('deviceorientation', (e) => {
   const alpha = e.alpha; // 0-360 compass
   const beta  = e.beta;  // -180 to 180
   const gamma = e.gamma; // -90 to 90
@@ -361,21 +363,21 @@ window.addEventListener('deviceorientation', (e) => {
     <div class="panel-head"><span style="color:var(--orange)">&#9881;</span> Desktop Simulator</div>
     <div class="panel-body">
       <div class="presets">
-        <button class="active" onclick="applyPreset('flat',this)">Flat on Table</button>
-        <button onclick="applyPreset('portrait',this)">Portrait Hold</button>
-        <button onclick="applyPreset('landscape',this)">Landscape Hold</button>
-        <button onclick="applyPreset('facedown',this)">Face Down</button>
-        <button onclick="applyPreset('shaking',this)">Shaking</button>
-        <button onclick="applyPreset('walking',this)">Walking</button>
-        <button onclick="applyPreset('spinning',this)">Spinning</button>
+        <button class="active" onclick="applyPreset('flat',this)" ti="btn_flat_on_table">Flat on Table</button>
+        <button onclick="applyPreset('portrait',this)" ti="btn_portrait_hold">Portrait Hold</button>
+        <button onclick="applyPreset('landscape',this)" ti="btn_landscape_hold">Landscape Hold</button>
+        <button onclick="applyPreset('facedown',this)" ti="btn_face_down">Face Down</button>
+        <button onclick="applyPreset('shaking',this)" ti="btn_shaking">Shaking</button>
+        <button onclick="applyPreset('walking',this)" ti="btn_walking">Walking</button>
+        <button onclick="applyPreset('spinning',this)" ti="btn_spinning">Spinning</button>
       </div>
       <div class="sim-controls">
         <div class="sim-row"><label>&alpha; (yaw)</label><input type="range" min="0" max="360" value="0" id="sim-alpha" oninput="simUpdate()"><span class="sv" id="sv-alpha">0</span></div>
         <div class="sim-row"><label>&beta; (pitch)</label><input type="range" min="-180" max="180" value="0" id="sim-beta" oninput="simUpdate()"><span class="sv" id="sv-beta">0</span></div>
         <div class="sim-row"><label>&gamma; (roll)</label><input type="range" min="-90" max="90" value="0" id="sim-gamma" oninput="simUpdate()"><span class="sv" id="sv-gamma">0</span></div>
-        <div class="sim-row"><label>Accel X</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-ax" oninput="simUpdate()"><span class="sv" id="sv-ax">0</span></div>
-        <div class="sim-row"><label>Accel Y</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-ay" oninput="simUpdate()"><span class="sv" id="sv-ay">0</span></div>
-        <div class="sim-row"><label>Accel Z</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-az" oninput="simUpdate()"><span class="sv" id="sv-az">0</span></div>
+        <div class="sim-row"><label ti="label_accel_x">Accel X</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-ax" oninput="simUpdate()"><span class="sv" id="sv-ax">0</span></div>
+        <div class="sim-row"><label ti="label_accel_y">Accel Y</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-ay" oninput="simUpdate()"><span class="sv" id="sv-ay">0</span></div>
+        <div class="sim-row"><label ti="label_accel_z">Accel Z</label><input type="range" min="-20" max="20" value="0" step="0.1" id="sim-az" oninput="simUpdate()"><span class="sv" id="sv-az">0</span></div>
       </div>
     </div>
   </div>
@@ -385,11 +387,11 @@ window.addEventListener('deviceorientation', (e) => {
     <div class="panel-head"><span style="color:var(--text2)">&lt;/&gt;</span> Code Snippets</div>
     <div class="panel-body">
       <div class="tab-bar">
-        <button class="active" onclick="showTab('tab-perm',this)">Permission</button>
-        <button onclick="showTab('tab-orient',this)">Orientation</button>
-        <button onclick="showTab('tab-motion',this)">Motion</button>
-        <button onclick="showTab('tab-abs',this)">Absolute</button>
-        <button onclick="showTab('tab-fallback',this)">Fallback</button>
+        <button class="active" onclick="showTab('tab-perm',this)" ti="btn_permission">Permission</button>
+        <button onclick="showTab('tab-orient',this)" ti="btn_orientation">Orientation</button>
+        <button onclick="showTab('tab-motion',this)" ti="btn_motion">Motion</button>
+        <button onclick="showTab('tab-abs',this)" ti="btn_absolute">Absolute</button>
+        <button onclick="showTab('tab-fallback',this)" ti="btn_fallback">Fallback</button>
       </div>
       <div class="tab-content active" id="tab-perm">
         <div class="code-block"><button class="copy-btn" onclick="copyCode(this)">Copy</button>// iOS 13+ requires explicit permission request
@@ -478,7 +480,7 @@ function initSensors() {
     <div class="panel-head"><span style="color:var(--green)">&#10003;</span> Browser Support</div>
     <div class="panel-body">
       <table class="support-table">
-        <tr><th>API</th><th>Chrome</th><th>Firefox</th><th>Safari</th><th>Edge</th></tr>
+        <tr><th ti="th_api">API</th><th ti="th_chrome">Chrome</th><th ti="th_firefox">Firefox</th><th ti="th_safari">Safari</th><th ti="th_edge">Edge</th></tr>
         <tr><td>DeviceOrientationEvent</td><td>Yes</td><td>Yes</td><td>Yes*</td><td>Yes</td></tr>
         <tr><td>DeviceMotionEvent</td><td>Yes</td><td>Yes</td><td>Yes*</td><td>Yes</td></tr>
         <tr><td>requestPermission()</td><td>N/A</td><td>N/A</td><td>Required*</td><td>N/A</td></tr>
@@ -492,6 +494,16 @@ function initSensors() {
 
 </div>
 
+
+<script>var _LANG={'title_device_orientation_motion':["Device Orientation & Motion Playground", "设备方向和运动游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for Device Orientation and Device Motion APIs — accelerometer, gyroscope, magnetometer sensor fusion with 3D visualization.", "用于设备方向和设备运动 API 的交互式游乐场——加速度计、陀螺仪、磁力计传感器融合与 3D 可视化。"],'h1_device_orientation_motion':["Device Orientation & Motion Playground", "设备方向和运动游乐场"],'btn_request_sensor_access':["Request Sensor Access", "请求传感器访问权限"],'btn_toggle_simulator':["Toggle Simulator", "切换模拟器"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_flat_on_table':["Flat on Table", "平放在桌子上"],'btn_portrait_hold':["Portrait Hold", "竖屏"],'btn_landscape_hold':["Landscape Hold", "景观保持"],'btn_face_down':["Face Down", "面朝下"],'btn_shaking':["Shaking", "摇晃"],'btn_walking':["Walking", "步行"],'btn_spinning':["Spinning", "旋转"],'btn_permission':["Permission", "允许"],'btn_orientation':["Orientation", "方向"],'btn_motion':["Motion", "运动"],'btn_absolute':["Absolute", "绝对"],'btn_fallback':["Fallback", "倒退"],'btn_copy_7':["Copy", "复制"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'btn_copy_11':["Copy", "复制"],'th_api':["API", "API"],'th_chrome':["Chrome", "铬合金"],'th_firefox':["Firefox", "火狐浏览器"],'th_safari':["Safari", "狩猎之旅"],'th_edge':["Edge", "边缘"],'label_yaw':["α (yaw)", "α（偏航）"],'label_pitch':["β (pitch)", "β（音高）"],'label_roll':["γ (roll)", "γ（滚动）"],'label_accel_x':["Accel X", "加速X"],'label_accel_y':["Accel Y", "加速 Y"],'label_accel_z':["Accel Z", "加速 Z"],'jtc_orientation':["Orientation:", "方向："],'jtc_motion':["Motion:", "运动："],'jtc_permission_required':["Permission: Required", "权限：必需"],'jtc_permission_auto':["Permission: Auto", "权限：自动"],'jtc_permission_n_a':["Permission: N/A", "权限：不适用"],'jtc_sensors_active':["Sensors active", "传感器处于激活状态"],'jtc_listening':["Listening...", "正在听……"],'jtc_shake_detected':["SHAKE DETECTED!", "检测到摇晃！"],'jtc_waiting_for_shake':["Waiting for shake...", "等待摇晃……"],'jtc_1':["+1", "+1"],'jtc_simulator_active':["Simulator active", "模拟器已激活"],'jtc_sensors_inactive':["Sensors inactive", "传感器不活跃"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy_2':["Copy", "复制"],'jtc_sensors_active_2':["Sensors active", "传感器处于激活状态"],'jtc_listening_2':["Listening...", "正在听……"],'jtcpre_orientation':["Orientation: ", "方向："],'jtcpre_motion':["Motion: ", "运动："],'jalert_permission_denied_sensor':["Permission denied. Sensor data will not be available.\\nUse the simulator instead.", "权限不足。传感器数据将不可用。\\n请改用模拟器。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 const state = {
@@ -527,19 +539,19 @@ function checkSupport() {
   const bM = document.getElementById('badgeMotion');
   const bP = document.getElementById('badgePermission');
 
-  bO.textContent = 'Orientation: ' + (hasOrientation ? 'Yes' : 'No');
+  bO.textContent=T("jtcpre_orientation")+ (hasOrientation ? 'Yes' : 'No');
   bO.className = 'badge ' + (hasOrientation ? 'ok' : 'no');
-  bM.textContent = 'Motion: ' + (hasMotion ? 'Yes' : 'No');
+  bM.textContent=T("jtcpre_motion")+ (hasMotion ? 'Yes' : 'No');
   bM.className = 'badge ' + (hasMotion ? 'ok' : 'no');
 
   if (needsPermission) {
-    bP.textContent = 'Permission: Required';
+    bP.textContent=T("jtc_permission_required");
     bP.className = 'badge partial';
   } else if (hasOrientation) {
-    bP.textContent = 'Permission: Auto';
+    bP.textContent=T("jtc_permission_auto");
     bP.className = 'badge ok';
   } else {
-    bP.textContent = 'Permission: N/A';
+    bP.textContent=T("jtc_permission_n_a");
     bP.className = 'badge no';
   }
 
@@ -565,7 +577,7 @@ async function requestSensorPermission() {
     if (typeof DeviceOrientationEvent.requestPermission === 'function') {
       const perm = await DeviceOrientationEvent.requestPermission();
       if (perm !== 'granted') {
-        alert('Permission denied. Sensor data will not be available.\nUse the simulator instead.');
+        T("jalert_permission_denied_sensor");
         return;
       }
     }
@@ -580,9 +592,9 @@ async function requestSensorPermission() {
   window.addEventListener('devicemotion', handleMotion);
   state.sensorsActive = true;
   document.getElementById('statusDot').classList.add('active');
-  document.getElementById('statusText').textContent = 'Sensors active';
+  document.getElementById('statusText').textContent=T("jtc_sensors_active");
   document.getElementById('btnPermission').disabled = true;
-  document.getElementById('btnPermission').textContent = 'Listening...';
+  document.getElementById('btnPermission').textContent=T("jtc_listening");
 }
 
 function handleOrientation(e) {
@@ -720,12 +732,12 @@ function checkShake(g) {
     shakeCount++;
     lastShakeTime = now;
     document.getElementById('shakeCount').textContent = shakeCount;
-    document.getElementById('shakeLabel').textContent = 'SHAKE DETECTED!';
+    document.getElementById('shakeLabel').textContent=T("jtc_shake_detected");
     const ind = document.getElementById('shakeIndicator');
     ind.classList.add('shaking');
     setTimeout(() => {
       ind.classList.remove('shaking');
-      document.getElementById('shakeLabel').textContent = 'Waiting for shake...';
+      document.getElementById('shakeLabel').textContent=T("jtc_waiting_for_shake");
     }, 500);
   }
   lastAccG = { x: g.x || 0, y: g.y || 0, z: g.z || 0 };
@@ -755,7 +767,7 @@ function spawnTarget() {
   t.style.top = ty + '%';
   t.style.marginLeft = '-15px';
   t.style.marginTop = '-15px';
-  t.textContent = '+1';
+  t.textContent=T("jtc_1");
   t.dataset.x = tx;
   t.dataset.y = ty;
   arena.appendChild(t);
@@ -794,7 +806,7 @@ function toggleSimulator() {
 
   if (state.simActive) {
     document.getElementById('statusDot').classList.add('active');
-    document.getElementById('statusText').textContent = 'Simulator active';
+    document.getElementById('statusText').textContent=T("jtc_simulator_active");
     simUpdate();
     startSimLoop();
   } else {
@@ -802,7 +814,7 @@ function toggleSimulator() {
     state.simAnimId = null;
     if (!state.sensorsActive) {
       document.getElementById('statusDot').classList.remove('active');
-      document.getElementById('statusText').textContent = 'Sensors inactive';
+      document.getElementById('statusText').textContent=T("jtc_sensors_inactive");
     }
   }
 }
@@ -940,8 +952,8 @@ function copyCode(btn) {
   const block = btn.parentElement;
   const code = block.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(code).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   }).catch(() => {
     // Fallback
     const ta = document.createElement('textarea');
@@ -950,8 +962,8 @@ function copyCode(btn) {
     ta.select();
     document.execCommand('copy');
     document.body.removeChild(ta);
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -971,9 +983,9 @@ window.addEventListener('DOMContentLoaded', () => {
       if (e.alpha !== null || e.beta !== null) {
         state.sensorsActive = true;
         document.getElementById('statusDot').classList.add('active');
-        document.getElementById('statusText').textContent = 'Sensors active';
+        document.getElementById('statusText').textContent=T("jtc_sensors_active");
         document.getElementById('btnPermission').disabled = true;
-        document.getElementById('btnPermission').textContent = 'Listening...';
+        document.getElementById('btnPermission').textContent=T("jtc_listening");
         window.removeEventListener('deviceorientation', checkActive);
       }
     };
@@ -983,6 +995,24 @@ window.addEventListener('DOMContentLoaded', () => {
   // Canvas resize
   window.addEventListener('resize', drawGraph);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

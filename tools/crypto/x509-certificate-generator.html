@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_x_509_certificate_generat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,68 +45,70 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>X.509 Certificate Generator</h1>
-<p class="subtitle">Generate self-signed SSL/TLS certificates locally in your browser.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_x_509_certificate_generat" ti="h1_x_509_certificate_generat">X.509 Certificate Generator</h1>
+<p class="subtitle" ti="subtitle_generate_self_signed_ssl">Generate self-signed SSL/TLS certificates locally in your browser.</p>
 
 <div class="card">
-  <h3>Subject Details</h3>
-  <label>Common Name *</label>
-  <input id="commonName" type="text" value="example.com" placeholder="e.g. example.com">
+  <h3 ti="h3_subject_details">Subject Details</h3>
+  <label ti="label_common_name">Common Name *</label>
+  <input id="commonName" type="text" value="example.com" tp="placeholder_e_g_example_com" placeholder="e.g. example.com">
   
   <div class="form-row">
     <div>
-      <label>Country *</label>
+      <label ti="label_country">Country *</label>
       <select id="country">
         <option value="">-- Select --</option><option value="US">United States</option><option value="GB">United Kingdom</option><option value="DE">Germany</option><option value="FR">France</option><option value="JP">Japan</option><option value="CN">China</option><option value="SG">Singapore</option><option value="AU">Australia</option><option value="CA">Canada</option><option value="BR">Brazil</option><option value="IN">India</option><option value="NL">Netherlands</option><option value="SE">Sweden</option><option value="CH">Switzerland</option><option value="KR">South Korea</option>
       </select>
     </div>
     <div>
-      <label>State / Province</label>
-      <input id="state" type="text" placeholder="e.g. California">
+      <label ti="label_state_province">State / Province</label>
+      <input id="state" type="text" tp="placeholder_e_g_california" placeholder="e.g. California">
     </div>
   </div>
   
   <div class="form-row">
     <div>
-      <label>Locality</label>
-      <input id="locality" type="text" placeholder="e.g. San Francisco">
+      <label ti="label_locality">Locality</label>
+      <input id="locality" type="text" tp="placeholder_e_g_san_francisco" placeholder="e.g. San Francisco">
     </div>
     <div>
-      <label>Organization</label>
-      <input id="organization" type="text" placeholder="e.g. My Company">
+      <label ti="label_organization">Organization</label>
+      <input id="organization" type="text" tp="placeholder_e_g_my_company" placeholder="e.g. My Company">
     </div>
   </div>
   
   <div class="form-row">
     <div>
-      <label>Organizational Unit</label>
-      <input id="orgUnit" type="text" placeholder="e.g. IT Department">
+      <label ti="label_organizational_unit">Organizational Unit</label>
+      <input id="orgUnit" type="text" tp="placeholder_e_g_it_department" placeholder="e.g. IT Department">
     </div>
     <div>
-      <label>Email</label>
-      <input id="email" type="email" placeholder="admin@example.com">
+      <label ti="label_email">Email</label>
+      <input id="email" type="email" tp="placeholder_admin_example_com" placeholder="admin@example.com">
     </div>
   </div>
   
-  <h3 style="margin-top:14px">Validity</h3>
+  <h3 style="margin-top:14px" ti="h3_validity">Validity</h3>
   <div class="form-row">
     <div>
-      <label>Valid From</label>
+      <label ti="label_valid_from">Valid From</label>
       <input id="startDate" type="date">
     </div>
     <div>
-      <label>Valid To</label>
+      <label ti="label_valid_to">Valid To</label>
       <input id="endDate" type="date">
     </div>
   </div>
   
-  <h3 style="margin-top:14px">Subject Alternative Names (SAN)</h3>
-  <label>Comma-separated domains (e.g. example.com, www.example.com, api.example.com)</label>
-  <input id="sanInput" type="text" value="example.com, www.example.com" placeholder="example.com, *.example.com">
+  <h3 style="margin-top:14px" ti="h3_subject_alternative_names">Subject Alternative Names (SAN)</h3>
+  <label ti="label_comma_separated_domains_e">Comma-separated domains (e.g. example.com, www.example.com, api.example.com)</label>
+  <input id="sanInput" type="text" value="example.com, www.example.com" tp="placeholder_example_com_example_com" placeholder="example.com, *.example.com">
   
   <div class="btn-row">
-    <button class="btn primary" id="genBtn" onclick="generate()">🔑 Generate Certificate</button>
+    <button class="btn primary" id="genBtn" onclick="generate()" ti="btn_generate_certificate">🔑 Generate Certificate</button>
   </div>
   
   <div id="status" class="status"></div>
@@ -115,12 +117,12 @@ footer a:hover{color:#999}
 <div id="results" style="display:none">
   <div class="results">
     <div class="card">
-      <h3>Certificate (.crt)</h3>
+      <h3 ti="h3_certificate_crt">Certificate (.crt)</h3>
       <div class="output-box full" id="certOutput" onclick="copyText('certOutput')">Generating...</div>
-      <button class="btn" onclick="download('certOutput', 'certificate.crt')">Download</button>
+      <button class="btn" onclick="download('certOutput', 'certificate.crt')" ti="btn_download" ti="btn_download_2">Download</button>
     </div>
     <div class="card">
-      <h3>Private Key (.key)</h3>
+      <h3 ti="h3_private_key_key">Private Key (.key)</h3>
       <div class="output-box full" id="keyOutput" onclick="copyText('keyOutput')">Generating...</div>
       <button class="btn" onclick="download('keyOutput', 'private.key')">Download</button>
     </div>
@@ -128,10 +130,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <p>Powered by Web Crypto API. <a href="https://github.com/gokuscraper/dev-toolkit">GitHub</a></p>
+  <p>Powered by Web Crypto API. <a href="https://github.com/gokuscraper/dev-toolkit" ti="link_github">GitHub</a></p>
 </footer>
 </div>
 
+
+<script>var _LANG={'title_x_509_certificate_generat':["X.509 Certificate Generator", "X.509证书生成器"],'metadesc_generate_self_signed_x_50':["Generate self-signed X.509 SSL/TLS certificates with RSA-2048 key pair. Free browser tool using Web Crypto API.", "使用 RSA-2048 密钥对生成自签名 X.509 SSL/TLS 证书。基于 Web Crypto API 的免费浏览器工具。"],'h1_x_509_certificate_generat':["X.509 Certificate Generator", "X.509证书生成器"],'h3_subject_details':["Subject Details", "主题详情"],'h3_validity':["Validity", "有效性"],'h3_subject_alternative_names':["Subject Alternative Names (SAN)", "主题别名 (SAN)"],'h3_certificate_crt':["Certificate (.crt)", "证书（.crt）"],'h3_private_key_key':["Private Key (.key)", "私钥（.key）"],'subtitle_generate_self_signed_ssl':["Generate self-signed SSL/TLS certificates locally in your browser.", "在浏览器中本地生成自签名 SSL/TLS 证书。"],'btn_generate_certificate':["🔑 Generate Certificate", "🔑 生成证书"],'btn_download':["Download", "下载"],'btn_download_2':["Download", "下载"],'placeholder_e_g_example_com':["e.g. example.com", "例如 example.com"],'placeholder_e_g_california':["e.g. California", "例如加利福尼亚州"],'placeholder_e_g_san_francisco':["e.g. San Francisco", "例如旧金山"],'placeholder_e_g_my_company':["e.g. My Company", "例如：我的公司"],'placeholder_e_g_it_department':["e.g. IT Department", "例如：IT部门"],'placeholder_admin_example_com':["admin@example.com", "admin@example.com"],'placeholder_example_com_example_com':["example.com, *.example.com", "example.com，*.example.com"],'label_common_name':["Common Name *", "通用名*"],'label_country':["Country *", "国家 *"],'label_state_province':["State / Province", "州/省"],'label_locality':["Locality", "地点"],'label_organization':["Organization", "组织"],'label_organizational_unit':["Organizational Unit", "组织单元"],'label_email':["Email", "电子邮件"],'label_valid_from':["Valid From", "有效期自"],'label_valid_to':["Valid To", "有效期至"],'label_comma_separated_domains_e':["Comma-separated domains (e.g. example.com, www.example.com, api.example.com)", "以逗号分隔的域名（例如 example.com、www.example.com、api.example.com）"],'link_github':["GitHub", "GitHub"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Set default dates
 const today = new Date();
@@ -147,7 +159,7 @@ function copyText(id) {
   navigator.clipboard.writeText(text).then(() => {
     const t = document.createElement('div');
     t.className = 'copy-toast';
-    t.textContent = 'Copied!';
+    t.textContent=T("jtc_copied");
     document.body.appendChild(t);
     setTimeout(() => t.remove(), 1500);
   });
@@ -462,6 +474,24 @@ async function generate() {
   
   btn.disabled = false;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

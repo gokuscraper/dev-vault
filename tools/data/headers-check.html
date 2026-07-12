@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_headers_check_http_respon" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,20 +83,22 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Headers Check</h1>
-<p class="subtitle">Analyze HTTP response headers for any URL.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_headers_check">Headers Check</h1>
+<p class="subtitle" ti="subtitle_analyze_http_response_hea">Analyze HTTP response headers for any URL.</p>
 
 <div class="search-row">
-  <input type="text" id="url" placeholder="Enter URL (e.g., https://github.com)" onkeydown="if(event.key==='Enter')check()">
-  <button class="btn primary" onclick="check()">Analyze</button>
+  <input type="text" id="url" tp="placeholder_enter_url_e_g_https_githu" placeholder="Enter URL (e.g., https://github.com)" onkeydown="if(event.key==='Enter')check()">
+  <button class="btn primary" onclick="check()" ti="btn_analyze">Analyze</button>
 </div>
 
 <div class="quick-row">
-  <button class="quick-btn" onclick="setUrl('https://google.com')">google.com</button>
-  <button class="quick-btn" onclick="setUrl('https://github.com')">github.com</button>
-  <button class="quick-btn" onclick="setUrl('https://cloudflare.com')">cloudflare.com</button>
-  <button class="quick-btn" onclick="setUrl('https://example.com')">example.com</button>
+  <button class="quick-btn" onclick="setUrl('https://google.com')" ti="btn_google_com">google.com</button>
+  <button class="quick-btn" onclick="setUrl('https://github.com')" ti="btn_github_com">github.com</button>
+  <button class="quick-btn" onclick="setUrl('https://cloudflare.com')" ti="btn_cloudflare_com">cloudflare.com</button>
+  <button class="quick-btn" onclick="setUrl('https://example.com')" ti="btn_example_com">example.com</button>
 </div>
 
 <p class="note">Headers visible to browser JavaScript only (CORS restrictions apply for cross-origin).</p>
@@ -108,14 +110,14 @@ footer a:hover{color:#999}
   <div class="summary-bar" id="summaryBar"></div>
 
   <div class="security-checks">
-    <h3 style="font-size:0.9rem;color:#ccc;margin-bottom:10px">Security Header Audit</h3>
+    <h3 style="font-size:0.9rem;color:#ccc;margin-bottom:10px" ti="h3_security_header_audit">Security Header Audit</h3>
     <div id="securityChecks"></div>
   </div>
 
   <div class="section">
     <h3><span class="section-icon">📋</span> All Headers</h3>
     <table class="header-table">
-      <thead><tr><th>Header</th><th>Value</th></tr></thead>
+      <thead><tr><th ti="th_header">Header</th><th ti="th_value">Value</th></tr></thead>
       <tbody id="headerBody"></tbody>
     </table>
   </div>
@@ -129,10 +131,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/headers-check">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/headers-check" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_headers_check_http_respon':["Headers Check — HTTP Response Header Analyzer", "标头检查 — HTTP 响应标头分析器"],'metadesc_analyze_http_response_hea':["Analyze HTTP response headers for any URL. Security headers, caching, CORS, server info. Free.", "分析任意 URL 的 HTTP 响应头。包括安全标头、缓存、CORS 和服务器信息。免费。"],'h1_headers_check':["Headers Check", "标头检查"],'h3_security_header_audit':["Security Header Audit", "安全标头审核"],'subtitle_analyze_http_response_hea':["Analyze HTTP response headers for any URL.", "分析任意 URL 的 HTTP 响应头。"],'btn_analyze':["Analyze", "分析"],'btn_google_com':["google.com", "google.com"],'btn_github_com':["github.com", "github.com"],'btn_cloudflare_com':["cloudflare.com", "cloudflare.com"],'btn_example_com':["example.com", "example.com"],'placeholder_enter_url_e_g_https_githu':["Enter URL (e.g., https://github.com)", "输入 URL（例如，https://github.com）"],'strong_related_tools':["Related Tools", "相关工具"],'th_header':["Header", "标题"],'th_value':["Value", "价值"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_headers_copied':["Headers Copied!", "标题已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function setUrl(u){document.getElementById('url').value=u;check()}
 
@@ -225,18 +237,36 @@ function escHtml(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').
 function copyRaw(){
   navigator.clipboard.writeText(document.getElementById('rawHeaders').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='Headers Copied!';
+  el.className='copied';el.textContent=T("jtc_headers_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/ssl-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">SSL Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/dns-lookup/" style="color:#4da6ff;text-decoration:none;margin:0 8px">DNS Lookup</a>
 <a href="https://gokuscraper.github.io/dev-vault/og-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">OG Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/api-tester/" style="color:#4da6ff;text-decoration:none;margin:0 8px">API Tester</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

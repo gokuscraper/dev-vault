@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_image_crop_tool_crop_imag" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,9 +49,11 @@ input:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Image Crop Tool</h1>
-<p class="sub">Drag to crop — everything stays in your browser</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_image_crop_tool">Image Crop Tool</h1>
+<p class="sub" ti="subtitle_drag_to_crop_everything_s">Drag to crop — everything stays in your browser</p>
 
 <div class="drop-zone" id="dropZone" onclick="document.getElementById('fileInput').click()">
 <p>Drop an image here or click to select</p>
@@ -60,7 +62,7 @@ input:focus{border-color:#3b82f6}
 
 <div class="editor" id="editor">
 <div class="section">
-<h3>Aspect Ratio</h3>
+<h3 ti="h3_aspect_ratio" ti="link_aspect_ratio">Aspect Ratio</h3>
 <div class="ratios">
 <div class="ratio active" onclick="setRatio(0,'free')">Free</div>
 <div class="ratio" onclick="setRatio(1,'1:1')">1:1</div>
@@ -81,30 +83,40 @@ input:focus{border-color:#3b82f6}
 <div class="crop-info" id="cropInfo">Click and drag to select crop area</div>
 
 <div class="section" style="margin-top:14px">
-<h3>Manual Input</h3>
+<h3 ti="h3_manual_input">Manual Input</h3>
 <div class="row">
 <div class="col"><label>X</label><input type="number" id="cropX" value="0" min="0" onchange="manualCrop()"></div>
 <div class="col"><label>Y</label><input type="number" id="cropY" value="0" min="0" onchange="manualCrop()"></div>
-<div class="col"><label>Width</label><input type="number" id="cropW" value="0" min="1" onchange="manualCrop()"></div>
-<div class="col"><label>Height</label><input type="number" id="cropH" value="0" min="1" onchange="manualCrop()"></div>
+<div class="col"><label ti="label_width">Width</label><input type="number" id="cropW" value="0" min="1" onchange="manualCrop()"></div>
+<div class="col"><label ti="label_height">Height</label><input type="number" id="cropH" value="0" min="1" onchange="manualCrop()"></div>
 </div>
 </div>
 
 <div class="actions">
-<button class="btn" onclick="resetCrop()">Reset Selection</button>
-<button class="btn" onclick="selectAll()">Select All</button>
-<button class="btn btn-primary" onclick="downloadPNG()">Download PNG</button>
-<button class="btn" onclick="downloadJPG()">Download JPEG</button>
-<button class="btn" onclick="newImage()">New Image</button>
+<button class="btn" onclick="resetCrop()" ti="btn_reset_selection">Reset Selection</button>
+<button class="btn" onclick="selectAll()" ti="btn_select_all">Select All</button>
+<button class="btn btn-primary" onclick="downloadPNG()" ti="btn_download_png">Download PNG</button>
+<button class="btn" onclick="downloadJPG()" ti="btn_download_jpeg">Download JPEG</button>
+<button class="btn" onclick="newImage()" ti="btn_new_image">New Image</button>
 </div>
 <div class="info">All processing happens locally in your browser.</div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/aspect-ratio/">Aspect Ratio</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/image-resize/" ti="link_image_resize">Image Resize</a> | <a href="https://gokuscraper.github.io/dev-vault/image-filter/" ti="link_image_filter">Image Filter</a> | <a href="https://gokuscraper.github.io/dev-vault/aspect-ratio/">Aspect Ratio</a></div>
 </div>
 <div class="toast" id="toast">Downloaded!</div>
 
+
+<script>var _LANG={'title_image_crop_tool_crop_imag':["Image Crop Tool — Crop Images in Your Browser", "图片裁剪工具 — 在浏览器中裁剪图片"],'metadesc_crop_images_in_your_brows':["Crop images in your browser. Drag to select area, aspect ratio presets (1:1, 16:9, 4:3, 3:2). Download PNG/JPEG. No upload to server.", "在浏览器中裁剪图片。拖动选择区域，预设宽高比（1:1、16:9、4:3、3:2）。下载 PNG/JPEG 文件。无需上传到服务器。"],'h1_image_crop_tool':["Image Crop Tool", "图像裁剪工具"],'h3_aspect_ratio':["Aspect Ratio", "宽高比"],'h3_manual_input':["Manual Input", "手动输入"],'subtitle_drag_to_crop_everything_s':["Drag to crop — everything stays in your browser", "拖动即可裁剪——所有内容都将保留在浏览器中"],'btn_reset_selection':["Reset Selection", "重置选择"],'btn_select_all':["Select All", "全选"],'btn_download_png':["Download PNG", "下载PNG"],'btn_download_jpeg':["Download JPEG", "下载JPEG"],'btn_new_image':["New Image", "新形象"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_image_resize':["Image Resize", "图片调整大小"],'link_image_filter':["Image Filter", "图像滤波器"],'link_aspect_ratio':["Aspect Ratio", "宽高比"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const canvas=document.getElementById('canvas');
 const ctx=canvas.getContext('2d');
@@ -364,6 +376,24 @@ function showToast(msg){
   t.style.display='block';
   setTimeout(()=>t.style.display='none',1500);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

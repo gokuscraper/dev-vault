@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_event_loop_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -68,23 +68,25 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>JS Event Loop Visualizer</h1>
+  <h1 ti="title_js_event_loop_visualizer" ti="h1_js_event_loop_visualizer">JS Event Loop Visualizer</h1>
   <span>See how Call Stack, Task Queue, Microtask Queue & Web APIs work</span>
 </div>
 
 <div class="main">
   <div class="left">
-    <label>JavaScript Code</label>
+    <label ti="label_javascript_code">JavaScript Code</label>
     <textarea id="codeInput" spellcheck="false"></textarea>
     <div class="presets-bar" id="presetsBar"></div>
     <div class="controls">
-      <button class="btn btn-primary" id="btnRun" onclick="runCode()">Run</button>
-      <button class="btn btn-secondary" id="btnStep" onclick="stepCode()" disabled>Step</button>
-      <button class="btn btn-secondary" id="btnAutoStep" onclick="toggleAuto()" disabled>Auto</button>
-      <button class="btn btn-secondary" onclick="resetAll()">Reset</button>
-      <span class="speed-label">Speed</span>
+      <button class="btn btn-primary" id="btnRun" onclick="runCode()" ti="btn_run">Run</button>
+      <button class="btn btn-secondary" id="btnStep" onclick="stepCode()" disabled ti="btn_step">Step</button>
+      <button class="btn btn-secondary" id="btnAutoStep" onclick="toggleAuto()" disabled ti="btn_auto">Auto</button>
+      <button class="btn btn-secondary" onclick="resetAll()" ti="btn_reset">Reset</button>
+      <span class="speed-label" ti="label_speed">Speed</span>
       <input type="range" class="speed-slider" id="speedSlider" min="100" max="2000" value="800" step="100">
     </div>
   </div>
@@ -120,6 +122,16 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   </div>
 </div>
 
+
+<script>var _LANG={'title_js_event_loop_visualizer':["JS Event Loop Visualizer", "JS 事件循环可视化工具"],'metadesc_interactive_javascript_ev':["Interactive JavaScript event loop visualizer. See how the call stack, task queue, microtask queue, and Web APIs work together. Step through code execution.", "交互式 JavaScript 事件循环可视化工具。查看调用堆栈、任务队列、微任务队列和 Web API 如何协同工作。逐步执行代码。"],'h1_js_event_loop_visualizer':["JS Event Loop Visualizer", "JS 事件循环可视化工具"],'btn_run':["Run", "跑步"],'btn_step':["Step", "步"],'btn_auto':["Auto", "汽车"],'btn_reset':["Reset", "重置"],'label_speed':["Speed", "速度"],'label_javascript_code':["JavaScript Code", "JavaScript 代码"],'jtc_pause':["Pause", "暂停"],'jtc_auto':["Auto", "汽车"],'jtc_step_0':["Step 0", "步骤 0"],'jtlword_empty':["Empty", "空的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Presets
 const PRESETS = [
@@ -838,7 +850,7 @@ function toggleAuto() {
     stopAuto();
   } else {
     const speed = parseInt(document.getElementById('speedSlider').value);
-    document.getElementById('btnAutoStep').textContent = 'Pause';
+    document.getElementById('btnAutoStep').textContent=T("jtc_pause");
     autoInterval = setInterval(() => {
       if (currentStep >= steps.length - 1) {
         stopAuto();
@@ -854,7 +866,7 @@ function stopAuto() {
     clearInterval(autoInterval);
     autoInterval = null;
   }
-  document.getElementById('btnAutoStep').textContent = 'Auto';
+  document.getElementById('btnAutoStep').textContent=T("jtc_auto");
 }
 
 function resetAll() {
@@ -864,12 +876,30 @@ function resetAll() {
   document.getElementById('consoleOutput').innerHTML = '';
   document.getElementById('btnStep').disabled = true;
   document.getElementById('btnAutoStep').disabled = true;
-  document.getElementById('stepCounter').textContent = 'Step 0';
+  document.getElementById('stepCounter').textContent=T("jtc_step_0");
   renderQueue('callStack', [], 'callstack');
   renderQueue('webApis', [], 'webapi');
   renderQueue('microQueue', [], 'micro');
   renderQueue('taskQueue', [], 'task');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

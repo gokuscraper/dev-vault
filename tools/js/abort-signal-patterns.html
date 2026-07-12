@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_abortsignal_patterns_play" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,28 +79,32 @@ select { width: auto; cursor: pointer; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>AbortSignal Patterns Playground</h1>
+  <h1 ti="title_abortsignal_patterns_play" ti="h1_abortsignal_patterns_play" ti="title_abortsignal_patterns_play" ti="h1_abortsignal_patterns_play">AbortSignal Patterns Playground</h1>
   <p>AbortController, timeout, any, fetch cancellation & cleanup patterns</p>
 </header>
 
 <div class="tabs">
-  <button class="tab active" data-panel="basics">Basics</button>
-  <button class="tab" data-panel="timeout">Timeout</button>
-  <button class="tab" data-panel="any">Any Combinator</button>
-  <button class="tab" data-panel="fetch">Fetch Cancellation</button>
-  <button class="tab" data-panel="concurrent">Concurrent</button>
-  <button class="tab" data-panel="events">Event Cleanup</button>
-  <button class="tab" data-panel="reason">Reason Inspection</button>
-  <button class="tab" data-panel="race">Race Conditions</button>
+  <button class="tab active" data-panel="basics" ti="btn_basics" ti="btn_basics">Basics</button>
+  <button class="tab" data-panel="timeout" ti="btn_timeout" ti="btn_timeout">Timeout</button>
+  <button class="tab" data-panel="any" ti="btn_any_combinator" ti="btn_any_combinator">Any Combinator</button>
+  <button class="tab" data-panel="fetch" ti="btn_fetch_cancellation" ti="btn_fetch_cancellation">Fetch Cancellation</button>
+  <button class="tab" data-panel="concurrent" ti="btn_concurrent" ti="btn_concurrent">Concurrent</button>
+  <button class="tab" data-panel="events" ti="btn_event_cleanup" ti="btn_event_cleanup">Event Cleanup</button>
+  <button class="tab" data-panel="reason" ti="btn_reason_inspection" ti="btn_reason_inspection">Reason Inspection</button>
+  <button class="tab" data-panel="race" ti="btn_race_conditions" ti="btn_race_conditions">Race Conditions</button>
 </div>
 
 <main>
   <!-- Panel 1: Basics -->
   <div class="panel active" id="panel-basics">
-    <h2>AbortController / AbortSignal Basics</h2>
-    <p class="desc">AbortController creates an AbortSignal that can be used to cancel asynchronous operations. The signal is a one-way communication channel: once aborted, it stays aborted.</p>
+    <h2 ti="h2_abortcontroller_abortsign" ti="h2_abortcontroller_abortsign">AbortController / AbortSignal Basics</h2>
+    <p class="desc" ti="subtitle_abortcontroller_creates_a" ti="subtitle_abortcontroller_creates_a">AbortController creates an AbortSignal that can be used to cancel asynchronous operations. The signal is a one-way communication channel: once aborted, it stays aborted.</p>
 
     <div style="margin-bottom:0.75rem;">
       <span class="support-badge" id="ac-badge">Checking...</span>
@@ -120,19 +124,19 @@ select { width: auto; cursor: pointer; }
     </div>
 
     <div class="btn-row">
-      <button class="success" onclick="createController()">Create New Controller</button>
-      <button class="danger" onclick="abortController()">Abort!</button>
-      <button class="warn" onclick="abortWithReason()">Abort with Custom Reason</button>
+      <button class="success" onclick="createController()" ti="btn_create_new_controller" ti="btn_create_new_controller">Create New Controller</button>
+      <button class="danger" onclick="abortController()" ti="btn_abort" ti="btn_abort">Abort!</button>
+      <button class="warn" onclick="abortWithReason()" ti="btn_abort_with_custom_reason" ti="btn_abort_with_custom_reason">Abort with Custom Reason</button>
     </div>
     <div class="log-area" id="basic-log"><div class="entry system">Basic demo log...</div></div>
 
-    <h3>Signal Event Listeners</h3>
+    <h3 ti="h3_signal_event_listeners" ti="h3_signal_event_listeners">Signal Event Listeners</h3>
     <div class="btn-row">
-      <button onclick="demoAbortEvent()">Demo: abort event listener</button>
+      <button onclick="demoAbortEvent()" ti="btn_demo_abort_event_listener" ti="btn_demo_abort_event_listener">Demo: abort event listener</button>
     </div>
     <div class="log-area" id="event-log"><div class="entry system">Event log...</div></div>
 
-    <h3>Code Pattern</h3>
+    <h3 ti="h3_code_pattern" ti="h3_code_pattern_2" ti="h3_code_pattern" ti="h3_code_pattern_2">Code Pattern</h3>
     <div class="code-block">const controller = new AbortController();
 const signal = controller.signal;
 
@@ -150,23 +154,23 @@ controller.abort('User cancelled');</div>
 
   <!-- Panel 2: Timeout -->
   <div class="panel" id="panel-timeout">
-    <h2>AbortSignal.timeout()</h2>
-    <p class="desc">Creates a signal that automatically aborts after a specified duration. The reason is set to a TimeoutError DOMException.</p>
+    <h2 ti="h2_abortsignal_timeout" ti="h2_abortsignal_timeout">AbortSignal.timeout()</h2>
+    <p class="desc" ti="subtitle_creates_a_signal_that_aut" ti="subtitle_creates_a_signal_that_aut">Creates a signal that automatically aborts after a specified duration. The reason is set to a TimeoutError DOMException.</p>
 
-    <h3>Timeout Demo</h3>
+    <h3 ti="h3_timeout_demo" ti="h3_timeout_demo">Timeout Demo</h3>
     <div class="grid2">
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Timeout (ms):</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_timeout_ms" ti="label_timeout_ms">Timeout (ms):</label>
         <input type="number" id="timeout-ms" value="2000" min="100" max="10000" />
       </div>
       <div>
-        <label style="color:var(--text-dim);font-size:0.85rem;">Operation duration (ms):</label>
+        <label style="color:var(--text-dim);font-size:0.85rem;" ti="label_operation_duration_ms" ti="label_operation_duration_ms">Operation duration (ms):</label>
         <input type="number" id="op-duration" value="3000" min="100" max="10000" />
       </div>
     </div>
     <div class="btn-row">
-      <button class="success" onclick="timeoutDemo()">Run (operation slower than timeout)</button>
-      <button onclick="timeoutFast()">Run (operation faster than timeout)</button>
+      <button class="success" onclick="timeoutDemo()" ti="btn_run_operation_slower_than" ti="btn_run_operation_slower_than">Run (operation slower than timeout)</button>
+      <button onclick="timeoutFast()" ti="btn_run_operation_faster_than" ti="btn_run_operation_faster_than">Run (operation faster than timeout)</button>
     </div>
 
     <div class="progress-bar" id="timeout-progress" style="display:none;">
@@ -174,22 +178,22 @@ controller.abort('User cancelled');</div>
     </div>
     <div class="log-area" id="timeout-log"><div class="entry system">Timeout results...</div></div>
 
-    <h3>Practical: Timeout with Fetch</h3>
+    <h3 ti="h3_practical_timeout_with_fe" ti="h3_practical_timeout_with_fe">Practical: Timeout with Fetch</h3>
     <div class="btn-row">
-      <button onclick="fetchTimeout()">Simulated Fetch with Timeout</button>
+      <button onclick="fetchTimeout()" ti="btn_simulated_fetch_with_time" ti="btn_simulated_fetch_with_time">Simulated Fetch with Timeout</button>
     </div>
     <div class="log-area" id="fetch-timeout-log"><div class="entry system">Fetch timeout results...</div></div>
   </div>
 
   <!-- Panel 3: Any -->
   <div class="panel" id="panel-any">
-    <h2>AbortSignal.any() Combinator</h2>
-    <p class="desc">Combines multiple signals - aborts when ANY of them abort. Perfect for combining user cancellation with timeout.</p>
+    <h2 ti="h2_abortsignal_any_combinato" ti="h2_abortsignal_any_combinato">AbortSignal.any() Combinator</h2>
+    <p class="desc" ti="subtitle_combines_multiple_signals" ti="subtitle_combines_multiple_signals">Combines multiple signals - aborts when ANY of them abort. Perfect for combining user cancellation with timeout.</p>
 
-    <h3>User Cancel + Timeout</h3>
+    <h3 ti="h3_user_cancel_timeout" ti="h3_user_cancel_timeout">User Cancel + Timeout</h3>
     <div class="btn-row">
-      <button class="success" onclick="anyDemo()">Start (5s timeout + manual cancel)</button>
-      <button class="danger" onclick="anyCancelUser()">Cancel (user)</button>
+      <button class="success" onclick="anyDemo()" ti="btn_start_5s_timeout_manual_c" ti="btn_start_5s_timeout_manual_c">Start (5s timeout + manual cancel)</button>
+      <button class="danger" onclick="anyCancelUser()" ti="btn_cancel_user" ti="btn_cancel_user">Cancel (user)</button>
     </div>
     <div class="signal-viz">
       <div class="signal-box" id="any-user-box">
@@ -209,51 +213,51 @@ controller.abort('User cancelled');</div>
     </div>
     <div class="log-area" id="any-log"><div class="entry system">Any combinator results...</div></div>
 
-    <h3>Multiple Sources</h3>
+    <h3 ti="h3_multiple_sources" ti="h3_multiple_sources">Multiple Sources</h3>
     <div class="btn-row">
-      <button onclick="anyMultiple()">3 signals: timeout(3s) + timeout(5s) + manual</button>
-      <button class="danger" onclick="anyMultiCancel()">Cancel Manual</button>
+      <button onclick="anyMultiple()" ti="btn_3_signals_timeout_3s_time" ti="btn_3_signals_timeout_3s_time">3 signals: timeout(3s) + timeout(5s) + manual</button>
+      <button class="danger" onclick="anyMultiCancel()" ti="btn_cancel_manual" ti="btn_cancel_manual">Cancel Manual</button>
     </div>
     <div class="log-area" id="any-multi-log"><div class="entry system">Multi-signal results...</div></div>
   </div>
 
   <!-- Panel 4: Fetch Cancellation -->
   <div class="panel" id="panel-fetch">
-    <h2>Fetch Cancellation with Progress</h2>
-    <p class="desc">Cancel in-flight fetch requests. The browser actually cancels the network request, not just ignoring the response.</p>
+    <h2 ti="h2_fetch_cancellation_with_p" ti="h2_fetch_cancellation_with_p">Fetch Cancellation with Progress</h2>
+    <p class="desc" ti="subtitle_cancel_in_flight_fetch_re" ti="subtitle_cancel_in_flight_fetch_re">Cancel in-flight fetch requests. The browser actually cancels the network request, not just ignoring the response.</p>
 
-    <h3>Simulated Download with Cancel</h3>
+    <h3 ti="h3_simulated_download_with_c" ti="h3_simulated_download_with_c">Simulated Download with Cancel</h3>
     <div class="btn-row">
-      <button class="success" onclick="startFetchCancel()">Start Download (5s)</button>
-      <button class="danger" onclick="cancelFetch()">Cancel Download</button>
+      <button class="success" onclick="startFetchCancel()" ti="btn_start_download_5s" ti="btn_start_download_5s">Start Download (5s)</button>
+      <button class="danger" onclick="cancelFetch()" ti="btn_cancel_download" ti="btn_cancel_download">Cancel Download</button>
     </div>
     <div class="progress-bar" id="dl-progress">
       <div class="progress-fill" id="dl-fill" style="width:0%;background:linear-gradient(90deg,var(--accent2),var(--accent));">0%</div>
     </div>
     <div class="log-area" id="dl-log"><div class="entry system">Download log...</div></div>
 
-    <h3>Retry with Abort</h3>
-    <p class="desc">Automatically cancel previous request when a new one starts.</p>
-    <input id="search-input" placeholder="Type to search (each keystroke cancels previous)..." />
+    <h3 ti="h3_retry_with_abort" ti="h3_retry_with_abort">Retry with Abort</h3>
+    <p class="desc" ti="subtitle_automatically_cancel_prev" ti="subtitle_automatically_cancel_prev">Automatically cancel previous request when a new one starts.</p>
+    <input id="search-input" tp="placeholder_type_to_search_each_keyst" tp="placeholder_type_to_search_each_keyst" placeholder="Type to search (each keystroke cancels previous)..." />
     <div class="log-area" id="search-log"><div class="entry system">Search log (type above)...</div></div>
   </div>
 
   <!-- Panel 5: Concurrent Requests -->
   <div class="panel" id="panel-concurrent">
-    <h2>Multiple Concurrent Requests Cancellation</h2>
-    <p class="desc">Cancel all in-flight requests with a single controller, or cancel them individually.</p>
+    <h2 ti="h2_multiple_concurrent_reque" ti="h2_multiple_concurrent_reque">Multiple Concurrent Requests Cancellation</h2>
+    <p class="desc" ti="subtitle_cancel_all_in_flight_requ" ti="subtitle_cancel_all_in_flight_requ">Cancel all in-flight requests with a single controller, or cancel them individually.</p>
 
-    <h3>Cancel All Pattern</h3>
+    <h3 ti="h3_cancel_all_pattern" ti="h3_cancel_all_pattern">Cancel All Pattern</h3>
     <div class="btn-row">
-      <button class="success" onclick="concurrentAll()">Start 5 Requests (shared controller)</button>
-      <button class="danger" onclick="cancelAll()">Cancel All</button>
+      <button class="success" onclick="concurrentAll()" ti="btn_start_5_requests_shared_c" ti="btn_start_5_requests_shared_c">Start 5 Requests (shared controller)</button>
+      <button class="danger" onclick="cancelAll()" ti="btn_cancel_all" ti="btn_cancel_all">Cancel All</button>
     </div>
     <div id="concurrent-cards"></div>
     <div class="log-area" id="concurrent-log"><div class="entry system">Concurrent request log...</div></div>
 
-    <h3>Individual Cancellation</h3>
+    <h3 ti="h3_individual_cancellation" ti="h3_individual_cancellation">Individual Cancellation</h3>
     <div class="btn-row">
-      <button class="success" onclick="individualStart()">Start 3 Independent Requests</button>
+      <button class="success" onclick="individualStart()" ti="btn_start_3_independent_reque" ti="btn_start_3_independent_reque">Start 3 Independent Requests</button>
     </div>
     <div id="individual-cards"></div>
     <div class="log-area" id="individual-log"><div class="entry system">Individual request log...</div></div>
@@ -261,22 +265,22 @@ controller.abort('User cancelled');</div>
 
   <!-- Panel 6: Event Cleanup -->
   <div class="panel" id="panel-events">
-    <h2>Event Listener Cleanup with Signal</h2>
-    <p class="desc">Use AbortSignal to automatically remove event listeners. No need to keep references to handler functions.</p>
+    <h2 ti="h2_event_listener_cleanup_wi" ti="h2_event_listener_cleanup_wi">Event Listener Cleanup with Signal</h2>
+    <p class="desc" ti="subtitle_use_abortsignal_to_automa" ti="subtitle_use_abortsignal_to_automa">Use AbortSignal to automatically remove event listeners. No need to keep references to handler functions.</p>
 
-    <h3>Click Counter (auto-cleanup)</h3>
+    <h3 ti="h3_click_counter_auto_cleanu" ti="h3_click_counter_auto_cleanu">Click Counter (auto-cleanup)</h3>
     <div class="btn-row">
-      <button class="success" onclick="startListening()">Start Listening (click anywhere)</button>
-      <button class="danger" onclick="stopListening()">Stop & Cleanup</button>
+      <button class="success" onclick="startListening()" ti="btn_start_listening_click_any" ti="btn_start_listening_click_any">Start Listening (click anywhere)</button>
+      <button class="danger" onclick="stopListening()" ti="btn_stop_cleanup" ti="btn_stop_cleanup">Stop & Cleanup</button>
     </div>
     <div style="font-size:1.2rem;margin:0.5rem 0;">Clicks: <span id="click-count">0</span></div>
     <div class="log-area" id="listener-log"><div class="entry system">Listener log...</div></div>
 
-    <h3>Multiple Listeners, One Cleanup</h3>
-    <p class="desc">Register multiple event types with a single signal. Abort once to remove all.</p>
+    <h3 ti="h3_multiple_listeners_one_cl" ti="h3_multiple_listeners_one_cl">Multiple Listeners, One Cleanup</h3>
+    <p class="desc" ti="subtitle_register_multiple_event_t" ti="subtitle_register_multiple_event_t">Register multiple event types with a single signal. Abort once to remove all.</p>
     <div class="btn-row">
-      <button onclick="multiListenerDemo()">Register: click + keydown + mousemove</button>
-      <button class="danger" onclick="cleanupMulti()">Cleanup All</button>
+      <button onclick="multiListenerDemo()" ti="btn_register_click_keydown_mo" ti="btn_register_click_keydown_mo">Register: click + keydown + mousemove</button>
+      <button class="danger" onclick="cleanupMulti()" ti="btn_cleanup_all" ti="btn_cleanup_all">Cleanup All</button>
     </div>
     <div class="log-area" id="multi-listener-log"><div class="entry system">Multi-listener log...</div></div>
 
@@ -295,57 +299,67 @@ controller.abort();
 
   <!-- Panel 7: Reason Inspection -->
   <div class="panel" id="panel-reason">
-    <h2>AbortSignal.reason Inspection</h2>
-    <p class="desc">The reason property tells you WHY an abort happened. It can be any value: string, Error, DOMException, or custom object.</p>
+    <h2 ti="h2_abortsignal_reason_inspec" ti="h2_abortsignal_reason_inspec">AbortSignal.reason Inspection</h2>
+    <p class="desc" ti="subtitle_the_reason_property_tells" ti="subtitle_the_reason_property_tells">The reason property tells you WHY an abort happened. It can be any value: string, Error, DOMException, or custom object.</p>
 
-    <h3>Different Reason Types</h3>
+    <h3 ti="h3_different_reason_types" ti="h3_different_reason_types">Different Reason Types</h3>
     <div class="btn-row">
-      <button onclick="reasonDemo('string')">String reason</button>
-      <button onclick="reasonDemo('error')">Error reason</button>
-      <button onclick="reasonDemo('timeout')">TimeoutError (from .timeout())</button>
-      <button onclick="reasonDemo('default')">Default (no reason)</button>
-      <button onclick="reasonDemo('object')">Custom object reason</button>
+      <button onclick="reasonDemo('string')" ti="btn_string_reason" ti="btn_string_reason">String reason</button>
+      <button onclick="reasonDemo('error')" ti="btn_error_reason" ti="btn_error_reason">Error reason</button>
+      <button onclick="reasonDemo('timeout')" ti="btn_timeouterror_from_timeout" ti="btn_timeouterror_from_timeout">TimeoutError (from .timeout())</button>
+      <button onclick="reasonDemo('default')" ti="btn_default_no_reason" ti="btn_default_no_reason">Default (no reason)</button>
+      <button onclick="reasonDemo('object')" ti="btn_custom_object_reason" ti="btn_custom_object_reason">Custom object reason</button>
     </div>
     <div class="log-area" id="reason-log"><div class="entry system">Reason inspection results...</div></div>
 
-    <h3>Reason-based Error Handling</h3>
+    <h3 ti="h3_reason_based_error_handli" ti="h3_reason_based_error_handli">Reason-based Error Handling</h3>
     <div class="btn-row">
-      <button onclick="reasonHandling()">Demo: Handle different abort reasons</button>
+      <button onclick="reasonHandling()" ti="btn_demo_handle_different_abo" ti="btn_demo_handle_different_abo">Demo: Handle different abort reasons</button>
     </div>
     <div class="log-area" id="reason-handling-log"><div class="entry system">Error handling results...</div></div>
 
-    <h3>throwIfAborted()</h3>
+    <h3 ti="h3_throwifaborted" ti="h3_throwifaborted">throwIfAborted()</h3>
     <div class="btn-row">
-      <button onclick="throwIfAbortedDemo()">Demo: signal.throwIfAborted()</button>
+      <button onclick="throwIfAbortedDemo()" ti="btn_demo_signal_throwifaborte" ti="btn_demo_signal_throwifaborte">Demo: signal.throwIfAborted()</button>
     </div>
     <div class="log-area" id="throw-log"><div class="entry system">throwIfAborted results...</div></div>
   </div>
 
   <!-- Panel 8: Race Conditions -->
   <div class="panel" id="panel-race">
-    <h2>Race Condition Handling Patterns</h2>
-    <p class="desc">AbortSignal prevents stale responses from overwriting fresh data. Critical for search-as-you-type and similar patterns.</p>
+    <h2 ti="h2_race_condition_handling_p" ti="h2_race_condition_handling_p">Race Condition Handling Patterns</h2>
+    <p class="desc" ti="subtitle_abortsignal_prevents_stal" ti="subtitle_abortsignal_prevents_stal">AbortSignal prevents stale responses from overwriting fresh data. Critical for search-as-you-type and similar patterns.</p>
 
-    <h3>Stale Closure Problem</h3>
+    <h3 ti="h3_stale_closure_problem" ti="h3_stale_closure_problem">Stale Closure Problem</h3>
     <div class="btn-row">
-      <button class="danger" onclick="raceWithoutAbort()">Without Abort (race condition!)</button>
-      <button class="success" onclick="raceWithAbort()">With Abort (correct)</button>
+      <button class="danger" onclick="raceWithoutAbort()" ti="btn_without_abort_race_condit" ti="btn_without_abort_race_condit">Without Abort (race condition!)</button>
+      <button class="success" onclick="raceWithAbort()" ti="btn_with_abort_correct" ti="btn_with_abort_correct">With Abort (correct)</button>
     </div>
     <div class="log-area" id="race-log"><div class="entry system">Race condition results...</div></div>
 
-    <h3>Debounce + Abort Pattern</h3>
-    <input id="debounce-input" placeholder="Type to search with debounce + abort..." />
+    <h3 ti="h3_debounce_abort_pattern" ti="h3_debounce_abort_pattern">Debounce + Abort Pattern</h3>
+    <input id="debounce-input" tp="placeholder_type_to_search_with_debou" tp="placeholder_type_to_search_with_debou" placeholder="Type to search with debounce + abort..." />
     <div class="log-area" id="debounce-log"><div class="entry system">Debounce results...</div></div>
 
-    <h3>AbortSignal for Async Iteration</h3>
+    <h3 ti="h3_abortsignal_for_async_ite" ti="h3_abortsignal_for_async_ite">AbortSignal for Async Iteration</h3>
     <div class="btn-row">
-      <button class="success" onclick="asyncIterAbort()">Start Async Iterator</button>
-      <button class="danger" onclick="stopAsyncIter()">Stop Iterator</button>
+      <button class="success" onclick="asyncIterAbort()" ti="btn_start_async_iterator" ti="btn_start_async_iterator">Start Async Iterator</button>
+      <button class="danger" onclick="stopAsyncIter()" ti="btn_stop_iterator" ti="btn_stop_iterator">Stop Iterator</button>
     </div>
     <div class="log-area" id="iter-log"><div class="entry system">Async iteration results...</div></div>
   </div>
 </main>
 
+
+<script>var _LANG={'title_abortsignal_patterns_play':["AbortSignal Patterns Playground", "AbortSignal 模式演练场"],'metadesc_interactive_playground_fo':["Interactive playground for AbortSignal patterns - AbortController, timeout, any, fetch cancellation, event cleanup, and race condition handling.", "AbortSignal 模式交互式演练场 — AbortController、超时、any、fetch 取消、事件清理及竞态条件处理。"],'h1_abortsignal_patterns_play':["AbortSignal Patterns Playground", "AbortSignal 模式演练场"],'h2_abortcontroller_abortsign':["AbortController / AbortSignal Basics", "AbortController / AbortSignal 基础"],'h2_abortsignal_timeout':["AbortSignal.timeout()", "AbortSignal.timeout()"],'h2_abortsignal_any_combinato':["AbortSignal.any() Combinator", "AbortSignal.any() 组合器"],'h2_fetch_cancellation_with_p':["Fetch Cancellation with Progress", "带进度的 Fetch 取消"],'h2_multiple_concurrent_reque':["Multiple Concurrent Requests Cancellation", "多个并发请求取消"],'h2_event_listener_cleanup_wi':["Event Listener Cleanup with Signal", "使用 Signal 的事件监听器清理"],'h2_abortsignal_reason_inspec':["AbortSignal.reason Inspection", "AbortSignal.reason 检查"],'h2_race_condition_handling_p':["Race Condition Handling Patterns", "竞态条件处理模式"],'h3_signal_event_listeners':["Signal Event Listeners", "信号事件监听器"],'h3_code_pattern':["Code Pattern", "代码模式"],'h3_timeout_demo':["Timeout Demo", "超时演示"],'h3_practical_timeout_with_fe':["Practical: Timeout with Fetch", "实战：带超时的 Fetch"],'h3_user_cancel_timeout':["User Cancel + Timeout", "用户取消 + 超时"],'h3_multiple_sources':["Multiple Sources", "多个来源"],'h3_simulated_download_with_c':["Simulated Download with Cancel", "带取消的模拟下载"],'h3_retry_with_abort':["Retry with Abort", "带中止的重试"],'h3_cancel_all_pattern':["Cancel All Pattern", "全部取消模式"],'h3_individual_cancellation':["Individual Cancellation", "单独取消"],'h3_click_counter_auto_cleanu':["Click Counter (auto-cleanup)", "点击计数器（自动清理）"],'h3_multiple_listeners_one_cl':["Multiple Listeners, One Cleanup", "多个监听器，一次清理"],'h3_code_pattern_2':["Code Pattern", "代码模式"],'h3_different_reason_types':["Different Reason Types", "不同的原因类型"],'h3_reason_based_error_handli':["Reason-based Error Handling", "基于原因的错误处理"],'h3_throwifaborted':["throwIfAborted()", "throwIfAborted()"],'h3_stale_closure_problem':["Stale Closure Problem", "过期闭包问题"],'h3_debounce_abort_pattern':["Debounce + Abort Pattern", "防抖 + 中止模式"],'h3_abortsignal_for_async_ite':["AbortSignal for Async Iteration", "用于异步迭代的 AbortSignal"],'subtitle_abortcontroller_creates_a':["AbortController creates an AbortSignal that can be used to cancel asynchronous operations. The signal is a one-way communication channel: once aborted, it stays aborted.", "AbortController 创建一个可用于取消异步操作的 AbortSignal。该信号是单向通信通道：一旦中止，将保持中止状态。"],'subtitle_creates_a_signal_that_aut':["Creates a signal that automatically aborts after a specified duration. The reason is set to a TimeoutError DOMException.", "创建在指定持续时间后自动中止的信号。原因设置为 TimeoutError DOMException。"],'subtitle_combines_multiple_signals':["Combines multiple signals - aborts when ANY of them abort. Perfect for combining user cancellation with timeout.", "组合多个信号 — 当任意一个中止时触发。非常适合将用户取消与超时结合。"],'subtitle_cancel_in_flight_fetch_re':["Cancel in-flight fetch requests. The browser actually cancels the network request, not just ignoring the response.", "取消进行中的 fetch 请求。浏览器实际取消网络请求，而不仅仅是忽略响应。"],'subtitle_automatically_cancel_prev':["Automatically cancel previous request when a new one starts.", "新请求开始时自动取消上一个请求。"],'subtitle_cancel_all_in_flight_requ':["Cancel all in-flight requests with a single controller, or cancel them individually.", "使用单个控制器取消所有进行中请求，或单独取消。"],'subtitle_use_abortsignal_to_automa':["Use AbortSignal to automatically remove event listeners. No need to keep references to handler functions.", "使用 AbortSignal 自动移除事件监听器。无需保留对处理函数的引用。"],'subtitle_register_multiple_event_t':["Register multiple event types with a single signal. Abort once to remove all.", "使用单个信号注册多种事件类型。一次中止移除所有。"],'subtitle_the_reason_property_tells':["The reason property tells you WHY an abort happened. It can be any value: string, Error, DOMException, or custom object.", "reason 属性告诉你中止发生的原因。可以是任何值：字符串、Error、DOMException 或自定义对象。"],'subtitle_abortsignal_prevents_stal':["AbortSignal prevents stale responses from overwriting fresh data. Critical for search-as-you-type and similar patterns.", "AbortSignal 防止过期响应覆盖新数据。对边输入边搜索等模式至关重要。"],'btn_basics':["Basics", "基础"],'btn_timeout':["Timeout", "超时"],'btn_any_combinator':["Any Combinator", "任意组合器"],'btn_fetch_cancellation':["Fetch Cancellation", "Fetch 取消"],'btn_concurrent':["Concurrent", "并发"],'btn_event_cleanup':["Event Cleanup", "事件清理"],'btn_reason_inspection':["Reason Inspection", "原因检查"],'btn_race_conditions':["Race Conditions", "竞态条件"],'btn_create_new_controller':["Create New Controller", "创建新控制器"],'btn_abort':["Abort!", "中止！"],'btn_abort_with_custom_reason':["Abort with Custom Reason", "使用自定义原因中止"],'btn_demo_abort_event_listener':["Demo: abort event listener", "演示：中止事件监听器"],'btn_run_operation_slower_than':["Run (operation slower than timeout)", "运行（操作慢于超时）"],'btn_run_operation_faster_than':["Run (operation faster than timeout)", "运行（操作快于超时）"],'btn_simulated_fetch_with_time':["Simulated Fetch with Timeout", "带超时的模拟 Fetch"],'btn_start_5s_timeout_manual_c':["Start (5s timeout + manual cancel)", "开始（5 秒超时 + 手动取消）"],'btn_cancel_user':["Cancel (user)", "取消（用户）"],'btn_3_signals_timeout_3s_time':["3 signals: timeout(3s) + timeout(5s) + manual", "3 个信号：timeout(3s) + timeout(5s) + 手动"],'btn_cancel_manual':["Cancel Manual", "手动取消"],'btn_start_download_5s':["Start Download (5s)", "开始下载（5 秒）"],'btn_cancel_download':["Cancel Download", "取消下载"],'btn_start_5_requests_shared_c':["Start 5 Requests (shared controller)", "启动 5 个请求（共享控制器）"],'btn_cancel_all':["Cancel All", "全部取消"],'btn_start_3_independent_reque':["Start 3 Independent Requests", "启动 3 个独立请求"],'btn_start_listening_click_any':["Start Listening (click anywhere)", "开始监听（点击任意位置）"],'btn_stop_cleanup':["Stop & Cleanup", "停止并清理"],'btn_register_click_keydown_mo':["Register: click + keydown + mousemove", "注册：click + keydown + mousemove"],'btn_cleanup_all':["Cleanup All", "全部清理"],'btn_string_reason':["String reason", "字符串原因"],'btn_error_reason':["Error reason", "错误原因"],'btn_timeouterror_from_timeout':["TimeoutError (from .timeout())", "TimeoutError（来自 .timeout()）"],'btn_default_no_reason':["Default (no reason)", "默认（无原因）"],'btn_custom_object_reason':["Custom object reason", "自定义对象原因"],'btn_demo_handle_different_abo':["Demo: Handle different abort reasons", "演示：处理不同的中止原因"],'btn_demo_signal_throwifaborte':["Demo: signal.throwIfAborted()", "演示：signal.throwIfAborted()"],'btn_without_abort_race_condit':["Without Abort (race condition!)", "无中止（竞态条件！）"],'btn_with_abort_correct':["With Abort (correct)", "带中止（正确）"],'btn_start_async_iterator':["Start Async Iterator", "启动异步迭代器"],'btn_stop_iterator':["Stop Iterator", "停止迭代器"],'btn_cancel':["Cancel", "取消"],'placeholder_type_to_search_each_keyst':["Type to search (each keystroke cancels previous)...", "输入搜索（每次按键取消上一次）..."],'placeholder_type_to_search_with_debou':["Type to search with debounce + abort...", "输入搜索（带防抖 + 中止）..."],'label_timeout_ms':["Timeout (ms):", "超时（毫秒）："],'label_operation_duration_ms':["Operation duration (ms):", "操作持续时间（毫秒）："],'jtc_abortcontroller':["AbortController:", "AbortController："],'jtc_timeout':["timeout():", "timeout()："],'jtc_any':["any():", "any()："],'jtc_none':["none", "无"],'jtc_cancelled':["CANCELLED", "已取消"],'jtc_done':["done", "完成"],'jtc_cancelled_2':["cancelled", "已取消"],'jtc_done_2':["done", "完成"],'jtc_cancelled_3':["cancelled", "已取消"],'jtcpre_abortcontroller':["AbortController: ", "AbortController："],'jtcpre_timeout':["timeout(): ", "timeout()："],'jtcpre_any':["any(): ", "any()："],'jtlword_cancel':["Cancel", "取消"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 document.querySelectorAll('.tab').forEach(tab => {
   tab.addEventListener('click', () => {
@@ -368,15 +382,15 @@ function clearLog(id) { document.getElementById(id).innerHTML = ''; }
 // Feature detection
 const acBadge = document.getElementById('ac-badge');
 acBadge.className = 'support-badge ' + (typeof AbortController !== 'undefined' ? 'yes' : 'no');
-acBadge.textContent = 'AbortController: ' + (typeof AbortController !== 'undefined' ? 'Yes' : 'No');
+acBadge.textContent=T("jtcpre_abortcontroller")+ (typeof AbortController !== 'undefined' ? 'Yes' : 'No');
 
 const toBadge = document.getElementById('timeout-badge');
 toBadge.className = 'support-badge ' + (typeof AbortSignal?.timeout === 'function' ? 'yes' : 'no');
-toBadge.textContent = 'timeout(): ' + (typeof AbortSignal?.timeout === 'function' ? 'Yes' : 'No');
+toBadge.textContent=T("jtcpre_timeout")+ (typeof AbortSignal?.timeout === 'function' ? 'Yes' : 'No');
 
 const anyBadge = document.getElementById('any-badge');
 anyBadge.className = 'support-badge ' + (typeof AbortSignal?.any === 'function' ? 'yes' : 'no');
-anyBadge.textContent = 'any(): ' + (typeof AbortSignal?.any === 'function' ? 'Yes' : 'No');
+anyBadge.textContent=T("jtcpre_any")+ (typeof AbortSignal?.any === 'function' ? 'Yes' : 'No');
 
 // Simulate async operation
 function simulateAsync(duration, signal) {
@@ -400,7 +414,7 @@ function updateSignalViz() {
 
   if (!currentController) {
     box.className = 'signal-box';
-    state.textContent = 'none';
+    state.textContent=T("jtc_none");
     aborted.textContent = '-';
     reason.textContent = '-';
     return;
@@ -610,7 +624,7 @@ async function startFetchCancel() {
     log('dl-log', 'Download complete!', 'data');
   } catch(e) {
     fill.style.background = 'var(--accent4)';
-    fill.textContent = 'CANCELLED';
+    fill.textContent=T("jtc_cancelled");
     log('dl-log', `Download cancelled: ${e}`, 'error');
   }
 }
@@ -665,11 +679,11 @@ async function concurrentAll() {
   const promises = requests.map(async r => {
     try {
       await simulateAsync(r.duration, concurrentController.signal);
-      document.getElementById(`status-${r.id}`).textContent = 'done';
+      document.getElementById(`status-${r.id}`).textContent=T("jtc_done");
       document.getElementById(`status-${r.id}`).className = 'status done';
       log('concurrent-log', `${r.name} completed (${(r.duration/1000).toFixed(1)}s)`, 'data');
     } catch(e) {
-      document.getElementById(`status-${r.id}`).textContent = 'cancelled';
+      document.getElementById(`status-${r.id}`).textContent=T("jtc_cancelled_2");
       document.getElementById(`status-${r.id}`).className = 'status cancelled';
       log('concurrent-log', `${r.name} cancelled`, 'error');
     }
@@ -702,18 +716,18 @@ async function individualStart() {
     card.innerHTML = `<span>${r.name} (${r.duration/1000}s)</span>
       <span style="display:flex;gap:0.5rem;align-items:center;">
         <span class="status pending" id="ind-status-${i}">pending...</span>
-        <button class="danger" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="cancelIndividual(${i})">Cancel</button>
+        <button class="danger" style="padding:0.2rem 0.5rem;font-size:0.75rem;" onclick="cancelIndividual(${i})" ti="btn_cancel" ti="btn_cancel">Cancel</button>
       </span>`;
     cardsEl.appendChild(card);
 
     (async () => {
       try {
         await simulateAsync(r.duration, ac.signal);
-        document.getElementById(`ind-status-${i}`).textContent = 'done';
+        document.getElementById(`ind-status-${i}`).textContent=T("jtc_done");
         document.getElementById(`ind-status-${i}`).className = 'status done';
         log('individual-log', `${r.name} completed`, 'data');
       } catch(e) {
-        document.getElementById(`ind-status-${i}`).textContent = 'cancelled';
+        document.getElementById(`ind-status-${i}`).textContent=T("jtc_cancelled_2");
         document.getElementById(`ind-status-${i}`).className = 'status cancelled';
         log('individual-log', `${r.name} cancelled`, 'error');
       }
@@ -1009,6 +1023,46 @@ function stopAsyncIter() {
 
 // Init
 createController();
+</script>
+<script>var _LANG={'title_abortsignal_patterns_play':["AbortSignal Patterns Playground", "AbortSignal 模式演练场"],'metadesc_interactive_playground_fo':["Interactive playground for AbortSignal patterns - AbortController, timeout, any, fetch cancellation, event cleanup, and race condition handling.", "AbortSignal 模式交互式演练场 — AbortController、超时、any、fetch 取消、事件清理及竞态条件处理。"],'h1_abortsignal_patterns_play':["AbortSignal Patterns Playground", "AbortSignal 模式演练场"],'h2_abortcontroller_abortsign':["AbortController / AbortSignal Basics", "AbortController / AbortSignal 基础"],'h2_abortsignal_timeout':["AbortSignal.timeout()", "AbortSignal.timeout()"],'h2_abortsignal_any_combinato':["AbortSignal.any() Combinator", "AbortSignal.any() 组合器"],'h2_fetch_cancellation_with_p':["Fetch Cancellation with Progress", "带进度的 Fetch 取消"],'h2_multiple_concurrent_reque':["Multiple Concurrent Requests Cancellation", "多个并发请求取消"],'h2_event_listener_cleanup_wi':["Event Listener Cleanup with Signal", "使用 Signal 的事件监听器清理"],'h2_abortsignal_reason_inspec':["AbortSignal.reason Inspection", "AbortSignal.reason 检查"],'h2_race_condition_handling_p':["Race Condition Handling Patterns", "竞态条件处理模式"],'h3_signal_event_listeners':["Signal Event Listeners", "信号事件监听器"],'h3_code_pattern':["Code Pattern", "代码模式"],'h3_timeout_demo':["Timeout Demo", "超时演示"],'h3_practical_timeout_with_fe':["Practical: Timeout with Fetch", "实战：带超时的 Fetch"],'h3_user_cancel_timeout':["User Cancel + Timeout", "用户取消 + 超时"],'h3_multiple_sources':["Multiple Sources", "多个来源"],'h3_simulated_download_with_c':["Simulated Download with Cancel", "带取消的模拟下载"],'h3_retry_with_abort':["Retry with Abort", "带中止的重试"],'h3_cancel_all_pattern':["Cancel All Pattern", "全部取消模式"],'h3_individual_cancellation':["Individual Cancellation", "单独取消"],'h3_click_counter_auto_cleanu':["Click Counter (auto-cleanup)", "点击计数器（自动清理）"],'h3_multiple_listeners_one_cl':["Multiple Listeners, One Cleanup", "多个监听器，一次清理"],'h3_code_pattern_2':["Code Pattern", "代码模式"],'h3_different_reason_types':["Different Reason Types", "不同的原因类型"],'h3_reason_based_error_handli':["Reason-based Error Handling", "基于原因的错误处理"],'h3_throwifaborted':["throwIfAborted()", "throwIfAborted()"],'h3_stale_closure_problem':["Stale Closure Problem", "过期闭包问题"],'h3_debounce_abort_pattern':["Debounce + Abort Pattern", "防抖 + 中止模式"],'h3_abortsignal_for_async_ite':["AbortSignal for Async Iteration", "用于异步迭代的 AbortSignal"],'subtitle_abortcontroller_creates_a':["AbortController creates an AbortSignal that can be used to cancel asynchronous operations. The signal is a one-way communication channel: once aborted, it stays aborted.", "AbortController 创建一个可用于取消异步操作的 AbortSignal。该信号是单向通信通道：一旦中止，将保持中止状态。"],'subtitle_creates_a_signal_that_aut':["Creates a signal that automatically aborts after a specified duration. The reason is set to a TimeoutError DOMException.", "创建在指定持续时间后自动中止的信号。原因设置为 TimeoutError DOMException。"],'subtitle_combines_multiple_signals':["Combines multiple signals - aborts when ANY of them abort. Perfect for combining user cancellation with timeout.", "组合多个信号 — 当任意一个中止时触发。非常适合将用户取消与超时结合。"],'subtitle_cancel_in_flight_fetch_re':["Cancel in-flight fetch requests. The browser actually cancels the network request, not just ignoring the response.", "取消进行中的 fetch 请求。浏览器实际取消网络请求，而不仅仅是忽略响应。"],'subtitle_automatically_cancel_prev':["Automatically cancel previous request when a new one starts.", "新请求开始时自动取消上一个请求。"],'subtitle_cancel_all_in_flight_requ':["Cancel all in-flight requests with a single controller, or cancel them individually.", "使用单个控制器取消所有进行中请求，或单独取消。"],'subtitle_use_abortsignal_to_automa':["Use AbortSignal to automatically remove event listeners. No need to keep references to handler functions.", "使用 AbortSignal 自动移除事件监听器。无需保留对处理函数的引用。"],'subtitle_register_multiple_event_t':["Register multiple event types with a single signal. Abort once to remove all.", "使用单个信号注册多种事件类型。一次中止移除所有。"],'subtitle_the_reason_property_tells':["The reason property tells you WHY an abort happened. It can be any value: string, Error, DOMException, or custom object.", "reason 属性告诉你中止发生的原因。可以是任何值：字符串、Error、DOMException 或自定义对象。"],'subtitle_abortsignal_prevents_stal':["AbortSignal prevents stale responses from overwriting fresh data. Critical for search-as-you-type and similar patterns.", "AbortSignal 防止过期响应覆盖新数据。对边输入边搜索等模式至关重要。"],'btn_basics':["Basics", "基础"],'btn_timeout':["Timeout", "超时"],'btn_any_combinator':["Any Combinator", "任意组合器"],'btn_fetch_cancellation':["Fetch Cancellation", "Fetch 取消"],'btn_concurrent':["Concurrent", "并发"],'btn_event_cleanup':["Event Cleanup", "事件清理"],'btn_reason_inspection':["Reason Inspection", "原因检查"],'btn_race_conditions':["Race Conditions", "竞态条件"],'btn_create_new_controller':["Create New Controller", "创建新控制器"],'btn_abort':["Abort!", "中止！"],'btn_abort_with_custom_reason':["Abort with Custom Reason", "使用自定义原因中止"],'btn_demo_abort_event_listener':["Demo: abort event listener", "演示：中止事件监听器"],'btn_run_operation_slower_than':["Run (operation slower than timeout)", "运行（操作慢于超时）"],'btn_run_operation_faster_than':["Run (operation faster than timeout)", "运行（操作快于超时）"],'btn_simulated_fetch_with_time':["Simulated Fetch with Timeout", "带超时的模拟 Fetch"],'btn_start_5s_timeout_manual_c':["Start (5s timeout + manual cancel)", "开始（5 秒超时 + 手动取消）"],'btn_cancel_user':["Cancel (user)", "取消（用户）"],'btn_3_signals_timeout_3s_time':["3 signals: timeout(3s) + timeout(5s) + manual", "3 个信号：timeout(3s) + timeout(5s) + 手动"],'btn_cancel_manual':["Cancel Manual", "手动取消"],'btn_start_download_5s':["Start Download (5s)", "开始下载（5 秒）"],'btn_cancel_download':["Cancel Download", "取消下载"],'btn_start_5_requests_shared_c':["Start 5 Requests (shared controller)", "启动 5 个请求（共享控制器）"],'btn_cancel_all':["Cancel All", "全部取消"],'btn_start_3_independent_reque':["Start 3 Independent Requests", "启动 3 个独立请求"],'btn_start_listening_click_any':["Start Listening (click anywhere)", "开始监听（点击任意位置）"],'btn_stop_cleanup':["Stop & Cleanup", "停止并清理"],'btn_register_click_keydown_mo':["Register: click + keydown + mousemove", "注册：click + keydown + mousemove"],'btn_cleanup_all':["Cleanup All", "全部清理"],'btn_string_reason':["String reason", "字符串原因"],'btn_error_reason':["Error reason", "错误原因"],'btn_timeouterror_from_timeout':["TimeoutError (from .timeout())", "TimeoutError（来自 .timeout()）"],'btn_default_no_reason':["Default (no reason)", "默认（无原因）"],'btn_custom_object_reason':["Custom object reason", "自定义对象原因"],'btn_demo_handle_different_abo':["Demo: Handle different abort reasons", "演示：处理不同的中止原因"],'btn_demo_signal_throwifaborte':["Demo: signal.throwIfAborted()", "演示：signal.throwIfAborted()"],'btn_without_abort_race_condit':["Without Abort (race condition!)", "无中止（竞态条件！）"],'btn_with_abort_correct':["With Abort (correct)", "带中止（正确）"],'btn_start_async_iterator':["Start Async Iterator", "启动异步迭代器"],'btn_stop_iterator':["Stop Iterator", "停止迭代器"],'btn_cancel':["Cancel", "取消"],'placeholder_type_to_search_each_keyst':["Type to search (each keystroke cancels previous)...", "输入搜索（每次按键取消上一次）..."],'placeholder_type_to_search_with_debou':["Type to search with debounce + abort...", "输入搜索（带防抖 + 中止）..."],'label_timeout_ms':["Timeout (ms):", "超时（毫秒）："],'label_operation_duration_ms':["Operation duration (ms):", "操作持续时间（毫秒）："],'jtc_abortcontroller':["AbortController:", "AbortController："],'jtc_timeout':["timeout():", "timeout()："],'jtc_any':["any():", "any()："],'jtc_none':["none", "无"],'jtc_cancelled':["CANCELLED", "已取消"],'jtc_done':["done", "完成"],'jtc_cancelled_2':["cancelled", "已取消"],'jtc_done_2':["done", "完成"],'jtc_cancelled_3':["cancelled", "已取消"],'jtcpre_abortcontroller':["AbortController: ", "AbortController："],'jtcpre_timeout':["timeout(): ", "timeout()："],'jtcpre_any':["any(): ", "any()："],'jtlword_cancel':["Cancel", "取消"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

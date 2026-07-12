@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_mixin_apply_playgroun" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -222,9 +222,11 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <!-- Hero -->
-<div class="container">
+<div class="container" style="position:relative">
 <div class="hero">
   <h1>CSS <span>@mixin / @apply</span> Playground</h1>
   <p class="tagline">Interactive explorer for native CSS mixins. Define reusable style blocks with parameters, conditionals, and compose them with @apply.</p>
@@ -238,13 +240,13 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
   <a href="#basics" class="active">Basics</a>
   <a href="#parameters">Parameters</a>
   <a href="#conditionals">Conditionals</a>
-  <a href="#patterns">Patterns</a>
-  <a href="#editor">Live Editor</a>
-  <a href="#library">Library Builder</a>
-  <a href="#comparison">Comparison</a>
-  <a href="#migration">Migration</a>
-  <a href="#generator">Generator</a>
-  <a href="#support">Support</a>
+  <a href="#patterns" ti="link_patterns">Patterns</a>
+  <a href="#editor" ti="link_live_editor">Live Editor</a>
+  <a href="#library" ti="link_library_builder">Library Builder</a>
+  <a href="#comparison" ti="link_comparison">Comparison</a>
+  <a href="#migration" ti="link_migration">Migration</a>
+  <a href="#generator" ti="link_generator">Generator</a>
+  <a href="#support" ti="link_support">Support</a>
 </div>
 </nav>
 
@@ -254,7 +256,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="basics">
 <div class="section-header">
   <div class="section-num">01 &mdash; Fundamentals</div>
-  <h2>Basic @mixin and @apply</h2>
+  <h2 ti="h2_basic_mixin_and_apply">Basic @mixin and @apply</h2>
   <p>Define a reusable block of styles with <code>@mixin</code>, then inject them anywhere with <code>@apply</code>. The mixin name must be a dashed-ident (starting with <code>--</code>).</p>
 </div>
 
@@ -277,7 +279,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
   <span class="pr">clip</span>: <span class="vl">rect(0, 0, 0, 0)</span>;
   <span class="pr">white-space</span>: <span class="vl">nowrap</span>;
   <span class="pr">border</span>: <span class="vl">0</span>;
-}<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
+}<button class="copy-btn" onclick="copyCode(this)" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy_4" ti="btn_copy_5" ti="btn_copy_6" ti="btn_copy_7" ti="btn_copy_8" ti="btn_copy_9" ti="btn_copy_10" ti="btn_copy_11" ti="btn_copy_12" ti="btn_copy_13" ti="btn_copy_14" ti="btn_copy_15" ti="btn_copy_16" ti="btn_copy_17" ti="btn_copy_18">Copy</button></pre>
   </div>
   <div class="example-box">
     <div class="label">Usage &mdash; @apply</div>
@@ -304,9 +306,9 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 </div>
 
 <div class="card" style="margin-top:16px">
-  <h3>How It Works</h3>
-  <p><strong>@mixin</strong> declares a named block of declarations. Unlike custom properties, mixins can hold multiple properties, nested rules, and (eventually) parameters.</p>
-  <p style="margin-top:8px"><strong>@apply</strong> expands the mixin inline, as if you'd written all its declarations at that point. It is resolved at parse time, not runtime &mdash; no cascade interaction.</p>
+  <h3 ti="h3_how_it_works">How It Works</h3>
+  <p><strong ti="strong_mixin">@mixin</strong> declares a named block of declarations. Unlike custom properties, mixins can hold multiple properties, nested rules, and (eventually) parameters.</p>
+  <p style="margin-top:8px"><strong ti="strong_apply">@apply</strong> expands the mixin inline, as if you'd written all its declarations at that point. It is resolved at parse time, not runtime &mdash; no cascade interaction.</p>
 </div>
 </section>
 
@@ -314,7 +316,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="parameters">
 <div class="section-header">
   <div class="section-num">02 &mdash; Parameters</div>
-  <h2>Mixins with Parameters</h2>
+  <h2 ti="h2_mixins_with_parameters">Mixins with Parameters</h2>
   <p>Pass values to mixins using parameter syntax. Parameters are dashed-idents that act as local custom properties within the mixin body.</p>
 </div>
 
@@ -378,7 +380,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 </div>
 
 <div class="card" style="margin-top:16px">
-  <h3>Parameter Defaults</h3>
+  <h3 ti="h3_parameter_defaults">Parameter Defaults</h3>
   <p>Parameters use <code>var(--param, fallback)</code> for defaults. When <code>@apply</code> is called without arguments, the fallback values are used. This mirrors how custom properties already work, but scoped to the mixin.</p>
 </div>
 </section>
@@ -387,7 +389,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="conditionals">
 <div class="section-header">
   <div class="section-num">03 &mdash; Conditionals</div>
-  <h2>Conditional Styles with @when</h2>
+  <h2 ti="h2_conditional_styles_with_w">Conditional Styles with @when</h2>
   <p>Use conditional logic inside mixins to apply different styles based on parameter values. The proposed <code>@when</code> rule enables branching within mixin bodies.</p>
 </div>
 
@@ -445,14 +447,14 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <div class="demo-preview">
   <h4 style="color:#fff;margin-bottom:12px;font-size:0.9rem">Preview: Button Variants from One Mixin</h4>
   <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-    <button class="btn-demo btn-primary">Submit (primary)</button>
-    <button class="btn-demo btn-danger">Delete (danger)</button>
-    <button class="btn-demo btn-ghost">Cancel (default)</button>
+    <button class="btn-demo btn-primary" ti="btn_submit_primary">Submit (primary)</button>
+    <button class="btn-demo btn-danger" ti="btn_delete_danger">Delete (danger)</button>
+    <button class="btn-demo btn-ghost" ti="btn_cancel_default">Cancel (default)</button>
   </div>
 </div>
 
 <div class="card" style="margin-top:16px">
-  <h3>Why Conditionals Matter</h3>
+  <h3 ti="h3_why_conditionals_matter">Why Conditionals Matter</h3>
   <p>Without conditionals, you need a separate mixin for each variant. With <code>@when</code>, a single mixin can handle multiple variants, reducing code duplication. This is one of the most requested features from the Sass world, where <code>@if/@else</code> is heavily used.</p>
 </div>
 </section>
@@ -461,16 +463,16 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="patterns">
 <div class="section-header">
   <div class="section-num">04 &mdash; Patterns</div>
-  <h2>Common Mixin Patterns</h2>
+  <h2 ti="h2_common_mixin_patterns">Common Mixin Patterns</h2>
   <p>Real-world mixins for everyday use cases. Each pattern is designed to be copy-paste ready.</p>
 </div>
 
 <div class="tabs" id="pattern-tabs">
-  <button class="tab-btn active" data-tab="pat-buttons">Buttons</button>
-  <button class="tab-btn" data-tab="pat-cards">Cards</button>
-  <button class="tab-btn" data-tab="pat-typography">Typography</button>
-  <button class="tab-btn" data-tab="pat-layout">Flex/Grid</button>
-  <button class="tab-btn" data-tab="pat-utilities">Utilities</button>
+  <button class="tab-btn active" data-tab="pat-buttons" ti="btn_buttons">Buttons</button>
+  <button class="tab-btn" data-tab="pat-cards" ti="btn_cards">Cards</button>
+  <button class="tab-btn" data-tab="pat-typography" ti="btn_typography">Typography</button>
+  <button class="tab-btn" data-tab="pat-layout" ti="btn_flex_grid">Flex/Grid</button>
+  <button class="tab-btn" data-tab="pat-utilities" ti="btn_utilities">Utilities</button>
 </div>
 
 <!-- Buttons Pattern -->
@@ -512,12 +514,12 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 }<button class="copy-btn" onclick="copyCode(this)">Copy</button></pre>
 <div class="demo-preview">
   <div style="display:flex;gap:12px;flex-wrap:wrap;align-items:center">
-    <button class="btn-demo btn-primary">Primary</button>
-    <button class="btn-demo btn-secondary">Secondary</button>
-    <button class="btn-demo btn-danger">Danger</button>
-    <button class="btn-demo btn-ghost">Ghost</button>
-    <button class="btn-demo btn-primary" style="padding:6px 12px;font-size:0.78rem">Small</button>
-    <button class="btn-demo btn-primary" style="padding:14px 28px;font-size:1.05rem">Large</button>
+    <button class="btn-demo btn-primary" ti="btn_primary">Primary</button>
+    <button class="btn-demo btn-secondary" ti="btn_secondary" ti="btn_secondary_2">Secondary</button>
+    <button class="btn-demo btn-danger" ti="btn_danger" ti="btn_danger_2">Danger</button>
+    <button class="btn-demo btn-ghost" ti="btn_ghost">Ghost</button>
+    <button class="btn-demo btn-primary" style="padding:6px 12px;font-size:0.78rem" ti="btn_small">Small</button>
+    <button class="btn-demo btn-primary" style="padding:14px 28px;font-size:1.05rem" ti="btn_large">Large</button>
   </div>
 </div>
 </div>
@@ -690,7 +692,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="editor">
 <div class="section-header">
   <div class="section-num">05 &mdash; Live Editor</div>
-  <h2>Interactive Code Editor</h2>
+  <h2 ti="h2_interactive_code_editor">Interactive Code Editor</h2>
   <p>Write @mixin and @apply code and see the rendered output. Since native CSS mixins require Chrome 146+, the editor simulates mixin expansion for preview.</p>
 </div>
 
@@ -755,20 +757,20 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 
 <div class="editor-controls">
   <button onclick="updatePreview()">&#9654; Run</button>
-  <button onclick="loadEditorExample('buttons')">Example: Buttons</button>
-  <button onclick="loadEditorExample('grid')">Example: Grid</button>
-  <button onclick="loadEditorExample('glass')">Example: Glass</button>
-  <button onclick="resetEditor()">Reset</button>
-  <button onclick="copyEditorCode()">Copy Expanded CSS</button>
+  <button onclick="loadEditorExample('buttons')" ti="btn_example_buttons">Example: Buttons</button>
+  <button onclick="loadEditorExample('grid')" ti="btn_example_grid">Example: Grid</button>
+  <button onclick="loadEditorExample('glass')" ti="btn_example_glass">Example: Glass</button>
+  <button onclick="resetEditor()" ti="btn_reset">Reset</button>
+  <button onclick="copyEditorCode()" ti="btn_copy_expanded_css">Copy Expanded CSS</button>
 </div>
 
 <textarea id="html-editor" style="display:none">
 <div class="demo-card">
-  <h3>Hello Mixins!</h3>
+  <h3 ti="h3_hello_mixins">Hello Mixins!</h3>
   <p>This card uses @apply --card-style to get its appearance. Hover to see the transform effect. Edit the CSS on the left to experiment.</p>
 </div>
 <div class="demo-card" style="margin-top:16px">
-  <h3>Reusable Styles</h3>
+  <h3 ti="h3_reusable_styles">Reusable Styles</h3>
   <p>The same mixin applied to multiple elements ensures consistency across your UI components.</p>
 </div>
 </textarea>
@@ -778,7 +780,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="library">
 <div class="section-header">
   <div class="section-num">06 &mdash; Library Builder</div>
-  <h2>Mixin Library Builder</h2>
+  <h2 ti="h2_mixin_library_builder">Mixin Library Builder</h2>
   <p>Create, organize, and export a collection of CSS mixins. Build your own utility library.</p>
 </div>
 
@@ -786,15 +788,15 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
   <div class="library-sidebar">
     <h4>Your Mixins</h4>
     <div id="library-list"></div>
-    <button onclick="addLibraryMixin()" style="width:100%;padding:8px;border-radius:6px;border:1px dashed var(--border);background:transparent;color:var(--accent2);font-size:0.82rem;cursor:pointer;margin-top:8px">+ New Mixin</button>
+    <button onclick="addLibraryMixin()" style="width:100%;padding:8px;border-radius:6px;border:1px dashed var(--border);background:transparent;color:var(--accent2);font-size:0.82rem;cursor:pointer;margin-top:8px" ti="btn_new_mixin">+ New Mixin</button>
   </div>
   <div class="library-main">
-    <textarea id="library-editor" placeholder="Select or create a mixin to start editing..." spellcheck="false"></textarea>
+    <textarea id="library-editor" tp="placeholder_select_or_create_a_mixin" placeholder="Select or create a mixin to start editing..." spellcheck="false"></textarea>
     <div class="library-actions">
-      <button class="primary" onclick="saveLibraryMixin()">Save</button>
-      <button onclick="exportLibrary()">Export All</button>
-      <button onclick="importLibrary()">Import</button>
-      <button onclick="clearLibrary()">Clear All</button>
+      <button class="primary" onclick="saveLibraryMixin()" ti="btn_save">Save</button>
+      <button onclick="exportLibrary()" ti="btn_export_all">Export All</button>
+      <button onclick="importLibrary()" ti="btn_import">Import</button>
+      <button onclick="clearLibrary()" ti="btn_clear_all">Clear All</button>
     </div>
   </div>
 </div>
@@ -808,7 +810,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="comparison">
 <div class="section-header">
   <div class="section-num">07 &mdash; Comparison</div>
-  <h2>CSS @mixin vs Sass vs Custom Properties</h2>
+  <h2 ti="h2_css_mixin_vs_sass_vs_cust">CSS @mixin vs Sass vs Custom Properties</h2>
   <p>Understanding how native CSS mixins compare to existing solutions.</p>
 </div>
 
@@ -816,10 +818,10 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <table class="compare-table">
   <thead>
     <tr>
-      <th>Feature</th>
-      <th>CSS @mixin (native)</th>
-      <th>Sass @mixin</th>
-      <th>CSS Custom Properties</th>
+      <th ti="th_feature">Feature</th>
+      <th ti="th_css_mixin_native">CSS @mixin (native)</th>
+      <th ti="th_sass_mixin">Sass @mixin</th>
+      <th ti="th_css_custom_properties">CSS Custom Properties</th>
     </tr>
   </thead>
   <tbody>
@@ -830,13 +832,13 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
       <td class="no">No (single value)</td>
     </tr>
     <tr>
-      <td>Parameters</td>
+      <td ti="link_parameters">Parameters</td>
       <td class="yes">Yes (dashed-ident)</td>
       <td class="yes">Yes ($variable)</td>
       <td class="partial">Indirect (var fallbacks)</td>
     </tr>
     <tr>
-      <td>Conditionals</td>
+      <td ti="link_conditionals">Conditionals</td>
       <td class="partial">Proposed (@when)</td>
       <td class="yes">Yes (@if/@else)</td>
       <td class="no">No</td>
@@ -900,7 +902,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 </div>
 
 <div class="card" style="margin-top:20px">
-  <h3>When to Use What?</h3>
+  <h3 ti="h3_when_to_use_what">When to Use What?</h3>
   <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin-top:12px">
     <div>
       <h4 style="color:var(--accent);font-size:0.9rem;margin-bottom:6px">Use CSS @mixin when...</h4>
@@ -972,12 +974,12 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="migration">
 <div class="section-header">
   <div class="section-num">08 &mdash; Migration</div>
-  <h2>Sass to CSS @mixin Migration</h2>
+  <h2 ti="h2_sass_to_css_mixin_migrati">Sass to CSS @mixin Migration</h2>
   <p>Step-by-step guide to converting your Sass mixins to native CSS syntax.</p>
 </div>
 
 <div class="card">
-  <h3>Migration Checklist</h3>
+  <h3 ti="h3_migration_checklist">Migration Checklist</h3>
   <div style="display:grid;gap:8px;margin-top:12px">
     <div style="display:flex;gap:10px;align-items:flex-start;color:var(--text2);font-size:0.88rem">
       <span style="color:var(--accent);font-weight:700;flex-shrink:0">1.</span>
@@ -1010,7 +1012,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
   </div>
 </div>
 
-<h3 style="color:#fff;margin:24px 0 16px;font-size:1.1rem">Example Migrations</h3>
+<h3 style="color:#fff;margin:24px 0 16px;font-size:1.1rem" ti="h3_example_migrations">Example Migrations</h3>
 
 <!-- Migration 1: Simple mixin -->
 <div class="migration-pair">
@@ -1084,7 +1086,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 
 <div class="info-box warn" style="margin-top:16px">
   <span class="icon">&#9888;</span>
-  <div><strong>Not everything migrates 1:1.</strong> Sass features like <code>@for</code>, <code>@each</code>, string interpolation (<code>#{}</code>), and <code>@content</code> blocks don't have direct CSS mixin equivalents. These require architectural rethinking &mdash; often using CSS custom properties, nesting, or repeated declarations.</div>
+  <div><strong ti="strong_not_everything_migrates_1">Not everything migrates 1:1.</strong> Sass features like <code>@for</code>, <code>@each</code>, string interpolation (<code>#{}</code>), and <code>@content</code> blocks don't have direct CSS mixin equivalents. These require architectural rethinking &mdash; often using CSS custom properties, nesting, or repeated declarations.</div>
 </div>
 </section>
 
@@ -1092,7 +1094,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="generator">
 <div class="section-header">
   <div class="section-num">09 &mdash; Generator</div>
-  <h2>Mixin Code Generator</h2>
+  <h2 ti="h2_mixin_code_generator">Mixin Code Generator</h2>
   <p>Click any pattern to generate copy-ready CSS @mixin code.</p>
 </div>
 
@@ -1107,7 +1109,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 <section id="support">
 <div class="section-header">
   <div class="section-num">10 &mdash; Browser Support</div>
-  <h2>Browser Compatibility</h2>
+  <h2 ti="h2_browser_compatibility">Browser Compatibility</h2>
   <p>CSS @mixin/@apply is an experimental feature. Here's the current support landscape.</p>
 </div>
 
@@ -1139,7 +1141,7 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 </div>
 
 <div class="card" style="margin-top:20px">
-  <h3>How to Enable</h3>
+  <h3 ti="h3_how_to_enable">How to Enable</h3>
   <div style="margin-top:12px">
     <p style="color:var(--text2);font-size:0.9rem;margin-bottom:12px">To try CSS @mixin/@apply in Chrome 146+:</p>
     <pre><span class="cm">// Step 1: Open Chrome flags</span>
@@ -1155,16 +1157,16 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 
 <div class="info-box warn" style="margin-top:16px">
   <span class="icon">&#9888;</span>
-  <div><strong>Do not use in production yet.</strong> The specification is still evolving. Syntax may change before it reaches stable release. Use Sass mixins or CSS custom properties for production code. This playground is for learning and experimentation.</div>
+  <div><strong ti="strong_do_not_use_in_production">Do not use in production yet.</strong> The specification is still evolving. Syntax may change before it reaches stable release. Use Sass mixins or CSS custom properties for production code. This playground is for learning and experimentation.</div>
 </div>
 
 <div class="card" style="margin-top:16px">
-  <h3>Specification Status</h3>
+  <h3 ti="h3_specification_status">Specification Status</h3>
   <ul style="color:var(--text2);font-size:0.88rem;padding-left:20px;margin-top:8px">
-    <li style="margin-bottom:6px"><strong>CSS Mixins Module</strong> &mdash; Working draft at CSS WG (W3C)</li>
-    <li style="margin-bottom:6px"><strong>Chrome Intent to Experiment</strong> &mdash; Shipped behind flag in Chrome 146</li>
-    <li style="margin-bottom:6px"><strong>@apply history</strong> &mdash; A previous <code>@apply</code> proposal (2016) was abandoned. This is a completely new design with <code>@mixin</code> declarations</li>
-    <li style="margin-bottom:6px"><strong>Key difference from old @apply</strong> &mdash; The old proposal applied custom property sets. The new proposal defines true mixins with parameters, similar to Sass</li>
+    <li style="margin-bottom:6px"><strong ti="strong_css_mixins_module">CSS Mixins Module</strong> &mdash; Working draft at CSS WG (W3C)</li>
+    <li style="margin-bottom:6px"><strong ti="strong_chrome_intent_to_experime">Chrome Intent to Experiment</strong> &mdash; Shipped behind flag in Chrome 146</li>
+    <li style="margin-bottom:6px"><strong ti="strong_apply_history">@apply history</strong> &mdash; A previous <code>@apply</code> proposal (2016) was abandoned. This is a completely new design with <code>@mixin</code> declarations</li>
+    <li style="margin-bottom:6px"><strong ti="strong_key_difference_from_old_a">Key difference from old @apply</strong> &mdash; The old proposal applied custom property sets. The new proposal defines true mixins with parameters, similar to Sass</li>
   </ul>
 </div>
 </section>
@@ -1173,19 +1175,29 @@ html{scroll-behavior:smooth;scroll-padding-top:60px}
 
 <footer>
   <div class="container">
-    <p>CSS @mixin/@apply Playground &mdash; <a href="https://github.com/gokuscraper/css-mixins">Source on GitHub</a></p>
-    <p style="margin-top:6px">Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash; Free developer tools</p>
+    <p>CSS @mixin/@apply Playground &mdash; <a href="https://github.com/gokuscraper/css-mixins" ti="link_source_on_github">Source on GitHub</a></p>
+    <p style="margin-top:6px">Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> &mdash; Free developer tools</p>
   </div>
 </footer>
 
+
+<script>var _LANG={'title_css_mixin_apply_playgroun':["CSS @mixin/@apply Playground — Interactive Explorer", "CSS @mixin/@apply Playground — 交互式探索器"],'metadesc_interactive_playground_fo':["Interactive playground for CSS @mixin and @apply rules. Learn native CSS mixins with live examples, code generator, and migration guide from Sass.", "CSS @mixin 和 @apply 规则的交互式练习场。通过实时示例、代码生成器和从 Sass 迁移的指南，学习原生 CSS mixin。"],'h2_basic_mixin_and_apply':["Basic @mixin and @apply", "基本 @mixin 和 @apply"],'h2_mixins_with_parameters':["Mixins with Parameters", "带参数的 Mixins"],'h2_conditional_styles_with_w':["Conditional Styles with @when", "使用 @when 的条件样式"],'h2_common_mixin_patterns':["Common Mixin Patterns", "常见混合模式"],'h2_interactive_code_editor':["Interactive Code Editor", "交互式代码编辑器"],'h2_mixin_library_builder':["Mixin Library Builder", "Mixin 库构建器"],'h2_css_mixin_vs_sass_vs_cust':["CSS @mixin vs Sass vs Custom Properties", "CSS @mixin vs Sass vs 自定义属性"],'h2_sass_to_css_mixin_migrati':["Sass to CSS @mixin Migration", "Sass 到 CSS @mixin 迁移"],'h2_mixin_code_generator':["Mixin Code Generator", "Mixin 代码生成器"],'h2_browser_compatibility':["Browser Compatibility", "浏览器兼容性"],'h3_how_it_works':["How It Works", "工作原理"],'h3_parameter_defaults':["Parameter Defaults", "参数默认值"],'h3_why_conditionals_matter':["Why Conditionals Matter", "条件语句为何重要"],'h3_hello_mixins':["Hello Mixins!", "大家好，各位混音爱好者！"],'h3_reusable_styles':["Reusable Styles", "可重用的样式"],'h3_when_to_use_what':["When to Use What?", "何时使用什么？"],'h3_migration_checklist':["Migration Checklist", "迁移清单"],'h3_example_migrations':["Example Migrations", "迁移示例"],'h3_how_to_enable':["How to Enable", "如何启用"],'h3_specification_status':["Specification Status", "规格状态"],'h3_glass_panel':["Glass Panel", "玻璃面板"],'h3_reusable':["Reusable", "可重复使用的"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_4':["Copy", "复制"],'btn_copy_5':["Copy", "复制"],'btn_copy_6':["Copy", "复制"],'btn_submit_primary':["Submit (primary)", "提交（主要）"],'btn_delete_danger':["Delete (danger)", "删除（危险）"],'btn_cancel_default':["Cancel (default)", "取消（默认）"],'btn_buttons':["Buttons", "按钮"],'btn_cards':["Cards", "牌"],'btn_typography':["Typography", "排版"],'btn_flex_grid':["Flex/Grid", "弹性网格"],'btn_utilities':["Utilities", "公用事业"],'btn_copy_7':["Copy", "复制"],'btn_primary':["Primary", "基本的"],'btn_secondary':["Secondary", "次要"],'btn_danger':["Danger", "危险"],'btn_ghost':["Ghost", "鬼"],'btn_small':["Small", "小的"],'btn_large':["Large", "大的"],'btn_copy_8':["Copy", "复制"],'btn_copy_9':["Copy", "复制"],'btn_copy_10':["Copy", "复制"],'btn_copy_11':["Copy", "复制"],'btn_run':["▶ Run", "▶ 跑"],'btn_example_buttons':["Example: Buttons", "例如：按钮"],'btn_example_grid':["Example: Grid", "示例：网格"],'btn_example_glass':["Example: Glass", "例如：玻璃"],'btn_reset':["Reset", "重置"],'btn_copy_expanded_css':["Copy Expanded CSS", "复制展开的 CSS"],'btn_new_mixin':["+ New Mixin", "+ 新混合"],'btn_save':["Save", "节省"],'btn_export_all':["Export All", "全部导出"],'btn_import':["Import", "进口"],'btn_clear_all':["Clear All", "全部清除"],'btn_copy_12':["Copy", "复制"],'btn_copy_13':["Copy", "复制"],'btn_copy_14':["Copy", "复制"],'btn_copy_15':["Copy", "复制"],'btn_copy_16':["Copy", "复制"],'btn_copy_17':["Copy", "复制"],'btn_copy_18':["Copy", "复制"],'btn_primary_action':["Primary Action", "主要行动"],'btn_secondary_2':["Secondary", "次要"],'btn_danger_2':["Danger", "危险"],'placeholder_select_or_create_a_mixin':["Select or create a mixin to start editing...", "选择或创建 mixin 即可开始编辑……"],'strong_mixin':["@mixin", "@mixin"],'strong_apply':["@apply", "@申请"],'strong_not_everything_migrates_1':["Not everything migrates 1:1.", "并非所有事物都能1:1迁移。"],'strong_do_not_use_in_production':["Do not use in production yet.", "暂勿在生产环境中使用。"],'strong_css_mixins_module':["CSS Mixins Module", "CSS Mixins 模块"],'strong_chrome_intent_to_experime':["Chrome Intent to Experiment", "Chrome 实验意图"],'strong_apply_history':["@apply history", "@应用历史记录"],'strong_key_difference_from_old_a':["Key difference from old @apply", "与旧版 @apply 的主要区别"],'th_feature':["Feature", "特征"],'th_css_mixin_native':["CSS @mixin (native)", "CSS @mixin（原生）"],'th_sass_mixin':["Sass @mixin", "萨斯@mixin"],'th_css_custom_properties':["CSS Custom Properties", "CSS 自定义属性"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_parameters':["Parameters", "参数"],'link_conditionals':["Conditionals", "条件"],'link_patterns':["Patterns", "模式"],'link_live_editor':["Live Editor", "实时编辑器"],'link_library_builder':["Library Builder", "库构建器"],'link_comparison':["Comparison", "比较"],'link_migration':["Migration", "移民"],'link_generator':["Generator", "发电机"],'link_support':["Support", "支持"],'link_source_on_github':["Source on GitHub", "GitHub 上的源代码"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtc_updated':["Updated", "更新"],'jtc_ready':["Ready", "准备好"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_ready_2':["Ready", "准备好"],'jtc_copy_2':["Copy", "复制"],'jtc_copy_3':["Copy", "复制"],'jalert_paste_css_mixin_code':["Paste CSS @mixin code:", "粘贴 CSS @mixin 代码："],'jalert_clear_all_mixins_from_lib':["Clear all mixins from library?", "清除库中的所有 mixin？"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Copy Code ===
 function copyCode(btn) {
   const pre = btn.closest('pre');
   const text = pre.textContent.replace('Copy', '').trim();
   navigator.clipboard.writeText(text).then(() => {
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy"), 1500);
   });
 }
 
@@ -1287,9 +1299,9 @@ ${expandedCSS}
 
   const blob = new Blob([doc], { type: 'text/html' });
   previewFrame.src = URL.createObjectURL(blob);
-  editorStatus.textContent = 'Updated';
+  editorStatus.textContent=T("jtc_updated");
   editorStatus.style.color = 'var(--green)';
-  setTimeout(() => { editorStatus.textContent = 'Ready'; }, 1000);
+  setTimeout(() => { editorStatus.textContent=T("jtc_ready"); }, 1000);
 }
 
 const editorExamples = {
@@ -1338,7 +1350,7 @@ const editorExamples = {
   background: rgba(99,102,241,0.1);
 }`,
     html: `<div style="display:flex;gap:12px;flex-wrap:wrap;padding:20px">
-  <button class="btn-primary">Primary Action</button>
+  <button class="btn-primary" ti="btn_primary_action">Primary Action</button>
   <button class="btn-outline">Secondary</button>
   <button class="btn-primary" style="background:#ef4444">Danger</button>
 </div>`
@@ -1416,11 +1428,11 @@ body::before {
 }`,
     html: `<div class="glass-grid">
   <div class="glass">
-    <h3>Glass Panel</h3>
+    <h3 ti="h3_glass_panel">Glass Panel</h3>
     <p>Frosted glass effect using backdrop-filter via mixin.</p>
   </div>
   <div class="glass">
-    <h3>Reusable</h3>
+    <h3 ti="h3_reusable">Reusable</h3>
     <p>Apply to any element for instant glassmorphism.</p>
   </div>
 </div>`
@@ -1445,8 +1457,8 @@ function resetEditor() {
 function copyEditorCode() {
   const expanded = expandMixins(cssEditor.value);
   navigator.clipboard.writeText(expanded).then(() => {
-    editorStatus.textContent = 'Copied!';
-    setTimeout(() => { editorStatus.textContent = 'Ready'; }, 1500);
+    editorStatus.textContent=T("jtc_copied");
+    setTimeout(() => { editorStatus.textContent=T("jtc_ready"); }, 1500);
   });
 }
 
@@ -1526,7 +1538,7 @@ function exportLibrary() {
   if (!pre.querySelector('.copy-btn')) {
     const btn = document.createElement('button');
     btn.className = 'copy-btn';
-    btn.textContent = 'Copy';
+    btn.textContent=T("jtc_copy");
     btn.style.opacity = '1';
     btn.onclick = function() { copyCode(this); };
     pre.appendChild(btn);
@@ -1534,7 +1546,7 @@ function exportLibrary() {
 }
 
 function importLibrary() {
-  const input = prompt('Paste CSS @mixin code:');
+  const input = T("jalert_paste_css_mixin_code");
   if (!input) return;
   const mixinRegex = /@mixin\s+(--[\w-]+)\s*(?:\([^)]*\))?\s*\{/g;
   let m;
@@ -1561,7 +1573,7 @@ function importLibrary() {
 }
 
 function clearLibrary() {
-  if (!confirm('Clear all mixins from library?')) return;
+  if (!T("jalert_clear_all_mixins_from_lib")) return;
   library = [];
   selectedMixin = -1;
   document.getElementById('library-editor').value = '';
@@ -1613,7 +1625,7 @@ generators.forEach(g => {
     if (!pre.querySelector('.copy-btn')) {
       const btn = document.createElement('button');
       btn.className = 'copy-btn';
-      btn.textContent = 'Copy';
+      btn.textContent=T("jtc_copy");
       btn.style.opacity = '1';
       btn.onclick = function() { copyCode(this); };
       pre.appendChild(btn);
@@ -1621,6 +1633,24 @@ generators.forEach(g => {
   });
   genGrid.appendChild(card);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

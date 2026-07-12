@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_htaccess_gen_htaccess_gen" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,9 +71,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>htaccess Gen</h1>
-<p class="subtitle">Generate .htaccess files for Apache servers.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_htaccess_gen">htaccess Gen</h1>
+<p class="subtitle" ti="subtitle_generate_htaccess_files_f">Generate .htaccess files for Apache servers.</p>
 
 <div class="presets">
   <span style="color:#555;font-size:0.72rem;padding:5px 0">Presets:</span>
@@ -88,7 +90,7 @@ footer a:hover{color:#999}
 
 <!-- HTTPS & Redirects -->
 <div class="section">
-  <h3>HTTPS & Redirects</h3>
+  <h3 ti="h3_https_redirects">HTTPS & Redirects</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="forceHttps"><div><div class="label">Force HTTPS</div><div class="desc">Redirect all HTTP to HTTPS</div></div></label>
     <label class="check-item"><input type="checkbox" id="removeWww"><div><div class="label">Remove www</div><div class="desc">www.example.com → example.com</div></div></label>
@@ -99,7 +101,7 @@ footer a:hover{color:#999}
   <div style="margin-top:12px">
     <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:8px">
       <span style="font-size:0.82rem;color:#888;font-weight:600">Custom Redirects</span>
-      <button class="btn small" onclick="addRedirect()">+ Add</button>
+      <button class="btn small" onclick="addRedirect()" ti="btn_add">+ Add</button>
     </div>
     <div class="redirect-list" id="redirectList"></div>
   </div>
@@ -122,7 +124,7 @@ footer a:hover{color:#999}
 
 <!-- Caching -->
 <div class="section">
-  <h3>Caching & Compression</h3>
+  <h3 ti="h3_caching_compression">Caching & Compression</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="gzip"><div><div class="label">Enable Gzip</div><div class="desc">Compress HTML, CSS, JS, JSON, XML</div></div></label>
     <label class="check-item"><input type="checkbox" id="cacheStatic"><div><div class="label">Cache static assets</div><div class="desc">Images, CSS, JS (1 year)</div></div></label>
@@ -133,21 +135,21 @@ footer a:hover{color:#999}
 
 <!-- CORS -->
 <div class="section">
-  <h3>CORS</h3>
+  <h3 ti="h3_cors">CORS</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="corsAll"><div><div class="label">Allow all origins</div><div class="desc">Access-Control-Allow-Origin: *</div></div></label>
     <label class="check-item"><input type="checkbox" id="corsMethods"><div><div class="label">Allow methods</div><div class="desc">GET, POST, PUT, DELETE, OPTIONS</div></div></label>
     <label class="check-item"><input type="checkbox" id="corsHeaders"><div><div class="label">Allow headers</div><div class="desc">Content-Type, Authorization, X-Requested-With</div></div></label>
   </div>
   <div class="input-row" style="margin-top:10px">
-    <label>Specific origin</label>
-    <input type="text" id="corsOrigin" placeholder="https://example.com (leave empty for *)">
+    <label ti="label_specific_origin">Specific origin</label>
+    <input type="text" id="corsOrigin" tp="placeholder_https_example_com_leave_e" placeholder="https://example.com (leave empty for *)">
   </div>
 </div>
 
 <!-- Custom Errors -->
 <div class="section">
-  <h3>Custom Error Pages</h3>
+  <h3 ti="h3_custom_error_pages">Custom Error Pages</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="err404"><div><div class="label">404 Not Found</div><div class="desc">/404.html</div></div></label>
     <label class="check-item"><input type="checkbox" id="err403"><div><div class="label">403 Forbidden</div><div class="desc">/403.html</div></div></label>
@@ -157,7 +159,7 @@ footer a:hover{color:#999}
 
 <!-- URL Rewriting -->
 <div class="section">
-  <h3>URL Rewriting</h3>
+  <h3 ti="h3_url_rewriting">URL Rewriting</h3>
   <div class="check-grid">
     <label class="check-item"><input type="checkbox" id="removePhpExt"><div><div class="label">Remove .php extension</div><div class="desc">/about.php → /about</div></div></label>
     <label class="check-item"><input type="checkbox" id="removeHtmlExt"><div><div class="label">Remove .html extension</div><div class="desc">/about.html → /about</div></div></label>
@@ -166,31 +168,41 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="generate()">Generate</button>
-  <button class="btn" onclick="copyOutput()">Copy</button>
-  <button class="btn" onclick="downloadOutput()">Download</button>
-  <button class="btn" onclick="clearAll()">Clear All</button>
+  <button class="btn primary" onclick="generate()" ti="btn_generate">Generate</button>
+  <button class="btn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+  <button class="btn" onclick="downloadOutput()" ti="btn_download">Download</button>
+  <button class="btn" onclick="clearAll()" ti="btn_clear_all">Clear All</button>
 </div>
 
 <div class="output-section" id="outputSection">
-  <div class="output-header"><h3>.htaccess</h3></div>
+  <div class="output-header"><h3 ti="h3_htaccess">.htaccess</h3></div>
   <textarea class="output" id="outputArea" readonly></textarea>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/htaccess-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/htaccess-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related" style="margin-top:12px">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/robots-txt/">Robots.txt</a>
-    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/">CSP Builder</a>
-    <a href="https://gokuscraper.github.io/dev-vault/headers-check/">Headers Check</a>
-    <a href="https://gokuscraper.github.io/dev-vault/cors-test/">CORS Test</a>
+    <strong style="color:#888" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/robots-txt/" ti="link_robots_txt">Robots.txt</a>
+    <a href="https://gokuscraper.github.io/dev-vault/csp-builder/" ti="link_csp_builder">CSP Builder</a>
+    <a href="https://gokuscraper.github.io/dev-vault/headers-check/" ti="link_headers_check">Headers Check</a>
+    <a href="https://gokuscraper.github.io/dev-vault/cors-test/" ti="link_cors_test">CORS Test</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 101 free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_htaccess_gen_htaccess_gen':["htaccess Gen — .htaccess Generator", ".htaccess 生成器 — .htaccess 生成器"],'metadesc_generate_htaccess_files_v':["Generate .htaccess files visually. Redirects, caching, HTTPS, CORS, security headers, custom errors. 8 presets. Free.", "以可视化方式生成 .htaccess 文件。支持重定向、缓存、HTTPS、CORS、安全标头和自定义错误。8 种预设样式。免费。"],'h1_htaccess_gen':["htaccess Gen", ".htaccess 生成器"],'h3_https_redirects':["HTTPS & Redirects", "HTTPS 和重定向"],'h3_caching_compression':["Caching & Compression", "缓存与压缩"],'h3_cors':["CORS", "CORS"],'h3_custom_error_pages':["Custom Error Pages", "自定义错误页面"],'h3_url_rewriting':["URL Rewriting", "URL重写"],'h3_htaccess':[".htaccess", ".htaccess"],'subtitle_generate_htaccess_files_f':["Generate .htaccess files for Apache servers.", "为 Apache 服务器生成 .htaccess 文件。"],'btn_add':["+ Add", "+ 添加"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'btn_clear_all':["Clear All", "全部清除"],'placeholder_https_example_com_leave_e':["https://example.com (leave empty for *)", "https://example.com（留空则表示 *）"],'placeholder_old_page':["/old-page", "旧页面"],'placeholder_new_page_or_https':["/new-page or https://...", "/new-page 或 https://..."],'strong_related_tools':["Related Tools", "相关工具"],'label_specific_origin':["Specific origin", "来源"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_robots_txt':["Robots.txt", "Robots.txt"],'link_csp_builder':["CSP Builder", "CSP 构建器"],'link_headers_check':["Headers Check", "标头检查"],'link_cors_test':["CORS Test", "CORS 测试"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let redirects=[];
 
@@ -230,8 +242,8 @@ function renderRedirects(){
   const el=document.getElementById('redirectList');
   el.innerHTML=redirects.map((r,i)=>`<div class="redirect-row">
     <select onchange="redirects[${i}].code=this.value"><option ${r.code==='301'?'selected':''}>301</option><option ${r.code==='302'?'selected':''}>302</option></select>
-    <input placeholder="/old-page" value="${esc(r.from)}" onchange="redirects[${i}].from=this.value">
-    <input placeholder="/new-page or https://..." value="${esc(r.to)}" onchange="redirects[${i}].to=this.value">
+    <input tp="placeholder_old_page" placeholder="/old-page" value="${esc(r.from)}" onchange="redirects[${i}].from=this.value">
+    <input tp="placeholder_new_page_or_https" placeholder="/new-page or https://..." value="${esc(r.to)}" onchange="redirects[${i}].to=this.value">
     <span class="remove-btn" onclick="removeRedirect(${i})">×</span>
   </div>`).join('');
 }
@@ -460,6 +472,24 @@ function toast(msg){
 }
 
 function esc(s){return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;')}
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

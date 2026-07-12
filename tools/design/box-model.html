@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_box_model_css_box_model_v" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -75,16 +75,18 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Box Model</h1>
-<p class="subtitle">Interactive CSS box model visualizer.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_box_model">Box Model</h1>
+<p class="subtitle" ti="subtitle_interactive_css_box_model">Interactive CSS box model visualizer.</p>
 
 <div class="presets">
-  <button class="preset-btn" onclick="preset(20,2,15,200,150)">Card</button>
-  <button class="preset-btn" onclick="preset(0,1,10,100,40)">Button</button>
-  <button class="preset-btn" onclick="preset(16,0,0,300,200)">Image</button>
-  <button class="preset-btn" onclick="preset(8,1,16,250,50)">Input</button>
-  <button class="preset-btn" onclick="preset(0,0,0,100,100)">Reset</button>
+  <button class="preset-btn" onclick="preset(20,2,15,200,150)" ti="btn_card">Card</button>
+  <button class="preset-btn" onclick="preset(0,1,10,100,40)" ti="btn_button">Button</button>
+  <button class="preset-btn" onclick="preset(16,0,0,300,200)" ti="btn_image">Image</button>
+  <button class="preset-btn" onclick="preset(8,1,16,250,50)" ti="btn_input">Input</button>
+  <button class="preset-btn" onclick="preset(0,0,0,100,100)" ti="btn_reset">Reset</button>
 </div>
 
 <div class="layout">
@@ -93,10 +95,10 @@ footer a:hover{color:#999}
     <div class="ctrl-group">
       <h3><span class="dot" style="background:#fb923c"></span> Margin</h3>
       <div class="ctrl-row">
-        <div class="ctrl-item"><label>Top</label><input type="number" id="mt" value="20" min="0" oninput="update()"></div>
-        <div class="ctrl-item"><label>Right</label><input type="number" id="mr" value="20" min="0" oninput="update()"></div>
-        <div class="ctrl-item"><label>Bottom</label><input type="number" id="mb" value="20" min="0" oninput="update()"></div>
-        <div class="ctrl-item"><label>Left</label><input type="number" id="ml" value="20" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_top" ti="label_top_2" ti="label_top_3">Top</label><input type="number" id="mt" value="20" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_right" ti="label_right_2" ti="label_right_3">Right</label><input type="number" id="mr" value="20" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_bottom" ti="label_bottom_2" ti="label_bottom_3">Bottom</label><input type="number" id="mb" value="20" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_left" ti="label_left_2" ti="label_left_3">Left</label><input type="number" id="ml" value="20" min="0" oninput="update()"></div>
       </div>
     </div>
     <div class="ctrl-group">
@@ -120,8 +122,8 @@ footer a:hover{color:#999}
     <div class="ctrl-group">
       <h3><span class="dot" style="background:#10b981"></span> Content</h3>
       <div class="ctrl-row" style="grid-template-columns:1fr 1fr">
-        <div class="ctrl-item"><label>Width</label><input type="number" id="cw" value="200" min="0" oninput="update()"></div>
-        <div class="ctrl-item"><label>Height</label><input type="number" id="ch" value="150" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_width">Width</label><input type="number" id="cw" value="200" min="0" oninput="update()"></div>
+        <div class="ctrl-item"><label ti="label_height">Height</label><input type="number" id="ch" value="150" min="0" oninput="update()"></div>
       </div>
     </div>
     <div class="sizing">
@@ -139,10 +141,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/box-model">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/box-model" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_box_model_css_box_model_v':["Box Model — CSS Box Model Visualizer", "盒模型 — CSS 盒模型可视化工具"],'metadesc_visualize_css_box_model_a':["Visualize CSS box model. Adjust margin, border, padding, content interactively. Copy CSS. Free.", "可视化 CSS 盒模型。交互式调整边距、边框、内边距和内容。复制 CSS 代码。免费。"],'h1_box_model':["Box Model", "盒式模型"],'subtitle_interactive_css_box_model':["Interactive CSS box model visualizer.", "交互式CSS盒模型可视化工具。"],'btn_card':["Card", "卡片"],'btn_button':["Button", "按钮"],'btn_image':["Image", "图像"],'btn_input':["Input", "输入"],'btn_reset':["Reset", "重置"],'label_margin':["margin", "利润"],'label_border':["border", "边界"],'label_padding':["padding", "填充"],'label_cw_ch':["${cw}×${ch}", "${cw}×${ch}"],'strong_related_tools':["Related Tools", "相关工具"],'label_top':["Top", "顶部"],'label_right':["Right", "正确的"],'label_bottom':["Bottom", "底部"],'label_left':["Left", "左边"],'label_top_2':["Top", "顶部"],'label_right_2':["Right", "正确的"],'label_bottom_2':["Bottom", "底部"],'label_left_2':["Left", "左边"],'label_top_3':["Top", "顶部"],'label_right_3':["Right", "正确的"],'label_bottom_3':["Bottom", "底部"],'label_left_3':["Left", "左边"],'label_width':["Width", "宽度"],'label_height':["Height", "高度"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_css_copied':["CSS Copied!", "CSS 已复制！"],'jtlword_margin':["margin", "利润"],'jtlword_border':["border", "边界"],'jtlword_padding':["padding", "填充"],'jtlword_content':["Content", "内容"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function v(id){return Math.max(0,+document.getElementById(id).value||0)}
 
@@ -175,13 +187,13 @@ function update(){
   document.getElementById('visualBox').innerHTML=`
     <div class="box-model">
       <div class="layer layer-margin" style="padding:${s(mt)}px ${s(mr)}px ${s(mb)}px ${s(ml)}px;position:relative">
-        <span class="layer-label label-margin">margin</span>
+        <span class="layer-label label-margin" ti="label_margin">margin</span>
         <div class="layer layer-border" style="padding:${s(bt)}px ${s(br)}px ${s(bb)}px ${s(bl)}px;position:relative">
-          <span class="layer-label label-border">border</span>
+          <span class="layer-label label-border" ti="label_border">border</span>
           <div class="layer layer-padding" style="padding:${s(pt)}px ${s(pr)}px ${s(pb)}px ${s(pl)}px;position:relative">
-            <span class="layer-label label-padding">padding</span>
+            <span class="layer-label label-padding" ti="label_padding">padding</span>
             <div class="layer layer-content" style="width:${s(cw)}px;height:${s(ch)}px;display:flex;align-items:center;justify-content:center">
-              <span class="label-content">${cw}×${ch}</span>
+              <span class="label-content" ti="label_cw_ch">${cw}×${ch}</span>
             </div>
           </div>
         </div>
@@ -231,7 +243,7 @@ function update(){
 function copyCSS(){
   navigator.clipboard.writeText(document.getElementById('cssOutput').textContent);
   const el=document.createElement('div');
-  el.className='copied';el.textContent='CSS Copied!';
+  el.className='copied';el.textContent=T("jtc_css_copied");
   document.body.appendChild(el);
   setTimeout(()=>el.remove(),1600);
 }
@@ -239,12 +251,30 @@ function copyCSS(){
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-flex/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Flex</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-grid/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Grid</a>
 <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Spacing Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-units/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Units</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_api_tester_browser_rest_c" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -633,10 +633,12 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="top-bar">
   <a href="https://gokuscraper.github.io/dev-vault/" class="back-link">&#8592; Dev Vault</a>
-  <h1>API Tester</h1>
+  <h1 ti="h1_api_tester">API Tester</h1>
 </div>
 
 <div class="layout">
@@ -644,30 +646,30 @@
   <!-- Sidebar: Presets + History -->
   <aside class="sidebar">
     <div class="sidebar-section">
-      <h3>Presets</h3>
+      <h3 ti="h3_presets">Presets</h3>
       <button class="preset-btn" onclick="loadPreset('GET','https://jsonplaceholder.typicode.com/posts','','')">
         <span class="preset-method m-get">GET</span>
-        <span class="preset-label">JSONPlaceholder posts</span>
+        <span class="preset-label" ti="label_jsonplaceholder_posts">JSONPlaceholder posts</span>
       </button>
       <button class="preset-btn" onclick="loadPreset('POST','https://jsonplaceholder.typicode.com/posts','','{&quot;title&quot;: &quot;foo&quot;,\n  &quot;body&quot;: &quot;bar&quot;,\n  &quot;userId&quot;: 1}')">
         <span class="preset-method m-post">POST</span>
-        <span class="preset-label">JSONPlaceholder create</span>
+        <span class="preset-label" ti="label_jsonplaceholder_create">JSONPlaceholder create</span>
       </button>
       <button class="preset-btn" onclick="loadPreset('GET','https://httpbin.org/get','','')">
         <span class="preset-method m-get">GET</span>
-        <span class="preset-label">httpbin.org/get</span>
+        <span class="preset-label" ti="label_httpbin_org_get">httpbin.org/get</span>
       </button>
       <button class="preset-btn" onclick="loadPreset('POST','https://httpbin.org/post','','{&quot;hello&quot;: &quot;world&quot;}')">
         <span class="preset-method m-post">POST</span>
-        <span class="preset-label">httpbin.org/post</span>
+        <span class="preset-label" ti="label_httpbin_org_post">httpbin.org/post</span>
       </button>
       <button class="preset-btn" onclick="loadPreset('GET','https://reqres.in/api/users','','')">
         <span class="preset-method m-get">GET</span>
-        <span class="preset-label">reqres.in users</span>
+        <span class="preset-label" ti="label_reqres_in_users">reqres.in users</span>
       </button>
     </div>
     <div class="sidebar-section" style="padding-bottom:6px;">
-      <h3>History</h3>
+      <h3 ti="h3_history">History</h3>
     </div>
     <div class="history-list" id="historyList">
       <div class="history-empty">No requests yet</div>
@@ -687,11 +689,11 @@
         <option value="OPTIONS">OPTIONS</option>
       </select>
       <input type="text" class="url-input" id="urlInput"
-        placeholder="https://jsonplaceholder.typicode.com/posts"
+        tp="placeholder_https_jsonplaceholder_typ" placeholder="https://jsonplaceholder.typicode.com/posts"
         onkeydown="if(event.key==='Enter') sendRequest()" />
       <button class="send-btn" id="sendBtn" onclick="sendRequest()">
         <div class="spinner"></div>
-        <span class="btn-label">Send</span>
+        <span class="btn-label" ti="label_send">Send</span>
       </button>
     </div>
 
@@ -702,7 +704,7 @@
       <button class="tab-btn" onclick="switchTab('headers', this)">
         Headers <span class="tab-badge" id="headersCount">1</span>
       </button>
-      <button class="tab-btn" id="bodyTabBtn" onclick="switchTab('body', this)">
+      <button class="tab-btn" id="bodyTabBtn" onclick="switchTab('body', this)" ti="btn_body" ti="btn_body_2">
         Body
       </button>
     </div>
@@ -713,16 +715,16 @@
         <table class="kv-table" id="paramsTable">
           <thead>
             <tr>
-              <th style="width:42%">Key</th>
-              <th style="width:42%">Value</th>
+              <th style="width:42%" ti="th_key" ti="th_key_2">Key</th>
+              <th style="width:42%" ti="th_value" ti="th_value_2" ti="th_value_3">Value</th>
               <th style="width:16%"></th>
             </tr>
           </thead>
           <tbody id="paramRows"></tbody>
         </table>
-        <button class="add-row-btn" onclick="addRow('params')">+ Add param</button>
+        <button class="add-row-btn" onclick="addRow('params')" ti="btn_add_param">+ Add param</button>
         <div class="cors-note" style="margin-top:12px;">
-          <strong>Note:</strong> Some APIs block browser requests due to CORS policy. If you see a network error, the server may not allow cross-origin requests. Try using a CORS-enabled endpoint or a local proxy.
+          <strong ti="strong_note">Note:</strong> Some APIs block browser requests due to CORS policy. If you see a network error, the server may not allow cross-origin requests. Try using a CORS-enabled endpoint or a local proxy.
         </div>
       </div>
 
@@ -738,18 +740,18 @@
           </thead>
           <tbody id="headerRows"></tbody>
         </table>
-        <button class="add-row-btn" onclick="addRow('headers')">+ Add header</button>
+        <button class="add-row-btn" onclick="addRow('headers')" ti="btn_add_header">+ Add header</button>
       </div>
 
       <!-- Body -->
       <div class="tab-pane" id="tab-body">
         <div class="body-tools">
-          <button class="body-tool-btn" onclick="formatBody()">Format JSON</button>
-          <button class="body-tool-btn" onclick="clearBody()">Clear</button>
+          <button class="body-tool-btn" onclick="formatBody()" ti="btn_format_json">Format JSON</button>
+          <button class="body-tool-btn" onclick="clearBody()" ti="btn_clear">Clear</button>
           <span style="color:var(--text2);font-size:12px;margin-left:auto;">Content-Type set in Headers</span>
         </div>
         <textarea class="body-textarea" id="bodyTextarea"
-          placeholder='{\n  "key": "value"\n}'
+          tp="placeholder_n_key_value_n" placeholder='{\n  "key": "value"\n}'
           spellcheck="false"></textarea>
       </div>
     </div>
@@ -758,7 +760,7 @@
   <!-- Response Panel -->
   <section class="response-panel">
     <div class="response-header">
-      <h2>Response</h2>
+      <h2 ti="h2_response">Response</h2>
       <div id="statusBadge" style="display:none"></div>
       <div class="stat-chip" id="timeChip" style="display:none">
         <span>Time:</span>
@@ -776,7 +778,7 @@
     <div class="response-body-area">
       <div class="response-tabs">
         <button class="resp-tab-btn active" onclick="switchRespTab('body', this)">Body</button>
-        <button class="resp-tab-btn" onclick="switchRespTab('resp-headers', this)">Headers</button>
+        <button class="resp-tab-btn" onclick="switchRespTab('resp-headers', this)" ti="btn_headers">Headers</button>
       </div>
       <div class="response-content" id="responseContent">
         <div class="empty-state">
@@ -789,6 +791,16 @@
 
 </div>
 
+
+<script>var _LANG={'title_api_tester_browser_rest_c':["API Tester — Browser REST Client", "API 测试器 — 浏览器 REST 客户端"],'metadesc_send_http_requests_from_y':["Send HTTP requests from your browser. GET, POST, PUT, DELETE with headers, params, and body. View formatted responses. Free, no signup.", "从浏览器发送 HTTP 请求。GET、POST、PUT、DELETE，支持请求头、参数和请求体。查看格式化响应。免费，无需注册。"],'h1_api_tester':["API Tester", "API 测试器"],'h2_response':["Response", "响应"],'h3_presets':["Presets", "预设"],'h3_history':["History", "历史"],'btn_body':["Body", "请求体"],'btn_add_param':["+ Add param", "+ 添加参数"],'btn_add_header':["+ Add header", "+ 添加请求头"],'btn_format_json':["Format JSON", "格式化 JSON"],'btn_clear':["Clear", "清空"],'btn_copy':["📋 Copy", "📋 复制"],'btn_body_2':["Body", "请求体"],'btn_headers':["Headers", "请求头"],'label_jsonplaceholder_posts':["JSONPlaceholder posts", "JSONPlaceholder 帖子"],'label_jsonplaceholder_create':["JSONPlaceholder create", "JSONPlaceholder 创建"],'label_httpbin_org_get':["httpbin.org/get", "httpbin.org/get"],'label_httpbin_org_post':["httpbin.org/post", "httpbin.org/post"],'label_reqres_in_users':["reqres.in users", "reqres.in 用户"],'label_send':["Send", "发送"],'placeholder_https_jsonplaceholder_typ':["https://jsonplaceholder.typicode.com/posts", "https://jsonplaceholder.typicode.com/posts"],'placeholder_n_key_value_n':["{\\n  \"key\": \"value\"\\n}", "{\\n  \"key\": \"value\"\\n}"],'placeholder_key':["key", "key"],'placeholder_value':["value", "value"],'strong_note':["Note:", "注意："],'strong_related_tools':["Related Tools", "相关工具"],'th_key':["Key", "键"],'th_value':["Value", "值"],'th_key_2':["Key", "键"],'th_value_2':["Value", "值"],'th_header':["Header", "请求头"],'th_value_3':["Value", "值"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "Dev Vault — 101 个免费工具"],'jtc_network_error':["Network Error", "网络错误"],'jtc_copied':["✓ Copied", "✓ 已复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── State ──────────────────────────────────────────────
 let lastResponse = null;
@@ -836,8 +848,8 @@ function addRow(type, key='', value='') {
   const tr = document.createElement('tr');
   tr.id = id;
   tr.innerHTML = `
-    <td><input class="kv-input" placeholder="key" value="${escAttr(key)}" oninput="updateCounts()" /></td>
-    <td><input class="kv-input" placeholder="value" value="${escAttr(value)}" /></td>
+    <td><input class="kv-input" tp="placeholder_key" placeholder="key" value="${escAttr(key)}" oninput="updateCounts()" /></td>
+    <td><input class="kv-input" tp="placeholder_value" placeholder="value" value="${escAttr(value)}" /></td>
     <td style="text-align:center">
       <button class="kv-remove-btn" onclick="removeRow('${id}', '${type}')">&#215;</button>
     </td>`;
@@ -1013,7 +1025,7 @@ function showStatus(code, text, time, size) {
 function showError(msg, time) {
   const badge = document.getElementById('statusBadge');
   badge.className = 'status-badge status-5xx';
-  badge.textContent = 'Network Error';
+  badge.textContent=T("jtc_network_error");
   badge.style.display = 'inline-block';
   document.getElementById('timeVal').textContent = time + ' ms';
   document.getElementById('timeChip').style.display = 'flex';
@@ -1043,7 +1055,7 @@ function renderResponseContent() {
       container.innerHTML = '<p style="color:var(--text2);font-size:13px;padding:8px;">No headers captured.</p>';
       return;
     }
-    let html = '<table class="headers-table"><thead><tr><th>Header</th><th>Value</th></tr></thead><tbody>';
+    let html = '<table class="headers-table"><thead><tr><th ti="th_header">Header</th><th>Value</th></tr></thead><tbody>';
     entries.forEach(([k, v]) => {
       html += `<tr><td>${escHtml(k)}</td><td>${escHtml(v)}</td></tr>`;
     });
@@ -1057,7 +1069,7 @@ function copyResponse() {
   if (!lastResponse) return;
   navigator.clipboard.writeText(lastResponse).then(() => {
     const btn = document.getElementById('copyBtn');
-    btn.textContent = '✓ Copied';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => {
       btn.innerHTML = '&#128203; Copy';
@@ -1161,12 +1173,30 @@ function pulseInput(id) {
 init();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/headers-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Headers Check</a>
 <a href="https://gokuscraper.github.io/dev-vault/http-status/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTTP Status</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/url-parser/" style="color:#4da6ff;text-decoration:none;margin:0 8px">URL Parser</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

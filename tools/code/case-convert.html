@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_case_converter_14_formats" lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -232,16 +232,18 @@
   </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 
   <header>
-    <h1>Case Converter</h1>
+    <h1 ti="h1_case_converter">Case Converter</h1>
     <p>14 naming conventions — one input, all outputs at once</p>
   </header>
 
   <div class="input-section">
     <div class="input-header">
-      <label for="input-text">Input</label>
+      <label for="input-text" ti="label_input">Input</label>
       <span id="detected-badge"></span>
       <span id="word-count"></span>
     </div>
@@ -251,16 +253,16 @@
       autocomplete="off"
       autocorrect="off"
       autocapitalize="off"
-      placeholder="Type or paste: variable names, file paths, API endpoints, constants, sentences…"
+      tp="placeholder_type_or_paste_variable_na" placeholder="Type or paste: variable names, file paths, API endpoints, constants, sentences…"
     ></textarea>
     <div class="samples">
-      <span class="samples-label">Samples:</span>
-      <button class="sample-btn" data-sample="myVariableName">variable</button>
-      <button class="sample-btn" data-sample="UserProfileCard">class</button>
-      <button class="sample-btn" data-sample="src/components/user-profile">file path</button>
-      <button class="sample-btn" data-sample="get_user_by_id">API method</button>
-      <button class="sample-btn" data-sample="MAX_RETRY_COUNT">constant</button>
-      <button id="clear-btn">Clear</button>
+      <span class="samples-label" ti="label_samples">Samples:</span>
+      <button class="sample-btn" data-sample="myVariableName" ti="btn_variable">variable</button>
+      <button class="sample-btn" data-sample="UserProfileCard" ti="btn_class">class</button>
+      <button class="sample-btn" data-sample="src/components/user-profile" ti="btn_file_path">file path</button>
+      <button class="sample-btn" data-sample="get_user_by_id" ti="btn_api_method">API method</button>
+      <button class="sample-btn" data-sample="MAX_RETRY_COUNT" ti="btn_constant">constant</button>
+      <button id="clear-btn" ti="btn_clear">Clear</button>
     </div>
   </div>
 
@@ -269,6 +271,16 @@
 
 </div>
 
+
+<script>var _LANG={'title_case_converter_14_formats':["Case Converter — 14 formats instantly", "大小写转换器 — 立即转换 14 种格式"],'metadesc_convert_text_between_came':["Convert text between camelCase, PascalCase, snake_case, kebab-case, and 10 more naming conventions instantly. No sign-up, no tracking, 100% client-side.", "立即在驼峰式、帕斯卡式、蛇形式、烤肉串式等 10 种命名规则之间转换文本。无需注册，不追踪，100% 客户端处理。"],'h1_case_converter':["Case Converter", "外壳转换器"],'btn_variable':["variable", "多变的"],'btn_class':["class", "班级"],'btn_file_path':["file path", "文件路径"],'btn_api_method':["API method", "API 方法"],'btn_constant':["constant", "持续的"],'btn_clear':["Clear", "清除"],'btn_use':["↑ Use", "↑ 使用"],'btn_copy':["Copy", "复制"],'label_samples':["Samples:", "示例："],'label_fmt_label':["${fmt.label}", "${fmt.label}"],'placeholder_type_or_paste_variable_na':["Type or paste: variable names, file paths, API endpoints, constants, sentences…", "输入或粘贴：变量名、文件路径、API 端点、常量、句子……"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'label_input':["Input", "输入"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_detected':["Detected:", "已检测到："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtcpre_detected':["Detected: ", "已检测到："],'jtlword_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── Tokenizer ────────────────────────────────────────────────────────────────
 // Splits any naming format into an array of lowercase word tokens.
@@ -360,10 +372,10 @@ for (const fmt of formats) {
   card.id = `card-${fmt.id}`;
   card.innerHTML = `
     <div class="output-card-header">
-      <span class="format-label">${fmt.label}</span>
+      <span class="format-label" ti="label_fmt_label">${fmt.label}</span>
       <div class="card-actions">
-        <button class="swap-btn" data-id="${fmt.id}" title="Use as input">↑ Use</button>
-        <button class="copy-btn" data-id="${fmt.id}" title="Copy to clipboard">Copy</button>
+        <button class="swap-btn" data-id="${fmt.id}" title="Use as input" ti="btn_use">↑ Use</button>
+        <button class="copy-btn" data-id="${fmt.id}" title="Copy to clipboard" ti="btn_copy">Copy</button>
       </div>
     </div>
     <div class="output-value placeholder" id="val-${fmt.id}">${fmt.example}</div>
@@ -390,7 +402,7 @@ function update() {
   const detected = nonEmpty.length ? detectFormat(nonEmpty[0]) : null;
   if (detected) {
     const lbl = formats.find(f => f.id === detected)?.label || detected;
-    badge.textContent = 'Detected: ' + lbl;
+    badge.textContent=T("jtcpre_detected")+ lbl;
     badge.style.display = 'inline-block';
   } else {
     badge.style.display = 'none';
@@ -440,9 +452,9 @@ grid.addEventListener('click', e => {
     if (el.classList.contains('placeholder')) return;
     const text = el.textContent;
     const done = () => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 1600);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 1600);
     };
     if (navigator.clipboard) {
       navigator.clipboard.writeText(text).then(done).catch(() => fallbackCopy(text, done));
@@ -490,12 +502,12 @@ function fallbackCopy(text, cb) {
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/encode-decode/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Encode Decode</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-to-ts/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON → TS</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -505,5 +517,23 @@ update();
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

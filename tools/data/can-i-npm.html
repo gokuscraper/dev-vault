@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_can_i_npm_package_name_ch" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,9 +105,11 @@ footer a{color:var(--accent)}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>can-i-npm</h1>
-<p class="subtitle">Check if an npm package name is available</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_can_i_npm">can-i-npm</h1>
+<p class="subtitle" ti="subtitle_check_if_an_npm_package_n">Check if an npm package name is available</p>
 
 <div class="tabs">
   <div class="tab active" data-tab="single">Single Check</div>
@@ -117,8 +119,8 @@ footer a{color:var(--accent)}
 <!-- Single Check Tab -->
 <div class="tab-content active" id="tab-single">
   <div class="search-box">
-    <input type="text" id="nameInput" placeholder="package-name" autocomplete="off" spellcheck="false" autofocus>
-    <button id="checkBtn" onclick="checkSingle()">Check</button>
+    <input type="text" id="nameInput" tp="placeholder_package_name" placeholder="package-name" autocomplete="off" spellcheck="false" autofocus>
+    <button id="checkBtn" onclick="checkSingle()" ti="btn_check">Check</button>
   </div>
   <div class="result" id="singleResult"></div>
 </div>
@@ -128,7 +130,7 @@ footer a{color:var(--accent)}
   <div class="batch-area">
     <textarea id="batchInput" placeholder="Enter package names, one per line:&#10;my-awesome-lib&#10;super-tool&#10;cool-utils"></textarea>
     <div class="batch-controls">
-      <button id="batchBtn" onclick="checkBatch()">Check All</button>
+      <button id="batchBtn" onclick="checkBatch()" ti="btn_check_all">Check All</button>
       <span class="batch-status" id="batchStatus"></span>
     </div>
   </div>
@@ -139,9 +141,19 @@ footer a{color:var(--accent)}
 <footer>
   Data from <a href="https://www.npmjs.com/" target="_blank" rel="noopener">npm registry</a>
   &nbsp;|&nbsp;
-  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener">Dev Vault</a>
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" rel="noopener" ti="footer_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_can_i_npm_package_name_ch':["can-i-npm — Package Name Checker", "can-i-npm — 包名称检查器"],'metadesc_check_if_an_npm_package_n':["Check if an npm package name is available. Validate names, view package info, and batch check multiple names at once.", "检查 npm 包名是否可用。验证名称、查看包信息，并可一次性批量检查多个名称。"],'h1_can_i_npm':["can-i-npm", "可以-i-npm"],'h3_try_these_alternatives':["Try these alternatives:", "试试这些替代方案："],'subtitle_check_if_an_npm_package_n':["Check if an npm package name is available", "检查 npm 包名是否可用"],'btn_check':["Check", "查看"],'btn_check_all':["Check All", "全部检查"],'placeholder_package_name':["package-name", "软件包名称"],'placeholder_enter_package_names_one_p':["Enter package names, one per line:\nmy-awesome-lib\nsuper-tool\ncool-utils", "请输入软件包名称，每行一个：my-awesome-lib super-tool cool-utils"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_check':["Check", "查看"],'jtlword_taken':["Taken", "被带走"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 /* --- npm naming rules ---
  * - Must be lowercase
@@ -294,7 +306,7 @@ function renderSingleResult(name, validation, pkg, downloads) {
       </div>
     </div>
     <div class="suggestions">
-      <h3>Try these alternatives:</h3>
+      <h3 ti="h3_try_these_alternatives">Try these alternatives:</h3>
       <div class="suggestion-list" id="suggestions"></div>
     </div>`;
 
@@ -369,7 +381,7 @@ async function checkSingle() {
   ]);
 
   btn.disabled = false;
-  btn.textContent = 'Check';
+  btn.textContent=T("jtc_check");
   renderSingleResult(name, validation, pkg, downloads);
 
   // Update URL
@@ -472,6 +484,24 @@ document.getElementById('nameInput').addEventListener('keydown', e => {
     document.getElementById('nameInput').value = q;
     checkSingle();
   }
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_uuid_generator_v4_v7_bulk" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -69,21 +69,23 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>UUID Generator</h1>
-<p class="subtitle">Generate, validate, and parse UUIDs.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_uuid_generator">UUID Generator</h1>
+<p class="subtitle" ti="subtitle_generate_validate_and_par">Generate, validate, and parse UUIDs.</p>
 
 <div class="tabs">
-  <button class="tab active" onclick="showTab('generate')">Generate</button>
-  <button class="tab" onclick="showTab('bulk')">Bulk</button>
-  <button class="tab" onclick="showTab('validate')">Validate</button>
+  <button class="tab active" onclick="showTab('generate')" ti="btn_generate" ti="btn_generate_2">Generate</button>
+  <button class="tab" onclick="showTab('bulk')" ti="btn_bulk">Bulk</button>
+  <button class="tab" onclick="showTab('validate')" ti="btn_validate">Validate</button>
 </div>
 
 <!-- Generate Tab -->
 <div class="panel active" id="panel-generate">
   <div class="gen-section">
     <div class="gen-row">
-      <label>Type</label>
+      <label ti="label_type" ti="label_type_2">Type</label>
       <select id="uuidType" onchange="generate()">
         <option value="v4">UUID v4 (random)</option>
         <option value="v7">UUID v7 (time-ordered)</option>
@@ -93,7 +95,7 @@ footer a:hover{color:#999}
       </select>
     </div>
     <div class="gen-row">
-      <label>Case</label>
+      <label ti="label_case">Case</label>
       <select id="uuidCase" onchange="generate()">
         <option value="lower">lowercase</option>
         <option value="upper">UPPERCASE</option>
@@ -107,8 +109,8 @@ footer a:hover{color:#999}
   </div>
 
   <div class="btn-row">
-    <button class="btn primary" onclick="generate()">Generate New</button>
-    <button class="btn" onclick="copyUuid()">Copy</button>
+    <button class="btn primary" onclick="generate()" ti="btn_generate_new">Generate New</button>
+    <button class="btn" onclick="copyUuid()" ti="btn_copy">Copy</button>
   </div>
 </div>
 
@@ -125,13 +127,13 @@ footer a:hover{color:#999}
       </select>
     </div>
     <div class="gen-row">
-      <label>Count</label>
+      <label ti="label_count">Count</label>
       <input type="number" id="bulkCount" value="10" min="1" max="1000">
     </div>
   </div>
   <div class="btn-row">
     <button class="btn primary" onclick="bulkGenerate()">Generate</button>
-    <button class="btn" onclick="copyBulk()">Copy All</button>
+    <button class="btn" onclick="copyBulk()" ti="btn_copy_all">Copy All</button>
   </div>
   <div class="bulk-output"><pre id="bulkOutput">Click "Generate" to create UUIDs in bulk.</pre></div>
 </div>
@@ -139,7 +141,7 @@ footer a:hover{color:#999}
 <!-- Validate Tab -->
 <div class="panel" id="panel-validate">
   <div class="validate-section">
-    <input type="text" class="validate-input" id="validateInput" placeholder="Paste a UUID to validate..." oninput="validateUuid()">
+    <input type="text" class="validate-input" id="validateInput" tp="placeholder_paste_a_uuid_to_validate" placeholder="Paste a UUID to validate..." oninput="validateUuid()">
     <div id="validateResult"></div>
   </div>
 </div>
@@ -147,10 +149,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/uuid-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/uuid-gen" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_uuid_generator_v4_v7_bulk':["UUID Generator — v4, v7, Bulk Generate", "UUID 生成器 — v4、v7、批量生成"],'metadesc_generate_uuid_v4_v7_ulid':["Generate UUID v4, v7, ULID, nanoid. Bulk generate, validate, parse. Free.", "生成 UUID v4、v7、ULID、nanoid。批量生成、验证、解析。免费。"],'h1_uuid_generator':["UUID Generator", "UUID生成器"],'subtitle_generate_validate_and_par':["Generate, validate, and parse UUIDs.", "生成、验证和解析 UUID。"],'btn_generate':["Generate", "产生"],'btn_bulk':["Bulk", "大部分"],'btn_validate':["Validate", "证实"],'btn_generate_new':["Generate New", "生成新"],'btn_copy':["Copy", "复制"],'btn_generate_2':["Generate", "产生"],'btn_copy_all':["Copy All", "全部复制"],'placeholder_paste_a_uuid_to_validate':["Paste a UUID to validate...", "粘贴 UUID 进行验证..."],'strong_related_tools':["Related Tools", "相关工具"],'label_type':["Type", "类型"],'label_case':["Case", "案件"],'label_type_2':["Type", "类型"],'label_count':["Count", "数数"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function showTab(name){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',t.textContent.toLowerCase().includes(name.slice(0,3))));
@@ -300,12 +312,30 @@ function toast(msg){
 generate();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/hash-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Hash Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/password-gen/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Password Gen</a>
 <a href="https://gokuscraper.github.io/dev-vault/timestamp-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Timestamp Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/number-base/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Number Base</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_readme_generator_create_p" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,6 +164,8 @@ select{cursor:pointer}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1>
@@ -187,9 +189,9 @@ select{cursor:pointer}
   <div class="panel panel-form" id="formPanel">
     <div class="template-bar">
       <span style="color:var(--text-muted);font-size:.85rem;line-height:2">Template:</span>
-      <button class="template-btn active" data-template="npm" onclick="applyTemplate('npm')">npm package</button>
-      <button class="template-btn" data-template="webapp" onclick="applyTemplate('webapp')">Web App</button>
-      <button class="template-btn" data-template="cli" onclick="applyTemplate('cli')">CLI Tool</button>
+      <button class="template-btn active" data-template="npm" onclick="applyTemplate('npm')" ti="btn_npm_package">npm package</button>
+      <button class="template-btn" data-template="webapp" onclick="applyTemplate('webapp')" ti="btn_web_app">Web App</button>
+      <button class="template-btn" data-template="cli" onclick="applyTemplate('cli')" ti="btn_cli_tool">CLI Tool</button>
     </div>
 
     <!-- Basic Info -->
@@ -197,16 +199,16 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Basic Info</div>
       <div class="section-body">
         <div class="field">
-          <label for="projectName">Project Name *</label>
-          <input type="text" id="projectName" placeholder="my-awesome-project" oninput="render()">
+          <label for="projectName" ti="label_project_name">Project Name *</label>
+          <input type="text" id="projectName" tp="placeholder_my_awesome_project" placeholder="my-awesome-project" oninput="render()">
         </div>
         <div class="field">
-          <label for="description">One-line Description *</label>
-          <input type="text" id="description" placeholder="A blazing fast tool for..." oninput="render()">
+          <label for="description" ti="label_one_line_description">One-line Description *</label>
+          <input type="text" id="description" tp="placeholder_a_blazing_fast_tool_for" placeholder="A blazing fast tool for..." oninput="render()">
         </div>
         <div class="field">
-          <label for="logoUrl">Logo URL</label>
-          <input type="url" id="logoUrl" placeholder="https://example.com/logo.png" oninput="render()">
+          <label for="logoUrl" ti="label_logo_url">Logo URL</label>
+          <input type="url" id="logoUrl" tp="placeholder_https_example_com_logo_pn" placeholder="https://example.com/logo.png" oninput="render()">
           <div class="hint">Optional. Displayed centered above the project name.</div>
         </div>
       </div>
@@ -217,7 +219,7 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Badges</div>
       <div class="section-body">
         <div class="field">
-          <label>Select badges to include</label>
+          <label ti="label_select_badges_to_include">Select badges to include</label>
           <div class="badge-grid" id="badgeGrid"></div>
         </div>
         <div class="field" id="badgeFields"></div>
@@ -229,7 +231,7 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Features</div>
       <div class="section-body">
         <div class="field">
-          <label for="features">Feature List</label>
+          <label for="features" ti="label_feature_list">Feature List</label>
           <textarea id="features" rows="5" placeholder="Real-time preview&#10;Dark theme support&#10;Multiple export formats" oninput="render()"></textarea>
           <div class="hint">One feature per line</div>
         </div>
@@ -241,8 +243,8 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Installation</div>
       <div class="section-body">
         <div class="field">
-          <label for="installCmd">Install Command</label>
-          <input type="text" id="installCmd" placeholder="npm install my-awesome-project" oninput="render()">
+          <label for="installCmd" ti="label_install_command">Install Command</label>
+          <input type="text" id="installCmd" tp="placeholder_npm_install_my_awesome_pr" placeholder="npm install my-awesome-project" oninput="render()">
         </div>
       </div>
     </div>
@@ -252,11 +254,11 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Usage / Quick Start</div>
       <div class="section-body">
         <div class="field">
-          <label for="usageLang">Code Language</label>
-          <input type="text" id="usageLang" placeholder="javascript" value="javascript" oninput="render()">
+          <label for="usageLang" ti="label_code_language">Code Language</label>
+          <input type="text" id="usageLang" tp="placeholder_javascript" placeholder="javascript" value="javascript" oninput="render()">
         </div>
         <div class="field">
-          <label for="usageCode">Code Example</label>
+          <label for="usageCode" ti="label_code_example">Code Example</label>
           <textarea id="usageCode" rows="6" placeholder="import { create } from 'my-project';&#10;&#10;const result = create({ theme: 'dark' });&#10;console.log(result);" oninput="render()"></textarea>
         </div>
       </div>
@@ -267,7 +269,7 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">API / Configuration</div>
       <div class="section-body">
         <div class="field">
-          <label for="apiContent">API / Configuration Details</label>
+          <label for="apiContent" ti="label_api_configuration_details">API / Configuration Details</label>
           <textarea id="apiContent" rows="8" placeholder="### Options&#10;&#10;| Option | Type | Default | Description |&#10;|--------|------|---------|-------------|&#10;| theme  | string | 'dark' | Color theme |" oninput="render()"></textarea>
           <div class="hint">Supports markdown tables and headers. Leave empty to omit.</div>
         </div>
@@ -280,7 +282,7 @@ select{cursor:pointer}
       <div class="section-body">
         <div class="toggle-row">
           <div class="toggle" id="contributingToggle" onclick="toggleContributing()"></div>
-          <span class="toggle-label">Include contributing guidelines</span>
+          <span class="toggle-label" ti="label_include_contributing_guid">Include contributing guidelines</span>
         </div>
       </div>
     </div>
@@ -290,7 +292,7 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">License</div>
       <div class="section-body">
         <div class="field">
-          <label for="license">License</label>
+          <label for="license" ti="label_license">License</label>
           <select id="license" onchange="render()">
             <option value="MIT">MIT</option>
             <option value="Apache-2.0">Apache 2.0</option>
@@ -311,24 +313,24 @@ select{cursor:pointer}
       <div class="section-header" onclick="toggleSection(this)">Author & Links</div>
       <div class="section-body">
         <div class="field">
-          <label for="authorName">Author Name</label>
-          <input type="text" id="authorName" placeholder="Jane Doe" oninput="render()">
+          <label for="authorName" ti="label_author_name">Author Name</label>
+          <input type="text" id="authorName" tp="placeholder_jane_doe" placeholder="Jane Doe" oninput="render()">
         </div>
         <div class="field">
-          <label for="githubUser">GitHub Username</label>
-          <input type="text" id="githubUser" placeholder="janedoe" oninput="render()">
+          <label for="githubUser" ti="label_github_username">GitHub Username</label>
+          <input type="text" id="githubUser" tp="placeholder_janedoe" placeholder="janedoe" oninput="render()">
         </div>
         <div class="field">
-          <label for="homepage">Homepage URL</label>
-          <input type="url" id="homepage" placeholder="https://example.com" oninput="render()">
+          <label for="homepage" ti="label_homepage_url">Homepage URL</label>
+          <input type="url" id="homepage" tp="placeholder_https_example_com" placeholder="https://example.com" oninput="render()">
         </div>
         <div class="field">
-          <label for="docsUrl">Documentation URL</label>
-          <input type="url" id="docsUrl" placeholder="https://docs.example.com" oninput="render()">
+          <label for="docsUrl" ti="label_documentation_url">Documentation URL</label>
+          <input type="url" id="docsUrl" tp="placeholder_https_docs_example_com" placeholder="https://docs.example.com" oninput="render()">
         </div>
         <div class="field">
-          <label for="issuesUrl">Issues URL</label>
-          <input type="url" id="issuesUrl" placeholder="https://github.com/user/repo/issues" oninput="render()">
+          <label for="issuesUrl" ti="label_issues_url">Issues URL</label>
+          <input type="url" id="issuesUrl" tp="placeholder_https_github_com_user_rep" placeholder="https://github.com/user/repo/issues" oninput="render()">
         </div>
       </div>
     </div>
@@ -347,8 +349,8 @@ select{cursor:pointer}
     </div>
     <div class="tab-panel" id="tabRaw">
       <div style="display:flex;justify-content:flex-end;margin-bottom:.5rem;gap:.5rem">
-        <button class="btn btn-sm" onclick="copyMarkdown()">Copy</button>
-        <button class="btn btn-sm" onclick="downloadMarkdown()">Download</button>
+        <button class="btn btn-sm" onclick="copyMarkdown()" ti="btn_copy">Copy</button>
+        <button class="btn btn-sm" onclick="downloadMarkdown()" ti="btn_download">Download</button>
       </div>
       <div class="raw-md" id="rawContent"></div>
     </div>
@@ -362,6 +364,16 @@ select{cursor:pointer}
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_readme_generator_create_p':["README Generator — Create Professional README.md Files", "README 生成器 — 创建专业的 README.md 文件"],'metadesc_interactive_wizard_to_gen':["Interactive wizard to generate professional README.md files for GitHub projects. Dark theme, real-time preview, multiple templates.", "用于为 GitHub 项目生成专业 README.md 文件的交互式向导。支持深色主题、实时预览和多种模板。"],'h1_name':["${name}", "${name}"],'h1_1':["$1", "1美元"],'h2_1':["$1", "1美元"],'h2_table_of_contents':["Table of Contents", "目录"],'h2_table_of_contents_2':["Table of Contents", "目录"],'h3_1':["$1", "1美元"],'btn_npm_package':["npm package", "npm 包"],'btn_web_app':["Web App", "Web应用程序"],'btn_cli_tool':["CLI Tool", "命令行工具"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'label_include_contributing_guid':["Include contributing guidelines", "包含投稿指南"],'placeholder_my_awesome_project':["my-awesome-project", "我的超棒项目"],'placeholder_a_blazing_fast_tool_for':["A blazing fast tool for...", "一款速度极快的工具……"],'placeholder_https_example_com_logo_pn':["https://example.com/logo.png", "https://example.com/logo.png"],'placeholder_real_time_preview_dark_th':["Real-time preview\nDark theme support\nMultiple export formats", "实时预览，支持深色主题，多种导出格式"],'placeholder_npm_install_my_awesome_pr':["npm install my-awesome-project", "npm install my-awesome-project"],'placeholder_javascript':["javascript", "JavaScript"],'placeholder_import_create_from_my_pro':["import { create } from 'my-project';\n\nconst result = create({ theme: 'dark' });\nconsole.log(result);", "import { create } from &#39;my-project&#39;; const result = create({ theme: &#39;dark&#39; }); console.log(result);"],'placeholder_options_option_type_defa':["### Options\n\n| Option | Type | Default | Description |\n|--------|------|---------|-------------|\n| theme  | string | 'dark' | Color theme |", "### 选项 | 选项 | 类型 | 默认值 | 描述 | |--------|------|---------|-------------| | 主题 | 字符串 | &#39;深色&#39; | 颜色主题 |"],'placeholder_jane_doe':["Jane Doe", "简·多伊"],'placeholder_janedoe':["janedoe", "珍妮多"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_https_docs_example_com':["https://docs.example.com", "https://docs.example.com"],'placeholder_https_github_com_user_rep':["https://github.com/user/repo/issues", "https://github.com/user/repo/issues"],'placeholder_label':["${label}", "${label}"],'strong_1':["$1", "1美元"],'th_c_trim':["${c.trim()}", "${c.trim()}"],'label_project_name':["Project Name *", "项目名称*"],'label_one_line_description':["One-line Description *", "一行描述 *"],'label_logo_url':["Logo URL", "Logo URL"],'label_select_badges_to_include':["Select badges to include", "选择要包含的徽章"],'label_feature_list':["Feature List", "功能列表"],'label_install_command':["Install Command", "安装命令"],'label_code_language':["Code Language", "代码语言"],'label_code_example':["Code Example", "代码示例"],'label_api_configuration_details':["API / Configuration Details", "API/配置详情"],'label_license':["License", "执照"],'label_author_name':["Author Name", "作者姓名"],'label_github_username':["GitHub Username", "GitHub 用户名"],'label_homepage_url':["Homepage URL", "首页网址"],'label_documentation_url':["Documentation URL", "文档网址"],'label_issues_url':["Issues URL", "问题 URL"],'label_label':["${label}", "${label}"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Badge definitions ---
 const BADGES = [
@@ -425,8 +437,8 @@ function renderBadgeFields() {
     const val = existing ? existing.value : '';
     container.innerHTML += `
       <div class="field" style="margin-top:.75rem">
-        <label for="${field}">${label}</label>
-        <input type="text" id="${field}" value="${escAttr(val)}" placeholder="${label}" oninput="render()">
+        <label for="${field}" ti="label_label">${label}</label>
+        <input type="text" id="${field}" value="${escAttr(val)}" tp="placeholder_label" placeholder="${label}" oninput="render()">
       </div>`;
   }
 }
@@ -540,7 +552,7 @@ function generateMarkdown() {
   }
 
   // Title
-  md += `<h1 align="center">${name}</h1>\n\n`;
+  md += `<h1 align="center" ti="h1_name">${name}</h1>\n\n`;
 
   // Description
   if (desc) {
@@ -696,12 +708,12 @@ function renderPreview(md) {
   html = html.replace(/^---$/gm, '<hr>');
 
   // Headers
-  html = html.replace(/^### (.+)$/gm, '<h3>$1</h3>');
-  html = html.replace(/^## (.+)$/gm, '<h2>$1</h2>');
-  html = html.replace(/^# (.+)$/gm, '<h1>$1</h1>');
+  html = html.replace(/^### (.+)$/gm, '<h3 ti="h3_1">$1</h3>');
+  html = html.replace(/^## (.+)$/gm, '<h2 ti="h2_1">$1</h2>');
+  html = html.replace(/^# (.+)$/gm, '<h1 ti="h1_1">$1</h1>');
 
   // Bold
-  html = html.replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>');
+  html = html.replace(/\*\*(.+?)\*\*/g, '<strong ti="strong_1">$1</strong>');
   // Italic
   html = html.replace(/\*(.+?)\*/g, '<em>$1</em>');
   // Inline code
@@ -715,7 +727,7 @@ function renderPreview(md) {
 
   // Tables
   html = html.replace(/^(\|.+\|)\n(\|[-| :]+\|)\n((?:\|.+\|\n?)*)/gm, (_, header, sep, body) => {
-    const ths = header.split('|').filter(c => c.trim()).map(c => `<th>${c.trim()}</th>`).join('');
+    const ths = header.split('|').filter(c => c.trim()).map(c => `<th ti="th_c_trim">${c.trim()}</th>`).join('');
     const rows = body.trim().split('\n').map(r => {
       const tds = r.split('|').filter(c => c.trim()).map(c => `<td>${c.trim()}</td>`).join('');
       return `<tr>${tds}</tr>`;
@@ -730,7 +742,7 @@ function renderPreview(md) {
   html = html.replace(/((?:<li>.*<\/li>\n?)+)/g, '<ul>$1</ul>');
 
   // ToC special rendering
-  if (html.includes('<h2>Table of Contents</h2>')) {
+  if (html.includes('<h2 ti="h2_table_of_contents" ti="h2_table_of_contents_2">Table of Contents</h2>')) {
     html = html.replace(/<h2>Table of Contents<\/h2>\s*<ul>([\s\S]*?)<\/ul>/, (_, items) => {
       return `<h2>Table of Contents</h2><div class="toc"><ul>${items}</ul></div>`;
     });
@@ -802,6 +814,24 @@ function showToast(msg, bg) {
 
 // --- Start ---
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

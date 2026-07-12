@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_storage_access_api_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -363,13 +363,15 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Storage Access API Playground</h1>
+  <h1 ti="title_storage_access_api_playgr" ti="h1_storage_access_api_playgr">Storage Access API Playground</h1>
   <p>Manage cross-site cookie access and storage partitioning in third-party contexts</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Support Detection -->
   <div id="supportBanner" class="support-banner"></div>
 
@@ -382,7 +384,7 @@
         In a first-party context, this always returns <code>true</code>.
       </p>
 
-      <button class="btn" onclick="checkStorageAccess()">Check Storage Access</button>
+      <button class="btn" onclick="checkStorageAccess()" ti="btn_check_storage_access">Check Storage Access</button>
 
       <div class="result-box" id="hasAccessResult">
         <div class="result-label">Result</div>
@@ -406,7 +408,7 @@ console.log(<span class="string">`Has access: </span>${hasAccess}<span class="st
         Requires user gesture and may show a permission prompt.
       </p>
 
-      <button class="btn" onclick="requestAccess()">Request Storage Access</button>
+      <button class="btn" onclick="requestAccess()" ti="btn_request_storage_access">Request Storage Access</button>
 
       <div class="result-box" id="requestAccessResult">
         <div class="result-label">Result</div>
@@ -439,7 +441,7 @@ button.addEventListener(<span class="string">'click'</span>, <span class="keywor
     </p>
 
     <div style="display:flex;gap:0.5rem;flex-wrap:wrap;margin-bottom:1rem;">
-      <button class="btn" onclick="requestAccessFor()">Request Access For Origin</button>
+      <button class="btn" onclick="requestAccessFor()" ti="btn_request_access_for_origin">Request Access For Origin</button>
       <input type="text" id="accessForOrigin" value="https://embedded.example.com"
         style="flex:1;min-width:250px;background:var(--surface-2);border:1px solid var(--border);color:var(--text);padding:0.5rem;border-radius:var(--radius);font-family:var(--font-mono);font-size:0.85rem;">
     </div>
@@ -469,7 +471,7 @@ button.addEventListener(<span class="string">'click'</span>, <span class="keywor
 
     <div class="context-viz">
       <div class="context-container">
-        <span class="context-label">First-Party Context</span>
+        <span class="context-label" ti="label_first_party_context">First-Party Context</span>
         <div class="context-url">https://mysite.com/page</div>
         <div class="cookie-indicator">
           <span class="cookie-dot accessible"></span>
@@ -485,7 +487,7 @@ button.addEventListener(<span class="string">'click'</span>, <span class="keywor
         </div>
 
         <div class="context-inner">
-          <span class="context-label">Third-Party iframe</span>
+          <span class="context-label" ti="label_third_party_iframe">Third-Party iframe</span>
           <div class="context-url">&lt;iframe src="https://tracker.com/widget"&gt;</div>
           <div class="cookie-indicator">
             <span class="cookie-dot blocked" id="vizCookieDot"></span>
@@ -501,15 +503,15 @@ button.addEventListener(<span class="string">'click'</span>, <span class="keywor
           </div>
 
           <div style="margin-top:0.75rem;display:flex;gap:0.5rem;">
-            <button class="btn btn-sm" onclick="simGrantAccess()">Simulate Grant Access</button>
-            <button class="btn btn-sm btn-secondary" onclick="simRevokeAccess()">Revoke</button>
+            <button class="btn btn-sm" onclick="simGrantAccess()" ti="btn_simulate_grant_access">Simulate Grant Access</button>
+            <button class="btn btn-sm btn-secondary" onclick="simRevokeAccess()" ti="btn_revoke">Revoke</button>
           </div>
         </div>
       </div>
     </div>
 
     <div class="info-box">
-      <strong>Key insight:</strong> After <code>requestStorageAccess()</code> is granted, the third-party iframe
+      <strong ti="strong_key_insight">Key insight:</strong> After <code>requestStorageAccess()</code> is granted, the third-party iframe
       gains access to its <em>unpartitioned</em> cookies - the same cookies it would have if visited directly
       as a first-party site. This enables legitimate use cases like embedded login widgets.
     </div>
@@ -597,8 +599,8 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
         This will allow the embedded content to track your activity.
       </div>
       <div class="perm-actions">
-        <button class="btn btn-sm" onclick="simPermAllow()">Allow</button>
-        <button class="btn btn-sm btn-secondary" onclick="simPermBlock()">Block</button>
+        <button class="btn btn-sm" onclick="simPermAllow()" ti="btn_allow">Allow</button>
+        <button class="btn btn-sm btn-secondary" onclick="simPermBlock()" ti="btn_block">Block</button>
       </div>
     </div>
 
@@ -630,7 +632,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     </div>
 
     <div style="margin-top:1rem;font-size:0.83rem;color:var(--text-dim);">
-      <strong>How to register:</strong>
+      <strong ti="strong_how_to_register">How to register:</strong>
       <ul style="padding-left:1.5rem;margin-top:0.5rem;">
         <li>Submit a JSON file to the <a href="https://github.com/nicecoder-org/related-website-sets" style="color:var(--accent);">Related Website Sets list</a> on GitHub</li>
         <li>Each set has one primary domain and up to 5 associated + service domains</li>
@@ -663,7 +665,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     <div class="card">
       <h2>&#x1F30D; Browser Support</h2>
       <table>
-        <thead><tr><th>Browser</th><th>hasStorageAccess</th><th>requestStorageAccess</th><th>requestStorageAccessFor</th></tr></thead>
+        <thead><tr><th ti="th_browser">Browser</th><th ti="th_hasstorageaccess">hasStorageAccess</th><th ti="th_requeststorageaccess">requestStorageAccess</th><th ti="th_requeststorageaccessfor">requestStorageAccessFor</th></tr></thead>
         <tbody>
           <tr><td>Chrome</td><td style="color:var(--success);">119+</td><td style="color:var(--success);">119+</td><td style="color:var(--success);">119+</td></tr>
           <tr><td>Edge</td><td style="color:var(--success);">85+</td><td style="color:var(--success);">85+</td><td style="color:var(--success);">119+</td></tr>
@@ -673,7 +675,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
         </tbody>
       </table>
       <div style="margin-top:0.75rem;font-size:0.82rem;color:var(--text-dim);">
-        <strong>Note:</strong> Safari pioneered this API (ITP). Firefox requires user interaction
+        <strong ti="strong_note">Note:</strong> Safari pioneered this API (ITP). Firefox requires user interaction
         with the embedded site within the past 30 days. Chrome requires Related Website Sets for
         <code>requestStorageAccessFor()</code>.
       </div>
@@ -712,13 +714,23 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
   <!-- Event Log -->
   <div class="card">
     <h2>&#x1F4DC; Event Log</h2>
-    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;">Clear</button>
+    <button class="btn btn-sm btn-secondary" onclick="clearLog()" style="margin-bottom:0.75rem;" ti="btn_clear">Clear</button>
     <div id="eventLog" class="log-area">
       <div class="log-entry info"><span class="time">[--:--:--]</span> <span class="msg">Playground initialized.</span></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_storage_access_api_playgr':["Storage Access API Playground", "存储访问 API 演示区"],'metadesc_interactive_playground_fo':["Interactive playground for the Storage Access API - manage cross-site cookie access and storage partitioning in the browser.", "Storage Access API 的交互式演示环境 - 在浏览器中管理跨站点 cookie 访问和存储分区。"],'h1_storage_access_api_playgr':["Storage Access API Playground", "存储访问 API 演示区"],'h2_hasstorageaccess':["🔍 hasStorageAccess()", "🔍 hasStorageAccess()"],'h2_requeststorageaccess':["🔓 requestStorageAccess()", "🔓 requestStorageAccess()"],'h2_requeststorageaccessfor':["🔗 requestStorageAccessFor()", "🔗 requestStorageAccessFor()"],'h2_first_party_vs_third_par':["🌐 First-Party vs Third-Party Context", "🌐 第一方与第三方语境"],'h2_cookie_partitioning_expl':["🍪 Cookie Partitioning Explained", "🍪 Cookie 分区详解"],'h2_permission_prompt_simula':["🚫 Permission Prompt Simulation", "🚫 权限提示模拟"],'h2_related_website_sets_rws':["🔗 Related Website Sets (RWS)", "🔗 相关网站集 (RWS)"],'h2_browser_support':["🌍 Browser Support", "🌍 浏览器支持"],'h2_api_quick_reference':["📖 API Quick Reference", "📖 API 快速参考"],'h2_event_log':["📜 Event Log", "📜 事件日志"],'btn_check_storage_access':["Check Storage Access", "检查存储访问"],'btn_request_storage_access':["Request Storage Access", "请求存储访问"],'btn_request_access_for_origin':["Request Access For Origin", "请求源访问权限"],'btn_simulate_grant_access':["Simulate Grant Access", "模拟授予访问权限"],'btn_revoke':["Revoke", "撤销"],'btn_allow':["Allow", "允许"],'btn_block':["Block", "堵塞"],'btn_clear':["Clear", "清除"],'label_first_party_context':["First-Party Context", "第一方背景"],'label_third_party_iframe':["Third-Party iframe", "第三方 iframe"],'strong_key_insight':["Key insight:", "关键见解："],'strong_how_to_register':["How to register:", "注册方式："],'strong_note':["Note:", "笔记："],'th_browser':["Browser", "浏览器"],'th_hasstorageaccess':["hasStorageAccess", "拥有存储访问权限"],'th_requeststorageaccess':["requestStorageAccess", "请求存储访问"],'th_requeststorageaccessfor':["requestStorageAccessFor", "请求存储访问权限"],'jtc_api_not_available_simulat':["API not available (simulating: true for first-party)", "API 不可用（模拟：对于第一方为 true）"],'jtc_api_not_available':["API not available", "API不可用"],'jtc_granted':["Granted", "的确"],'jtc_requeststorageaccessfor_n':["requestStorageAccessFor() not supported", "不支持 requestStorageAccessFor()"],'jtc_cookies_unpartitioned_acc':["Cookies: Unpartitioned access granted (via requestStorageAccess)", "Cookie：已授予非分区访问权限（通过 requestStorageAccess）"],'jtc_cookies_blocked_third_par':["Cookies: Blocked (third-party cookie deprecation)", "Cookie：已阻止（第三方 Cookie 已弃用）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   /* ===== Support Detection ===== */
   const banner = document.getElementById('supportBanner');
@@ -753,7 +765,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     const valueEl = document.getElementById('hasAccessValue');
 
     if (!hasAPI) {
-      valueEl.textContent = 'API not available (simulating: true for first-party)';
+      valueEl.textContent=T("jtc_api_not_available_simulat");
       valueEl.className = 'result-value true';
       log('hasStorageAccess() not available. In first-party context, it would return true.', 'warn');
       return;
@@ -776,7 +788,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     const valueEl = document.getElementById('requestAccessValue');
 
     if (!hasAPI || !document.requestStorageAccess) {
-      valueEl.textContent = 'API not available';
+      valueEl.textContent=T("jtc_api_not_available");
       valueEl.className = 'result-value false';
       log('requestStorageAccess() not available in this browser.', 'warn');
       return;
@@ -784,7 +796,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
 
     try {
       await document.requestStorageAccess();
-      valueEl.textContent = 'Granted';
+      valueEl.textContent=T("jtc_granted");
       valueEl.className = 'result-value true';
       log('requestStorageAccess() granted.', 'success');
     } catch (err) {
@@ -805,7 +817,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     }
 
     if (!document.requestStorageAccessFor) {
-      valueEl.textContent = 'requestStorageAccessFor() not supported';
+      valueEl.textContent=T("jtc_requeststorageaccessfor_n");
       valueEl.className = 'result-value false';
       log('requestStorageAccessFor() is not available. Requires Chrome/Edge 119+.', 'warn');
       return;
@@ -828,7 +840,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     const dot = document.getElementById('vizCookieDot');
     const text = document.getElementById('vizCookieText');
     dot.className = 'cookie-dot accessible';
-    text.textContent = 'Cookies: Unpartitioned access granted (via requestStorageAccess)';
+    text.textContent=T("jtc_cookies_unpartitioned_acc");
     log('Simulated: Storage access granted to third-party iframe.', 'success');
   }
 
@@ -836,7 +848,7 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
     const dot = document.getElementById('vizCookieDot');
     const text = document.getElementById('vizCookieText');
     dot.className = 'cookie-dot blocked';
-    text.textContent = 'Cookies: Blocked (third-party cookie deprecation)';
+    text.textContent=T("jtc_cookies_blocked_third_par");
     log('Simulated: Storage access revoked.', 'info');
   }
 
@@ -857,6 +869,24 @@ Set-Cookie: session_id=abc123; <span class="keyword">Secure</span>; <span class=
   if (hasAPI) {
     checkStorageAccess();
   }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

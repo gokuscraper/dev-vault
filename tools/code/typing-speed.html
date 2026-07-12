@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_typing_speed_test_wpm_cou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -71,30 +71,32 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Typing Speed Test</h1>
-<p class="subtitle">Measure your typing speed in WPM</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_typing_speed_test">Typing Speed Test</h1>
+<p class="subtitle" ti="subtitle_measure_your_typing_speed">Measure your typing speed in WPM</p>
 
 <div class="section-label">Difficulty</div>
 <div class="controls" id="difficultyBtns">
-<button class="btn active" data-diff="easy">Easy</button>
-<button class="btn" data-diff="medium">Medium</button>
-<button class="btn" data-diff="hard">Hard</button>
-<button class="btn" data-diff="code">Code</button>
-<button class="btn" data-diff="custom">Custom</button>
+<button class="btn active" data-diff="easy" ti="btn_easy">Easy</button>
+<button class="btn" data-diff="medium" ti="btn_medium">Medium</button>
+<button class="btn" data-diff="hard" ti="btn_hard">Hard</button>
+<button class="btn" data-diff="code" ti="btn_code">Code</button>
+<button class="btn" data-diff="custom" ti="btn_custom">Custom</button>
 </div>
 
 <div class="section-label">Word Count</div>
 <div class="controls" id="wordCountBtns">
-<button class="btn active" data-wc="25">25</button>
-<button class="btn" data-wc="50">50</button>
-<button class="btn" data-wc="100">100</button>
+<button class="btn active" data-wc="25" ti="btn_25">25</button>
+<button class="btn" data-wc="50" ti="btn_50">50</button>
+<button class="btn" data-wc="100" ti="btn_100">100</button>
 </div>
 
-<textarea class="custom-input" id="customText" placeholder="Paste your own text here, then press Enter or click Restart..."></textarea>
+<textarea class="custom-input" id="customText" tp="placeholder_paste_your_own_text_here" placeholder="Paste your own text here, then press Enter or click Restart..."></textarea>
 
 <div class="text-display" id="textDisplay"></div>
-<textarea class="input-area" id="inputArea" rows="3" placeholder="Start typing here..." spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
+<textarea class="input-area" id="inputArea" rows="3" tp="placeholder_start_typing_here" placeholder="Start typing here..." spellcheck="false" autocomplete="off" autocorrect="off" autocapitalize="off"></textarea>
 
 <div class="live-stats">
 <div class="stat-card"><div class="value" id="liveWpm">0</div><div class="label">WPM</div></div>
@@ -103,11 +105,11 @@ footer a:hover{color:#999}
 </div>
 
 <div style="text-align:center;margin-bottom:20px">
-<button class="btn primary" id="restartBtn">Restart (Tab+Enter)</button>
+<button class="btn primary" id="restartBtn" ti="btn_restart_tab_enter">Restart (Tab+Enter)</button>
 </div>
 
 <div class="results" id="results">
-<h2>Results</h2>
+<h2 ti="h2_results">Results</h2>
 <div class="results-grid">
 <div class="stat-card"><div class="value" id="resWpm">0</div><div class="label">WPM</div></div>
 <div class="stat-card"><div class="value" id="resCpm">0</div><div class="label">CPM</div></div>
@@ -118,18 +120,28 @@ footer a:hover{color:#999}
 </div>
 
 <div class="history" id="historySection" style="display:none">
-<h3>Recent Results</h3>
+<h3 ti="h3_recent_results">Recent Results</h3>
 <div id="historyList"></div>
 </div>
 
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/">Word Count</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/text-transform/">Text Transform</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count">Word Count</a> &middot; <a href="https://gokuscraper.github.io/dev-vault/text-transform/" ti="link_text_transform">Text Transform</a></div>
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> &mdash; Free Developer Tools
+<a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> &mdash; Free Developer Tools
 </footer>
 </div>
 
+
+<script>var _LANG={'title_typing_speed_test_wpm_cou':["Typing Speed Test — WPM Counter", "打字速度测试 — 每分钟字数计数器"],'metadesc_free_typing_speed_test_me':["Free typing speed test. Measure WPM, CPM, and accuracy with easy, medium, hard, code, and custom text modes. No signup, no ads.", "免费打字速度测试。测试内容包括简单、中等、困难、代码和自定义文本模式，可测量每分钟字数 (WPM)、每分钟字符数 (CPM) 和准确率。无需注册，无广告。"],'h1_typing_speed_test':["Typing Speed Test", "打字速度测试"],'h2_results':["Results", "结果"],'h3_recent_results':["Recent Results", "最新结果"],'subtitle_measure_your_typing_speed':["Measure your typing speed in WPM", "以每分钟字数 (WPM) 衡量您的打字速度。"],'btn_easy':["Easy", "简单的"],'btn_medium':["Medium", "中等的"],'btn_hard':["Hard", "难的"],'btn_code':["Code", "代码"],'btn_custom':["Custom", "风俗"],'btn_25':["25", "25"],'btn_50':["50", "50"],'btn_100':["100", "100"],'btn_restart_tab_enter':["Restart (Tab+Enter)", "重新启动（Tab+Enter）"],'placeholder_paste_your_own_text_here':["Paste your own text here, then press Enter or click Restart...", "请在此处粘贴您自己的文本，然后按 Enter 键或单击“重新开始”……"],'placeholder_start_typing_here':["Start typing here...", "从这里开始输入……"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_word_count':["Word Count", "字数统计"],'link_text_transform':["Text Transform", "文本转换"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_100':["100%", "100%"],'jtc_0s':["0s", "0秒"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const WORDS = {
 easy: ["the","be","to","of","and","a","in","that","have","i","it","for","not","on","with","he","as","you","do","at","this","but","his","by","from","they","we","her","she","or","an","will","my","one","all","would","there","their","what","so","up","out","if","about","who","get","which","go","me","when","make","can","like","time","no","just","him","know","take","people","into","year","your","good","some","could","them","see","other","than","then","now","look","only","come","its","over","think","also","back","after","use","two","how","our","work","first","well","way","even","new","want","because","any","these","give","day","most","us","great","help","very","still","own","need","much","right","big","old","long","run","small","try","ask","said","play","life","part","name","read","hand","high","keep","start","set","end","find","let","home","last","same","tell","did","thing","off","put","each","too","best","hard","open","early","move","left","pay","close","side","been","real","line","turn","head","long","must","own","run","sure","full","kind","mean","nice","late","past","next","less","hold","seem","idea","hear","feel","plan","walk","room","wait","pick","grow","talk","list","stop","show","care","rest","food","call","top","form","eat","hot","add","stay","low","step","wide","half","live","power","mind","field","done","fast"],
@@ -204,8 +216,8 @@ function reset() {
   input.value = '';
   input.disabled = false;
   $('liveWpm').textContent = '0';
-  $('liveAcc').textContent = '100%';
-  $('liveTime').textContent = '0s';
+  $('liveAcc').textContent=T("jtc_100");
+  $('liveTime').textContent=T("jtc_0s");
   $('results').style.display = 'none';
   renderDisplay();
   input.focus();
@@ -335,6 +347,24 @@ customText.addEventListener('keydown', e => {
 
 reset();
 renderHistory();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

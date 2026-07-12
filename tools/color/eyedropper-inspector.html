@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="dark">
+<html tk="title_eyedropper_inspector_colo" lang="en" data-theme="dark">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -709,9 +709,11 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
-    <h1>EyeDropper Inspector</h1>
+    <h1 ti="h1_eyedropper_inspector">EyeDropper Inspector</h1>
     <p>Pick colors from your screen, inspect values, build palettes, check contrast</p>
   </header>
 
@@ -732,10 +734,10 @@ footer a:hover { text-decoration: underline; }
       <h2><span class="icon">💧</span> Color Picker</h2>
       <div class="picker-area">
         <div class="color-preview" id="colorPreview" title="Click to pick a color"></div>
-        <button class="pick-btn" id="pickBtn">Pick Color</button>
+        <button class="pick-btn" id="pickBtn" ti="btn_pick_color">Pick Color</button>
         <div class="fallback-row">
           <input type="color" id="fallbackColor" value="#7c6aef" title="Color picker fallback">
-          <input type="text" id="hexInput" value="#7c6aef" placeholder="#rrggbb" spellcheck="false">
+          <input type="text" id="hexInput" value="#7c6aef" tp="placeholder_rrggbb" placeholder="#rrggbb" spellcheck="false">
         </div>
         <div class="api-status" id="apiStatus"></div>
       </div>
@@ -757,10 +759,10 @@ footer a:hover { text-decoration: underline; }
         <div class="palette-empty">Pick colors to build your palette</div>
       </div>
       <div class="palette-actions">
-        <button class="btn-sm" id="addToPalette">+ Add Current</button>
-        <button class="btn-sm" id="exportCss">Export CSS</button>
-        <button class="btn-sm" id="exportJson">Export JSON</button>
-        <button class="btn-sm" id="clearPalette">Clear</button>
+        <button class="btn-sm" id="addToPalette" ti="btn_add_current">+ Add Current</button>
+        <button class="btn-sm" id="exportCss" ti="btn_export_css">Export CSS</button>
+        <button class="btn-sm" id="exportJson" ti="btn_export_json">Export JSON</button>
+        <button class="btn-sm" id="clearPalette" ti="btn_clear">Clear</button>
       </div>
     </div>
 
@@ -769,14 +771,14 @@ footer a:hover { text-decoration: underline; }
       <h2><span class="icon">🔍</span> Contrast Checker</h2>
       <div class="contrast-inputs">
         <div class="contrast-input-group">
-          <label>Foreground</label>
+          <label ti="label_foreground">Foreground</label>
           <div class="contrast-color-row">
             <input type="color" id="contrastFg" value="#ffffff">
             <input type="text" id="contrastFgHex" value="#ffffff" spellcheck="false">
           </div>
         </div>
         <div class="contrast-input-group">
-          <label>Background</label>
+          <label ti="label_background">Background</label>
           <div class="contrast-color-row">
             <input type="color" id="contrastBg" value="#7c6aef">
             <input type="text" id="contrastBgHex" value="#7c6aef" spellcheck="false">
@@ -794,12 +796,12 @@ footer a:hover { text-decoration: underline; }
     <div class="card">
       <h2><span class="icon">🌈</span> Color Harmonies</h2>
       <div class="harmony-type" id="harmonyType">
-        <button class="harmony-btn active" data-type="complementary">Complementary</button>
-        <button class="harmony-btn" data-type="analogous">Analogous</button>
-        <button class="harmony-btn" data-type="triadic">Triadic</button>
-        <button class="harmony-btn" data-type="tetradic">Tetradic</button>
-        <button class="harmony-btn" data-type="split">Split-Comp</button>
-        <button class="harmony-btn" data-type="monochromatic">Mono</button>
+        <button class="harmony-btn active" data-type="complementary" ti="btn_complementary">Complementary</button>
+        <button class="harmony-btn" data-type="analogous" ti="btn_analogous">Analogous</button>
+        <button class="harmony-btn" data-type="triadic" ti="btn_triadic">Triadic</button>
+        <button class="harmony-btn" data-type="tetradic" ti="btn_tetradic">Tetradic</button>
+        <button class="harmony-btn" data-type="split" ti="btn_split_comp">Split-Comp</button>
+        <button class="harmony-btn" data-type="monochromatic" ti="btn_mono">Mono</button>
       </div>
       <div class="harmony-swatches" id="harmonySwatches"></div>
     </div>
@@ -808,13 +810,13 @@ footer a:hover { text-decoration: underline; }
     <div class="card full-width">
       <h2><span class="icon">🌊</span> Gradient Sampler</h2>
       <div class="gradient-controls">
-        <label>Type:</label>
+        <label ti="label_type">Type:</label>
         <select id="gradientType">
           <option value="linear">Linear</option>
           <option value="radial">Radial</option>
           <option value="conic">Conic</option>
         </select>
-        <label>Direction:</label>
+        <label ti="label_direction">Direction:</label>
         <select id="gradientDir">
           <option value="to right">→ Right</option>
           <option value="to bottom right">↘ Bottom Right</option>
@@ -822,7 +824,7 @@ footer a:hover { text-decoration: underline; }
           <option value="to bottom left">↙ Bottom Left</option>
           <option value="to left">← Left</option>
         </select>
-        <button class="btn-sm" id="gradientFromPalette">From Palette</button>
+        <button class="btn-sm" id="gradientFromPalette" ti="btn_from_palette">From Palette</button>
       </div>
       <div class="gradient-bar" id="gradientBar"></div>
       <div class="sampled-color" id="sampledColor" style="display:none">
@@ -841,6 +843,16 @@ footer a:hover { text-decoration: underline; }
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_eyedropper_inspector_colo':["EyeDropper Inspector — Color Picker & Analyzer", "吸管检测器 — 颜色选择器和分析器"],'metadesc_pick_colors_from_your_scr':["Pick colors from your screen with the EyeDropper API. Inspect RGB, HSL, Hex, OKLCH values. Build palettes, check WCAG contrast, generate harmonies and gradients.", "使用 EyeDropper API 从屏幕上拾取颜色。检查 RGB、HSL、Hex、OKLCH 值。构建调色板，检查 WCAG 对比度，生成和色和渐变。"],'h1_eyedropper_inspector':["EyeDropper Inspector", "滴管检查器"],'btn_pick_color':["Pick Color", "选择颜色"],'btn_add_current':["+ Add Current", "+ 添加当前"],'btn_export_css':["Export CSS", "导出 CSS"],'btn_export_json':["Export JSON", "导出 JSON"],'btn_clear':["Clear", "清除"],'btn_complementary':["Complementary", "补充"],'btn_analogous':["Analogous", "类似物"],'btn_triadic':["Triadic", "三元"],'btn_tetradic':["Tetradic", "四重奏"],'btn_split_comp':["Split-Comp", "分体式"],'btn_mono':["Mono", "单核细胞增多症"],'btn_from_palette':["From Palette", "来自调色板"],'label_v_label':["${v.label}", "${v.label}"],'label_hex':["${hex}", "${hex}"],'placeholder_rrggbb':["#rrggbb", "#rrggbb"],'label_foreground':["Foreground", "前景"],'label_background':["Background", "背景"],'label_type':["Type:", "类型："],'label_direction':["Direction:", "方向："],'jtc_eyedropper_api_supported':["EyeDropper API supported", "支持 EyeDropper API"],'jtc_eyedropper_api_not_suppor':["EyeDropper API not supported — use manual input", "EyeDropper API 不受支持——请使用手动输入"],'jtc_not_supported':["Not Supported", "不支持。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ===== Color Name Database (CSS named colors) =====
 const COLOR_NAMES = {
@@ -1031,12 +1043,12 @@ const $themeSelect = document.getElementById('themeSelect');
 // ===== EyeDropper API Check =====
 const hasEyeDropper = 'EyeDropper' in window;
 if (hasEyeDropper) {
-  $apiStatus.textContent = 'EyeDropper API supported';
+  $apiStatus.textContent=T("jtc_eyedropper_api_supported");
   $apiStatus.classList.add('supported');
 } else {
-  $apiStatus.textContent = 'EyeDropper API not supported — use manual input';
+  $apiStatus.textContent=T("jtc_eyedropper_api_not_suppor");
   $apiStatus.classList.add('unsupported');
-  $pickBtn.textContent = 'Not Supported';
+  $pickBtn.textContent=T("jtc_not_supported");
   $pickBtn.style.opacity = '0.5';
 }
 
@@ -1101,7 +1113,7 @@ function updateColorValues() {
 
   $colorValues.innerHTML = values.map(v => `
     <div class="value-row">
-      <span class="label">${v.label}</span>
+      <span class="label" ti="label_v_label">${v.label}</span>
       <span class="value">${v.value}</span>
       <button class="copy-btn" onclick="copyText('${v.value.replace(/'/g, "\\'")}')">📋</button>
     </div>
@@ -1234,7 +1246,7 @@ function updateHarmony() {
   $harmonySwatches.innerHTML = [currentHex, ...colors].map((hex, i) => `
     <div class="harmony-swatch" onclick="setColor('${hex}')">
       <div class="swatch-box" style="background:${hex}"></div>
-      <span class="swatch-label">${hex}</span>
+      <span class="swatch-label" ti="label_hex">${hex}</span>
     </div>
   `).join('');
 }
@@ -1340,6 +1352,24 @@ loadPaletteLocal();
 setColor(currentHex);
 renderPalette();
 updateGradient();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

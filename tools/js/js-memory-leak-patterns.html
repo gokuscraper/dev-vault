@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_memory_leak_patterns_i" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -86,20 +86,22 @@ canvas{width:100%;border-radius:6px;background:#0a0a14}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JS Memory Leak Patterns</h1>
-<p class="subtitle">See common memory leaks and their fixes with simulated heap visualization</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_js_memory_leak_patterns">JS Memory Leak Patterns</h1>
+<p class="subtitle" ti="subtitle_see_common_memory_leaks_a">See common memory leaks and their fixes with simulated heap visualization</p>
 
 <div class="tabs">
-<button class="tab active" onclick="showTab('visualizer')">Visualizer</button>
-<button class="tab" onclick="showTab('reference')">Reference</button>
+<button class="tab active" onclick="showTab('visualizer')" ti="btn_visualizer">Visualizer</button>
+<button class="tab" onclick="showTab('reference')" ti="btn_reference">Reference</button>
 </div>
 
 <div id="tab-visualizer" class="panel active">
 <div class="presets" id="presets"></div>
 <div class="controls">
-<button class="btn btn-primary btn-sm" id="btn-run" onclick="toggleSim()">▶ Simulate</button>
-<button class="btn btn-secondary btn-sm" onclick="triggerGC()">🗑 Force GC</button>
+<button class="btn btn-primary btn-sm" id="btn-run" onclick="toggleSim()" ti="btn_simulate">▶ Simulate</button>
+<button class="btn btn-secondary btn-sm" onclick="triggerGC()" ti="btn_force_gc">🗑 Force GC</button>
 <div class="toggle-row">
 <div class="toggle" id="fix-toggle" onclick="toggleFix()"></div>
 <span style="font-size:0.75rem;color:#888">Apply Fix</span>
@@ -107,7 +109,7 @@ canvas{width:100%;border-radius:6px;background:#0a0a14}
 </div>
 <div class="layout">
 <div class="code-panel">
-<h3 id="code-title">Leaky Code</h3>
+<h3 id="code-title" ti="h3_leaky_code">Leaky Code</h3>
 <div class="code-block" id="code-block"></div>
 <div class="obj-list" id="obj-list"></div>
 </div>
@@ -127,27 +129,27 @@ canvas{width:100%;border-radius:6px;background:#0a0a14}
 
 <div id="tab-reference" class="panel">
 <div class="ref-section">
-<h3>Common Memory Leak Patterns</h3>
+<h3 ti="h3_common_memory_leak_patter">Common Memory Leak Patterns</h3>
 <ul>
-<li><strong>Closure Leak</strong> — Inner function retains reference to outer scope variables, preventing GC even after the outer function returns</li>
-<li><strong>Detached DOM</strong> — DOM nodes removed from the tree but still referenced in JavaScript variables</li>
-<li><strong>Forgotten Timer</strong> — setInterval/setTimeout callbacks hold references that prevent GC</li>
-<li><strong>Event Listener Leak</strong> — Listeners not removed when elements are destroyed, keeping both callback and element alive</li>
-<li><strong>Global Variable</strong> — Accidental globals (missing var/let/const) persist for the page lifetime</li>
-<li><strong>Circular References</strong> — Objects referencing each other, though modern GC handles this (historical issue with IE)</li>
+<li><strong ti="strong_closure_leak">Closure Leak</strong> — Inner function retains reference to outer scope variables, preventing GC even after the outer function returns</li>
+<li><strong ti="strong_detached_dom">Detached DOM</strong> — DOM nodes removed from the tree but still referenced in JavaScript variables</li>
+<li><strong ti="strong_forgotten_timer">Forgotten Timer</strong> — setInterval/setTimeout callbacks hold references that prevent GC</li>
+<li><strong ti="strong_event_listener_leak">Event Listener Leak</strong> — Listeners not removed when elements are destroyed, keeping both callback and element alive</li>
+<li><strong ti="strong_global_variable">Global Variable</strong> — Accidental globals (missing var/let/const) persist for the page lifetime</li>
+<li><strong ti="strong_circular_references">Circular References</strong> — Objects referencing each other, though modern GC handles this (historical issue with IE)</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Detection Tools</h3>
+<h3 ti="h3_detection_tools">Detection Tools</h3>
 <ul>
-<li><strong>Chrome DevTools → Memory</strong> — Heap snapshots, allocation timeline, allocation profiler</li>
-<li><strong>Heap Snapshot Comparison</strong> — Take snapshot → perform action → take snapshot → compare (look for growing delta)</li>
-<li><strong>Performance Monitor</strong> — Chrome DevTools → More tools → Performance monitor → watch "JS Heap size"</li>
-<li><strong>performance.measureUserAgentSpecificMemory()</strong> — Programmatic heap measurement (cross-origin isolated only)</li>
+<li><strong ti="strong_chrome_devtools_memory">Chrome DevTools → Memory</strong> — Heap snapshots, allocation timeline, allocation profiler</li>
+<li><strong ti="strong_heap_snapshot_comparison">Heap Snapshot Comparison</strong> — Take snapshot → perform action → take snapshot → compare (look for growing delta)</li>
+<li><strong ti="strong_performance_monitor">Performance Monitor</strong> — Chrome DevTools → More tools → Performance monitor → watch "JS Heap size"</li>
+<li><strong ti="strong_performance_measureuserag">performance.measureUserAgentSpecificMemory()</strong> — Programmatic heap measurement (cross-origin isolated only)</li>
 </ul>
 </div>
 <div class="ref-section">
-<h3>Prevention Checklist</h3>
+<h3 ti="h3_prevention_checklist">Prevention Checklist</h3>
 <ul>
 <li>Always <span class="code">clearInterval()</span> / <span class="code">clearTimeout()</span> when done</li>
 <li>Remove event listeners with <span class="code">removeEventListener()</span> or use <span class="code">{once: true}</span></li>
@@ -160,6 +162,16 @@ canvas{width:100%;border-radius:6px;background:#0a0a14}
 </div>
 </div>
 
+
+<script>var _LANG={'title_js_memory_leak_patterns_i':["JS Memory Leak Patterns — Interactive Heap Visualizer", "JS 内存泄漏模式 — 交互式堆可视化工具"],'metadesc_interactive_javascript_me':["Interactive JavaScript memory leak pattern visualizer. See closure leaks, detached DOM, forgotten timers, and event listener leaks with simulated heap graphs.", "交互式 JavaScript 内存泄漏模式可视化工具。通过模拟堆图查看闭包泄漏、分离的 DOM、遗忘的定时器和事件监听器泄漏。"],'h1_js_memory_leak_patterns':["JS Memory Leak Patterns", "JS内存泄漏模式"],'h3_leaky_code':["Leaky Code", "泄漏代码"],'h3_common_memory_leak_patter':["Common Memory Leak Patterns", "常见的内存泄漏模式"],'h3_detection_tools':["Detection Tools", "检测工具"],'h3_prevention_checklist':["Prevention Checklist", "预防清单"],'subtitle_see_common_memory_leaks_a':["See common memory leaks and their fixes with simulated heap visualization", "通过模拟堆可视化查看常见的内存泄漏及其修复方法"],'btn_visualizer':["Visualizer", "可视化工具"],'btn_reference':["Reference", "参考"],'btn_simulate':["▶ Simulate", "▶ 模拟"],'btn_force_gc':["🗑 Force GC", "🗑 强制 GC"],'btn_g_slice_0_80_p_name':["]+>/g,'').slice(0,80)}\">${p.name}", "]+&gt;/g,&#39;&#39;).slice(0,80)}&quot;&gt;${p.name}"],'strong_closure_leak':["Closure Leak", "封堵泄漏"],'strong_detached_dom':["Detached DOM", "分离的DOM"],'strong_forgotten_timer':["Forgotten Timer", "被遗忘的计时器"],'strong_event_listener_leak':["Event Listener Leak", "事件监听器泄漏"],'strong_global_variable':["Global Variable", "全局变量"],'strong_circular_references':["Circular References", "循环引用"],'strong_chrome_devtools_memory':["Chrome DevTools → Memory", "Chrome 开发者工具 → 内存"],'strong_heap_snapshot_comparison':["Heap Snapshot Comparison", "堆快照比较"],'strong_performance_monitor':["Performance Monitor", "性能监视器"],'strong_performance_measureuserag':["performance.measureUserAgentSpecificMemory()", "performance.measureUserAgentSpecificMemory()"],'strong_why_it_leaks':["Why it leaks:", "泄漏原因："],'strong_fix':["Fix:", "使固定："],'strong_why_it_leaks_2':["Why it leaks:", "泄漏原因："],'strong_fix_2':["Fix:", "使固定："],'strong_why_it_leaks_3':["Why it leaks:", "泄漏原因："],'strong_fix_3':["Fix:", "使固定："],'strong_why_it_leaks_4':["Why it leaks:", "泄漏原因："],'strong_fix_4':["Fix:", "使固定："],'strong_why_it_leaks_5':["Why it leaks:", "泄漏原因："],'strong_fix_5':["Fix:", "使固定："],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_simulate':["▶ Simulate", "▶ 模拟"],'jtc_growing':["📈 Growing", "📈 成长中"],'jtc_shrinking':["📉 Shrinking", "📉 缩小"],'jtc_stable':["→ Stable", "→ 稳定"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PATTERNS = [
   {name:'Closure Leak',
@@ -190,7 +202,7 @@ setInterval(() => {
   <span class="fix">if (handlers.length > 10) handlers.shift();</span>
 }, 100);`,
    leakRate:80, fixRate:5, objType:'Closure+Array',
-   explain:`<strong>Why it leaks:</strong> Each closure captures the entire <span class="danger">hugeData</span> array even though only <code>.length</code> is used. The handlers array grows without bound.\n<strong>Fix:</strong> Extract only the needed value before creating the closure. Limit array growth.`},
+   explain:`<strong ti="strong_why_it_leaks" ti="strong_why_it_leaks_2" ti="strong_why_it_leaks_3" ti="strong_why_it_leaks_4" ti="strong_why_it_leaks_5">Why it leaks:</strong> Each closure captures the entire <span class="danger">hugeData</span> array even though only <code>.length</code> is used. The handlers array grows without bound.\n<strong ti="strong_fix" ti="strong_fix_2" ti="strong_fix_3" ti="strong_fix_4" ti="strong_fix_5">Fix:</strong> Extract only the needed value before creating the closure. Limit array growth.`},
 
   {name:'Detached DOM',
    leakCode:`<span class="comment">// DOM nodes removed but still referenced</span>
@@ -351,7 +363,7 @@ function showTab(id) {
 
 function renderPresets() {
   document.getElementById('presets').innerHTML = PATTERNS.map((p, i) =>
-    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.explain.replace(/<[^>]+>/g,'').slice(0,80)}">${p.name}</button>`
+    `<button class="preset ${i === currentPreset ? 'active' : ''}" onclick="loadPreset(${i})" title="${p.explain.replace(/<[^ ti="btn_g_slice_0_80_p_name">]+>/g,'').slice(0,80)}">${p.name}</button>`
   ).join('');
 }
 
@@ -396,14 +408,14 @@ function toggleFix() {
 function toggleSim() {
   if (simRunning) { stopSim(); return; }
   simRunning = true;
-  document.getElementById('btn-run').textContent = '⏸ Pause';
+  document.getElementById('btn-run').textContent=T("jtc_pause");
   simTimer = setInterval(simTick, 100);
 }
 
 function stopSim() {
   simRunning = false;
   clearInterval(simTimer);
-  document.getElementById('btn-run').textContent = '▶ Simulate';
+  document.getElementById('btn-run').textContent=T("jtc_simulate");
 }
 
 function simTick() {
@@ -474,9 +486,9 @@ function updateStats() {
   if (heapHistory.length > 10) {
     const recent = heapHistory.slice(-10);
     const trend = recent[recent.length-1] - recent[0];
-    if (trend > 100) { indicator.textContent = '📈 Growing'; indicator.style.color = '#ef4444'; }
-    else if (trend < -50) { indicator.textContent = '📉 Shrinking'; indicator.style.color = '#10b981'; }
-    else { indicator.textContent = '→ Stable'; indicator.style.color = '#888'; }
+    if (trend > 100) { indicator.textContent=T("jtc_growing"); indicator.style.color = '#ef4444'; }
+    else if (trend < -50) { indicator.textContent=T("jtc_shrinking"); indicator.style.color = '#10b981'; }
+    else { indicator.textContent=T("jtc_stable"); indicator.style.color = '#888'; }
   }
 }
 
@@ -538,6 +550,24 @@ function updateObjList() {
 
 renderPresets();
 loadPreset(0);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

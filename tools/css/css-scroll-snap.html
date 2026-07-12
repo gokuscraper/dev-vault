@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scroll_snap_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -70,18 +70,20 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>CSS Scroll Snap Generator</h1>
-<p class="sub">Configure and preview scroll snap layouts</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_css_scroll_snap_generator">CSS Scroll Snap Generator</h1>
+<p class="sub" ti="subtitle_configure_and_preview_scr">Configure and preview scroll snap layouts</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets" id="presets">
-<button class="preset" data-preset="carousel">Horizontal Carousel</button>
-<button class="preset" data-preset="vertical">Vertical Sections</button>
-<button class="preset" data-preset="gallery">Image Gallery</button>
-<button class="preset" data-preset="slider">Card Slider</button>
-<button class="preset" data-preset="story">Story Mode</button>
+<button class="preset" data-preset="carousel" ti="btn_horizontal_carousel">Horizontal Carousel</button>
+<button class="preset" data-preset="vertical" ti="btn_vertical_sections">Vertical Sections</button>
+<button class="preset" data-preset="gallery" ti="btn_image_gallery">Image Gallery</button>
+<button class="preset" data-preset="slider" ti="btn_card_slider">Card Slider</button>
+<button class="preset" data-preset="story" ti="btn_story_mode">Story Mode</button>
 </div>
 </div>
 
@@ -89,9 +91,9 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="left-col">
 
 <div class="section">
-<h3>Container Settings</h3>
+<h3 ti="h3_container_settings">Container Settings</h3>
 <div class="field">
-<label>scroll-snap-type</label>
+<label ti="label_scroll_snap_type">scroll-snap-type</label>
 <select id="snapType">
 <option value="none">none</option>
 <option value="x mandatory" selected>x mandatory</option>
@@ -103,7 +105,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field">
-<label>overflow</label>
+<label ti="label_overflow">overflow</label>
 <select id="overflow">
 <option value="auto" selected>auto</option>
 <option value="scroll">scroll</option>
@@ -111,27 +113,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field">
-<label>scroll-behavior</label>
+<label ti="label_scroll_behavior">scroll-behavior</label>
 <select id="scrollBehavior">
 <option value="auto" selected>auto</option>
 <option value="smooth">smooth</option>
 </select>
 </div>
 <div class="field">
-<label>scroll-padding (px)</label>
+<label ti="label_scroll_padding_px">scroll-padding (px)</label>
 </div>
 <div class="field-row">
-<div class="field"><label>Top</label><input type="number" id="padTop" value="0" min="0"></div>
-<div class="field"><label>Right</label><input type="number" id="padRight" value="0" min="0"></div>
-<div class="field"><label>Bottom</label><input type="number" id="padBottom" value="0" min="0"></div>
-<div class="field"><label>Left</label><input type="number" id="padLeft" value="0" min="0"></div>
+<div class="field"><label ti="label_top">Top</label><input type="number" id="padTop" value="0" min="0"></div>
+<div class="field"><label ti="label_right">Right</label><input type="number" id="padRight" value="0" min="0"></div>
+<div class="field"><label ti="label_bottom">Bottom</label><input type="number" id="padBottom" value="0" min="0"></div>
+<div class="field"><label ti="label_left">Left</label><input type="number" id="padLeft" value="0" min="0"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Child Item Settings</h3>
+<h3 ti="h3_child_item_settings">Child Item Settings</h3>
 <div class="field">
-<label>scroll-snap-align</label>
+<label ti="label_scroll_snap_align">scroll-snap-align</label>
 <select id="snapAlign">
 <option value="none">none</option>
 <option value="start">start</option>
@@ -140,18 +142,18 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </select>
 </div>
 <div class="field">
-<label>scroll-snap-stop</label>
+<label ti="label_scroll_snap_stop">scroll-snap-stop</label>
 <select id="snapStop">
 <option value="normal" selected>normal</option>
 <option value="always">always</option>
 </select>
 </div>
 <div class="field">
-<label>scroll-margin (px)</label>
+<label ti="label_scroll_margin_px">scroll-margin (px)</label>
 <input type="number" id="snapMargin" value="0" min="0">
 </div>
 <div class="field">
-<label>Number of items (3-20)</label>
+<label ti="label_number_of_items_3_20">Number of items (3-20)</label>
 <input type="range" id="itemCount" min="3" max="20" value="5" style="accent-color:#4da6ff">
 <span id="itemCountVal" style="font-size:0.78rem;color:#4da6ff;margin-left:6px">5</span>
 </div>
@@ -161,7 +163,7 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="right-col">
 
 <div class="section">
-<h3>Live Preview</h3>
+<h3 ti="h3_live_preview">Live Preview</h3>
 <div class="preview-wrapper" id="previewWrapper">
 <span class="preview-label">Scroll to test &rarr;</span>
 <div class="scroll-preview" id="scrollPreview"></div>
@@ -169,22 +171,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="section">
-<h3>Output</h3>
+<h3 ti="h3_output">Output</h3>
 <div class="output-tabs" id="outputTabs">
-<button class="output-tab active" data-tab="container">Container CSS</button>
-<button class="output-tab" data-tab="item">Item CSS</button>
-<button class="output-tab" data-tab="html">HTML</button>
-<button class="output-tab" data-tab="combined">Combined</button>
+<button class="output-tab active" data-tab="container" ti="btn_container_css">Container CSS</button>
+<button class="output-tab" data-tab="item" ti="btn_item_css">Item CSS</button>
+<button class="output-tab" data-tab="html" ti="btn_html">HTML</button>
+<button class="output-tab" data-tab="combined" ti="btn_combined">Combined</button>
 </div>
 <div class="output-area" id="outputArea"></div>
 <div class="actions">
-<button class="btn btn-primary" id="copyBtn">Copy CSS</button>
-<button class="btn" id="copyCombinedBtn">Copy Combined</button>
+<button class="btn btn-primary" id="copyBtn" ti="btn_copy_css">Copy CSS</button>
+<button class="btn" id="copyCombinedBtn" ti="btn_copy_combined">Copy Combined</button>
 </div>
 </div>
 
 <div class="note-box">
-<strong>Touch vs Mouse:</strong> Scroll snap works natively with touch/trackpad swipes. Mouse wheel scrolling snaps after the scroll ends. <code>mandatory</code> always snaps to the nearest point; <code>proximity</code> only snaps if close enough, allowing free scrolling past snap points. Use <code>scroll-snap-stop: always</code> to prevent skipping items on fast swipes.
+<strong ti="strong_touch_vs_mouse">Touch vs Mouse:</strong> Scroll snap works natively with touch/trackpad swipes. Mouse wheel scrolling snaps after the scroll ends. <code>mandatory</code> always snaps to the nearest point; <code>proximity</code> only snaps if close enough, allowing free scrolling past snap points. Use <code>scroll-snap-stop: always</code> to prevent skipping items on fast swipes.
 </div>
 
 </div>
@@ -192,12 +194,22 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </div>
 
 <div class="container">
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-grid/">CSS Grid</a> | <a href="https://gokuscraper.github.io/dev-vault/css-flex/">CSS Flex</a> | <a href="https://gokuscraper.github.io/dev-vault/css-animation/">CSS Animation</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/css-grid/" ti="link_css_grid">CSS Grid</a> | <a href="https://gokuscraper.github.io/dev-vault/css-flex/" ti="link_css_flex">CSS Flex</a> | <a href="https://gokuscraper.github.io/dev-vault/css-animation/" ti="link_css_animation">CSS Animation</a></div>
 </div>
 
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_css_scroll_snap_generator':["CSS Scroll Snap Generator — Configure Snap Layouts", "CSS滚动捕捉生成器 — 配置捕捉布局"],'metadesc_generate_css_scroll_snap':["Generate CSS scroll snap layouts. Horizontal carousel, vertical sections, gallery. Live preview. Mandatory vs proximity. Copy CSS.", "生成 CSS 滚动捕捉布局。水平轮播图、垂直分区、图库。实时预览。强制显示与接近显示。复制 CSS。"],'h1_css_scroll_snap_generator':["CSS Scroll Snap Generator", "CSS滚动捕捉生成器"],'h3_presets':["Presets", "预设"],'h3_container_settings':["Container Settings", "容器设置"],'h3_child_item_settings':["Child Item Settings", "子项目设置"],'h3_live_preview':["Live Preview", "实时预览"],'h3_output':["Output", "输出"],'subtitle_configure_and_preview_scr':["Configure and preview scroll snap layouts", "配置和预览滚动捕捉布局"],'btn_horizontal_carousel':["Horizontal Carousel", "水平旋转木马"],'btn_vertical_sections':["Vertical Sections", "垂直剖面"],'btn_image_gallery':["Image Gallery", "图片库"],'btn_card_slider':["Card Slider", "卡片滑块"],'btn_story_mode':["Story Mode", "故事模式"],'btn_container_css':["Container CSS", "容器 CSS"],'btn_item_css':["Item CSS", "项目 CSS"],'btn_html':["HTML", "HTML"],'btn_combined':["Combined", "合并"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_copy_combined':["Copy Combined", "合并副本"],'label_scroll_to_test':["Scroll to test →", "向下滚动查看 →"],'strong_touch_vs_mouse':["Touch vs Mouse:", "触控与鼠标："],'label_scroll_snap_type':["scroll-snap-type", "滚动捕捉型"],'label_overflow':["overflow", "溢出"],'label_scroll_behavior':["scroll-behavior", "滚动行为"],'label_scroll_padding_px':["scroll-padding (px)", "滚动边距（像素）"],'label_top':["Top", "顶部"],'label_right':["Right", "正确的"],'label_bottom':["Bottom", "底部"],'label_left':["Left", "左边"],'label_scroll_snap_align':["scroll-snap-align", "滚动捕捉对齐"],'label_scroll_snap_stop':["scroll-snap-stop", "滚动捕捉停止"],'label_scroll_margin_px':["scroll-margin (px)", "滚动边距（像素）"],'label_number_of_items_3_20':["Number of items (3-20)", "物品数量（3-20）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_css_grid':["CSS Grid", "CSS Grid"],'link_css_flex':["CSS Flex", "CSS Flex"],'link_css_animation':["CSS Animation", "CSS动画"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const COLORS = [
   '#e74c3c','#3498db','#2ecc71','#f39c12','#9b59b6',
@@ -480,6 +492,24 @@ $('copyCombinedBtn').addEventListener('click', () => {
 
 // Init
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

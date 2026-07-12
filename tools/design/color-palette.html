@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_color_palette_generate_ha" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,19 +62,21 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Color Palette</h1>
-<p class="subtitle">Pick a color. Get harmonious palettes based on color theory.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_color_palette">Color Palette</h1>
+<p class="subtitle" ti="subtitle_pick_a_color_get_harmonio">Pick a color. Get harmonious palettes based on color theory.</p>
 
 <div class="picker-row">
   <input type="color" class="color-input" id="colorPicker" value="#3b82f6">
   <input type="text" class="hex-input" id="hexInput" value="#3b82f6" maxlength="7">
-  <button class="btn secondary" onclick="randomColor()">Random</button>
+  <button class="btn secondary" onclick="randomColor()" ti="btn_random">Random</button>
 </div>
 
 <div id="output">
   <div class="section">
-    <h2>Color Info</h2>
+    <h2 ti="h2_color_info">Color Info</h2>
     <div class="info-grid" id="infoGrid"></div>
   </div>
 
@@ -84,29 +86,39 @@ footer a:hover{color:#999}
   </div>
 
   <div class="section">
-    <h2>Palettes</h2>
+    <h2 ti="h2_palettes">Palettes</h2>
     <div id="palettes"></div>
   </div>
 
   <div class="section">
-    <h2>Contrast Check</h2>
+    <h2 ti="h2_contrast_check">Contrast Check</h2>
     <div class="contrast-grid" id="contrastGrid"></div>
   </div>
 
   <div class="export-row">
-    <button class="btn secondary" onclick="exportCSS()">Copy CSS Variables</button>
-    <button class="btn secondary" onclick="exportTailwind()">Copy Tailwind Config</button>
+    <button class="btn secondary" onclick="exportCSS()" ti="btn_copy_css_variables">Copy CSS Variables</button>
+    <button class="btn secondary" onclick="exportTailwind()" ti="btn_copy_tailwind_config">Copy Tailwind Config</button>
   </div>
 </div>
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/color-palette">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/npm-health/">npm Health</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/readme-score/">README Score</a>
+  <a href="https://github.com/gokuscraper/color-palette" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats">gh-stats</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/npm-health/" ti="link_npm_health">npm Health</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/readme-score/" ti="link_readme_score">README Score</a>
 </footer>
 
+
+<script>var _LANG={'title_color_palette_generate_ha':["Color Palette — Generate Harmonious Color Schemes", "色彩调色板——生成和谐的配色方案"],'metadesc_pick_a_color_and_instantl':["Pick a color and instantly get complementary, analogous, triadic, and split-complementary palettes. Copy hex codes. Free, no signup.", "选择一种颜色，即可立即获得互补色、邻近色、三色配色和分裂互补色配色方案。复制十六进制代码。免费，无需注册。"],'h1_color_palette':["Color Palette", "调色板"],'h2_color_info':["Color Info", "颜色信息"],'h2_shades_tints':["Shades & Tints", "色调和色度"],'h2_palettes':["Palettes", "调色板"],'h2_contrast_check':["Contrast Check", "对比度检查"],'subtitle_pick_a_color_get_harmonio':["Pick a color. Get harmonious palettes based on color theory.", "选择一种颜色。根据色彩理论获得和谐的配色方案。"],'btn_random':["Random", "随机的"],'btn_copy_css_variables':["Copy CSS Variables", "复制 CSS 变量"],'btn_copy_tailwind_config':["Copy Tailwind Config", "复制 Tailwind 配置"],'label_hex':["${hex}", "${hex}"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"],'link_readme_score':["README Score", "自述文件评分"],'jtc_css_variables_copied':["CSS variables copied!", "CSS变量已复制！"],'jtc_tailwind_config_copied':["Tailwind config copied!", "Tailwind 配置已复制！"],'jtlword_hex':["HEX", "六边形"],'jtlword_rgb':["RGB", "RGB"],'jtlword_hsl':["HSL", "高速铁路"],'jtlword_css':["CSS", "CSS"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 let currentHex='#3b82f6';
@@ -206,7 +218,7 @@ function renderPalette(colors,height=''){
   return`<div class="palette ${height}" onclick="event.stopPropagation()">${colors.map(c=>{
     const hex=hslToHex(c.h,c.s,c.l);
     const tc=textColor(hex);
-    return`<div class="swatch" style="background:${hex}" onclick="copyHex('${hex}')"><span class="swatch-label" style="color:${tc}">${hex}</span></div>`;
+    return`<div class="swatch" style="background:${hex}" onclick="copyHex('${hex}')"><span class="swatch-label" style="color:${tc}" ti="label_hex">${hex}</span></div>`;
   }).join('')}</div>`;
 }
 
@@ -273,7 +285,7 @@ function exportCSS(){
   const ana=analogous(h,s,l);
   const css=`:root {\n  --color-primary: ${currentHex};\n  --color-complement: ${hslToHex(comp[1].h,comp[1].s,comp[1].l)};\n  --color-analogous-1: ${hslToHex(ana[0].h,ana[0].s,ana[0].l)};\n  --color-analogous-2: ${hslToHex(ana[2].h,ana[2].s,ana[2].l)};\n  --color-light: ${hslToHex(h,s,Math.min(90,l+20))};\n  --color-dark: ${hslToHex(h,s,Math.max(10,l-20))};\n}`;
   navigator.clipboard.writeText(css);
-  const el=document.createElement('div');el.className='copied';el.textContent='CSS variables copied!';document.body.appendChild(el);setTimeout(()=>el.remove(),1600);
+  const el=document.createElement('div');el.className='copied';el.textContent=T("jtc_css_variables_copied");document.body.appendChild(el);setTimeout(()=>el.remove(),1600);
 }
 
 function exportTailwind(){
@@ -282,7 +294,7 @@ function exportTailwind(){
   const shades={50:hslToHex(h,s,95),100:hslToHex(h,s,90),200:hslToHex(h,s,80),300:hslToHex(h,s,70),400:hslToHex(h,s,60),500:currentHex,600:hslToHex(h,s,40),700:hslToHex(h,s,30),800:hslToHex(h,s,20),900:hslToHex(h,s,10),950:hslToHex(h,s,5)};
   const tw=`primary: {\n${Object.entries(shades).map(([k,v])=>`  ${k}: '${v}'`).join(',\n')}\n}`;
   navigator.clipboard.writeText(tw);
-  const el=document.createElement('div');el.className='copied';el.textContent='Tailwind config copied!';document.body.appendChild(el);setTimeout(()=>el.remove(),1600);
+  const el=document.createElement('div');el.className='copied';el.textContent=T("jtc_tailwind_config_copied");document.body.appendChild(el);setTimeout(()=>el.remove(),1600);
 }
 
 // Init
@@ -297,12 +309,30 @@ if(params.get('color')){
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-mixer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Mixer</a>
 <a href="https://gokuscraper.github.io/dev-vault/hsl-picker/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HSL Picker</a>
 <a href="https://gokuscraper.github.io/dev-vault/contrast-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Contrast Check</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

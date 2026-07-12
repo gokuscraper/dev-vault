@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_text_shadow_text_shad" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -65,8 +65,10 @@ footer{text-align:center;padding:1.5rem 1rem;color:var(--text2);font-size:.85rem
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>CSS Text Shadow Generator</h1>
+<h1 ti="h1_css_text_shadow_generator">CSS Text Shadow Generator</h1>
 <p>Multiple layers, 12 presets, live preview. Copy CSS instantly.</p>
 </header>
 <div class="app">
@@ -76,47 +78,47 @@ footer{text-align:center;padding:1.5rem 1rem;color:var(--text2);font-size:.85rem
 
 <div class="controls-grid">
 <div class="panel">
-<h2>Text Controls</h2>
+<h2 ti="h2_text_controls">Text Controls</h2>
 <div class="field">
 <label>Text <span id="valCustomText"></span></label>
-<input type="text" id="customText" value="Shadow" placeholder="Preview text">
+<input type="text" id="customText" value="Shadow" tp="placeholder_preview_text" placeholder="Preview text">
 </div>
 <div class="field">
 <label>Font Size <span id="valFontSize">64px</span></label>
 <input type="range" id="fontSize" min="24" max="120" value="64">
 </div>
 <div class="field">
-<label>Text Color</label>
+<label ti="label_text_color">Text Color</label>
 <input type="color" id="textColor" value="#e6edf3">
 </div>
 <div class="field">
-<label>Background Color</label>
+<label ti="label_background_color">Background Color</label>
 <input type="color" id="bgColor" value="#161b22">
 </div>
 </div>
 
 <div class="panel">
-<h2>Presets</h2>
+<h2 ti="h2_presets">Presets</h2>
 <div class="presets-grid" id="presetsGrid"></div>
 </div>
 </div>
 
 <div class="panel">
 <div class="layers-header">
-<h2>Shadow Layers</h2>
+<h2 ti="h2_shadow_layers">Shadow Layers</h2>
 <div style="display:flex;gap:.4rem">
-<button class="btn btn-sm" id="addLayerBtn">+ Add Layer</button>
-<button class="btn btn-sm btn-red" id="resetBtn">Reset</button>
+<button class="btn btn-sm" id="addLayerBtn" ti="btn_add_layer">+ Add Layer</button>
+<button class="btn btn-sm btn-red" id="resetBtn" ti="btn_reset">Reset</button>
 </div>
 </div>
 <div id="layersContainer"></div>
 </div>
 
 <div class="panel">
-<h2>CSS Output</h2>
+<h2 ti="h2_css_output">CSS Output</h2>
 <div class="css-output" id="cssOutput"></div>
 <div style="margin-top:.8rem;text-align:center">
-<button class="btn btn-accent" id="copyBtn">Copy CSS</button>
+<button class="btn btn-accent" id="copyBtn" ti="btn_copy_css">Copy CSS</button>
 </div>
 </div>
 </div>
@@ -124,9 +126,19 @@ footer{text-align:center;padding:1.5rem 1rem;color:var(--text2);font-size:.85rem
 <div class="toast" id="toast">Copied!</div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 68+ free browser-based developer tools
+<a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> — 68+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_css_text_shadow_text_shad':["CSS Text Shadow — text-shadow Generator", "CSS 文本阴影 — 文本阴影生成器"],'metadesc_visual_css_text_shadow_ge':["Visual CSS text-shadow generator. Multiple layers, 12 presets, live preview. Copy CSS code.", "可视化 CSS 文字阴影生成器。多图层，12 种预设，实时预览。复制 CSS 代码。"],'h1_css_text_shadow_generator':["CSS Text Shadow Generator", "CSS文本阴影生成器"],'h2_text_controls':["Text Controls", "文本控件"],'h2_presets':["Presets", "预设"],'h2_shadow_layers':["Shadow Layers", "阴影层"],'h2_css_output':["CSS Output", "CSS 输出"],'btn_add_layer':["+ Add Layer", "+ 添加图层"],'btn_reset':["Reset", "重置"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_remove':["× Remove", "× 移除"],'placeholder_preview_text':["Preview text", "预览文本"],'strong_layer_i_1':["Layer ${i+1}", "层 ${i+1}"],'strong_related_tools':["Related Tools", "相关工具"],'strong_related_tools_2':["Related Tools", "相关工具"],'label_text_color':["Text Color", "文本颜色"],'label_background_color':["Background Color", "背景颜色"],'label_color_opacity':["Color & Opacity", "颜色与不透明度"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_3':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_4':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_64px':["64px", "64像素"],'jtc_shadow':["Shadow", "阴影"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = [
   { name: 'Neon Glow', layers: [{ x:0,y:0,blur:7,color:'#58a6ff',alpha:100 },{ x:0,y:0,blur:20,color:'#58a6ff',alpha:80 },{ x:0,y:0,blur:40,color:'#1f6feb',alpha:60 }] },
@@ -178,7 +190,7 @@ function renderLayers() {
     div.className = 'layer';
     div.innerHTML = `
       <div class="layer-head">
-        <strong>Layer ${i+1}</strong>
+        <strong ti="strong_layer_i_1">Layer ${i+1}</strong>
         ${layers.length > 1 ? `<button class="btn btn-sm btn-red" data-remove="${i}">&times; Remove</button>` : ''}
       </div>
       <div class="field">
@@ -269,11 +281,11 @@ $('addLayerBtn').addEventListener('click', () => {
 $('resetBtn').addEventListener('click', () => {
   layers = [{ x:2, y:2, blur:4, color:'#000000', alpha:70 }];
   $('fontSize').value = 64;
-  $('valFontSize').textContent = '64px';
+  $('valFontSize').textContent=T("jtc_64px");
   $('textColor').value = '#e6edf3';
   $('bgColor').value = '#161b22';
   $('customText').value = 'Shadow';
-  previewText.textContent = 'Shadow';
+  previewText.textContent=T("jtc_shadow");
   renderLayers();
   update();
 });
@@ -292,12 +304,12 @@ renderLayers();
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools_2">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-shadow/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Shadow</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-glass/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Glass</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-filter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Filter</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools_3" ti="footer_dev_vault_101_free_tools_4">Dev Vault — 101 free tools</a></div>
 </footer>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
 <div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
@@ -307,5 +319,23 @@ update();
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
 <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

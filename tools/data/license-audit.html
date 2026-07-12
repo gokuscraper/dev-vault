@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_license_audit_dependency" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,22 +89,24 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>⚖️ License Audit</h1>
-  <p class="subtitle">Upload package.json to spot license conflicts in your dependency tree. Free, browser-only.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_license_audit">⚖️ License Audit</h1>
+  <p class="subtitle" ti="subtitle_upload_package_json_to_sp">Upload package.json to spot license conflicts in your dependency tree. Free, browser-only.</p>
 
   <div class="upload-zone" id="dropZone">
     <input type="file" id="fileInput" accept=".json">
-    <h3>Drop package.json here</h3>
+    <h3 ti="h3_drop_package_json_here">Drop package.json here</h3>
     <p>or click to browse</p>
   </div>
 
   <p class="or-paste">Or paste package.json contents:</p>
-  <textarea id="pasteArea" placeholder='{"dependencies": {"express": "^4.18.0", "lodash": "^4.17.21"}, ...}'></textarea>
+  <textarea id="pasteArea" tp="placeholder_dependencies_express_4_1" placeholder='{"dependencies": {"express": "^4.18.0", "lodash": "^4.17.21"}, ...}'></textarea>
 
   <div class="actions">
-    <button class="btn btn-primary" id="analyzeBtn" onclick="analyze()">Analyze Dependencies</button>
-    <button class="btn btn-secondary" id="clearBtn" onclick="clearAll()" style="display:none">Clear</button>
+    <button class="btn btn-primary" id="analyzeBtn" onclick="analyze()" ti="btn_analyze_dependencies">Analyze Dependencies</button>
+    <button class="btn btn-secondary" id="clearBtn" onclick="clearAll()" style="display:none" ti="btn_clear">Clear</button>
     <span class="sample-link" onclick="loadSample()">Try sample package.json</span>
     <div class="loading" id="loading">
       <div class="spinner"></div>
@@ -116,12 +118,12 @@ footer a:hover{text-decoration:underline}
     <div class="summary-cards" id="summaryCards"></div>
 
     <div class="conflicts" id="conflictsSection">
-      <h2>🚨 License Conflicts</h2>
+      <h2 ti="h2_license_conflicts">🚨 License Conflicts</h2>
       <div id="conflictsList"></div>
     </div>
 
     <div class="chart-section">
-      <h2>📊 License Distribution</h2>
+      <h2 ti="h2_license_distribution">📊 License Distribution</h2>
       <div class="pie-container">
         <canvas id="pieChart" width="200" height="200"></canvas>
         <div class="pie-legend" id="pieLegend"></div>
@@ -129,28 +131,38 @@ footer a:hover{text-decoration:underline}
     </div>
 
     <div class="tree-section">
-      <h2>📦 Dependency Licenses</h2>
+      <h2 ti="h2_dependency_licenses">📦 Dependency Licenses</h2>
       <div class="filter-row" id="filterRow"></div>
       <div style="max-height:600px;overflow-y:auto;border:1px solid var(--border);border-radius:8px">
         <table class="dep-table">
-          <thead><tr><th>Package</th><th>Version</th><th>License</th><th>Type</th><th>Category</th></tr></thead>
+          <thead><tr><th ti="th_package">Package</th><th ti="th_version">Version</th><th ti="th_license">License</th><th ti="th_type">Type</th><th ti="th_category">Category</th></tr></thead>
           <tbody id="depTableBody"></tbody>
         </table>
       </div>
     </div>
 
     <div class="actions">
-      <button class="btn btn-secondary" onclick="exportReport()">📋 Copy Report</button>
-      <button class="btn btn-secondary" onclick="exportCSV()">📄 Export CSV</button>
+      <button class="btn btn-secondary" onclick="exportReport()" ti="btn_copy_report">📋 Copy Report</button>
+      <button class="btn btn-secondary" onclick="exportCSV()" ti="btn_export_csv">📄 Export CSV</button>
     </div>
   </div>
 
   <footer>
     <span>License Audit — No data leaves your browser. npm registry API used for license lookup only.</span>
-    <span><a href="https://gokuscraper.github.io/dev-vault/">More Dev Tools →</a></span>
+    <span><a href="https://gokuscraper.github.io/dev-vault/" ti="link_more_dev_tools">More Dev Tools →</a></span>
   </footer>
 </div>
 
+
+<script>var _LANG={'title_license_audit_dependency':["License Audit - Dependency License Conflict Spotter", "许可证审核 - 依赖许可证冲突检测工具"],'metadesc_upload_package_json_to_vi':["Upload package.json to visualize dependency licenses, detect conflicts between copyleft and permissive licenses, and get a compliance report. Free, browser-only, no install.", "上传 package.json 文件即可可视化依赖项许可证，检测 copyleft 和 permissive 许可证之间的冲突，并获取合规性报告。免费，仅限浏览器使用，无需安装。"],'h1_license_audit':["⚖️ License Audit", "⚖️ 许可证审核"],'h2_license_conflicts':["🚨 License Conflicts", "🚨 许可证冲突"],'h2_license_distribution':["📊 License Distribution", "📊 许可证分发"],'h2_dependency_licenses':["📦 Dependency Licenses", "📦 依赖项许可证"],'h3_drop_package_json_here':["Drop package.json here", "将 package.json 文件拖放到这里"],'subtitle_upload_package_json_to_sp':["Upload package.json to spot license conflicts in your dependency tree. Free, browser-only.", "上传 package.json 文件以查找依赖树中的许可证冲突。免费，仅限浏览器使用。"],'btn_analyze_dependencies':["Analyze Dependencies", "分析依赖关系"],'btn_clear':["Clear", "清除"],'btn_copy_report':["📋 Copy Report", "📋 复制报告"],'btn_export_csv':["📄 Export CSV", "📄 导出 CSV 文件"],'placeholder_dependencies_express_4_1':["{\"dependencies\": {\"express\": \"^4.18.0\", \"lodash\": \"^4.17.21\"}, ...}", "{&quot;dependencies&quot;: {&quot;express&quot;: &quot;^4.18.0&quot;, &quot;lodash&quot;: &quot;^4.17.21&quot;}, ...}"],'strong_d_name':["${d.name}", "${d.name}"],'th_package':["Package", "包裹"],'th_version':["Version", "版本"],'th_license':["License", "执照"],'th_type':["Type", "类型"],'th_category':["Category", "类别"],'link_more_dev_tools':["More Dev Tools →", "更多开发者工具 →"],'jalert_please_paste_or_upload_a':["Please paste or upload a package.json file.", "请粘贴或上传 package.json 文件。"],'jalert_invalid_json_please_check':["Invalid JSON. Please check your package.json.", "无效的 JSON 数据。请检查您的 package.json 文件。"],'jalert_no_dependencies_found_in':["No dependencies found in this package.json.", "此 package.json 文件中未找到任何依赖项。"],'jalert_report_copied_to_clipboar':["Report copied to clipboard!", "报告已复制到剪贴板！"],'jtlword_warnings':["Warnings", "警告"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // SPDX license categories and compatibility rules
 const LICENSE_DB = {
@@ -371,14 +383,14 @@ let activeFilter = 'all';
 async function analyze() {
   const textarea = document.getElementById('pasteArea');
   const text = textarea.value.trim();
-  if (!text) { alert('Please paste or upload a package.json file.'); return; }
+  if (!text) { T("jalert_please_paste_or_upload_a"); return; }
 
   let pkg;
-  try { pkg = JSON.parse(text); } catch { alert('Invalid JSON. Please check your package.json.'); return; }
+  try { pkg = JSON.parse(text); } catch { T("jalert_invalid_json_please_check"); return; }
 
   const deps = { ...(pkg.dependencies || {}), ...(pkg.devDependencies || {}) };
   const depEntries = Object.entries(deps);
-  if (depEntries.length === 0) { alert('No dependencies found in this package.json.'); return; }
+  if (depEntries.length === 0) { T("jalert_no_dependencies_found_in"); return; }
 
   // Separate dep types
   const prodDeps = new Set(Object.keys(pkg.dependencies || {}));
@@ -531,7 +543,7 @@ function renderTable(deps) {
   const filtered = activeFilter === 'all' ? deps : deps.filter(d => d.category === activeFilter);
   tbody.innerHTML = filtered.sort((a, b) => getCatSeverity(b.category) - getCatSeverity(a.category)).map(d => `
     <tr>
-      <td><strong>${d.name}</strong></td>
+      <td><strong ti="strong_d_name">${d.name}</strong></td>
       <td>${d.version}</td>
       <td><span class="license-badge ${getCategoryClass(d.category)}">${d.license}</span></td>
       <td><span class="dep-type">${d.type}</span></td>
@@ -561,7 +573,7 @@ function exportReport() {
   lines.push('| Package | Version | License | Category |');
   lines.push('|---------|---------|---------|----------|');
   allDeps.forEach(d => lines.push(`| ${d.name} | ${d.version} | ${d.license} | ${getCategoryLabel(d.category)} |`));
-  navigator.clipboard.writeText(lines.join('\n')).then(() => alert('Report copied to clipboard!'));
+  navigator.clipboard.writeText(lines.join('\n')).then(() => T("jalert_report_copied_to_clipboar"));
 }
 
 function exportCSV() {
@@ -631,6 +643,24 @@ function readFile(file) {
   };
   reader.readAsText(file);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

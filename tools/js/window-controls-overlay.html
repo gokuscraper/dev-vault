@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_window_controls_overlay_p" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -426,33 +426,35 @@ input:focus, select:focus { border-color: var(--accent); }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>Window Controls Overlay Playground</h1>
+  <h1 ti="title_window_controls_overlay_p" ti="h1_window_controls_overlay_p">Window Controls Overlay Playground</h1>
   <p>Customize PWA titlebars with CSS env() variables and the Window Controls Overlay API</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <div id="supportBanner" class="support-banner">
     <span class="support-icon" id="supportIcon">...</span>
     <div class="support-text">
-      <h3 id="supportTitle">Checking Window Controls Overlay support...</h3>
+      <h3 id="supportTitle" ti="h3_checking_window_controls">Checking Window Controls Overlay support...</h3>
       <p id="supportDesc">Detecting browser capabilities</p>
     </div>
   </div>
 
   <div class="tabs">
-    <button class="tab-btn active" data-tab="env">CSS env() Variables</button>
-    <button class="tab-btn" data-tab="builder">Titlebar Builder</button>
-    <button class="tab-btn" data-tab="geometry">Geometry Events</button>
-    <button class="tab-btn" data-tab="themes">Theme Colors</button>
-    <button class="tab-btn" data-tab="config">PWA Config</button>
+    <button class="tab-btn active" data-tab="env" ti="btn_css_env_variables">CSS env() Variables</button>
+    <button class="tab-btn" data-tab="builder" ti="btn_titlebar_builder">Titlebar Builder</button>
+    <button class="tab-btn" data-tab="geometry" ti="btn_geometry_events">Geometry Events</button>
+    <button class="tab-btn" data-tab="themes" ti="btn_theme_colors">Theme Colors</button>
+    <button class="tab-btn" data-tab="config" ti="btn_pwa_config">PWA Config</button>
   </div>
 
   <!-- Tab 1: CSS env() Variables -->
   <div class="tab-panel active" id="tab-env">
     <div class="card">
-      <h2>titlebar-area-* CSS Environment Variables</h2>
+      <h2 ti="h2_titlebar_area_css_environ">titlebar-area-* CSS Environment Variables</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         When Window Controls Overlay is active, the browser exposes four CSS environment variables
         that describe the available titlebar area (the space not occupied by window controls).
@@ -481,18 +483,18 @@ input:focus, select:focus { border-color: var(--accent); }
         </div>
       </div>
 
-      <h3>Interactive Preview</h3>
+      <h3 ti="h3_interactive_preview">Interactive Preview</h3>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.5rem;">
         Resize the simulated window to see how the env() values change.
       </p>
 
       <div class="form-row">
         <div class="form-group">
-          <label>Simulated Width</label>
+          <label ti="label_simulated_width">Simulated Width</label>
           <input type="range" id="simWidth" min="300" max="1000" value="800" style="width:100%;">
         </div>
         <div class="form-group">
-          <label>OS Platform</label>
+          <label ti="label_os_platform">OS Platform</label>
           <select id="osPlatform">
             <option value="windows">Windows (right controls)</option>
             <option value="macos">macOS (left controls)</option>
@@ -548,7 +550,7 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 2: Titlebar Builder -->
   <div class="tab-panel" id="tab-builder">
     <div class="card">
-      <h2>Custom Titlebar Builder</h2>
+      <h2 ti="h2_custom_titlebar_builder">Custom Titlebar Builder</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         Design a custom titlebar for your PWA. Configure colors, content, and layout.
         The preview shows how it would look with Window Controls Overlay enabled.
@@ -556,19 +558,19 @@ input:focus, select:focus { border-color: var(--accent); }
 
       <div class="form-row">
         <div class="form-group">
-          <label>Background Color</label>
+          <label ti="label_background_color">Background Color</label>
           <input type="color" id="tbBgColor" value="#1a1a2e">
         </div>
         <div class="form-group">
-          <label>Text Color</label>
+          <label ti="label_text_color">Text Color</label>
           <input type="color" id="tbTextColor" value="#e0e0e0">
         </div>
         <div class="form-group">
-          <label>Accent Color</label>
+          <label ti="label_accent_color">Accent Color</label>
           <input type="color" id="tbAccentColor" value="#0ea5e9">
         </div>
         <div class="form-group">
-          <label>Height</label>
+          <label ti="label_height">Height</label>
           <select id="tbHeight">
             <option value="32">32px (compact)</option>
             <option value="36" selected>36px (default)</option>
@@ -580,11 +582,11 @@ input:focus, select:focus { border-color: var(--accent); }
 
       <div class="form-row">
         <div class="form-group">
-          <label>App Name</label>
+          <label ti="label_app_name">App Name</label>
           <input type="text" id="tbAppName" value="My Awesome PWA">
         </div>
         <div class="form-group">
-          <label>Layout</label>
+          <label ti="label_layout">Layout</label>
           <select id="tbLayout">
             <option value="left">Icon + Title (left)</option>
             <option value="center">Centered Title</option>
@@ -595,10 +597,10 @@ input:focus, select:focus { border-color: var(--accent); }
       </div>
 
       <div class="form-row">
-        <button id="buildTitlebarBtn">Build Titlebar</button>
+        <button id="buildTitlebarBtn" ti="btn_build_titlebar">Build Titlebar</button>
       </div>
 
-      <h3>Preview</h3>
+      <h3 ti="h3_preview" ti="h3_preview_2">Preview</h3>
       <div class="window-mockup" id="builderMockup">
         <div class="window-titlebar" id="builderTitlebar" style="background:#1a1a2e;">
           <div class="titlebar-content">
@@ -618,10 +620,10 @@ input:focus, select:focus { border-color: var(--accent); }
         </div>
       </div>
 
-      <h3>Generated CSS</h3>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
       <div class="code-block" id="generatedCSS"><span class="cm">/* Click "Build Titlebar" to generate CSS */</span></div>
 
-      <h3>Drag Region Visualization</h3>
+      <h3 ti="h3_drag_region_visualization">Drag Region Visualization</h3>
       <p style="color:var(--text-dim);font-size:0.85rem;margin-bottom:0.75rem;">
         The colored areas below show draggable (blue) vs non-draggable (red) regions.
         Window controls and interactive elements must be non-draggable.
@@ -648,7 +650,7 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 3: Geometry Events -->
   <div class="tab-panel" id="tab-geometry">
     <div class="card">
-      <h2>Geometry Change Events</h2>
+      <h2 ti="h2_geometry_change_events">Geometry Change Events</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The <code style="color:var(--accent)">navigator.windowControlsOverlay</code> object fires a
         <code style="color:var(--accent)">geometrychange</code> event when the titlebar area changes
@@ -656,8 +658,8 @@ input:focus, select:focus { border-color: var(--accent); }
       </p>
 
       <div class="form-row">
-        <button id="simGeoBtn">Simulate Geometry Changes</button>
-        <button id="clearGeoBtn" class="secondary">Clear</button>
+        <button id="simGeoBtn" ti="btn_simulate_geometry_changes">Simulate Geometry Changes</button>
+        <button id="clearGeoBtn" class="secondary" ti="btn_clear">Clear</button>
       </div>
 
       <div class="env-grid">
@@ -688,7 +690,7 @@ input:focus, select:focus { border-color: var(--accent); }
         </div>
       </div>
 
-      <h3>Event Log</h3>
+      <h3 ti="h3_event_log">Event Log</h3>
       <div class="geo-timeline" id="geoTimeline">
         <p style="color:var(--text-dim);font-size:0.85rem;font-style:italic;padding:0.5rem;">
           Geometry change events will appear here.
@@ -725,7 +727,7 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 4: Theme Colors -->
   <div class="tab-panel" id="tab-themes">
     <div class="card">
-      <h2>Theme-Aware Overlay Colors</h2>
+      <h2 ti="h2_theme_aware_overlay_color">Theme-Aware Overlay Colors</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         The titlebar should match your app's theme. Here are common theme presets.
         Click any theme to see it applied to the preview window.
@@ -846,13 +848,13 @@ input:focus, select:focus { border-color: var(--accent); }
   <!-- Tab 5: PWA Config -->
   <div class="tab-panel" id="tab-config">
     <div class="card">
-      <h2>PWA display_override Configuration</h2>
+      <h2 ti="h2_pwa_display_override_conf">PWA display_override Configuration</h2>
       <p style="color:var(--text-dim);font-size:0.9rem;margin-bottom:1rem;">
         To enable Window Controls Overlay, add <code style="color:var(--accent)">"window-controls-overlay"</code>
         to the <code style="color:var(--accent)">display_override</code> array in your web app manifest.
       </p>
 
-      <h3>manifest.json</h3>
+      <h3 ti="h3_manifest_json">manifest.json</h3>
       <div class="manifest-block">{
   "name": "My PWA with Custom Titlebar",
   "short_name": "MyPWA",
@@ -877,7 +879,7 @@ input:focus, select:focus { border-color: var(--accent); }
   ]
 }</div>
 
-      <h3>Before / After Comparison</h3>
+      <h3 ti="h3_before_after_comparison">Before / After Comparison</h3>
       <div class="comparison">
         <div class="comparison-side">
           <div class="comparison-label">Standard Standalone PWA</div>
@@ -919,7 +921,7 @@ input:focus, select:focus { border-color: var(--accent); }
         </div>
       </div>
 
-      <h3>Complete Setup Checklist</h3>
+      <h3 ti="h3_complete_setup_checklist">Complete Setup Checklist</h3>
       <div style="margin:0.75rem 0;font-size:0.9rem;">
         <ul style="list-style:none;display:flex;flex-direction:column;gap:0.5rem;">
           <li style="padding:0.5rem 0.75rem;background:var(--surface-2);border-radius:4px;">
@@ -949,13 +951,13 @@ input:focus, select:focus { border-color: var(--accent); }
         </ul>
       </div>
 
-      <h3>Browser Support</h3>
+      <h3 ti="h3_browser_support">Browser Support</h3>
       <table style="width:100%;border-collapse:collapse;font-size:0.85rem;margin:0.75rem 0;">
         <thead>
           <tr>
-            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Browser</th>
-            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Version</th>
-            <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);">Support</th>
+            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_browser">Browser</th>
+            <th style="text-align:left;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_version">Version</th>
+            <th style="text-align:center;padding:0.5rem;border-bottom:1px solid var(--border);color:var(--text-dim);" ti="th_support">Support</th>
           </tr>
         </thead>
         <tbody>
@@ -970,6 +972,16 @@ input:focus, select:focus { border-color: var(--accent); }
   </div>
 </div>
 
+
+<script>var _LANG={'title_window_controls_overlay_p':["Window Controls Overlay Playground", "窗口控件叠加层游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for the Window Controls Overlay API - build custom titlebars, explore CSS env() variables, and configure PWA display_override.", "Window Controls Overlay API 的交互式游乐场 - 构建自定义标题栏、探索 CSS env() 变量以及配置 PWA display_override。"],'h1_window_controls_overlay_p':["Window Controls Overlay Playground", "窗口控件叠加层游乐场"],'h2_titlebar_area_css_environ':["titlebar-area-* CSS Environment Variables", "标题栏区域-* CSS 环境变量"],'h2_custom_titlebar_builder':["Custom Titlebar Builder", "自定义标题栏生成器"],'h2_geometry_change_events':["Geometry Change Events", "几何体变化事件"],'h2_theme_aware_overlay_color':["Theme-Aware Overlay Colors", "主题感知叠加颜色"],'h2_pwa_display_override_conf':["PWA display_override Configuration", "PWA 显示覆盖配置"],'h3_checking_window_controls':["Checking Window Controls Overlay support...", "正在检查窗口控件叠加支持情况……"],'h3_interactive_preview':["Interactive Preview", "交互式预览"],'h3_preview':["Preview", "预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_drag_region_visualization':["Drag Region Visualization", "拖拽区域可视化"],'h3_event_log':["Event Log", "事件日志"],'h3_preview_2':["Preview", "预览"],'h3_manifest_json':["manifest.json", "manifest.json"],'h3_before_after_comparison':["Before / After Comparison", "前后对比"],'h3_complete_setup_checklist':["Complete Setup Checklist", "完整设置清单"],'h3_browser_support':["Browser Support", "浏览器支持"],'btn_css_env_variables':["CSS env() Variables", "CSS 环境变量"],'btn_titlebar_builder':["Titlebar Builder", "标题栏生成器"],'btn_geometry_events':["Geometry Events", "几何事件"],'btn_theme_colors':["Theme Colors", "主题颜色"],'btn_pwa_config':["PWA Config", "PWA 配置"],'btn_build_titlebar':["Build Titlebar", "构建标题栏"],'btn_simulate_geometry_changes':["Simulate Geometry Changes", "模拟几何变化"],'btn_clear':["Clear", "清除"],'btn_u2015':["\\u2015", "•"],'btn_u25a1':["\\u25A1", "\\u25A1"],'btn_u2715':["\\u2715", "☎"],'placeholder_search':["Search...", "搜索..."],'th_browser':["Browser", "浏览器"],'th_version':["Version", "版本"],'th_support':["Support", "支持"],'label_simulated_width':["Simulated Width", "模拟宽度"],'label_os_platform':["OS Platform", "操作系统平台"],'label_background_color':["Background Color", "背景颜色"],'label_text_color':["Text Color", "文本颜色"],'label_accent_color':["Accent Color", "强调色"],'label_height':["Height", "高度"],'label_app_name':["App Name", "应用名称"],'label_layout':["Layout", "布局"],'jtc_u2705':["\\u2705", "☎"],'jtc_window_controls_overlay_a':["Window Controls Overlay API is supported!", "支持窗口控件叠加 API！"],'jtc_u26a0_ufe0f':["\\u26A0\\uFE0F", "\\u26A0\\uFE0F"],'jtc_window_controls_overlay_a_2':["Window Controls Overlay API is not available", "窗口控件叠加 API 不可用"],'jtc_the_visual_demos_still_wo':["The visual demos still work. Install as a PWA in Chrome 105+ to use the real API.", "演示视频仍然有效。请在 Chrome 105 及更高版本中以 PWA 形式安装，以使用真正的 API。"],'jtc_0px':["0px", "0px"],'jtc_36px':["36px", "36像素"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab System ===
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -1003,14 +1015,14 @@ const hasWCO = 'windowControlsOverlay' in navigator;
 
   if (hasWCO) {
     banner.classList.add('supported');
-    icon.textContent = '\u2705';
-    title.textContent = 'Window Controls Overlay API is supported!';
+    icon.textContent=T("jtc_u2705");
+    title.textContent=T("jtc_window_controls_overlay_a");
     desc.textContent = `navigator.windowControlsOverlay available. Visible: ${navigator.windowControlsOverlay.visible}`;
   } else {
     banner.classList.add('unsupported');
-    icon.textContent = '\u26A0\uFE0F';
-    title.textContent = 'Window Controls Overlay API is not available';
-    desc.textContent = 'The visual demos still work. Install as a PWA in Chrome 105+ to use the real API.';
+    icon.textContent=T("jtc_u26a0_ufe0f");
+    title.textContent=T("jtc_window_controls_overlay_a_2");
+    desc.textContent=T("jtc_the_visual_demos_still_wo");
   }
 })();
 
@@ -1026,9 +1038,9 @@ function updateEnvValues() {
   const availWidth = width - cw;
 
   document.getElementById('envX').textContent = x + 'px';
-  document.getElementById('envY').textContent = '0px';
+  document.getElementById('envY').textContent=T("jtc_0px");
   document.getElementById('envW').textContent = availWidth + 'px';
-  document.getElementById('envH').textContent = '36px';
+  document.getElementById('envH').textContent=T("jtc_36px");
 
   // Update mockup width
   document.getElementById('envMockup').style.maxWidth = width + 'px';
@@ -1050,9 +1062,9 @@ function updateEnvValues() {
   } else {
     titlebar.style.flexDirection = 'row';
     buttons.innerHTML = `
-      <button class="tb-btn">\u2015</button>
-      <button class="tb-btn">\u25A1</button>
-      <button class="tb-btn close">\u2715</button>
+      <button class="tb-btn" ti="btn_u2015">\u2015</button>
+      <button class="tb-btn" ti="btn_u25a1">\u25A1</button>
+      <button class="tb-btn close" ti="btn_u2715">\u2715</button>
     `;
   }
 }
@@ -1091,7 +1103,7 @@ document.getElementById('buildTitlebarBtn').addEventListener('click', () => {
       contentHTML = `
         <div class="titlebar-icon" style="background:${accentColor};"></div>
         <div style="flex:1;max-width:400px;margin:0 1rem;">
-          <input type="text" placeholder="Search..." style="width:100%;height:${parseInt(height)-12}px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:${textColor};padding:0 0.5rem;border-radius:4px;font-size:0.8rem;">
+          <input type="text" tp="placeholder_search" placeholder="Search..." style="width:100%;height:${parseInt(height)-12}px;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.2);color:${textColor};padding:0 0.5rem;border-radius:4px;font-size:0.8rem;">
         </div>
       `;
       break;
@@ -1213,6 +1225,24 @@ function applyTheme(name) {
   document.getElementById('themeTitle').style.color = t.text;
   document.getElementById('themeBody').style.background = t.body;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

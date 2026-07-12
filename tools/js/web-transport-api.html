@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_webtransport_api_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -487,6 +487,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>
@@ -511,25 +513,25 @@
       </div>
 
       <div class="form-group">
-        <label>Server URL</label>
-        <input type="text" id="serverUrl" value="https://example.com:4433/wt" placeholder="https://server:port/path">
+        <label ti="label_server_url">Server URL</label>
+        <input type="text" id="serverUrl" value="https://example.com:4433/wt" tp="placeholder_https_server_port_path" placeholder="https://server:port/path">
       </div>
 
       <div class="form-group">
-        <label>Certificate Fingerprint (optional)</label>
-        <input type="text" id="certFingerprint" placeholder="SHA-256 hash (e.g., 7E:F0:20:...)">
+        <label ti="label_certificate_fingerprint_o">Certificate Fingerprint (optional)</label>
+        <input type="text" id="certFingerprint" tp="placeholder_sha_256_hash_e_g_7e_f0_20" placeholder="SHA-256 hash (e.g., 7E:F0:20:...)">
       </div>
 
       <div class="btn-row" style="margin-bottom:1rem">
-        <button id="connectBtn" onclick="simConnect()">Connect</button>
-        <button id="disconnectBtn" class="btn-danger" onclick="simDisconnect()" disabled>Disconnect</button>
+        <button id="connectBtn" onclick="simConnect()" ti="btn_connect">Connect</button>
+        <button id="disconnectBtn" class="btn-danger" onclick="simDisconnect()" disabled ti="btn_disconnect">Disconnect</button>
       </div>
 
       <!-- Connection visualization -->
       <div class="conn-viz">
         <div class="conn-node" id="clientNode">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
-          <span class="conn-node-label">Client</span>
+          <span class="conn-node-label" ti="label_client">Client</span>
         </div>
         <div class="conn-pipe">
           <div class="conn-pipe-label">HTTP/3 QUIC</div>
@@ -539,7 +541,7 @@
         </div>
         <div class="conn-node" id="serverNode">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="8" rx="2"/><rect x="2" y="14" width="20" height="8" rx="2"/><line x1="6" y1="6" x2="6.01" y2="6"/><line x1="6" y1="18" x2="6.01" y2="18"/></svg>
-          <span class="conn-node-label">Server</span>
+          <span class="conn-node-label" ti="label_server">Server</span>
         </div>
       </div>
 
@@ -561,7 +563,7 @@
   <div class="panel">
     <div class="panel-header">
       <span>Activity Log</span>
-      <button class="btn-small btn-secondary" onclick="clearLog()">Clear</button>
+      <button class="btn-small btn-secondary" onclick="clearLog()" ti="btn_clear">Clear</button>
     </div>
     <div class="panel-body">
       <div class="sim-log" id="simLog">
@@ -570,17 +572,17 @@
 
       <div style="margin-top:0.75rem">
         <div class="form-group">
-          <label>Send Datagram</label>
+          <label ti="label_send_datagram">Send Datagram</label>
           <div style="display:flex;gap:0.5rem">
-            <input type="text" id="datagramInput" placeholder="Enter message...">
-            <button onclick="simSendDatagram()" id="sendDgBtn" disabled>Send</button>
+            <input type="text" id="datagramInput" tp="placeholder_enter_message" placeholder="Enter message...">
+            <button onclick="simSendDatagram()" id="sendDgBtn" disabled ti="btn_send">Send</button>
           </div>
         </div>
 
         <div class="btn-row">
-          <button class="btn-small btn-secondary" onclick="simOpenUniStream()" id="uniBtn" disabled>Open Uni Stream</button>
-          <button class="btn-small btn-secondary" onclick="simOpenBidiStream()" id="bidiBtn" disabled>Open Bidi Stream</button>
-          <button class="btn-small btn-secondary" onclick="simSendOnStream()" id="streamSendBtn" disabled>Send on Stream</button>
+          <button class="btn-small btn-secondary" onclick="simOpenUniStream()" id="uniBtn" disabled ti="btn_open_uni_stream">Open Uni Stream</button>
+          <button class="btn-small btn-secondary" onclick="simOpenBidiStream()" id="bidiBtn" disabled ti="btn_open_bidi_stream">Open Bidi Stream</button>
+          <button class="btn-small btn-secondary" onclick="simSendOnStream()" id="streamSendBtn" disabled ti="btn_send_on_stream">Send on Stream</button>
         </div>
       </div>
     </div>
@@ -752,7 +754,7 @@ const { value } = await reader.read();</div>
     <div class="panel-body" style="overflow-x:auto">
       <table class="compare-table">
         <thead>
-          <tr><th>Feature</th><th>WebTransport</th><th>WebSocket</th><th>HTTP/2</th></tr>
+          <tr><th ti="th_feature">Feature</th><th ti="th_webtransport">WebTransport</th><th ti="th_websocket">WebSocket</th><th ti="th_http_2">HTTP/2</th></tr>
         </thead>
         <tbody>
           <tr>
@@ -855,9 +857,9 @@ const { value } = await reader.read();</div>
       <span>Error Handling & Configuration</span>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" onclick="showTab('tabErrors',this)">Error Patterns</button>
-      <button class="tab-btn" onclick="showTab('tabCert',this)">Certificate Fingerprint</button>
-      <button class="tab-btn" onclick="showTab('tabApi',this)">Full API</button>
+      <button class="tab-btn active" onclick="showTab('tabErrors',this)" ti="btn_error_patterns">Error Patterns</button>
+      <button class="tab-btn" onclick="showTab('tabCert',this)" ti="btn_certificate_fingerprint">Certificate Fingerprint</button>
+      <button class="tab-btn" onclick="showTab('tabApi',this)" ti="btn_full_api">Full API</button>
     </div>
     <div class="panel-body">
       <div class="tab-content active" id="tabErrors">
@@ -971,6 +973,16 @@ transport.close({ closeCode: 0, reason: 'Done' });</div>
 
 </div>
 
+
+<script>var _LANG={'title_webtransport_api_playgrou':["WebTransport API Playground", "WebTransport API Playground"],'metadesc_interactive_playground_fo':["Interactive playground for the WebTransport API. Explore HTTP/3 QUIC connections, datagrams, streams, and compare with WebSocket.", "WebTransport API 的交互式演示环境。探索 HTTP/3 QUIC 连接、数据报、数据流，并与 WebSocket 进行比较。"],'btn_connect':["Connect", "连接"],'btn_disconnect':["Disconnect", "断开"],'btn_clear':["Clear", "清除"],'btn_send':["Send", "发送"],'btn_open_uni_stream':["Open Uni Stream", "开放大学流"],'btn_open_bidi_stream':["Open Bidi Stream", "开放比迪流"],'btn_send_on_stream':["Send on Stream", "发送至流媒体"],'btn_error_patterns':["Error Patterns", "错误模式"],'btn_certificate_fingerprint':["Certificate Fingerprint", "证书指纹"],'btn_full_api':["Full API", "完整 API"],'label_client':["Client", "客户"],'label_server':["Server", "服务器"],'placeholder_https_server_port_path':["https://server:port/path", "https://server:port/path"],'placeholder_sha_256_hash_e_g_7e_f0_20':["SHA-256 hash (e.g., 7E:F0:20:...)", "SHA-256 哈希（例如，7E:F0:20:...）"],'placeholder_enter_message':["Enter message...", "请输入留言……"],'th_feature':["Feature", "特征"],'th_webtransport':["WebTransport", "WebTransport"],'th_websocket':["WebSocket", "WebSocket"],'th_http_2':["HTTP/2", "HTTP/2"],'label_server_url':["Server URL", "服务器 URL"],'label_certificate_fingerprint_o':["Certificate Fingerprint (optional)", "证书指纹（可选）"],'label_send_datagram':["Send Datagram", "发送数据报"],'jtc_supported':["Supported", "支持"],'jtc_not_supported':["Not Supported", "不支持。"],'jtc_connected':["Connected", "已连接"],'jtc_disconnected':["Disconnected", "断开连接"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
   // State
   let simConnected = false;
@@ -981,10 +993,10 @@ transport.close({ closeCode: 0, reason: 'Done' });</div>
   function init() {
     const badge = document.getElementById('supportBadge');
     if (isSupported) {
-      badge.textContent = 'Supported';
+      badge.textContent=T("jtc_supported");
       badge.className = 'api-badge badge-supported';
     } else {
-      badge.textContent = 'Not Supported';
+      badge.textContent=T("jtc_not_supported");
       badge.className = 'api-badge badge-unsupported';
     }
   }
@@ -1014,7 +1026,7 @@ transport.close({ closeCode: 0, reason: 'Done' });</div>
       document.getElementById('uniBtn').disabled = false;
       document.getElementById('bidiBtn').disabled = false;
       document.getElementById('streamSendBtn').disabled = false;
-      document.getElementById('connStatus').textContent = 'Connected';
+      document.getElementById('connStatus').textContent=T("jtc_connected");
       document.getElementById('connStatus').style.color = 'var(--green)';
 
       // Activate visual
@@ -1044,7 +1056,7 @@ transport.close({ closeCode: 0, reason: 'Done' });</div>
     document.getElementById('uniBtn').disabled = true;
     document.getElementById('bidiBtn').disabled = true;
     document.getElementById('streamSendBtn').disabled = true;
-    document.getElementById('connStatus').textContent = 'Disconnected';
+    document.getElementById('connStatus').textContent=T("jtc_disconnected");
     document.getElementById('connStatus').style.color = 'var(--text-dim)';
 
     document.getElementById('clientNode').classList.remove('active');
@@ -1141,6 +1153,24 @@ transport.close({ closeCode: 0, reason: 'Done' });</div>
   }
 
   init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

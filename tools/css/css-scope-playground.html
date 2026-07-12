@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_scope_playground_dev" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -366,6 +366,8 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">@s</span>
@@ -373,14 +375,14 @@ body {
     <span class="badge">CSS 2024</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="layout">
   <!-- Sidebar -->
   <div class="sidebar">
-    <h2>Examples</h2>
+    <h2 ti="h2_examples">Examples</h2>
     <div class="preset-list" id="presetList">
       <button class="preset-btn active" data-preset="basic">
         <span class="p-icon">1</span>
@@ -426,7 +428,7 @@ body {
       </button>
     </div>
 
-    <h2>Browser Support</h2>
+    <h2 ti="h2_browser_support">Browser Support</h2>
     <div class="info-section">
       <div style="display:flex;flex-direction:column;gap:6px;">
         <span><span class="tag tag-green">Chrome 118+</span></span>
@@ -435,7 +437,7 @@ body {
         <span><span class="tag tag-orange">Firefox 128+</span></span>
       </div>
       <p style="margin-top:10px;">
-        <strong>@scope</strong> scopes styles to a DOM subtree without Shadow DOM or BEM naming.
+        <strong ti="strong_scope">@scope</strong> scopes styles to a DOM subtree without Shadow DOM or BEM naming.
         The <code>to</code> keyword sets a lower boundary (scope limit).
       </p>
     </div>
@@ -444,7 +446,7 @@ body {
   <!-- Preview -->
   <div class="center-panel">
     <div class="panel-header">
-      <h3>Live Preview</h3>
+      <h3 ti="h3_live_preview">Live Preview</h3>
       <span class="badge" id="presetLabel">Basic Scope</span>
     </div>
     <div class="preview-frame" id="previewFrame">
@@ -456,12 +458,12 @@ body {
   <!-- Code -->
   <div class="code-panel">
     <div class="panel-header">
-      <h3>Generated CSS</h3>
-      <button class="btn btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_generated_css">Generated CSS</h3>
+      <button class="btn btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" data-tab="css">CSS</button>
-      <button class="tab-btn" data-tab="html">HTML</button>
+      <button class="tab-btn active" data-tab="css" ti="btn_css">CSS</button>
+      <button class="tab-btn" data-tab="html" ti="btn_html">HTML</button>
     </div>
     <div class="code-output">
       <pre id="codeContent"></pre>
@@ -469,6 +471,16 @@ body {
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_scope_playground_dev':["CSS @scope Playground — Dev Vault", "CSS @scope Playground — 开发仓库"],'metadesc_interactive_css_scope_pla':["Interactive CSS @scope playground. Scope styles to DOM subtrees without BEM or Shadow DOM. Visual scope boundaries with live preview.", "交互式 CSS @scope 示例。无需 BEM 或 Shadow DOM，即可将样式作用域限定到 DOM 子树。可视化作用域边界，并可实时预览。"],'h2_examples':["Examples", "示例"],'h2_browser_support':["Browser Support", "浏览器支持"],'h2_outside_the_scope_unstyle':["Outside the scope (unstyled by @scope)", "作用域之外（未受 @scope 样式约束）"],'h2_inside_the_scope_styled_b':["Inside the scope (styled by @scope)", "在作用域内（由 @scope 样式化）"],'h2_another_card_also_scoped':["Another card (also scoped)", "另一张卡（也已限定范围）"],'h2_outside_the_scope_unstyle_2':["Outside the scope (unstyled by @scope)", "作用域之外（未受 @scope 样式约束）"],'h2_inside_the_scope_styled':["Inside the scope (styled)", "在作用域内（样式化）"],'h2_another_card_also_scoped_2':["Another card (also scoped)", "另一张卡（也已限定范围）"],'h3_live_preview':["Live Preview", "实时预览"],'h3_generated_css':["Generated CSS", "生成的 CSS"],'h3_premium_widget':["Premium Widget", "高级小部件"],'h3_basic_widget':["Basic Widget", "基本组件"],'h3_premium_widget_2':["Premium Widget", "高级小部件"],'h3_basic_widget_2':["Basic Widget", "基本组件"],'h3_ocean_theme':["Ocean Theme", "海洋主题"],'h3_forest_theme':["Forest Theme", "森林主题"],'h3_sunset_theme':["Sunset Theme", "日落主题"],'h3_ocean_theme_2':["Ocean Theme", "海洋主题"],'h3_forest_theme_2':["Forest Theme", "森林主题"],'h3_sunset_theme_2':["Sunset Theme", "日落主题"],'subtitle_a_fantastic_widget_with_s':["A fantastic widget with scoped styles.", "一款具有作用域样式的出色组件。"],'subtitle_affordable_and_reliable':["Affordable and reliable.", "价格实惠，性能可靠。"],'btn_copy':["Copy", "复制"],'btn_css':["CSS", "CSS"],'btn_html':["HTML", "HTML"],'strong_scope':["@scope", "@范围"],'footer_css_scope_playground_dev':["CSS @scope Playground — Dev Vault", "CSS @scope Playground — 开发仓库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const previewFrame = document.getElementById('previewFrame');
@@ -496,16 +508,16 @@ body {
 
 /* This h2 is NOT affected by the scope */
 h2 { color: #e6e6e6; }`,
-      html: `<h2>Outside the scope (unstyled by @scope)</h2>
+      html: `<h2 ti="h2_outside_the_scope_unstyle" ti="h2_outside_the_scope_unstyle_2">Outside the scope (unstyled by @scope)</h2>
 <p>This paragraph is outside .card — normal styles apply.</p>
 
 <div class="card">
-  <h2>Inside the scope (styled by @scope)</h2>
+  <h2 ti="h2_inside_the_scope_styled_b">Inside the scope (styled by @scope)</h2>
   <p>This paragraph IS inside .card — scoped styles apply.</p>
 </div>
 
 <div class="card">
-  <h2>Another card (also scoped)</h2>
+  <h2 ti="h2_another_card_also_scoped" ti="h2_another_card_also_scoped_2">Another card (also scoped)</h2>
   <p>Every .card gets the scoped styles independently.</p>
 </div>`,
       render: () => `
@@ -514,7 +526,7 @@ h2 { color: #e6e6e6; }`,
           <p style="color:var(--text-dim);font-size:0.85rem;">This paragraph is outside .card — normal styles apply.</p>
         </div>
         <div class="scope-root" data-label="@scope (.card)">
-          <h2 style="color:var(--accent);font-size:1.2rem;margin-bottom:4px;">Inside the scope (styled)</h2>
+          <h2 style="color:var(--accent);font-size:1.2rem;margin-bottom:4px;" ti="h2_inside_the_scope_styled">Inside the scope (styled)</h2>
           <p style="color:var(--text-secondary);font-size:0.85rem;line-height:1.6;">This paragraph IS inside .card — scoped styles apply.</p>
         </div>
         <div class="scope-root" data-label="@scope (.card)" style="margin-top:12px;">
@@ -644,15 +656,15 @@ h2 { color: #e6e6e6; }`,
 }`,
       html: `<div class="product-card">
   <span class="badge">New</span>
-  <h3 class="title">Premium Widget</h3>
-  <p class="desc">A fantastic widget with scoped styles.</p>
+  <h3 class="title" ti="h3_premium_widget" ti="h3_premium_widget_2">Premium Widget</h3>
+  <p class="desc" ti="subtitle_a_fantastic_widget_with_s">A fantastic widget with scoped styles.</p>
   <span class="price">$29.99</span>
 </div>
 
 <div class="product-card">
   <span class="badge">Sale</span>
-  <h3 class="title">Basic Widget</h3>
-  <p class="desc">Affordable and reliable.</p>
+  <h3 class="title" ti="h3_basic_widget" ti="h3_basic_widget_2">Basic Widget</h3>
+  <p class="desc" ti="subtitle_affordable_and_reliable">Affordable and reliable.</p>
   <span class="price">$9.99</span>
 </div>`,
       render: () => `
@@ -712,17 +724,17 @@ h2 { color: #e6e6e6; }`,
   }
 }`,
       html: `<div class="theme-ocean">
-  <h3>Ocean Theme</h3>
+  <h3 ti="h3_ocean_theme" ti="h3_ocean_theme_2">Ocean Theme</h3>
   <p class="highlight">This section uses cyan/teal colors.</p>
 </div>
 
 <div class="theme-forest">
-  <h3>Forest Theme</h3>
+  <h3 ti="h3_forest_theme" ti="h3_forest_theme_2">Forest Theme</h3>
   <p class="highlight">This section uses green colors.</p>
 </div>
 
 <div class="theme-sunset">
-  <h3>Sunset Theme</h3>
+  <h3 ti="h3_sunset_theme" ti="h3_sunset_theme_2">Sunset Theme</h3>
   <p class="highlight">This section uses red/warm colors.</p>
 </div>`,
       render: () => `
@@ -844,10 +856,10 @@ h2 { color: #e6e6e6; }`,
     const p = presets[currentPreset];
     const text = currentTab === 'css' ? p.css : p.html;
     navigator.clipboard.writeText(text).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
       setTimeout(() => {
-        copyBtn.textContent = 'Copy';
+        copyBtn.textContent=T("jtc_copy");
         copyBtn.classList.remove('copied');
       }, 2000);
     });
@@ -855,6 +867,24 @@ h2 { color: #e6e6e6; }`,
 
   // Init
   renderPreset('basic');
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_diff_compare_two_jso" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -54,26 +54,28 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>JSON Diff</h1>
-  <p class="subtitle">Compare two JSON objects. See what changed.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_json_diff">JSON Diff</h1>
+  <p class="subtitle" ti="subtitle_compare_two_json_objects">Compare two JSON objects. See what changed.</p>
 
   <div class="editors">
     <div class="editor">
-      <label>Original (Left)</label>
-      <textarea id="left" placeholder='{"name": "express", "version": "4.18.2"}'></textarea>
+      <label ti="label_original_left">Original (Left)</label>
+      <textarea id="left" tp="placeholder_name_express_version_4_1" placeholder='{"name": "express", "version": "4.18.2"}'></textarea>
     </div>
     <div class="editor">
-      <label>Modified (Right)</label>
-      <textarea id="right" placeholder='{"name": "express", "version": "4.19.0"}'></textarea>
+      <label ti="label_modified_right">Modified (Right)</label>
+      <textarea id="right" tp="placeholder_name_express_version_4_1_2" placeholder='{"name": "express", "version": "4.19.0"}'></textarea>
     </div>
   </div>
 
   <div class="actions">
-    <button class="primary" onclick="compare()">Compare</button>
-    <button class="secondary" onclick="loadSample()">Load Sample</button>
-    <button class="secondary" onclick="swapSides()">⇄ Swap</button>
-    <button class="secondary" onclick="formatBoth()">Format Both</button>
+    <button class="primary" onclick="compare()" ti="btn_compare">Compare</button>
+    <button class="secondary" onclick="loadSample()" ti="btn_load_sample">Load Sample</button>
+    <button class="secondary" onclick="swapSides()" ti="btn_swap">⇄ Swap</button>
+    <button class="secondary" onclick="formatBoth()" ti="btn_format_both">Format Both</button>
     <div class="stats" id="stats"></div>
   </div>
 
@@ -86,9 +88,19 @@ footer a{color:var(--accent);text-decoration:none}
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 62+ free browser-based developer tools
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> — 62+ free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_json_diff_compare_two_jso':["JSON Diff — Compare Two JSON Objects", "JSON 差异 — 比较两个 JSON 对象"],'metadesc_compare_two_json_objects':["Compare two JSON objects side by side. See added, removed, and changed keys with syntax highlighting.", "并排比较两个 JSON 对象。查看新增、删除和更改的键，并可高亮显示语法。"],'h1_json_diff':["JSON Diff", "JSON 差异"],'subtitle_compare_two_json_objects':["Compare two JSON objects. See what changed.", "比较两个 JSON 对象，看看发生了什么变化。"],'btn_compare':["Compare", "比较"],'btn_load_sample':["Load Sample", "加载样本"],'btn_swap':["⇄ Swap", "⇄ 交换"],'btn_format_both':["Format Both", "两种格式"],'placeholder_name_express_version_4_1':["{\"name\": \"express\", \"version\": \"4.18.2\"}", "{&quot;name&quot;: &quot;express&quot;, &quot;version&quot;: &quot;4.18.2&quot;}"],'placeholder_name_express_version_4_1_2':["{\"name\": \"express\", \"version\": \"4.19.0\"}", "{&quot;name&quot;: &quot;express&quot;, &quot;version&quot;: &quot;4.19.0&quot;}"],'strong_related_tools':["Related Tools", "相关工具"],'label_original_left':["Original (Left)", "原图（左）"],'label_modified_right':["Modified (Right)", "修改后（右）"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_left_json':["Left JSON:", "左侧 JSON："],'jtc_right_json':["Right JSON:", "正确的 JSON："],'jtcpre_left_json':["Left JSON: ", "左侧 JSON："],'jtcpre_right_json':["Right JSON: ", "正确的 JSON："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -144,8 +156,8 @@ function compare() {
   errEl.style.display = 'none';
 
   let left, right;
-  try { left = JSON.parse($('left').value); } catch (e) { errEl.textContent = 'Left JSON: ' + e.message; errEl.style.display = 'block'; return; }
-  try { right = JSON.parse($('right').value); } catch (e) { errEl.textContent = 'Right JSON: ' + e.message; errEl.style.display = 'block'; return; }
+  try { left = JSON.parse($('left').value); } catch (e) { errEl.textContent=T("jtcpre_left_json")+ e.message; errEl.style.display = 'block'; return; }
+  try { right = JSON.parse($('right').value); } catch (e) { errEl.textContent=T("jtcpre_right_json")+ e.message; errEl.style.display = 'block'; return; }
 
   const diffs = [];
   deepDiff(left, right, '', diffs);
@@ -231,12 +243,30 @@ function escapeHtml(s) {
 }
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-viewer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Viewer</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

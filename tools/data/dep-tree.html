@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_dep_tree_package_json_dep" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -134,27 +134,29 @@ footer .links{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-w
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1>🌳 <span>dep-tree</span></h1>
   <p>Paste your package.json to visualize dependencies, analyze version ranges, and detect risky patterns.</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
   <!-- Input -->
   <div class="input-section">
     <div class="input-header">
-      <h2>📋 Paste package.json</h2>
+      <h2 ti="h2_paste_package_json">📋 Paste package.json</h2>
       <div class="example-buttons">
-        <button onclick="loadExample('minimal')">Minimal</button>
-        <button onclick="loadExample('react')">React App</button>
-        <button onclick="loadExample('monorepo')">Monorepo</button>
+        <button onclick="loadExample('minimal')" ti="btn_minimal">Minimal</button>
+        <button onclick="loadExample('react')" ti="btn_react_app">React App</button>
+        <button onclick="loadExample('monorepo')" ti="btn_monorepo">Monorepo</button>
       </div>
     </div>
-    <textarea id="input" placeholder='{\n  "name": "my-project",\n  "dependencies": {\n    "express": "^4.18.2"\n  }\n}'></textarea>
+    <textarea id="input" tp="placeholder_n_name_my_project_n_depe" placeholder='{\n  "name": "my-project",\n  "dependencies": {\n    "express": "^4.18.2"\n  }\n}'></textarea>
     <div class="action-row">
-      <button class="btn-primary" onclick="analyze()">Analyze Dependencies</button>
-      <button onclick="clearAll()">Clear</button>
+      <button class="btn-primary" onclick="analyze()" ti="btn_analyze_dependencies">Analyze Dependencies</button>
+      <button onclick="clearAll()" ti="btn_clear">Clear</button>
     </div>
   </div>
 
@@ -165,7 +167,7 @@ footer .links{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-w
 
     <!-- Version Range Analysis -->
     <div class="section" id="rangeSection">
-      <h3>📊 Version Range Distribution</h3>
+      <h3 ti="h3_version_range_distributi">📊 Version Range Distribution</h3>
       <div class="range-bar" id="rangeBar"></div>
       <div class="range-legend" id="rangeLegend"></div>
     </div>
@@ -178,26 +180,26 @@ footer .links{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-w
 
     <!-- Size Hints -->
     <div class="section" id="sizeSection" style="display:none">
-      <h3>📦 Estimated Large Packages</h3>
+      <h3 ti="h3_estimated_large_packages">📦 Estimated Large Packages</h3>
       <div class="size-hints" id="sizeHints"></div>
     </div>
 
     <!-- Dependency Tree -->
     <div class="section">
-      <h3>🌲 Dependency Tree</h3>
+      <h3 ti="h3_dependency_tree">🌲 Dependency Tree</h3>
       <div id="depTree"></div>
     </div>
 
     <!-- Commands -->
     <div class="section">
-      <h3>🛠️ Useful Commands</h3>
+      <h3 ti="h3_useful_commands">🛠️ Useful Commands</h3>
       <div class="commands" id="commands"></div>
     </div>
 
     <!-- Copy List -->
     <div class="section">
-      <h3>📋 Copy-Friendly List</h3>
-      <button onclick="copyList()" style="margin-bottom:12px;font-size:12px">Copy to Clipboard</button>
+      <h3 ti="h3_copy_friendly_list">📋 Copy-Friendly List</h3>
+      <button onclick="copyList()" style="margin-bottom:12px;font-size:12px" ti="btn_copy_to_clipboard">Copy to Clipboard</button>
       <div class="copy-list" id="copyList"></div>
     </div>
   </div>
@@ -211,6 +213,16 @@ footer .links{display:flex;justify-content:center;gap:16px;margin-top:8px;flex-w
   </div>
 </footer>
 
+
+<script>var _LANG={'title_dep_tree_package_json_dep':["dep-tree — package.json Dependency Visualizer", "依赖树 — package.json 依赖关系可视化工具"],'metadesc_visualize_package_json_de':["Visualize package.json dependencies, analyze version ranges, detect risky patterns. Zero dependencies.", "可视化 package.json 依赖关系，分析版本范围，检测风险模式。零依赖。"],'h2_paste_package_json':["📋 Paste package.json", "📋粘贴 package.json"],'h3_version_range_distributi':["📊 Version Range Distribution", "📊 版本范围分布"],'h3_estimated_large_packages':["📦 Estimated Large Packages", "📦 预计大件包裹"],'h3_dependency_tree':["🌲 Dependency Tree", "🌲 依赖树"],'h3_useful_commands':["🛠️ Useful Commands", "🛠️实用命令"],'h3_copy_friendly_list':["📋 Copy-Friendly List", "📋 可复制列表"],'btn_minimal':["Minimal", "极简主义"],'btn_react_app':["React App", "React 应用"],'btn_monorepo':["Monorepo", "单体仓库"],'btn_analyze_dependencies':["Analyze Dependencies", "分析依赖关系"],'btn_clear':["Clear", "清除"],'btn_copy_to_clipboard':["Copy to Clipboard", "复制到剪贴板"],'btn_copy':["Copy", "复制"],'placeholder_n_name_my_project_n_depe':["{\\n  \"name\": \"my-project\",\\n  \"dependencies\": {\\n    \"express\": \"^4.18.2\"\\n  }\\n}", "{\\n &quot;name&quot;: &quot;my-project&quot;,\\n &quot;dependencies&quot;: {\\n &quot;express&quot;: &quot;^4.18.2&quot;\\n }\\n}"],'strong_d_name':["${d.name}", "${d.name}"],'strong_d_name_2':["${d.name}", "${d.name}"],'strong_d_name_3':["${d.name}", "${d.name}"],'strong_d_name_4':["${d.name}", "${d.name}"],'jalert_no_dependencies_found_in':["No dependencies found in this package.json", "此 package.json 中未找到任何依赖项"],'jtlword_dependencies':["Dependencies", "依赖关系"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Known large packages with approximate install sizes (MB)
 const LARGE_PACKAGES = {
@@ -380,7 +392,7 @@ function analyze() {
   });
 
   if (allDeps.length === 0) {
-    alert('No dependencies found in this package.json');
+    T("jalert_no_dependencies_found_in");
     return;
   }
 
@@ -424,7 +436,7 @@ function analyze() {
   // Warnings
   const warnings = [];
   allDeps.forEach(d => {
-    if (d.cls === 'wildcard') warnings.push({ level: 'danger', text: `<strong>${d.name}</strong>: uses wildcard version <code>${d.ver}</code> — any version will be installed` });
+    if (d.cls === 'wildcard') warnings.push({ level: 'danger', text: `<strong ti="strong_d_name" ti="strong_d_name_2" ti="strong_d_name_3" ti="strong_d_name_4">${d.name}</strong>: uses wildcard version <code>${d.ver}</code> — any version will be installed` });
     if (d.ver.startsWith('git') || d.ver.includes('github:') || d.ver.includes('://'))
       warnings.push({ level: 'danger', text: `<strong>${d.name}</strong>: installed from git URL <code>${d.ver}</code> — no version guarantee, supply chain risk` });
     if (d.ver.startsWith('file:'))
@@ -488,7 +500,7 @@ function analyze() {
     { label: 'Audit for vulnerabilities', cmd: 'npm audit' },
     { label: 'List installed packages', cmd: 'npm ls --depth=0' }
   ].map(c =>
-    `<div class="cmd-block"><div><div style="font-size:.78rem;color:var(--text-muted);margin-bottom:2px">${c.label}</div><code>${c.cmd}</code></div><button onclick="copyText('${c.cmd}')">Copy</button></div>`
+    `<div class="cmd-block"><div><div style="font-size:.78rem;color:var(--text-muted);margin-bottom:2px">${c.label}</div><code>${c.cmd}</code></div><button onclick="copyText('${c.cmd}')" ti="btn_copy">Copy</button></div>`
   ).join('');
 
   // Copy list
@@ -519,6 +531,24 @@ function copyList() {
   const text = document.getElementById('copyList').textContent;
   navigator.clipboard.writeText(text);
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_history_api_visualizer_in" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -121,25 +121,27 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 
 <header>
-  <h1>History API Visualizer</h1>
+  <h1 ti="h1_history_api_visualizer">History API Visualizer</h1>
   <p>Interactive browser navigation explorer — pushState, replaceState, popstate, state objects</p>
 </header>
 
 <div class="presets">
-  <button class="preset-btn active" data-preset="spa">SPA Routes</button>
-  <button class="preset-btn" data-preset="modal">Modal Routing</button>
-  <button class="preset-btn" data-preset="query">Query Params</button>
-  <button class="preset-btn" data-preset="nested">Nested Routes</button>
-  <button class="preset-btn" data-preset="hash">Hash Navigation</button>
-  <button class="preset-btn" data-preset="wizard">Multi-Step Wizard</button>
-  <button class="preset-btn" data-preset="i18n">i18n Routes</button>
+  <button class="preset-btn active" data-preset="spa" ti="btn_spa_routes">SPA Routes</button>
+  <button class="preset-btn" data-preset="modal" ti="btn_modal_routing">Modal Routing</button>
+  <button class="preset-btn" data-preset="query" ti="btn_query_params">Query Params</button>
+  <button class="preset-btn" data-preset="nested" ti="btn_nested_routes">Nested Routes</button>
+  <button class="preset-btn" data-preset="hash" ti="btn_hash_navigation">Hash Navigation</button>
+  <button class="preset-btn" data-preset="wizard" ti="btn_multi_step_wizard">Multi-Step Wizard</button>
+  <button class="preset-btn" data-preset="i18n" ti="btn_i18n_routes">i18n Routes</button>
 </div>
 
 <div class="url-bar">
-  <span class="label">Current URL:</span>
+  <span class="label" ti="label_current_url">Current URL:</span>
   <span class="url" id="currentUrl"></span>
   <span class="length-badge" id="historyLength"></span>
 </div>
@@ -147,34 +149,34 @@ footer a:hover{color:#999}
 <div class="main-grid">
   <!-- Controls Panel -->
   <div class="panel">
-    <h2>Controls</h2>
+    <h2 ti="h2_controls">Controls</h2>
     <div class="control-row">
       <div class="field">
-        <label>URL Path</label>
-        <input type="text" id="urlInput" placeholder="/dashboard" value="/home">
+        <label ti="label_url_path">URL Path</label>
+        <input type="text" id="urlInput" tp="placeholder_dashboard" placeholder="/dashboard" value="/home">
       </div>
       <div class="field">
-        <label>Title (optional)</label>
-        <input type="text" id="titleInput" placeholder="Page title" value="Home">
+        <label ti="label_title_optional">Title (optional)</label>
+        <input type="text" id="titleInput" tp="placeholder_page_title" placeholder="Page title" value="Home">
       </div>
     </div>
     <div class="control-row">
       <div class="field" style="flex:1">
-        <label>State Object (JSON)</label>
-        <textarea id="stateInput" placeholder='{"page": "home", "id": 1}'>{}</textarea>
+        <label ti="label_state_object_json">State Object (JSON)</label>
+        <textarea id="stateInput" tp="placeholder_page_home_id_1" placeholder='{"page": "home", "id": 1}'>{}</textarea>
       </div>
     </div>
     <div class="btn-row">
-      <button class="btn btn-push" onclick="doPush()">pushState</button>
-      <button class="btn btn-replace" onclick="doReplace()">replaceState</button>
-      <button class="btn btn-back" onclick="doBack()">back()</button>
-      <button class="btn btn-forward" onclick="doForward()">forward()</button>
-      <button class="btn btn-go" onclick="doGo()">go(n)</button>
+      <button class="btn btn-push" onclick="doPush()" ti="btn_pushstate">pushState</button>
+      <button class="btn btn-replace" onclick="doReplace()" ti="btn_replacestate">replaceState</button>
+      <button class="btn btn-back" onclick="doBack()" ti="btn_back">back()</button>
+      <button class="btn btn-forward" onclick="doForward()" ti="btn_forward">forward()</button>
+      <button class="btn btn-go" onclick="doGo()" ti="btn_go_n">go(n)</button>
       <input type="number" id="goInput" value="-2" style="width:60px;padding:6px 8px;border-radius:6px;border:1px solid #333;background:#0d0d0d;color:#e6e6e6;font-size:0.82rem;text-align:center">
     </div>
     <div class="btn-row" style="margin-top:6px">
-      <button class="btn btn-clear" onclick="clearLog()">Clear Log</button>
-      <button class="btn btn-reset" onclick="resetAll()">Reset All</button>
+      <button class="btn btn-clear" onclick="clearLog()" ti="btn_clear_log">Clear Log</button>
+      <button class="btn btn-reset" onclick="resetAll()" ti="btn_reset_all">Reset All</button>
     </div>
   </div>
 
@@ -194,19 +196,19 @@ footer a:hover{color:#999}
 
   <!-- State Inspector + URL Pattern -->
   <div class="panel">
-    <h2>State Inspector</h2>
+    <h2 ti="h2_state_inspector">State Inspector</h2>
     <div class="state-inspector empty" id="stateInspector">Click a stack entry to inspect its state object</div>
 
     <div class="pattern-section">
-      <h2 style="margin-top:16px">URL Pattern Matching</h2>
+      <h2 style="margin-top:16px" ti="h2_url_pattern_matching">URL Pattern Matching</h2>
       <div class="control-row">
         <div class="field">
-          <label>Pattern (URLPattern syntax)</label>
-          <input type="text" id="patternInput" placeholder="/users/:id" value="/users/:id">
+          <label ti="label_pattern_urlpattern_syntax">Pattern (URLPattern syntax)</label>
+          <input type="text" id="patternInput" tp="placeholder_users_id" placeholder="/users/:id" value="/users/:id">
         </div>
         <div class="field" style="flex:0 0 auto">
           <label>&nbsp;</label>
-          <button class="btn btn-push" onclick="testPattern()" style="background:#6366f1">Test</button>
+          <button class="btn btn-push" onclick="testPattern()" style="background:#6366f1" ti="btn_test">Test</button>
         </div>
       </div>
       <div class="pattern-result" id="patternResult">Enter a pattern and click Test</div>
@@ -215,13 +217,23 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/history-api-visualizer">GitHub</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> ·
-  Built by <a href="https://github.com/gokuscraper">gokuscraper</a>
+  <a href="https://github.com/gokuscraper/history-api-visualizer" ti="link_github">GitHub</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a> ·
+  Built by <a href="https://github.com/gokuscraper" ti="link_gokuscraper">gokuscraper</a>
 </footer>
 
 </div>
 
+
+<script>var _LANG={'title_history_api_visualizer_in':["History API Visualizer — Interactive Browser Navigation Explorer", "历史 API 可视化工具 — 交互式浏览器导航浏览器"],'metadesc_visualize_the_browser_his':["Visualize the browser History API in real time. See pushState, replaceState, popstate events, inspect state objects, and explore URL pattern matching with 7 presets.", "实时可视化浏览器历史记录 API。查看 pushState、replaceState、popstate 事件，检查状态对象，并使用 7 个预设探索 URL 模式匹配。"],'h1_history_api_visualizer':["History API Visualizer", "历史 API 可视化工具"],'h2_controls':["Controls", "控制"],'h2_state_inspector':["State Inspector", "州督察"],'h2_url_pattern_matching':["URL Pattern Matching", "URL模式匹配"],'btn_spa_routes':["SPA Routes", "SPA路线"],'btn_modal_routing':["Modal Routing", "模态路由"],'btn_query_params':["Query Params", "查询参数"],'btn_nested_routes':["Nested Routes", "嵌套路由"],'btn_hash_navigation':["Hash Navigation", "哈希导航"],'btn_multi_step_wizard':["Multi-Step Wizard", "多步骤向导"],'btn_i18n_routes':["i18n Routes", "i18n 路线"],'btn_pushstate':["pushState", "推送状态"],'btn_replacestate':["replaceState", "替换状态"],'btn_back':["back()", "后退（）"],'btn_forward':["forward()", "向前（）"],'btn_go_n':["go(n)", "go(n)"],'btn_clear_log':["Clear Log", "清除日志"],'btn_reset_all':["Reset All", "全部重置"],'btn_test':["Test", "测试"],'label_current_url':["Current URL:", "当前网址："],'placeholder_dashboard':["/dashboard", "/仪表板"],'placeholder_page_title':["Page title", "页面标题"],'placeholder_page_home_id_1':["{\"page\": \"home\", \"id\": 1}", "{&quot;page&quot;: &quot;首页&quot;, &quot;id&quot;: 1}"],'placeholder_users_id':["/users/:id", "/users/:id"],'label_url_path':["URL Path", "URL 路径"],'label_title_optional':["Title (optional)", "标题（可选）"],'label_state_object_json':["State Object (JSON)", "状态对象（JSON）"],'label_pattern_urlpattern_syntax':["Pattern (URLPattern syntax)", "模式（URLPattern 语法）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gokuscraper':["gokuscraper", "悟空摩天大楼"],'jtc_click_a_stack_entry_to_in':["Click a stack entry to inspect its state object", "单击堆栈条目以检查其状态对象"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // -- Internal tracking (browser history API is opaque, so we mirror it) --
 let stack = [];
@@ -403,7 +415,7 @@ function resetAll() {
   stackIndex = 0;
   logEntries = [];
   logId = 0;
-  $stateInspector.textContent = 'Click a stack entry to inspect its state object';
+  $stateInspector.textContent=T("jtc_click_a_stack_entry_to_in");
   $stateInspector.className = 'state-inspector empty';
   updateUI();
 }
@@ -613,6 +625,24 @@ function esc(s) {
 init();
 // Auto-load SPA preset
 setTimeout(() => loadPreset('spa'), 200);
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

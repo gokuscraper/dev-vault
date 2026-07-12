@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_weakref_gc_visualizer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -89,26 +89,28 @@ header p{color:#888;font-size:0.85rem}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 <header>
-<h1>WeakRef & GC Visualizer</h1>
+<h1 ti="title_weakref_gc_visualizer" ti="h1_weakref_gc_visualizer">WeakRef & GC Visualizer</h1>
 <p>Watch garbage collection reclaim weak references — WeakMap, WeakSet, WeakRef, FinalizationRegistry</p>
 </header>
 
 <div class="tabs">
-<button class="tab active" data-tab="simulator">Simulator</button>
-<button class="tab" data-tab="presets">Presets</button>
-<button class="tab" data-tab="reference">Reference</button>
+<button class="tab active" data-tab="simulator" ti="btn_simulator">Simulator</button>
+<button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+<button class="tab" data-tab="reference" ti="btn_reference">Reference</button>
 </div>
 
 <div class="panel active" id="simulator">
 <div class="controls">
-<button class="btn success" id="createBtn">+ Create Object</button>
-<button class="btn" id="weakMapBtn">+ WeakMap Entry</button>
-<button class="btn" id="weakRefBtn">+ WeakRef</button>
-<button class="btn danger" id="releaseBtn">✕ Release Strong Ref</button>
-<button class="btn danger" id="gcBtn">🗑 Simulate GC</button>
-<button class="btn" id="resetBtn">↺ Reset</button>
+<button class="btn success" id="createBtn" ti="btn_create_object">+ Create Object</button>
+<button class="btn" id="weakMapBtn" ti="btn_weakmap_entry">+ WeakMap Entry</button>
+<button class="btn" id="weakRefBtn" ti="btn_weakref">+ WeakRef</button>
+<button class="btn danger" id="releaseBtn" ti="btn_release_strong_ref">✕ Release Strong Ref</button>
+<button class="btn danger" id="gcBtn" ti="btn_simulate_gc">🗑 Simulate GC</button>
+<button class="btn" id="resetBtn" ti="btn_reset">↺ Reset</button>
 </div>
 
 <div class="memory-meter">
@@ -123,11 +125,11 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="split">
 <div class="viz-panel">
-<h3>Objects & References</h3>
+<h3 ti="h3_objects_references">Objects & References</h3>
 <div id="objContainer"></div>
 </div>
 <div class="log-panel">
-<h3>Event Log</h3>
+<h3 ti="h3_event_log">Event Log</h3>
 <div class="event-log" id="eventLog">
 <div class="log-entry info">Ready. Create objects and references to begin.</div>
 </div>
@@ -141,12 +143,12 @@ header p{color:#888;font-size:0.85rem}
 
 <div class="panel" id="reference">
 <div class="ref-section">
-<h3>Strong vs Weak References</h3>
-<p>A <strong>strong reference</strong> (normal variable assignment) prevents garbage collection. The object stays alive as long as any strong reference exists.</p>
-<p>A <strong>weak reference</strong> (WeakRef, WeakMap, WeakSet) does NOT prevent garbage collection. If the only remaining references to an object are weak, the GC can reclaim it at any time.</p>
+<h3 ti="h3_strong_vs_weak_references">Strong vs Weak References</h3>
+<p>A <strong ti="strong_strong_reference">strong reference</strong> (normal variable assignment) prevents garbage collection. The object stays alive as long as any strong reference exists.</p>
+<p>A <strong ti="strong_weak_reference">weak reference</strong> (WeakRef, WeakMap, WeakSet) does NOT prevent garbage collection. If the only remaining references to an object are weak, the GC can reclaim it at any time.</p>
 </div>
 <div class="ref-section">
-<h3>WeakMap</h3>
+<h3 ti="h3_weakmap">WeakMap</h3>
 <ul>
 <li>Keys must be objects (not primitives)</li>
 <li>Keys are held weakly — if the key object is GC'd, the entry is automatically removed</li>
@@ -155,7 +157,7 @@ header p{color:#888;font-size:0.85rem}
 </ul>
 </div>
 <div class="ref-section">
-<h3>WeakSet</h3>
+<h3 ti="h3_weakset">WeakSet</h3>
 <ul>
 <li>Values must be objects</li>
 <li>Values are held weakly — GC can reclaim them</li>
@@ -164,7 +166,7 @@ header p{color:#888;font-size:0.85rem}
 </ul>
 </div>
 <div class="ref-section">
-<h3>WeakRef</h3>
+<h3 ti="h3_weakref">WeakRef</h3>
 <ul>
 <li>Wraps an object with a weak reference</li>
 <li><code>ref.deref()</code> returns the object if still alive, or <code>undefined</code> if GC'd</li>
@@ -172,7 +174,7 @@ header p{color:#888;font-size:0.85rem}
 </ul>
 </div>
 <div class="ref-section">
-<h3>FinalizationRegistry</h3>
+<h3 ti="h3_finalizationregistry">FinalizationRegistry</h3>
 <ul>
 <li>Registers a callback that fires when an object is garbage collected</li>
 <li>Callback receives a "held value" you specify at registration</li>
@@ -183,6 +185,16 @@ header p{color:#888;font-size:0.85rem}
 </div>
 </div>
 
+
+<script>var _LANG={'title_weakref_gc_visualizer':["WeakRef & GC Visualizer", "WeakRef &amp; GC Visualizer"],'metadesc_interactive_weakref_weakm':["Interactive WeakRef, WeakMap, WeakSet, and FinalizationRegistry visualizer. Watch garbage collection reclaim weak references. Simulate object lifecycle and memory management.", "交互式弱引用、弱映射、弱集合和终结注册表可视化工具。观察垃圾回收如何回收弱引用。模拟对象生命周期和内存管理。"],'h1_weakref_gc_visualizer':["WeakRef & GC Visualizer", "WeakRef &amp; GC Visualizer"],'h3_objects_references':["Objects & References", "对象与引用"],'h3_event_log':["Event Log", "事件日志"],'h3_strong_vs_weak_references':["Strong vs Weak References", "强参考文献与弱参考文献"],'h3_weakmap':["WeakMap", "弱图"],'h3_weakset':["WeakSet", "弱集"],'h3_weakref':["WeakRef", "WeakRef"],'h3_finalizationregistry':["FinalizationRegistry", "最终登记处"],'btn_simulator':["Simulator", "模拟器"],'btn_presets':["Presets", "预设"],'btn_reference':["Reference", "参考"],'btn_create_object':["+ Create Object", "+ 创建对象"],'btn_weakmap_entry':["+ WeakMap Entry", "+ WeakMap入口"],'btn_weakref':["+ WeakRef", "+ WeakRef"],'btn_release_strong_ref':["✕ Release Strong Ref", "✕ 释放强力参考"],'btn_simulate_gc':["🗑 Simulate GC", "🗑 模拟垃圾回收"],'btn_reset':["↺ Reset", "↺ 重置"],'label_variable_reference':["variable reference", "变量引用"],'label_weakref_obj_alive_deref_o':["WeakRef → ${obj.alive ? 'deref() = object' : 'deref() = undefined'}", "WeakRef → ${obj.alive ? &#39;deref() = object&#39; : &#39;deref() = undefined&#39;}"],'label_weakmap_entry_obj_alive_r':["WeakMap: \"${entry}\" ${!obj.alive ? '(removed)' : ''}", "WeakMap: &quot;${entry}&quot; ${!obj.alive ? &#39;(已移除)&#39; : &#39;&#39;}"],'label_finalizationregistry_cb_o':["FinalizationRegistry: \"${cb}\" ${!obj.alive ? '(fired)' : '(pending)'}", "FinalizationRegistry: &quot;${cb}&quot; ${!obj.alive ? &#39;(已触发)&#39; : &#39;(待处理)&#39;}"],'strong_strong_reference':["strong reference", "强参考"],'strong_weak_reference':["weak reference", "弱引用"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let objects = [];
 let nextId = 1;
@@ -376,16 +388,16 @@ function render() {
 
     let refsHTML = '';
     if (obj.strongRef && obj.alive) {
-      refsHTML += `<div class="ref-item"><span class="ref-arrow strong"></span><span class="ref-type strong">strong</span><span class="ref-label">variable reference</span></div>`;
+      refsHTML += `<div class="ref-item"><span class="ref-arrow strong"></span><span class="ref-type strong">strong</span><span class="ref-label" ti="label_variable_reference">variable reference</span></div>`;
     }
     obj.weakRefs.forEach(wr => {
-      refsHTML += `<div class="ref-item"><span class="ref-arrow weak"></span><span class="ref-type weak">weak</span><span class="ref-label">WeakRef → ${obj.alive ? 'deref() = object' : 'deref() = undefined'}</span></div>`;
+      refsHTML += `<div class="ref-item"><span class="ref-arrow weak"></span><span class="ref-type weak">weak</span><span class="ref-label" ti="label_weakref_obj_alive_deref_o">WeakRef → ${obj.alive ? 'deref() = object' : 'deref() = undefined'}</span></div>`;
     });
     obj.weakMapEntries.forEach(entry => {
-      refsHTML += `<div class="ref-item"><span class="ref-arrow weak"></span><span class="ref-type weak">weak</span><span class="ref-label">WeakMap: "${entry}" ${!obj.alive ? '(removed)' : ''}</span></div>`;
+      refsHTML += `<div class="ref-item"><span class="ref-arrow weak"></span><span class="ref-type weak">weak</span><span class="ref-label" ti="label_weakmap_entry_obj_alive_r">WeakMap: "${entry}" ${!obj.alive ? '(removed)' : ''}</span></div>`;
     });
     obj.finalizationCallbacks.forEach(cb => {
-      refsHTML += `<div class="ref-item"><span style="color:#8b5cf6;font-size:0.75rem">📞</span><span class="ref-label" style="color:#8b5cf6">FinalizationRegistry: "${cb}" ${!obj.alive ? '(fired)' : '(pending)'}</span></div>`;
+      refsHTML += `<div class="ref-item"><span style="color:#8b5cf6;font-size:0.75rem">📞</span><span class="ref-label" style="color:#8b5cf6" ti="label_finalizationregistry_cb_o">FinalizationRegistry: "${cb}" ${!obj.alive ? '(fired)' : '(pending)'}</span></div>`;
     });
 
     card.innerHTML = `
@@ -462,6 +474,24 @@ PRESETS.forEach(preset => {
 });
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

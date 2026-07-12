@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_bip39_mnemonic_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,11 +25,15 @@ button.primary:hover{background:#2563eb}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>BIP39 Mnemonic Generator</h1>
-  <p class="desc">Generate BIP39-compatible cryptocurrency wallet mnemonic phrases</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_bip39_mnemonic_generator" ti="h1_bip39_mnemonic_generator" ti="title_bip39_mnemonic_generator" ti="h1_bip39_mnemonic_generator">BIP39 Mnemonic Generator</h1>
+  <p class="desc" ti="subtitle_generate_bip39_compatible" ti="subtitle_generate_bip39_compatible">Generate BIP39-compatible cryptocurrency wallet mnemonic phrases</p>
   <div class="card">
-    <label>Entropy (bits)</label>
+    <label ti="label_entropy_bits" ti="label_entropy_bits">Entropy (bits)</label>
     <select id="entropy">
       <option value="128">128 (12 words)</option>
       <option value="160">160 (15 words)</option>
@@ -37,20 +41,30 @@ button.primary:hover{background:#2563eb}
       <option value="224">224 (21 words)</option>
       <option value="256" selected>256 (24 words)</option>
     </select>
-    <label>Passphrase (optional)</label>
-    <input type="text" id="passphrase" placeholder="Optional passphrase" spellcheck="false">
-    <button class="primary" id="generateBtn" style="width:100%;margin-bottom:12px">Generate Mnemonic</button>
-    <label>Mnemonic</label>
+    <label ti="label_passphrase_optional" ti="label_passphrase_optional">Passphrase (optional)</label>
+    <input type="text" id="passphrase" tp="placeholder_optional_passphrase" tp="placeholder_optional_passphrase" placeholder="Optional passphrase" spellcheck="false">
+    <button class="primary" id="generateBtn" style="width:100%;margin-bottom:12px" ti="btn_generate_mnemonic" ti="btn_generate_mnemonic">Generate Mnemonic</button>
+    <label ti="label_mnemonic" ti="label_mnemonic">Mnemonic</label>
     <div class="mnemonic-box" id="mnemonicOutput"></div>
-    <label>Seed (hex)</label>
+    <label ti="label_seed_hex" ti="label_seed_hex">Seed (hex)</label>
     <div class="seed-box" id="seedOutput"></div>
     <div class="flex-center">
-      <button id="copyMnemonic">Copy Mnemonic</button>
-      <button id="copySeed">Copy Seed</button>
+      <button id="copyMnemonic" ti="btn_copy_mnemonic" ti="btn_copy_mnemonic">Copy Mnemonic</button>
+      <button id="copySeed" ti="btn_copy_seed" ti="btn_copy_seed">Copy Seed</button>
     </div>
     <p style="color:#666;font-size:0.75rem;margin-top:10px;text-align:center">Uses PBKDF2 with 2048 iterations per BIP39 standard. Entropy is cryptographically secure.</p>
   </div>
 </div>
+
+<script>var _LANG={'title_bip39_mnemonic_generator':["BIP39 Mnemonic Generator", "BIP39 助记词生成器"],'metadesc_generate_bip39_mnemonic_p':["Generate BIP39 mnemonic phrases for cryptocurrency wallets. Supports 128–256 bit entropy with optional passphrase. Compatible with any BIP39 wallet.", "为加密货币钱包生成 BIP39 助记词短语。支持 128-256 位熵及可选密码短语。兼容任何 BIP39 钱包。"],'h1_bip39_mnemonic_generator':["BIP39 Mnemonic Generator", "BIP39 助记词生成器"],'subtitle_generate_bip39_compatible':["Generate BIP39-compatible cryptocurrency wallet mnemonic phrases", "生成 BIP39 兼容的加密货币钱包助记词短语"],'btn_generate_mnemonic':["Generate Mnemonic", "生成助记词"],'btn_copy_mnemonic':["Copy Mnemonic", "复制助记词"],'btn_copy_seed':["Copy Seed", "复制种子"],'placeholder_optional_passphrase':["Optional passphrase", "可选密码短语"],'label_entropy_bits':["Entropy (bits)", "熵（位）"],'label_passphrase_optional':["Passphrase (optional)", "密码短语（可选）"],'label_mnemonic':["Mnemonic", "助记词"],'label_seed_hex':["Seed (hex)", "种子（十六进制）"],'jtc_error_generating_seed':["Error generating seed", "生成种子错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Minimal BIP39 English wordlist (top 256 for demo -- full list would be 2048)
 // Using a compact approach: embed the full BIP39 English wordlist
@@ -127,7 +141,7 @@ async function generate() {
     const seed = await mnemonicToSeed(currentMnemonic, passphrase);
     document.getElementById('seedOutput').textContent = seed;
   } catch(e) {
-    document.getElementById('seedOutput').textContent = 'Error generating seed';
+    document.getElementById('seedOutput').textContent=T("jtc_error_generating_seed");
   }
 }
 
@@ -140,6 +154,46 @@ document.getElementById('copySeed').addEventListener('click', () => {
 });
 
 generate();
+</script>
+<script>var _LANG={'title_bip39_mnemonic_generator':["BIP39 Mnemonic Generator", "BIP39 助记词生成器"],'metadesc_generate_bip39_mnemonic_p':["Generate BIP39 mnemonic phrases for cryptocurrency wallets. Supports 128–256 bit entropy with optional passphrase. Compatible with any BIP39 wallet.", "为加密货币钱包生成 BIP39 助记词短语。支持 128-256 位熵及可选密码短语。兼容任何 BIP39 钱包。"],'h1_bip39_mnemonic_generator':["BIP39 Mnemonic Generator", "BIP39 助记词生成器"],'subtitle_generate_bip39_compatible':["Generate BIP39-compatible cryptocurrency wallet mnemonic phrases", "生成 BIP39 兼容的加密货币钱包助记词短语"],'btn_generate_mnemonic':["Generate Mnemonic", "生成助记词"],'btn_copy_mnemonic':["Copy Mnemonic", "复制助记词"],'btn_copy_seed':["Copy Seed", "复制种子"],'placeholder_optional_passphrase':["Optional passphrase", "可选密码短语"],'label_entropy_bits':["Entropy (bits)", "熵（位）"],'label_passphrase_optional':["Passphrase (optional)", "密码短语（可选）"],'label_mnemonic':["Mnemonic", "助记词"],'label_seed_hex':["Seed (hex)", "种子（十六进制）"],'jtc_error_generating_seed':["Error generating seed", "生成种子错误"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

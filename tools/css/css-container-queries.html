@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_container_queries_pla" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -584,6 +584,8 @@ body {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1>
@@ -604,7 +606,7 @@ body {
         <button class="preset-btn active" data-preset="card">
           <span class="preset-icon">&#9634;</span>
           Responsive Card
-          <span class="preset-label">Layout shifts</span>
+          <span class="preset-label" ti="label_layout_shifts">Layout shifts</span>
         </button>
         <button class="preset-btn" data-preset="nav">
           <span class="preset-icon">&#9776;</span>
@@ -619,7 +621,7 @@ body {
         <button class="preset-btn" data-preset="sidebar">
           <span class="preset-icon">&#9881;</span>
           Sidebar
-          <span class="preset-label">Show/hide</span>
+          <span class="preset-label" ti="label_show_hide">Show/hide</span>
         </button>
       </div>
     </div>
@@ -628,16 +630,16 @@ body {
     <div class="section">
       <div class="section-title">Container Settings</div>
       <div class="control-group">
-        <label class="control-label">container-type</label>
+        <label class="control-label" ti="label_container_type">container-type</label>
         <div class="radio-group" id="containerTypeGroup">
-          <button class="radio-btn active" data-value="inline-size">inline-size</button>
-          <button class="radio-btn" data-value="size">size</button>
-          <button class="radio-btn" data-value="normal">normal</button>
+          <button class="radio-btn active" data-value="inline-size" ti="btn_inline_size">inline-size</button>
+          <button class="radio-btn" data-value="size" ti="btn_size">size</button>
+          <button class="radio-btn" data-value="normal" ti="btn_normal">normal</button>
         </div>
       </div>
       <div class="control-group">
-        <label class="control-label">container-name</label>
-        <input type="text" class="text-input" id="containerName" value="card" placeholder="e.g. card, sidebar, layout">
+        <label class="control-label" ti="label_container_name">container-name</label>
+        <input type="text" class="text-input" id="containerName" value="card" tp="placeholder_e_g_card_sidebar_layout" placeholder="e.g. card, sidebar, layout">
       </div>
     </div>
 
@@ -645,13 +647,13 @@ body {
     <div class="section">
       <div class="section-title">@container Rules</div>
       <div class="rules-list" id="rulesList"></div>
-      <button class="add-rule-btn" id="addRuleBtn">+ Add Rule</button>
+      <button class="add-rule-btn" id="addRuleBtn" ti="btn_add_rule">+ Add Rule</button>
     </div>
 
     <!-- CSS Output -->
     <div class="section css-output-section">
       <div class="section-title">Generated CSS</div>
-      <button class="copy-btn" id="copyBtn">Copy</button>
+      <button class="copy-btn" id="copyBtn" ti="btn_copy">Copy</button>
       <div class="css-output" id="cssOutput"></div>
     </div>
 
@@ -660,7 +662,7 @@ body {
   <!-- Preview Panel -->
   <div class="preview-panel">
     <div class="preview-header">
-      <h2>Live Preview</h2>
+      <h2 ti="h2_live_preview">Live Preview</h2>
       <div style="display:flex;align-items:center;">
         <span class="active-queries" id="activeQueries"></span>
         <span class="width-indicator" id="widthIndicator">400px</span>
@@ -683,6 +685,16 @@ body {
 <!-- Dynamic style injection -->
 <style id="dynamicStyles"></style>
 
+
+<script>var _LANG={'title_css_container_queries_pla':["CSS Container Queries Playground — Dev Vault", "CSS容器查询练习场 — 开发者宝库"],'metadesc_interactive_container_que':["Interactive container queries playground. Resize containers, see @container rules trigger in real-time. Visual CSS container query builder.", "交互式容器查询演示。调整容器大小，实时查看 @container 规则触发情况。可视化 CSS 容器查询构建器。"],'h2_live_preview':["Live Preview", "实时预览"],'btn_inline_size':["inline-size", "内联大小"],'btn_size':["size", "尺寸"],'btn_normal':["normal", "普通的"],'btn_add_rule':["+ Add Rule", "+ 添加规则"],'btn_copy':["Copy", "复制"],'label_layout_shifts':["Layout shifts", "布局变化"],'label_h_v':["H ↔ V", "H ↔ V"],'label_1_2_3_cols':["1→2→3 cols", "1→2→3 列"],'label_show_hide':["Show/hide", "显示/隐藏"],'label_x':["${x}", "${x}"],'placeholder_e_g_card_sidebar_layout':["e.g. card, sidebar, layout", "例如卡片、侧边栏、布局"],'label_container_type':["container-type", "容器类型"],'label_container_name':["container-name", "容器名称"],'footer_css_container_queries_pla':["CSS Container Queries Playground — Dev Vault", "CSS容器查询练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_px':["px", "像素"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (function() {
   'use strict';
@@ -913,7 +925,7 @@ body {
     for (let x = 0; x <= w; x += step) {
       if (x === 0) continue;
       const pct = (x / w) * 100;
-      els.widthRuler.innerHTML += `<span class="ruler-tick" style="left:${pct}%"></span><span class="ruler-label" style="left:${pct}%">${x}</span>`;
+      els.widthRuler.innerHTML += `<span class="ruler-tick" style="left:${pct}%"></span><span class="ruler-label" style="left:${pct}%" ti="label_x">${x}</span>`;
     }
 
     // Mark breakpoints
@@ -1064,10 +1076,10 @@ body {
   els.copyBtn.addEventListener('click', () => {
     const css = els.dynamicStyles.textContent;
     navigator.clipboard.writeText(css).then(() => {
-      els.copyBtn.textContent = 'Copied!';
+      els.copyBtn.textContent=T("jtc_copied");
       els.copyBtn.classList.add('copied');
       setTimeout(() => {
-        els.copyBtn.textContent = 'Copy';
+        els.copyBtn.textContent=T("jtc_copy");
         els.copyBtn.classList.remove('copied');
       }, 2000);
     });
@@ -1076,6 +1088,24 @@ body {
   // Init
   loadPreset('card');
   renderPreviewContent();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

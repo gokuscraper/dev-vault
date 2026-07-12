@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_commit_msg_git_commit_mes" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -85,45 +85,53 @@ footer .links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <div class="container">
+  <div class="container" style="position:relative">
     <h1><span class="icon">&#9998;</span> commit-msg</h1>
     <p>Generate conventional commit messages from your git diff</p>
   </div>
 </header>
 
 <main>
-  <div class="container">
+  <div class="container" style="position:relative">
     <div class="examples">
-      <h2>Try an example</h2>
+      <h2 ti="h2_try_an_example" ti="h2_try_an_example" ti="h2_try_an_example" ti="h2_try_an_example">Try an example</h2>
       <div class="example-chips">
-        <button class="chip" data-example="feat" onclick="loadExample('feat')">New feature</button>
-        <button class="chip" data-example="fix" onclick="loadExample('fix')">Bug fix</button>
-        <button class="chip" data-example="refactor" onclick="loadExample('refactor')">Refactor</button>
-        <button class="chip" data-example="docs" onclick="loadExample('docs')">Documentation</button>
-        <button class="chip" data-example="breaking" onclick="loadExample('breaking')">Breaking change</button>
+        <button class="chip" data-example="feat" onclick="loadExample('feat')" ti="btn_new_feature" ti="btn_new_feature" ti="btn_new_feature" ti="btn_new_feature">New feature</button>
+        <button class="chip" data-example="fix" onclick="loadExample('fix')" ti="btn_bug_fix" ti="btn_bug_fix" ti="btn_bug_fix" ti="btn_bug_fix">Bug fix</button>
+        <button class="chip" data-example="refactor" onclick="loadExample('refactor')" ti="btn_refactor" ti="btn_refactor" ti="btn_refactor" ti="btn_refactor">Refactor</button>
+        <button class="chip" data-example="docs" onclick="loadExample('docs')" ti="btn_documentation" ti="btn_documentation" ti="btn_documentation" ti="btn_documentation">Documentation</button>
+        <button class="chip" data-example="breaking" onclick="loadExample('breaking')" ti="btn_breaking_change" ti="btn_breaking_change" ti="btn_breaking_change" ti="btn_breaking_change">Breaking change</button>
       </div>
     </div>
 
     <div class="grid">
       <div class="panel">
-        <h2>Input</h2>
+        <h2 ti="h2_input" ti="h2_input" ti="h2_input" ti="h2_input">Input</h2>
         <textarea id="diffInput" placeholder="Paste your git diff here...&#10;&#10;Tip: run `git diff --staged` and paste the output"></textarea>
-        <input type="text" id="descInput" placeholder="Optional: describe the changes in plain English">
+        <input type="text" id="descInput" tp="placeholder_optional_describe_the_cha" tp="placeholder_optional_describe_the_cha" tp="placeholder_optional_describe_the_cha" tp="placeholder_optional_describe_the_cha" placeholder="Optional: describe the changes in plain English">
         <div class="btn-row">
-          <button class="btn btn-primary" onclick="analyze()">Generate Commit Message</button>
-          <button class="btn" onclick="clearAll()">Clear</button>
+          <button class="btn btn-primary" onclick="analyze()" ti="btn_generate_commit_message" ti="btn_generate_commit_message" ti="btn_generate_commit_message" ti="btn_generate_commit_message">Generate Commit Message</button>
+          <button class="btn" onclick="clearAll()" ti="btn_clear" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
         </div>
       </div>
 
       <div class="panel" id="outputPanel">
-        <h2>Diff Analysis</h2>
+        <h2 ti="h2_diff_analysis" ti="h2_diff_analysis" ti="h2_diff_analysis" ti="h2_diff_analysis">Diff Analysis</h2>
         <div id="analysisArea">
           <div class="empty-state">Paste a diff and click Generate to see analysis</div>
         </div>
 
         <div id="outputArea" style="display:none">
-          <h2 style="margin-top:20px">Commit Message</h2>
+          <h2 style="margin-top:20px" ti="h2_commit_message" ti="h2_commit_message" ti="h2_commit_message" ti="h2_commit_message">Commit Message</h2>
           <div class="output-section" id="outputSection"></div>
         </div>
       </div>
@@ -132,15 +140,45 @@ footer .links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin
 </main>
 
 <footer>
-  <div class="container">
+  <div class="container" style="position:relative">
     Built by <a href="https://github.com/gokuscraper" target="_blank">gokuscraper</a>
     <div class="links">
-      <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">dev-toolkit</a>
+      <a href="https://gokuscraper.github.io/dev-vault/" target="_bla
+
+<script>var _LANG={'title_commit_msg_git_commit_mes':["commit-msg — Git Commit Message Generator", "commit-msg — Git 提交消息生成器"],'metadesc_generate_well_formatted_c':["Generate well-formatted conventional commit messages from your git diff. Analyzes file types, detects change patterns, and outputs Conventional Commits spec messages.", "从 git diff 生成格式良好的常规提交消息。分析文件类型，检测变更模式，并输出常规提交规范消息。"],'h2_try_an_example':["Try an example", "尝试一个例子"],'h2_input':["Input", "输入"],'h2_diff_analysis':["Diff Analysis", "差异分析"],'h2_commit_message':["Commit Message", "提交信息"],'btn_new_feature':["New feature", "新功能"],'btn_bug_fix':["Bug fix", "错误修复"],'btn_refactor':["Refactor", "重构"],'btn_documentation':["Documentation", "文档"],'btn_breaking_change':["Breaking change", "重大变化"],'btn_generate_commit_message':["Generate Commit Message", "生成提交消息"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_full_message':["Copy Full Message", "复制完整消息"],'placeholder_paste_your_git_diff_here':["Paste your git diff here...\n\nTip: run `git diff --staged` and paste the output", "请在此处粘贴您的 git diff 信息……提示：运行 `git diff --staged` 并粘贴输出结果"],'placeholder_optional_describe_the_cha':["Optional: describe the changes in plain English", "（可选）用通俗易懂的语言描述变化"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_additions':["Additions", "新增内容"],'jtlword_deletions':["Deletions", "删除"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_commit_msg_git_commit_mes':["commit-msg — Git Commit Message Generator", "commit-msg — Git 提交消息生成器"],'metadesc_generate_well_formatted_c':["Generate well-formatted conventional commit messages from your git diff. Analyzes file types, detects change patterns, and outputs Conventional Commits spec messages.", "从 git diff 生成格式良好的常规提交消息。分析文件类型，检测变更模式，并输出常规提交规范消息。"],'h2_try_an_example':["Try an example", "尝试一个例子"],'h2_input':["Input", "输入"],'h2_diff_analysis':["Diff Analysis", "差异分析"],'h2_commit_message':["Commit Message", "提交信息"],'btn_new_feature':["New feature", "新功能"],'btn_bug_fix':["Bug fix", "错误修复"],'btn_refactor':["Refactor", "重构"],'btn_documentation':["Documentation", "文档"],'btn_breaking_change':["Breaking change", "重大变化"],'btn_generate_commit_message':["Generate Commit Message", "生成提交消息"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_full_message':["Copy Full Message", "复制完整消息"],'placeholder_paste_your_git_diff_here':["Paste your git diff here...\n\nTip: run `git diff --staged` and paste the output", "请在此处粘贴您的 git diff 信息……提示：运行 `git diff --staged` 并粘贴输出结果"],'placeholder_optional_describe_the_cha':["Optional: describe the changes in plain English", "（可选）用通俗易懂的语言描述变化"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_additions':["Additions", "新增内容"],'jtlword_deletions':["Deletions", "删除"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+nk">dev-toolkit</a>
       <a href="https://github.com/gokuscraper/commit-msg" target="_blank">Source</a>
     </div>
   </div>
 </footer>
 
+
+<script>var _LANG={'title_commit_msg_git_commit_mes':["commit-msg — Git Commit Message Generator", "commit-msg — Git 提交消息生成器"],'metadesc_generate_well_formatted_c':["Generate well-formatted conventional commit messages from your git diff. Analyzes file types, detects change patterns, and outputs Conventional Commits spec messages.", "从 git diff 生成格式良好的常规提交消息。分析文件类型，检测变更模式，并输出常规提交规范消息。"],'h2_try_an_example':["Try an example", "尝试一个例子"],'h2_input':["Input", "输入"],'h2_diff_analysis':["Diff Analysis", "差异分析"],'h2_commit_message':["Commit Message", "提交信息"],'btn_new_feature':["New feature", "新功能"],'btn_bug_fix':["Bug fix", "错误修复"],'btn_refactor':["Refactor", "重构"],'btn_documentation':["Documentation", "文档"],'btn_breaking_change':["Breaking change", "重大变化"],'btn_generate_commit_message':["Generate Commit Message", "生成提交消息"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'btn_copy_3':["Copy", "复制"],'btn_copy_full_message':["Copy Full Message", "复制完整消息"],'placeholder_paste_your_git_diff_here':["Paste your git diff here...\n\nTip: run `git diff --staged` and paste the output", "请在此处粘贴您的 git diff 信息……提示：运行 `git diff --staged` 并粘贴输出结果"],'placeholder_optional_describe_the_cha':["Optional: describe the changes in plain English", "（可选）用通俗易懂的语言描述变化"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_additions':["Additions", "新增内容"],'jtlword_deletions':["Deletions", "删除"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Example diffs ──
 const EXAMPLES = {
@@ -653,7 +691,7 @@ function analyze() {
   let outputHtml = `
     <div class="output-block">
       <div class="label">Subject line</div>
-      <button class="copy-btn" onclick="copyText(this, '${escapeAttr(subject)}')">Copy</button>
+      <button class="copy-btn" onclick="copyText(this, '${escapeAttr(subject)}')" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3" ti="btn_copy" ti="btn_copy_2" ti="btn_copy_3">Copy</button>
       <span style="color:var(--accent);font-weight:600">${escapeHtml(subject)}</span>
     </div>
   `;
@@ -680,7 +718,7 @@ ${escapeHtml(body)}
   }
 
   outputHtml += `
-    <button class="btn btn-primary full-msg-btn" onclick="copyText(this, '${escapeAttr(fullMsg)}')">Copy Full Message</button>
+    <button class="btn btn-primary full-msg-btn" onclick="copyText(this, '${escapeAttr(fullMsg)}')" ti="btn_copy_full_message" ti="btn_copy_full_message" ti="btn_copy_full_message" ti="btn_copy_full_message">Copy Full Message</button>
   `;
 
   document.getElementById('outputSection').innerHTML = outputHtml;
@@ -694,9 +732,9 @@ function copyText(btn, text) {
   // Unescape the text
   const decoded = text.replace(/\\n/g, '\n').replace(/\\'/g, "'").replace(/\\\\/g, '\\');
   navigator.clipboard.writeText(decoded).then(() => {
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
-    setTimeout(() => { btn.textContent = 'Copy'; btn.classList.remove('copied'); }, 1500);
+    setTimeout(() => { btn.textContent=T("jtc_copy"); btn.classList.remove('copied'); }, 1500);
   });
 }
 
@@ -714,6 +752,78 @@ function clearAll() {
   document.getElementById('analysisArea').innerHTML = '<div class="empty-state">Paste a diff and click Generate to see analysis</div>';
   document.getElementById('outputArea').style.display = 'none';
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

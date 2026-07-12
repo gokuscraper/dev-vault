@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_random_port_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,12 +28,14 @@ button.primary:hover{background:#2563eb}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Random Port Generator</h1>
-  <p class="desc">Generate random TCP/UDP port numbers with IANA category info</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_random_port_generator" ti="h1_random_port_generator">Random Port Generator</h1>
+  <p class="desc" ti="subtitle_generate_random_tcp_udp_p">Generate random TCP/UDP port numbers with IANA category info</p>
   <div class="card">
     <div class="row">
-      <label>Port range</label>
+      <label ti="label_port_range">Port range</label>
       <select id="range">
         <option value="all">All (0–65535)</option>
         <option value="well-known" selected>Well-known (0–1023)</option>
@@ -42,16 +44,26 @@ button.primary:hover{background:#2563eb}
       </select>
     </div>
     <div class="row">
-      <label>Quantity</label>
+      <label ti="label_quantity">Quantity</label>
       <input type="number" id="quantity" value="1" min="1" max="20">
     </div>
     <div class="flex-center" style="margin-top:8px">
-      <button class="primary" id="generateBtn">Generate</button>
-      <button id="copyBtn">Copy</button>
+      <button class="primary" id="generateBtn" ti="btn_generate">Generate</button>
+      <button id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div id="portsList"></div>
   </div>
 </div>
+
+<script>var _LANG={'title_random_port_generator':["Random Port Generator", "随机端口生成器"],'metadesc_generate_random_tcp_udp_p':["Generate random TCP/UDP port numbers. Choose from well-known, registered, or dynamic port ranges. Includes IANA port category info.", "生成随机 TCP/UDP 端口号。可选择常用端口范围、已注册端口范围或动态端口范围。包含 IANA 端口类别信息。"],'h1_random_port_generator':["Random Port Generator", "随机端口生成器"],'subtitle_generate_random_tcp_udp_p':["Generate random TCP/UDP port numbers with IANA category info", "使用 IANA 类别信息生成随机 TCP/UDP 端口号"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'label_port_range':["Port range", "端口范围"],'label_quantity':["Quantity", "数量"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const ranges = {
   'all': [0, 65535],
@@ -93,6 +105,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
 });
 
 generate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

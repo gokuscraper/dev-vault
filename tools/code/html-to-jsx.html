@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_html_to_jsx" lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -255,9 +255,11 @@
   </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
+  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
   <span class="header-title">HTML to JSX</span>
   <span class="header-badge">
     <span id="convCount" class="conversion-count">0</span> conversions
@@ -265,22 +267,22 @@
 </header>
 
 <div class="toolbar">
-  <span class="toolbar-label">Samples:</span>
-  <button onclick="loadSample('form')">Form</button>
-  <button onclick="loadSample('table')">Table</button>
-  <button onclick="loadSample('nav')">Nav</button>
-  <button onclick="loadSample('card')">Card</button>
-  <button onclick="loadSample('svg')">SVG</button>
+  <span class="toolbar-label" ti="label_samples">Samples:</span>
+  <button onclick="loadSample('form')" ti="btn_form">Form</button>
+  <button onclick="loadSample('table')" ti="btn_table">Table</button>
+  <button onclick="loadSample('nav')" ti="btn_nav">Nav</button>
+  <button onclick="loadSample('card')" ti="btn_card">Card</button>
+  <button onclick="loadSample('svg')" ti="btn_svg">SVG</button>
   <div class="divider"></div>
-  <button class="btn-paste" onclick="pasteHTML()">⎘ Paste HTML</button>
-  <button class="btn-clear" onclick="clearAll()">✕ Clear</button>
+  <button class="btn-paste" onclick="pasteHTML()" ti="btn_paste_html">⎘ Paste HTML</button>
+  <button class="btn-clear" onclick="clearAll()" ti="btn_clear">✕ Clear</button>
 </div>
 
 <div class="panels">
   <!-- Input -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-label">HTML Input</span>
+      <span class="panel-label" ti="label_html_input">HTML Input</span>
       <div class="panel-actions">
         <span id="htmlLines" style="font-size:11px;color:var(--text2);">0 lines</span>
       </div>
@@ -292,9 +294,9 @@
   <!-- Output -->
   <div class="panel">
     <div class="panel-header">
-      <span class="panel-label">JSX Output</span>
+      <span class="panel-label" ti="label_jsx_output">JSX Output</span>
       <div class="panel-actions">
-        <button class="btn-copy" id="copyBtn" onclick="copyJSX()">⎘ Copy JSX</button>
+        <button class="btn-copy" id="copyBtn" onclick="copyJSX()" ti="btn_copy_jsx">⎘ Copy JSX</button>
       </div>
     </div>
     <div class="output-area" id="jsxOutput"></div>
@@ -307,6 +309,16 @@
   <span class="status-item" id="statusInfo" style="margin-left:auto;color:var(--text2);">HTML to JSX Converter</span>
 </div>
 
+
+<script>var _LANG={'title_html_to_jsx':["HTML to JSX", "HTML 转 JSX"],'metadesc_convert_html_to_jsx_insta':["Convert HTML to JSX instantly. Transforms class to className, style strings to objects, and self-closes void elements for React components.", "立即将 HTML 转换为 JSX。将类名转换为类名，将样式字符串转换为对象，并为 React 组件自动闭合空元素。"],'h2_jane_doe':["Jane Doe", "简·多伊"],'btn_form':["Form", "形式"],'btn_table':["Table", "桌子"],'btn_nav':["Nav", "导航"],'btn_card':["Card", "卡片"],'btn_svg':["SVG", "SVG"],'btn_paste_html':["⎘ Paste HTML", "粘贴 HTML"],'btn_clear':["✕ Clear", "✕ 清除"],'btn_copy_jsx':["⎘ Copy JSX", "⎘ 复制 JSX"],'btn_sign_in':["Sign In", "登入"],'btn_follow':["Follow", "跟随"],'btn_message':["Message", "信息"],'label_samples':["Samples:", "示例："],'label_html_input':["HTML Input", "HTML 输入"],'label_jsx_output':["JSX Output", "JSX 输出"],'placeholder_paste_your_html_here_the':["Paste your HTML here...\n\nThe converter handles:\n• class → className\n• for → htmlFor\n• Inline styles → objects\n• Event handlers → camelCase\n• Self-closing tags\n• HTML comments → JSX comments\n• and more...", "请在此处粘贴您的 HTML 代码……转换器支持：• class → className • for → htmlFor • 内联样式 → 对象 • 事件处理程序 → camelCase • 自闭合标签 • HTML 注释 → JSX 注释 • 以及更多……"],'strong_related_tools':["Related Tools", "相关工具"],'th_name':["Name", "姓名"],'th_role':["Role", "角色"],'th_status':["Status", "地位"],'label_email':["Email", "电子邮件"],'label_password':["Password", "密码"],'label_remember_me':["Remember me", "记住账号"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_copied':["✓ Copied!", "✓ 已复制！"],'jtc_0_lines':["0 lines", "0 行"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─────────────────────────────────────────────
 // Conversion engine
@@ -630,7 +642,7 @@ function copyJSX() {
   navigator.clipboard.writeText(lastJSX).then(() => {
     const btn = document.getElementById('copyBtn');
     const orig = btn.textContent;
-    btn.textContent = '✓ Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1800);
   });
@@ -652,7 +664,7 @@ function clearAll() {
   document.getElementById('htmlInput').value = '';
   document.getElementById('jsxOutput').innerHTML = '';
   document.getElementById('convCount').textContent = '0';
-  document.getElementById('htmlLines').textContent = '0 lines';
+  document.getElementById('htmlLines').textContent=T("jtc_0_lines");
   document.getElementById('statusChanges').textContent = '';
   lastJSX = '';
 }
@@ -664,7 +676,7 @@ function clearAll() {
 const SAMPLES = {
   form: `<form class="login-form" onsubmit="handleSubmit(event)" novalidate>
   <div class="form-group">
-    <label for="email" style="font-weight:bold;color:#333">Email</label>
+    <label for="email" style="font-weight:bold;color:#333" ti="label_email">Email</label>
     <input
       type="email"
       id="email"
@@ -676,7 +688,7 @@ const SAMPLES = {
     />
   </div>
   <div class="form-group">
-    <label for="pass">Password</label>
+    <label for="pass" ti="label_password">Password</label>
     <input
       type="password"
       id="pass"
@@ -688,9 +700,9 @@ const SAMPLES = {
   </div>
   <div class="form-check">
     <input type="checkbox" id="remember" checked />
-    <label for="remember">Remember me</label>
+    <label for="remember" ti="label_remember_me">Remember me</label>
   </div>
-  <button type="submit" class="btn btn-primary" onclick="handleClick(event)">
+  <button type="submit" class="btn btn-primary" onclick="handleClick(event)" ti="btn_sign_in">
     Sign In
   </button>
 </form>`,
@@ -698,9 +710,9 @@ const SAMPLES = {
   table: `<table class="data-table" cellpadding="8" cellspacing="0">
   <thead>
     <tr>
-      <th colspan="2" style="background-color:#f5f5f5;text-align:left">Name</th>
-      <th>Role</th>
-      <th>Status</th>
+      <th colspan="2" style="background-color:#f5f5f5;text-align:left" ti="th_name">Name</th>
+      <th ti="th_role">Role</th>
+      <th ti="th_status">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -752,7 +764,7 @@ const SAMPLES = {
     style="width:100%;height:200px;object-fit:cover"
   />
   <div class="card-body" style="padding:16px">
-    <h2 class="card-title" style="font-size:20px;margin-bottom:8px">Jane Doe</h2>
+    <h2 class="card-title" style="font-size:20px;margin-bottom:8px" ti="h2_jane_doe">Jane Doe</h2>
     <p class="card-subtitle" style="color:#666;font-size:14px">Full Stack Developer</p>
     <hr style="margin:12px 0;border:none;border-top:1px solid #eee" />
     <p class="card-text">Building great products one component at a time.</p>
@@ -761,11 +773,11 @@ const SAMPLES = {
         class="btn btn-primary"
         style="background-color:#0070f3;color:white;border:none;padding:8px 16px;border-radius:6px"
         onclick="followUser('jane')"
-      >Follow</button>
+       ti="btn_follow">Follow</button>
       <button
         class="btn btn-secondary"
         style="background-color:transparent;border:1px solid #ddd;padding:8px 16px;border-radius:6px"
-      >Message</button>
+       ti="btn_message">Message</button>
     </div>
   </div>
 </div>`,
@@ -801,12 +813,30 @@ function loadSample(name) {
 document.getElementById('htmlInput').addEventListener('input', onInput);
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/html-escape/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Escape</a>
 <a href="https://gokuscraper.github.io/dev-vault/tailwind-converter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Tailwind Converter</a>
 <a href="https://gokuscraper.github.io/dev-vault/html-minifier/" style="color:#4da6ff;text-decoration:none;margin:0 8px">HTML Minifier</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-to-ts/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON → TS</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

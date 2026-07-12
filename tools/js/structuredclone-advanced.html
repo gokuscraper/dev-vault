@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_structuredclone_advanced" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,6 +150,8 @@ code {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
   <h1><span>structuredClone</span> Advanced Playground</h1>
   <p>Deep cloning, type support, transfers, and performance — all interactive</p>
@@ -158,9 +160,19 @@ code {
 <nav id="nav"></nav>
 <main id="main"></main>
 
+
+<script>var _LANG={'title_structuredclone_advanced':["structuredClone Advanced Playground", "结构化克隆高级游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for structuredClone — deep clone demos, supported types matrix, transfer lists, performance benchmarks, and more.", "structuredClone 的交互式游乐场——深度克隆演示、支持的类型矩阵、传输列表、性能基准测试等等。"],'h3_deep_clone_vs_shallow_clo':["Deep Clone vs Shallow Clone", "深克隆与浅克隆"],'h3_spread_operator_trap':["Spread Operator Trap", "扩散操作员陷阱"],'h3_supported_types_matrix':["Supported Types Matrix", "支持的类型矩阵"],'h3_unsupported_types':["Unsupported Types", "不支持的类型"],'h3_what_gets_lost':["What Gets Lost", "丢失的东西"],'h3_transfer_list_demo':["Transfer List Demo", "转会名单演示"],'h3_transfer_vs_clone_perform':["Transfer vs Clone Performance", "转移与克隆性能对比"],'h3_performance_json_parse_vs':["Performance: JSON.parse vs structuredClone", "性能：JSON.parse 与 structuredClone 的比较"],'h3_circular_reference_handli':["Circular Reference Handling", "循环引用处理"],'h3_complex_circular_structur':["Complex Circular Structures", "复杂环状结构"],'h3_custom_class_serializatio':["Custom Class Serialization Patterns", "自定义类序列化模式"],'h3_immutable_state_pattern_r':["Immutable State Pattern (Redux-like)", "不可变状态模式（类似 Redux）"],'h3_safe_defaults_pattern':["Safe Defaults Pattern", "安全默认模式"],'btn_run_demo':["Run Demo", "运行演示"],'btn_run_demo_2':["Run Demo", "运行演示"],'btn_test_all_types':["Test All Types", "测试所有类型"],'btn_test_unsupported_types':["Test Unsupported Types", "测试不支持的类型"],'btn_run_demo_3':["Run Demo", "运行演示"],'btn_run_transfer_demo':["Run Transfer Demo", "运行传输演示"],'btn_benchmark_64mb_buffer':["Benchmark (64MB buffer)", "基准测试（64MB 缓冲区）"],'btn_run_benchmark_10_000_iter':["Run Benchmark (10,000 iterations)", "运行基准测试（10,000 次迭代）"],'btn_run_demo_4':["Run Demo", "运行演示"],'btn_run_demo_5':["Run Demo", "运行演示"],'btn_run_all_patterns':["Run All Patterns", "运行所有模式"],'btn_run_demo_6':["Run Demo", "运行演示"],'btn_run_demo_7':["Run Demo", "运行演示"],'label_label':["${label}:", "${label}:"],'th_type':["Type", "类型"],'th_structuredclone':["structuredClone", "结构化克隆"],'th_json_roundtrip':["JSON roundtrip", "JSON 往返"],'th_preserved':["Preserved?", "保存下来了吗？"],'jtlword_datacloneerror':["DataCloneError", "数据克隆错误"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function ln(label, value, cls='value') {
-  return `<span class="label">${label}: </span><span class="${cls}">${value}</span>\n`;
+  return `<span class="label" ti="label_label">${label}: </span><span class="${cls}">${value}</span>\n`;
 }
 
 const sections = [
@@ -194,13 +206,13 @@ sec1.id = 'sec-deepshallow';
 sec1.className = 'section active';
 sec1.innerHTML = `
 <div class="card">
-  <h3>Deep Clone vs Shallow Clone</h3>
+  <h3 ti="h3_deep_clone_vs_shallow_clo">Deep Clone vs Shallow Clone</h3>
   <p>See the critical difference: shallow copies share nested references, deep clones don't.</p>
-  <button class="run" onclick="runDeepShallow()">Run Demo</button>
+  <button class="run" onclick="runDeepShallow()" ti="btn_run_demo" ti="btn_run_demo_2" ti="btn_run_demo_3" ti="btn_run_demo_4" ti="btn_run_demo_5" ti="btn_run_demo_6" ti="btn_run_demo_7">Run Demo</button>
   <div class="output" id="dsOut"></div>
 </div>
 <div class="card">
-  <h3>Spread Operator Trap</h3>
+  <h3 ti="h3_spread_operator_trap">Spread Operator Trap</h3>
   <p>A common mistake: using <code>{...obj}</code> or <code>[...arr]</code> for deep cloning.</p>
   <button class="run" onclick="runSpreadTrap()">Run Demo</button>
   <div class="output" id="spreadOut"></div>
@@ -268,9 +280,9 @@ sec2.id = 'sec-types';
 sec2.className = 'section';
 sec2.innerHTML = `
 <div class="card">
-  <h3>Supported Types Matrix</h3>
+  <h3 ti="h3_supported_types_matrix">Supported Types Matrix</h3>
   <p>structuredClone supports far more types than JSON. Click to test each one live.</p>
-  <button class="run" onclick="runTypeMatrix()">Test All Types</button>
+  <button class="run" onclick="runTypeMatrix()" ti="btn_test_all_types">Test All Types</button>
   <div id="typeMatrix"></div>
 </div>`;
 main.appendChild(sec2);
@@ -304,7 +316,7 @@ function runTypeMatrix() {
     { name: '-0', fn: () => -0 },
   ];
 
-  let html = '<table><thead><tr><th>Type</th><th>structuredClone</th><th>JSON roundtrip</th><th>Preserved?</th></tr></thead><tbody>';
+  let html = '<table><thead><tr><th ti="th_type">Type</th><th ti="th_structuredclone">structuredClone</th><th ti="th_json_roundtrip">JSON roundtrip</th><th ti="th_preserved">Preserved?</th></tr></thead><tbody>';
 
   for (const t of tests) {
     let scOk = false, scResult = '';
@@ -369,13 +381,13 @@ sec3.id = 'sec-unsupported';
 sec3.className = 'section';
 sec3.innerHTML = `
 <div class="card">
-  <h3>Unsupported Types</h3>
+  <h3 ti="h3_unsupported_types">Unsupported Types</h3>
   <p>These types will throw a <code>DataCloneError</code> when passed to structuredClone.</p>
-  <button class="run" onclick="runUnsupported()">Test Unsupported Types</button>
+  <button class="run" onclick="runUnsupported()" ti="btn_test_unsupported_types">Test Unsupported Types</button>
   <div class="output" id="unsupOut"></div>
 </div>
 <div class="card">
-  <h3>What Gets Lost</h3>
+  <h3 ti="h3_what_gets_lost">What Gets Lost</h3>
   <p>Some properties are silently dropped during cloning.</p>
   <button class="run" onclick="runLost()">Run Demo</button>
   <div class="output" id="lostOut"></div>
@@ -455,15 +467,15 @@ sec4.id = 'sec-transfer';
 sec4.className = 'section';
 sec4.innerHTML = `
 <div class="card">
-  <h3>Transfer List Demo</h3>
+  <h3 ti="h3_transfer_list_demo">Transfer List Demo</h3>
   <p>Transfer ownership of ArrayBuffers instead of copying. The original becomes detached (zero-copy move).</p>
-  <button class="run" onclick="runTransfer()">Run Transfer Demo</button>
+  <button class="run" onclick="runTransfer()" ti="btn_run_transfer_demo">Run Transfer Demo</button>
   <div class="output" id="transferOut"></div>
 </div>
 <div class="card">
-  <h3>Transfer vs Clone Performance</h3>
+  <h3 ti="h3_transfer_vs_clone_perform">Transfer vs Clone Performance</h3>
   <p>Compare the speed of transferring vs cloning a large ArrayBuffer.</p>
-  <button class="run" onclick="runTransferPerf()">Benchmark (64MB buffer)</button>
+  <button class="run" onclick="runTransferPerf()" ti="btn_benchmark_64mb_buffer">Benchmark (64MB buffer)</button>
   <div class="output" id="transferPerfOut"></div>
 </div>`;
 main.appendChild(sec4);
@@ -549,9 +561,9 @@ sec5.id = 'sec-perf';
 sec5.className = 'section';
 sec5.innerHTML = `
 <div class="card">
-  <h3>Performance: JSON.parse vs structuredClone</h3>
+  <h3 ti="h3_performance_json_parse_vs">Performance: JSON.parse vs structuredClone</h3>
   <p>Benchmark deep cloning with different object sizes and types.</p>
-  <button class="run" onclick="runPerfBench()">Run Benchmark (10,000 iterations)</button>
+  <button class="run" onclick="runPerfBench()" ti="btn_run_benchmark_10_000_iter">Run Benchmark (10,000 iterations)</button>
   <div class="output" id="perfOut"></div>
   <div id="perfBars" style="margin-top:1rem"></div>
 </div>`;
@@ -633,13 +645,13 @@ sec6.id = 'sec-circular';
 sec6.className = 'section';
 sec6.innerHTML = `
 <div class="card">
-  <h3>Circular Reference Handling</h3>
+  <h3 ti="h3_circular_reference_handli">Circular Reference Handling</h3>
   <p>structuredClone handles circular references that break JSON.stringify.</p>
   <button class="run" onclick="runCircular()">Run Demo</button>
   <div class="output" id="circOut"></div>
 </div>
 <div class="card">
-  <h3>Complex Circular Structures</h3>
+  <h3 ti="h3_complex_circular_structur">Complex Circular Structures</h3>
   <p>Graph structures, self-referencing arrays, and more.</p>
   <button class="run" onclick="runComplexCircular()">Run Demo</button>
   <div class="output" id="complexCircOut"></div>
@@ -750,19 +762,19 @@ sec7.id = 'sec-patterns';
 sec7.className = 'section';
 sec7.innerHTML = `
 <div class="card">
-  <h3>Custom Class Serialization Patterns</h3>
+  <h3 ti="h3_custom_class_serializatio">Custom Class Serialization Patterns</h3>
   <p>Since structuredClone loses prototypes, here are patterns to handle custom classes.</p>
-  <button class="run" onclick="runPatterns()">Run All Patterns</button>
+  <button class="run" onclick="runPatterns()" ti="btn_run_all_patterns">Run All Patterns</button>
   <div class="output" id="patternsOut"></div>
 </div>
 <div class="card">
-  <h3>Immutable State Pattern (Redux-like)</h3>
+  <h3 ti="h3_immutable_state_pattern_r">Immutable State Pattern (Redux-like)</h3>
   <p>Use structuredClone for safe state updates in state management.</p>
   <button class="run" onclick="runImmutable()">Run Demo</button>
   <div class="output" id="immutableOut"></div>
 </div>
 <div class="card">
-  <h3>Safe Defaults Pattern</h3>
+  <h3 ti="h3_safe_defaults_pattern">Safe Defaults Pattern</h3>
   <p>Clone a defaults object to ensure each instance gets independent values.</p>
   <button class="run" onclick="runDefaults()">Run Demo</button>
   <div class="output" id="defaultsOut"></div>
@@ -889,6 +901,24 @@ function runDefaults() {
 
 // Auto-run first demo
 runDeepShallow();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

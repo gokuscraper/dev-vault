@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_specificity" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -546,10 +546,12 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-  <h1>CSS Specificity</h1>
+  <a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
+  <h1 ti="title_css_specificity" ti="h1_css_specificity">CSS Specificity</h1>
   <span class="badge">Calculator</span>
 </header>
 
@@ -559,8 +561,8 @@
   <div class="card">
     <h2><span class="icon">🔍</span> Single Selector</h2>
     <div class="input-row">
-      <input type="text" id="single-input" placeholder="e.g.  div.container > p:hover  or  #nav .item::before" spellcheck="false" autocomplete="off">
-      <button onclick="calcSingle()">Calculate</button>
+      <input type="text" id="single-input" tp="placeholder_e_g_div_container_p_hover" placeholder="e.g.  div.container > p:hover  or  #nav .item::before" spellcheck="false" autocomplete="off">
+      <button onclick="calcSingle()" ti="btn_calculate">Calculate</button>
     </div>
     <div class="error-msg" id="single-error"></div>
 
@@ -616,8 +618,8 @@
     <h2><span class="icon">⚖️</span> Compare Mode</h2>
     <textarea id="compare-input" placeholder="Enter one selector per line, e.g.:&#10;#nav .item&#10;div.container > p&#10;.active:hover&#10;h1.title::before"></textarea>
     <div style="display:flex; gap:10px; margin-top:10px;">
-      <button onclick="calcCompare()">Compare</button>
-      <button class="secondary" onclick="clearCompare()">Clear</button>
+      <button onclick="calcCompare()" ti="btn_compare">Compare</button>
+      <button class="secondary" onclick="clearCompare()" ti="btn_clear">Clear</button>
     </div>
     <div class="error-msg" id="compare-error"></div>
     <div class="compare-results" id="compare-results"></div>
@@ -634,7 +636,7 @@
     <h2><span class="icon">📋</span> Specificity Cheatsheet</h2>
     <div class="cheat-grid">
       <div class="cheat-section">
-        <h3>Selector Types</h3>
+        <h3 ti="h3_selector_types">Selector Types</h3>
         <table class="cheat-table">
           <tr><td>#id</td><td><span class="tag id">ID</span> +1 to (a)</td></tr>
           <tr><td>.class</td><td><span class="tag cls">Class</span> +1 to (b)</td></tr>
@@ -649,7 +651,7 @@
         </table>
       </div>
       <div class="cheat-section">
-        <h3>Key Rules</h3>
+        <h3 ti="h3_key_rules">Key Rules</h3>
         <ul class="rule-list">
           <li>Specificity is compared left-to-right: <code>(a,b,c)</code></li>
           <li>Inline styles beat all selector specificity</li>
@@ -668,6 +670,16 @@
 
 </main>
 
+
+<script>var _LANG={'title_css_specificity':["CSS Specificity", "CSS 特异性"],'metadesc_calculate_and_visualize_c':["Calculate and visualize CSS selector specificity. Paste any selector to see its specificity score broken down by IDs, classes, and elements.", "计算并可视化 CSS 选择器优先级。粘贴任意选择器，即可查看其优先级得分，并按 ID、类和元素进行细分。"],'h1_css_specificity':["CSS Specificity", "CSS 特异性"],'h3_selector_types':["Selector Types", "选择器类型"],'h3_key_rules':["Key Rules", "关键规则"],'btn_calculate':["Calculate", "计算"],'btn_compare':["Compare", "比较"],'btn_clear':["Clear", "清除"],'placeholder_e_g_div_container_p_hover':["e.g.  div.container > p:hover  or  #nav .item::before", "例如 div.container &gt; p:hover 或 #nav .item::before"],'placeholder_enter_one_selector_per_li':["Enter one selector per line, e.g.:\n#nav .item\ndiv.container > p\n.active:hover\nh1.title::before", "每行输入一个选择器，例如：#nav .item div.container &gt; p .active:hover h1.title::before"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_enter_a_css_selector':["Enter a CSS selector.", "输入CSS选择器。"],'jtc_enter_at_least_one_select':["Enter at least one selector.", "请至少输入一个选择器。"],'jtc_winner':["✓ Winner", "✓ 获胜者"],'jtc_reveal_answer':["Reveal answer", "显示答案"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ══════════════════════════════════════════════════════════════
 // Specificity engine
@@ -887,7 +899,7 @@ function calcSingle() {
   errorEl.classList.remove('visible');
 
   if (!sel) {
-    errorEl.textContent = 'Enter a CSS selector.';
+    errorEl.textContent=T("jtc_enter_a_css_selector");
     errorEl.classList.add('visible');
     resultBox.classList.remove('visible');
     return;
@@ -942,7 +954,7 @@ function calcCompare() {
   errorEl.classList.remove('visible');
 
   if (lines.length === 0) {
-    errorEl.textContent = 'Enter at least one selector.';
+    errorEl.textContent=T("jtc_enter_at_least_one_select");
     errorEl.classList.add('visible');
     resultsEl.innerHTML = '';
     return;
@@ -1014,7 +1026,7 @@ function calcCompare() {
     if (isWinner && computed.length > 1) {
       const badge = document.createElement('div');
       badge.className = 'winner-badge';
-      badge.textContent = '✓ Winner';
+      badge.textContent=T("jtc_winner");
       rightSide.appendChild(badge);
     } else {
       const rankEl = document.createElement('div');
@@ -1112,7 +1124,7 @@ function buildQuiz() {
 
     const btn = document.createElement('button');
     btn.className = 'reveal-btn';
-    btn.textContent = 'Reveal answer';
+    btn.textContent=T("jtc_reveal_answer");
     btn.onclick = () => {
       answerEl.classList.add('visible');
       btn.style.display = 'none';
@@ -1134,12 +1146,30 @@ function buildQuiz() {
 buildQuiz();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
 <a href="https://gokuscraper.github.io/dev-vault/tailwind-converter/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Tailwind Converter</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-reset/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Reset</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

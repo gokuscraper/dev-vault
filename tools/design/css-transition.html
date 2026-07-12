@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_transition_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -397,9 +397,11 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<a class="back-link" href="https://gokuscraper.github.io/dev-vault/">← Dev Vault</a>
-<h1>CSS Transition Generator</h1>
+
+<a class="back-link" href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">← Dev Vault</a>
+<h1 ti="title_css_transition_generator" ti="h1_css_transition_generator">CSS Transition Generator</h1>
 
 <div class="layout">
   <!-- Left panel: controls -->
@@ -408,7 +410,7 @@
     <div class="panel" style="margin-bottom:16px">
       <div class="panel-title">Transition Properties</div>
       <div class="field">
-        <label>Property (multi-select)</label>
+        <label ti="label_property_multi_select">Property (multi-select)</label>
         <div class="prop-grid" id="propGrid">
           <div class="prop-chip active" data-prop="all">all</div>
           <div class="prop-chip" data-prop="opacity">opacity</div>
@@ -429,7 +431,7 @@
       <div class="panel-title">Timing</div>
 
       <div class="field">
-        <label>Duration</label>
+        <label ti="label_duration">Duration</label>
         <div class="slider-row">
           <input type="range" id="durationSlider" min="0" max="3000" step="50" value="300">
           <span class="slider-val" id="durationVal">300ms</span>
@@ -437,7 +439,7 @@
       </div>
 
       <div class="field" style="margin-bottom:0">
-        <label>Delay</label>
+        <label ti="label_delay">Delay</label>
         <div class="slider-row">
           <input type="range" id="delaySlider" min="0" max="2000" step="50" value="0">
           <span class="slider-val" id="delayVal">0ms</span>
@@ -465,19 +467,19 @@
         </div>
         <div class="bezier-inputs">
           <div class="bezier-input-group">
-            <label>X1</label>
+            <label ti="label_x1">X1</label>
             <input type="number" id="bx1" min="0" max="1" step="0.01" value="0.25">
           </div>
           <div class="bezier-input-group">
-            <label>Y1</label>
+            <label ti="label_y1">Y1</label>
             <input type="number" id="by1" min="-2" max="2" step="0.01" value="0.1">
           </div>
           <div class="bezier-input-group">
-            <label>X2</label>
+            <label ti="label_x2">X2</label>
             <input type="number" id="bx2" min="0" max="1" step="0.01" value="0.25">
           </div>
           <div class="bezier-input-group">
-            <label>Y2</label>
+            <label ti="label_y2">Y2</label>
             <input type="number" id="by2" min="-2" max="2" step="0.01" value="1">
           </div>
         </div>
@@ -488,16 +490,16 @@
     <div class="panel" style="margin-bottom:16px">
       <div class="panel-title">Presets</div>
       <div class="presets-grid">
-        <button class="preset-btn" data-preset="fade">Fade In</button>
-        <button class="preset-btn" data-preset="slide">Slide Right</button>
-        <button class="preset-btn" data-preset="scale">Scale Up</button>
-        <button class="preset-btn" data-preset="color">Color Shift</button>
-        <button class="preset-btn" data-preset="blur">Blur In</button>
-        <button class="preset-btn" data-preset="bounce">Bounce</button>
-        <button class="preset-btn" data-preset="elastic">Elastic</button>
-        <button class="preset-btn" data-preset="shadow">Smooth Shadow</button>
-        <button class="preset-btn" data-preset="rotate">Rotate In</button>
-        <button class="preset-btn" data-preset="multi">Multi-Property</button>
+        <button class="preset-btn" data-preset="fade" ti="btn_fade_in">Fade In</button>
+        <button class="preset-btn" data-preset="slide" ti="btn_slide_right">Slide Right</button>
+        <button class="preset-btn" data-preset="scale" ti="btn_scale_up">Scale Up</button>
+        <button class="preset-btn" data-preset="color" ti="btn_color_shift">Color Shift</button>
+        <button class="preset-btn" data-preset="blur" ti="btn_blur_in">Blur In</button>
+        <button class="preset-btn" data-preset="bounce" ti="btn_bounce">Bounce</button>
+        <button class="preset-btn" data-preset="elastic" ti="btn_elastic">Elastic</button>
+        <button class="preset-btn" data-preset="shadow" ti="btn_smooth_shadow">Smooth Shadow</button>
+        <button class="preset-btn" data-preset="rotate" ti="btn_rotate_in">Rotate In</button>
+        <button class="preset-btn" data-preset="multi" ti="btn_multi_property">Multi-Property</button>
       </div>
     </div>
 
@@ -505,7 +507,7 @@
     <div class="panel">
       <div class="panel-title">Transition Rules</div>
       <div class="transitions-list" id="transitionsList"></div>
-      <button class="add-btn" id="addTransitionBtn">+ Add Current as Rule</button>
+      <button class="add-btn" id="addTransitionBtn" ti="btn_add_current_as_rule">+ Add Current as Rule</button>
     </div>
   </div>
 
@@ -524,13 +526,23 @@
     <div class="panel">
       <div class="output-header">
         <div class="panel-title" style="margin-bottom:0">Generated CSS</div>
-        <button class="copy-btn" id="copyBtn">Copy</button>
+        <button class="copy-btn" id="copyBtn" ti="btn_copy">Copy</button>
       </div>
       <div class="output-code" id="outputCode"></div>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_transition_generator':["CSS Transition Generator", "CSS 过渡生成器"],'metadesc_build_css_transitions_vis':["Build CSS transitions visually with live preview. Configure property, duration, timing function, and delay, then copy the generated code.", "通过实时预览，以可视化的方式构建 CSS 过渡效果。配置属性、持续时间、计时函数和延迟，然后复制生成的代码。"],'h1_css_transition_generator':["CSS Transition Generator", "CSS 过渡生成器"],'btn_fade_in':["Fade In", "淡入"],'btn_slide_right':["Slide Right", "向右滑动"],'btn_scale_up':["Scale Up", "扩大规模"],'btn_color_shift':["Color Shift", "颜色变化"],'btn_blur_in':["Blur In", "模糊"],'btn_bounce':["Bounce", "弹跳"],'btn_elastic':["Elastic", "松紧带"],'btn_smooth_shadow':["Smooth Shadow", "平滑阴影"],'btn_rotate_in':["Rotate In", "旋转入"],'btn_multi_property':["Multi-Property", "多物业"],'btn_add_current_as_rule':["+ Add Current as Rule", "+ 添加当前规则"],'btn_copy':["Copy", "复制"],'strong_related_tools':["Related Tools", "相关工具"],'label_property_multi_select':["Property (multi-select)", "属性（多选）"],'label_duration':["Duration", "期间"],'label_delay':["Delay", "延迟"],'label_x1':["X1", "X1"],'label_y1':["Y1", "Y1"],'label_x2':["X2", "X2"],'label_y2':["Y2", "Y2"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["← Dev Vault", "← 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_transition':["transition", "过渡"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───────────────────────────────────────────────────────────────────
 const state = {
@@ -985,10 +997,10 @@ copyBtn.addEventListener('click', () => {
   }
   const raw = `transition: ${lines.join(', ')};`;
   navigator.clipboard.writeText(raw).then(() => {
-    copyBtn.textContent = 'Copied!';
+    copyBtn.textContent=T("jtc_copied");
     copyBtn.classList.add('copied');
     setTimeout(() => {
-      copyBtn.textContent = 'Copy';
+      copyBtn.textContent=T("jtc_copy");
       copyBtn.classList.remove('copied');
     }, 2000);
   });
@@ -999,12 +1011,30 @@ drawBezier();
 updateAll();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/css-animation/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Animation</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-media/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Media</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

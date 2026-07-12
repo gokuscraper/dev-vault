@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_performance_mark_measure" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -60,59 +60,61 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Performance Mark & Measure Playground</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="title_performance_mark_measure" ti="h1_performance_mark_measure">Performance Mark & Measure Playground</h1>
 <p class="subtitle">Interactive demo of the User Timing API (Level 3) &mdash; performance.mark(), performance.measure(), and PerformanceObserver</p>
 
 <div class="panels">
 <div class="panel">
-<h2>Create Marks</h2>
+<h2 ti="h2_create_marks">Create Marks</h2>
 <div class="controls">
 <div>
-<label>Mark Name</label>
-<input type="text" id="markName" value="start" placeholder="Mark name">
+<label ti="label_mark_name">Mark Name</label>
+<input type="text" id="markName" value="start" tp="placeholder_mark_name" placeholder="Mark name">
 </div>
 <div class="detail-section" style="margin-top:0">
 <label>Detail (JSON, optional &mdash; Level 3)</label>
-<input type="text" id="markDetail" placeholder='e.g. {"step":"init"}'>
+<input type="text" id="markDetail" tp="placeholder_e_g_step_init" placeholder='e.g. {"step":"init"}'>
 </div>
 </div>
 <div class="controls">
-<button onclick="createMark()">Add Mark</button>
-<button onclick="createMark('start')" class="accent">Quick: "start"</button>
-<button onclick="createMark('end')" class="accent">Quick: "end"</button>
+<button onclick="createMark()" ti="btn_add_mark">Add Mark</button>
+<button onclick="createMark('start')" class="accent" ti="btn_quick_start">Quick: "start"</button>
+<button onclick="createMark('end')" class="accent" ti="btn_quick_end">Quick: "end"</button>
 </div>
-<h2 style="margin-top:16px">Marks</h2>
+<h2 style="margin-top:16px" ti="h2_marks">Marks</h2>
 <div class="mark-list" id="markList">
 <div class="empty-state">No marks yet. Create one above.</div>
 </div>
 </div>
 
 <div class="panel">
-<h2>Create Measures</h2>
+<h2 ti="h2_create_measures">Create Measures</h2>
 <div class="controls">
 <div>
-<label>Measure Name</label>
-<input type="text" id="measureName" value="duration" placeholder="Measure name">
+<label ti="label_measure_name">Measure Name</label>
+<input type="text" id="measureName" value="duration" tp="placeholder_measure_name" placeholder="Measure name">
 </div>
 <div>
-<label>Start Mark</label>
+<label ti="label_start_mark">Start Mark</label>
 <select id="measureStart"><option value="">-- select --</option></select>
 </div>
 <div>
-<label>End Mark</label>
+<label ti="label_end_mark">End Mark</label>
 <select id="measureEnd"><option value="">-- select --</option></select>
 </div>
 </div>
 <div class="detail-section">
 <label>Detail (JSON, optional &mdash; Level 3)</label>
-<input type="text" id="measureDetail" placeholder='e.g. {"category":"render"}'>
+<input type="text" id="measureDetail" tp="placeholder_e_g_category_render" placeholder='e.g. {"category":"render"}'>
 </div>
 <div class="controls" style="margin-top:12px">
-<button onclick="createMeasure()">Create Measure</button>
+<button onclick="createMeasure()" ti="btn_create_measure">Create Measure</button>
 <button onclick="autoMeasure()" class="accent">Auto: start &rarr; end</button>
 </div>
-<h2 style="margin-top:16px">Measures</h2>
+<h2 style="margin-top:16px" ti="h2_measures">Measures</h2>
 <div class="mark-list" id="measureList">
 <div class="empty-state">No measures yet.</div>
 </div>
@@ -120,10 +122,10 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </div>
 
 <div class="panel" style="margin-bottom:20px">
-<h2>Timeline Visualization</h2>
+<h2 ti="h2_timeline_visualization">Timeline Visualization</h2>
 <div style="display:flex;gap:8px;margin-bottom:12px">
-<button onclick="clearAll()" class="danger">Clear All</button>
-<button onclick="runDemo()">Run Demo Scenario</button>
+<button onclick="clearAll()" class="danger" ti="btn_clear_all">Clear All</button>
+<button onclick="runDemo()" ti="btn_run_demo_scenario">Run Demo Scenario</button>
 </div>
 <div class="timeline" id="timeline">
 <div class="empty-state">Create marks and measures to see them on the timeline.</div>
@@ -132,7 +134,7 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 
 <div class="panels">
 <div class="panel">
-<h2>PerformanceObserver Log</h2>
+<h2 ti="h2_performanceobserver_log">PerformanceObserver Log</h2>
 <div class="info-box">A PerformanceObserver is actively watching for "mark" and "measure" entry types. All entries appear below in real-time.</div>
 <div class="observer-log" id="observerLog">
 <div class="log-entry"><span class="log-time">[ready]</span> Observer listening for marks & measures...</div>
@@ -140,16 +142,16 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </div>
 
 <div class="panel">
-<h2>Quick Simulation</h2>
+<h2 ti="h2_quick_simulation">Quick Simulation</h2>
 <p style="font-size:0.85rem;color:#999;margin-bottom:12px">Simulate async work with delays to see realistic timing.</p>
 <div class="controls">
-<button onclick="simulateWork(100)">100ms task</button>
-<button onclick="simulateWork(250)">250ms task</button>
-<button onclick="simulateWork(500)">500ms task</button>
-<button onclick="simulateWork(1000)">1s task</button>
+<button onclick="simulateWork(100)" ti="btn_100ms_task">100ms task</button>
+<button onclick="simulateWork(250)" ti="btn_250ms_task">250ms task</button>
+<button onclick="simulateWork(500)" ti="btn_500ms_task">500ms task</button>
+<button onclick="simulateWork(1000)" ti="btn_1s_task">1s task</button>
 </div>
 <div id="simStatus" style="font-size:0.85rem;color:#888;margin-top:8px"></div>
-<h2 style="margin-top:16px">Statistics</h2>
+<h2 style="margin-top:16px" ti="h2_statistics">Statistics</h2>
 <div id="stats" style="margin-top:8px">
 <div class="empty-state" style="padding:10px">No data yet.</div>
 </div>
@@ -157,7 +159,7 @@ label{font-size:0.8rem;color:#999;display:block;margin-bottom:4px}
 </div>
 
 <div class="panel" style="margin-top:20px">
-<h2>Code Reference</h2>
+<h2 ti="h2_code_reference">Code Reference</h2>
 <div class="code-block"><span class="cmt">// Create marks with optional detail (User Timing Level 3)</span>
 <span class="kw">const</span> mark1 = <span class="fn">performance.mark</span>(<span class="str">'start'</span>, {
   detail: { step: <span class="str">'initialization'</span>, component: <span class="str">'app'</span> }
@@ -183,6 +185,16 @@ observer.<span class="fn">observe</span>({ type: <span class="str">'measure'</sp
 </div>
 </div>
 
+
+<script>var _LANG={'title_performance_mark_measure':["Performance Mark & Measure Playground", "绩效标记与衡量游乐场"],'h1_performance_mark_measure':["Performance Mark & Measure Playground", "绩效标记与衡量游乐场"],'h2_create_marks':["Create Marks", "创建标记"],'h2_marks':["Marks", "分数"],'h2_create_measures':["Create Measures", "创建度量"],'h2_measures':["Measures", "措施"],'h2_timeline_visualization':["Timeline Visualization", "时间线可视化"],'h2_performanceobserver_log':["PerformanceObserver Log", "PerformanceObserver 日志"],'h2_quick_simulation':["Quick Simulation", "快速模拟"],'h2_statistics':["Statistics", "统计数据"],'h2_code_reference':["Code Reference", "代码参考"],'subtitle_interactive_demo_of_the_u':["Interactive demo of the User Timing API (Level 3) — performance.mark(), performance.measure(), and PerformanceObserver", "用户计时 API（第 3 级）交互式演示——performance.mark()、performance.measure() 和 PerformanceObserver"],'btn_add_mark':["Add Mark", "添加标记"],'btn_quick_start':["Quick: \"start\"", "快速启动"],'btn_quick_end':["Quick: \"end\"", "快速：“结束”"],'btn_create_measure':["Create Measure", "创建度量"],'btn_auto_start_end':["Auto: start → end", "自动：开始 → 结束"],'btn_clear_all':["Clear All", "全部清除"],'btn_run_demo_scenario':["Run Demo Scenario", "运行演示场景"],'btn_100ms_task':["100ms task", "100毫秒任务"],'btn_250ms_task':["250ms task", "250毫秒任务"],'btn_500ms_task':["500ms task", "500毫秒任务"],'btn_1s_task':["1s task", "1秒任务"],'placeholder_mark_name':["Mark name", "商标名称"],'placeholder_e_g_step_init':["e.g. {\"step\":\"init\"}", "例如 {&quot;步骤&quot;:&quot;初始化&quot;}"],'placeholder_measure_name':["Measure name", "测量名称"],'placeholder_e_g_category_render':["e.g. {\"category\":\"render\"}", "例如 {&quot;category&quot;:&quot;render&quot;}"],'label_mark_name':["Mark Name", "商标名称"],'label_detail_json_optional_leve':["Detail (JSON, optional — Level 3)", "详细信息（JSON，可选 - 级别 3）"],'label_measure_name':["Measure Name", "测量名称"],'label_start_mark':["Start Mark", "起始标记"],'label_end_mark':["End Mark", "结束标记"],'label_detail_json_optional_leve_2':["Detail (JSON, optional — Level 3)", "详细信息（JSON，可选 - 级别 3）"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const marks = [];
 const measures = [];
@@ -445,6 +457,24 @@ function esc(s) {
   d.textContent = String(s);
   return d.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_stacking_context_visu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -93,17 +93,19 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
-  <h1>CSS Stacking Context Visualizer</h1>
+  <h1 ti="title_css_stacking_context_visu" ti="h1_css_stacking_context_visu">CSS Stacking Context Visualizer</h1>
   <span>Understand z-index, stacking contexts & paint order</span>
 </div>
 
 <div class="tabs">
-  <button class="tab active" data-tab="builder">Builder</button>
-  <button class="tab" data-tab="tree">Context Tree</button>
-  <button class="tab" data-tab="presets">Presets</button>
-  <button class="tab" data-tab="rules">Rules</button>
+  <button class="tab active" data-tab="builder" ti="btn_builder">Builder</button>
+  <button class="tab" data-tab="tree" ti="btn_context_tree">Context Tree</button>
+  <button class="tab" data-tab="presets" ti="btn_presets">Presets</button>
+  <button class="tab" data-tab="rules" ti="btn_rules">Rules</button>
 </div>
 
 <!-- Builder Panel -->
@@ -111,7 +113,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="builder-left">
     <div class="el-list" id="elList"></div>
     <div class="add-btn">
-      <button class="btn btn-primary" onclick="addElement()">+ Add Element</button>
+      <button class="btn btn-primary" onclick="addElement()" ti="btn_add_element">+ Add Element</button>
     </div>
   </div>
   <div class="builder-right">
@@ -124,7 +126,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
   <div class="tree-left" id="treeView"></div>
   <div class="tree-right">
     <div class="info-section">
-      <h3>Paint Order</h3>
+      <h3 ti="h3_paint_order">Paint Order</h3>
       <p>Elements are painted in this order (bottom to top):</p>
     </div>
     <div id="paintOrder"></div>
@@ -133,7 +135,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 
 <!-- Presets Panel -->
 <div class="panel presets-panel" id="panel-presets">
-  <h2 style="font-size:14px;color:var(--dim)">Preset Scenarios</h2>
+  <h2 style="font-size:14px;color:var(--dim)" ti="h2_preset_scenarios">Preset Scenarios</h2>
   <div class="presets-grid" id="presetsGrid"></div>
 </div>
 
@@ -141,7 +143,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
 <div class="panel" id="panel-rules" style="flex-direction:column;padding:24px;overflow:auto">
   <div style="max-width:680px">
     <div class="info-section">
-      <h3>What Creates a Stacking Context?</h3>
+      <h3 ti="h3_what_creates_a_stacking_c">What Creates a Stacking Context?</h3>
       <ul>
         <li>Root element (<code>&lt;html&gt;</code>)</li>
         <li><code>position: absolute/relative</code> with <code>z-index</code> other than <code>auto</code></li>
@@ -157,7 +159,7 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
       </ul>
     </div>
     <div class="info-section">
-      <h3>Paint Order Within a Stacking Context</h3>
+      <h3 ti="h3_paint_order_within_a_stac">Paint Order Within a Stacking Context</h3>
       <ol style="font-size:11px;color:var(--dim);line-height:2;padding-left:16px">
         <li>Background and borders of the stacking context element</li>
         <li>Child stacking contexts with negative z-index</li>
@@ -169,18 +171,28 @@ body{font-family:'SF Mono',Monaco,'Cascadia Code',monospace;background:var(--bg)
       </ol>
     </div>
     <div class="info-section">
-      <h3>Common Gotchas</h3>
+      <h3 ti="h3_common_gotchas">Common Gotchas</h3>
       <ul>
-        <li><strong>z-index only works on positioned elements</strong> — <code>z-index: 999</code> on a <code>position: static</code> element does nothing</li>
-        <li><strong>z-index is relative to the parent stacking context</strong> — an element with <code>z-index: 9999</code> can still be below an element with <code>z-index: 1</code> if they're in different stacking contexts</li>
+        <li><strong ti="strong_z_index_only_works_on_pos">z-index only works on positioned elements</strong> — <code>z-index: 999</code> on a <code>position: static</code> element does nothing</li>
+        <li><strong ti="strong_z_index_is_relative_to_th">z-index is relative to the parent stacking context</strong> — an element with <code>z-index: 9999</code> can still be below an element with <code>z-index: 1</code> if they're in different stacking contexts</li>
         <li><strong>opacity &lt; 1 creates a stacking context</strong> — this is a very common surprise. Adding <code>opacity: 0.99</code> changes paint order</li>
-        <li><strong>transform creates a stacking context</strong> — even <code>transform: translateZ(0)</code> or <code>will-change: transform</code></li>
-        <li><strong>Fixed positioning inside a transformed parent</strong> — <code>position: fixed</code> becomes relative to the transform parent, not the viewport</li>
+        <li><strong ti="strong_transform_creates_a_stack">transform creates a stacking context</strong> — even <code>transform: translateZ(0)</code> or <code>will-change: transform</code></li>
+        <li><strong ti="strong_fixed_positioning_inside">Fixed positioning inside a transformed parent</strong> — <code>position: fixed</code> becomes relative to the transform parent, not the viewport</li>
       </ul>
     </div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_stacking_context_visu':["CSS Stacking Context Visualizer", "CSS 堆叠上下文可视化工具"],'metadesc_interactive_css_stacking':["Interactive CSS stacking context visualizer. Understand z-index, stacking contexts, and paint order. Build layouts and see which elements stack on top.", "交互式 CSS 堆叠上下文可视化工具。理解 z-index、堆叠上下文和绘制顺序。构建布局并查看哪些元素堆叠在顶部。"],'h1_css_stacking_context_visu':["CSS Stacking Context Visualizer", "CSS 堆叠上下文可视化工具"],'h2_preset_scenarios':["Preset Scenarios", "预设场景"],'h3_paint_order':["Paint Order", "油漆订单"],'h3_what_creates_a_stacking_c':["What Creates a Stacking Context?", "什么会创建堆叠上下文？"],'h3_paint_order_within_a_stac':["Paint Order Within a Stacking Context", "堆叠上下文中的绘制顺序"],'h3_common_gotchas':["Common Gotchas", "常见陷阱"],'h3_p_name':["${p.name}", "${p.name}"],'btn_builder':["Builder", "建造者"],'btn_context_tree':["Context Tree", "上下文树"],'btn_presets':["Presets", "预设"],'btn_rules':["Rules", "规则"],'btn_add_element':["+ Add Element", "+ 添加元素"],'btn_delete':["Delete", "删除"],'label_eschtml_el_name_z_zdispl':["${escHTML(el.name)} (z:${zDisplay})", "${escHTML(el.name)} (z:${zDisplay})"],'strong_z_index_only_works_on_pos':["z-index only works on positioned elements", "z-index 仅对已定位元素有效"],'strong_z_index_is_relative_to_th':["z-index is relative to the parent stacking context", "z-index 是相对于父级堆叠上下文的。"],'strong_opacity_1_creates_a_stack':["opacity < 1 creates a stacking context", "不透明度 &lt; 1 会创建一个堆叠上下文"],'strong_transform_creates_a_stack':["transform creates a stacking context", "变换会创建一个堆叠上下文"],'strong_fixed_positioning_inside':["Fixed positioning inside a transformed parent", "在变换后的父级内部进行固定定位"],'label_name':["Name", "姓名"],'label_position':["position", "位置"],'label_z_index':["z-index", "z 指数"],'label_opacity':["opacity", "不透明度"],'label_transform':["transform", "转换"],'label_color':["color", "颜色"],'label_parent':["parent", "父母"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // Tab switching
 document.querySelectorAll('.tab').forEach(t => {
@@ -271,43 +283,43 @@ function renderElementList() {
       </div>
       <div class="el-item-props">
         <div class="prop-row">
-          <label>Name</label>
+          <label ti="label_name">Name</label>
           <input type="text" value="${escHTML(el.name)}" onchange="updateProp(${el.id},'name',this.value)" style="width:120px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-family:inherit;font-size:11px">
         </div>
         <div class="prop-row">
-          <label>position</label>
+          <label ti="label_position">position</label>
           <select onchange="updateProp(${el.id},'position',this.value)">
             ${['static','relative','absolute','fixed','sticky'].map(v => `<option${el.position === v ? ' selected' : ''}>${v}</option>`).join('')}
           </select>
         </div>
         <div class="prop-row">
-          <label>z-index</label>
+          <label ti="label_z_index">z-index</label>
           <input type="text" value="${el.zIndex}" onchange="updateProp(${el.id},'zIndex',this.value === 'auto' ? 'auto' : parseInt(this.value) || 0)" style="width:60px;background:var(--surface2);border:1px solid var(--border);border-radius:4px;padding:3px 6px;color:var(--text);font-family:inherit;font-size:11px">
         </div>
         <div class="prop-row">
-          <label>opacity</label>
+          <label ti="label_opacity">opacity</label>
           <input type="range" min="0" max="1" step="0.05" value="${el.opacity}" oninput="updateProp(${el.id},'opacity',parseFloat(this.value))">
           <span style="font-size:10px;color:var(--dim)">${el.opacity}</span>
         </div>
         <div class="prop-row">
-          <label>transform</label>
+          <label ti="label_transform">transform</label>
           <select onchange="updateProp(${el.id},'transform',this.value)">
             ${['none','translateZ(0)','rotate(0deg)','scale(1)'].map(v => `<option${el.transform === v ? ' selected' : ''}>${v}</option>`).join('')}
           </select>
         </div>
         <div class="prop-row">
-          <label>color</label>
+          <label ti="label_color">color</label>
           <input type="color" value="${el.color}" oninput="updateProp(${el.id},'color',this.value)">
         </div>
         <div class="prop-row">
-          <label>parent</label>
+          <label ti="label_parent">parent</label>
           <select onchange="updateProp(${el.id},'parentId',this.value === '' ? null : parseInt(this.value))">
             <option value="">none (root)</option>
             ${elements.filter(e => e.id !== el.id).map(e => `<option value="${e.id}"${el.parentId === e.id ? ' selected' : ''}>${e.name}</option>`).join('')}
           </select>
         </div>
         <div class="prop-row" style="justify-content:flex-end;margin-top:8px">
-          <button class="btn-danger" onclick="removeElement(${el.id})">Delete</button>
+          <button class="btn-danger" onclick="removeElement(${el.id})" ti="btn_delete">Delete</button>
         </div>
       </div>
     </div>`;
@@ -347,7 +359,7 @@ function renderCanvas() {
     div.style.opacity = el.opacity;
 
     const zDisplay = el.zIndex === 'auto' ? 'auto' : el.zIndex;
-    div.innerHTML = `<span class="el-label">${escHTML(el.name)} (z:${zDisplay})</span>`;
+    div.innerHTML = `<span class="el-label" ti="label_eschtml_el_name_z_zdispl">${escHTML(el.name)} (z:${zDisplay})</span>`;
 
     // Drag
     div.addEventListener('mousedown', (e) => {
@@ -566,7 +578,7 @@ const presetsGrid = document.getElementById('presetsGrid');
 PRESETS.forEach(p => {
   const card = document.createElement('div');
   card.className = 'preset-card';
-  card.innerHTML = `<h3>${p.name}</h3><p>${p.desc}</p>`;
+  card.innerHTML = `<h3 ti="h3_p_name">${p.name}</h3><p>${p.desc}</p>`;
   card.addEventListener('click', () => {
     p.setup();
     document.querySelectorAll('.tab').forEach(x => x.classList.remove('active'));
@@ -579,6 +591,24 @@ PRESETS.forEach(p => {
 
 // Initialize with the "Stacking Context Trap" preset
 PRESETS[1].setup();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

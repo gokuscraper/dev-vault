@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_iban_validator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -28,16 +28,18 @@ input:focus{border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>IBAN Validator</h1>
-  <p class="desc">Validate and parse International Bank Account Numbers</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_iban_validator" ti="h1_iban_validator">IBAN Validator</h1>
+  <p class="desc" ti="subtitle_validate_and_parse_intern">Validate and parse International Bank Account Numbers</p>
   <script src="https://cdn.jsdelivr.net/npm/ibantools@4.5.1/build/ibantools.umd.js"></script>
   <div class="card">
-    <input type="text" id="ibanInput" placeholder="Enter an IBAN number..." spellcheck="false">
+    <input type="text" id="ibanInput" tp="placeholder_enter_an_iban_number" placeholder="Enter an IBAN number..." spellcheck="false">
     <div id="ibanInfo"></div>
   </div>
   <div class="card">
-    <h2>Valid IBAN examples</h2>
+    <h2 ti="h2_valid_iban_examples">Valid IBAN examples</h2>
     <div class="examples">
       <span class="example" data-iban="FR7630006000011234567890189">FR7630006000011234567890189</span>
       <span class="example" data-iban="DE89370400440532013000">DE89370400440532013000</span>
@@ -45,6 +47,16 @@ input:focus{border-color:#3b82f6}
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_iban_validator':["IBAN Validator", "IBAN验证器"],'metadesc_validate_and_parse_iban_i':["Validate and parse IBAN (International Bank Account Number). Check validity, extract country code, BBAN, and friendly format.", "验证并解析IBAN（国际银行账号）。检查有效性，提取国家代码、BBAN，并采用易于理解的格式。"],'h1_iban_validator':["IBAN Validator", "IBAN验证器"],'h2_valid_iban_examples':["Valid IBAN examples", "有效的IBAN示例"],'subtitle_validate_and_parse_intern':["Validate and parse International Bank Account Numbers", "验证和解析国际银行账号"],'placeholder_enter_an_iban_number':["Enter an IBAN number...", "请输入IBAN账号..."]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const ibanErrorMap = {
   NO_IBAN_PROVIDED: 'No IBAN provided',
@@ -87,6 +99,24 @@ document.querySelectorAll('.example').forEach(el => {
     update();
   });
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_gitignore_gen_generate_gi" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -96,6 +96,8 @@ button{cursor:pointer;font-family:var(--font)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1><span>gitignore</span>-gen</h1>
@@ -106,25 +108,25 @@ button{cursor:pointer;font-family:var(--font)}
   <div class="panel-left">
     <div class="search-wrap">
       <svg width="16" height="16" viewBox="0 0 16 16" fill="currentColor"><path d="M11.5 7a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0Zm-.82 4.74a6 6 0 1 1 1.06-1.06l3.04 3.04a.75.75 0 1 1-1.06 1.06l-3.04-3.04Z"/></svg>
-      <input type="text" id="search" placeholder="Search technologies..." autocomplete="off">
+      <input type="text" id="search" tp="placeholder_search_technologies" placeholder="Search technologies..." autocomplete="off">
     </div>
 
     <div class="presets">
-      <button class="preset-btn" data-preset="webapp">Web App (Node + React)</button>
-      <button class="preset-btn" data-preset="pythonml">Python ML</button>
-      <button class="preset-btn" data-preset="fullstack">Full Stack (Node + Python + Docker)</button>
+      <button class="preset-btn" data-preset="webapp" ti="btn_web_app_node_react">Web App (Node + React)</button>
+      <button class="preset-btn" data-preset="pythonml" ti="btn_python_ml">Python ML</button>
+      <button class="preset-btn" data-preset="fullstack" ti="btn_full_stack_node_python_do">Full Stack (Node + Python + Docker)</button>
     </div>
 
     <div id="categories"></div>
 
     <div class="clear-wrap">
-      <button class="clear-btn" id="clearAll">Clear all selections</button>
+      <button class="clear-btn" id="clearAll" ti="btn_clear_all_selections">Clear all selections</button>
     </div>
   </div>
 
   <div class="panel-right">
     <div class="preview-header">
-      <h2>.gitignore</h2>
+      <h2 ti="h2_gitignore">.gitignore</h2>
       <div class="stats">
         <span id="ruleCount">0 rules</span>
         <span>·</span>
@@ -154,6 +156,16 @@ button{cursor:pointer;font-family:var(--font)}
   <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">dev-toolkit</a>
 </footer>
 
+
+<script>var _LANG={'title_gitignore_gen_generate_gi':["gitignore-gen — Generate .gitignore files", "gitignore-gen — 生成 .gitignore 文件"],'metadesc_generate_comprehensive_gi':["Generate comprehensive .gitignore files by selecting languages, frameworks, IDEs, and OS. Based on official GitHub templates. Zero dependencies.", "通过选择语言、框架、IDE 和操作系统，生成全面的 .gitignore 文件。基于 GitHub 官方模板。零依赖。"],'h2_gitignore':[".gitignore", ".gitignore"],'btn_web_app_node_react':["Web App (Node + React)", "Web应用程序（Node + React）"],'btn_python_ml':["Python ML", "Python ML"],'btn_full_stack_node_python_do':["Full Stack (Node + Python + Docker)", "全栈（Node + Python + Docker）"],'btn_clear_all_selections':["Clear all selections", "清除所有选择"],'btn_item':["${item}", "${item}"],'placeholder_search_technologies':["Search technologies...", "搜索技术……"],'jtc_0_rules':["0 rules", "0 条规则"],'jtc_0_lines':["0 lines", "0 行"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Gitignore rule definitions (comprehensive, based on github/gitignore) ---
 const RULES = {
@@ -432,7 +444,7 @@ function renderCategories() {
     <div class="category">
       <div class="category-title">${cat.name} <span class="count">${cat.items.length}</span></div>
       <div class="chips">
-        ${cat.items.map(item => `<button class="chip" data-tech="${item}">${item}</button>`).join("")}
+        ${cat.items.map(item => `<button class="chip" data-tech="${item}" ti="btn_item">${item}</button>`).join("")}
       </div>
     </div>
   `).join("");
@@ -452,8 +464,8 @@ function generate() {
   const preview = document.getElementById("preview");
   if (selected.size === 0) {
     preview.innerHTML = '<span class="empty">Select technologies to generate .gitignore</span>';
-    document.getElementById("ruleCount").textContent = "0 rules";
-    document.getElementById("lineCount").textContent = "0 lines";
+    document.getElementById("ruleCount").textContent=T("jtc_0_rules");
+    document.getElementById("lineCount").textContent=T("jtc_0_lines");
     return;
   }
 
@@ -582,6 +594,24 @@ document.getElementById("clearAll").addEventListener("click", () => {
 
 // Init
 renderCategories();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

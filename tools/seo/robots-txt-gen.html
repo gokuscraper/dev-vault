@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_robots_txt_generator_crea" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,12 +49,16 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>robots.txt Generator</h1>
-<p class="sub">Create robot exclusion rules visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_robots_txt_generator" ti="h1_robots_txt_generator">robots.txt Generator</h1>
+<p class="sub" ti="subtitle_create_robot_exclusion_ru" ti="subtitle_create_robot_exclusion_ru">Create robot exclusion rules visually</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets" ti="h3_presets">Presets</h3>
 <div class="presets">
 <div class="preset" onclick="loadPreset('allow-all')">Allow All</div>
 <div class="preset" onclick="loadPreset('block-all')">Block All</div>
@@ -68,12 +72,12 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Sitemap</h3>
-<div class="field"><label>Sitemap URL</label><input id="sitemapUrl" value="" placeholder="https://example.com/sitemap.xml" oninput="gen()"></div>
+<h3 ti="h3_sitemap" ti="h3_sitemap">Sitemap</h3>
+<div class="field"><label ti="label_sitemap_url" ti="label_sitemap_url">Sitemap URL</label><input id="sitemapUrl" value="" tp="placeholder_https_example_com_sitemap" tp="placeholder_https_example_com_sitemap" placeholder="https://example.com/sitemap.xml" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Rules <button class="btn btn-sm" style="float:right" onclick="addRule()">+ Add Rule</button></h3>
+<h3>Rules <button class="btn btn-sm" style="float:right" onclick="addRule()" ti="btn_add_rule" ti="btn_add_rule">+ Add Rule</button></h3>
 <div id="rulesList"></div>
 </div>
 </div>
@@ -81,17 +85,37 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyTxt()">Copy</button>
-<button class="btn" onclick="downloadTxt()">Download robots.txt</button>
+<button class="btn btn-primary" onclick="copyTxt()" ti="btn_copy" ti="btn_copy">Copy</button>
+<button class="btn" onclick="downloadTxt()" ti="btn_download_robots_txt" ti="btn_download_robots_txt">Download robots.txt</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/">.htaccess</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/">Nginx Config</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/meta-tag-gen/" ti="link_meta_tags" ti="link_meta_tags">Meta Tags</a> | <a href="https://gokuscraper.github.io/dev-vault/htaccess-gen/" ti="link_htaccess" ti="link_htaccess">.htaccess</a> | <a href="https://gokuscraper.github.io/dev-vault/nginx-config-gen/" ti="link_nginx_config" ti="link_nginx_config">Nginx Config</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+
+<script>var _LANG={'title_robots_txt_generator_crea':["robots.txt Generator — Create Robot Exclusion Rules", "robots.txt 生成器 — 创建机器人排除规则"],'metadesc_generate_robots_txt_files':["Generate robots.txt files visually. Configure rules for Googlebot, Bingbot, and other crawlers. Sitemap URL. Copy or download.", "以可视化方式生成 robots.txt 文件。配置 Googlebot、Bingbot 和其他爬虫的规则。网站地图 URL。复制或下载。"],'h1_robots_txt_generator':["robots.txt Generator", "robots.txt 生成器"],'h3_presets':["Presets", "预设"],'h3_sitemap':["Sitemap", "网站地图"],'subtitle_create_robot_exclusion_ru':["Create robot exclusion rules visually", "以可视化方式创建机器人排除规则"],'btn_add_rule':["+ Add Rule", "+ 添加规则"],'btn_copy':["Copy", "复制"],'btn_download_robots_txt':["Download robots.txt", "下载 robots.txt"],'btn_add_path':["+ Add Path", "+ 添加路径"],'placeholder_https_example_com_sitemap':["https://example.com/sitemap.xml", "https://example.com/sitemap.xml"],'placeholder_path':["/path/", "/小路/"],'label_sitemap_url':["Sitemap URL", "网站地图网址"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_htaccess':[".htaccess", ".htaccess"],'link_nginx_config':["Nginx Config", "Nginx 配置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_robots_txt_generator_crea':["robots.txt Generator — Create Robot Exclusion Rules", "robots.txt 生成器 — 创建机器人排除规则"],'metadesc_generate_robots_txt_files':["Generate robots.txt files visually. Configure rules for Googlebot, Bingbot, and other crawlers. Sitemap URL. Copy or download.", "以可视化方式生成 robots.txt 文件。配置 Googlebot、Bingbot 和其他爬虫的规则。网站地图 URL。复制或下载。"],'h1_robots_txt_generator':["robots.txt Generator", "robots.txt 生成器"],'h3_presets':["Presets", "预设"],'h3_sitemap':["Sitemap", "网站地图"],'subtitle_create_robot_exclusion_ru':["Create robot exclusion rules visually", "以可视化方式创建机器人排除规则"],'btn_add_rule':["+ Add Rule", "+ 添加规则"],'btn_copy':["Copy", "复制"],'btn_download_robots_txt':["Download robots.txt", "下载 robots.txt"],'btn_add_path':["+ Add Path", "+ 添加路径"],'placeholder_https_example_com_sitemap':["https://example.com/sitemap.xml", "https://example.com/sitemap.xml"],'placeholder_path':["/path/", "/小路/"],'label_sitemap_url':["Sitemap URL", "网站地图网址"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_meta_tags':["Meta Tags", "元标签"],'link_htaccess':[".htaccess", ".htaccess"],'link_nginx_config':["Nginx Config", "Nginx 配置"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let rules=[];
 let ruleId=0;
@@ -114,14 +138,14 @@ function renderRules(){
     card.className='rule-card';
     let pathsHTML='<div class="path-list" id="paths_'+rule.id+'">';
     rule.paths.forEach((p,pi)=>{
-      pathsHTML+=`<div class="path-row"><select onchange="rules[${ri}].paths[${pi}].type=this.value;gen()"><option value="Allow"${p.type==='Allow'?' selected':''}>Allow</option><option value="Disallow"${p.type==='Disallow'?' selected':''}>Disallow</option></select><input value="${p.path}" placeholder="/path/" oninput="rules[${ri}].paths[${pi}].path=this.value;gen()"><button onclick="rules[${ri}].paths.splice(${pi},1);renderRules();gen()">×</button></div>`;
+      pathsHTML+=`<div class="path-row"><select onchange="rules[${ri}].paths[${pi}].type=this.value;gen()"><option value="Allow"${p.type==='Allow'?' selected':''}>Allow</option><option value="Disallow"${p.type==='Disallow'?' selected':''}>Disallow</option></select><input value="${p.path}" tp="placeholder_path" tp="placeholder_path" placeholder="/path/" oninput="rules[${ri}].paths[${pi}].path=this.value;gen()"><button onclick="rules[${ri}].paths.splice(${pi},1);renderRules();gen()">×</button></div>`;
     });
     pathsHTML+='</div>';
 
     card.innerHTML=`<h4>User-agent</h4><button class="remove" onclick="removeRule(${rule.id})">×</button>
       <div class="field"><input value="${rule.agent}" placeholder="*" oninput="rules[${ri}].agent=this.value;gen()"></div>
       ${pathsHTML}
-      <button class="add-btn" onclick="rules[${ri}].paths.push({type:'Disallow',path:''});renderRules();gen()">+ Add Path</button>`;
+      <button class="add-btn" onclick="rules[${ri}].paths.push({type:'Disallow',path:''});renderRules();gen()" ti="btn_add_path" ti="btn_add_path">+ Add Path</button>`;
     list.appendChild(card);
   });
 }
@@ -181,6 +205,42 @@ function showToast(msg){
 
 // Init
 loadPreset('standard');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_crate_search_rust_package" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -79,16 +79,24 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+
+<div class="container" style="position:relative">
   <header>
     <h1><span>Crate</span> Search</h1>
     <p>Explore Rust crates — versions, deps, downloads, license</p>
   </header>
 
   <div class="search-row">
-    <input type="text" id="input" placeholder="Search crates (e.g. serde, tokio, reqwest)" autocomplete="off">
-    <button id="btn" onclick="search()">Search</button>
+    <input type="text" id="input" tp="placeholder_search_crates_e_g_serde_t" tp="placeholder_search_crates_e_g_serde_t" tp="placeholder_search_crates_e_g_serde_t" tp="placeholder_search_crates_e_g_serde_t" placeholder="Search crates (e.g. serde, tokio, reqwest)" autocomplete="off">
+    <button id="btn" onclick="search()" ti="btn_search" ti="btn_search" ti="btn_search" ti="btn_search">Search</button>
   </div>
 
   <div id="status"></div>
@@ -96,9 +104,39 @@ footer{text-align:center;padding:24px 16px;color:var(--muted);font-size:13px;bor
 </div>
 
 <footer>
-  <p>Crate Search — Data from <a href="https://crates.io/" target="_blank">crates.io</a> | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a></p>
+  <p>Crate Search — Data from <a href="https://crates.io/" target="_blank">crates.io</a> | Part of <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault" ti="footer_dev_vault" ti="footer_dev_vault" ti="footer_dev_vault">Dev Vault</a></p>
 </footer>
 
+
+
+
+<script>var _LANG={'title_crate_search_rust_package':["Crate Search — Rust Package Explorer", "箱子搜索 — Rust 包裹浏览器"],'metadesc_search_and_explore_rust_c':["Search and explore Rust crates from crates.io. Version history, dependencies, download stats, license info. Fast crate discovery.", "在 crates.io 上搜索和探索 Rust crate。版本历史记录、依赖项、下载统计、许可证信息。快速发现 crate。"],'h3_dependencies_normaldeps_l':["Dependencies (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : ''}${buildDeps.length ? ` + ${buildDeps.length} build` : ''})", "依赖项 (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : &#39;&#39;}${buildDeps.length ? ` + ${buildDeps.length} build` : &#39;&#39;})"],'h3_version_history':["Version History", "版本历史记录"],'btn_search':["Search", "搜索"],'btn_copy':["Copy", "复制"],'placeholder_search_crates_e_g_serde_t':["Search crates (e.g. serde, tokio, reqwest)", "搜索 crates（例如 serde、tokio、reqwest）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_esc_c_id':["${esc(c.id)}", "${esc(c.id)}"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_crate_search_rust_package':["Crate Search — Rust Package Explorer", "箱子搜索 — Rust 包裹浏览器"],'metadesc_search_and_explore_rust_c':["Search and explore Rust crates from crates.io. Version history, dependencies, download stats, license info. Fast crate discovery.", "在 crates.io 上搜索和探索 Rust crate。版本历史记录、依赖项、下载统计、许可证信息。快速发现 crate。"],'h3_dependencies_normaldeps_l':["Dependencies (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : ''}${buildDeps.length ? ` + ${buildDeps.length} build` : ''})", "依赖项 (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : &#39;&#39;}${buildDeps.length ? ` + ${buildDeps.length} build` : &#39;&#39;})"],'h3_version_history':["Version History", "版本历史记录"],'btn_search':["Search", "搜索"],'btn_copy':["Copy", "复制"],'placeholder_search_crates_e_g_serde_t':["Search crates (e.g. serde, tokio, reqwest)", "搜索 crates（例如 serde、tokio、reqwest）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_esc_c_id':["${esc(c.id)}", "${esc(c.id)}"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_crate_search_rust_package':["Crate Search — Rust Package Explorer", "箱子搜索 — Rust 包裹浏览器"],'metadesc_search_and_explore_rust_c':["Search and explore Rust crates from crates.io. Version history, dependencies, download stats, license info. Fast crate discovery.", "在 crates.io 上搜索和探索 Rust crate。版本历史记录、依赖项、下载统计、许可证信息。快速发现 crate。"],'h3_dependencies_normaldeps_l':["Dependencies (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : ''}${buildDeps.length ? ` + ${buildDeps.length} build` : ''})", "依赖项 (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : &#39;&#39;}${buildDeps.length ? ` + ${buildDeps.length} build` : &#39;&#39;})"],'h3_version_history':["Version History", "版本历史记录"],'btn_search':["Search", "搜索"],'btn_copy':["Copy", "复制"],'placeholder_search_crates_e_g_serde_t':["Search crates (e.g. serde, tokio, reqwest)", "搜索 crates（例如 serde、tokio、reqwest）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_esc_c_id':["${esc(c.id)}", "${esc(c.id)}"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const API = 'https://crates.io/api/v1';
 const UA = 'dev-toolkit-crate-search (https://gokuscraper.github.io/dev-vault/crate-search/)';
@@ -230,7 +268,7 @@ function renderCrate(crate, versions, deps, categories, keywords) {
     </div>
     <div class="install">
       <span>cargo add ${esc(crate.id)}</span>
-      <button onclick="copyCmd(this, 'cargo add ${crate.id}')">Copy</button>
+      <button onclick="copyCmd(this, 'cargo add ${crate.id}')" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
     </div>
     ${repo ? `<div style="font-size:12px;margin-top:6px"><a href="${esc(repo)}" target="_blank">Repository</a>${crate.homepage && crate.homepage !== repo ? ` &middot; <a href="${esc(crate.homepage)}" target="_blank">Homepage</a>` : ''}${crate.documentation ? ` &middot; <a href="${esc(crate.documentation)}" target="_blank">Docs</a>` : ''}</div>` : ''}
     ${categories.length || keywords.length ? renderTags(categories, keywords) : ''}
@@ -243,7 +281,7 @@ function renderCrate(crate, versions, deps, categories, keywords) {
 
   if (deps.length > 0) {
     html += `<div class="deps-section">
-      <h3>Dependencies (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : ''}${buildDeps.length ? ` + ${buildDeps.length} build` : ''})</h3>
+      <h3 ti="h3_dependencies_normaldeps_l" ti="h3_dependencies_normaldeps_l" ti="h3_dependencies_normaldeps_l" ti="h3_dependencies_normaldeps_l">Dependencies (${normalDeps.length}${devDeps.length ? ` + ${devDeps.length} dev` : ''}${buildDeps.length ? ` + ${buildDeps.length} build` : ''})</h3>
       <div class="dep-list">
         ${normalDeps.map(d => `<span class="dep" onclick="loadCrate('${esc(d.crate_id)}')">${esc(d.crate_id)} <span style="color:var(--muted)">${esc(d.req)}</span></span>`).join('')}
         ${devDeps.map(d => `<span class="dep" onclick="loadCrate('${esc(d.crate_id)}')">${esc(d.crate_id)} <span class="dep-kind">dev</span></span>`).join('')}
@@ -256,7 +294,7 @@ function renderCrate(crate, versions, deps, categories, keywords) {
   const displayVersions = versions.slice(0, 10);
   if (displayVersions.length > 0) {
     html += `<div class="versions-section">
-      <h3>Version History</h3>
+      <h3 ti="h3_version_history" ti="h3_version_history" ti="h3_version_history" ti="h3_version_history">Version History</h3>
       <div class="version-list">${displayVersions.map(v => {
         const date = v.created_at;
         const dateStr = date ? new Date(date).toLocaleDateString('en-US', {month:'short', day:'numeric', year:'2-digit'}) : '';
@@ -292,7 +330,7 @@ function renderTags(categories, keywords) {
 function renderSearchResults(crates) {
   contentEl.innerHTML = `<div class="search-results">${crates.map(c => `
     <div class="result-card" onclick="loadCrate('${esc(c.id)}')">
-      <h3><a href="#">${esc(c.id)}</a> <span style="color:var(--green);font-size:12px">v${esc(c.newest_version || c.max_version)}</span></h3>
+      <h3><a href="#" ti="link_esc_c_id" ti="link_esc_c_id" ti="link_esc_c_id" ti="link_esc_c_id">${esc(c.id)}</a> <span style="color:var(--green);font-size:12px">v${esc(c.newest_version || c.max_version)}</span></h3>
       <div class="desc">${esc(c.description || '')}</div>
       <div class="info">
         <span>&#11015; ${formatNum(c.downloads)}</span>
@@ -304,10 +342,10 @@ function renderSearchResults(crates) {
 
 function copyCmd(button, text) {
   navigator.clipboard.writeText(text).then(() => {
-    button.textContent = 'Copied!';
+    button.textContent=T("jtc_copied");
     button.classList.add('copied');
     setTimeout(() => {
-      button.textContent = 'Copy';
+      button.textContent=T("jtc_copy");
       button.classList.remove('copied');
     }, 1500);
   });
@@ -331,6 +369,78 @@ function esc(s) {
   d.textContent = String(s || '');
   return d.innerHTML;
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

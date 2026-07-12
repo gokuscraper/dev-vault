@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_roman_numeral_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -27,24 +27,28 @@ button:disabled{opacity:.4;cursor:default}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>Roman Numeral Converter</h1>
-  <p class="desc">Bidirectional conversion between Arabic and Roman numerals (1 – 3,999)</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_roman_numeral_converter" ti="h1_roman_numeral_converter" ti="title_roman_numeral_converter" ti="h1_roman_numeral_converter">Roman Numeral Converter</h1>
+  <p class="desc" ti="subtitle_bidirectional_conversion" ti="subtitle_bidirectional_conversion">Bidirectional conversion between Arabic and Roman numerals (1 – 3,999)</p>
 
   <div class="card">
-    <h2>Arabic → Roman</h2>
-    <label for="arabicInput">Arabic number</label>
+    <h2 ti="h2_arabic_roman" ti="h2_arabic_roman">Arabic → Roman</h2>
+    <label for="arabicInput" ti="label_arabic_number" ti="label_arabic_number">Arabic number</label>
     <div class="flex">
       <input type="number" id="arabicInput" min="1" max="3999" value="42" style="flex:1">
-      <button id="copyRomanBtn">Copy</button>
+      <button id="copyRomanBtn" ti="btn_copy" ti="btn_copy_2" ti="btn_copy" ti="btn_copy_2">Copy</button>
     </div>
     <div id="arabicError" class="error"></div>
     <div class="result" id="romanOutput">XLII</div>
   </div>
 
   <div class="card">
-    <h2>Roman → Arabic</h2>
-    <label for="romanInput">Roman numeral</label>
+    <h2 ti="h2_roman_arabic" ti="h2_roman_arabic">Roman → Arabic</h2>
+    <label for="romanInput" ti="label_roman_numeral" ti="label_roman_numeral">Roman numeral</label>
     <div class="flex">
       <input type="text" id="romanInput" value="XLII" style="flex:1" spellcheck="false">
       <button id="copyArabicBtn">Copy</button>
@@ -53,6 +57,26 @@ button:disabled{opacity:.4;cursor:default}
     <div class="result" id="arabicOutput">42</div>
   </div>
 </div>
+
+
+<script>var _LANG={'title_roman_numeral_converter':["Roman Numeral Converter", "罗马数字转换器"],'metadesc_convert_between_arabic_an':["Convert between Arabic and Roman numerals. Bidirectional, supports 1-3999.", "阿拉伯数字和罗马数字相互转换。双向转换，支持 1-3999。"],'h1_roman_numeral_converter':["Roman Numeral Converter", "罗马数字转换器"],'h2_arabic_roman':["Arabic → Roman", "阿拉伯语 → 罗马语"],'h2_roman_arabic':["Roman → Arabic", "罗马 → 阿拉伯"],'subtitle_bidirectional_conversion':["Bidirectional conversion between Arabic and Roman numerals (1 – 3,999)", "阿拉伯数字和罗马数字之间的双向转换（1 – 3,999）"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'label_arabic_number':["Arabic number", "阿拉伯数字"],'label_roman_numeral':["Roman numeral", "罗马数字"],'jtc_enter_a_number_between_1':["Enter a number between 1 and 3,999", "请输入一个介于 1 和 3999 之间的数字。"],'jtc_invalid_roman_numeral':["Invalid Roman numeral", "无效的罗马数字"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_roman_numeral_converter':["Roman Numeral Converter", "罗马数字转换器"],'metadesc_convert_between_arabic_an':["Convert between Arabic and Roman numerals. Bidirectional, supports 1-3999.", "阿拉伯数字和罗马数字相互转换。双向转换，支持 1-3999。"],'h1_roman_numeral_converter':["Roman Numeral Converter", "罗马数字转换器"],'h2_arabic_roman':["Arabic → Roman", "阿拉伯语 → 罗马语"],'h2_roman_arabic':["Roman → Arabic", "罗马 → 阿拉伯"],'subtitle_bidirectional_conversion':["Bidirectional conversion between Arabic and Roman numerals (1 – 3,999)", "阿拉伯数字和罗马数字之间的双向转换（1 – 3,999）"],'btn_copy':["Copy", "复制"],'btn_copy_2':["Copy", "复制"],'label_arabic_number':["Arabic number", "阿拉伯数字"],'label_roman_numeral':["Roman numeral", "罗马数字"],'jtc_enter_a_number_between_1':["Enter a number between 1 and 3,999", "请输入一个介于 1 和 3999 之间的数字。"],'jtc_invalid_roman_numeral':["Invalid Roman numeral", "无效的罗马数字"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const lookup = { M:1000, CM:900, D:500, CD:400, C:100, XC:90, L:50, XL:40, X:10, IX:9, V:5, IV:4, I:1 };
 const romanRegex = /^M{0,3}(CM|CD|D?C{0,3})(XC|XL|L?X{0,3})(IX|IV|V?I{0,3})$/;
@@ -84,7 +108,7 @@ const romanError = document.getElementById('romanError');
 arabicInput.addEventListener('input', () => {
   const val = parseInt(arabicInput.value, 10);
   if (isNaN(val) || val < 1 || val > 3999) {
-    arabicError.textContent = 'Enter a number between 1 and 3,999';
+    arabicError.textContent=T("jtc_enter_a_number_between_1");
     romanOutput.textContent = '';
   } else {
     arabicError.textContent = '';
@@ -101,7 +125,7 @@ romanInput.addEventListener('input', () => {
     return;
   }
   if (!isValidRoman(val)) {
-    romanError.textContent = 'Invalid Roman numeral';
+    romanError.textContent=T("jtc_invalid_roman_numeral");
     arabicOutput.textContent = '';
   } else {
     romanError.textContent = '';
@@ -117,6 +141,42 @@ document.getElementById('copyArabicBtn').addEventListener('click', () => {
   const text = arabicOutput.textContent;
   if (text) navigator.clipboard.writeText(text);
 });
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

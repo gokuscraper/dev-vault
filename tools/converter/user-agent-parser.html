@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_user_agent_parser" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -26,19 +26,31 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>User Agent Parser</h1>
-  <p class="desc">Parse and analyze browser user agent strings</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_user_agent_parser" ti="h1_user_agent_parser">User Agent Parser</h1>
+  <p class="desc" ti="subtitle_parse_and_analyze_browser">Parse and analyze browser user agent strings</p>
   <script src="https://cdn.jsdelivr.net/npm/ua-parser-js@2.0.0/dist/ua-parser.min.js"></script>
   <div class="card">
-    <label>User-Agent string</label>
+    <label ti="label_user_agent_string">User-Agent string</label>
     <input type="text" id="uaInput" spellcheck="false">
     <div style="text-align:right;margin-bottom:12px">
-      <button id="useMyBtn">Use my UA</button>
+      <button id="useMyBtn" ti="btn_use_my_ua">Use my UA</button>
     </div>
     <div id="uaInfo"></div>
   </div>
 </div>
+
+<script>var _LANG={'title_user_agent_parser':["User Agent Parser", "用户代理解析器"],'metadesc_parse_and_analyze_user_ag':["Parse and analyze User-Agent strings. Identify browser, version, OS, device type, and more.", "解析和分析用户代理字符串。识别浏览器、版本、操作系统、设备类型等信息。"],'h1_user_agent_parser':["User Agent Parser", "用户代理解析器"],'subtitle_parse_and_analyze_browser':["Parse and analyze browser user agent strings", "解析和分析浏览器用户代理字符串"],'btn_use_my_ua':["Use my UA", "使用我的 UA"],'label_user_agent_string':["User-Agent string", "用户代理字符串"],'jtlword_browser':["Browser", "浏览器"],'jtlword_engine':["Engine", "引擎"],'jtlword_os':["OS", "操作系统"],'jtlword_device':["Device", "设备"],'jtlword_cpu':["CPU", "中央处理器"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function update() {
   const raw = document.getElementById('uaInput').value;
@@ -69,6 +81,24 @@ document.getElementById('useMyBtn').addEventListener('click', () => {
 
 document.getElementById('uaInput').value = navigator.userAgent;
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

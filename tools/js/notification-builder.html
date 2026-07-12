@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_notification_builder_inte" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -694,9 +694,19 @@ header p {
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
-    <h1>Notification Builder</h1>
+    <h1 ti="h1_notification_builder" ti="h1_notification_builder" ti="h1_notification_builder" ti="h1_notification_builder" ti="h1_notification_builder">Notification Builder</h1>
     <p>Interactive Web Notification API playground — build, preview, and fire notifications</p>
   </header>
 
@@ -723,7 +733,7 @@ header p {
       <span class="sw-dot" id="swDot"></span>
       <span id="swLabel">SW: inactive</span>
     </span>
-    <button id="permBtn" onclick="requestPerm()">Request Permission</button>
+    <button id="permBtn" onclick="requestPerm()" ti="btn_request_permission" ti="btn_request_permission" ti="btn_request_permission" ti="btn_request_permission" ti="btn_request_permission">Request Permission</button>
   </div>
 
   <!-- Presets -->
@@ -750,17 +760,17 @@ header p {
           <input type="text" id="nTitle" value="Hello World" oninput="updatePreview()">
         </div>
         <div class="field">
-          <label>Body</label>
+          <label ti="label_body" ti="label_body" ti="label_body" ti="label_body" ti="label_body">Body</label>
           <textarea id="nBody" rows="2" oninput="updatePreview()">This is a notification from the builder.</textarea>
         </div>
         <div class="field-row">
           <div class="field">
-            <label>Tag</label>
-            <input type="text" id="nTag" placeholder="e.g. message-group" oninput="updatePreview()">
+            <label ti="label_tag" ti="label_tag" ti="label_tag" ti="label_tag" ti="label_tag">Tag</label>
+            <input type="text" id="nTag" tp="placeholder_e_g_message_group" tp="placeholder_e_g_message_group" tp="placeholder_e_g_message_group" tp="placeholder_e_g_message_group" tp="placeholder_e_g_message_group" placeholder="e.g. message-group" oninput="updatePreview()">
             <div class="hint">Same tag = replaces previous</div>
           </div>
           <div class="field">
-            <label>Direction</label>
+            <label ti="label_direction" ti="label_direction" ti="label_direction" ti="label_direction" ti="label_direction">Direction</label>
             <select id="nDir" onchange="updatePreview()">
               <option value="auto">auto</option>
               <option value="ltr">ltr</option>
@@ -777,17 +787,17 @@ header p {
           </div>
           <div class="collapsible-body open">
             <div class="field">
-              <label>Icon URL</label>
-              <input type="url" id="nIcon" placeholder="https://..." oninput="updatePreview()">
+              <label ti="label_icon_url" ti="label_icon_url" ti="label_icon_url" ti="label_icon_url" ti="label_icon_url">Icon URL</label>
+              <input type="url" id="nIcon" tp="placeholder_https" tp="placeholder_https_2" tp="placeholder_https_3" tp="placeholder_https" tp="placeholder_https_2" tp="placeholder_https_3" tp="placeholder_https" tp="placeholder_https_2" tp="placeholder_https_3" tp="placeholder_https" tp="placeholder_https_2" tp="placeholder_https_3" tp="placeholder_https" tp="placeholder_https_2" tp="placeholder_https_3" placeholder="https://..." oninput="updatePreview()">
               <div class="hint">Recommended: 192×192 PNG</div>
             </div>
             <div class="field">
-              <label>Badge URL</label>
+              <label ti="label_badge_url" ti="label_badge_url" ti="label_badge_url" ti="label_badge_url" ti="label_badge_url">Badge URL</label>
               <input type="url" id="nBadge" placeholder="https://..." oninput="updatePreview()">
               <div class="hint">Small monochrome icon (Android). 96×96</div>
             </div>
             <div class="field">
-              <label>Image URL</label>
+              <label ti="label_image_url" ti="label_image_url" ti="label_image_url" ti="label_image_url" ti="label_image_url">Image URL</label>
               <input type="url" id="nImage" placeholder="https://..." oninput="updatePreview()">
               <div class="hint">Large image displayed in notification body</div>
             </div>
@@ -797,24 +807,24 @@ header p {
         <!-- Behavior -->
         <div class="form-section">
           <div class="collapsible-header" onclick="toggleSection(this)">
-            <label style="margin:0;cursor:pointer">Behavior</label>
+            <label style="margin:0;cursor:pointer" ti="label_behavior" ti="label_behavior" ti="label_behavior" ti="label_behavior" ti="label_behavior">Behavior</label>
             <span class="chevron">▶</span>
           </div>
           <div class="collapsible-body">
             <div class="check-field">
               <input type="checkbox" id="nRequireInteraction">
-              <label for="nRequireInteraction">Require Interaction (stay until dismissed)</label>
+              <label for="nRequireInteraction" ti="label_require_interaction_stay" ti="label_require_interaction_stay" ti="label_require_interaction_stay" ti="label_require_interaction_stay" ti="label_require_interaction_stay">Require Interaction (stay until dismissed)</label>
             </div>
             <div class="check-field">
               <input type="checkbox" id="nSilent">
-              <label for="nSilent">Silent (no sound/vibration)</label>
+              <label for="nSilent" ti="label_silent_no_sound_vibration" ti="label_silent_no_sound_vibration" ti="label_silent_no_sound_vibration" ti="label_silent_no_sound_vibration" ti="label_silent_no_sound_vibration">Silent (no sound/vibration)</label>
             </div>
             <div class="check-field">
               <input type="checkbox" id="nRenotify">
-              <label for="nRenotify">Renotify (alert again on tag replace)</label>
+              <label for="nRenotify" ti="label_renotify_alert_again_on_t" ti="label_renotify_alert_again_on_t" ti="label_renotify_alert_again_on_t" ti="label_renotify_alert_again_on_t" ti="label_renotify_alert_again_on_t">Renotify (alert again on tag replace)</label>
             </div>
             <div class="field">
-              <label>Vibrate Pattern (ms)</label>
+              <label ti="label_vibrate_pattern_ms" ti="label_vibrate_pattern_ms" ti="label_vibrate_pattern_ms" ti="label_vibrate_pattern_ms" ti="label_vibrate_pattern_ms">Vibrate Pattern (ms)</label>
               <div class="vibrate-edit" id="vibrateEdit">
                 <input type="number" min="0" max="5000" value="200" oninput="updateVibrateVis()">
                 <input type="number" min="0" max="5000" value="100" oninput="updateVibrateVis()">
@@ -831,12 +841,12 @@ header p {
         <!-- Actions -->
         <div class="form-section">
           <div class="collapsible-header" onclick="toggleSection(this)">
-            <label style="margin:0;cursor:pointer">Actions (max 2)</label>
+            <label style="margin:0;cursor:pointer" ti="label_actions_max_2" ti="label_actions_max_2" ti="label_actions_max_2" ti="label_actions_max_2" ti="label_actions_max_2">Actions (max 2)</label>
             <span class="chevron">▶</span>
           </div>
           <div class="collapsible-body">
             <div class="actions-list" id="actionsList"></div>
-            <button class="btn-sm" onclick="addAction()" id="addActionBtn">+ Add Action</button>
+            <button class="btn-sm" onclick="addAction()" id="addActionBtn" ti="btn_add_action" ti="btn_add_action" ti="btn_add_action" ti="btn_add_action" ti="btn_add_action">+ Add Action</button>
             <div class="hint" style="margin-top:6px">Actions require a Service Worker. Click "Register SW" below.</div>
           </div>
         </div>
@@ -844,12 +854,12 @@ header p {
         <!-- Data -->
         <div class="form-section">
           <div class="collapsible-header" onclick="toggleSection(this)">
-            <label style="margin:0;cursor:pointer">Custom Data (JSON)</label>
+            <label style="margin:0;cursor:pointer" ti="label_custom_data_json" ti="label_custom_data_json" ti="label_custom_data_json" ti="label_custom_data_json" ti="label_custom_data_json">Custom Data (JSON)</label>
             <span class="chevron">▶</span>
           </div>
           <div class="collapsible-body">
             <div class="field">
-              <textarea id="nData" rows="3" placeholder='{"url": "/page", "id": 123}' oninput="updatePreview()"></textarea>
+              <textarea id="nData" rows="3" tp="placeholder_url_page_id_123" tp="placeholder_url_page_id_123" tp="placeholder_url_page_id_123" tp="placeholder_url_page_id_123" tp="placeholder_url_page_id_123" placeholder='{"url": "/page", "id": 123}' oninput="updatePreview()"></textarea>
               <div class="hint">Arbitrary data attached to the notification</div>
             </div>
           </div>
@@ -882,36 +892,56 @@ header p {
 
         <!-- Tag replacement info -->
         <div class="tag-group-info" id="tagInfo" style="display:none">
-          <strong>Tag grouping active:</strong> Sending another notification with tag "<span id="tagInfoVal"></span>" will replace the previous one instead of stacking.
+          <strong ti="strong_tag_grouping_active" ti="strong_tag_grouping_active" ti="strong_tag_grouping_active" ti="strong_tag_grouping_active" ti="strong_tag_grouping_active">Tag grouping active:</strong> Sending another notification with tag "<span id="tagInfoVal"></span>" will replace the previous one instead of stacking.
         </div>
 
         <!-- Buttons -->
         <div class="btn-row">
-          <button class="btn-primary" id="sendBtn" onclick="sendNotification()">Send Notification</button>
-          <button class="btn-secondary" onclick="registerSW()">Register SW</button>
+          <button class="btn-primary" id="sendBtn" onclick="sendNotification()" ti="btn_send_notification" ti="btn_send_notification" ti="btn_send_notification" ti="btn_send_notification" ti="btn_send_notification">Send Notification</button>
+          <button class="btn-secondary" onclick="registerSW()" ti="btn_register_sw" ti="btn_register_sw" ti="btn_register_sw" ti="btn_register_sw" ti="btn_register_sw">Register SW</button>
         </div>
 
         <!-- Push Simulation -->
         <div class="push-sim">
           <h4>Service Worker Push Simulation</h4>
           <div class="field">
-            <label>Push Payload (JSON)</label>
-            <textarea id="pushPayload" rows="3" placeholder='{"title":"Push!","body":"From server"}'></textarea>
+            <label ti="label_push_payload_json" ti="label_push_payload_json" ti="label_push_payload_json" ti="label_push_payload_json" ti="label_push_payload_json">Push Payload (JSON)</label>
+            <textarea id="pushPayload" rows="3" tp="placeholder_title_push_body_from_ser" tp="placeholder_title_push_body_from_ser" tp="placeholder_title_push_body_from_ser" tp="placeholder_title_push_body_from_ser" tp="placeholder_title_push_body_from_ser" placeholder='{"title":"Push!","body":"From server"}'></textarea>
           </div>
           <div class="btn-row" style="margin-top:10px">
-            <button class="btn-secondary" onclick="simulatePush()" style="flex:1">Simulate Push</button>
+            <button class="btn-secondary" onclick="simulatePush()" style="flex:1" ti="btn_simulate_push" ti="btn_simulate_push" ti="btn_simulate_push" ti="btn_simulate_push" ti="btn_simulate_push">Simulate Push</button>
           </div>
         </div>
 
         <!-- Code Output -->
         <div style="margin-top:20px">
           <div class="collapsible-header open" onclick="toggleSection(this)">
-            <label style="margin:0;cursor:pointer;font-weight:600">Generated Code</label>
+            <label style="margin:0;cursor:pointer;font-weight:600" ti="label_generated_code" ti="label_generated_code" ti="label_generated_code" ti="label_generated_code" ti="label_generated_code">Generated Code</label>
             <span class="chevron">▶</span>
           </div>
-          <div class="collapsible-body open">
+          <div class="c
+
+<script>var _LANG={'title_notification_builder_inte':["Notification Builder — Interactive Web Notification API Playground", "通知构建器 — 交互式 Web 通知 API 测试平台"],'metadesc_build_preview_and_test_we':["Build, preview, and test Web Notifications interactively. Configure title, body, icon, badge, image, actions, vibrate patterns, tags, and more.", "以交互方式构建、预览和测试 Web 通知。配置标题、正文、图标、徽章、图像、操作、振动模式、标签等。"],'h1_notification_builder':["Notification Builder", "通知生成器"],'btn_request_permission':["Request Permission", "请求权限"],'btn_add_action':["+ Add Action", "+ 添加操作"],'btn_send_notification':["Send Notification", "发送通知"],'btn_register_sw':["Register SW", "注册软件"],'btn_simulate_push':["Simulate Push", "模拟推送"],'btn_copy':["Copy", "复制"],'placeholder_e_g_message_group':["e.g. message-group", "例如消息组"],'placeholder_https':["https://...", "https://..."],'placeholder_https_2':["https://...", "https://..."],'placeholder_https_3':["https://...", "https://..."],'placeholder_url_page_id_123':["{\"url\": \"/page\", \"id\": 123}", "{&quot;url&quot;: &quot;/page&quot;, &quot;id&quot;: 123}"],'placeholder_title_push_body_from_ser':["{\"title\":\"Push!\",\"body\":\"From server\"}", "{&quot;title&quot;:&quot;推送！&quot;,,&quot;body&quot;:&quot;来自服务器&quot;}"],'placeholder_action_id':["action id", "操作 ID"],'placeholder_button_title':["Button title", "按钮标题"],'strong_tag_grouping_active':["Tag grouping active:", "标签分组已启用："],'label_body':["Body", "身体"],'label_tag':["Tag", "标签"],'label_direction':["Direction", "方向"],'label_icons_images':["Icons & Images", "图标和图像"],'label_icon_url':["Icon URL", "图标网址"],'label_badge_url':["Badge URL", "徽章网址"],'label_image_url':["Image URL", "图片网址"],'label_behavior':["Behavior", "行为"],'label_require_interaction_stay':["Require Interaction (stay until dismissed)", "需要互动（停留直至离开）"],'label_silent_no_sound_vibration':["Silent (no sound/vibration)", "静音（无声音/振动）"],'label_renotify_alert_again_on_t':["Renotify (alert again on tag replace)", "重新通知（标签替换时再次发出警报）"],'label_vibrate_pattern_ms':["Vibrate Pattern (ms)", "振动模式（毫秒）"],'label_actions_max_2':["Actions (max 2)", "操作（最多 2 项）"],'label_custom_data_json':["Custom Data (JSON)", "自定义数据（JSON）"],'label_push_payload_json':["Push Payload (JSON)", "推送有效载荷（JSON）"],'label_generated_code':["Generated Code", "生成的代码"],'label_event_log':["Event Log", "事件日志"],'jtc_request_permission':["Request Permission", "请求权限"],'jtc_granted':["Granted ✓", "已批准 ✓"],'jtc_denied_reset_in_browser':["Denied — Reset in Browser", "已拒绝 — 在浏览器中重置"],'jtc_sw_active':["SW: active", "SW：活跃"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_notification_builder_inte':["Notification Builder — Interactive Web Notification API Playground", "通知构建器 — 交互式 Web 通知 API 测试平台"],'metadesc_build_preview_and_test_we':["Build, preview, and test Web Notifications interactively. Configure title, body, icon, badge, image, actions, vibrate patterns, tags, and more.", "以交互方式构建、预览和测试 Web 通知。配置标题、正文、图标、徽章、图像、操作、振动模式、标签等。"],'h1_notification_builder':["Notification Builder", "通知生成器"],'btn_request_permission':["Request Permission", "请求权限"],'btn_add_action':["+ Add Action", "+ 添加操作"],'btn_send_notification':["Send Notification", "发送通知"],'btn_register_sw':["Register SW", "注册软件"],'btn_simulate_push':["Simulate Push", "模拟推送"],'btn_copy':["Copy", "复制"],'placeholder_e_g_message_group':["e.g. message-group", "例如消息组"],'placeholder_https':["https://...", "https://..."],'placeholder_https_2':["https://...", "https://..."],'placeholder_https_3':["https://...", "https://..."],'placeholder_url_page_id_123':["{\"url\": \"/page\", \"id\": 123}", "{&quot;url&quot;: &quot;/page&quot;, &quot;id&quot;: 123}"],'placeholder_title_push_body_from_ser':["{\"title\":\"Push!\",\"body\":\"From server\"}", "{&quot;title&quot;:&quot;推送！&quot;,,&quot;body&quot;:&quot;来自服务器&quot;}"],'placeholder_action_id':["action id", "操作 ID"],'placeholder_button_title':["Button title", "按钮标题"],'strong_tag_grouping_active':["Tag grouping active:", "标签分组已启用："],'label_body':["Body", "身体"],'label_tag':["Tag", "标签"],'label_direction':["Direction", "方向"],'label_icons_images':["Icons & Images", "图标和图像"],'label_icon_url':["Icon URL", "图标网址"],'label_badge_url':["Badge URL", "徽章网址"],'label_image_url':["Image URL", "图片网址"],'label_behavior':["Behavior", "行为"],'label_require_interaction_stay':["Require Interaction (stay until dismissed)", "需要互动（停留直至离开）"],'label_silent_no_sound_vibration':["Silent (no sound/vibration)", "静音（无声音/振动）"],'label_renotify_alert_again_on_t':["Renotify (alert again on tag replace)", "重新通知（标签替换时再次发出警报）"],'label_vibrate_pattern_ms':["Vibrate Pattern (ms)", "振动模式（毫秒）"],'label_actions_max_2':["Actions (max 2)", "操作（最多 2 项）"],'label_custom_data_json':["Custom Data (JSON)", "自定义数据（JSON）"],'label_push_payload_json':["Push Payload (JSON)", "推送有效载荷（JSON）"],'label_generated_code':["Generated Code", "生成的代码"],'label_event_log':["Event Log", "事件日志"],'jtc_request_permission':["Request Permission", "请求权限"],'jtc_granted':["Granted ✓", "已批准 ✓"],'jtc_denied_reset_in_browser':["Denied — Reset in Browser", "已拒绝 — 在浏览器中重置"],'jtc_sw_active':["SW: active", "SW：活跃"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+ollapsible-body open">
             <div class="code-output" id="codeOutput">
-              <button class="copy-btn" onclick="copyCode()">Copy</button>
+              <button class="copy-btn" onclick="copyCode()" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy" ti="btn_copy">Copy</button>
               <code id="codeContent"></code>
             </div>
           </div>
@@ -920,7 +950,17 @@ header p {
         <!-- Event Log -->
         <div style="margin-top:20px">
           <div class="collapsible-header open" onclick="toggleSection(this)">
-            <label style="margin:0;cursor:pointer;font-weight:600">Event Log</label>
+            <label style="margin:0;cursor:pointer;font-weight:600" ti="label_event_log" ti="label_event_log
+<script>var _LANG={'title_notification_builder_inte':["Notification Builder — Interactive Web Notification API Playground", "通知构建器 — 交互式 Web 通知 API 测试平台"],'metadesc_build_preview_and_test_we':["Build, preview, and test Web Notifications interactively. Configure title, body, icon, badge, image, actions, vibrate patterns, tags, and more.", "以交互方式构建、预览和测试 Web 通知。配置标题、正文、图标、徽章、图像、操作、振动模式、标签等。"],'h1_notification_builder':["Notification Builder", "通知生成器"],'btn_request_permission':["Request Permission", "请求权限"],'btn_add_action':["+ Add Action", "+ 添加操作"],'btn_send_notification':["Send Notification", "发送通知"],'btn_register_sw':["Register SW", "注册软件"],'btn_simulate_push':["Simulate Push", "模拟推送"],'btn_copy':["Copy", "复制"],'placeholder_e_g_message_group':["e.g. message-group", "例如消息组"],'placeholder_https':["https://...", "https://..."],'placeholder_https_2':["https://...", "https://..."],'placeholder_https_3':["https://...", "https://..."],'placeholder_url_page_id_123':["{\"url\": \"/page\", \"id\": 123}", "{&quot;url&quot;: &quot;/page&quot;, &quot;id&quot;: 123}"],'placeholder_title_push_body_from_ser':["{\"title\":\"Push!\",\"body\":\"From server\"}", "{&quot;title&quot;:&quot;推送！&quot;,,&quot;body&quot;:&quot;来自服务器&quot;}"],'placeholder_action_id':["action id", "操作 ID"],'placeholder_button_title':["Button title", "按钮标题"],'strong_tag_grouping_active':["Tag grouping active:", "标签分组已启用："],'label_body':["Body", "身体"],'label_tag':["Tag", "标签"],'label_direction':["Direction", "方向"],'label_icons_images':["Icons & Images", "图标和图像"],'label_icon_url':["Icon URL", "图标网址"],'label_badge_url':["Badge URL", "徽章网址"],'label_image_url':["Image URL", "图片网址"],'label_behavior':["Behavior", "行为"],'label_require_interaction_stay':["Require Interaction (stay until dismissed)", "需要互动（停留直至离开）"],'label_silent_no_sound_vibration':["Silent (no sound/vibration)", "静音（无声音/振动）"],'label_renotify_alert_again_on_t':["Renotify (alert again on tag replace)", "重新通知（标签替换时再次发出警报）"],'label_vibrate_pattern_ms':["Vibrate Pattern (ms)", "振动模式（毫秒）"],'label_actions_max_2':["Actions (max 2)", "操作（最多 2 项）"],'label_custom_data_json':["Custom Data (JSON)", "自定义数据（JSON）"],'label_push_payload_json':["Push Payload (JSON)", "推送有效载荷（JSON）"],'label_generated_code':["Generated Code", "生成的代码"],'label_event_log':["Event Log", "事件日志"],'jtc_request_permission':["Request Permission", "请求权限"],'jtc_granted':["Granted ✓", "已批准 ✓"],'jtc_denied_reset_in_browser':["Denied — Reset in Browser", "已拒绝 — 在浏览器中重置"],'jtc_sw_active':["SW: active", "SW：活跃"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+">Event Log</label>
             <span class="chevron">▶</span>
           </div>
           <div class="collapsible-body open">
@@ -936,6 +976,16 @@ header p {
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_notification_builder_inte':["Notification Builder — Interactive Web Notification API Playground", "通知构建器 — 交互式 Web 通知 API 测试平台"],'metadesc_build_preview_and_test_we':["Build, preview, and test Web Notifications interactively. Configure title, body, icon, badge, image, actions, vibrate patterns, tags, and more.", "以交互方式构建、预览和测试 Web 通知。配置标题、正文、图标、徽章、图像、操作、振动模式、标签等。"],'h1_notification_builder':["Notification Builder", "通知生成器"],'btn_request_permission':["Request Permission", "请求权限"],'btn_add_action':["+ Add Action", "+ 添加操作"],'btn_send_notification':["Send Notification", "发送通知"],'btn_register_sw':["Register SW", "注册软件"],'btn_simulate_push':["Simulate Push", "模拟推送"],'btn_copy':["Copy", "复制"],'placeholder_e_g_message_group':["e.g. message-group", "例如消息组"],'placeholder_https':["https://...", "https://..."],'placeholder_https_2':["https://...", "https://..."],'placeholder_https_3':["https://...", "https://..."],'placeholder_url_page_id_123':["{\"url\": \"/page\", \"id\": 123}", "{&quot;url&quot;: &quot;/page&quot;, &quot;id&quot;: 123}"],'placeholder_title_push_body_from_ser':["{\"title\":\"Push!\",\"body\":\"From server\"}", "{&quot;title&quot;:&quot;推送！&quot;,,&quot;body&quot;:&quot;来自服务器&quot;}"],'placeholder_action_id':["action id", "操作 ID"],'placeholder_button_title':["Button title", "按钮标题"],'strong_tag_grouping_active':["Tag grouping active:", "标签分组已启用："],'label_body':["Body", "身体"],'label_tag':["Tag", "标签"],'label_direction':["Direction", "方向"],'label_icons_images':["Icons & Images", "图标和图像"],'label_icon_url':["Icon URL", "图标网址"],'label_badge_url':["Badge URL", "徽章网址"],'label_image_url':["Image URL", "图片网址"],'label_behavior':["Behavior", "行为"],'label_require_interaction_stay':["Require Interaction (stay until dismissed)", "需要互动（停留直至离开）"],'label_silent_no_sound_vibration':["Silent (no sound/vibration)", "静音（无声音/振动）"],'label_renotify_alert_again_on_t':["Renotify (alert again on tag replace)", "重新通知（标签替换时再次发出警报）"],'label_vibrate_pattern_ms':["Vibrate Pattern (ms)", "振动模式（毫秒）"],'label_actions_max_2':["Actions (max 2)", "操作（最多 2 项）"],'label_custom_data_json':["Custom Data (JSON)", "自定义数据（JSON）"],'label_push_payload_json':["Push Payload (JSON)", "推送有效载荷（JSON）"],'label_generated_code':["Generated Code", "生成的代码"],'label_event_log':["Event Log", "事件日志"],'jtc_request_permission':["Request Permission", "请求权限"],'jtc_granted':["Granted ✓", "已批准 ✓"],'jtc_denied_reset_in_browser':["Denied — Reset in Browser", "已拒绝 — 在浏览器中重置"],'jtc_sw_active':["SW: active", "SW：活跃"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───
 let swRegistration = null;
@@ -951,17 +1001,17 @@ function updatePermissionUI() {
 
   if (perm === 'default') {
     document.getElementById('pfDefault').classList.add('active');
-    btn.textContent = 'Request Permission';
+    btn.textContent=T("jtc_request_permission");
     btn.className = '';
   } else if (perm === 'granted') {
     document.getElementById('pfGranted').classList.add('granted');
     document.getElementById('pfRequest').classList.add('active');
-    btn.textContent = 'Granted ✓';
+    btn.textContent=T("jtc_granted");
     btn.className = 'granted';
   } else if (perm === 'denied') {
     document.getElementById('pfDenied').classList.add('denied');
     document.getElementById('pfRequest').classList.add('active');
-    btn.textContent = 'Denied — Reset in Browser';
+    btn.textContent=T("jtc_denied_reset_in_browser");
     btn.className = 'denied';
   }
 
@@ -1145,8 +1195,8 @@ function addAction(action = '', title = '') {
   const item = document.createElement('div');
   item.className = 'action-item';
   item.innerHTML = `
-    <input type="text" placeholder="action id" value="${action}" oninput="updatePreview()">
-    <input type="text" placeholder="Button title" value="${title}" oninput="updatePreview()">
+    <input type="text" tp="placeholder_action_id" tp="placeholder_action_id" tp="placeholder_action_id" tp="placeholder_action_id" tp="placeholder_action_id" placeholder="action id" value="${action}" oninput="updatePreview()">
+    <input type="text" tp="placeholder_button_title" tp="placeholder_button_title" tp="placeholder_button_title" tp="placeholder_button_title" tp="placeholder_button_title" placeholder="Button title" value="${title}" oninput="updatePreview()">
     <button onclick="this.parentElement.remove(); updatePreview();">×</button>
   `;
   list.appendChild(item);
@@ -1465,7 +1515,7 @@ self.addEventListener('push', e => {
     });
 
     document.getElementById('swDot').classList.add('active');
-    document.getElementById('swLabel').textContent = 'SW: active';
+    document.getElementById('swLabel').textContent=T("jtc_sw_active");
     logEvent('Service Worker registered and active', 'click');
     showToast('Service Worker registered');
   } catch (err) {
@@ -1549,6 +1599,96 @@ function copyCode() {
 updatePermissionUI();
 updatePreview();
 updateVibrateVis();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

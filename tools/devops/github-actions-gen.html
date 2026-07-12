@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_github_actions_generator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -45,12 +45,14 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>GitHub Actions Generator</h1>
-<p class="sub">Create CI/CD workflows visually — copy YAML to your repo</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_github_actions_generator">GitHub Actions Generator</h1>
+<p class="sub" ti="subtitle_create_ci_cd_workflows_vi">Create CI/CD workflows visually — copy YAML to your repo</p>
 
 <div class="section">
-<h3>Presets</h3>
+<h3 ti="h3_presets">Presets</h3>
 <div class="presets" id="presetList">
 <div class="preset active" onclick="loadPreset('node')">Node.js CI</div>
 <div class="preset" onclick="loadPreset('python')">Python CI</div>
@@ -66,55 +68,55 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div class="layout">
 <div>
 <div class="section">
-<h3>Workflow</h3>
-<div class="field"><label>Name</label><input id="wName" value="CI" oninput="gen()"></div>
-<div class="field"><label>File name (.github/workflows/)</label><input id="wFile" value="ci.yml" oninput="gen()"></div>
+<h3 ti="h3_workflow">Workflow</h3>
+<div class="field"><label ti="label_name">Name</label><input id="wName" value="CI" oninput="gen()"></div>
+<div class="field"><label ti="label_file_name_github_workflow">File name (.github/workflows/)</label><input id="wFile" value="ci.yml" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Triggers</h3>
+<h3 ti="h3_triggers">Triggers</h3>
 <div class="check-group">
-<div class="check-row"><input type="checkbox" id="tPush" checked onchange="gen()"><label for="tPush">Push</label></div>
-<div class="check-row"><input type="checkbox" id="tPR" checked onchange="gen()"><label for="tPR">Pull Request</label></div>
-<div class="check-row"><input type="checkbox" id="tManual" onchange="gen()"><label for="tManual">Manual (workflow_dispatch)</label></div>
-<div class="check-row"><input type="checkbox" id="tSchedule" onchange="gen()"><label for="tSchedule">Schedule (cron)</label></div>
+<div class="check-row"><input type="checkbox" id="tPush" checked onchange="gen()"><label for="tPush" ti="label_push">Push</label></div>
+<div class="check-row"><input type="checkbox" id="tPR" checked onchange="gen()"><label for="tPR" ti="label_pull_request">Pull Request</label></div>
+<div class="check-row"><input type="checkbox" id="tManual" onchange="gen()"><label for="tManual" ti="label_manual_workflow_dispatch">Manual (workflow_dispatch)</label></div>
+<div class="check-row"><input type="checkbox" id="tSchedule" onchange="gen()"><label for="tSchedule" ti="label_schedule_cron">Schedule (cron)</label></div>
 </div>
-<div class="field"><label>Branches (comma-separated)</label><input id="tBranches" value="main" oninput="gen()"></div>
-<div class="field" id="fCron" style="display:none"><label>Cron Schedule</label><input id="tCron" value="0 0 * * 1" oninput="gen()"></div>
+<div class="field"><label ti="label_branches_comma_separated">Branches (comma-separated)</label><input id="tBranches" value="main" oninput="gen()"></div>
+<div class="field" id="fCron" style="display:none"><label ti="label_cron_schedule">Cron Schedule</label><input id="tCron" value="0 0 * * 1" oninput="gen()"></div>
 </div>
 
 <div class="section">
-<h3>Job Settings</h3>
-<div class="field"><label>Runner</label><select id="jRunner" onchange="gen()">
+<h3 ti="h3_job_settings">Job Settings</h3>
+<div class="field"><label ti="label_runner">Runner</label><select id="jRunner" onchange="gen()">
 <option value="ubuntu-latest">ubuntu-latest</option>
 <option value="ubuntu-22.04">ubuntu-22.04</option>
 <option value="macos-latest">macos-latest</option>
 <option value="windows-latest">windows-latest</option>
 </select></div>
-<div class="field"><label>Language</label><select id="jLang" onchange="gen()">
+<div class="field"><label ti="label_language">Language</label><select id="jLang" onchange="gen()">
 <option value="node">Node.js</option>
 <option value="python">Python</option>
 <option value="go">Go</option>
 <option value="rust">Rust</option>
 <option value="none">None (custom)</option>
 </select></div>
-<div class="field" id="fVersion"><label>Version</label><input id="jVersion" value="20" oninput="gen()"></div>
-<div class="field" id="fMatrix" style="display:none"><label>Matrix Versions (comma-separated)</label><input id="jMatrix" value="" oninput="gen()"></div>
-<div class="check-row"><input type="checkbox" id="jMatrixEnable" onchange="toggleMatrix()"><label for="jMatrixEnable">Enable matrix strategy</label></div>
+<div class="field" id="fVersion"><label ti="label_version">Version</label><input id="jVersion" value="20" oninput="gen()"></div>
+<div class="field" id="fMatrix" style="display:none"><label ti="label_matrix_versions_comma_sep">Matrix Versions (comma-separated)</label><input id="jMatrix" value="" oninput="gen()"></div>
+<div class="check-row"><input type="checkbox" id="jMatrixEnable" onchange="toggleMatrix()"><label for="jMatrixEnable" ti="label_enable_matrix_strategy">Enable matrix strategy</label></div>
 </div>
 
 <div class="section">
-<h3>Steps</h3>
+<h3 ti="h3_steps">Steps</h3>
 <div class="check-group">
-<div class="check-row"><input type="checkbox" id="sCheckout" checked onchange="gen()"><label for="sCheckout">Checkout</label></div>
-<div class="check-row"><input type="checkbox" id="sSetup" checked onchange="gen()"><label for="sSetup">Setup language</label></div>
-<div class="check-row"><input type="checkbox" id="sInstall" checked onchange="gen()"><label for="sInstall">Install dependencies</label></div>
-<div class="check-row"><input type="checkbox" id="sLint" onchange="gen()"><label for="sLint">Lint</label></div>
-<div class="check-row"><input type="checkbox" id="sTest" checked onchange="gen()"><label for="sTest">Test</label></div>
-<div class="check-row"><input type="checkbox" id="sBuild" onchange="gen()"><label for="sBuild">Build</label></div>
-<div class="check-row"><input type="checkbox" id="sCache" checked onchange="gen()"><label for="sCache">Cache dependencies</label></div>
-<div class="check-row"><input type="checkbox" id="sDocker" onchange="gen()"><label for="sDocker">Docker build & push</label></div>
-<div class="check-row"><input type="checkbox" id="sDeploy" onchange="gen()"><label for="sDeploy">Deploy step (placeholder)</label></div>
+<div class="check-row"><input type="checkbox" id="sCheckout" checked onchange="gen()"><label for="sCheckout" ti="label_checkout">Checkout</label></div>
+<div class="check-row"><input type="checkbox" id="sSetup" checked onchange="gen()"><label for="sSetup" ti="label_setup_language">Setup language</label></div>
+<div class="check-row"><input type="checkbox" id="sInstall" checked onchange="gen()"><label for="sInstall" ti="label_install_dependencies">Install dependencies</label></div>
+<div class="check-row"><input type="checkbox" id="sLint" onchange="gen()"><label for="sLint" ti="label_lint">Lint</label></div>
+<div class="check-row"><input type="checkbox" id="sTest" checked onchange="gen()"><label for="sTest" ti="label_test">Test</label></div>
+<div class="check-row"><input type="checkbox" id="sBuild" onchange="gen()"><label for="sBuild" ti="label_build">Build</label></div>
+<div class="check-row"><input type="checkbox" id="sCache" checked onchange="gen()"><label for="sCache" ti="label_cache_dependencies">Cache dependencies</label></div>
+<div class="check-row"><input type="checkbox" id="sDocker" onchange="gen()"><label for="sDocker" ti="label_docker_build_push">Docker build & push</label></div>
+<div class="check-row"><input type="checkbox" id="sDeploy" onchange="gen()"><label for="sDeploy" ti="label_deploy_step_placeholder">Deploy step (placeholder)</label></div>
 </div>
 </div>
 </div>
@@ -122,17 +124,27 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 <div>
 <div class="output-area" id="output"></div>
 <div class="actions">
-<button class="btn btn-primary" onclick="copyYaml()">Copy YAML</button>
-<button class="btn" onclick="downloadYaml()">Download</button>
+<button class="btn btn-primary" onclick="copyYaml()" ti="btn_copy_yaml">Copy YAML</button>
+<button class="btn" onclick="downloadYaml()" ti="btn_download">Download</button>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dependabot-gen/">Dependabot Config</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/github-profile-gen/">GitHub Profile</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/dependabot-gen/" ti="link_dependabot_config">Dependabot Config</a> | <a href="https://gokuscraper.github.io/dev-vault/docker-compose-gen/" ti="link_docker_compose">Docker Compose</a> | <a href="https://gokuscraper.github.io/dev-vault/github-profile-gen/" ti="link_github_profile">GitHub Profile</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_github_actions_generator':["GitHub Actions Generator — Create CI/CD Workflows Visually", "GitHub Actions 生成器 — 以可视化方式创建 CI/CD 工作流"],'metadesc_generate_github_actions_w':["Generate GitHub Actions workflow YAML visually. CI/CD for Node.js, Python, Go, Rust, Docker. Test, build, deploy. Copy or download.", "以可视化方式生成 GitHub Actions 工作流 YAML 文件。支持 Node.js、Python、Go、Rust 和 Docker 的 CI/CD。测试、构建、部署。可复制或下载。"],'h1_github_actions_generator':["GitHub Actions Generator", "GitHub Actions 生成器"],'h3_presets':["Presets", "预设"],'h3_workflow':["Workflow", "工作流程"],'h3_triggers':["Triggers", "触发器"],'h3_job_settings':["Job Settings", "工作环境"],'h3_steps':["Steps", "步骤"],'subtitle_create_ci_cd_workflows_vi':["Create CI/CD workflows visually — copy YAML to your repo", "以可视化方式创建 CI/CD 工作流——将 YAML 文件复制到您的代码仓库"],'btn_copy_yaml':["Copy YAML", "复制 YAML"],'btn_download':["Download", "下载"],'label_name':["Name", "姓名"],'label_file_name_github_workflow':["File name (.github/workflows/)", "文件名（.github/workflows/）"],'label_push':["Push", "推"],'label_pull_request':["Pull Request", "拉取请求"],'label_manual_workflow_dispatch':["Manual (workflow_dispatch)", "手动（工作流调度）"],'label_schedule_cron':["Schedule (cron)", "定时任务（cron）"],'label_branches_comma_separated':["Branches (comma-separated)", "分支（逗号分隔）"],'label_cron_schedule':["Cron Schedule", "定时任务"],'label_runner':["Runner", "跑步者"],'label_language':["Language", "语言"],'label_version':["Version", "版本"],'label_matrix_versions_comma_sep':["Matrix Versions (comma-separated)", "矩阵版本（逗号分隔）"],'label_enable_matrix_strategy':["Enable matrix strategy", "启用矩阵策略"],'label_checkout':["Checkout", "查看"],'label_setup_language':["Setup language", "设置语言"],'label_install_dependencies':["Install dependencies", "安装依赖项"],'label_lint':["Lint", "皮棉"],'label_test':["Test", "测试"],'label_build':["Build", "建造"],'label_cache_dependencies':["Cache dependencies", "缓存依赖项"],'label_docker_build_push':["Docker build & push", "Docker 构建和推送"],'label_deploy_step_placeholder':["Deploy step (placeholder)", "部署步骤（占位符）"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_dependabot_config':["Dependabot Config", "Dependabot 配置"],'link_docker_compose':["Docker Compose", "Docker Compose"],'link_github_profile':["GitHub Profile", "GitHub个人资料"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const LANG_CONFIG={
   node:{setup:'actions/setup-node@v4',versionKey:'node-version',install:'npm ci',lint:'npm run lint',test:'npm test',build:'npm run build',cache:'node_modules',cacheKey:'npm',hashFile:'**/package-lock.json'},
@@ -285,6 +297,24 @@ function showToast(msg){
 
 // Init
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

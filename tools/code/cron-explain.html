@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_cron_explain_human_readab" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,13 +59,21 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Cron Explain</h1>
-<p class="subtitle">Paste a cron expression. Get plain English + next run times.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_cron_explain" ti="h1_cron_explain" ti="h1_cron_explain" ti="h1_cron_explain">Cron Explain</h1>
+<p class="subtitle" ti="subtitle_paste_a_cron_expression_g" ti="subtitle_paste_a_cron_expression_g" ti="subtitle_paste_a_cron_expression_g" ti="subtitle_paste_a_cron_expression_g">Paste a cron expression. Get plain English + next run times.</p>
 
 <div class="input-section">
   <div class="cron-input">
-    <input type="text" id="cronInput" value="0 9 * * 1-5" placeholder="* * * * *" autocomplete="off">
+    <input type="text" id="cronInput" value="0 9 * * 1-5" tp="placeholder_x" tp="placeholder_x" tp="placeholder_x" tp="placeholder_x" placeholder="* * * * *" autocomplete="off">
   </div>
   <div class="field-labels">
     <div class="field-label">Minute</div>
@@ -75,16 +83,16 @@ footer a:hover{color:#999}
     <div class="field-label">Weekday</div>
   </div>
   <div class="presets">
-    <button class="preset" onclick="setExpr('* * * * *')">every minute</button>
-    <button class="preset" onclick="setExpr('0 * * * *')">every hour</button>
-    <button class="preset" onclick="setExpr('0 0 * * *')">midnight</button>
-    <button class="preset" onclick="setExpr('0 9 * * 1-5')">9am weekdays</button>
-    <button class="preset" onclick="setExpr('*/5 * * * *')">every 5 min</button>
-    <button class="preset" onclick="setExpr('0 0 1 * *')">monthly</button>
-    <button class="preset" onclick="setExpr('0 12 * * 0')">noon Sunday</button>
-    <button class="preset" onclick="setExpr('30 2 * * *')">2:30am daily</button>
-    <button class="preset" onclick="setExpr('0 0 * * 0')">weekly Sun</button>
-    <button class="preset" onclick="setExpr('0 0 1 1 *')">yearly Jan 1</button>
+    <button class="preset" onclick="setExpr('* * * * *')" ti="btn_every_minute" ti="btn_every_minute" ti="btn_every_minute" ti="btn_every_minute">every minute</button>
+    <button class="preset" onclick="setExpr('0 * * * *')" ti="btn_every_hour" ti="btn_every_hour" ti="btn_every_hour" ti="btn_every_hour">every hour</button>
+    <button class="preset" onclick="setExpr('0 0 * * *')" ti="btn_midnight" ti="btn_midnight" ti="btn_midnight" ti="btn_midnight">midnight</button>
+    <button class="preset" onclick="setExpr('0 9 * * 1-5')" ti="btn_9am_weekdays" ti="btn_9am_weekdays" ti="btn_9am_weekdays" ti="btn_9am_weekdays">9am weekdays</button>
+    <button class="preset" onclick="setExpr('*/5 * * * *')" ti="btn_every_5_min" ti="btn_every_5_min" ti="btn_every_5_min" ti="btn_every_5_min">every 5 min</button>
+    <button class="preset" onclick="setExpr('0 0 1 * *')" ti="btn_monthly" ti="btn_monthly" ti="btn_monthly" ti="btn_monthly">monthly</button>
+    <button class="preset" onclick="setExpr('0 12 * * 0')" ti="btn_noon_sunday" ti="btn_noon_sunday" ti="btn_noon_sunday" ti="btn_noon_sunday">noon Sunday</button>
+    <button class="preset" onclick="setExpr('30 2 * * *')" ti="btn_2_30am_daily" ti="btn_2_30am_daily" ti="btn_2_30am_daily" ti="btn_2_30am_daily">2:30am daily</button>
+    <button class="preset" onclick="setExpr('0 0 * * 0')" ti="btn_weekly_sun" ti="btn_weekly_sun" ti="btn_weekly_sun" ti="btn_weekly_sun">weekly Sun</button>
+    <button class="preset" onclick="setExpr('0 0 1 1 *')" ti="btn_yearly_jan_1" ti="btn_yearly_jan_1" ti="btn_yearly_jan_1" ti="btn_yearly_jan_1">yearly Jan 1</button>
   </div>
 </div>
 
@@ -92,12 +100,42 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/cron-explain">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/npm-health/">npm Health</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/css-shadow/">CSS Shadow</a>
+  <a href="https://github.com/gokuscraper/cron-explain" ti="link_github" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats" ti="link_gh_stats" ti="link_gh_stats" ti="link_gh_stats">gh-stats</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/npm-health/" ti="link_npm_health" ti="link_npm_health" ti="link_npm_health" ti="link_npm_health">npm Health</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/css-shadow/" ti="link_css_shadow" ti="link_css_shadow" ti="link_css_shadow" ti="link_css_shadow">CSS Shadow</a>
 </footer>
 
+
+
+
+<script>var _LANG={'title_cron_explain_human_readab':["Cron Explain — Human-Readable Cron Expressions", "Cron 解释 — 人类可读的 Cron 表达式"],'metadesc_paste_a_cron_expression_a':["Paste a cron expression and get a plain English explanation. See next 10 run times. Build cron expressions visually. Free, instant.", "粘贴 cron 表达式，即可获得简明易懂的英文解释。查看接下来 10 次运行时间。以可视化方式构建 cron 表达式。免费，即时生效。"],'h1_cron_explain':["Cron Explain", "定时任务解释"],'h2_next_runs_length_runs':["Next ${runs.length} Runs", "接下来 ${runs.length} 次运行"],'subtitle_paste_a_cron_expression_g':["Paste a cron expression. Get plain English + next run times.", "粘贴 cron 表达式。获取纯英文输出以及下次运行时间。"],'btn_every_minute':["every minute", "每分钟"],'btn_every_hour':["every hour", "每小时"],'btn_midnight':["midnight", "午夜"],'btn_9am_weekdays':["9am weekdays", "工作日上午9点"],'btn_every_5_min':["every 5 min", "每隔5分钟"],'btn_monthly':["monthly", "月度"],'btn_noon_sunday':["noon Sunday", "星期日中午"],'btn_2_30am_daily':["2:30am daily", "每日凌晨2:30"],'btn_weekly_sun':["weekly Sun", "周报"],'btn_yearly_jan_1':["yearly Jan 1", "每年1月1日"],'placeholder_x':["* * * * *", "* * * * *"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"],'link_css_shadow':["CSS Shadow", "CSS Shadow"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cron_explain_human_readab':["Cron Explain — Human-Readable Cron Expressions", "Cron 解释 — 人类可读的 Cron 表达式"],'metadesc_paste_a_cron_expression_a':["Paste a cron expression and get a plain English explanation. See next 10 run times. Build cron expressions visually. Free, instant.", "粘贴 cron 表达式，即可获得简明易懂的英文解释。查看接下来 10 次运行时间。以可视化方式构建 cron 表达式。免费，即时生效。"],'h1_cron_explain':["Cron Explain", "定时任务解释"],'h2_next_runs_length_runs':["Next ${runs.length} Runs", "接下来 ${runs.length} 次运行"],'subtitle_paste_a_cron_expression_g':["Paste a cron expression. Get plain English + next run times.", "粘贴 cron 表达式。获取纯英文输出以及下次运行时间。"],'btn_every_minute':["every minute", "每分钟"],'btn_every_hour':["every hour", "每小时"],'btn_midnight':["midnight", "午夜"],'btn_9am_weekdays':["9am weekdays", "工作日上午9点"],'btn_every_5_min':["every 5 min", "每隔5分钟"],'btn_monthly':["monthly", "月度"],'btn_noon_sunday':["noon Sunday", "星期日中午"],'btn_2_30am_daily':["2:30am daily", "每日凌晨2:30"],'btn_weekly_sun':["weekly Sun", "周报"],'btn_yearly_jan_1':["yearly Jan 1", "每年1月1日"],'placeholder_x':["* * * * *", "* * * * *"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"],'link_css_shadow':["CSS Shadow", "CSS Shadow"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_cron_explain_human_readab':["Cron Explain — Human-Readable Cron Expressions", "Cron 解释 — 人类可读的 Cron 表达式"],'metadesc_paste_a_cron_expression_a':["Paste a cron expression and get a plain English explanation. See next 10 run times. Build cron expressions visually. Free, instant.", "粘贴 cron 表达式，即可获得简明易懂的英文解释。查看接下来 10 次运行时间。以可视化方式构建 cron 表达式。免费，即时生效。"],'h1_cron_explain':["Cron Explain", "定时任务解释"],'h2_next_runs_length_runs':["Next ${runs.length} Runs", "接下来 ${runs.length} 次运行"],'subtitle_paste_a_cron_expression_g':["Paste a cron expression. Get plain English + next run times.", "粘贴 cron 表达式。获取纯英文输出以及下次运行时间。"],'btn_every_minute':["every minute", "每分钟"],'btn_every_hour':["every hour", "每小时"],'btn_midnight':["midnight", "午夜"],'btn_9am_weekdays':["9am weekdays", "工作日上午9点"],'btn_every_5_min':["every 5 min", "每隔5分钟"],'btn_monthly':["monthly", "月度"],'btn_noon_sunday':["noon Sunday", "星期日中午"],'btn_2_30am_daily':["2:30am daily", "每日凌晨2:30"],'btn_weekly_sun':["weekly Sun", "周报"],'btn_yearly_jan_1':["yearly Jan 1", "每年1月1日"],'placeholder_x':["* * * * *", "* * * * *"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_gh_stats':["gh-stats", "gh-stats"],'link_npm_health':["npm Health", "npm 健康"],'link_css_shadow':["CSS Shadow", "CSS Shadow"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 const MONTHS=['','January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -267,7 +305,7 @@ function explain(){
       </div>
 
       <div class="section">
-        <h2>Next ${runs.length} Runs</h2>
+        <h2 ti="h2_next_runs_length_runs" ti="h2_next_runs_length_runs" ti="h2_next_runs_length_runs" ti="h2_next_runs_length_runs">Next ${runs.length} Runs</h2>
         <ul class="run-list">
           ${runs.map(r=>`
             <li>
@@ -296,12 +334,84 @@ const params=new URLSearchParams(location.search);
 if(params.get('expr')){$('cronInput').value=params.get('expr');explain()}
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/timestamp-tool/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Timestamp Tool</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-test/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Test</a>
 <a href="https://gokuscraper.github.io/dev-vault/chmod-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Chmod Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/http-status/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Http Status</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

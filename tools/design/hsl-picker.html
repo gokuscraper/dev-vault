@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_hsl_color_picker" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -475,6 +475,8 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <svg width="22" height="22" viewBox="0 0 22 22" fill="none">
@@ -485,11 +487,11 @@
     <path d="M1 11 A10 10 0 0 1 11 1" stroke="#58a6ff" stroke-width="2.5" stroke-linecap="round"/>
     <circle cx="11" cy="11" r="3.5" fill="#161b22" stroke="#30363d" stroke-width="1"/>
   </svg>
-  <h1>HSL Color Picker</h1>
+  <h1 ti="title_hsl_color_picker" ti="h1_hsl_color_picker">HSL Color Picker</h1>
   <span>Wheel &middot; Harmonies &middot; Tints &amp; Shades &middot; Format Conversion</span>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- LEFT COLUMN -->
   <div style="display:flex;flex-direction:column;gap:20px;">
@@ -505,15 +507,15 @@
       <!-- HSL number inputs -->
       <div class="hsl-inputs">
         <div class="hsl-input-wrap">
-          <label for="in-h">H (0-360)</label>
+          <label for="in-h" ti="label_h_0_360">H (0-360)</label>
           <input type="number" id="in-h" min="0" max="360" step="1">
         </div>
         <div class="hsl-input-wrap">
-          <label for="in-s">S (0-100)</label>
+          <label for="in-s" ti="label_s_0_100">S (0-100)</label>
           <input type="number" id="in-s" min="0" max="100" step="1">
         </div>
         <div class="hsl-input-wrap">
-          <label for="in-l">L (0-100)</label>
+          <label for="in-l" ti="label_l_0_100">L (0-100)</label>
           <input type="number" id="in-l" min="0" max="100" step="1">
         </div>
       </div>
@@ -606,11 +608,11 @@
     <div class="card">
       <div class="card-title">Color Harmonies</div>
       <div class="harmony-tabs">
-        <button class="harmony-tab active" data-harmony="complementary">Complementary</button>
-        <button class="harmony-tab" data-harmony="analogous">Analogous</button>
-        <button class="harmony-tab" data-harmony="triadic">Triadic</button>
-        <button class="harmony-tab" data-harmony="split">Split-Comp</button>
-        <button class="harmony-tab" data-harmony="tetradic">Tetradic</button>
+        <button class="harmony-tab active" data-harmony="complementary" ti="btn_complementary">Complementary</button>
+        <button class="harmony-tab" data-harmony="analogous" ti="btn_analogous">Analogous</button>
+        <button class="harmony-tab" data-harmony="triadic" ti="btn_triadic">Triadic</button>
+        <button class="harmony-tab" data-harmony="split" ti="btn_split_comp">Split-Comp</button>
+        <button class="harmony-tab" data-harmony="tetradic" ti="btn_tetradic">Tetradic</button>
       </div>
       <div class="harmony-swatches" id="harmony-swatches"></div>
     </div>
@@ -632,6 +634,16 @@
   </div>
 </div>
 
+
+<script>var _LANG={'title_hsl_color_picker':["HSL Color Picker", "HSL颜色选择器"],'metadesc_pick_colors_using_hsl_sli':["Pick colors using HSL sliders with live preview. Convert between HSL, HEX, and RGB formats. Generate harmonious color palettes instantly.", "使用 HSL 滑块实时预览颜色选择。在 HSL、HEX 和 RGB 格式之间进行转换。立即生成和谐的调色板。"],'h1_hsl_color_picker':["HSL Color Picker", "HSL颜色选择器"],'btn_complementary':["Complementary", "补充"],'btn_analogous':["Analogous", "类似物"],'btn_triadic':["Triadic", "三元"],'btn_split_comp':["Split-Comp", "分体式"],'btn_tetradic':["Tetradic", "四重奏"],'strong_related_tools':["Related Tools", "相关工具"],'label_h_0_360':["H (0-360)", "H（0-360）"],'label_s_0_100':["S (0-100)", "S（0-100）"],'label_l_0_100':["L (0-100)", "L（0-100）"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_u2713':["\\u2713", "�u2713"],'jtc_u2713_2':["\\u2713", "�u2713"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ======================================================
 // State
@@ -966,7 +978,7 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
     const val = document.getElementById(btn.dataset.target).value;
     navigator.clipboard.writeText(val).then(() => {
       btn.classList.add('copied');
-      btn.textContent = '\u2713';
+      btn.textContent=T("jtc_u2713");
       setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '&#x2398;'; }, 1500);
     }).catch(() => {
       // Fallback for non-secure contexts
@@ -974,7 +986,7 @@ document.querySelectorAll('.copy-btn').forEach(btn => {
       ta.value = val; ta.style.position = 'fixed'; ta.style.opacity = '0';
       document.body.appendChild(ta); ta.select(); document.execCommand('copy');
       document.body.removeChild(ta);
-      btn.classList.add('copied'); btn.textContent = '\u2713';
+      btn.classList.add('copied'); btn.textContent=T("jtc_u2713");
       setTimeout(() => { btn.classList.remove('copied'); btn.innerHTML = '&#x2398;'; }, 1500);
     });
   });
@@ -985,7 +997,7 @@ document.getElementById('preview-hex-big').addEventListener('click', () => {
   const hex = hslToHex(state.h, state.s, state.l).toUpperCase();
   const el = document.getElementById('preview-hex-big');
   navigator.clipboard.writeText(hex).catch(() => {});
-  el.textContent = 'Copied!';
+  el.textContent=T("jtc_copied");
   setTimeout(() => { el.textContent = hex; }, 1200);
 });
 
@@ -1218,12 +1230,30 @@ updateRecent();
 refresh();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-convert/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Convert</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-mixer/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Mixer</a>
 <a href="https://gokuscraper.github.io/dev-vault/contrast-check/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Contrast Check</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

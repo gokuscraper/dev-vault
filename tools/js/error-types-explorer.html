@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_javascript_error_types_ex" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -73,20 +73,22 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>JavaScript Error Types Explorer</h1>
+  <h1 ti="title_javascript_error_types_ex" ti="h1_javascript_error_types_ex">JavaScript Error Types Explorer</h1>
   <p>Explore built-in errors, custom classes, Error.cause, AggregateError, and try/catch/finally flow</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
   <div class="sidebar">
-    <h3>Built-in Errors</h3>
+    <h3 ti="h3_built_in_errors">Built-in Errors</h3>
     <div class="nav-item active" data-section="builtin">Error Types</div>
     <div class="nav-item" data-section="trigger">Trigger Errors</div>
-    <h3>Custom</h3>
+    <h3 ti="h3_custom">Custom</h3>
     <div class="nav-item" data-section="custom">Custom Error Builder</div>
     <div class="nav-item" data-section="cause">Error.cause Chain</div>
     <div class="nav-item" data-section="aggregate">AggregateError</div>
-    <h3>Analysis</h3>
+    <h3 ti="h3_analysis">Analysis</h3>
     <div class="nav-item" data-section="stack">Stack Trace</div>
     <div class="nav-item" data-section="serialize">Serialization</div>
     <div class="nav-item" data-section="flow">try/catch/finally Flow</div>
@@ -95,7 +97,7 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Built-in Error Types -->
     <div class="section active" id="builtin">
-      <h2 class="section-title">Built-in Error Types</h2>
+      <h2 class="section-title" ti="h2_built_in_error_types">Built-in Error Types</h2>
       <div class="section-desc">JavaScript has 7 built-in error types that extend the base <code>Error</code> class. Each is thrown in specific circumstances by the engine or standard library.</div>
       <div id="error-cards"></div>
       <div class="panel">
@@ -108,26 +110,26 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Trigger Errors -->
     <div class="section" id="trigger">
-      <h2 class="section-title">Trigger Errors</h2>
+      <h2 class="section-title" ti="h2_trigger_errors">Trigger Errors</h2>
       <div class="section-desc">Each button triggers a specific error type in a try/catch block so you can see the real error message and constructor.</div>
       <div class="panel">
         <div class="panel-header">Trigger Buttons</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn danger" onclick="triggerError('type')">TypeError</button>
-            <button class="btn danger" onclick="triggerError('range')">RangeError</button>
-            <button class="btn danger" onclick="triggerError('reference')">ReferenceError</button>
-            <button class="btn danger" onclick="triggerError('syntax')">SyntaxError</button>
-            <button class="btn danger" onclick="triggerError('uri')">URIError</button>
-            <button class="btn danger" onclick="triggerError('eval')">EvalError</button>
-            <button class="btn danger" onclick="triggerError('generic')">Error</button>
+            <button class="btn danger" onclick="triggerError('type')" ti="btn_typeerror">TypeError</button>
+            <button class="btn danger" onclick="triggerError('range')" ti="btn_rangeerror">RangeError</button>
+            <button class="btn danger" onclick="triggerError('reference')" ti="btn_referenceerror">ReferenceError</button>
+            <button class="btn danger" onclick="triggerError('syntax')" ti="btn_syntaxerror">SyntaxError</button>
+            <button class="btn danger" onclick="triggerError('uri')" ti="btn_urierror">URIError</button>
+            <button class="btn danger" onclick="triggerError('eval')" ti="btn_evalerror">EvalError</button>
+            <button class="btn danger" onclick="triggerError('generic')" ti="btn_error">Error</button>
           </div>
         </div>
       </div>
       <div class="panel">
         <div class="panel-header">
           <span>Caught Error</span>
-          <button class="btn" onclick="clearLog('trigger-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+          <button class="btn" onclick="clearLog('trigger-log')" style="padding:.2rem .5rem;font-size:.72rem" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7">Clear</button>
         </div>
         <div id="trigger-log" class="log"></div>
       </div>
@@ -135,19 +137,19 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Custom Error Builder -->
     <div class="section" id="custom">
-      <h2 class="section-title">Custom Error Class Builder</h2>
+      <h2 class="section-title" ti="h2_custom_error_class_builde">Custom Error Class Builder</h2>
       <div class="section-desc">Build custom error classes that extend <code>Error</code>. Custom errors should set <code>this.name</code> to the class name and can add domain-specific properties.</div>
       <div class="split">
         <div class="panel">
           <div class="panel-header">Define Custom Error</div>
           <div class="panel-body">
-            <div class="input-row"><label>Class name:</label><input id="custom-name" value="ValidationError" style="flex:1"></div>
-            <div class="input-row"><label>Message:</label><input id="custom-msg" value="Field 'email' is required" style="flex:1"></div>
-            <div class="input-row"><label>Extra prop:</label><input id="custom-prop-name" value="field" style="width:80px"><input id="custom-prop-val" value="email" style="flex:1"></div>
-            <div class="input-row"><label>HTTP code:</label><input id="custom-code" value="400" type="number" style="width:80px"></div>
+            <div class="input-row"><label ti="label_class_name">Class name:</label><input id="custom-name" value="ValidationError" style="flex:1"></div>
+            <div class="input-row"><label ti="label_message">Message:</label><input id="custom-msg" value="Field 'email' is required" style="flex:1"></div>
+            <div class="input-row"><label ti="label_extra_prop">Extra prop:</label><input id="custom-prop-name" value="field" style="width:80px"><input id="custom-prop-val" value="email" style="flex:1"></div>
+            <div class="input-row"><label ti="label_http_code">HTTP code:</label><input id="custom-code" value="400" type="number" style="width:80px"></div>
             <div class="btn-group" style="margin-top:.8rem">
-              <button class="btn run" onclick="buildCustomError()">Build & Throw</button>
-              <button class="btn primary" onclick="showCustomCode()">Show Code</button>
+              <button class="btn run" onclick="buildCustomError()" ti="btn_build_throw">Build & Throw</button>
+              <button class="btn primary" onclick="showCustomCode()" ti="btn_show_code">Show Code</button>
             </div>
           </div>
         </div>
@@ -169,15 +171,15 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Error.cause -->
     <div class="section" id="cause">
-      <h2 class="section-title">Error.cause Chaining</h2>
+      <h2 class="section-title" ti="h2_error_cause_chaining">Error.cause Chaining</h2>
       <div class="section-desc">ES2022 added the <code>cause</code> option to Error constructors: <code>new Error("msg", { cause: originalError })</code>. This creates a chain of errors for better debugging.</div>
       <div class="panel">
         <div class="panel-header">Demo Scenarios</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="causeDemo('fetch')">Network → App Error</button>
-            <button class="btn run" onclick="causeDemo('parse')">Parse → Validation → App</button>
-            <button class="btn run" onclick="causeDemo('deep')">4-Level Chain</button>
+            <button class="btn run" onclick="causeDemo('fetch')" ti="btn_network_app_error">Network → App Error</button>
+            <button class="btn run" onclick="causeDemo('parse')" ti="btn_parse_validation_app">Parse → Validation → App</button>
+            <button class="btn run" onclick="causeDemo('deep')" ti="btn_4_level_chain">4-Level Chain</button>
           </div>
         </div>
       </div>
@@ -198,15 +200,15 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- AggregateError -->
     <div class="section" id="aggregate">
-      <h2 class="section-title">AggregateError</h2>
+      <h2 class="section-title" ti="h2_aggregateerror">AggregateError</h2>
       <div class="section-desc"><code>AggregateError</code> wraps multiple errors into one. Used by <code>Promise.any()</code> when all promises reject. The <code>.errors</code> property holds the array of individual errors.</div>
       <div class="panel">
         <div class="panel-header">Demos</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="aggregateDemo('basic')">Basic AggregateError</button>
-            <button class="btn run" onclick="aggregateDemo('promise')">Promise.any() Rejection</button>
-            <button class="btn run" onclick="aggregateDemo('validation')">Multi-field Validation</button>
+            <button class="btn run" onclick="aggregateDemo('basic')" ti="btn_basic_aggregateerror">Basic AggregateError</button>
+            <button class="btn run" onclick="aggregateDemo('promise')" ti="btn_promise_any_rejection">Promise.any() Rejection</button>
+            <button class="btn run" onclick="aggregateDemo('validation')" ti="btn_multi_field_validation">Multi-field Validation</button>
           </div>
         </div>
       </div>
@@ -221,16 +223,16 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Stack Trace -->
     <div class="section" id="stack">
-      <h2 class="section-title">Stack Trace Analysis</h2>
+      <h2 class="section-title" ti="h2_stack_trace_analysis">Stack Trace Analysis</h2>
       <div class="section-desc">Every Error has a <code>.stack</code> property (non-standard but universal). It shows the call chain at the point the error was created. Stack traces are crucial for debugging.</div>
       <div class="panel">
         <div class="panel-header">Generate Stack Traces</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="stackDemo('simple')">Simple Stack</button>
-            <button class="btn run" onclick="stackDemo('nested')">Nested Calls</button>
-            <button class="btn run" onclick="stackDemo('async')">Async Stack</button>
-            <button class="btn run" onclick="stackDemo('anonymous')">Anonymous Functions</button>
+            <button class="btn run" onclick="stackDemo('simple')" ti="btn_simple_stack">Simple Stack</button>
+            <button class="btn run" onclick="stackDemo('nested')" ti="btn_nested_calls">Nested Calls</button>
+            <button class="btn run" onclick="stackDemo('async')" ti="btn_async_stack">Async Stack</button>
+            <button class="btn run" onclick="stackDemo('anonymous')" ti="btn_anonymous_functions">Anonymous Functions</button>
           </div>
         </div>
       </div>
@@ -245,17 +247,17 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- Serialization -->
     <div class="section" id="serialize">
-      <h2 class="section-title">Error Serialization</h2>
+      <h2 class="section-title" ti="h2_error_serialization">Error Serialization</h2>
       <div class="section-desc">Errors don't serialize well with <code>JSON.stringify()</code> — only <code>message</code> is enumerable by default. You need custom serialization for logging and transmission.</div>
       <div class="panel">
         <div class="panel-header">Serialization Patterns</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="serializeDemo('naive')">JSON.stringify(err) — Broken</button>
-            <button class="btn run" onclick="serializeDemo('manual')">Manual Serialization</button>
-            <button class="btn run" onclick="serializeDemo('replacer')">With Replacer</button>
-            <button class="btn run" onclick="serializeDemo('toJSON')">Custom toJSON()</button>
-            <button class="btn run" onclick="serializeDemo('structuredClone')">structuredClone()</button>
+            <button class="btn run" onclick="serializeDemo('naive')" ti="btn_json_stringify_err_broken">JSON.stringify(err) — Broken</button>
+            <button class="btn run" onclick="serializeDemo('manual')" ti="btn_manual_serialization">Manual Serialization</button>
+            <button class="btn run" onclick="serializeDemo('replacer')" ti="btn_with_replacer">With Replacer</button>
+            <button class="btn run" onclick="serializeDemo('toJSON')" ti="btn_custom_tojson">Custom toJSON()</button>
+            <button class="btn run" onclick="serializeDemo('structuredClone')" ti="btn_structuredclone">structuredClone()</button>
           </div>
         </div>
       </div>
@@ -270,18 +272,18 @@ footer a{color:var(--accent);text-decoration:none}
 
     <!-- try/catch/finally Flow -->
     <div class="section" id="flow">
-      <h2 class="section-title">try/catch/finally Flow</h2>
+      <h2 class="section-title" ti="h2_try_catch_finally_flow">try/catch/finally Flow</h2>
       <div class="section-desc">Visualize the execution path through try/catch/finally blocks. See how different scenarios (no error, error thrown, error in catch, return in finally) affect the flow.</div>
       <div class="panel">
         <div class="panel-header">Scenarios</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="flowDemo('success')">No Error</button>
-            <button class="btn run" onclick="flowDemo('caught')">Error Caught</button>
-            <button class="btn run" onclick="flowDemo('rethrow')">Catch + Rethrow</button>
-            <button class="btn run" onclick="flowDemo('finally-return')">Return in Finally</button>
-            <button class="btn run" onclick="flowDemo('nested')">Nested try/catch</button>
-            <button class="btn run" onclick="flowDemo('catch-error')">Error in Catch</button>
+            <button class="btn run" onclick="flowDemo('success')" ti="btn_no_error">No Error</button>
+            <button class="btn run" onclick="flowDemo('caught')" ti="btn_error_caught">Error Caught</button>
+            <button class="btn run" onclick="flowDemo('rethrow')" ti="btn_catch_rethrow">Catch + Rethrow</button>
+            <button class="btn run" onclick="flowDemo('finally-return')" ti="btn_return_in_finally">Return in Finally</button>
+            <button class="btn run" onclick="flowDemo('nested')" ti="btn_nested_try_catch">Nested try/catch</button>
+            <button class="btn run" onclick="flowDemo('catch-error')" ti="btn_error_in_catch">Error in Catch</button>
           </div>
         </div>
       </div>
@@ -302,8 +304,18 @@ footer a{color:var(--accent);text-decoration:none}
 
   </div>
 </div>
-<footer>JavaScript Error Types Explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a></footer>
+<footer>JavaScript Error Types Explorer &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a></footer>
 
+
+<script>var _LANG={'title_javascript_error_types_ex':["JavaScript Error Types Explorer", "JavaScript 错误类型浏览器"],'metadesc_interactive_javascript_er':["Interactive JavaScript error types playground — explore TypeError, RangeError, SyntaxError, custom errors, Error.cause, AggregateError, and try/catch/finally flow", "交互式 JavaScript 错误类型演示——探索 TypeError、RangeError、SyntaxError、自定义错误、Error.cause、AggregateError 以及 try/catch/finally 流程。"],'h1_javascript_error_types_ex':["JavaScript Error Types Explorer", "JavaScript 错误类型浏览器"],'h2_built_in_error_types':["Built-in Error Types", "内置错误类型"],'h2_trigger_errors':["Trigger Errors", "触发错误"],'h2_custom_error_class_builde':["Custom Error Class Builder", "自定义错误类生成器"],'h2_error_cause_chaining':["Error.cause Chaining", "错误原因链"],'h2_aggregateerror':["AggregateError", "聚合错误"],'h2_stack_trace_analysis':["Stack Trace Analysis", "堆栈跟踪分析"],'h2_error_serialization':["Error Serialization", "序列化错误"],'h2_try_catch_finally_flow':["try/catch/finally Flow", "try/catch/finally 流程"],'h3_built_in_errors':["Built-in Errors", "内置错误"],'h3_custom':["Custom", "风俗"],'h3_analysis':["Analysis", "分析"],'h3_et_name':["${et.name}", "${et.name}"],'btn_typeerror':["TypeError", "TypeError"],'btn_rangeerror':["RangeError", "范围误差"],'btn_referenceerror':["ReferenceError", "参考错误"],'btn_syntaxerror':["SyntaxError", "语法错误"],'btn_urierror':["URIError", "URI错误"],'btn_evalerror':["EvalError", "评估错误"],'btn_error':["Error", "错误"],'btn_clear':["Clear", "清除"],'btn_build_throw':["Build & Throw", "搭建与投掷"],'btn_show_code':["Show Code", "显示代码"],'btn_clear_2':["Clear", "清除"],'btn_network_app_error':["Network → App Error", "网络 → 应用错误"],'btn_parse_validation_app':["Parse → Validation → App", "解析 → 验证 → 应用"],'btn_4_level_chain':["4-Level Chain", "四级链"],'btn_clear_3':["Clear", "清除"],'btn_basic_aggregateerror':["Basic AggregateError", "基本聚合错误"],'btn_promise_any_rejection':["Promise.any() Rejection", "Promise.any() 拒绝"],'btn_multi_field_validation':["Multi-field Validation", "多字段验证"],'btn_clear_4':["Clear", "清除"],'btn_simple_stack':["Simple Stack", "简单堆栈"],'btn_nested_calls':["Nested Calls", "嵌套调用"],'btn_async_stack':["Async Stack", "异步栈"],'btn_anonymous_functions':["Anonymous Functions", "匿名函数"],'btn_clear_5':["Clear", "清除"],'btn_json_stringify_err_broken':["JSON.stringify(err) — Broken", "JSON.stringify(err) — 错误"],'btn_manual_serialization':["Manual Serialization", "手动序列化"],'btn_with_replacer':["With Replacer", "替换器"],'btn_custom_tojson':["Custom toJSON()", "自定义 toJSON()"],'btn_structuredclone':["structuredClone()", "结构化克隆()"],'btn_clear_6':["Clear", "清除"],'btn_no_error':["No Error", "无错误"],'btn_error_caught':["Error Caught", "捕获到错误"],'btn_catch_rethrow':["Catch + Rethrow", "接球+再传球"],'btn_return_in_finally':["Return in Finally", "最后返回"],'btn_nested_try_catch':["Nested try/catch", "嵌套的 try/catch"],'btn_error_in_catch':["Error in Catch", "捕获错误"],'btn_clear_7':["Clear", "清除"],'label_class_name':["Class name:", "类名："],'label_message':["Message:", "信息："],'label_extra_prop':["Extra prop:", "额外道具："],'label_http_code':["HTTP code:", "HTTP 代码："],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_error':["Error", "错误"],'jtlword_object':["Object", "目的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Navigation ---
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -365,7 +377,7 @@ errorTypes.forEach((et, i) => {
 
 function showErrorDetail(et) {
   document.getElementById('error-detail').innerHTML = `
-    <h3 style="color:var(${et.color});margin-bottom:.5rem">${et.name}</h3>
+    <h3 style="color:var(${et.color});margin-bottom:.5rem" ti="h3_et_name">${et.name}</h3>
     <p style="margin-bottom:.8rem">${et.desc}</p>
     <h4 style="font-size:.85rem;color:var(--accent);margin-bottom:.4rem">When thrown:</h4>
     <p style="margin-bottom:.8rem;font-size:.82rem">${et.when}</p>
@@ -683,6 +695,24 @@ function flowDemo(type) {
     `<span class="flow-step ${s.cls}">${s.label}</span>${i < steps.length - 1 ? '<span class="flow-arrow">→</span>' : ''}`
   ).join('');
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

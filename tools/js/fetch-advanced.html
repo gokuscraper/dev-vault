@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_fetch_api_advanced_playgr" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -587,6 +587,8 @@ footer a:hover { text-decoration: underline; }
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>Fetch API</span> Advanced Playground</h1>
@@ -608,20 +610,20 @@ footer a:hover { text-decoration: underline; }
     <div class="panel-header">Request</div>
     <div class="panel-body">
       <div class="form-row">
-        <label for="url">URL</label>
-        <input type="text" id="url" value="https://httpbin.org/get" placeholder="https://...">
+        <label for="url" ti="label_url">URL</label>
+        <input type="text" id="url" value="https://httpbin.org/get" tp="placeholder_https" placeholder="https://...">
       </div>
 
       <div class="form-grid">
         <div class="form-row">
-          <label for="method">Method</label>
+          <label for="method" ti="label_method">Method</label>
           <select id="method">
             <option>GET</option><option>POST</option><option>PUT</option>
             <option>PATCH</option><option>DELETE</option><option>HEAD</option>
           </select>
         </div>
         <div class="form-row">
-          <label for="cacheMode">Cache Mode</label>
+          <label for="cacheMode" ti="label_cache_mode">Cache Mode</label>
           <select id="cacheMode">
             <option value="default">default</option>
             <option value="no-store">no-store</option>
@@ -634,23 +636,23 @@ footer a:hover { text-decoration: underline; }
       </div>
 
       <div class="cache-visual" id="cacheVisual">
-        <label>Cache Behavior</label>
+        <label ti="label_cache_behavior">Cache Behavior</label>
         <div class="cache-diagram" id="cacheDiagram"></div>
       </div>
 
       <div class="form-row">
-        <label>Headers</label>
+        <label ti="label_headers">Headers</label>
         <div class="headers-list" id="headersList"></div>
-        <button class="add-header-btn" onclick="addHeaderRow()">+ Add Header</button>
+        <button class="add-header-btn" onclick="addHeaderRow()" ti="btn_add_header">+ Add Header</button>
       </div>
 
       <div class="form-row">
         <label for="reqBody">Body <span style="color:var(--text-dim);font-weight:400;text-transform:none">(for POST/PUT/PATCH)</span></label>
-        <textarea id="reqBody" placeholder='{"key": "value"}'></textarea>
+        <textarea id="reqBody" tp="placeholder_key_value" placeholder='{"key": "value"}'></textarea>
       </div>
 
       <div>
-        <label>Features</label>
+        <label ti="label_features">Features</label>
         <div class="feature-toggles">
           <label class="toggle-chip" id="chipStream">
             <input type="checkbox" id="enableStream" onchange="toggleFeature('stream')"> Stream Progress
@@ -671,11 +673,11 @@ footer a:hover { text-decoration: underline; }
         <div class="opts-title">AbortController</div>
         <div class="form-grid">
           <div class="form-row">
-            <label for="timeoutMs">Timeout (ms)</label>
+            <label for="timeoutMs" ti="label_timeout_ms">Timeout (ms)</label>
             <input type="number" id="timeoutMs" value="5000" min="100" step="100">
           </div>
           <div class="form-row">
-            <label for="abortReason">Abort Reason</label>
+            <label for="abortReason" ti="label_abort_reason">Abort Reason</label>
             <input type="text" id="abortReason" value="Request timed out">
           </div>
         </div>
@@ -685,19 +687,19 @@ footer a:hover { text-decoration: underline; }
         <div class="opts-title">Retry with Exponential Backoff</div>
         <div class="form-grid">
           <div class="form-row">
-            <label for="maxRetries">Max Retries</label>
+            <label for="maxRetries" ti="label_max_retries">Max Retries</label>
             <input type="number" id="maxRetries" value="3" min="1" max="10">
           </div>
           <div class="form-row">
-            <label for="baseDelay">Base Delay (ms)</label>
+            <label for="baseDelay" ti="label_base_delay_ms">Base Delay (ms)</label>
             <input type="number" id="baseDelay" value="1000" min="100" step="100">
           </div>
           <div class="form-row">
-            <label for="maxDelay">Max Delay (ms)</label>
+            <label for="maxDelay" ti="label_max_delay_ms">Max Delay (ms)</label>
             <input type="number" id="maxDelay" value="10000" min="1000" step="500">
           </div>
           <div class="form-row">
-            <label for="jitter">Jitter</label>
+            <label for="jitter" ti="label_jitter">Jitter</label>
             <select id="jitter">
               <option value="full">Full Jitter</option>
               <option value="equal">Equal Jitter</option>
@@ -710,16 +712,16 @@ footer a:hover { text-decoration: underline; }
       <div class="conditional-opts" id="conditionalOpts">
         <div class="opts-title">Conditional Request</div>
         <div class="form-row">
-          <label for="ifModifiedSince">If-Modified-Since</label>
-          <input type="text" id="ifModifiedSince" placeholder="e.g. Wed, 21 Oct 2025 07:28:00 GMT">
+          <label for="ifModifiedSince" ti="label_if_modified_since">If-Modified-Since</label>
+          <input type="text" id="ifModifiedSince" tp="placeholder_e_g_wed_21_oct_2025_07_28" placeholder="e.g. Wed, 21 Oct 2025 07:28:00 GMT">
         </div>
         <div class="form-row">
-          <label for="ifNoneMatch">If-None-Match (ETag)</label>
-          <input type="text" id="ifNoneMatch" placeholder='e.g. "33a64df551425fcc55e4d42a148795d9f25f89d4"'>
+          <label for="ifNoneMatch" ti="label_if_none_match_etag">If-None-Match (ETag)</label>
+          <input type="text" id="ifNoneMatch" tp="placeholder_e_g_33a64df551425fcc55e4d" placeholder='e.g. "33a64df551425fcc55e4d42a148795d9f25f89d4"'>
         </div>
         <div class="form-row">
-          <label for="ifMatch">If-Match (ETag)</label>
-          <input type="text" id="ifMatch" placeholder='For safe updates (PUT/PATCH)'>
+          <label for="ifMatch" ti="label_if_match_etag">If-Match (ETag)</label>
+          <input type="text" id="ifMatch" tp="placeholder_for_safe_updates_put_patc" placeholder='For safe updates (PUT/PATCH)'>
         </div>
       </div>
 
@@ -729,9 +731,9 @@ footer a:hover { text-decoration: underline; }
       </div>
 
       <div class="actions">
-        <button class="btn btn-primary" id="sendBtn" onclick="sendRequest()">Send Request</button>
-        <button class="btn btn-danger" id="abortBtn" onclick="abortRequest()" disabled>Abort</button>
-        <button class="btn btn-outline" onclick="clearAll()">Clear</button>
+        <button class="btn btn-primary" id="sendBtn" onclick="sendRequest()" ti="btn_send_request">Send Request</button>
+        <button class="btn btn-danger" id="abortBtn" onclick="abortRequest()" disabled ti="btn_abort">Abort</button>
+        <button class="btn btn-outline" onclick="clearAll()" ti="btn_clear">Clear</button>
       </div>
     </div>
   </section>
@@ -740,7 +742,7 @@ footer a:hover { text-decoration: underline; }
   <section class="panel">
     <div class="panel-header">
       Response
-      <button class="copy-btn" onclick="copyResponse()">Copy</button>
+      <button class="copy-btn" onclick="copyResponse()" ti="btn_copy">Copy</button>
     </div>
     <div class="panel-body">
       <div class="response-meta" id="responseMeta"></div>
@@ -756,14 +758,14 @@ footer a:hover { text-decoration: underline; }
       </div>
 
       <div class="retry-visual" id="retryVisual">
-        <label>Retry Timeline</label>
+        <label ti="label_retry_timeline">Retry Timeline</label>
         <div class="retry-timeline" id="retryTimeline"></div>
       </div>
 
       <div class="response-body" id="responseBody">No request sent yet.</div>
 
       <div class="response-headers">
-        <button class="resp-header-toggle" onclick="toggleRespHeaders()">
+        <button class="resp-header-toggle" onclick="toggleRespHeaders()" ti="btn_response_headers">
           ▸ Response Headers
         </button>
         <div class="resp-headers-list" id="respHeadersList"></div>
@@ -775,7 +777,7 @@ footer a:hover { text-decoration: underline; }
   <section class="panel" style="grid-column: 1 / -1;">
     <div class="panel-header">
       Request Log
-      <button class="copy-btn" onclick="copyLog()">Copy Log</button>
+      <button class="copy-btn" onclick="copyLog()" ti="btn_copy_log">Copy Log</button>
     </div>
     <div class="panel-body">
       <div class="log-entries" id="logEntries">
@@ -788,7 +790,7 @@ footer a:hover { text-decoration: underline; }
   <section class="panel code-preview">
     <div class="panel-header">
       Generated Code
-      <button class="copy-btn" onclick="copyCode()">Copy Code</button>
+      <button class="copy-btn" onclick="copyCode()" ti="btn_copy_code">Copy Code</button>
     </div>
     <div class="panel-body">
       <div class="code-block" id="codeBlock">// Configure a request to see generated code</div>
@@ -798,10 +800,20 @@ footer a:hover { text-decoration: underline; }
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/fetch-advanced">GitHub</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/">More Tools</a>
+  <a href="https://github.com/gokuscraper/fetch-advanced" ti="link_github">GitHub</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_more_tools">More Tools</a>
 </footer>
 
+
+<script>var _LANG={'title_fetch_api_advanced_playgr':["Fetch API Advanced Playground", "Fetch API 高级实践场"],'metadesc_interactive_fetch_api_pla':["Interactive Fetch API playground — cache modes, ReadableStream progress, AbortController timeouts, retry with exponential backoff, conditional requests (ETag, If-Modified-Since). All client-side.", "交互式 Fetch API 演示——缓存模式、ReadableStream 进度、AbortController 超时、指数退避重试、条件请求（ETag、If-Modified-Since）。所有功能均在客户端实现。"],'btn_add_header':["+ Add Header", "+ 添加标题"],'btn_send_request':["Send Request", "发送请求"],'btn_abort':["Abort", "中止"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_response_headers':["▸ Response Headers", "▸ 响应头"],'btn_copy_log':["Copy Log", "复制日志"],'btn_copy_code':["Copy Code", "复制代码"],'placeholder_https':["https://...", "https://..."],'placeholder_key_value':["{\"key\": \"value\"}", "{&quot;key&quot;: &quot;value&quot;}"],'placeholder_e_g_wed_21_oct_2025_07_28':["e.g. Wed, 21 Oct 2025 07:28:00 GMT", "例如：2025年10月21日星期三 07:28:00 GMT"],'placeholder_e_g_33a64df551425fcc55e4d':["e.g. \"33a64df551425fcc55e4d42a148795d9f25f89d4\"", "例如“33a64df551425fcc55e4d42a148795d9f25f89d4”"],'placeholder_for_safe_updates_put_patc':["For safe updates (PUT/PATCH)", "为了安全更新（PUT/PATCH）"],'placeholder_header_name':["Header name", "标题名称"],'placeholder_value':["Value", "价值"],'label_url':["URL", "URL"],'label_method':["Method", "方法"],'label_cache_mode':["Cache Mode", "缓存模式"],'label_cache_behavior':["Cache Behavior", "缓存行为"],'label_headers':["Headers", "标题"],'label_features':["Features", "特征"],'label_timeout_ms':["Timeout (ms)", "超时时间（毫秒）"],'label_abort_reason':["Abort Reason", "中止原因"],'label_max_retries':["Max Retries", "最大重试次数"],'label_base_delay_ms':["Base Delay (ms)", "基准延迟（毫秒）"],'label_max_delay_ms':["Max Delay (ms)", "最大延迟（毫秒）"],'label_jitter':["Jitter", "抖动"],'label_if_modified_since':["If-Modified-Since", "如果修改自"],'label_if_none_match_etag':["If-None-Match (ETag)", "如果无匹配项 (ETag)"],'label_if_match_etag':["If-Match (ETag)", "如果匹配（ETag）"],'label_retry_timeline':["Retry Timeline", "重试时间线"],'link_github':["GitHub", "GitHub"],'link_more_tools':["More Tools", "更多工具"],'jtc_loading':["Loading...", "加载中..."],'jtc_100':["100%", "100%"],'jtc_no_request_sent_yet':["No request sent yet.", "尚未发送任何请求。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ─── State ───
 let currentController = null;
@@ -992,8 +1004,8 @@ function addHeaderRow(key = '', val = '') {
   const row = document.createElement('div');
   row.className = 'header-row';
   row.innerHTML = `
-    <input type="text" placeholder="Header name" value="${key}" onchange="updateCode()">
-    <input type="text" placeholder="Value" value="${val}" onchange="updateCode()">
+    <input type="text" tp="placeholder_header_name" placeholder="Header name" value="${key}" onchange="updateCode()">
+    <input type="text" tp="placeholder_value" placeholder="Value" value="${val}" onchange="updateCode()">
     <button onclick="this.parentElement.remove(); updateCode();">&times;</button>
   `;
   list.appendChild(row);
@@ -1065,7 +1077,7 @@ async function sendRequest() {
 
   // Reset UI
   document.getElementById('responseMeta').innerHTML = '';
-  document.getElementById('responseBody').textContent = 'Loading...';
+  document.getElementById('responseBody').textContent=T("jtc_loading");
   document.getElementById('respHeadersList').innerHTML = '';
   document.getElementById('respHeadersList').classList.remove('visible');
   document.getElementById('progressContainer').classList.remove('visible');
@@ -1261,7 +1273,7 @@ async function readStream(response, initialElapsed) {
 
   log(`Stream complete: ${formatBytes(received)}`, 'success');
   fill.style.width = '100%';
-  pctEl.textContent = '100%';
+  pctEl.textContent=T("jtc_100");
 
   // Combine chunks
   const combined = new Uint8Array(received);
@@ -1341,7 +1353,7 @@ function abortRequest() {
 // ─── Clear ───
 function clearAll() {
   document.getElementById('responseMeta').innerHTML = '';
-  document.getElementById('responseBody').textContent = 'No request sent yet.';
+  document.getElementById('responseBody').textContent=T("jtc_no_request_sent_yet");
   document.getElementById('respHeadersList').innerHTML = '';
   document.getElementById('respHeadersList').classList.remove('visible');
   document.getElementById('progressContainer').classList.remove('visible');
@@ -1511,6 +1523,24 @@ function updateCode() {
 
 // ─── Start ───
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_aria_roles_properties_exp" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,52 +47,66 @@ pre{background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;f
 </style>
 </head>
 <body>
-<h1>ARIA Roles & Properties Explorer</h1>
-<p class="subtitle">Comprehensive reference for WAI-ARIA roles, states, and properties</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_aria_roles_properties_exp" ti="h1_aria_roles_properties_exp" ti="title_aria_roles_properties_exp" ti="h1_aria_roles_properties_exp">ARIA Roles & Properties Explorer</h1>
+<p class="subtitle" ti="subtitle_comprehensive_reference_f" ti="subtitle_comprehensive_reference_f">Comprehensive reference for WAI-ARIA roles, states, and properties</p>
 
 <div class="section">
-<h2>Role Categories</h2>
+<h2 ti="h2_role_categories" ti="h2_role_categories">Role Categories</h2>
 <div class="tabs" id="categoryTabs"></div>
 <div class="filter-row">
-<input id="roleSearch" placeholder="Search roles..." oninput="filterRoles(this.value)">
+<input id="roleSearch" tp="placeholder_search_roles" tp="placeholder_search_roles" placeholder="Search roles..." oninput="filterRoles(this.value)">
 </div>
 <div class="category-grid" id="rolesGrid"></div>
 <div class="role-detail" id="roleDetail"></div>
 </div>
 
 <div class="section">
-<h2>Interactive Role Tester</h2>
+<h2 ti="h2_interactive_role_tester" ti="h2_interactive_role_tester">Interactive Role Tester</h2>
 <p style="color:#888;font-size:0.85rem;margin-bottom:12px">Apply a role to an element and see its accessibility tree representation</p>
 <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
 <div>
-<h3>HTML Code</h3>
+<h3 ti="h3_html_code" ti="h3_html_code">HTML Code</h3>
 <textarea id="testerCode" rows="6" oninput="updateTester()"><div role="button" tabindex="0" aria-pressed="false">
   Toggle Dark Mode
 </div></textarea>
 </div>
 <div>
-<h3>Accessibility Interpretation</h3>
+<h3 ti="h3_accessibility_interpretat" ti="h3_accessibility_interpretat">Accessibility Interpretation</h3>
 <div id="testerOutput" style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;min-height:160px;font-size:0.85rem"></div>
 </div>
 </div>
 </div>
 
 <div class="section">
-<h2>ARIA Validator</h2>
+<h2 ti="h2_aria_validator" ti="h2_aria_validator">ARIA Validator</h2>
 <textarea id="auditCode" rows="6" placeholder='<div role="checkbox">Check me</div>
-<button aria-expanded="true">Menu</button>
+<button aria-expanded="true" ti="btn_menu" ti="btn_menu">Menu</button>
 <nav aria-label="Main navigation">
-  <a href="/">Home</a>
+  <a href="/" ti="link_home" ti="link_home">Home</a>
 </nav>'></textarea>
-<button class="primary" onclick="runAudit()" style="margin-top:8px">Validate ARIA Usage</button>
+<button class="primary" onclick="runAudit()" style="margin-top:8px" ti="btn_validate_aria_usage" ti="btn_validate_aria_usage">Validate ARIA Usage</button>
 <div id="auditResults" style="margin-top:12px"></div>
 </div>
 
 <div class="section">
-<h2>Common Patterns</h2>
+<h2 ti="h2_common_patterns" ti="h2_common_patterns">Common Patterns</h2>
 <div id="patterns"></div>
 </div>
 
+
+<script>var _LANG={'title_aria_roles_properties_exp':["ARIA Roles & Properties Explorer", "ARIA 角色与属性浏览器"],'h1_aria_roles_properties_exp':["ARIA Roles & Properties Explorer", "ARIA 角色与属性浏览器"],'h2_role_categories':["Role Categories", "角色类别"],'h2_interactive_role_tester':["Interactive Role Tester", "交互式角色测试器"],'h2_aria_validator':["ARIA Validator", "ARIA 验证器"],'h2_common_patterns':["Common Patterns", "常见模式"],'h2_are_you_sure':["Are you sure?", "你确定吗？"],'h3_html_code':["HTML Code", "HTML 代码"],'h3_accessibility_interpretat':["Accessibility Interpretation", "可访问性解释"],'h3_role_name':["role=\"${name}\"", "role=\"${name}\""],'h3_required_properties':["Required Properties", "必需属性"],'h3_supported_properties':["Supported Properties", "支持属性"],'h3_keyboard_expectations':["Keyboard Expectations", "键盘预期"],'h3_example':["Example", "示例"],'h3_screen_reader_announcemen':["Screen Reader Announcement", "屏幕阅读器宣告"],'subtitle_comprehensive_reference_f':["Comprehensive reference for WAI-ARIA roles, states, and properties", "WAI-ARIA 角色、状态和属性的全面参考"],'btn_menu':["Menu", "菜单"],'btn_validate_aria_usage':["Validate ARIA Usage", "验证 ARIA 使用"],'btn_general':["General", "通用"],'btn_display':["Display", "显示"],'btn_section_1':["Section 1", "第 1 部分"],'btn_section_2':["Section 2", "第 2 部分"],'btn_cancel':["Cancel", "取消"],'btn_delete':["Delete", "删除"],'placeholder_search_roles':["Search roles...", "搜索角色..."],'strong_implicit_html':["Implicit HTML:", "隐式 HTML："],'strong_role_el_tagname_tolowerc':["${role || el.tagName.toLowerCase()}", "${role || el.tagName.toLowerCase()}"],'label_city':["City", "城市"],'link_home':["Home", "首页"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const roles = {
   landmark: {
@@ -211,20 +225,20 @@ function showRole(cat, name) {
   const r = roles[cat].roles[name];
   const detail = document.getElementById('roleDetail');
   detail.innerHTML = `
-    <h3>role="${name}"</h3>
+    <h3 ti="h3_role_name" ti="h3_role_name">role="${name}"</h3>
     <p>${r.desc}</p>
-    ${r.html !== 'None' ? `<p style="margin-top:8px"><strong>Implicit HTML:</strong> <code>${r.html}</code></p>` : '<p style="margin-top:8px;color:#888">No implicit HTML element. Must use role attribute.</p>'}
-    <h3>Required Properties</h3>
+    ${r.html !== 'None' ? `<p style="margin-top:8px"><strong ti="strong_implicit_html" ti="strong_implicit_html">Implicit HTML:</strong> <code>${r.html}</code></p>` : '<p style="margin-top:8px;color:#888">No implicit HTML element. Must use role attribute.</p>'}
+    <h3 ti="h3_required_properties" ti="h3_required_properties">Required Properties</h3>
     ${r.required.length > 0 ? r.required.map(p => `<span class="tag required">${p} (required)</span>`).join('') : '<span style="color:#888;font-size:0.85rem">None required</span>'}
-    <h3>Supported Properties</h3>
+    <h3 ti="h3_supported_properties" ti="h3_supported_properties">Supported Properties</h3>
     ${r.props.length > 0 ? r.props.map(p => `<span class="tag allowed">${p}</span>`).join('') : '<span style="color:#888;font-size:0.85rem">No role-specific properties</span>'}
-    <h3>Keyboard Expectations</h3>
+    <h3 ti="h3_keyboard_expectations" ti="h3_keyboard_expectations">Keyboard Expectations</h3>
     <p style="font-size:0.9rem">${r.keyboard}</p>
-    <h3>Example</h3>
+    <h3 ti="h3_example" ti="h3_example">Example</h3>
     <pre>&lt;div role="${name}"${r.required.map(p => ` ${p}="${getDefaultValue(p)}"`).join('')}${r.props.filter(p=>!r.required.includes(p)).slice(0,2).map(p => ` ${p}="${getDefaultValue(p)}"`).join('')}&gt;
   Content here
 &lt;/div&gt;</pre>
-    <h3>Screen Reader Announcement</h3>
+    <h3 ti="h3_screen_reader_announcemen" ti="h3_screen_reader_announcemen">Screen Reader Announcement</h3>
     <div style="background:#0d0d0d;border:1px solid #2a2a2a;border-radius:4px;padding:14px;font-size:0.9rem">
       "${getAnnouncement(name, r)}"
     </div>`;
@@ -311,7 +325,7 @@ function updateTester() {
       }
     }
     tree += `<div style="margin:4px 0;padding:4px 8px;background:#141414;border-radius:3px">
-      <strong style="color:#4dd0e1">${role || el.tagName.toLowerCase()}</strong>
+      <strong style="color:#4dd0e1" ti="strong_role_el_tagname_tolowerc" ti="strong_role_el_tagname_tolowerc">${role || el.tagName.toLowerCase()}</strong>
       ${label ? `"${label}"` : ''}
       ${attrs.length ? `<br><span style="color:#888;font-size:0.8rem">${attrs.join(', ')}</span>` : ''}
     </div>`;
@@ -397,8 +411,8 @@ function runAudit() {
 // Patterns
 document.getElementById('patterns').innerHTML = [
   {name:'Tabs',code:`<div role="tablist" aria-label="Settings">
-  <button role="tab" aria-selected="true" aria-controls="panel1" id="tab1">General</button>
-  <button role="tab" aria-selected="false" aria-controls="panel2" id="tab2" tabindex="-1">Display</button>
+  <button role="tab" aria-selected="true" aria-controls="panel1" id="tab1" ti="btn_general" ti="btn_general">General</button>
+  <button role="tab" aria-selected="false" aria-controls="panel2" id="tab2" tabindex="-1" ti="btn_display" ti="btn_display">Display</button>
 </div>
 <div role="tabpanel" id="panel1" aria-labelledby="tab1">
   General settings content
@@ -408,19 +422,19 @@ document.getElementById('patterns').innerHTML = [
 </div>`},
   {name:'Accordion',code:`<div>
   <h3>
-    <button aria-expanded="true" aria-controls="section1">Section 1</button>
+    <button aria-expanded="true" aria-controls="section1" ti="btn_section_1" ti="btn_section_1">Section 1</button>
   </h3>
   <div id="section1" role="region" aria-labelledby="...">
     Content for section 1
   </div>
   <h3>
-    <button aria-expanded="false" aria-controls="section2">Section 2</button>
+    <button aria-expanded="false" aria-controls="section2" ti="btn_section_2" ti="btn_section_2">Section 2</button>
   </h3>
   <div id="section2" role="region" hidden>
     Content for section 2
   </div>
 </div>`},
-  {name:'Combobox (Autocomplete)',code:`<label for="city">City</label>
+  {name:'Combobox (Autocomplete)',code:`<label for="city" ti="label_city" ti="label_city">City</label>
 <div>
   <input id="city" role="combobox" aria-expanded="false"
     aria-controls="city-list" aria-autocomplete="list"
@@ -432,10 +446,10 @@ document.getElementById('patterns').innerHTML = [
   </ul>
 </div>`},
   {name:'Modal Dialog',code:`<div role="dialog" aria-modal="true" aria-label="Confirm Delete">
-  <h2 id="dialog-title">Are you sure?</h2>
+  <h2 id="dialog-title" ti="h2_are_you_sure" ti="h2_are_you_sure">Are you sure?</h2>
   <p id="dialog-desc">This action cannot be undone.</p>
-  <button>Cancel</button>
-  <button>Delete</button>
+  <button ti="btn_cancel" ti="btn_cancel">Cancel</button>
+  <button ti="btn_delete" ti="btn_delete">Delete</button>
 </div>
 <!-- aria-describedby="dialog-desc" on dialog for full desc -->`},
   {name:'Tree View',code:`<ul role="tree" aria-label="File browser">
@@ -461,6 +475,46 @@ document.getElementById('patterns').innerHTML = [
 renderCategoryTabs();
 renderRoles();
 updateTester();
+</script>
+<script>var _LANG={'title_aria_roles_properties_exp':["ARIA Roles & Properties Explorer", "ARIA 角色与属性浏览器"],'h1_aria_roles_properties_exp':["ARIA Roles & Properties Explorer", "ARIA 角色与属性浏览器"],'h2_role_categories':["Role Categories", "角色类别"],'h2_interactive_role_tester':["Interactive Role Tester", "交互式角色测试器"],'h2_aria_validator':["ARIA Validator", "ARIA 验证器"],'h2_common_patterns':["Common Patterns", "常见模式"],'h2_are_you_sure':["Are you sure?", "你确定吗？"],'h3_html_code':["HTML Code", "HTML 代码"],'h3_accessibility_interpretat':["Accessibility Interpretation", "可访问性解释"],'h3_role_name':["role=\"${name}\"", "role=\"${name}\""],'h3_required_properties':["Required Properties", "必需属性"],'h3_supported_properties':["Supported Properties", "支持属性"],'h3_keyboard_expectations':["Keyboard Expectations", "键盘预期"],'h3_example':["Example", "示例"],'h3_screen_reader_announcemen':["Screen Reader Announcement", "屏幕阅读器宣告"],'subtitle_comprehensive_reference_f':["Comprehensive reference for WAI-ARIA roles, states, and properties", "WAI-ARIA 角色、状态和属性的全面参考"],'btn_menu':["Menu", "菜单"],'btn_validate_aria_usage':["Validate ARIA Usage", "验证 ARIA 使用"],'btn_general':["General", "通用"],'btn_display':["Display", "显示"],'btn_section_1':["Section 1", "第 1 部分"],'btn_section_2':["Section 2", "第 2 部分"],'btn_cancel':["Cancel", "取消"],'btn_delete':["Delete", "删除"],'placeholder_search_roles':["Search roles...", "搜索角色..."],'strong_implicit_html':["Implicit HTML:", "隐式 HTML："],'strong_role_el_tagname_tolowerc':["${role || el.tagName.toLowerCase()}", "${role || el.tagName.toLowerCase()}"],'label_city':["City", "城市"],'link_home':["Home", "首页"]};
+
+(function(){var L;try{L=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(L!='zh')L='en'}catch(e){L='en'}
+function T(k){var a=_LANG&&_LANG[k];return a?a[L==='zh'?1:0]:k}
+function applyLang(){
+  document.documentElement.lang=L;
+  var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+  document.querySelectorAll('[ti]').forEach(function(e){
+    var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+    e.textContent=T(k);
+  });
+  document.querySelectorAll('[tp]').forEach(function(e){
+    var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+    e.placeholder=T(k);
+  });
+  document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+}
+function sL(l){L=l;try{localStorage.setItem('_dv_lang',l)}catch(e){}applyLang()}
+if(typeof _LANG==='undefined')var _LANG={};
+applyLang();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_web_app_manifest_builder" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -118,25 +118,27 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header class="header">
   <h1><span class="icon">📦</span> Web App Manifest Builder</h1>
   <div class="links">
-    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" target="_blank" ti="footer_dev_vault" ti="footer_dev_vault_2" ti="link_dev_vault">Dev Vault</a>
     <a href="https://developer.mozilla.org/en-US/docs/Web/Manifest" target="_blank">MDN Docs</a>
   </div>
 </header>
 
 <nav class="tabs">
-  <button class="tab active" data-tab="basic">Basic Info</button>
-  <button class="tab" data-tab="icons">Icons</button>
-  <button class="tab" data-tab="display">Display Modes</button>
-  <button class="tab" data-tab="colors">Colors</button>
-  <button class="tab" data-tab="shortcuts">Shortcuts</button>
-  <button class="tab" data-tab="protocol">Protocol Handlers</button>
-  <button class="tab" data-tab="advanced">Advanced</button>
-  <button class="tab" data-tab="preview">JSON Preview</button>
-  <button class="tab" data-tab="install">Install Prompt</button>
+  <button class="tab active" data-tab="basic" ti="btn_basic_info">Basic Info</button>
+  <button class="tab" data-tab="icons" ti="btn_icons">Icons</button>
+  <button class="tab" data-tab="display" ti="btn_display_modes">Display Modes</button>
+  <button class="tab" data-tab="colors" ti="btn_colors">Colors</button>
+  <button class="tab" data-tab="shortcuts" ti="btn_shortcuts">Shortcuts</button>
+  <button class="tab" data-tab="protocol" ti="btn_protocol_handlers">Protocol Handlers</button>
+  <button class="tab" data-tab="advanced" ti="btn_advanced">Advanced</button>
+  <button class="tab" data-tab="preview" ti="btn_json_preview">JSON Preview</button>
+  <button class="tab" data-tab="install" ti="btn_install_prompt">Install Prompt</button>
 </nav>
 
 <main class="container">
@@ -146,21 +148,21 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
     <div class="grid-2">
       <div>
         <div class="card">
-          <h2>📝 App Identity</h2>
-          <div class="form-group"><label>Name</label><input type="text" id="mName" value="My Web App" oninput="updateAll()"></div>
-          <div class="form-group"><label>Short Name</label><input type="text" id="mShortName" value="WebApp" oninput="updateAll()"></div>
-          <div class="form-group"><label>Description</label><textarea id="mDescription" oninput="updateAll()">A progressive web application built with modern web technologies.</textarea></div>
+          <h2 ti="h2_app_identity">📝 App Identity</h2>
+          <div class="form-group"><label ti="label_name" ti="label_name_2">Name</label><input type="text" id="mName" value="My Web App" oninput="updateAll()"></div>
+          <div class="form-group"><label ti="label_short_name" ti="label_short_name_2">Short Name</label><input type="text" id="mShortName" value="WebApp" oninput="updateAll()"></div>
+          <div class="form-group"><label ti="label_description" ti="label_description_2">Description</label><textarea id="mDescription" oninput="updateAll()">A progressive web application built with modern web technologies.</textarea></div>
         </div>
         <div class="card">
-          <h2>🔗 URLs</h2>
-          <div class="form-group"><label>Start URL</label><input type="text" id="mStartUrl" value="/" oninput="updateAll()"></div>
-          <div class="form-group"><label>Scope</label><input type="text" id="mScope" value="/" oninput="updateAll()"></div>
-          <div class="form-group"><label>ID</label><input type="text" id="mId" value="" placeholder="/?homescreen=1" oninput="updateAll()"></div>
+          <h2 ti="h2_urls">🔗 URLs</h2>
+          <div class="form-group"><label ti="label_start_url">Start URL</label><input type="text" id="mStartUrl" value="/" oninput="updateAll()"></div>
+          <div class="form-group"><label ti="label_scope">Scope</label><input type="text" id="mScope" value="/" oninput="updateAll()"></div>
+          <div class="form-group"><label ti="label_id">ID</label><input type="text" id="mId" value="" tp="placeholder_homescreen_1" placeholder="/?homescreen=1" oninput="updateAll()"></div>
         </div>
         <div class="card">
-          <h2>🏷️ Categories</h2>
+          <h2 ti="h2_categories">🏷️ Categories</h2>
           <div class="form-group">
-            <label>Select categories (Ctrl/Cmd+click for multiple)</label>
+            <label ti="label_select_categories_ctrl_cm">Select categories (Ctrl/Cmd+click for multiple)</label>
             <select id="mCategories" multiple style="height:120px;" onchange="updateAll()">
               <option value="business">business</option>
               <option value="developer-tools" selected>developer-tools</option>
@@ -186,7 +188,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
             </select>
           </div>
           <div class="form-group">
-            <label>Language</label>
+            <label ti="label_language">Language</label>
             <select id="mLang" onchange="updateAll()">
               <option value="en">English</option>
               <option value="ja">Japanese</option>
@@ -199,7 +201,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
             </select>
           </div>
           <div class="form-group">
-            <label>Text Direction</label>
+            <label ti="label_text_direction">Text Direction</label>
             <select id="mDir" onchange="updateAll()">
               <option value="auto">auto</option>
               <option value="ltr">ltr (left-to-right)</option>
@@ -210,9 +212,9 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
       </div>
       <div>
         <div class="card" style="position:sticky; top:16px;">
-          <h2>👁️ Quick Preview</h2>
+          <h2 ti="h2_quick_preview">👁️ Quick Preview</h2>
           <div class="install-banner" id="quickPreview"></div>
-          <h3>Manifest Summary</h3>
+          <h3 ti="h3_manifest_summary">Manifest Summary</h3>
           <div style="font-size:0.82rem; color:var(--text-secondary); line-height:1.8;" id="quickSummary"></div>
         </div>
       </div>
@@ -222,17 +224,17 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Icons -->
   <div class="panel" id="panel-icons">
     <div class="card">
-      <h2>🎨 Icon Set</h2>
+      <h2 ti="h2_icon_set">🎨 Icon Set</h2>
       <p>PWAs need icons in multiple sizes. Below shows the recommended sizes and their purposes.</p>
     </div>
     <div class="card">
-      <h2>📐 Required Icon Sizes</h2>
+      <h2 ti="h2_required_icon_sizes">📐 Required Icon Sizes</h2>
       <div class="icon-grid" id="iconGrid"></div>
     </div>
     <div class="card">
-      <h2>🖼️ Icon Configuration</h2>
-      <div class="form-group"><label>Icon base path</label><input type="text" id="iconBasePath" value="/icons" oninput="updateIconConfig()"></div>
-      <div class="form-group"><label>Icon filename pattern</label>
+      <h2 ti="h2_icon_configuration">🖼️ Icon Configuration</h2>
+      <div class="form-group"><label ti="label_icon_base_path">Icon base path</label><input type="text" id="iconBasePath" value="/icons" oninput="updateIconConfig()"></div>
+      <div class="form-group"><label ti="label_icon_filename_pattern">Icon filename pattern</label>
         <select id="iconPattern" onchange="updateIconConfig()">
           <option value="icon-{size}.png">icon-{size}.png</option>
           <option value="icon_{size}x{size}.png">icon_{size}x{size}.png</option>
@@ -241,7 +243,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
         </select>
       </div>
       <div class="form-group">
-        <label>Include maskable icons</label>
+        <label ti="label_include_maskable_icons">Include maskable icons</label>
         <select id="iconMaskable" onchange="updateIconConfig()">
           <option value="yes">Yes — add purpose: "maskable" variants</option>
           <option value="no">No — any purpose only</option>
@@ -254,7 +256,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Display Modes -->
   <div class="panel" id="panel-display">
     <div class="card">
-      <h2>📱 Display Modes</h2>
+      <h2 ti="h2_display_modes">📱 Display Modes</h2>
       <p>The display mode determines how much browser UI is shown when the app is launched.</p>
     </div>
     <div class="grid-2" style="grid-template-columns: repeat(4, 1fr);">
@@ -280,10 +282,10 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
       </div>
     </div>
     <div class="card" style="margin-top:16px;">
-      <h2>📊 Display Mode Comparison</h2>
+      <h2 ti="h2_display_mode_comparison">📊 Display Mode Comparison</h2>
       <div style="overflow-x:auto;">
         <table style="width:100%; border-collapse:collapse; font-size:0.82rem;">
-          <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left; padding:10px;">Feature</th><th style="text-align:center; padding:10px;">standalone</th><th style="text-align:center; padding:10px;">fullscreen</th><th style="text-align:center; padding:10px;">minimal-ui</th><th style="text-align:center; padding:10px;">browser</th></tr></thead>
+          <thead><tr style="border-bottom:1px solid var(--border);"><th style="text-align:left; padding:10px;" ti="th_feature">Feature</th><th style="text-align:center; padding:10px;" ti="th_standalone">standalone</th><th style="text-align:center; padding:10px;" ti="th_fullscreen">fullscreen</th><th style="text-align:center; padding:10px;" ti="th_minimal_ui">minimal-ui</th><th style="text-align:center; padding:10px;" ti="th_browser">browser</th></tr></thead>
           <tbody>
             <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">URL bar</td><td style="text-align:center;">No</td><td style="text-align:center;">No</td><td style="text-align:center;">No</td><td style="text-align:center;">Yes</td></tr>
             <tr style="border-bottom:1px solid var(--border);"><td style="padding:10px;">Status bar</td><td style="text-align:center;">Yes</td><td style="text-align:center;">No</td><td style="text-align:center;">Yes</td><td style="text-align:center;">Yes</td></tr>
@@ -296,7 +298,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
       </div>
     </div>
     <div class="card">
-      <h2>📐 Orientation</h2>
+      <h2 ti="h2_orientation">📐 Orientation</h2>
       <div class="form-group">
         <select id="mOrientation" onchange="updateAll()">
           <option value="">Any (default)</option>
@@ -315,19 +317,19 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Colors -->
   <div class="panel" id="panel-colors">
     <div class="card">
-      <h2>🎨 Theme & Background Colors</h2>
+      <h2 ti="h2_theme_background_colors">🎨 Theme & Background Colors</h2>
       <p>These colors affect the app's appearance when installed.</p>
     </div>
     <div class="grid-2">
       <div class="card">
-        <h2>Theme Color</h2>
+        <h2 ti="h2_theme_color" ti="label_theme_color">Theme Color</h2>
         <p>Controls the browser/OS toolbar color. Affects the title bar on desktop and status bar on mobile.</p>
         <div class="form-group" style="margin-top:12px;"><label>Theme Color</label><input type="color" id="mThemeColor" value="#3b82f6" oninput="updateColors()"></div>
-        <div class="form-group"><label>Hex Value</label><input type="text" id="mThemeColorHex" value="#3b82f6" oninput="syncColorFromHex('theme')"></div>
+        <div class="form-group"><label ti="label_hex_value" ti="label_hex_value_2">Hex Value</label><input type="text" id="mThemeColorHex" value="#3b82f6" oninput="syncColorFromHex('theme')"></div>
         <div class="color-preview" id="themePreview"></div>
       </div>
       <div class="card">
-        <h2>Background Color</h2>
+        <h2 ti="h2_background_color" ti="label_background_color">Background Color</h2>
         <p>Shown as a splash screen background while the app loads. Also used if the page hasn't loaded yet.</p>
         <div class="form-group" style="margin-top:12px;"><label>Background Color</label><input type="color" id="mBgColor" value="#0a0a0a" oninput="updateColors()"></div>
         <div class="form-group"><label>Hex Value</label><input type="text" id="mBgColorHex" value="#0a0a0a" oninput="syncColorFromHex('bg')"></div>
@@ -335,7 +337,7 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
       </div>
     </div>
     <div class="card">
-      <h2>📱 Splash Screen Preview</h2>
+      <h2 ti="h2_splash_screen_preview">📱 Splash Screen Preview</h2>
       <div style="width:240px; height:400px; margin:0 auto; border-radius:20px; border:2px solid var(--border); display:flex; flex-direction:column; align-items:center; justify-content:center; gap:16px;" id="splashPreview">
         <div style="width:64px; height:64px; border-radius:16px; display:flex; align-items:center; justify-content:center; font-size:2rem;" id="splashIcon">📦</div>
         <div style="font-weight:600; font-size:1rem;" id="splashName">My Web App</div>
@@ -346,17 +348,17 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Shortcuts -->
   <div class="panel" id="panel-shortcuts">
     <div class="card">
-      <h2>⚡ App Shortcuts</h2>
+      <h2 ti="h2_app_shortcuts">⚡ App Shortcuts</h2>
       <p>Shortcuts appear in the context menu when users long-press or right-click the app icon. Up to 4 shortcuts are recommended.</p>
     </div>
     <div class="card">
       <div id="shortcutsList"></div>
       <div class="btn-group">
-        <button class="btn" onclick="addShortcut()">+ Add Shortcut</button>
+        <button class="btn" onclick="addShortcut()" ti="btn_add_shortcut">+ Add Shortcut</button>
       </div>
     </div>
     <div class="card">
-      <h2>📋 Generated Shortcuts</h2>
+      <h2 ti="h2_generated_shortcuts">📋 Generated Shortcuts</h2>
       <pre id="shortcutsOutput"></pre>
     </div>
   </div>
@@ -364,19 +366,19 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Protocol Handlers -->
   <div class="panel" id="panel-protocol">
     <div class="card">
-      <h2>🔗 Protocol Handlers</h2>
+      <h2 ti="h2_protocol_handlers">🔗 Protocol Handlers</h2>
       <p>Register your app to handle custom URL protocols (e.g., <code>web+myapp://action</code>). The protocol must start with <code>web+</code> followed by lowercase letters.</p>
     </div>
     <div class="card">
       <div id="protocolList"></div>
       <div class="btn-group">
-        <button class="btn" onclick="addProtocol()">+ Add Protocol Handler</button>
+        <button class="btn" onclick="addProtocol()" ti="btn_add_protocol_handler">+ Add Protocol Handler</button>
       </div>
     </div>
     <div class="card">
-      <h2>📋 Generated Protocol Handlers</h2>
+      <h2 ti="h2_generated_protocol_handl">📋 Generated Protocol Handlers</h2>
       <pre id="protocolOutput"></pre>
-      <h3>Usage Example</h3>
+      <h3 ti="h3_usage_example">Usage Example</h3>
       <pre id="protocolUsage"></pre>
     </div>
   </div>
@@ -384,37 +386,37 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Advanced -->
   <div class="panel" id="panel-advanced">
     <div class="card">
-      <h2>🔧 Advanced Fields</h2>
-      <div class="form-group"><label>prefer_related_applications</label>
+      <h2 ti="h2_advanced_fields">🔧 Advanced Fields</h2>
+      <div class="form-group"><label ti="label_prefer_related_applicatio">prefer_related_applications</label>
         <select id="mPreferRelated" onchange="updateAll()"><option value="false">false</option><option value="true">true</option></select>
       </div>
-      <div class="form-group"><label>Related App — Platform</label><input type="text" id="relPlatform" placeholder="play" oninput="updateAll()"></div>
-      <div class="form-group"><label>Related App — URL</label><input type="url" id="relUrl" placeholder="https://play.google.com/store/apps/details?id=..." oninput="updateAll()"></div>
-      <div class="form-group"><label>Related App — ID</label><input type="text" id="relId" placeholder="com.example.app" oninput="updateAll()"></div>
+      <div class="form-group"><label ti="label_related_app_platform">Related App — Platform</label><input type="text" id="relPlatform" tp="placeholder_play" placeholder="play" oninput="updateAll()"></div>
+      <div class="form-group"><label ti="label_related_app_url">Related App — URL</label><input type="url" id="relUrl" tp="placeholder_https_play_google_com_sto" placeholder="https://play.google.com/store/apps/details?id=..." oninput="updateAll()"></div>
+      <div class="form-group"><label ti="label_related_app_id">Related App — ID</label><input type="text" id="relId" tp="placeholder_com_example_app" placeholder="com.example.app" oninput="updateAll()"></div>
     </div>
     <div class="card">
-      <h2>📸 Screenshots</h2>
+      <h2 ti="h2_screenshots">📸 Screenshots</h2>
       <p>Screenshots are shown in the install dialog on supported browsers.</p>
       <div id="screenshotsList"></div>
-      <div class="btn-group"><button class="btn" onclick="addScreenshot()">+ Add Screenshot</button></div>
+      <div class="btn-group"><button class="btn" onclick="addScreenshot()" ti="btn_add_screenshot">+ Add Screenshot</button></div>
     </div>
   </div>
 
   <!-- JSON Preview -->
   <div class="panel" id="panel-preview">
     <div class="card">
-      <h2>📋 Complete manifest.json</h2>
+      <h2 ti="h2_complete_manifest_json">📋 Complete manifest.json</h2>
       <div style="position:relative;">
         <pre id="fullManifest" style="max-height:600px; overflow-y:auto;"></pre>
-        <button class="copy-btn" onclick="copyManifest()">Copy</button>
+        <button class="copy-btn" onclick="copyManifest()" ti="btn_copy">Copy</button>
       </div>
       <div class="btn-group">
-        <button class="btn" onclick="downloadManifest()">Download manifest.json</button>
+        <button class="btn" onclick="downloadManifest()" ti="btn_download_manifest_json">Download manifest.json</button>
         <button class="btn secondary" onclick="downloadHtmlLink()">Copy &lt;link&gt; tag</button>
       </div>
     </div>
     <div class="card">
-      <h2>📝 HTML Integration</h2>
+      <h2 ti="h2_html_integration">📝 HTML Integration</h2>
       <pre id="htmlIntegration"></pre>
     </div>
   </div>
@@ -422,11 +424,11 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
   <!-- Install Prompt -->
   <div class="panel" id="panel-install">
     <div class="card">
-      <h2>📲 Install Prompt Simulation</h2>
+      <h2 ti="h2_install_prompt_simulatio">📲 Install Prompt Simulation</h2>
       <p>This simulates how the browser install prompt would look for your app.</p>
     </div>
     <div class="card">
-      <h2>Chrome-style Install Banner</h2>
+      <h2 ti="h2_chrome_style_install_bann">Chrome-style Install Banner</h2>
       <div style="max-width:400px; margin:0 auto;">
         <div style="background:var(--bg-input); border-radius:var(--radius-lg); padding:20px; border:1px solid var(--border);">
           <div style="display:flex; gap:12px; align-items:center; margin-bottom:16px;">
@@ -438,15 +440,15 @@ pre { background: var(--bg-input); border: 1px solid var(--border); border-radiu
           </div>
           <p style="font-size:0.82rem; margin-bottom:16px;" id="installDesc2"></p>
           <div style="display:flex; gap:8px; justify-content:flex-end;">
-            <button class="btn secondary" onclick="dismissInstall()">Cancel</button>
-            <button class="btn" onclick="acceptInstall()">Install</button>
+            <button class="btn secondary" onclick="dismissInstall()" ti="btn_cancel">Cancel</button>
+            <button class="btn" onclick="acceptInstall()" ti="btn_install">Install</button>
           </div>
         </div>
         <div id="installResult" style="margin-top:12px; font-size:0.85rem; color:var(--text-secondary); text-align:center;"></div>
       </div>
     </div>
     <div class="card">
-      <h2>📝 beforeinstallprompt Handler</h2>
+      <h2 ti="h2_beforeinstallprompt_hand">📝 beforeinstallprompt Handler</h2>
       <pre>let deferredPrompt;
 
 window.addEventListener('beforeinstallprompt', (e) => {
@@ -485,6 +487,16 @@ window.addEventListener('appinstalled', () => {
   Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — Free browser-based developer tools
 </footer>
 
+
+<script>var _LANG={'title_web_app_manifest_builder':["Web App Manifest Builder — Dev Vault", "Web 应用清单生成器 — 开发库"],'metadesc_interactive_web_app_manif':["Interactive Web App Manifest builder. Configure all manifest.json fields, preview display modes, build shortcuts, protocol handlers, and download ready-to-use manifest files.", "交互式 Web 应用清单构建器。配置所有 manifest.json 字段、预览显示模式、构建快捷方式、协议处理程序，并下载可直接使用的清单文件。"],'h2_app_identity':["📝 App Identity", "📝 应用身份"],'h2_urls':["🔗 URLs", "🔗网址"],'h2_categories':["🏷️ Categories", "🏷️ 类别"],'h2_quick_preview':["👁️ Quick Preview", "👁️快速预览"],'h2_icon_set':["🎨 Icon Set", "🎨 图标集"],'h2_required_icon_sizes':["📐 Required Icon Sizes", "📐 所需的图标尺寸"],'h2_icon_configuration':["🖼️ Icon Configuration", "🖼️ 图标配置"],'h2_display_modes':["📱 Display Modes", "📱 显示模式"],'h2_display_mode_comparison':["📊 Display Mode Comparison", "📊 显示模式比较"],'h2_orientation':["📐 Orientation", "📐 方向"],'h2_theme_background_colors':["🎨 Theme & Background Colors", "🎨 主题和背景颜色"],'h2_theme_color':["Theme Color", "主题颜色"],'h2_background_color':["Background Color", "背景颜色"],'h2_splash_screen_preview':["📱 Splash Screen Preview", "📱 启动画面预览"],'h2_app_shortcuts':["⚡ App Shortcuts", "⚡ 应用快捷方式"],'h2_generated_shortcuts':["📋 Generated Shortcuts", "📋 生成的快捷方式"],'h2_protocol_handlers':["🔗 Protocol Handlers", "🔗 协议处理程序"],'h2_generated_protocol_handl':["📋 Generated Protocol Handlers", "📋 生成的协议处理程序"],'h2_advanced_fields':["🔧 Advanced Fields", "🔧 高级字段"],'h2_screenshots':["📸 Screenshots", "📸 屏幕截图"],'h2_complete_manifest_json':["📋 Complete manifest.json", "📋 完成 manifest.json"],'h2_html_integration':["📝 HTML Integration", "📝 HTML 集成"],'h2_install_prompt_simulatio':["📲 Install Prompt Simulation", "📲 安装提示模拟"],'h2_chrome_style_install_bann':["Chrome-style Install Banner", "Chrome 风格的安装横幅"],'h2_beforeinstallprompt_hand':["📝 beforeinstallprompt Handler", "📝 beforeinstallprompt 处理程序"],'h3_manifest_summary':["Manifest Summary", "清单摘要"],'h3_usage_example':["Usage Example", "使用示例"],'btn_basic_info':["Basic Info", "基本信息"],'btn_icons':["Icons", "图标"],'btn_display_modes':["Display Modes", "显示模式"],'btn_colors':["Colors", "颜色"],'btn_shortcuts':["Shortcuts", "快捷方式"],'btn_protocol_handlers':["Protocol Handlers", "协议处理程序"],'btn_advanced':["Advanced", "先进的"],'btn_json_preview':["JSON Preview", "JSON 预览"],'btn_install_prompt':["Install Prompt", "安装提示"],'btn_add_shortcut':["+ Add Shortcut", "+ 添加快捷方式"],'btn_add_protocol_handler':["+ Add Protocol Handler", "+ 添加协议处理程序"],'btn_add_screenshot':["+ Add Screenshot", "+ 添加屏幕截图"],'btn_copy':["Copy", "复制"],'btn_download_manifest_json':["Download manifest.json", "下载 manifest.json"],'btn_copy_link_tag':["Copy <link> tag", "复制<link>标签"],'btn_cancel':["Cancel", "取消"],'btn_install':["Install", "安装"],'btn_remove':["Remove", "消除"],'btn_remove_2':["Remove", "消除"],'btn_remove_3':["Remove", "消除"],'placeholder_homescreen_1':["/?homescreen=1", "/?homescreen=1"],'placeholder_play':["play", "玩"],'placeholder_https_play_google_com_sto':["https://play.google.com/store/apps/details?id=...", "https://play.google.com/store/apps/details?id=..."],'placeholder_com_example_app':["com.example.app", "com.example.app"],'strong_shortcut_i_1':["Shortcut ${i + 1}", "快捷方式 ${i + 1}"],'strong_handler_i_1':["Handler ${i + 1}", "处理程序 ${i + 1}"],'strong_screenshot_i_1':["Screenshot ${i + 1}", "屏幕截图 ${i + 1}"],'th_feature':["Feature", "特征"],'th_standalone':["standalone", "独立"],'th_fullscreen':["fullscreen", "全屏"],'th_minimal_ui':["minimal-ui", "极简用户界面"],'th_browser':["browser", "浏览器"],'label_name':["Name", "姓名"],'label_short_name':["Short Name", "简称"],'label_description':["Description", "描述"],'label_start_url':["Start URL", "起始网址"],'label_scope':["Scope", "范围"],'label_id':["ID", "ID"],'label_select_categories_ctrl_cm':["Select categories (Ctrl/Cmd+click for multiple)", "选择类别（按住Ctrl/Cmd键并单击可选择多个类别）"],'label_language':["Language", "语言"],'label_text_direction':["Text Direction", "文本方向"],'label_icon_base_path':["Icon base path", "图标基路径"],'label_icon_filename_pattern':["Icon filename pattern", "图标文件名模式"],'label_include_maskable_icons':["Include maskable icons", "包含可遮罩图标"],'label_theme_color':["Theme Color", "主题颜色"],'label_hex_value':["Hex Value", "十六进制值"],'label_background_color':["Background Color", "背景颜色"],'label_hex_value_2':["Hex Value", "十六进制值"],'label_prefer_related_applicatio':["prefer_related_applications", "优先选择相关应用程序"],'label_related_app_platform':["Related App — Platform", "相关应用 — 平台"],'label_related_app_url':["Related App — URL", "相关应用 — URL"],'label_related_app_id':["Related App — ID", "相关应用 — ID"],'label_name_2':["Name", "姓名"],'label_short_name_2':["Short Name", "简称"],'label_url':["URL", "URL"],'label_icon':["Icon", "图标"],'label_description_2':["Description", "描述"],'label_protocol':["Protocol", "协议"],'label_url_use_s_for_value':["URL (use %s for value)", "URL（使用 %s 表示值）"],'label_source_url':["Source URL", "源网址"],'label_sizes':["Sizes", "尺寸"],'label_form_factor':["Form Factor", "外形尺寸"],'label_label':["Label", "标签"],'footer_web_app_manifest_builder':["Web App Manifest Builder — Dev Vault", "Web 应用清单生成器 — 开发库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_2':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_open_in_app':["Open in App", "在应用中打开"],'jtc_add_a_protocol_handler_t':["// Add a protocol handler to see usage example", "// 添加协议处理程序以查看使用示例"],'jtc_user_dismissed_the_instal':["User dismissed the install prompt (outcome:", "用户忽略了安装提示（结果："],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === Tab Navigation ===
 document.querySelectorAll('.tab').forEach(tab => {
@@ -591,14 +603,14 @@ function renderShortcuts() {
   document.getElementById('shortcutsList').innerHTML = shortcuts.map((s, i) => `
     <div class="shortcut-entry">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <strong style="font-size:0.85rem;">Shortcut ${i + 1}</strong>
-        <button class="btn danger" style="padding:4px 10px; font-size:0.75rem;" onclick="removeShortcut(${i})">Remove</button>
+        <strong style="font-size:0.85rem;" ti="strong_shortcut_i_1">Shortcut ${i + 1}</strong>
+        <button class="btn danger" style="padding:4px 10px; font-size:0.75rem;" onclick="removeShortcut(${i})" ti="btn_remove" ti="btn_remove_2" ti="btn_remove_3">Remove</button>
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
         <div><label>Name</label><input type="text" value="${s.name}" onchange="shortcuts[${i}].name=this.value; updateShortcuts();"></div>
         <div><label>Short Name</label><input type="text" value="${s.short_name}" onchange="shortcuts[${i}].short_name=this.value; updateShortcuts();"></div>
-        <div><label>URL</label><input type="text" value="${s.url}" onchange="shortcuts[${i}].url=this.value; updateShortcuts();"></div>
-        <div><label>Icon</label><input type="text" value="${s.icon}" onchange="shortcuts[${i}].icon=this.value; updateShortcuts();"></div>
+        <div><label ti="label_url">URL</label><input type="text" value="${s.url}" onchange="shortcuts[${i}].url=this.value; updateShortcuts();"></div>
+        <div><label ti="label_icon">Icon</label><input type="text" value="${s.icon}" onchange="shortcuts[${i}].icon=this.value; updateShortcuts();"></div>
       </div>
       <div><label>Description</label><input type="text" value="${s.description}" onchange="shortcuts[${i}].description=this.value; updateShortcuts();"></div>
     </div>
@@ -627,12 +639,12 @@ function renderProtocols() {
   document.getElementById('protocolList').innerHTML = protocols.map((p, i) => `
     <div class="shortcut-entry">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <strong style="font-size:0.85rem;">Handler ${i + 1}</strong>
+        <strong style="font-size:0.85rem;" ti="strong_handler_i_1">Handler ${i + 1}</strong>
         <button class="btn danger" style="padding:4px 10px; font-size:0.75rem;" onclick="removeProtocol(${i})">Remove</button>
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-        <div><label>Protocol</label><input type="text" value="${p.protocol}" onchange="protocols[${i}].protocol=this.value; updateProtocols();"></div>
-        <div><label>URL (use %s for value)</label><input type="text" value="${p.url}" onchange="protocols[${i}].url=this.value; updateProtocols();"></div>
+        <div><label ti="label_protocol">Protocol</label><input type="text" value="${p.protocol}" onchange="protocols[${i}].protocol=this.value; updateProtocols();"></div>
+        <div><label ti="label_url_use_s_for_value">URL (use %s for value)</label><input type="text" value="${p.url}" onchange="protocols[${i}].url=this.value; updateProtocols();"></div>
       </div>
     </div>
   `).join('');
@@ -645,7 +657,7 @@ function updateProtocols() {
     const p = protocols[0];
     document.getElementById('protocolUsage').textContent = `// Using the protocol handler
 // When a user clicks a link like:
-// <a href="${p.protocol}://some-data">Open in App</a>
+// <a href="${p.protocol}://some-data" ti="link_open_in_app">Open in App</a>
 //
 // The browser will navigate to:
 // ${p.url.replace('%s', encodeURIComponent(p.protocol + '://some-data'))}
@@ -655,7 +667,7 @@ const url = new URL(window.location);
 const data = url.searchParams.get('type');
 // data = "${p.protocol}://some-data"`;
   } else {
-    document.getElementById('protocolUsage').textContent = '// Add a protocol handler to see usage example';
+    document.getElementById('protocolUsage').textContent=T("jtc_add_a_protocol_handler_t");
   }
   updateAll();
 }
@@ -670,14 +682,14 @@ function renderScreenshots() {
   document.getElementById('screenshotsList').innerHTML = screenshots.map((s, i) => `
     <div class="shortcut-entry">
       <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
-        <strong style="font-size:0.85rem;">Screenshot ${i + 1}</strong>
+        <strong style="font-size:0.85rem;" ti="strong_screenshot_i_1">Screenshot ${i + 1}</strong>
         <button class="btn danger" style="padding:4px 10px; font-size:0.75rem;" onclick="screenshots.splice(${i},1); renderScreenshots();">Remove</button>
       </div>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:8px;">
-        <div><label>Source URL</label><input type="text" value="${s.src}" onchange="screenshots[${i}].src=this.value; updateAll();"></div>
-        <div><label>Sizes</label><input type="text" value="${s.sizes}" onchange="screenshots[${i}].sizes=this.value; updateAll();"></div>
-        <div><label>Form Factor</label><select onchange="screenshots[${i}].form_factor=this.value; updateAll();"><option value="wide" ${s.form_factor==='wide'?'selected':''}>wide</option><option value="narrow" ${s.form_factor==='narrow'?'selected':''}>narrow</option></select></div>
-        <div><label>Label</label><input type="text" value="${s.label}" onchange="screenshots[${i}].label=this.value; updateAll();"></div>
+        <div><label ti="label_source_url">Source URL</label><input type="text" value="${s.src}" onchange="screenshots[${i}].src=this.value; updateAll();"></div>
+        <div><label ti="label_sizes">Sizes</label><input type="text" value="${s.sizes}" onchange="screenshots[${i}].sizes=this.value; updateAll();"></div>
+        <div><label ti="label_form_factor">Form Factor</label><select onchange="screenshots[${i}].form_factor=this.value; updateAll();"><option value="wide" ${s.form_factor==='wide'?'selected':''}>wide</option><option value="narrow" ${s.form_factor==='narrow'?'selected':''}>narrow</option></select></div>
+        <div><label ti="label_label">Label</label><input type="text" value="${s.label}" onchange="screenshots[${i}].label=this.value; updateAll();"></div>
       </div>
     </div>
   `).join('');
@@ -791,8 +803,8 @@ function updateAll() {
 
 function copyManifest() {
   navigator.clipboard.writeText(document.getElementById('fullManifest').textContent);
-  document.querySelector('#panel-preview .copy-btn').textContent = 'Copied!';
-  setTimeout(() => document.querySelector('#panel-preview .copy-btn').textContent = 'Copy', 1500);
+  document.querySelector('#panel-preview .copy-btn').textContent=T("jtc_copied");
+  setTimeout(() => document.querySelector('#panel-preview .copy-btn').textContent=T("jtc_copy"), 1500);
 }
 
 function downloadManifest() {
@@ -812,6 +824,24 @@ renderProtocols();
 renderScreenshots();
 updateColors();
 updateAll();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

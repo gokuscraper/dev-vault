@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_ascii_art_generator_text" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -66,20 +66,22 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
 
 <div class="hero">
-<h1>ASCII Art Generator</h1>
+<h1 ti="h1_ascii_art_generator">ASCII Art Generator</h1>
 <p>Convert text to ASCII art with figlet-style fonts</p>
 </div>
 
 <div class="card">
-<h2>Input</h2>
-<label for="textInput">Text to convert</label>
-<input type="text" id="textInput" placeholder="Type something..." maxlength="40" autocomplete="off">
+<h2 ti="h2_input">Input</h2>
+<label for="textInput" ti="label_text_to_convert">Text to convert</label>
+<input type="text" id="textInput" tp="placeholder_type_something" placeholder="Type something..." maxlength="40" autocomplete="off">
 <div class="controls">
 <div>
-<label for="fontSelect">Font</label>
+<label for="fontSelect" ti="label_font">Font</label>
 <select id="fontSelect">
 <option value="standard">Standard</option>
 <option value="banner">Banner</option>
@@ -89,7 +91,7 @@ footer a:hover{color:#999}
 </select>
 </div>
 <div>
-<label for="widthSelect">Character spacing</label>
+<label for="widthSelect" ti="label_character_spacing">Character spacing</label>
 <select id="widthSelect">
 <option value="1">Compact (1px gap)</option>
 <option value="2" selected>Normal (2px gap)</option>
@@ -100,12 +102,12 @@ footer a:hover{color:#999}
 </div>
 
 <div class="card preview-area">
-<h2>Preview</h2>
+<h2 ti="h2_preview">Preview</h2>
 <pre id="output"><span class="placeholder">Your ASCII art will appear here...</span></pre>
 <div class="actions">
-<button class="btn btn-primary" id="copyBtn" onclick="copyOutput()">Copy</button>
-<button class="btn" onclick="downloadOutput()">Download .txt</button>
-<button class="btn" onclick="clearAll()">Clear</button>
+<button class="btn btn-primary" id="copyBtn" onclick="copyOutput()" ti="btn_copy">Copy</button>
+<button class="btn" onclick="downloadOutput()" ti="btn_download_txt">Download .txt</button>
+<button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
 </div>
 <div class="stats">
 <span>Characters: <strong id="charCount">0</strong></span>
@@ -115,15 +117,25 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-<a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — Free Developer Tools
+<a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault">Dev Vault</a> — Free Developer Tools
 <div class="related">
-Related: <a href="https://gokuscraper.github.io/dev-vault/text-transform/">Text Transform</a>
-<a href="https://gokuscraper.github.io/dev-vault/word-count/">Word Count</a>
+Related: <a href="https://gokuscraper.github.io/dev-vault/text-transform/" ti="link_text_transform">Text Transform</a>
+<a href="https://gokuscraper.github.io/dev-vault/word-count/" ti="link_word_count">Word Count</a>
 </div>
 </footer>
 
 </div>
 
+
+<script>var _LANG={'title_ascii_art_generator_text':["ASCII Art Generator — Text to ASCII Art", "ASCII 艺术生成器 — 文本转 ASCII 艺术"],'metadesc_convert_text_to_ascii_art':["Convert text to ASCII art with multiple figlet-style fonts. Standard, Banner, Small, Script, and Shadow styles. Free, no signup, no dependencies.", "使用多种 figlet 风格字体将文本转换为 ASCII 艺术。标准、横幅、小号、手写和阴影样式。免费，无需注册，无依赖。"],'h1_ascii_art_generator':["ASCII Art Generator", "ASCII 艺术生成器"],'h2_input':["Input", "输入"],'h2_preview':["Preview", "预览"],'btn_copy':["Copy", "复制"],'btn_download_txt':["Download .txt", "下载 .txt"],'btn_clear':["Clear", "清空"],'placeholder_type_something':["Type something...", "输入内容..."],'label_text_to_convert':["Text to convert", "要转换的文本"],'label_font':["Font", "字体"],'label_character_spacing':["Character spacing", "字符间距"],'link_dev_vault':["Dev Vault", "Dev Vault"],'link_text_transform':["Text Transform", "文本转换"],'link_word_count':["Word Count", "字数统计"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── Font definitions ──
 // Each font maps characters to arrays of strings (rows).
@@ -425,10 +437,10 @@ widthSelect.addEventListener('change', update);
 function copyOutput() {
   if (!currentOutput) return;
   navigator.clipboard.writeText(currentOutput).then(() => {
-    copyBtn.textContent = 'Copied!';
+    copyBtn.textContent=T("jtc_copied");
     copyBtn.classList.add('copied');
     setTimeout(() => {
-      copyBtn.textContent = 'Copy';
+      copyBtn.textContent=T("jtc_copy");
       copyBtn.classList.remove('copied');
     }, 1500);
   });
@@ -454,6 +466,24 @@ function clearAll() {
 // Init with example
 textInput.value = 'HELLO';
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

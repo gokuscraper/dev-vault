@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_font_pair_find_perfect_fo" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -59,20 +59,22 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Font Pair</h1>
-<p class="subtitle">Curated Google Font pairings. Click any to preview and copy CSS.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_font_pair">Font Pair</h1>
+<p class="subtitle" ti="subtitle_curated_google_font_pairi">Curated Google Font pairings. Click any to preview and copy CSS.</p>
 
 <div class="theme-toggle">
-  <button class="theme-btn active" onclick="setTheme('dark')">Dark</button>
-  <button class="theme-btn" onclick="setTheme('light')">Light</button>
+  <button class="theme-btn active" onclick="setTheme('dark')" ti="btn_dark">Dark</button>
+  <button class="theme-btn" onclick="setTheme('light')" ti="btn_light">Light</button>
 </div>
 
 <div class="filters" id="filters"></div>
 <div class="pair-grid" id="pairGrid"></div>
 
 <div class="custom-section">
-  <h2>Custom Pairing</h2>
+  <h2 ti="h2_custom_pairing">Custom Pairing</h2>
   <div class="custom-row">
     <label>Heading Font
       <select id="customHeading" onchange="updateCustom()"></select>
@@ -86,19 +88,29 @@ footer a:hover{color:#999}
   </div>
   <div class="custom-preview" id="customPreview"></div>
   <div style="text-align:right;margin-top:8px">
-    <button class="filter-btn" onclick="copyCustomCSS()">Copy CSS</button>
+    <button class="filter-btn" onclick="copyCustomCSS()" ti="btn_copy_css" ti="btn_copy_css_2">Copy CSS</button>
   </div>
 </div>
 
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/font-pair">GitHub</a> ·
-  Also: <a href="https://gokuscraper.github.io/dev-vault/color-palette/">Color Palette</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/">gh-stats</a> ·
-  <a href="https://gokuscraper.github.io/dev-vault/readme-score/">README Score</a>
+  <a href="https://github.com/gokuscraper/font-pair" ti="link_github">GitHub</a> ·
+  Also: <a href="https://gokuscraper.github.io/dev-vault/color-palette/" ti="link_color_palette">Color Palette</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/gh-stats/" ti="link_gh_stats">gh-stats</a> ·
+  <a href="https://gokuscraper.github.io/dev-vault/readme-score/" ti="link_readme_score">README Score</a>
 </footer>
 
+
+<script>var _LANG={'title_font_pair_find_perfect_fo':["Font Pair — Find Perfect Font Combinations", "字体搭配 — 寻找完美的字体组合"],'metadesc_browse_curated_google_fon':["Browse curated Google Font pairings. See heading + body combinations live. Copy CSS. Free, instant, no signup.", "浏览精选的 Google 字体搭配。实时查看标题和正文的组合效果。复制 CSS 代码。免费、即时、无需注册。"],'h1_font_pair':["Font Pair", "字体对"],'h2_custom_pairing':["Custom Pairing", "自定义配对"],'h2_sample_heading':["${SAMPLE_HEADING}", "${SAMPLE_HEADING}"],'h2_sample_heading_2':["${SAMPLE_HEADING}", "${SAMPLE_HEADING}"],'subtitle_curated_google_font_pairi':["Curated Google Font pairings. Click any to preview and copy CSS.", "精选 Google 字体组合。点击任意字体即可预览并复制 CSS 代码。"],'btn_dark':["Dark", "黑暗的"],'btn_light':["Light", "光"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_c_label':["${c.label}", "${c.label}"],'btn_copy_css_2':["Copy CSS", "复制 CSS"],'btn_copy_import':["Copy Import", "复制导入"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_color_palette':["Color Palette", "调色板"],'link_gh_stats':["gh-stats", "gh-stats"],'link_readme_score':["README Score", "自述文件评分"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 let currentTheme='dark';
 
@@ -160,7 +172,7 @@ function setTheme(t){
 
 function renderFilters(){
   document.getElementById('filters').innerHTML=CATEGORIES.map(c=>
-    `<button class="filter-btn ${c.id===activeFilter?'active':''}" onclick="setFilter('${c.id}')">${c.label}</button>`
+    `<button class="filter-btn ${c.id===activeFilter?'active':''}" onclick="setFilter('${c.id}')" ti="btn_c_label">${c.label}</button>`
   ).join('');
 }
 
@@ -179,7 +191,7 @@ function renderPairs(){
   document.getElementById('pairGrid').innerHTML=filtered.map((p,i)=>`
     <div class="pair-card">
       <div class="pair-preview" style="background:${bg}" onclick="copyCSS('${p.heading}','${p.body}')">
-        <h2 style="font-family:'${p.heading}',serif;font-size:2rem;color:${headingColor}">${SAMPLE_HEADING}</h2>
+        <h2 style="font-family:'${p.heading}',serif;font-size:2rem;color:${headingColor}" ti="h2_sample_heading" ti="h2_sample_heading_2">${SAMPLE_HEADING}</h2>
         <p style="font-family:'${p.body}',sans-serif;font-size:1rem;color:${bodyColor}">${SAMPLE_BODY}</p>
       </div>
       <div class="pair-meta">
@@ -188,7 +200,7 @@ function renderPairs(){
           <div class="pair-category">${p.cat}</div>
           <div class="pair-actions">
             <button onclick="copyCSS('${p.heading}','${p.body}')">Copy CSS</button>
-            <button onclick="copyImport('${p.heading}','${p.body}')">Copy Import</button>
+            <button onclick="copyImport('${p.heading}','${p.body}')" ti="btn_copy_import">Copy Import</button>
           </div>
         </div>
       </div>
@@ -260,12 +272,30 @@ renderPairs();
 initCustom();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/font-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Font Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/color-palette/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Color Palette</a>
 <a href="https://gokuscraper.github.io/dev-vault/spacing-calc/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Spacing Calc</a>
 <a href="https://gokuscraper.github.io/dev-vault/css-variable/" style="color:#4da6ff;text-decoration:none;margin:0 8px">CSS Variable</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

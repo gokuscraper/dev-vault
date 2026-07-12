@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_nesting_playground_de" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -57,22 +57,24 @@ header h1 span{color:var(--accent)}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
   <h1><span>{</span> CSS Nesting Playground <span>}</span></h1>
-  <div class="browser-support">Native nesting: <strong>Chrome 120+</strong>, <strong>Firefox 117+</strong>, <strong>Safari 17.2+</strong></div>
+  <div class="browser-support">Native nesting: <strong ti="strong_chrome_120">Chrome 120+</strong>, <strong ti="strong_firefox_117">Firefox 117+</strong>, <strong ti="strong_safari_17_2">Safari 17.2+</strong></div>
 </header>
 
 <div class="toolbar">
-  <label>Presets:</label>
-  <button class="preset-btn active" data-preset="basic">Basic Nesting</button>
-  <button class="preset-btn" data-preset="pseudo">Pseudo-classes</button>
-  <button class="preset-btn" data-preset="media">Media Queries</button>
-  <button class="preset-btn" data-preset="combinators">Combinators</button>
-  <button class="preset-btn" data-preset="deep">Deep Nesting</button>
+  <label ti="label_presets">Presets:</label>
+  <button class="preset-btn active" data-preset="basic" ti="btn_basic_nesting">Basic Nesting</button>
+  <button class="preset-btn" data-preset="pseudo" ti="btn_pseudo_classes">Pseudo-classes</button>
+  <button class="preset-btn" data-preset="media" ti="btn_media_queries">Media Queries</button>
+  <button class="preset-btn" data-preset="combinators" ti="btn_combinators">Combinators</button>
+  <button class="preset-btn" data-preset="deep" ti="btn_deep_nesting">Deep Nesting</button>
   <span style="width:1px;height:20px;background:var(--border);margin:0 4px"></span>
-  <button class="action-btn primary" id="flattenBtn">Flatten CSS</button>
-  <button class="action-btn" id="copyBtn">Copy CSS</button>
+  <button class="action-btn primary" id="flattenBtn" ti="btn_flatten_css">Flatten CSS</button>
+  <button class="action-btn" id="copyBtn" ti="btn_copy_css">Copy CSS</button>
   <div class="depth-indicator">
     <span style="color:var(--text-dim)">Depth:</span>
     <span class="depth-badge depth-ok" id="depthBadge">0</span>
@@ -85,14 +87,14 @@ header h1 span{color:var(--accent)}
       <span>Nested CSS</span>
       <span id="charCount" style="font-weight:400;text-transform:none;letter-spacing:0"></span>
     </div>
-    <textarea id="cssEditor" spellcheck="false" placeholder="Write nested CSS here..."></textarea>
+    <textarea id="cssEditor" spellcheck="false" tp="placeholder_write_nested_css_here" placeholder="Write nested CSS here..."></textarea>
     <div class="error-bar" id="errorBar"></div>
   </div>
   <div class="divider"></div>
   <div class="panel">
     <div class="panel-header">
       <span id="rightPanelTitle">Live Preview</span>
-      <button class="action-btn" id="backToPreview" style="display:none;font-size:11px;padding:3px 10px">Back to Preview</button>
+      <button class="action-btn" id="backToPreview" style="display:none;font-size:11px;padding:3px 10px" ti="btn_back_to_preview">Back to Preview</button>
     </div>
     <div class="preview-container" id="previewContainer">
       <iframe id="previewFrame" sandbox="allow-same-origin"></iframe>
@@ -105,6 +107,16 @@ header h1 span{color:var(--accent)}
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_css_nesting_playground_de':["CSS Nesting Playground — Dev Vault", "CSS嵌套练习场 — 开发者宝库"],'metadesc_native_css_nesting_playgr':["Native CSS nesting playground. No preprocessor needed. Write nested CSS, see it live, flatten to standard CSS.", "原生 CSS 嵌套示例。无需预处理器。编写嵌套 CSS，实时预览，并将其扁平化为标准 CSS。"],'h1_analytics':["Analytics", "分析"],'h2_native_css_nesting':["Native CSS Nesting", "原生 CSS 嵌套"],'btn_basic_nesting':["Basic Nesting", "基本嵌套"],'btn_pseudo_classes':["Pseudo-classes", "伪类"],'btn_media_queries':["Media Queries", "媒体查询"],'btn_combinators':["Combinators", "组合子"],'btn_deep_nesting':["Deep Nesting", "深度嵌套"],'btn_flatten_css':["Flatten CSS", "Flatten CSS"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_back_to_preview':["Back to Preview", "返回预览"],'btn_primary_button':["Primary Button", "主按钮"],'btn_secondary_button':["Secondary Button", "辅助按钮"],'btn_export':["Export", "出口"],'btn_add_widget':["Add Widget", "添加小部件"],'placeholder_write_nested_css_here':["Write nested CSS here...", "在此处编写嵌套 CSS..."],'strong_chrome_120':["Chrome 120+", "Chrome 120+"],'strong_firefox_117':["Firefox 117+", "Firefox 117+"],'strong_safari_17_2':["Safari 17.2+", "Safari 17.2+"],'label_presets':["Presets:", "预设："],'footer_css_nesting_playground_de':["CSS Nesting Playground — Dev Vault", "CSS嵌套练习场 — 开发者宝库"],'link_home':["Home", "家"],'link_about':["About", "关于"],'link_blog':["Blog", "博客"],'link_contact':["Contact", "接触"],'jtc_flattened_css':["Flattened CSS", "扁平化 CSS"],'jtc_show_preview':["Show Preview", "节目预览"],'jtc_live_preview':["Live Preview", "实时预览"],'jtc_flatten_css':["Flatten CSS", "Flatten CSS"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PRESETS = {
   basic: {
@@ -136,7 +148,7 @@ const PRESETS = {
   }
 }`,
     html: `<div class="card">
-  <h2>Native CSS Nesting</h2>
+  <h2 ti="h2_native_css_nesting">Native CSS Nesting</h2>
   <p>No preprocessor required. Write nested styles directly in the browser. Clean, readable, and standards-based.</p>
   <span class="tag">CSS 2024</span>
 </div>`
@@ -182,8 +194,8 @@ const PRESETS = {
   }
 }`,
     html: `<div style="display:flex;gap:12px;flex-wrap:wrap">
-  <button class="btn">Primary Button</button>
-  <button class="btn secondary">Secondary Button</button>
+  <button class="btn" ti="btn_primary_button">Primary Button</button>
+  <button class="btn secondary" ti="btn_secondary_button">Secondary Button</button>
 </div>`
   },
 
@@ -217,7 +229,7 @@ const PRESETS = {
     }
   }
 }`,
-    html: `<div class="container">
+    html: `<div class="container" style="position:relative">
   <div class="item">Item 1</div>
   <div class="item">Item 2</div>
   <div class="item">Item 3</div>
@@ -269,10 +281,10 @@ const PRESETS = {
   }
 }`,
     html: `<ul class="nav">
-  <li><a href="#">Home</a></li>
-  <li><a href="#">About</a></li>
-  <li><a href="#">Blog</a></li>
-  <li><a href="#">Contact</a></li>
+  <li><a href="#" ti="link_home">Home</a></li>
+  <li><a href="#" ti="link_about">About</a></li>
+  <li><a href="#" ti="link_blog">Blog</a></li>
+  <li><a href="#" ti="link_contact">Contact</a></li>
 </ul>`
   },
 
@@ -354,10 +366,10 @@ const PRESETS = {
 }`,
     html: `<div class="dashboard">
   <div class="header">
-    <h1>Analytics</h1>
+    <h1 ti="h1_analytics">Analytics</h1>
     <div class="actions">
-      <button>Export</button>
-      <button class="primary">Add Widget</button>
+      <button ti="btn_export">Export</button>
+      <button class="primary" ti="btn_add_widget">Add Widget</button>
     </div>
   </div>
   <div class="cards">
@@ -536,18 +548,18 @@ function showFlat() {
   showingFlat = true;
   previewContainer.style.display = 'none';
   flatOutput.classList.add('visible');
-  rightPanelTitle.textContent = 'Flattened CSS';
+  rightPanelTitle.textContent=T("jtc_flattened_css");
   backToPreview.style.display = '';
-  document.getElementById('flattenBtn').textContent = 'Show Preview';
+  document.getElementById('flattenBtn').textContent=T("jtc_show_preview");
 }
 
 function hideFlat() {
   showingFlat = false;
   previewContainer.style.display = '';
   flatOutput.classList.remove('visible');
-  rightPanelTitle.textContent = 'Live Preview';
+  rightPanelTitle.textContent=T("jtc_live_preview");
   backToPreview.style.display = 'none';
-  document.getElementById('flattenBtn').textContent = 'Flatten CSS';
+  document.getElementById('flattenBtn').textContent=T("jtc_flatten_css");
 }
 
 backToPreview.addEventListener('click', hideFlat);
@@ -742,6 +754,24 @@ function showToast(msg) {
 // --- Init ---
 editor.value = PRESETS.basic.css;
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

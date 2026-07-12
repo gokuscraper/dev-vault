@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_permissions_api_playgroun" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,8 +113,10 @@ header p{color:var(--text2);font-size:14px;max-width:600px;margin:0 auto}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
+
+<div class="container" style="position:relative">
   <header>
     <h1><code>navigator.permissions</code> Playground</h1>
     <p>Query, monitor, and request browser permissions in real-time. No prompts triggered until you click "Request Access".</p>
@@ -125,10 +127,10 @@ header p{color:var(--text2);font-size:14px;max-width:600px;margin:0 auto}
   </header>
 
   <div class="tabs" role="tablist">
-    <button class="tab active" data-tab="dashboard" role="tab">Dashboard</button>
-    <button class="tab" data-tab="monitor" role="tab">Live Monitor</button>
-    <button class="tab" data-tab="matrix" role="tab">Browser Matrix</button>
-    <button class="tab" data-tab="codegen" role="tab">Code Generator</button>
+    <button class="tab active" data-tab="dashboard" role="tab" ti="btn_dashboard">Dashboard</button>
+    <button class="tab" data-tab="monitor" role="tab" ti="btn_live_monitor">Live Monitor</button>
+    <button class="tab" data-tab="matrix" role="tab" ti="btn_browser_matrix">Browser Matrix</button>
+    <button class="tab" data-tab="codegen" role="tab" ti="btn_code_generator">Code Generator</button>
   </div>
 
   <!-- Dashboard -->
@@ -151,11 +153,11 @@ header p{color:var(--text2);font-size:14px;max-width:600px;margin:0 auto}
       <table class="matrix" id="matrixTable">
         <thead>
           <tr>
-            <th>Permission</th>
-            <th>Chrome</th>
-            <th>Firefox</th>
-            <th>Safari</th>
-            <th>Edge</th>
+            <th ti="th_permission">Permission</th>
+            <th ti="th_chrome">Chrome</th>
+            <th ti="th_firefox">Firefox</th>
+            <th ti="th_safari">Safari</th>
+            <th ti="th_edge">Edge</th>
           </tr>
         </thead>
         <tbody id="matrixBody"></tbody>
@@ -177,7 +179,7 @@ header p{color:var(--text2);font-size:14px;max-width:600px;margin:0 auto}
         </div>
       </div>
       <div class="codegen-output">
-        <button class="btn copy-btn" id="copyBtn" onclick="copyCode()">Copy</button>
+        <button class="btn copy-btn" id="copyBtn" onclick="copyCode()" ti="btn_copy">Copy</button>
         <pre id="codeOutput"></pre>
       </div>
     </div>
@@ -189,6 +191,16 @@ header p{color:var(--text2);font-size:14px;max-width:600px;margin:0 auto}
   <div class="detail-box" id="detailBox"></div>
 </div>
 
+
+<script>var _LANG={'title_permissions_api_playgroun':["Permissions API Playground", "权限 API 测试平台"],'metadesc_interactive_playground_fo':["Interactive playground for the browser Permissions API - check, monitor, and request browser permissions in real-time", "浏览器权限 API 的交互式演示环境 - 实时检查、监控和请求浏览器权限"],'h2_perm_icon_perm_name':["${perm.icon} ${perm.name}", "${perm.icon} ${perm.name}"],'btn_dashboard':["Dashboard", "仪表板"],'btn_live_monitor':["Live Monitor", "实时监控"],'btn_browser_matrix':["Browser Matrix", "浏览器矩阵"],'btn_code_generator':["Code Generator", "代码生成器"],'btn_copy':["Copy", "复制"],'btn_details':["Details", "细节"],'btn_request_access':["Request Access", "请求访问"],'btn_n_a':["N/A", "不适用"],'btn_u2715':["\\u2715", "☎"],'th_permission':["Permission", "允许"],'th_chrome':["Chrome", "铬合金"],'th_firefox':["Firefox", "火狐浏览器"],'th_safari':["Safari", "狩猎之旅"],'th_edge':["Edge", "边缘"],'jtc_permissions_api_supported':["Permissions API supported in this browser", "此浏览器支持权限 API"],'jtc_permissions_api_not_suppo':["Permissions API not supported in this browser", "此浏览器不支持权限 API"],'jtc_requesting':["Requesting...", "正在请求……"],'jtc_request_access':["Request Access", "请求访问"],'jtc_select_at_least_one_perm':["// Select at least one permission", "// 选择至少一项权限"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"],'jtlword_details':["Details", "细节"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const PERMISSIONS = [
   {
@@ -324,10 +336,10 @@ function checkApiSupport() {
   const status = document.getElementById('apiStatus');
   if ('permissions' in navigator) {
     dot.classList.add('ok');
-    status.textContent = 'Permissions API supported in this browser';
+    status.textContent=T("jtc_permissions_api_supported");
   } else {
     dot.classList.add('no');
-    status.textContent = 'Permissions API not supported in this browser';
+    status.textContent=T("jtc_permissions_api_not_suppo");
   }
 }
 
@@ -376,8 +388,8 @@ async function buildDashboard() {
       </div>
       <div class="desc">${perm.desc}</div>
       <div class="perm-card-actions">
-        <button class="btn" onclick="event.stopPropagation();showDetail('${perm.name}')">Details</button>
-        ${perm.request ? `<button class="btn primary" id="req-${perm.name}" onclick="event.stopPropagation();requestAccess('${perm.name}')">Request Access</button>` : `<button class="btn" disabled title="Requires Service Worker setup">N/A</button>`}
+        <button class="btn" onclick="event.stopPropagation();showDetail('${perm.name}')" ti="btn_details">Details</button>
+        ${perm.request ? `<button class="btn primary" id="req-${perm.name}" onclick="event.stopPropagation();requestAccess('${perm.name}')" ti="btn_request_access">Request Access</button>` : `<button class="btn" disabled title="Requires Service Worker setup" ti="btn_n_a">N/A</button>`}
       </div>
     `;
     card.addEventListener('click', () => showDetail(perm.name));
@@ -398,7 +410,7 @@ async function requestAccess(name) {
   const perm = PERMISSIONS.find(p => p.name === name);
   if (!perm || !perm.request) return;
   const btn = document.getElementById('req-' + name);
-  if (btn) { btn.textContent = 'Requesting...'; btn.disabled = true; }
+  if (btn) { btn.textContent=T("jtc_requesting"); btn.disabled = true; }
   try {
     await perm.request();
     // Re-query to update state
@@ -420,7 +432,7 @@ async function requestAccess(name) {
     }
     updateCardBadge(name, result.state);
   } finally {
-    if (btn) { btn.textContent = 'Request Access'; btn.disabled = false; }
+    if (btn) { btn.textContent=T("jtc_request_access"); btn.disabled = false; }
   }
 }
 
@@ -455,8 +467,8 @@ function showDetail(name) {
   const state = permStates[name] || 'unknown';
   const box = document.getElementById('detailBox');
   box.innerHTML = `
-    <button class="close-btn" onclick="closeDetail()">\u2715</button>
-    <h2>${perm.icon} ${perm.name}</h2>
+    <button class="close-btn" onclick="closeDetail()" ti="btn_u2715">\u2715</button>
+    <h2 ti="h2_perm_icon_perm_name">${perm.icon} ${perm.name}</h2>
     <div class="sub">${perm.desc}</div>
     <p style="margin-bottom:16px">Current state: <span class="badge ${state}">${state}</span></p>
 
@@ -533,7 +545,7 @@ function generateCode() {
   const useTry = document.getElementById('optTryCatch').checked;
 
   if (selected.length === 0) {
-    document.getElementById('codeOutput').textContent = '// Select at least one permission';
+    document.getElementById('codeOutput').textContent=T("jtc_select_at_least_one_perm");
     return;
   }
 
@@ -602,8 +614,8 @@ function copyCode() {
   const code = document.getElementById('codeOutput').textContent;
   navigator.clipboard.writeText(code).then(() => {
     const btn = document.getElementById('copyBtn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => { btn.textContent = 'Copy'; }, 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => { btn.textContent=T("jtc_copy"); }, 1500);
   }).catch(() => {});
 }
 
@@ -612,6 +624,24 @@ checkApiSupport();
 buildDashboard();
 buildMatrix();
 buildCodegenChecks();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

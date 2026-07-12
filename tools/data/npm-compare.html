@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_npm_compare_side_by_side" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -72,34 +72,44 @@ footer a{color:var(--accent);text-decoration:none}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>npm Compare</h1>
-  <p class="subtitle">Side-by-side package comparison. Downloads, size, dependencies, and more.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_npm_compare" ti="h1_npm_compare" ti="h1_npm_compare" ti="h1_npm_compare" ti="h1_npm_compare">npm Compare</h1>
+  <p class="subtitle" ti="subtitle_side_by_side_package_comp" ti="subtitle_side_by_side_package_comp" ti="subtitle_side_by_side_package_comp" ti="subtitle_side_by_side_package_comp" ti="subtitle_side_by_side_package_comp">Side-by-side package comparison. Downloads, size, dependencies, and more.</p>
 
   <div class="input-row">
     <div class="input-group">
-      <label>Package A</label>
-      <input type="text" id="pkgA" placeholder="e.g. express" autocomplete="off">
+      <label ti="label_package_a" ti="label_package_a" ti="label_package_a" ti="label_package_a" ti="label_package_a">Package A</label>
+      <input type="text" id="pkgA" tp="placeholder_e_g_express" tp="placeholder_e_g_express" tp="placeholder_e_g_express" tp="placeholder_e_g_express" tp="placeholder_e_g_express" placeholder="e.g. express" autocomplete="off">
     </div>
     <span class="vs">vs</span>
     <div class="input-group">
-      <label>Package B</label>
-      <input type="text" id="pkgB" placeholder="e.g. fastify" autocomplete="off">
+      <label ti="label_package_b" ti="label_package_b" ti="label_package_b" ti="label_package_b" ti="label_package_b">Package B</label>
+      <input type="text" id="pkgB" tp="placeholder_e_g_fastify" tp="placeholder_e_g_fastify" tp="placeholder_e_g_fastify" tp="placeholder_e_g_fastify" tp="placeholder_e_g_fastify" placeholder="e.g. fastify" autocomplete="off">
     </div>
-    <button class="compare-btn" id="compareBtn" onclick="compare()">Compare</button>
+    <button class="compare-btn" id="compareBtn" onclick="compare()" ti="btn_compare" ti="btn_compare" ti="btn_compare" ti="btn_compare" ti="btn_compare">Compare</button>
   </div>
 
   <div class="presets" id="presets">
-    <button onclick="preset('express','fastify')">express vs fastify</button>
-    <button onclick="preset('react','vue')">react vs vue</button>
-    <button onclick="preset('axios','got')">axios vs got</button>
-    <button onclick="preset('lodash','underscore')">lodash vs underscore</button>
-    <button onclick="preset('dayjs','moment')">dayjs vs moment</button>
-    <button onclick="preset('zod','joi')">zod vs joi</button>
-    <button onclick="preset('esbuild','webpack')">esbuild vs webpack</button>
-    <button onclick="preset('vitest','jest')">vitest vs jest</button>
-    <button onclick="preset('pnpm','yarn')">pnpm vs yarn</button>
-    <button onclick="preset('prettier','eslint')">prettier vs eslint</button>
+    <button onclick="preset('express','fastify')" ti="btn_express_vs_fastify" ti="btn_express_vs_fastify" ti="btn_express_vs_fastify" ti="btn_express_vs_fastify" ti="btn_express_vs_fastify">express vs fastify</button>
+    <button onclick="preset('react','vue')" ti="btn_react_vs_vue" ti="btn_react_vs_vue" ti="btn_react_vs_vue" ti="btn_react_vs_vue" ti="btn_react_vs_vue">react vs vue</button>
+    <button onclick="preset('axios','got')" ti="btn_axios_vs_got" ti="btn_axios_vs_got" ti="btn_axios_vs_got" ti="btn_axios_vs_got" ti="btn_axios_vs_got">axios vs got</button>
+    <button onclick="preset('lodash','underscore')" ti="btn_lodash_vs_underscore" ti="btn_lodash_vs_underscore" ti="btn_lodash_vs_underscore" ti="btn_lodash_vs_underscore" ti="btn_lodash_vs_underscore">lodash vs underscore</button>
+    <button onclick="preset('dayjs','moment')" ti="btn_dayjs_vs_moment" ti="btn_dayjs_vs_moment" ti="btn_dayjs_vs_moment" ti="btn_dayjs_vs_moment" ti="btn_dayjs_vs_moment">dayjs vs moment</button>
+    <button onclick="preset('zod','joi')" ti="btn_zod_vs_joi" ti="btn_zod_vs_joi" ti="btn_zod_vs_joi" ti="btn_zod_vs_joi" ti="btn_zod_vs_joi">zod vs joi</button>
+    <button onclick="preset('esbuild','webpack')" ti="btn_esbuild_vs_webpack" ti="btn_esbuild_vs_webpack" ti="btn_esbuild_vs_webpack" ti="btn_esbuild_vs_webpack" ti="btn_esbuild_vs_webpack">esbuild vs webpack</button>
+    <button onclick="preset('vitest','jest')" ti="btn_vitest_vs_jest" ti="btn_vitest_vs_jest" ti="btn_vitest_vs_jest" ti="btn_vitest_vs_jest" ti="btn_vitest_vs_jest">vitest vs jest</button>
+    <button onclick="preset('pnpm','yarn')" ti="btn_pnpm_vs_yarn" ti="btn_pnpm_vs_yarn" ti="btn_pnpm_vs_yarn" ti="btn_pnpm_vs_yarn" ti="btn_pnpm_vs_yarn">pnpm vs yarn</button>
+    <button onclick="preset('prettier','eslint')" ti="btn_prettier_vs_eslint" ti="btn_prettier_vs_eslint" ti="btn_prettier_vs_eslint" ti="btn_prettier_vs_eslint" ti="btn_prettier_vs_eslint">prettier vs eslint</button>
   </div>
 
   <div class="error" id="error"></div>
@@ -109,17 +119,57 @@ footer a{color:var(--accent);text-decoration:none}
     <div class="winner-banner" id="winner"></div>
     <table class="comparison-table" id="table"></table>
     <div class="dl-chart" id="chartSection" style="display:none">
-      <h3>Weekly Downloads (Last Year)</h3>
+      <h3 ti="h3_weekly_downloads_last_yea" ti="h3_weekly_downloads_last_yea" ti="h3_weekly_downloads_last_yea" ti="h3_weekly_downloads_last_yea" ti="h3_weekly_downloads_last_yea">Weekly Downloads (Last Year)</h3>
       <div class="chart-container"><canvas id="dlChart"></canvas></div>
     </div>
   </div>
 </div>
 
 <footer>
-  <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a> — 56+ free browser-based developer tools<br>
+  <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a> — 56+ free browser-based developer tools<br>
   Data from <a href="https://registry.npmjs.org" target="_blank">npm registry</a> &amp; <a href="https://api.npmjs.org" target="_blank">npm API</a> &amp; <a href="https://bundlephobia.com" target="_blank">Bundlephobia</a>
 </footer>
 
+
+
+
+
+<script>var _LANG={'title_npm_compare_side_by_side':["npm Compare — Side-by-Side Package Comparison", "npm Compare — 并排包比较"],'metadesc_compare_two_npm_packages':["Compare two npm packages side by side. Downloads, size, dependencies, maintenance, and more.", "并排比较两个 npm 包。包括下载量、大小、依赖项、维护情况等等。"],'h1_npm_compare':["npm Compare", "npm 比较"],'h3_weekly_downloads_last_yea':["Weekly Downloads (Last Year)", "去年每周下载量"],'subtitle_side_by_side_package_comp':["Side-by-side package comparison. Downloads, size, dependencies, and more.", "并排比较软件包信息。包括下载次数、大小、依赖项等。"],'btn_compare':["Compare", "比较"],'btn_express_vs_fastify':["express vs fastify", "Express 与 Fastify"],'btn_react_vs_vue':["react vs vue", "React 与 Vue"],'btn_axios_vs_got':["axios vs got", "axios vs got"],'btn_lodash_vs_underscore':["lodash vs underscore", "lodash 与 underscore"],'btn_dayjs_vs_moment':["dayjs vs moment", "dayjs 与 moment"],'btn_zod_vs_joi':["zod vs joi", "佐德对战乔伊"],'btn_esbuild_vs_webpack':["esbuild vs webpack", "esbuild 与 webpack"],'btn_vitest_vs_jest':["vitest vs jest", "维斯特与玩笑"],'btn_pnpm_vs_yarn':["pnpm vs yarn", "pnpm 与 yarn"],'btn_prettier_vs_eslint':["prettier vs eslint", "prettier 与 eslint"],'placeholder_e_g_express':["e.g. express", "例如快递"],'placeholder_e_g_fastify':["e.g. fastify", "例如 Fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_package_a':["Package A", "A套餐"],'label_package_b':["Package B", "B套餐"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_compare_side_by_side':["npm Compare — Side-by-Side Package Comparison", "npm Compare — 并排包比较"],'metadesc_compare_two_npm_packages':["Compare two npm packages side by side. Downloads, size, dependencies, maintenance, and more.", "并排比较两个 npm 包。包括下载量、大小、依赖项、维护情况等等。"],'h1_npm_compare':["npm Compare", "npm 比较"],'h3_weekly_downloads_last_yea':["Weekly Downloads (Last Year)", "去年每周下载量"],'subtitle_side_by_side_package_comp':["Side-by-side package comparison. Downloads, size, dependencies, and more.", "并排比较软件包信息。包括下载次数、大小、依赖项等。"],'btn_compare':["Compare", "比较"],'btn_express_vs_fastify':["express vs fastify", "Express 与 Fastify"],'btn_react_vs_vue':["react vs vue", "React 与 Vue"],'btn_axios_vs_got':["axios vs got", "axios vs got"],'btn_lodash_vs_underscore':["lodash vs underscore", "lodash 与 underscore"],'btn_dayjs_vs_moment':["dayjs vs moment", "dayjs 与 moment"],'btn_zod_vs_joi':["zod vs joi", "佐德对战乔伊"],'btn_esbuild_vs_webpack':["esbuild vs webpack", "esbuild 与 webpack"],'btn_vitest_vs_jest':["vitest vs jest", "维斯特与玩笑"],'btn_pnpm_vs_yarn':["pnpm vs yarn", "pnpm 与 yarn"],'btn_prettier_vs_eslint':["prettier vs eslint", "prettier 与 eslint"],'placeholder_e_g_express':["e.g. express", "例如快递"],'placeholder_e_g_fastify':["e.g. fastify", "例如 Fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_package_a':["Package A", "A套餐"],'label_package_b':["Package B", "B套餐"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_compare_side_by_side':["npm Compare — Side-by-Side Package Comparison", "npm Compare — 并排包比较"],'metadesc_compare_two_npm_packages':["Compare two npm packages side by side. Downloads, size, dependencies, maintenance, and more.", "并排比较两个 npm 包。包括下载量、大小、依赖项、维护情况等等。"],'h1_npm_compare':["npm Compare", "npm 比较"],'h3_weekly_downloads_last_yea':["Weekly Downloads (Last Year)", "去年每周下载量"],'subtitle_side_by_side_package_comp':["Side-by-side package comparison. Downloads, size, dependencies, and more.", "并排比较软件包信息。包括下载次数、大小、依赖项等。"],'btn_compare':["Compare", "比较"],'btn_express_vs_fastify':["express vs fastify", "Express 与 Fastify"],'btn_react_vs_vue':["react vs vue", "React 与 Vue"],'btn_axios_vs_got':["axios vs got", "axios vs got"],'btn_lodash_vs_underscore':["lodash vs underscore", "lodash 与 underscore"],'btn_dayjs_vs_moment':["dayjs vs moment", "dayjs 与 moment"],'btn_zod_vs_joi':["zod vs joi", "佐德对战乔伊"],'btn_esbuild_vs_webpack':["esbuild vs webpack", "esbuild 与 webpack"],'btn_vitest_vs_jest':["vitest vs jest", "维斯特与玩笑"],'btn_pnpm_vs_yarn':["pnpm vs yarn", "pnpm 与 yarn"],'btn_prettier_vs_eslint':["prettier vs eslint", "prettier 与 eslint"],'placeholder_e_g_express':["e.g. express", "例如快递"],'placeholder_e_g_fastify':["e.g. fastify", "例如 Fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_package_a':["Package A", "A套餐"],'label_package_b':["Package B", "B套餐"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_npm_compare_side_by_side':["npm Compare — Side-by-Side Package Comparison", "npm Compare — 并排包比较"],'metadesc_compare_two_npm_packages':["Compare two npm packages side by side. Downloads, size, dependencies, maintenance, and more.", "并排比较两个 npm 包。包括下载量、大小、依赖项、维护情况等等。"],'h1_npm_compare':["npm Compare", "npm 比较"],'h3_weekly_downloads_last_yea':["Weekly Downloads (Last Year)", "去年每周下载量"],'subtitle_side_by_side_package_comp':["Side-by-side package comparison. Downloads, size, dependencies, and more.", "并排比较软件包信息。包括下载次数、大小、依赖项等。"],'btn_compare':["Compare", "比较"],'btn_express_vs_fastify':["express vs fastify", "Express 与 Fastify"],'btn_react_vs_vue':["react vs vue", "React 与 Vue"],'btn_axios_vs_got':["axios vs got", "axios vs got"],'btn_lodash_vs_underscore':["lodash vs underscore", "lodash 与 underscore"],'btn_dayjs_vs_moment':["dayjs vs moment", "dayjs 与 moment"],'btn_zod_vs_joi':["zod vs joi", "佐德对战乔伊"],'btn_esbuild_vs_webpack':["esbuild vs webpack", "esbuild 与 webpack"],'btn_vitest_vs_jest':["vitest vs jest", "维斯特与玩笑"],'btn_pnpm_vs_yarn':["pnpm vs yarn", "pnpm 与 yarn"],'btn_prettier_vs_eslint':["prettier vs eslint", "prettier 与 eslint"],'placeholder_e_g_express':["e.g. express", "例如快递"],'placeholder_e_g_fastify':["e.g. fastify", "例如 Fastify"],'strong_related_tools':["Related Tools", "相关工具"],'th_metric':["Metric", "指标"],'label_package_a':["Package A", "A套餐"],'label_package_b':["Package B", "B套餐"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $ = id => document.getElementById(id);
 
@@ -261,7 +311,7 @@ function buildTable(a, b) {
 
   // Header
   rows.push(`<thead><tr>
-    <th class="metric">Metric</th>
+    <th class="metric" ti="th_metric" ti="th_metric" ti="th_metric" ti="th_metric" ti="th_metric">Metric</th>
     <th><span class="pkg-header">${a.name}</span></th>
     <th><span class="pkg-header">${b.name}</span></th>
   </tr></thead><tbody>`);
@@ -482,12 +532,102 @@ document.addEventListener('keydown', e => {
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/npm-health/" style="color:#4da6ff;text-decoration:none;margin:0 8px">npm Health</a>
 <a href="https://gokuscraper.github.io/dev-vault/dep-tree/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Dep Tree</a>
 <a href="https://gokuscraper.github.io/dev-vault/repo-compare/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Repo Compare</a>
 <a href="https://gokuscraper.github.io/dev-vault/dep-changelog/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Dep Changelog</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_replace_find_replac" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -233,17 +233,21 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
 
-<div class="container">
-  <h1>Regex Replace</h1>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+
+<div class="container" style="position:relative">
+  <h1 ti="h1_regex_replace" ti="h1_regex_replace">Regex Replace</h1>
   <p class="subtitle">Find &amp; replace with regular expressions — live diff preview, backreferences, 10 presets.</p>
 
   <!-- Source text -->
   <div class="section">
-    <label for="source">Source Text</label>
+    <label for="source" ti="label_source_text" ti="label_source_text">Source Text</label>
     <div class="highlight-wrap">
       <div class="highlight-backdrop" id="inputBackdrop"></div>
-      <textarea id="source" placeholder="Paste your text here…" spellcheck="false"></textarea>
+      <textarea id="source" tp="placeholder_paste_your_text_here" tp="placeholder_paste_your_text_here" placeholder="Paste your text here…" spellcheck="false"></textarea>
     </div>
   </div>
 
@@ -251,17 +255,17 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
   <div class="pattern-row">
     <div>
       <label for="pattern">Pattern</label>
-      <input type="text" id="pattern" placeholder="e.g. (\w+)@(\w+)\.(\w+)" spellcheck="false" autocomplete="off">
+      <input type="text" id="pattern" tp="placeholder_e_g_w_w_w" tp="placeholder_e_g_w_w_w" placeholder="e.g. (\w+)@(\w+)\.(\w+)" spellcheck="false" autocomplete="off">
     </div>
     <div>
-      <label for="replacement">Replacement</label>
-      <input type="text" id="replacement" placeholder="e.g. $1 [at] $2.$3" spellcheck="false" autocomplete="off">
+      <label for="replacement" ti="label_replacement" ti="label_replacement">Replacement</label>
+      <input type="text" id="replacement" tp="placeholder_e_g_1_at_2_3" tp="placeholder_e_g_1_at_2_3" placeholder="e.g. $1 [at] $2.$3" spellcheck="false" autocomplete="off">
     </div>
   </div>
 
   <!-- Flags -->
   <div class="flags-row">
-    <label>Flags</label>
+    <label ti="label_flags" ti="label_flags">Flags</label>
     <button class="flag-btn active" data-flag="g" title="Global — replace all occurrences">g</button>
     <button class="flag-btn" data-flag="i" title="Case-insensitive">i</button>
     <button class="flag-btn" data-flag="m" title="Multiline — ^ and $ match line boundaries">m</button>
@@ -283,22 +287,22 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
 
   <!-- Result with diff backdrop -->
   <div class="section">
-    <label for="output">Result</label>
+    <label for="output" ti="label_result" ti="label_result">Result</label>
     <div class="highlight-wrap">
       <div class="highlight-backdrop diff-backdrop" id="outputBackdrop"></div>
-      <textarea id="output" readonly placeholder="Result appears here…" spellcheck="false"></textarea>
+      <textarea id="output" readonly tp="placeholder_result_appears_here" tp="placeholder_result_appears_here" placeholder="Result appears here…" spellcheck="false"></textarea>
     </div>
   </div>
 
   <!-- Actions -->
   <div class="btn-row">
-    <button class="btn" id="copyBtn">Copy Result</button>
-    <button class="btn-ghost" id="clearBtn">Clear All</button>
+    <button class="btn" id="copyBtn" ti="btn_copy_result" ti="btn_copy_result">Copy Result</button>
+    <button class="btn-ghost" id="clearBtn" ti="btn_clear_all" ti="btn_clear_all">Clear All</button>
   </div>
 
   <!-- Presets -->
   <div class="presets">
-    <h2>Presets</h2>
+    <h2 ti="h2_presets" ti="h2_presets">Presets</h2>
     <div class="preset-grid" id="presetGrid"></div>
   </div>
 
@@ -310,7 +314,7 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
     </button>
     <div class="ref-body" id="regexBody">
       <table class="ref-table">
-        <thead><tr><th>Pattern</th><th>Description</th></tr></thead>
+        <thead><tr><th ti="th_pattern" ti="label_pattern" ti="th_pattern" ti="label_pattern">Pattern</th><th ti="th_description" ti="th_description_2" ti="th_description" ti="th_description_2">Description</th></tr></thead>
         <tbody>
           <tr><td>.</td><td>Any character except newline (use s flag to include newlines)</td></tr>
           <tr><td>\d / \D</td><td>Digit / Non-digit [0-9]</td></tr>
@@ -344,10 +348,20 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
     </button>
     <div class="ref-body" id="replBody">
       <table class="ref-table">
-        <thead><tr><th>Token</th><th>Description</th></tr></thead>
+        <thead><tr><th ti="th_token" ti="th_token">Token</th><th>Description</th></tr></thead>
         <tbody>
           <tr><td>$1, $2, …</td><td>Captured group by number</td></tr>
-          <tr><td>$&lt;name&gt;</td><td>Named capture group</td></tr>
+          <tr><td>$&lt;name&gt;</td><td>Named capture group</td></tr
+<script>var _LANG={'title_regex_replace_find_replac':["Regex Replace — Find & Replace with Regular Expressions", "正则表达式替换 — 使用正则表达式查找和替换"],'metadesc_find_and_replace_with_reg':["Find and replace with regex. Live diff preview with deletions and replacements highlighted, 10 presets, backreferences, regex quick reference.", "使用正则表达式查找和替换。实时差异预览，突出显示删除和替换内容，10 个预设，反向引用，正则表达式快速参考。"],'h1_regex_replace':["Regex Replace", "正则表达式替换"],'h2_presets':["Presets", "预设"],'subtitle_find_replace_with_regular':["Find & replace with regular expressions — live diff preview, backreferences, 10 presets.", "使用正则表达式查找和替换——实时差异预览、反向引用、10 个预设。"],'btn_copy_result':["Copy Result", "复制结果"],'btn_clear_all':["Clear All", "全部清除"],'placeholder_paste_your_text_here':["Paste your text here…", "将您的文本粘贴到此处……"],'placeholder_e_g_w_w_w':["e.g. (\\w+)@(\\w+)\\.(\\w+)", "例如 (\\w+)@(\\w+)\\.(\\w+)"],'placeholder_e_g_1_at_2_3':["e.g. $1 [at] $2.$3", "例如 $1 [在] $2.$3"],'placeholder_result_appears_here':["Result appears here…", "结果显示如下……"],'strong_related_tools':["Related Tools", "相关工具"],'th_pattern':["Pattern", "图案"],'th_description':["Description", "描述"],'th_token':["Token", "令牌"],'th_description_2':["Description", "描述"],'label_source_text':["Source Text", "原文"],'label_pattern':["Pattern", "图案"],'label_replacement':["Replacement", "替代品"],'label_flags':["Flags", "旗帜"],'label_result':["Result", "结果"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_result':["Copy Result", "复制结果"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy_result_2':["Copy Result", "复制结果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+>
           <tr><td>$&amp;</td><td>Entire matched substring</td></tr>
           <tr><td>$`</td><td>Text before the match</td></tr>
           <tr><td>$'</td><td>Text after the match</td></tr>
@@ -362,6 +376,16 @@ footer{text-align:center;padding:16px;font-size:.8125rem;color:var(--text2);bord
 <footer>
 </footer>
 
+
+<script>var _LANG={'title_regex_replace_find_replac':["Regex Replace — Find & Replace with Regular Expressions", "正则表达式替换 — 使用正则表达式查找和替换"],'metadesc_find_and_replace_with_reg':["Find and replace with regex. Live diff preview with deletions and replacements highlighted, 10 presets, backreferences, regex quick reference.", "使用正则表达式查找和替换。实时差异预览，突出显示删除和替换内容，10 个预设，反向引用，正则表达式快速参考。"],'h1_regex_replace':["Regex Replace", "正则表达式替换"],'h2_presets':["Presets", "预设"],'subtitle_find_replace_with_regular':["Find & replace with regular expressions — live diff preview, backreferences, 10 presets.", "使用正则表达式查找和替换——实时差异预览、反向引用、10 个预设。"],'btn_copy_result':["Copy Result", "复制结果"],'btn_clear_all':["Clear All", "全部清除"],'placeholder_paste_your_text_here':["Paste your text here…", "将您的文本粘贴到此处……"],'placeholder_e_g_w_w_w':["e.g. (\\w+)@(\\w+)\\.(\\w+)", "例如 (\\w+)@(\\w+)\\.(\\w+)"],'placeholder_e_g_1_at_2_3':["e.g. $1 [at] $2.$3", "例如 $1 [在] $2.$3"],'placeholder_result_appears_here':["Result appears here…", "结果显示如下……"],'strong_related_tools':["Related Tools", "相关工具"],'th_pattern':["Pattern", "图案"],'th_description':["Description", "描述"],'th_token':["Token", "令牌"],'th_description_2':["Description", "描述"],'label_source_text':["Source Text", "原文"],'label_pattern':["Pattern", "图案"],'label_replacement':["Replacement", "替代品"],'label_flags':["Flags", "旗帜"],'label_result':["Result", "结果"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_result':["Copy Result", "复制结果"],'jtc_copied_2':["Copied!", "已复制！"],'jtc_copy_result_2':["Copy Result", "复制结果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ── DOM refs ──
 const sourceEl      = document.getElementById('source');
@@ -640,14 +664,14 @@ replacementEl.addEventListener('input', update);
 // ── Copy ──
 copyBtn.addEventListener('click', () => {
   navigator.clipboard.writeText(outputEl.value).then(() => {
-    copyBtn.textContent = 'Copied!';
-    setTimeout(() => { copyBtn.textContent = 'Copy Result'; }, 1500);
+    copyBtn.textContent=T("jtc_copied");
+    setTimeout(() => { copyBtn.textContent=T("jtc_copy_result"); }, 1500);
   }).catch(() => {
     // Fallback for non-https
     outputEl.select();
     document.execCommand('copy');
-    copyBtn.textContent = 'Copied!';
-    setTimeout(() => { copyBtn.textContent = 'Copy Result'; }, 1500);
+    copyBtn.textContent=T("jtc_copied");
+    setTimeout(() => { copyBtn.textContent=T("jtc_copy_result"); }, 1500);
   });
 });
 
@@ -666,12 +690,48 @@ clearBtn.addEventListener('click', () => {
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/regex-test/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Test</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-cheatsheet/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Cheatsheet</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
 <a href="https://gokuscraper.github.io/dev-vault/diff-text/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Diff Text</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

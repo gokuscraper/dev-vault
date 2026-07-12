@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_jwt_builder_create_decode" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -64,9 +64,11 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>JWT Builder</h1>
-<p class="subtitle">Build and decode JSON Web Tokens. Nothing leaves your browser.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_jwt_builder">JWT Builder</h1>
+<p class="subtitle" ti="subtitle_build_and_decode_json_web">Build and decode JSON Web Tokens. Nothing leaves your browser.</p>
 
 <div class="tabs">
   <div class="tab active" onclick="switchTab(0)">Build</div>
@@ -83,16 +85,16 @@ footer a:hover{color:#999}
 
   <div class="label" style="margin-top:12px">Quick Claims</div>
   <div class="input-row">
-    <button class="btn" onclick="addClaim('iat',Math.floor(Date.now()/1000))">+ iat (now)</button>
-    <button class="btn" onclick="addClaim('exp',Math.floor(Date.now()/1000)+3600)">+ exp (1h)</button>
-    <button class="btn" onclick="addClaim('exp',Math.floor(Date.now()/1000)+86400)">+ exp (24h)</button>
-    <button class="btn" onclick="addClaim('nbf',Math.floor(Date.now()/1000))">+ nbf (now)</button>
-    <button class="btn" onclick="addClaim('jti',crypto.randomUUID())">+ jti</button>
+    <button class="btn" onclick="addClaim('iat',Math.floor(Date.now()/1000))" ti="btn_iat_now">+ iat (now)</button>
+    <button class="btn" onclick="addClaim('exp',Math.floor(Date.now()/1000)+3600)" ti="btn_exp_1h">+ exp (1h)</button>
+    <button class="btn" onclick="addClaim('exp',Math.floor(Date.now()/1000)+86400)" ti="btn_exp_24h">+ exp (24h)</button>
+    <button class="btn" onclick="addClaim('nbf',Math.floor(Date.now()/1000))" ti="btn_nbf_now">+ nbf (now)</button>
+    <button class="btn" onclick="addClaim('jti',crypto.randomUUID())" ti="btn_jti">+ jti</button>
   </div>
 
   <div class="label" style="margin-top:12px">Secret (for HMAC signing)</div>
   <div class="input-row">
-    <input type="text" id="buildSecret" placeholder="Enter secret to sign (leave empty for unsigned)" oninput="buildToken()" style="flex:1">
+    <input type="text" id="buildSecret" tp="placeholder_enter_secret_to_sign_leav" placeholder="Enter secret to sign (leave empty for unsigned)" oninput="buildToken()" style="flex:1">
   </div>
 
   <p class="warning">Signing uses Web Crypto API — your secret never leaves the browser.</p>
@@ -107,12 +109,12 @@ footer a:hover{color:#999}
 <!-- Decode -->
 <div class="panel" id="p1">
   <div class="label">JWT Token</div>
-  <textarea class="lg-textarea" id="decodeInput" placeholder="Paste a JWT token..." oninput="decodeToken()">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
+  <textarea class="lg-textarea" id="decodeInput" tp="placeholder_paste_a_jwt_token" placeholder="Paste a JWT token..." oninput="decodeToken()">eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c</textarea>
 
   <div class="label" style="margin-top:12px">Secret (for signature verification)</div>
   <div class="input-row">
-    <input type="text" id="verifySecret" placeholder="Enter secret to verify signature" oninput="decodeToken()" style="flex:1">
-    <button class="btn" id="verifyBtn" onclick="decodeToken()" style="display:none">Verify</button>
+    <input type="text" id="verifySecret" tp="placeholder_enter_secret_to_verify_si" placeholder="Enter secret to verify signature" oninput="decodeToken()" style="flex:1">
+    <button class="btn" id="verifyBtn" onclick="decodeToken()" style="display:none" ti="btn_verify">Verify</button>
   </div>
 
   <div id="decodeError" style="color:#ef4444;font-size:0.82rem;min-height:20px;margin:8px 0"></div>
@@ -122,10 +124,20 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/jwt-builder">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/jwt-builder" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+<script>var _LANG={'title_jwt_builder_create_decode':["JWT Builder — Create & Decode JSON Web Tokens", "JWT 构建器 — 创建和解码 JSON Web Tokens"],'metadesc_build_jwt_tokens_with_cus':["Build JWT tokens with custom header and payload. Decode existing tokens. See claims, expiration. No secret leaves your browser. Free.", "使用自定义标头和有效负载构建 JWT 令牌。解码现有令牌。查看声明和过期时间。所有信息均在您的浏览器中保密。免费。"],'h1_jwt_builder':["JWT Builder", "JWT 构建器"],'h3_header':["Header", "标题"],'h3_payload':["Payload", "有效载荷"],'h3_signature':["Signature", "签名"],'subtitle_build_and_decode_json_web':["Build and decode JSON Web Tokens. Nothing leaves your browser.", "构建和解码 JSON Web Tokens。所有数据都不会离开您的浏览器。"],'btn_iat_now':["+ iat (now)", "+ iat（现在）"],'btn_exp_1h':["+ exp (1h)", "+ exp (1h)"],'btn_exp_24h':["+ exp (24h)", "+ exp (24小时)"],'btn_nbf_now':["+ nbf (now)", "+ nbf（现在）"],'btn_jti':["+ jti", "+ jti"],'btn_verify':["Verify", "核实"],'placeholder_enter_secret_to_sign_leav':["Enter secret to sign (leave empty for unsigned)", "输入要签名的密钥（留空则不签名）"],'placeholder_paste_a_jwt_token':["Paste a JWT token...", "粘贴 JWT 令牌..."],'placeholder_enter_secret_to_verify_si':["Enter secret to verify signature", "输入密钥以验证签名"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_error':["Error:", "错误："],'jtc_invalid_jwt_expected_3_pa':["Invalid JWT: expected 3 parts separated by dots", "无效的 JWT：应包含三个部分，并以点号分隔。"],'jtc_error_decoding':["Error decoding:", "解码错误："],'jtc_copied':["Copied!", "已复制！"],'jtcpre_error':["Error: ", "错误："],'jtcpre_error_decoding':["Error decoding: ", "解码错误："],'jtlword_header':["Header", "标题"],'jtlword_payload':["Payload", "有效载荷"],'jtlword_signature':["Signature", "签名"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const $=id=>document.getElementById(id);
 const ALG_HASH={'HS256':'SHA-256','HS384':'SHA-384','HS512':'SHA-512'};
@@ -198,7 +210,7 @@ async function buildToken(){
     const metaEl=document.getElementById('buildMeta');
     if(metaEl)metaEl.textContent=`${tokenLen} chars · ${alg} · ${secret?'signed':'unsigned'}`;
   }catch(e){
-    $('buildOutput').textContent='Error: '+e.message;
+    $('buildOutput').textContent=T("jtcpre_error")+e.message;
   }
 }
 
@@ -217,7 +229,7 @@ async function decodeToken(){
 
   const parts=token.split('.');
   if(parts.length!==3){
-    $('decodeError').textContent='Invalid JWT: expected 3 parts separated by dots';
+    $('decodeError').textContent=T("jtc_invalid_jwt_expected_3_pa");
     $('decodeOutput').innerHTML='';
     return;
   }
@@ -261,22 +273,22 @@ async function decodeToken(){
     $('decodeError').textContent='';
     $('decodeOutput').innerHTML=`
       <div class="section header-s">
-        <h3>Header</h3>
+        <h3 ti="h3_header">Header</h3>
         <pre>${esc(JSON.stringify(header,null,2))}</pre>
       </div>
       <div class="section payload-s">
-        <h3>Payload</h3>
+        <h3 ti="h3_payload">Payload</h3>
         <pre>${esc(JSON.stringify(payload,null,2))}</pre>
         ${claimInfo.length?'<div class="claim-info">'+claimInfo.join('<br>')+'</div>':''}
       </div>
       <div class="section sig-s">
-        <h3>Signature</h3>
+        <h3 ti="h3_signature">Signature</h3>
         <pre>${esc(parts[2])}</pre>
         ${sigHtml}
       </div>
     `;
   }catch(e){
-    $('decodeError').textContent='Error decoding: '+e.message;
+    $('decodeError').textContent=T("jtcpre_error_decoding")+e.message;
     $('decodeOutput').innerHTML='';
   }
 }
@@ -294,7 +306,7 @@ function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g
 function copyEl(el){
   navigator.clipboard.writeText(el.textContent);
   const toast=document.createElement('div');
-  toast.className='copied';toast.textContent='Copied!';
+  toast.className='copied';toast.textContent=T("jtc_copied");
   document.body.appendChild(toast);
   setTimeout(()=>toast.remove(),1600);
 }
@@ -302,6 +314,24 @@ function copyEl(el){
 // Init
 buildToken();
 decodeToken();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

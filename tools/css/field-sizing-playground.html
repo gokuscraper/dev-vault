@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_field_sizing_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -164,6 +164,8 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="header">
   <h1>
     <span class="icon">Fs</span>
@@ -171,21 +173,21 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
     <span class="badge">CSS 2024</span>
   </h1>
   <div class="header-right">
-    <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+    <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   </div>
 </div>
 
 <div class="layout">
   <div class="demo-panel">
     <div class="panel-header">
-      <h3>Live Comparison</h3>
+      <h3 ti="h3_live_comparison">Live Comparison</h3>
       <span class="badge">Type to see the difference</span>
     </div>
     <div class="tab-bar">
-      <button class="tab-btn active" data-tab="input">Input</button>
-      <button class="tab-btn" data-tab="textarea">Textarea</button>
-      <button class="tab-btn" data-tab="select">Select</button>
-      <button class="tab-btn" data-tab="number">Number</button>
+      <button class="tab-btn active" data-tab="input" ti="btn_input">Input</button>
+      <button class="tab-btn" data-tab="textarea" ti="btn_textarea" ti="label_textarea" ti="label_textarea_2">Textarea</button>
+      <button class="tab-btn" data-tab="select" ti="btn_select" ti="label_select" ti="label_select_2">Select</button>
+      <button class="tab-btn" data-tab="number" ti="btn_number">Number</button>
     </div>
     <div class="demo-area">
       <!-- Input tab -->
@@ -194,7 +196,7 @@ body { font-family: var(--font); background: var(--bg); color: var(--text); min-
           <div class="comp-col no-fs">
             <h4>Default <span class="tag tag-off">fixed width</span></h4>
             <div class="demo-section">
-              <span class="label">Text input</span>
+              <span class="label" ti="label_text_input" ti="label_text_input_2">Text input</span>
               <input class="demo-input" type="text" value="Hello" id="input-no">
               <div class="size-indicator" id="size-input-no"></div>
             </div>
@@ -273,7 +275,7 @@ The height grows with content.</textarea>
           <div class="comp-col no-fs">
             <h4>Default <span class="tag tag-off">fixed width</span></h4>
             <div class="demo-section">
-              <span class="label">Number input</span>
+              <span class="label" ti="label_number_input" ti="label_number_input_2">Number input</span>
               <input class="demo-input" type="number" value="5" id="num-no">
               <div class="size-indicator" id="size-num-no"></div>
             </div>
@@ -300,13 +302,23 @@ The height grows with content.</textarea>
 
   <div class="code-panel">
     <div class="panel-header">
-      <h3>CSS</h3>
-      <button class="btn-outline" id="copyBtn">Copy</button>
+      <h3 ti="h3_css">CSS</h3>
+      <button class="btn-outline" id="copyBtn" ti="btn_copy">Copy</button>
     </div>
     <div class="code-output"><pre id="codeContent"></pre></div>
   </div>
 </div>
 
+
+<script>var _LANG={'title_css_field_sizing_playgrou':["CSS field-sizing Playground — Dev Vault", "CSS 字段大小调整练习场 — 开发者宝库"],'metadesc_interactive_css_field_siz':["Interactive CSS field-sizing playground. Auto-resize inputs, textareas, and selects based on content. No JavaScript needed.", "交互式 CSS 字段大小调整工具。根据内容自动调整输入框、文本区域和下拉列表的大小。无需 JavaScript。"],'h3_live_comparison':["Live Comparison", "实时对比"],'h3_css':["CSS", "CSS"],'btn_input':["Input", "输入"],'btn_textarea':["Textarea", "文本区域"],'btn_select':["Select", "选择"],'btn_number':["Number", "数字"],'btn_copy':["Copy", "复制"],'label_text_input':["Text input", "文本输入"],'label_text_input_2':["Text input", "文本输入"],'label_textarea':["Textarea", "文本区域"],'label_textarea_2':["Textarea", "文本区域"],'label_select':["Select", "选择"],'label_select_2':["Select", "选择"],'label_number_input':["Number input", "数字输入"],'label_number_input_2':["Number input", "数字输入"],'footer_css_field_sizing_playgrou':["CSS field-sizing Playground — Dev Vault", "CSS 字段大小调整练习场 — 开发者宝库"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy':["Copy", "复制"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 (() => {
   const codeContent = document.getElementById('codeContent');
@@ -429,9 +441,9 @@ The height grows with content.</textarea>
 
   copyBtn.addEventListener('click', () => {
     navigator.clipboard.writeText(plainTemplates[currentTab]).then(() => {
-      copyBtn.textContent = 'Copied!';
+      copyBtn.textContent=T("jtc_copied");
       copyBtn.classList.add('copied');
-      setTimeout(() => { copyBtn.textContent = 'Copy'; copyBtn.classList.remove('copied'); }, 2000);
+      setTimeout(() => { copyBtn.textContent=T("jtc_copy"); copyBtn.classList.remove('copied'); }, 2000);
     });
   });
 
@@ -439,6 +451,24 @@ The height grows with content.</textarea>
   renderCode('input');
   setInterval(updateSizes, 200);
   updateSizes();
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
 })();
 </script>
 </body>

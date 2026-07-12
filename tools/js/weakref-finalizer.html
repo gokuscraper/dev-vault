@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_weakref_finalizationregis" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,20 +43,22 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-  <h1>WeakRef & FinalizationRegistry Playground</h1>
+  <h1 ti="title_weakref_finalizationregis" ti="h1_weakref_finalizationregis">WeakRef & FinalizationRegistry Playground</h1>
   <p>Explore weak references, GC behavior, cache patterns, object lifecycle, and memory leak prevention</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
   <div class="sidebar">
-    <h3>Basics</h3>
+    <h3 ti="h3_basics">Basics</h3>
     <div class="nav-item active" data-section="weakref-basics">WeakRef Basics</div>
     <div class="nav-item" data-section="registry">FinalizationRegistry</div>
-    <h3>Patterns</h3>
+    <h3 ti="h3_patterns">Patterns</h3>
     <div class="nav-item" data-section="cache">WeakRef Cache</div>
     <div class="nav-item" data-section="lifecycle">Object Lifecycle</div>
     <div class="nav-item" data-section="gc-pressure">GC Pressure</div>
-    <h3>Comparison</h3>
+    <h3 ti="h3_comparison">Comparison</h3>
     <div class="nav-item" data-section="strong-vs-weak">Strong vs Weak</div>
     <div class="nav-item" data-section="leak-prevention">Memory Leak Prevention</div>
   </div>
@@ -64,19 +66,19 @@ footer{text-align:center;padding:.8rem;font-size:.75rem;color:var(--dim);border-
 
     <!-- WeakRef Basics -->
     <div class="section active" id="weakref-basics">
-      <h2 class="section-title">WeakRef Basics</h2>
+      <h2 class="section-title" ti="h2_weakref_basics">WeakRef Basics</h2>
       <div class="section-desc">A <code>WeakRef</code> holds a weak reference to an object — it does not prevent garbage collection. <code>deref()</code> returns the object if it is still alive, or <code>undefined</code> if the GC has collected it.</div>
       <div class="split">
         <div class="panel">
           <div class="panel-header">Step-by-step Demo</div>
           <div class="panel-body">
             <div class="btn-group">
-              <button class="btn run" onclick="wbStep('create')">1. Create Object</button>
-              <button class="btn primary" onclick="wbStep('weakref')">2. Create WeakRef</button>
-              <button class="btn primary" onclick="wbStep('deref')">3. deref()</button>
-              <button class="btn danger" onclick="wbStep('drop')">4. Drop Strong Ref</button>
-              <button class="btn" onclick="wbStep('deref2')">5. deref() Again</button>
-              <button class="btn" onclick="wbStep('reset')">Reset</button>
+              <button class="btn run" onclick="wbStep('create')" ti="btn_1_create_object">1. Create Object</button>
+              <button class="btn primary" onclick="wbStep('weakref')" ti="btn_2_create_weakref">2. Create WeakRef</button>
+              <button class="btn primary" onclick="wbStep('deref')" ti="btn_3_deref">3. deref()</button>
+              <button class="btn danger" onclick="wbStep('drop')" ti="btn_4_drop_strong_ref" ti="btn_4_drop_strong_ref_2">4. Drop Strong Ref</button>
+              <button class="btn" onclick="wbStep('deref2')" ti="btn_5_deref_again">5. deref() Again</button>
+              <button class="btn" onclick="wbStep('reset')" ti="btn_reset" ti="btn_reset_2" ti="btn_reset_3">Reset</button>
             </div>
             <div id="wb-state" class="obj-grid"></div>
           </div>
@@ -105,7 +107,7 @@ ref.deref(); // → undefined</div>
       <div class="panel">
         <div class="panel-header">
           <span>Log</span>
-          <button class="btn" onclick="clearLog('wb-log')" style="padding:.2rem .5rem;font-size:.72rem">Clear</button>
+          <button class="btn" onclick="clearLog('wb-log')" style="padding:.2rem .5rem;font-size:.72rem" ti="btn_clear" ti="btn_clear_2" ti="btn_clear_3" ti="btn_clear_4" ti="btn_clear_5" ti="btn_clear_6" ti="btn_clear_7">Clear</button>
         </div>
         <div id="wb-log" class="log"></div>
       </div>
@@ -113,15 +115,15 @@ ref.deref(); // → undefined</div>
 
     <!-- FinalizationRegistry -->
     <div class="section" id="registry">
-      <h2 class="section-title">FinalizationRegistry</h2>
+      <h2 class="section-title" ti="h2_finalizationregistry">FinalizationRegistry</h2>
       <div class="section-desc"><code>FinalizationRegistry</code> lets you register a callback that fires after an object is garbage collected. The callback receives a held value (not the object itself, since it has been GC'd).</div>
       <div class="panel">
         <div class="panel-header">Interactive Demo</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="regDemo('basic')">Basic Registry</button>
-            <button class="btn run" onclick="regDemo('multi')">Multiple Registrations</button>
-            <button class="btn run" onclick="regDemo('unregister')">Register + Unregister</button>
+            <button class="btn run" onclick="regDemo('basic')" ti="btn_basic_registry">Basic Registry</button>
+            <button class="btn run" onclick="regDemo('multi')" ti="btn_multiple_registrations">Multiple Registrations</button>
+            <button class="btn run" onclick="regDemo('unregister')" ti="btn_register_unregister">Register + Unregister</button>
           </div>
         </div>
       </div>
@@ -156,7 +158,7 @@ obj = null;  // Object is now eligible for GC
 
     <!-- WeakRef Cache -->
     <div class="section" id="cache">
-      <h2 class="section-title">WeakRef Cache Pattern</h2>
+      <h2 class="section-title" ti="h2_weakref_cache_pattern">WeakRef Cache Pattern</h2>
       <div class="section-desc">Use WeakRef to build caches that don't prevent GC. When cached objects are no longer referenced elsewhere, they can be collected, and the cache entry cleaned up via FinalizationRegistry.</div>
       <div class="panel">
         <div class="panel-header">WeakRef Cache Implementation</div>
@@ -184,10 +186,10 @@ obj = null;  // Object is now eligible for GC
   get size() { return this.#cache.size; }
 }</div>
           <div class="btn-group">
-            <button class="btn run" onclick="cacheDemo('fill')">Fill Cache (5 items)</button>
-            <button class="btn primary" onclick="cacheDemo('access')">Access All</button>
-            <button class="btn danger" onclick="cacheDemo('drop')">Drop Strong Refs</button>
-            <button class="btn" onclick="cacheDemo('check')">Check Cache</button>
+            <button class="btn run" onclick="cacheDemo('fill')" ti="btn_fill_cache_5_items">Fill Cache (5 items)</button>
+            <button class="btn primary" onclick="cacheDemo('access')" ti="btn_access_all">Access All</button>
+            <button class="btn danger" onclick="cacheDemo('drop')" ti="btn_drop_strong_refs">Drop Strong Refs</button>
+            <button class="btn" onclick="cacheDemo('check')" ti="btn_check_cache">Check Cache</button>
           </div>
           <div id="cache-state" style="font-family:var(--mono);font-size:.82rem;margin-top:.5rem"></div>
         </div>
@@ -203,17 +205,17 @@ obj = null;  // Object is now eligible for GC
 
     <!-- Object Lifecycle -->
     <div class="section" id="lifecycle">
-      <h2 class="section-title">Object Lifecycle Visualization</h2>
+      <h2 class="section-title" ti="h2_object_lifecycle_visualiz">Object Lifecycle Visualization</h2>
       <div class="section-desc">Track an object through its lifecycle stages: creation, reference management, GC eligibility, and finalization.</div>
       <div class="panel">
         <div class="panel-header">Lifecycle Stages</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="lcStep(0)">1. Allocate</button>
-            <button class="btn run" onclick="lcStep(1)">2. Add WeakRef</button>
-            <button class="btn run" onclick="lcStep(2)">3. Register Finalizer</button>
+            <button class="btn run" onclick="lcStep(0)" ti="btn_1_allocate">1. Allocate</button>
+            <button class="btn run" onclick="lcStep(1)" ti="btn_2_add_weakref">2. Add WeakRef</button>
+            <button class="btn run" onclick="lcStep(2)" ti="btn_3_register_finalizer">3. Register Finalizer</button>
             <button class="btn danger" onclick="lcStep(3)">4. Drop Strong Ref</button>
-            <button class="btn" onclick="lcStep(4)">5. Wait for GC</button>
+            <button class="btn" onclick="lcStep(4)" ti="btn_5_wait_for_gc">5. Wait for GC</button>
             <button class="btn" onclick="lcReset()">Reset</button>
           </div>
           <div id="lc-vis" style="margin-top:1rem"></div>
@@ -236,16 +238,16 @@ obj = null;  // Object is now eligible for GC
 
     <!-- GC Pressure -->
     <div class="section" id="gc-pressure">
-      <h2 class="section-title">GC Pressure Simulation</h2>
+      <h2 class="section-title" ti="h2_gc_pressure_simulation">GC Pressure Simulation</h2>
       <div class="section-desc">Allocate many objects to pressure the garbage collector. Track how many WeakRefs survive after allocation bursts. GC behavior is engine-specific and non-deterministic.</div>
       <div class="panel">
         <div class="panel-header">Allocation Burst</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="gcPressure(100)">Allocate 100 Objects</button>
-            <button class="btn run" onclick="gcPressure(1000)">Allocate 1,000</button>
-            <button class="btn run" onclick="gcPressure(10000)">Allocate 10,000</button>
-            <button class="btn primary" onclick="gcCheck()">Check Surviving WeakRefs</button>
+            <button class="btn run" onclick="gcPressure(100)" ti="btn_allocate_100_objects">Allocate 100 Objects</button>
+            <button class="btn run" onclick="gcPressure(1000)" ti="btn_allocate_1_000">Allocate 1,000</button>
+            <button class="btn run" onclick="gcPressure(10000)" ti="btn_allocate_10_000">Allocate 10,000</button>
+            <button class="btn primary" onclick="gcCheck()" ti="btn_check_surviving_weakrefs">Check Surviving WeakRefs</button>
             <button class="btn danger" onclick="gcReset()">Reset</button>
           </div>
           <div style="margin-top:.8rem">
@@ -269,13 +271,13 @@ obj = null;  // Object is now eligible for GC
 
     <!-- Strong vs Weak -->
     <div class="section" id="strong-vs-weak">
-      <h2 class="section-title">Strong vs Weak Reference Comparison</h2>
+      <h2 class="section-title" ti="h2_strong_vs_weak_reference">Strong vs Weak Reference Comparison</h2>
       <div class="section-desc">Compare how strong references (Map, Set, variables) and weak references (WeakRef, WeakMap, WeakSet) affect object lifetime and garbage collection eligibility.</div>
       <div class="panel">
         <div class="panel-header">Side-by-side Comparison</div>
         <div class="panel-body">
           <table class="compare-table">
-            <tr><th>Aspect</th><th>Strong Reference</th><th>Weak Reference</th></tr>
+            <tr><th ti="th_aspect">Aspect</th><th ti="th_strong_reference">Strong Reference</th><th ti="th_weak_reference">Weak Reference</th></tr>
             <tr><td>Prevents GC</td><td style="color:var(--green)">Yes — object stays alive</td><td style="color:var(--red)">No — object can be collected</td></tr>
             <tr><td>Access guarantee</td><td>Always available</td><td>May return undefined after GC</td></tr>
             <tr><td>Memory pressure</td><td>Contributes to pressure</td><td>Does not contribute</td></tr>
@@ -290,9 +292,9 @@ obj = null;  // Object is now eligible for GC
         <div class="panel-header">Interactive Demo</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="compareDemo('strong')">Strong: Map holds objects</button>
-            <button class="btn run" onclick="compareDemo('weak')">Weak: WeakRef cache</button>
-            <button class="btn run" onclick="compareDemo('weakmap')">WeakMap metadata</button>
+            <button class="btn run" onclick="compareDemo('strong')" ti="btn_strong_map_holds_objects">Strong: Map holds objects</button>
+            <button class="btn run" onclick="compareDemo('weak')" ti="btn_weak_weakref_cache">Weak: WeakRef cache</button>
+            <button class="btn run" onclick="compareDemo('weakmap')" ti="btn_weakmap_metadata">WeakMap metadata</button>
           </div>
         </div>
       </div>
@@ -307,16 +309,16 @@ obj = null;  // Object is now eligible for GC
 
     <!-- Memory Leak Prevention -->
     <div class="section" id="leak-prevention">
-      <h2 class="section-title">Memory Leak Prevention Patterns</h2>
+      <h2 class="section-title" ti="h2_memory_leak_prevention_pa">Memory Leak Prevention Patterns</h2>
       <div class="section-desc">Common memory leak sources and how WeakRef/WeakMap/WeakSet help prevent them. These patterns are especially important for long-running applications.</div>
       <div class="panel">
         <div class="panel-header">Leak Scenarios</div>
         <div class="panel-body">
           <div class="btn-group">
-            <button class="btn run" onclick="leakDemo('event')">Event Listener Leak</button>
-            <button class="btn run" onclick="leakDemo('observer')">Observer Pattern</button>
-            <button class="btn run" onclick="leakDemo('dom')">DOM Node Metadata</button>
-            <button class="btn run" onclick="leakDemo('closure')">Closure-based Cache</button>
+            <button class="btn run" onclick="leakDemo('event')" ti="btn_event_listener_leak">Event Listener Leak</button>
+            <button class="btn run" onclick="leakDemo('observer')" ti="btn_observer_pattern">Observer Pattern</button>
+            <button class="btn run" onclick="leakDemo('dom')" ti="btn_dom_node_metadata">DOM Node Metadata</button>
+            <button class="btn run" onclick="leakDemo('closure')" ti="btn_closure_based_cache">Closure-based Cache</button>
           </div>
         </div>
       </div>
@@ -331,10 +333,10 @@ obj = null;  // Object is now eligible for GC
         <div class="panel-header">Best Practices</div>
         <div class="panel-body" style="font-size:.85rem;line-height:1.7">
           <ul style="padding-left:1.2rem;color:var(--muted)">
-            <li>Use <strong style="color:var(--accent)">WeakMap</strong> for DOM node metadata — entries auto-clean when nodes are removed</li>
-            <li>Use <strong style="color:var(--accent)">WeakSet</strong> to track visited/processed objects without preventing GC</li>
-            <li>Use <strong style="color:var(--accent)">WeakRef</strong> for caches of expensive-to-create objects</li>
-            <li>Use <strong style="color:var(--accent)">FinalizationRegistry</strong> for cleanup of external resources (file handles, connections)</li>
+            <li>Use <strong style="color:var(--accent)" ti="strong_weakmap">WeakMap</strong> for DOM node metadata — entries auto-clean when nodes are removed</li>
+            <li>Use <strong style="color:var(--accent)" ti="strong_weakset">WeakSet</strong> to track visited/processed objects without preventing GC</li>
+            <li>Use <strong style="color:var(--accent)" ti="strong_weakref">WeakRef</strong> for caches of expensive-to-create objects</li>
+            <li>Use <strong style="color:var(--accent)" ti="strong_finalizationregistry">FinalizationRegistry</strong> for cleanup of external resources (file handles, connections)</li>
             <li style="color:var(--red)">Never rely on finalization for correctness — GC timing is non-deterministic</li>
             <li style="color:var(--red)">Don't use WeakRef where a strong reference is needed — deref() can return undefined at any time</li>
             <li>Prefer <code>AbortController</code> for event listener cleanup over WeakRef hacks</li>
@@ -345,8 +347,18 @@ obj = null;  // Object is now eligible for GC
 
   </div>
 </div>
-<footer>WeakRef & FinalizationRegistry Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/">dev-toolkit</a></footer>
+<footer>WeakRef & FinalizationRegistry Playground &mdash; <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_toolkit">dev-toolkit</a></footer>
 
+
+<script>var _LANG={'title_weakref_finalizationregis':["WeakRef & FinalizationRegistry Playground", "WeakRef 和 FinalizationRegistration Playground"],'metadesc_interactive_weakref_and_f':["Interactive WeakRef and FinalizationRegistry playground — explore weak references, GC behavior, cache patterns, object lifecycle, and memory leak prevention", "交互式弱引用和终结注册表演示——探索弱引用、垃圾回收行为、缓存模式、对象生命周期和内存泄漏预防"],'h1_weakref_finalizationregis':["WeakRef & FinalizationRegistry Playground", "WeakRef 和 FinalizationRegistration Playground"],'h2_weakref_basics':["WeakRef Basics", "WeakRef基础知识"],'h2_finalizationregistry':["FinalizationRegistry", "最终登记处"],'h2_weakref_cache_pattern':["WeakRef Cache Pattern", "弱引用缓存模式"],'h2_object_lifecycle_visualiz':["Object Lifecycle Visualization", "对象生命周期可视化"],'h2_gc_pressure_simulation':["GC Pressure Simulation", "GC压力模拟"],'h2_strong_vs_weak_reference':["Strong vs Weak Reference Comparison", "强参考与弱参考比较"],'h2_memory_leak_prevention_pa':["Memory Leak Prevention Patterns", "内存泄漏预防模式"],'h3_basics':["Basics", "基础知识"],'h3_patterns':["Patterns", "模式"],'h3_comparison':["Comparison", "比较"],'btn_1_create_object':["1. Create Object", "1. 创建对象"],'btn_2_create_weakref':["2. Create WeakRef", "2. 创建弱引用"],'btn_3_deref':["3. deref()", "3. 解引用()"],'btn_4_drop_strong_ref':["4. Drop Strong Ref", "4. 降低强参考值"],'btn_5_deref_again':["5. deref() Again", "5. 再次使用 deref()"],'btn_reset':["Reset", "重置"],'btn_clear':["Clear", "清除"],'btn_basic_registry':["Basic Registry", "基本注册表"],'btn_multiple_registrations':["Multiple Registrations", "多次注册"],'btn_register_unregister':["Register + Unregister", "注册 + 取消注册"],'btn_clear_2':["Clear", "清除"],'btn_fill_cache_5_items':["Fill Cache (5 items)", "填充缓存（5 项）"],'btn_access_all':["Access All", "全部访问"],'btn_drop_strong_refs':["Drop Strong Refs", "取消强力裁判"],'btn_check_cache':["Check Cache", "检查缓存"],'btn_clear_3':["Clear", "清除"],'btn_1_allocate':["1. Allocate", "1. 分配"],'btn_2_add_weakref':["2. Add WeakRef", "2. 添加 WeakRef"],'btn_3_register_finalizer':["3. Register Finalizer", "3. 注册 Finalizer"],'btn_4_drop_strong_ref_2':["4. Drop Strong Ref", "4. 降低强参考值"],'btn_5_wait_for_gc':["5. Wait for GC", "5. 等待 GC"],'btn_reset_2':["Reset", "重置"],'btn_clear_4':["Clear", "清除"],'btn_allocate_100_objects':["Allocate 100 Objects", "分配 100 个对象"],'btn_allocate_1_000':["Allocate 1,000", "分配 1,000"],'btn_allocate_10_000':["Allocate 10,000", "分配 10,000"],'btn_check_surviving_weakrefs':["Check Surviving WeakRefs", "检查幸存的弱引用"],'btn_reset_3':["Reset", "重置"],'btn_clear_5':["Clear", "清除"],'btn_strong_map_holds_objects':["Strong: Map holds objects", "强：地图包含对象"],'btn_weak_weakref_cache':["Weak: WeakRef cache", "弱：弱引用缓存"],'btn_weakmap_metadata':["WeakMap metadata", "WeakMap 元数据"],'btn_clear_6':["Clear", "清除"],'btn_event_listener_leak':["Event Listener Leak", "事件监听器泄漏"],'btn_observer_pattern':["Observer Pattern", "观察者模式"],'btn_dom_node_metadata':["DOM Node Metadata", "DOM节点元数据"],'btn_closure_based_cache':["Closure-based Cache", "基于闭包的缓存"],'btn_clear_7':["Clear", "清除"],'strong_weakmap':["WeakMap", "弱图"],'strong_weakset':["WeakSet", "弱集"],'strong_weakref':["WeakRef", "WeakRef"],'strong_finalizationregistry':["FinalizationRegistry", "最终登记处"],'th_aspect':["Aspect", "方面"],'th_strong_reference':["Strong Reference", "强参考"],'th_weak_reference':["Weak Reference", "弱引用"],'link_dev_toolkit':["dev-toolkit", "开发工具包"],'jtlword_object':["Object", "目的"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- Nav ---
 document.querySelectorAll('.nav-item').forEach(item => {
@@ -760,6 +772,24 @@ function leakDemo(type) {
     }
   }
 }
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

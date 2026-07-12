@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_mutationobserver_patterns" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -117,13 +117,19 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <h1>MutationObserver Patterns Playground</h1>
+  <h1 ti="title_mutationobserver_patterns" ti="h1_mutationobserver_patterns" ti="title_mutationobserver_patterns" ti="h1_mutationobserver_patterns" ti="title_mutationobserver_patterns" ti="h1_mutationobserver_patterns">MutationObserver Patterns Playground</h1>
   <p>Build configs, manipulate the DOM live, and watch mutations in real time</p>
 </header>
 
-<div class="container">
+<div class="container" style="position:relative">
 
   <!-- Config Builder -->
   <div class="card">
@@ -131,21 +137,21 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
     <p style="font-size:.85rem;color:var(--text-dim);margin-bottom:.75rem;">
       Build a MutationObserver configuration. At least one of childList, attributes, or characterData must be true.
     </p>
-    <div class="checkbox-row"><input type="checkbox" id="cfgChildList" checked><label style="margin:0">childList</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor child additions/removals</span></div>
-    <div class="checkbox-row"><input type="checkbox" id="cfgAttributes" checked><label style="margin:0">attributes</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor attribute changes</span></div>
-    <div class="checkbox-row"><input type="checkbox" id="cfgCharacterData"><label style="margin:0">characterData</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor text node changes</span></div>
-    <div class="checkbox-row"><input type="checkbox" id="cfgSubtree" checked><label style="margin:0">subtree</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Observe descendants too</span></div>
-    <div class="checkbox-row"><input type="checkbox" id="cfgAttrOldValue"><label style="margin:0">attributeOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old attribute values</span></div>
-    <div class="checkbox-row"><input type="checkbox" id="cfgCharOldValue"><label style="margin:0">characterDataOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old text values</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgChildList" checked><label style="margin:0" ti="label_childlist" ti="label_childlist" ti="label_childlist">childList</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor child additions/removals</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgAttributes" checked><label style="margin:0" ti="label_attributes" ti="label_attributes" ti="label_attributes">attributes</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor attribute changes</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgCharacterData"><label style="margin:0" ti="label_characterdata" ti="label_characterdata" ti="label_characterdata">characterData</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Monitor text node changes</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgSubtree" checked><label style="margin:0" ti="label_subtree" ti="label_subtree" ti="label_subtree">subtree</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Observe descendants too</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgAttrOldValue"><label style="margin:0" ti="label_attributeoldvalue" ti="label_attributeoldvalue" ti="label_attributeoldvalue">attributeOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old attribute values</span></div>
+    <div class="checkbox-row"><input type="checkbox" id="cfgCharOldValue"><label style="margin:0" ti="label_characterdataoldvalue" ti="label_characterdataoldvalue" ti="label_characterdataoldvalue">characterDataOldValue</label><span style="color:var(--text-dim);font-size:.75rem;margin-left:auto;">Record old text values</span></div>
     <div style="margin-top:.75rem;">
-      <label>attributeFilter (comma-separated, leave empty for all)</label>
-      <input type="text" id="cfgAttrFilter" placeholder="e.g. class, style, data-active">
+      <label ti="label_attributefilter_comma_sep" ti="label_attributefilter_comma_sep" ti="label_attributefilter_comma_sep">attributeFilter (comma-separated, leave empty for all)</label>
+      <input type="text" id="cfgAttrFilter" tp="placeholder_e_g_class_style_data_acti" tp="placeholder_e_g_class_style_data_acti" tp="placeholder_e_g_class_style_data_acti" placeholder="e.g. class, style, data-active">
     </div>
     <div class="config-preview" id="configPreview"></div>
     <div class="btn-row">
-      <button class="primary" onclick="applyConfig()">Apply & Observe</button>
-      <button onclick="disconnectObserver()">Disconnect</button>
-      <button onclick="reconnectObserver()">Reconnect</button>
+      <button class="primary" onclick="applyConfig()" ti="btn_apply_observe" ti="btn_apply_observe" ti="btn_apply_observe">Apply & Observe</button>
+      <button onclick="disconnectObserver()" ti="btn_disconnect" ti="btn_disconnect" ti="btn_disconnect">Disconnect</button>
+      <button onclick="reconnectObserver()" ti="btn_reconnect" ti="btn_reconnect" ti="btn_reconnect">Reconnect</button>
     </div>
   </div>
 
@@ -179,8 +185,8 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       </div>
     </div>
     <div class="btn-row">
-      <button onclick="resetStats()">Reset Stats</button>
-      <button onclick="takeRecordsDemo()">takeRecords()</button>
+      <button onclick="resetStats()" ti="btn_reset_stats" ti="btn_reset_stats" ti="btn_reset_stats">Reset Stats</button>
+      <button onclick="takeRecordsDemo()" ti="btn_takerecords" ti="btn_takerecords" ti="btn_takerecords">takeRecords()</button>
     </div>
     <div id="takeRecordsResult" style="font-size:.8rem;color:var(--text-dim);margin-top:.5rem;"></div>
   </div>
@@ -210,49 +216,49 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
         <h4 style="color:var(--accent-3);font-size:.9rem;margin-bottom:.5rem;">Actions</h4>
         <div class="form-row">
           <div>
-            <label>Add Child</label>
+            <label ti="label_add_child" ti="label_add_child" ti="label_add_child">Add Child</label>
             <div style="display:flex;gap:.3rem;">
               <select id="addTag" style="width:60%;">
                 <option>div</option><option>span</option><option>p</option><option>button</option><option>a</option>
               </select>
-              <button onclick="addChild()">Add</button>
+              <button onclick="addChild()" ti="btn_add" ti="btn_add" ti="btn_add">Add</button>
             </div>
           </div>
           <div>
-            <label>Text content</label>
-            <input type="text" id="addText" value="New element" placeholder="Text">
+            <label ti="label_text_content" ti="label_text_content" ti="label_text_content">Text content</label>
+            <input type="text" id="addText" value="New element" tp="placeholder_text" tp="placeholder_text" tp="placeholder_text" placeholder="Text">
           </div>
         </div>
         <div class="btn-row" style="margin-top:0;">
-          <button onclick="removeLastChild()">Remove Last</button>
-          <button onclick="removeFirstChild()">Remove First</button>
-          <button class="danger" onclick="clearChildren()">Clear All</button>
+          <button onclick="removeLastChild()" ti="btn_remove_last" ti="btn_remove_last" ti="btn_remove_last">Remove Last</button>
+          <button onclick="removeFirstChild()" ti="btn_remove_first" ti="btn_remove_first" ti="btn_remove_first">Remove First</button>
+          <button class="danger" onclick="clearChildren()" ti="btn_clear_all" ti="btn_clear_all" ti="btn_clear_all">Clear All</button>
         </div>
         <div style="margin-top:.75rem;">
-          <label>Modify Attribute</label>
+          <label ti="label_modify_attribute" ti="label_modify_attribute" ti="label_modify_attribute">Modify Attribute</label>
           <div class="form-row" style="margin-bottom:0;">
-            <input type="text" id="attrName" value="data-status" placeholder="Attribute name">
-            <input type="text" id="attrValue" value="updated" placeholder="Value">
+            <input type="text" id="attrName" value="data-status" tp="placeholder_attribute_name" tp="placeholder_attribute_name" tp="placeholder_attribute_name" placeholder="Attribute name">
+            <input type="text" id="attrValue" value="updated" tp="placeholder_value" tp="placeholder_value" tp="placeholder_value" placeholder="Value">
           </div>
           <div class="btn-row">
-            <button onclick="setAttr()">Set Attribute</button>
-            <button onclick="removeAttr()">Remove Attribute</button>
-            <button onclick="toggleClass()">Toggle Class</button>
+            <button onclick="setAttr()" ti="btn_set_attribute" ti="btn_set_attribute" ti="btn_set_attribute">Set Attribute</button>
+            <button onclick="removeAttr()" ti="btn_remove_attribute" ti="btn_remove_attribute" ti="btn_remove_attribute">Remove Attribute</button>
+            <button onclick="toggleClass()" ti="btn_toggle_class" ti="btn_toggle_class" ti="btn_toggle_class">Toggle Class</button>
           </div>
         </div>
         <div style="margin-top:.75rem;">
-          <label>Modify Text (characterData)</label>
-          <input type="text" id="newText" value="Updated text content" placeholder="New text">
+          <label ti="label_modify_text_characterdata" ti="label_modify_text_characterdata" ti="label_modify_text_characterdata">Modify Text (characterData)</label>
+          <input type="text" id="newText" value="Updated text content" tp="placeholder_new_text" tp="placeholder_new_text" tp="placeholder_new_text" placeholder="New text">
           <div class="btn-row">
-            <button onclick="changeText()">Change Text</button>
+            <button onclick="changeText()" ti="btn_change_text" ti="btn_change_text" ti="btn_change_text">Change Text</button>
           </div>
         </div>
         <div style="margin-top:.75rem;">
-          <label>Batch Operations</label>
+          <label ti="label_batch_operations" ti="label_batch_operations" ti="label_batch_operations">Batch Operations</label>
           <div class="btn-row" style="margin-top:.25rem;">
-            <button onclick="batchAdd(5)">Add 5 Elements</button>
-            <button onclick="batchAttributes(5)">Change 5 Attrs</button>
-            <button onclick="moveChild()">Move First to Last</button>
+            <button onclick="batchAdd(5)" ti="btn_add_5_elements" ti="btn_add_5_elements" ti="btn_add_5_elements">Add 5 Elements</button>
+            <button onclick="batchAttributes(5)" ti="btn_change_5_attrs" ti="btn_change_5_attrs" ti="btn_change_5_attrs">Change 5 Attrs</button>
+            <button onclick="moveChild()" ti="btn_move_first_to_last" ti="btn_move_first_to_last" ti="btn_move_first_to_last">Move First to Last</button>
           </div>
         </div>
       </div>
@@ -266,7 +272,7 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       <div style="color:var(--text-dim)">Mutations will appear here as they occur...</div>
     </div>
     <div class="btn-row">
-      <button onclick="clearLog()">Clear Log</button>
+      <button onclick="clearLog()" ti="btn_clear_log" ti="btn_clear_log" ti="btn_clear_log">Clear Log</button>
     </div>
   </div>
 
@@ -280,7 +286,7 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       <div style="color:var(--text-dim)">DOM changes will be shown as diffs here...</div>
     </div>
     <div class="btn-row">
-      <button onclick="clearDiff()">Clear Diff</button>
+      <button onclick="clearDiff()" ti="btn_clear_diff" ti="btn_clear_diff" ti="btn_clear_diff">Clear Diff</button>
     </div>
   </div>
 
@@ -292,7 +298,7 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
     </p>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;">
       <div>
-        <label>Filtered attributes (watching these only)</label>
+        <label ti="label_filtered_attributes_watch" ti="label_filtered_attributes_watch" ti="label_filtered_attributes_watch">Filtered attributes (watching these only)</label>
         <div style="display:flex;gap:.3rem;flex-wrap:wrap;margin:.3rem 0;">
           <span class="tag-pill" style="border-color:var(--accent)">class</span>
           <span class="tag-pill" style="border-color:var(--accent)">data-active</span>
@@ -303,13 +309,13 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
           </code>
         </div>
         <div class="btn-row">
-          <button onclick="changeFilteredAttr('class','highlighted')">Change class</button>
-          <button onclick="changeFilteredAttr('data-active','false')">Change data-active</button>
-          <button onclick="changeFilteredAttr('data-ignored','changed')">Change data-ignored</button>
+          <button onclick="changeFilteredAttr('class','highlighted')" ti="btn_change_class" ti="btn_change_class" ti="btn_change_class">Change class</button>
+          <button onclick="changeFilteredAttr('data-active','false')" ti="btn_change_data_active" ti="btn_change_data_active" ti="btn_change_data_active">Change data-active</button>
+          <button onclick="changeFilteredAttr('data-ignored','changed')" ti="btn_change_data_ignored" ti="btn_change_data_ignored" ti="btn_change_data_ignored">Change data-ignored</button>
         </div>
       </div>
       <div>
-        <label>Filter observer log</label>
+        <label ti="label_filter_observer_log" ti="label_filter_observer_log" ti="label_filter_observer_log">Filter observer log</label>
         <div class="log-area" id="filterLog" style="min-height:100px;">
           <div style="color:var(--text-dim)">Only class and data-active changes will be logged...</div>
         </div>
@@ -327,9 +333,9 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       <div style="color:var(--text-dim)">Click buttons to see disconnect/reconnect in action...</div>
     </div>
     <div class="btn-row">
-      <button onclick="dcPatternDemo('connected')">Add While Connected</button>
-      <button onclick="dcPatternDemo('disconnected')">Add While Disconnected</button>
-      <button onclick="clearDcLog()">Clear</button>
+      <button onclick="dcPatternDemo('connected')" ti="btn_add_while_connected" ti="btn_add_while_connected" ti="btn_add_while_connected">Add While Connected</button>
+      <button onclick="dcPatternDemo('disconnected')" ti="btn_add_while_disconnected" ti="btn_add_while_disconnected" ti="btn_add_while_disconnected">Add While Disconnected</button>
+      <button onclick="clearDcLog()" ti="btn_clear" ti="btn_clear" ti="btn_clear">Clear</button>
     </div>
   </div>
 
@@ -343,7 +349,7 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       <div style="color:var(--text-dim)">Click to see takeRecords() in action...</div>
     </div>
     <div class="btn-row">
-      <button class="primary" onclick="takeRecordsFullDemo()">Run Demo</button>
+      <button class="primary" onclick="takeRecordsFullDemo()" ti="btn_run_demo" ti="btn_run_demo" ti="btn_run_demo">Run Demo</button>
       <button onclick="document.getElementById('trLog').innerHTML='<div style=color:var(--text-dim)>Click to see takeRecords() in action...</div>'">Clear</button>
     </div>
   </div>
@@ -372,8 +378,8 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
       <canvas id="perfCanvas" style="width:100%;height:100%;"></canvas>
     </div>
     <div class="btn-row">
-      <button onclick="startPerfStorm()">Simulate Mutation Storm</button>
-      <button onclick="resetPerfChart()">Reset Chart</button>
+      <button onclick="startPerfStorm()" ti="btn_simulate_mutation_storm" ti="btn_simulate_mutation_storm" ti="btn_simulate_mutation_storm">Simulate Mutation Storm</button>
+      <button onclick="resetPerfChart()" ti="btn_reset_chart" ti="btn_reset_chart" ti="btn_reset_chart">Reset Chart</button>
     </div>
   </div>
 
@@ -381,6 +387,26 @@ footer { text-align: center; padding: 2rem; color: var(--text-dim); font-size: .
 
 <footer>MutationObserver Patterns Playground &mdash; Interactive API Explorer</footer>
 
+
+
+<script>var _LANG={'title_mutationobserver_patterns':["MutationObserver Patterns Playground", "MutationObserver 模式游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for MutationObserver API - config builder, live DOM manipulation, mutation logging, and performance patterns.", "MutationObserver API 的交互式游乐场 - 配置构建器、实时 DOM 操作、变更日志记录和性能模式。"],'h1_mutationobserver_patterns':["MutationObserver Patterns Playground", "MutationObserver 模式游乐场"],'btn_apply_observe':["Apply & Observe", "应用与观察"],'btn_disconnect':["Disconnect", "断开"],'btn_reconnect':["Reconnect", "重新连接"],'btn_reset_stats':["Reset Stats", "重置统计数据"],'btn_takerecords':["takeRecords()", "takeRecords()"],'btn_add':["Add", "添加"],'btn_remove_last':["Remove Last", "移除最后一个"],'btn_remove_first':["Remove First", "移除第一个"],'btn_clear_all':["Clear All", "全部清除"],'btn_set_attribute':["Set Attribute", "设置属性"],'btn_remove_attribute':["Remove Attribute", "移除属性"],'btn_toggle_class':["Toggle Class", "切换类"],'btn_change_text':["Change Text", "更改文本"],'btn_add_5_elements':["Add 5 Elements", "添加 5 个元素"],'btn_change_5_attrs':["Change 5 Attrs", "更改 5 个属性"],'btn_move_first_to_last':["Move First to Last", "将第一个移到最后一个"],'btn_clear_log':["Clear Log", "清除日志"],'btn_clear_diff':["Clear Diff", "清晰差速器"],'btn_change_class':["Change class", "换课"],'btn_change_data_active':["Change data-active", "更改数据活动"],'btn_change_data_ignored':["Change data-ignored", "更改数据（忽略）"],'btn_add_while_connected':["Add While Connected", "连接时添加"],'btn_add_while_disconnected':["Add While Disconnected", "断开连接时添加"],'btn_clear':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_simulate_mutation_storm':["Simulate Mutation Storm", "模拟突变风暴"],'btn_reset_chart':["Reset Chart", "重置图表"],'placeholder_e_g_class_style_data_acti':["e.g. class, style, data-active", "例如类、样式、数据活动"],'placeholder_text':["Text", "文本"],'placeholder_attribute_name':["Attribute name", "属性名称"],'placeholder_value':["Value", "价值"],'placeholder_new_text':["New text", "新文本"],'label_childlist':["childList", "子列表"],'label_attributes':["attributes", "属性"],'label_characterdata':["characterData", "字符数据"],'label_subtree':["subtree", "子树"],'label_attributeoldvalue':["attributeOldValue", "attributeOldValue"],'label_characterdataoldvalue':["characterDataOldValue", "字符数据旧值"],'label_attributefilter_comma_sep':["attributeFilter (comma-separated, leave empty for all)", "attributeFilter（逗号分隔，留空则全部显示）"],'label_add_child':["Add Child", "添加子项"],'label_text_content':["Text content", "文本内容"],'label_modify_attribute':["Modify Attribute", "修改属性"],'label_modify_text_characterdata':["Modify Text (characterData)", "修改文本（字符数据）"],'label_batch_operations':["Batch Operations", "批量操作"],'label_filtered_attributes_watch':["Filtered attributes (watching these only)", "已筛选属性（仅查看这些属性）"],'label_filter_observer_log':["Filter observer log", "过滤器观察日志"],'jtc_yes':["Yes", "是的"],'jtc_no':["No", "不"],'jtc_yes_2':["Yes", "是的"],'jtc_test':["test", "测试"],'jtc_added_via_takerecords_dem':["added via takeRecords demo", "通过 takeRecords 演示添加"],'jtc_storm':["Storm!", "风暴！"],'jtc_warning':["Warning", "警告"],'jtc_healthy':["Healthy", "健康"],'jtc_healthy_2':["Healthy", "健康"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_mutationobserver_patterns':["MutationObserver Patterns Playground", "MutationObserver 模式游乐场"],'metadesc_interactive_playground_fo':["Interactive playground for MutationObserver API - config builder, live DOM manipulation, mutation logging, and performance patterns.", "MutationObserver API 的交互式游乐场 - 配置构建器、实时 DOM 操作、变更日志记录和性能模式。"],'h1_mutationobserver_patterns':["MutationObserver Patterns Playground", "MutationObserver 模式游乐场"],'btn_apply_observe':["Apply & Observe", "应用与观察"],'btn_disconnect':["Disconnect", "断开"],'btn_reconnect':["Reconnect", "重新连接"],'btn_reset_stats':["Reset Stats", "重置统计数据"],'btn_takerecords':["takeRecords()", "takeRecords()"],'btn_add':["Add", "添加"],'btn_remove_last':["Remove Last", "移除最后一个"],'btn_remove_first':["Remove First", "移除第一个"],'btn_clear_all':["Clear All", "全部清除"],'btn_set_attribute':["Set Attribute", "设置属性"],'btn_remove_attribute':["Remove Attribute", "移除属性"],'btn_toggle_class':["Toggle Class", "切换类"],'btn_change_text':["Change Text", "更改文本"],'btn_add_5_elements':["Add 5 Elements", "添加 5 个元素"],'btn_change_5_attrs':["Change 5 Attrs", "更改 5 个属性"],'btn_move_first_to_last':["Move First to Last", "将第一个移到最后一个"],'btn_clear_log':["Clear Log", "清除日志"],'btn_clear_diff':["Clear Diff", "清晰差速器"],'btn_change_class':["Change class", "换课"],'btn_change_data_active':["Change data-active", "更改数据活动"],'btn_change_data_ignored':["Change data-ignored", "更改数据（忽略）"],'btn_add_while_connected':["Add While Connected", "连接时添加"],'btn_add_while_disconnected':["Add While Disconnected", "断开连接时添加"],'btn_clear':["Clear", "清除"],'btn_run_demo':["Run Demo", "运行演示"],'btn_simulate_mutation_storm':["Simulate Mutation Storm", "模拟突变风暴"],'btn_reset_chart':["Reset Chart", "重置图表"],'placeholder_e_g_class_style_data_acti':["e.g. class, style, data-active", "例如类、样式、数据活动"],'placeholder_text':["Text", "文本"],'placeholder_attribute_name':["Attribute name", "属性名称"],'placeholder_value':["Value", "价值"],'placeholder_new_text':["New text", "新文本"],'label_childlist':["childList", "子列表"],'label_attributes':["attributes", "属性"],'label_characterdata':["characterData", "字符数据"],'label_subtree':["subtree", "子树"],'label_attributeoldvalue':["attributeOldValue", "attributeOldValue"],'label_characterdataoldvalue':["characterDataOldValue", "字符数据旧值"],'label_attributefilter_comma_sep':["attributeFilter (comma-separated, leave empty for all)", "attributeFilter（逗号分隔，留空则全部显示）"],'label_add_child':["Add Child", "添加子项"],'label_text_content':["Text content", "文本内容"],'label_modify_attribute':["Modify Attribute", "修改属性"],'label_modify_text_characterdata':["Modify Text (characterData)", "修改文本（字符数据）"],'label_batch_operations':["Batch Operations", "批量操作"],'label_filtered_attributes_watch':["Filtered attributes (watching these only)", "已筛选属性（仅查看这些属性）"],'label_filter_observer_log':["Filter observer log", "过滤器观察日志"],'jtc_yes':["Yes", "是的"],'jtc_no':["No", "不"],'jtc_yes_2':["Yes", "是的"],'jtc_test':["test", "测试"],'jtc_added_via_takerecords_dem':["added via takeRecords demo", "通过 takeRecords 演示添加"],'jtc_storm':["Storm!", "风暴！"],'jtc_warning':["Warning", "警告"],'jtc_healthy':["Healthy", "健康"],'jtc_healthy_2':["Healthy", "健康"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // === State ===
 let observer, filterObserver, dcObserver, trObserver;
@@ -452,7 +478,7 @@ function applyConfig() {
   try {
     observer.observe(target, currentConfig);
     connected = true;
-    document.getElementById('statConnected').textContent = 'Yes';
+    document.getElementById('statConnected').textContent=T("jtc_yes");
     document.getElementById('statConnected').style.color = 'var(--accent-2)';
     addLog('mutationLog', 'Observer connected with new config');
   } catch (e) {
@@ -463,7 +489,7 @@ function applyConfig() {
 function disconnectObserver() {
   if (observer) observer.disconnect();
   connected = false;
-  document.getElementById('statConnected').textContent = 'No';
+  document.getElementById('statConnected').textContent=T("jtc_no");
   document.getElementById('statConnected').style.color = 'var(--accent-4)';
   addLog('mutationLog', '<span style="color:var(--accent-3)">Observer disconnected</span>');
 }
@@ -475,7 +501,7 @@ function reconnectObserver() {
   }
   observer.observe(document.getElementById('observedRoot'), currentConfig);
   connected = true;
-  document.getElementById('statConnected').textContent = 'Yes';
+  document.getElementById('statConnected').textContent=T("jtc_yes");
   document.getElementById('statConnected').style.color = 'var(--accent-2)';
   addLog('mutationLog', '<span style="color:var(--accent-2)">Observer reconnected</span>');
 }
@@ -672,7 +698,7 @@ function takeRecordsFullDemo() {
   log.innerHTML = '';
 
   const target = document.createElement('div');
-  target.textContent = 'test';
+  target.textContent=T("jtc_test");
   document.getElementById('observedRoot').appendChild(target);
 
   const trObs = new MutationObserver((mutations) => {
@@ -682,7 +708,7 @@ function takeRecordsFullDemo() {
 
   // Make a change
   const child = document.createElement('span');
-  child.textContent = 'added via takeRecords demo';
+  child.textContent=T("jtc_added_via_takerecords_dem");
   target.appendChild(child);
 
   // takeRecords synchronously
@@ -772,9 +798,9 @@ function startPerfMonitor() {
     document.getElementById('perfPeak').textContent = peakRate;
 
     const health = document.getElementById('perfHealth');
-    if (mutationsThisSecond > 100) { health.textContent = 'Storm!'; health.style.color = 'var(--accent-4)'; }
-    else if (mutationsThisSecond > 30) { health.textContent = 'Warning'; health.style.color = 'var(--accent-3)'; }
-    else { health.textContent = 'Healthy'; health.style.color = 'var(--accent-2)'; }
+    if (mutationsThisSecond > 100) { health.textContent=T("jtc_storm"); health.style.color = 'var(--accent-4)'; }
+    else if (mutationsThisSecond > 30) { health.textContent=T("jtc_warning"); health.style.color = 'var(--accent-3)'; }
+    else { health.textContent=T("jtc_healthy"); health.style.color = 'var(--accent-2)'; }
 
     mutationsThisSecond = 0;
     drawPerfChart();
@@ -839,7 +865,7 @@ function resetPerfChart() {
   drawPerfChart();
   document.getElementById('perfRate').textContent = '0';
   document.getElementById('perfPeak').textContent = '0';
-  document.getElementById('perfHealth').textContent = 'Healthy';
+  document.getElementById('perfHealth').textContent=T("jtc_healthy");
   document.getElementById('perfHealth').style.color = 'var(--accent-2)';
 }
 
@@ -848,5 +874,59 @@ applyConfig();
 startPerfMonitor();
 </script>
 
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

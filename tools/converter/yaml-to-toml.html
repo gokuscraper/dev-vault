@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_yaml_to_toml_converter" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,15 +25,17 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>YAML to TOML Converter</h1>
-  <p class="desc">Convert between YAML and TOML formats</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_yaml_to_toml_converter" ti="h1_yaml_to_toml_converter">YAML to TOML Converter</h1>
+  <p class="desc" ti="subtitle_convert_between_yaml_and">Convert between YAML and TOML formats</p>
   <div class="card">
     <div class="tabs">
-      <button class="active" data-dir="yaml2toml">YAML → TOML</button>
-      <button data-dir="toml2yaml">TOML → YAML</button>
+      <button class="active" data-dir="yaml2toml" ti="btn_yaml_toml">YAML → TOML</button>
+      <button data-dir="toml2yaml" ti="btn_toml_yaml">TOML → YAML</button>
     </div>
-    <label>Input</label>
+    <label ti="label_input">Input</label>
     <textarea id="input" rows="8" spellcheck="false">title: YAML Example
 owner:
   name: Tom
@@ -46,15 +48,25 @@ database:
     - 8002
   connection_max: 5000
   enabled: true</textarea>
-    <label>Output</label>
+    <label ti="label_output">Output</label>
     <textarea id="output" rows="8" readonly></textarea>
     <div class="error" id="error"></div>
     <div class="flex-center">
-      <button id="convertBtn">Convert</button>
-      <button id="copyBtn">Copy Output</button>
+      <button id="convertBtn" ti="btn_convert">Convert</button>
+      <button id="copyBtn" ti="btn_copy_output">Copy Output</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_yaml_to_toml_converter':["YAML to TOML Converter", "YAML 转 TOML 转换器"],'metadesc_convert_yaml_data_to_toml':["Convert YAML data to TOML format and back. Supports nested objects, arrays, booleans, numbers, and strings.", "将 YAML 数据转换为 TOML 格式，反之亦然。支持嵌套对象、数组、布尔值、数字和字符串。"],'h1_yaml_to_toml_converter':["YAML to TOML Converter", "YAML 转 TOML 转换器"],'subtitle_convert_between_yaml_and':["Convert between YAML and TOML formats", "YAML 和 TOML 格式之间的转换"],'btn_yaml_toml':["YAML → TOML", "YAML → TOML"],'btn_toml_yaml':["TOML → YAML", "TOML → YAML"],'btn_convert':["Convert", "转变"],'btn_copy_output':["Copy Output", "复制输出"],'label_input':["Input", "输入"],'label_output':["Output", "输出"],'jtc_error':["Error:", "错误："],'jtcpre_error':["Error: ", "错误："]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 function yamlToObj(text) {
   const result = {};
@@ -219,7 +231,7 @@ function convert() {
       output.value = objToYaml(obj, 0).trim();
     }
   } catch(e) {
-    error.textContent = 'Error: ' + e.message;
+    error.textContent=T("jtcpre_error")+ e.message;
     output.value = '';
   }
 }
@@ -229,6 +241,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('output').value);
 });
 convert();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

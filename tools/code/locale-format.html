@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_locale_format_see_how_dat" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -61,25 +61,27 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Locale Format</h1>
-<p class="subtitle">See how dates, numbers, and currencies render in 20+ locales using the Intl API.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_locale_format">Locale Format</h1>
+<p class="subtitle" ti="subtitle_see_how_dates_numbers_and">See how dates, numbers, and currencies render in 20+ locales using the Intl API.</p>
 
 <div class="tabs">
   <button class="tab active" onclick="setTab('date')" id="tabDate">Date &amp; Time</button>
-  <button class="tab" onclick="setTab('number')" id="tabNumber">Number</button>
-  <button class="tab" onclick="setTab('currency')" id="tabCurrency">Currency</button>
-  <button class="tab" onclick="setTab('relative')" id="tabRelative">Relative Time</button>
-  <button class="tab" onclick="setTab('list')" id="tabList">List</button>
+  <button class="tab" onclick="setTab('number')" id="tabNumber" ti="btn_number" ti="label_number">Number</button>
+  <button class="tab" onclick="setTab('currency')" id="tabCurrency" ti="btn_currency" ti="label_currency">Currency</button>
+  <button class="tab" onclick="setTab('relative')" id="tabRelative" ti="btn_relative_time">Relative Time</button>
+  <button class="tab" onclick="setTab('list')" id="tabList" ti="btn_list">List</button>
 </div>
 
 <div class="input-section" id="inputDate">
   <div class="input-row">
-    <label>Date</label>
+    <label ti="label_date">Date</label>
     <input type="datetime-local" id="dateInput" onchange="render()">
   </div>
   <div class="input-row">
-    <label>Style</label>
+    <label ti="label_style" ti="label_style_2">Style</label>
     <select id="dateStyle" onchange="render()">
       <option value="full">Full</option>
       <option value="long" selected>Long</option>
@@ -123,7 +125,7 @@ footer a:hover{color:#999}
 
 <div class="input-section" id="inputCurrency" style="display:none">
   <div class="input-row">
-    <label>Amount</label>
+    <label ti="label_amount">Amount</label>
     <input type="text" id="currencyAmount" value="9999.99" oninput="render()">
   </div>
   <div class="input-row">
@@ -159,7 +161,7 @@ footer a:hover{color:#999}
 
 <div class="input-section" id="inputRelative" style="display:none">
   <div class="input-row">
-    <label>Value</label>
+    <label ti="label_value">Value</label>
     <input type="number" id="relativeValue" value="-3" oninput="render()">
     <select id="relativeUnit" onchange="render()">
       <option value="second">seconds</option>
@@ -181,11 +183,11 @@ footer a:hover{color:#999}
 
 <div class="input-section" id="inputList" style="display:none">
   <div class="input-row">
-    <label>Items</label>
+    <label ti="label_items">Items</label>
     <input type="text" id="listItems" value="Apple, Banana, Cherry" oninput="render()">
   </div>
   <div class="input-row">
-    <label>Type</label>
+    <label ti="label_type">Type</label>
     <select id="listType" onchange="render()">
       <option value="conjunction" selected>And (conjunction)</option>
       <option value="disjunction">Or (disjunction)</option>
@@ -208,18 +210,28 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/locale-format">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/locale-format" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a>
   <div class="related">
-    <strong style="color:#888">Related Tools</strong><br>
-    <a href="https://gokuscraper.github.io/dev-vault/timestamp-tool/">Timestamp Tool</a>
-    <a href="https://gokuscraper.github.io/dev-vault/number-base/">Number Base</a>
-    <a href="https://gokuscraper.github.io/dev-vault/char-count/">Char Count</a>
-    <a href="https://gokuscraper.github.io/dev-vault/text-transform/">Text Transform</a>
+    <strong style="color:#888" ti="strong_related_tools">Related Tools</strong><br>
+    <a href="https://gokuscraper.github.io/dev-vault/timestamp-tool/" ti="link_timestamp_tool">Timestamp Tool</a>
+    <a href="https://gokuscraper.github.io/dev-vault/number-base/" ti="link_number_base">Number Base</a>
+    <a href="https://gokuscraper.github.io/dev-vault/char-count/" ti="link_char_count">Char Count</a>
+    <a href="https://gokuscraper.github.io/dev-vault/text-transform/" ti="link_text_transform">Text Transform</a>
   </div>
-  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666">Dev Vault — 101 free tools</a></div>
+  <div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
 
+
+<script>var _LANG={'title_locale_format_see_how_dat':["Locale Format — See How Dates, Numbers & Currencies Render Worldwide", "区域设置格式 — 查看日期、数字和货币在全球范围内的显示方式"],'metadesc_input_a_date_number_or_cu':["Input a date, number, or currency and see how it renders in 20+ locales. Compare Intl formatting across languages instantly. Free.", "输入日期、数字或货币，即可查看其在 20 多种语言环境下的显示效果。即时比较不同语言的国际格式。免费。"],'h1_locale_format':["Locale Format", "区域设置格式"],'subtitle_see_how_dates_numbers_and':["See how dates, numbers, and currencies render in 20+ locales using the Intl API.", "使用 Intl API 查看日期、数字和货币在 20 多种语言环境中的呈现方式。"],'btn_date_time':["Date & Time", "日期和时间"],'btn_number':["Number", "数字"],'btn_currency':["Currency", "货币"],'btn_relative_time':["Relative Time", "相对时间"],'btn_list':["List", "列表"],'strong_related_tools':["Related Tools", "相关工具"],'th_locale':["Locale", "本地化"],'th_tag':["Tag", "标签"],'th_formatted_output':["Formatted Output", "格式化输出"],'label_date':["Date", "日期"],'label_style':["Style", "风格"],'label_number':["Number", "数字"],'label_style_2':["Style", "风格"],'label_amount':["Amount", "数量"],'label_currency':["Currency", "货币"],'label_value':["Value", "价值"],'label_items':["Items", "项目"],'label_type':["Type", "类型"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_timestamp_tool':["Timestamp Tool", "时间戳工具"],'link_number_base':["Number Base", "数字基数"],'link_char_count':["Char Count", "字符数"],'link_text_transform':["Text Transform", "文本转换"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const LOCALES=[
   {tag:'en-US',name:'English (US)',native:'English'},
@@ -342,7 +354,7 @@ function render(){
     code=`new Intl.ListFormat('${LOCALES[0].tag}', {style:'${style}',type:'${type}'}).format(${JSON.stringify(items)})`;
   }
 
-  let html='<table class="result-table"><thead><tr><th>Locale</th><th>Tag</th><th>Formatted Output</th></tr></thead><tbody>';
+  let html='<table class="result-table"><thead><tr><th ti="th_locale">Locale</th><th ti="th_tag">Tag</th><th ti="th_formatted_output">Formatted Output</th></tr></thead><tbody>';
   rows.forEach(r=>{
     html+=`<tr>
       <td><span class="locale-name">${esc(r.name)}</span> <span class="lang-native">${esc(r.native)}</span></td>
@@ -376,6 +388,24 @@ const pad=n=>String(n).padStart(2,'0');
 document.getElementById('dateInput').value=`${now.getFullYear()}-${pad(now.getMonth()+1)}-${pad(now.getDate())}T${pad(now.getHours())}:${pad(now.getMinutes())}`;
 
 render();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

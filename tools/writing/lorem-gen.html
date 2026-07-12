@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_lorem_generator_placehold" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -49,13 +49,19 @@ footer a:hover{color:#999}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>Lorem Generator</h1>
-<p class="subtitle">Generate placeholder text for your designs and mockups.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_lorem_generator" ti="h1_lorem_generator" ti="h1_lorem_generator">Lorem Generator</h1>
+<p class="subtitle" ti="subtitle_generate_placeholder_text" ti="subtitle_generate_placeholder_text" ti="subtitle_generate_placeholder_text">Generate placeholder text for your designs and mockups.</p>
 
 <div class="config">
   <div class="row">
-    <span class="label">Amount</span>
+    <span class="label" ti="label_amount" ti="label_amount" ti="label_amount">Amount</span>
     <input type="number" id="amount" value="5" min="1" max="100" onchange="generate()">
     <select id="unit" onchange="generate()">
       <option value="paragraphs">Paragraphs</option>
@@ -64,7 +70,7 @@ footer a:hover{color:#999}
     </select>
   </div>
   <div class="row">
-    <span class="label">Options</span>
+    <span class="label" ti="label_options" ti="label_options" ti="label_options">Options</span>
     <div class="toggle-row">
       <label class="toggle"><input type="checkbox" id="startLorem" checked onchange="generate()"> Start with "Lorem ipsum..."</label>
       <label class="toggle"><input type="checkbox" id="wrapP" onchange="generate()"> Wrap in &lt;p&gt; tags</label>
@@ -73,9 +79,9 @@ footer a:hover{color:#999}
 </div>
 
 <div class="btn-row">
-  <button class="btn primary" onclick="generate()">Generate</button>
-  <button class="btn" onclick="copyText()">Copy Text</button>
-  <button class="btn" onclick="copyHTML()">Copy HTML</button>
+  <button class="btn primary" onclick="generate()" ti="btn_generate" ti="btn_generate" ti="btn_generate">Generate</button>
+  <button class="btn" onclick="copyText()" ti="btn_copy_text" ti="btn_copy_text" ti="btn_copy_text">Copy Text</button>
+  <button class="btn" onclick="copyHTML()" ti="btn_copy_html" ti="btn_copy_html" ti="btn_copy_html">Copy HTML</button>
 </div>
 
 <div class="stats" id="stats"></div>
@@ -84,10 +90,30 @@ footer a:hover{color:#999}
 </div>
 
 <footer>
-  <a href="https://github.com/gokuscraper/lorem-gen">GitHub</a> ·
-  Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a>
+  <a href="https://github.com/gokuscraper/lorem-gen" ti="link_github" ti="link_github" ti="link_github">GitHub</a> ·
+  Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="link_dev_vault" ti="link_dev_vault" ti="link_dev_vault">Dev Vault</a>
 </footer>
 
+
+
+<script>var _LANG={'title_lorem_generator_placehold':["Lorem Generator — Placeholder Text Generator", "Lorem Generator — 占位符文本生成器"],'metadesc_generate_lorem_ipsum_plac':["Generate Lorem Ipsum placeholder text. Words, sentences, or paragraphs. HTML tags, copy instantly. Free.", "生成 Lorem Ipsum 占位符文本。可生成单词、句子或段落。支持 HTML 标签，可立即复制。免费。"],'h1_lorem_generator':["Lorem Generator", "Lorem 生成器"],'subtitle_generate_placeholder_text':["Generate placeholder text for your designs and mockups.", "为您的设计和模型生成占位符文本。"],'btn_generate':["Generate", "产生"],'btn_copy_text':["Copy Text", "复制文本"],'btn_copy_html':["Copy HTML", "复制 HTML"],'label_amount':["Amount", "数量"],'label_options':["Options", "选项"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_lorem_generator_placehold':["Lorem Generator — Placeholder Text Generator", "Lorem Generator — 占位符文本生成器"],'metadesc_generate_lorem_ipsum_plac':["Generate Lorem Ipsum placeholder text. Words, sentences, or paragraphs. HTML tags, copy instantly. Free.", "生成 Lorem Ipsum 占位符文本。可生成单词、句子或段落。支持 HTML 标签，可立即复制。免费。"],'h1_lorem_generator':["Lorem Generator", "Lorem 生成器"],'subtitle_generate_placeholder_text':["Generate placeholder text for your designs and mockups.", "为您的设计和模型生成占位符文本。"],'btn_generate':["Generate", "产生"],'btn_copy_text':["Copy Text", "复制文本"],'btn_copy_html':["Copy HTML", "复制 HTML"],'label_amount':["Amount", "数量"],'label_options':["Options", "选项"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'link_github':["GitHub", "GitHub"],'link_dev_vault':["Dev Vault", "开发者宝库"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const WORDS='lorem ipsum dolor sit amet consectetur adipiscing elit sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim ad minim veniam quis nostrud exercitation ullamco laboris nisi aliquip ex ea commodo consequat duis aute irure in reprehenderit voluptate velit esse cillum fugiat nulla pariatur excepteur sint occaecat cupidatat non proident sunt culpa qui officia deserunt mollit anim id est laborum perspiciatis unde omnis iste natus error voluptatem accusantium doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis quasi architecto beatae vitae dicta explicabo nemo ipsam quia voluptas aspernatur aut odit fugit consequuntur magni dolores eos ratione sequi nesciunt neque porro quisquam dolorem adipisci numquam eius modi tempora incidunt magnam aliquam quaerat autem vel cum soluta nobis eligendi optio cumque nihil impedit quo minus quod maxime placeat facere possimus omnis assumenda repudiandae temporibus quibusdam officiis debitis rerum necessitatibus saepe eveniet voluptates repudiandae recusandae itaque earum hic tenetur sapiente delectus reiciendis voluptatibus maiores alias perferendis doloribus asperiores repellat'.split(' ');
 
@@ -201,12 +227,66 @@ function showCopied(msg){
 generate();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/word-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Word Count</a>
 <a href="https://gokuscraper.github.io/dev-vault/md-preview/" style="color:#4da6ff;text-decoration:none;margin:0 8px">MD Preview</a>
 <a href="https://gokuscraper.github.io/dev-vault/placeholder-img/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Placeholder Img</a>
 <a href="https://gokuscraper.github.io/dev-vault/char-count/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Char Count</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

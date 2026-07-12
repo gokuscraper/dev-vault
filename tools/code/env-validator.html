@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_env_validator_validate_c" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -63,18 +63,20 @@ h1{text-align:center;font-size:1.6rem;margin-bottom:4px;color:#fff}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>.env Validator</h1>
-<p class="sub">Validate, compare, and generate .env files. Everything runs locally.</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_env_validator">.env Validator</h1>
+<p class="sub" ti="subtitle_validate_compare_and_gene">Validate, compare, and generate .env files. Everything runs locally.</p>
 
 <div class="layout">
 <!-- Left Column -->
 <div>
 <div class="section">
-<h3>Your .env File</h3>
+<h3 ti="h3_your_env_file">Your .env File</h3>
 <div class="field">
-<label>Paste or type your .env content</label>
-<textarea id="env-input" placeholder="KEY=value"># Database
+<label ti="label_paste_or_type_your_env_co">Paste or type your .env content</label>
+<textarea id="env-input" tp="placeholder_key_value" placeholder="KEY=value"># Database
 DB_HOST=localhost
 DB_PORT=5432
 DB_NAME=myapp
@@ -92,22 +94,22 @@ PORT=3000
 DEBUG=true</textarea>
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="sortKeys()">Sort A-Z</button>
-<button class="btn" onclick="copyEnv()">Copy .env</button>
-<button class="btn" onclick="downloadEnv('.env')">Download .env</button>
+<button class="btn btn-primary" onclick="sortKeys()" ti="btn_sort_a_z">Sort A-Z</button>
+<button class="btn" onclick="copyEnv()" ti="btn_copy_env">Copy .env</button>
+<button class="btn" onclick="downloadEnv('.env')" ti="btn_download_env">Download .env</button>
 </div>
 </div>
 
 <div class="section">
-<h3>Validation Issues</h3>
+<h3 ti="h3_validation_issues">Validation Issues</h3>
 <div id="issues-list"></div>
 </div>
 
 <div class="section">
-<h3>Compare with .env.example</h3>
+<h3 ti="h3_compare_with_env_example">Compare with .env.example</h3>
 <div class="field">
-<label>Paste your .env.example content</label>
-<textarea id="example-input" placeholder="KEY="></textarea>
+<label ti="label_paste_your_env_example_co">Paste your .env.example content</label>
+<textarea id="example-input" tp="placeholder_key" placeholder="KEY="></textarea>
 </div>
 <div id="compare-results" style="margin-top:10px"></div>
 </div>
@@ -116,7 +118,7 @@ DEBUG=true</textarea>
 <!-- Right Column -->
 <div>
 <div class="section">
-<h3>Statistics</h3>
+<h3 ti="h3_statistics">Statistics</h3>
 <div class="stat-grid" id="stats-grid">
 <div class="stat-item"><div class="stat-value" id="stat-total">0</div><div class="stat-label">Total Variables</div></div>
 <div class="stat-item"><div class="stat-value" id="stat-unique">0</div><div class="stat-label">Unique Keys</div></div>
@@ -128,30 +130,40 @@ DEBUG=true</textarea>
 </div>
 
 <div class="section">
-<h3>Security Check</h3>
+<h3 ti="h3_security_check">Security Check</h3>
 <div id="security-results"></div>
 </div>
 
 <div class="section">
-<h3>Generate .env.example</h3>
+<h3 ti="h3_generate_env_example">Generate .env.example</h3>
 <div class="field">
-<textarea id="example-output" readonly placeholder="Generated .env.example will appear here"></textarea>
+<textarea id="example-output" readonly tp="placeholder_generated_env_example_wil" placeholder="Generated .env.example will appear here"></textarea>
 </div>
 <div class="actions">
-<button class="btn btn-primary" onclick="generateExample()">Generate</button>
-<button class="btn" onclick="copyExample()">Copy</button>
-<button class="btn" onclick="downloadEnv('.env.example')">Download</button>
+<button class="btn btn-primary" onclick="generateExample()" ti="btn_generate">Generate</button>
+<button class="btn" onclick="copyExample()" ti="btn_copy">Copy</button>
+<button class="btn" onclick="downloadEnv('.env.example')" ti="btn_download">Download</button>
 </div>
 </div>
 </div>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/env-gen/">Env Generator</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/">Gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/">JSON Format</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/env-gen/" ti="link_env_generator">Env Generator</a> | <a href="https://gokuscraper.github.io/dev-vault/gitignore-gen/" ti="link_gitignore_gen">Gitignore Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/json-format/" ti="link_json_format">JSON Format</a></div>
 </div>
 
 <div class="toast" id="toast"></div>
 
+
+<script>var _LANG={'title_env_validator_validate_c':[".env Validator — Validate & Compare Environment Files", ".env 验证器 — 验证和比较环境文件"],'metadesc_validate_env_files_detect':["Validate .env files. Detect duplicates, empty values, security risks. Compare .env vs .env.example. Generate .env.example. No upload.", "验证 .env 文件。检测重复项、空值和安全风险。比较 .env 文件和 .env.example 文件。生成 .env.example 文件。无需上传。"],'h1_env_validator':[".env Validator", ".env 验证器"],'h3_your_env_file':["Your .env File", "你的 .env 文件"],'h3_validation_issues':["Validation Issues", "验证问题"],'h3_compare_with_env_example':["Compare with .env.example", "与 .env.example 进行比较"],'h3_statistics':["Statistics", "统计数据"],'h3_security_check':["Security Check", "安全检查"],'h3_generate_env_example':["Generate .env.example", "生成 .env.example"],'subtitle_validate_compare_and_gene':["Validate, compare, and generate .env files. Everything runs locally.", "验证、比较并生成 .env 文件。所有操作均在本地运行。"],'btn_sort_a_z':["Sort A-Z", "AZ排序"],'btn_copy_env':["Copy .env", "复制 .env"],'btn_download_env':["Download .env", "下载 .env"],'btn_generate':["Generate", "产生"],'btn_copy':["Copy", "复制"],'btn_download':["Download", "下载"],'placeholder_key_value':["KEY=value", "键=值"],'placeholder_key':["KEY=", "KEY="],'placeholder_generated_env_example_wil':["Generated .env.example will appear here", "生成的 .env.example 文件将显示在此处。"],'strong_esc_v_key':["${esc(v.key)}", "${esc(v.key)}"],'strong_esc_v_key_2':["${esc(v.key)}", "${esc(v.key)}"],'label_paste_or_type_your_env_co':["Paste or type your .env content", "粘贴或输入您的 .env 内容"],'label_paste_your_env_example_co':["Paste your .env.example content", "粘贴您的 .env.example 内容"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_env_generator':["Env Generator", "环境生成器"],'link_gitignore_gen':["Gitignore Gen", "吉蒂诺尔·根"],'link_json_format':["JSON Format", "JSON 格式"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SENSITIVE_PATTERNS = /^(.*_)?(PASSWORD|SECRET|TOKEN|KEY|API_KEY|API_SECRET|AUTH|CREDENTIAL|PRIVATE|ACCESS_KEY|SECRET_KEY|PASS|ENCRYPTION|JWT|SESSION_SECRET|MASTER_KEY|DATABASE_URL|REDIS_URL|SMTP_PASSWORD|AWS_SECRET|STRIPE_SECRET|SENDGRID)(_.*)?$/i;
 
@@ -289,7 +301,7 @@ function securityCheck(vars) {
   for (const v of sensitiveVars) {
     const hasValue = v.value && v.value !== '' && !/^(\$\{|<|placeholder|changeme|xxx)/i.test(v.value);
     if (hasValue) {
-      html += `<div class="security-item security-warn">Line ${v.line}: <strong>${esc(v.key)}</strong> contains a hardcoded value. Consider using a secret manager.</div>`;
+      html += `<div class="security-item security-warn">Line ${v.line}: <strong ti="strong_esc_v_key" ti="strong_esc_v_key_2">${esc(v.key)}</strong> contains a hardcoded value. Consider using a secret manager.</div>`;
     } else {
       html += `<div class="security-item security-ok">Line ${v.line}: <strong>${esc(v.key)}</strong> — placeholder or empty (OK)</div>`;
     }
@@ -445,6 +457,24 @@ function toast(msg) {
 
 // Initial validation on load
 validate();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

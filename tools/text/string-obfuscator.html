@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_string_obfuscator" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -22,13 +22,15 @@ button:hover{background:#252525;border-color:#3b82f6}
 </style>
 </head>
 <body>
-<div class="container">
-  <h1>String Obfuscator</h1>
-  <p class="desc">Transform text using various encoding and obfuscation methods</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+  <h1 ti="title_string_obfuscator" ti="h1_string_obfuscator">String Obfuscator</h1>
+  <p class="desc" ti="subtitle_transform_text_using_vari">Transform text using various encoding and obfuscation methods</p>
   <div class="card">
-    <label>Input text</label>
+    <label ti="label_input_text">Input text</label>
     <input type="text" id="inputText" value="Hello World 123!" spellcheck="false">
-    <label>Method</label>
+    <label ti="label_method">Method</label>
     <select id="method">
       <option value="base64">Base64</option>
       <option value="hex">Hex</option>
@@ -37,13 +39,23 @@ button:hover{background:#252525;border-color:#3b82f6}
       <option value="binary">Binary</option>
       <option value="atbash">Atbash cipher</option>
     </select>
-    <label>Result</label>
+    <label ti="label_result">Result</label>
     <div class="result-box" id="output"></div>
     <div class="flex-center">
-      <button id="copyBtn">Copy</button>
+      <button id="copyBtn" ti="btn_copy">Copy</button>
     </div>
   </div>
 </div>
+
+<script>var _LANG={'title_string_obfuscator':["String Obfuscator", "字符串混淆器"],'metadesc_obfuscate_text_using_vari':["Obfuscate text using various encodings: Base64, Hex, ROT13, Reversed, Binary, Atbash cipher.", "使用各种编码对文本进行混淆：Base64、十六进制、ROT13、反向编码、二进制编码、Atbash 密码。"],'h1_string_obfuscator':["String Obfuscator", "字符串混淆器"],'subtitle_transform_text_using_vari':["Transform text using various encoding and obfuscation methods", "使用各种编码和混淆方法转换文本"],'btn_copy':["Copy", "复制"],'label_input_text':["Input text", "输入文本"],'label_method':["Method", "方法"],'label_result':["Result", "结果"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const atbashMap = {};
 'abcdefghijklmnopqrstuvwxyz'.split('').forEach((c, i, a) => {
@@ -75,6 +87,24 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   navigator.clipboard.writeText(document.getElementById('output').textContent);
 });
 update();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

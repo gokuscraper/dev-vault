@@ -1,5 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
+﻿<!DOCTYPE html>
+<html tk="title_csp_policy_builder" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -50,53 +50,67 @@ textarea{font-family:'Fira Code',monospace;resize:vertical}
 </style>
 </head>
 <body>
-<h1>CSP Policy Builder</h1>
-<p class="subtitle">Build Content Security Policy headers visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<h1 ti="title_csp_policy_builder" ti="h1_csp_policy_builder" ti="title_csp_policy_builder" ti="h1_csp_policy_builder">CSP Policy Builder</h1>
+<p class="subtitle" ti="subtitle_build_content_security_po" ti="subtitle_build_content_security_po">Build Content Security Policy headers visually</p>
 
 <div class="section">
-<h2>Presets</h2>
+<h2 ti="h2_presets" ti="h2_presets">Presets</h2>
 <div class="presets-row">
-<button class="preset" onclick="loadPreset('strict')">Strict</button>
-<button class="preset" onclick="loadPreset('moderate')">Moderate</button>
-<button class="preset" onclick="loadPreset('permissive')">Permissive</button>
-<button class="preset" onclick="loadPreset('api')">API Backend</button>
-<button class="preset" onclick="loadPreset('spa')">SPA (React/Vue)</button>
-<button class="danger" onclick="clearAll()">Clear All</button>
+<button class="preset" onclick="loadPreset('strict')" ti="btn_strict" ti="btn_strict">Strict</button>
+<button class="preset" onclick="loadPreset('moderate')" ti="btn_moderate" ti="btn_moderate">Moderate</button>
+<button class="preset" onclick="loadPreset('permissive')" ti="btn_permissive" ti="btn_permissive">Permissive</button>
+<button class="preset" onclick="loadPreset('api')" ti="btn_api_backend" ti="btn_api_backend">API Backend</button>
+<button class="preset" onclick="loadPreset('spa')" ti="btn_spa_react_vue" ti="btn_spa_react_vue">SPA (React/Vue)</button>
+<button class="danger" onclick="clearAll()" ti="btn_clear_all" ti="btn_clear_all">Clear All</button>
 </div>
 </div>
 
 <div class="section">
-<h2>Directives</h2>
+<h2 ti="h2_directives" ti="h2_directives">Directives</h2>
 <div class="directives-grid" id="directives"></div>
-<button class="primary" onclick="addDirective()" style="margin-top:12px">+ Add Directive</button>
+<button class="primary" onclick="addDirective()" style="margin-top:12px" ti="btn_add_directive" ti="btn_add_directive">+ Add Directive</button>
 </div>
 
 <div class="section">
-<h2>Output</h2>
+<h2 ti="h2_output" ti="h2_output">Output</h2>
 <div class="tabs">
-<button class="active" onclick="setOutputTab('header',this)">HTTP Header</button>
-<button onclick="setOutputTab('meta',this)">Meta Tag</button>
-<button onclick="setOutputTab('nginx',this)">Nginx</button>
-<button onclick="setOutputTab('apache',this)">Apache</button>
+<button class="active" onclick="setOutputTab('header',this)" ti="btn_http_header" ti="btn_http_header">HTTP Header</button>
+<button onclick="setOutputTab('meta',this)" ti="btn_meta_tag" ti="btn_meta_tag">Meta Tag</button>
+<button onclick="setOutputTab('nginx',this)" ti="btn_nginx" ti="btn_nginx">Nginx</button>
+<button onclick="setOutputTab('apache',this)" ti="btn_apache" ti="btn_apache">Apache</button>
 </div>
 <div class="output-box">
 <pre id="output"></pre>
-<button class="copy-btn" onclick="copyOutput()">Copy</button>
+<button class="copy-btn" onclick="copyOutput()" ti="btn_copy" ti="btn_copy">Copy</button>
 </div>
 </div>
 
 <div class="section">
-<h2>Violation Tester</h2>
+<h2 ti="h2_violation_tester" ti="h2_violation_tester">Violation Tester</h2>
 <p class="info" style="margin-bottom:8px">Paste HTML to check which elements would be blocked by this policy</p>
 <textarea id="testHtml" rows="6" placeholder='<script src="https://cdn.example.com/lib.js"></script>
 <img src="https://images.example.com/photo.jpg">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css">
 <style>body { color: red; }</style>
-<script>alert("inline")</script>'></textarea>
-<button class="primary" onclick="testViolations()" style="margin-top:8px">Test Violations</button>
+<script>T("jalert_inline")</script>'></textarea>
+<button class="primary" onclick="testViolations()" style="margin-top:8px" ti="btn_test_violations" ti="btn_test_violations">Test Violations</button>
 <div class="violation-results" id="violationResults"></div>
 </div>
 
+
+<script>var _LANG={'title_csp_policy_builder':["CSP Policy Builder", "CSP策略构建器"],'h1_csp_policy_builder':["CSP Policy Builder", "CSP策略构建器"],'h2_presets':["Presets", "预设"],'h2_directives':["Directives", "指令"],'h2_output':["Output", "输出"],'h2_violation_tester':["Violation Tester", "违规测试器"],'subtitle_build_content_security_po':["Build Content Security Policy headers visually", "以可视化方式构建内容安全策略标头"],'btn_strict':["Strict", "严格的"],'btn_moderate':["Moderate", "缓和"],'btn_permissive':["Permissive", "宽容的"],'btn_api_backend':["API Backend", "API后端"],'btn_spa_react_vue':["SPA (React/Vue)", "单页应用软件（React/Vue）"],'btn_clear_all':["Clear All", "全部清除"],'btn_add_directive':["+ Add Directive", "+ 添加指令"],'btn_http_header':["HTTP Header", "HTTP 标头"],'btn_meta_tag':["Meta Tag", "元标签"],'btn_nginx':["Nginx", "Nginx"],'btn_apache':["Apache", "阿帕奇"],'btn_copy':["Copy", "复制"],'btn_test_violations':["Test Violations", "测试违规"],'btn_remove':["Remove", "消除"],'btn_add':["Add", "添加"],'btn_s':["${s}", "${s}"],'placeholder_add_source_value':["Add source value...", "添加源值……"],'strong_f_type':["[${f.type}]", "[${f.type}]"],'jalert_inline':["inline", "排队"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const DIRECTIVES = [
   'default-src','script-src','style-src','img-src','connect-src','font-src',
@@ -188,18 +202,18 @@ function render() {
         <select onchange="changeDirectiveName(${i},this.value)">
           ${available.map(n=>`<option value="${n}"${n===d.name?' selected':''}>${n}</option>`).join('')}
         </select>
-        <button class="danger" onclick="removeDirective(${i})">Remove</button>
+        <button class="danger" onclick="removeDirective(${i})" ti="btn_remove" ti="btn_remove">Remove</button>
       </div>
       ${noValue ? '<p class="info">This directive takes no value</p>' : `
       <div class="sources-container">
         ${d.sources.map((s,si)=>`<span class="source-tag">${s}<span class="remove" onclick="removeSource(${i},${si})">x</span></span>`).join('')}
       </div>
       <div class="add-source-row">
-        <input id="src-input-${i}" placeholder="Add source value..." onkeydown="if(event.key==='Enter'){addSource(${i},this.value);this.value=''}">
-        <button onclick="const inp=document.getElementById('src-input-${i}');addSource(${i},inp.value);inp.value=''">Add</button>
+        <input id="src-input-${i}" tp="placeholder_add_source_value" tp="placeholder_add_source_value" placeholder="Add source value..." onkeydown="if(event.key==='Enter'){addSource(${i},this.value);this.value=''}">
+        <button onclick="const inp=document.getElementById('src-input-${i}');addSource(${i},inp.value);inp.value=''" ti="btn_add" ti="btn_add">Add</button>
       </div>
       <div class="suggestions">
-        ${SUGGESTIONS.common.map(s=>`<button onclick="addSource(${i},'${s}')">${s}</button>`).join('')}
+        ${SUGGESTIONS.common.map(s=>`<button onclick="addSource(${i},'${s}')" ti="btn_s" ti="btn_s">${s}</button>`).join('')}
       </div>`}
     </div>`;
   }).join('');
@@ -342,13 +356,49 @@ function testViolations() {
 
   results.innerHTML = findings.map(f =>
     `<div class="violation-item ${f.allowed?'allowed':'blocked'}">
-      <strong>[${f.type}]</strong> ${f.detail} &mdash; ${f.allowed?'ALLOWED':'BLOCKED'}
+      <strong ti="strong_f_type" ti="strong_f_type">[${f.type}]</strong> ${f.detail} &mdash; ${f.allowed?'ALLOWED':'BLOCKED'}
     </div>`
   ).join('');
 }
 
 // Initialize with moderate preset
 loadPreset('moderate');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

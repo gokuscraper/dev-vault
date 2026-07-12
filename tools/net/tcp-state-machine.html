@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_tcp_state_machine_visuali" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -83,15 +83,21 @@ footer a{color:#00d4ff;text-decoration:none}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>TCP State Machine Visualizer</h1>
+<h1 ti="title_tcp_state_machine_visuali" ti="h1_tcp_state_machine_visuali" ti="title_tcp_state_machine_visuali" ti="h1_tcp_state_machine_visuali" ti="title_tcp_state_machine_visuali" ti="h1_tcp_state_machine_visuali">TCP State Machine Visualizer</h1>
 <p>Step through TCP connection lifecycle — handshake, data transfer, and termination</p>
 </header>
-<div class="container">
+<div class="container" style="position:relative">
 <div class="sidebar">
-<h3>Scenarios</h3>
+<h3 ti="h3_scenarios" ti="h3_scenarios" ti="h3_scenarios">Scenarios</h3>
 <div id="presets"></div>
-<h3 style="margin-top:1.5rem">All States</h3>
+<h3 style="margin-top:1.5rem" ti="h3_all_states" ti="h3_all_states" ti="h3_all_states">All States</h3>
 <div class="state-grid" id="stateGrid"></div>
 </div>
 <div class="main">
@@ -113,7 +119,7 @@ footer a{color:#00d4ff;text-decoration:none}
 <div id="tab-reference" class="tab-content hidden">
 <h4 style="color:#00d4ff;margin-bottom:1rem">TCP States (RFC 793)</h4>
 <table class="ref-table">
-<tr><th>State</th><th>Description</th><th>Side</th></tr>
+<tr><th ti="th_state" ti="th_state" ti="th_state">State</th><th ti="th_description" ti="th_description" ti="th_description">Description</th><th ti="th_side" ti="th_side" ti="th_side">Side</th></tr>
 <tr><td><code>CLOSED</code></td><td>No connection exists</td><td>Both</td></tr>
 <tr><td><code>LISTEN</code></td><td>Waiting for incoming SYN</td><td>Server</td></tr>
 <tr><td><code>SYN_SENT</code></td><td>SYN sent, waiting for SYN-ACK</td><td>Client</td></tr>
@@ -128,7 +134,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">TCP Flags</h4>
 <table class="ref-table">
-<tr><th>Flag</th><th>Meaning</th></tr>
+<tr><th ti="th_flag" ti="th_flag" ti="th_flag">Flag</th><th ti="th_meaning" ti="th_meaning" ti="th_meaning">Meaning</th></tr>
 <tr><td><code>SYN</code></td><td>Synchronize sequence numbers (connection init)</td></tr>
 <tr><td><code>ACK</code></td><td>Acknowledgment field is valid</td></tr>
 <tr><td><code>FIN</code></td><td>No more data from sender (connection close)</td></tr>
@@ -138,7 +144,7 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 <h4 style="color:#00d4ff;margin:1.5rem 0 .8rem">Key Concepts</h4>
 <table class="ref-table">
-<tr><th>Concept</th><th>Explanation</th></tr>
+<tr><th ti="th_concept" ti="th_concept" ti="th_concept">Concept</th><th ti="th_explanation" ti="th_explanation" ti="th_explanation">Explanation</th></tr>
 <tr><td>3-Way Handshake</td><td>SYN → SYN-ACK → ACK. Establishes connection and synchronizes sequence numbers</td></tr>
 <tr><td>4-Way Termination</td><td>FIN → ACK → FIN → ACK. Each side independently closes its half of the connection</td></tr>
 <tr><td>TIME_WAIT (2×MSL)</td><td>Prevents old duplicate segments from being accepted. MSL = Maximum Segment Lifetime (typically 60s)</td></tr>
@@ -148,15 +154,35 @@ footer a{color:#00d4ff;text-decoration:none}
 </table>
 </div>
 <div class="controls">
-<button class="btn" id="btnReset">⟲ Reset</button>
-<button class="btn primary" id="btnStep">Step →</button>
-<button class="btn" id="btnAutoPlay">▶ Auto</button>
+<button class="btn" id="btnReset" ti="btn_reset" ti="btn_reset" ti="btn_reset">⟲ Reset</button>
+<button class="btn primary" id="btnStep" ti="btn_step" ti="btn_step" ti="btn_step">Step →</button>
+<button class="btn" id="btnAutoPlay" ti="btn_auto" ti="btn_auto" ti="btn_auto">▶ Auto</button>
 <span class="step-info">Step <span class="step-counter" id="stepCounter">0/0</span></span>
 </div>
 </div>
 </div>
-<footer>TCP State Machine Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></footer>
+<footer>TCP State Machine Visualizer · Part of <a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></footer>
 
+
+
+<script>var _LANG={'title_tcp_state_machine_visuali':["TCP State Machine Visualizer", "TCP状态机可视化工具"],'metadesc_interactive_tcp_connectio':["Interactive TCP connection state machine — step through 3-way handshake, data transfer, and connection termination with animated state transitions", "交互式 TCP 连接状态机——通过动画演示三次握手、数据传输和连接终止过程"],'h1_tcp_state_machine_visuali':["TCP State Machine Visualizer", "TCP状态机可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_all_states':["All States", "所有州"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'th_state':["State", "状态"],'th_description':["Description", "描述"],'th_side':["Side", "边"],'th_flag':["Flag", "旗帜"],'th_meaning':["Meaning", "意义"],'th_concept':["Concept", "概念"],'th_explanation':["Explanation", "解释"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_tcp_state_machine_visuali':["TCP State Machine Visualizer", "TCP状态机可视化工具"],'metadesc_interactive_tcp_connectio':["Interactive TCP connection state machine — step through 3-way handshake, data transfer, and connection termination with animated state transitions", "交互式 TCP 连接状态机——通过动画演示三次握手、数据传输和连接终止过程"],'h1_tcp_state_machine_visuali':["TCP State Machine Visualizer", "TCP状态机可视化工具"],'h3_scenarios':["Scenarios", "场景"],'h3_all_states':["All States", "所有州"],'btn_reset':["⟲ Reset", "⟲ 重置"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'th_state':["State", "状态"],'th_description':["Description", "描述"],'th_side':["Side", "边"],'th_flag':["Flag", "旗帜"],'th_meaning':["Meaning", "意义"],'th_concept':["Concept", "概念"],'th_explanation':["Explanation", "解释"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'jtc_pause':["⏸ Pause", "⏸ 暂停"],'jtc_auto':["▶ Auto", "▶ 自动"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const ALL_STATES = ['CLOSED','LISTEN','SYN_SENT','SYN_RECEIVED','ESTABLISHED','FIN_WAIT_1','FIN_WAIT_2','CLOSE_WAIT','LAST_ACK','TIME_WAIT','CLOSING'];
 const STATE_CLASS = s => 'state-' + s.toLowerCase().replace(/_/g, '-');
@@ -387,7 +413,7 @@ function resetFlow() {
 
 function toggleAuto() {
   if (autoTimer) { stopAuto(); return; }
-  document.getElementById('btnAutoPlay').textContent = '⏸ Pause';
+  document.getElementById('btnAutoPlay').textContent=T("jtc_pause");
   autoTimer = setInterval(() => {
     if (stepIdx >= current.steps.length - 1) { stopAuto(); return; }
     stepForward();
@@ -397,10 +423,64 @@ function toggleAuto() {
 function stopAuto() {
   clearInterval(autoTimer);
   autoTimer = null;
-  document.getElementById('btnAutoPlay').textContent = '▶ Auto';
+  document.getElementById('btnAutoPlay').textContent=T("jtc_auto");
 }
 
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

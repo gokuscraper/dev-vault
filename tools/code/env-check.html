@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_env_check_env_validator_d" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -113,6 +113,8 @@ pre.code-block{background:var(--surface);border:1px solid var(--border);border-r
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <div class="header">
   <h1><span>env-check</span></h1>
@@ -123,10 +125,10 @@ pre.code-block{background:var(--surface);border:1px solid var(--border);border-r
   <!-- Left pane: Input -->
   <div class="pane pane-left">
     <div class="pane-header">
-      <label>Paste your .env content</label>
+      <label ti="label_paste_your_env_content">Paste your .env content</label>
       <div style="display:flex;gap:.4rem">
-        <button class="btn btn-sm" onclick="loadSample()" title="Load sample .env">Sample</button>
-        <button class="btn btn-sm" onclick="clearInput()">Clear</button>
+        <button class="btn btn-sm" onclick="loadSample()" title="Load sample .env" ti="btn_sample">Sample</button>
+        <button class="btn btn-sm" onclick="clearInput()" ti="btn_clear">Clear</button>
       </div>
     </div>
     <textarea id="envInput" placeholder="# Paste your .env file here&#10;DATABASE_URL=postgres://user:pass@localhost:5432/mydb&#10;API_KEY=sk-1234567890abcdef&#10;DEBUG=true&#10;APP_NAME=My App" spellcheck="false"></textarea>
@@ -150,14 +152,14 @@ pre.code-block{background:var(--surface);border:1px solid var(--border);border-r
       <!-- .env.example -->
       <div class="tab-panel" id="panel-example">
         <div style="margin-bottom:.6rem;display:flex;justify-content:flex-end">
-          <button class="btn btn-sm" id="copyExample" onclick="copyToClipboard('exampleOutput','copyExample')">Copy</button>
+          <button class="btn btn-sm" id="copyExample" onclick="copyToClipboard('exampleOutput','copyExample')" ti="btn_copy">Copy</button>
         </div>
         <pre class="code-block" id="exampleOutput"></pre>
       </div>
       <!-- Docs Table -->
       <div class="tab-panel" id="panel-docs">
         <div style="margin-bottom:.6rem;display:flex;justify-content:flex-end">
-          <button class="btn btn-sm" id="copyDocs" onclick="copyToClipboard('docsMarkdown','copyDocs')">Copy Markdown</button>
+          <button class="btn btn-sm" id="copyDocs" onclick="copyToClipboard('docsMarkdown','copyDocs')" ti="btn_copy_markdown">Copy Markdown</button>
         </div>
         <div id="docsTableContainer"></div>
         <pre class="code-block" id="docsMarkdown" style="margin-top:1rem;display:none"></pre>
@@ -170,10 +172,10 @@ pre.code-block{background:var(--surface);border:1px solid var(--border);border-r
       <!-- Diff -->
       <div class="tab-panel" id="panel-diff">
         <div class="diff-input-area">
-          <label>Paste your .env.example to compare against:</label>
+          <label ti="label_paste_your_env_example_to">Paste your .env.example to compare against:</label>
           <textarea id="diffExampleInput" placeholder="# Paste .env.example here&#10;DATABASE_URL=&#10;API_KEY=&#10;DEBUG=true" spellcheck="false"></textarea>
         </div>
-        <button class="btn btn-sm btn-primary" onclick="runDiff()" style="margin-bottom:1rem">Compare</button>
+        <button class="btn btn-sm btn-primary" onclick="runDiff()" style="margin-bottom:1rem" ti="btn_compare">Compare</button>
         <div id="diff-results"></div>
       </div>
     </div>
@@ -186,6 +188,16 @@ pre.code-block{background:var(--surface);border:1px solid var(--border);border-r
   <span><a href="https://gokuscraper.github.io/dev-vault/" target="_blank">dev-toolkit</a></span>
 </div>
 
+
+<script>var _LANG={'title_env_check_env_validator_d':["env-check — .env Validator & Documentation Generator", "env-check — .env 验证器和文档生成器"],'metadesc_validate_env_files_genera':["Validate .env files, generate .env.example, detect secrets, create documentation. Zero dependencies. Runs entirely in your browser.", "验证 .env 文件，生成 .env.example 文件，检测密钥，创建文档。零依赖。完全在浏览器中运行。"],'btn_sample':["Sample", "样本"],'btn_clear':["Clear", "清除"],'btn_copy':["Copy", "复制"],'btn_copy_markdown':["Copy Markdown", "复制 Markdown"],'btn_compare':["Compare", "比较"],'placeholder_paste_your_env_file_here':["# Paste your .env file here\nDATABASE_URL=postgres://user:pass@localhost:5432/mydb\nAPI_KEY=sk-1234567890abcdef\nDEBUG=true\nAPP_NAME=My App", "# 在此处粘贴您的 .env 文件 DATABASE_URL=postgres://user:pass@localhost:5432/mydb API_KEY=sk-1234567890abcdef DEBUG=true APP_NAME=我的应用"],'placeholder_paste_env_example_here_d':["# Paste .env.example here\nDATABASE_URL=\nAPI_KEY=\nDEBUG=true", "# 在此处粘贴 .env.example DATABASE_URL= API_KEY= DEBUG=true"],'strong_line_i_linenum':["Line ${i.lineNum}:", "第 ${i.lineNum} 行："],'strong_missing_length_missing':["${missing.length} missing", "缺失 ${missing.length}"],'strong_extra_length_extra':["${extra.length} extra", "${extra.length} 额外"],'th_key':["Key", "钥匙"],'th_required':["Required", "必需的"],'th_description':["Description", "描述"],'th_default':["Default", "默认"],'label_paste_your_env_content':["Paste your .env content", "粘贴您的 .env 内容"],'label_paste_your_env_example_to':["Paste your .env.example to compare against:", "请粘贴您的 .env.example 文件以进行比较："],'jtc_paste_a_env_file_to_gene':["# Paste a .env file to generate .env.example", "# 粘贴 .env 文件以生成 .env.example 文件"],'jtc_copied':["Copied!", "已复制！"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // --- State ---
 let parsed = [];
@@ -307,7 +319,7 @@ function runValidation() {
     issues.forEach(i => {
       const cls = i.severity === 'error' ? 'issue-error' : 'issue-warn';
       const icon = i.severity === 'error' ? '&#10007;' : '&#9888;';
-      html += `<div class="issue ${cls}"><span class="icon">${icon}</span><div><strong>Line ${i.lineNum}:</strong> ${i.message}</div></div>`;
+      html += `<div class="issue ${cls}"><span class="icon">${icon}</span><div><strong ti="strong_line_i_linenum">Line ${i.lineNum}:</strong> ${i.message}</div></div>`;
     });
   }
 
@@ -371,7 +383,7 @@ function redactValue(key, value) {
 function runExample() {
   const entries = parsed;
   if (entries.length === 0) {
-    document.getElementById('exampleOutput').textContent = '# Paste a .env file to generate .env.example';
+    document.getElementById('exampleOutput').textContent=T("jtc_paste_a_env_file_to_gene");
     return;
   }
 
@@ -441,7 +453,7 @@ function runDocs() {
   }
 
   // HTML table
-  let html = '<table class="docs-table"><thead><tr><th>Key</th><th>Required</th><th>Description</th><th>Default</th></tr></thead><tbody>';
+  let html = '<table class="docs-table"><thead><tr><th ti="th_key">Key</th><th ti="th_required">Required</th><th ti="th_description">Description</th><th ti="th_default">Default</th></tr></thead><tbody>';
   // Markdown
   let md = '| Key | Required | Description | Default |\n| --- | --- | --- | --- |\n';
 
@@ -550,14 +562,14 @@ function runDiff() {
     html += '<div class="issue issue-ok"><span class="icon">&#10003;</span><div>Your .env has all variables from .env.example, and no extra variables.</div></div>';
   } else {
     if (missing.length > 0) {
-      html += `<div class="issue issue-error"><span class="icon">&#10007;</span><div><strong>${missing.length} missing</strong> variable(s) — defined in .env.example but not in your .env:</div></div>`;
+      html += `<div class="issue issue-error"><span class="icon">&#10007;</span><div><strong ti="strong_missing_length_missing">${missing.length} missing</strong> variable(s) — defined in .env.example but not in your .env:</div></div>`;
       missing.forEach(k => {
         html += `<div class="diff-line diff-remove">- ${k.key}</div>`;
       });
       html += '<br>';
     }
     if (extra.length > 0) {
-      html += `<div class="issue issue-warn"><span class="icon">&#9888;</span><div><strong>${extra.length} extra</strong> variable(s) — in your .env but not in .env.example:</div></div>`;
+      html += `<div class="issue issue-warn"><span class="icon">&#9888;</span><div><strong ti="strong_extra_length_extra">${extra.length} extra</strong> variable(s) — in your .env but not in .env.example:</div></div>`;
       extra.forEach(k => {
         html += `<div class="diff-line diff-add">+ ${k.key}</div>`;
       });
@@ -614,7 +626,7 @@ async function copyToClipboard(elementId, btnId) {
     await navigator.clipboard.writeText(text);
     const btn = document.getElementById(btnId);
     const orig = btn.textContent;
-    btn.textContent = 'Copied!';
+    btn.textContent=T("jtc_copied");
     btn.classList.add('copied');
     setTimeout(() => { btn.textContent = orig; btn.classList.remove('copied'); }, 1500);
   } catch (e) {
@@ -681,6 +693,24 @@ document.getElementById('envInput').addEventListener('input', runValidation);
 
 // Initial state
 runValidation();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

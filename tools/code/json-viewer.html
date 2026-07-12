@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_json_viewer" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -507,10 +507,12 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <header>
-  <a href="https://gokuscraper.github.io/dev-vault/" class="back-link">← Dev Vault</a>
-  <h1>JSON Viewer</h1>
+  <a href="https://gokuscraper.github.io/dev-vault/" class="back-link" ti="footer_dev_vault">← Dev Vault</a>
+  <h1 ti="title_json_viewer" ti="h1_json_viewer">JSON Viewer</h1>
 </header>
 
 <div class="main">
@@ -518,17 +520,17 @@
   <!-- Input -->
   <div class="input-section">
     <div class="input-header">
-      <label>Paste JSON:</label>
-      <button class="btn primary" onclick="parseAndRender()">Parse</button>
-      <button class="btn" onclick="formatInput()">Format</button>
-      <button class="btn" onclick="clearAll()">Clear</button>
-      <button class="btn" onclick="loadSample()">Sample</button>
+      <label ti="label_paste_json">Paste JSON:</label>
+      <button class="btn primary" onclick="parseAndRender()" ti="btn_parse">Parse</button>
+      <button class="btn" onclick="formatInput()" ti="btn_format">Format</button>
+      <button class="btn" onclick="clearAll()" ti="btn_clear">Clear</button>
+      <button class="btn" onclick="loadSample()" ti="btn_sample">Sample</button>
     </div>
-    <textarea id="json-input" placeholder='Paste JSON here, e.g. {"name":"Alice","scores":[1,2,3]}' spellcheck="false"></textarea>
+    <textarea id="json-input" tp="placeholder_paste_json_here_e_g_name" placeholder='Paste JSON here, e.g. {"name":"Alice","scores":[1,2,3]}' spellcheck="false"></textarea>
     <div class="url-row">
-      <label style="font-size:12px;color:var(--text2);white-space:nowrap">Load URL:</label>
-      <input type="url" id="url-input" placeholder="https://api.example.com/data.json">
-      <button class="btn" onclick="loadFromUrl()">Fetch</button>
+      <label style="font-size:12px;color:var(--text2);white-space:nowrap" ti="label_load_url">Load URL:</label>
+      <input type="url" id="url-input" tp="placeholder_https_api_example_com_dat" placeholder="https://api.example.com/data.json">
+      <button class="btn" onclick="loadFromUrl()" ti="btn_fetch">Fetch</button>
     </div>
   </div>
 
@@ -552,26 +554,26 @@
   <div class="toolbar" id="toolbar" style="display:none">
     <!-- View mode -->
     <div class="view-tabs">
-      <button class="view-tab active" onclick="setView('tree')" id="tab-tree">Tree</button>
-      <button class="view-tab" onclick="setView('raw')" id="tab-raw">Raw</button>
-      <button class="view-tab" onclick="setView('table')" id="tab-table">Table</button>
+      <button class="view-tab active" onclick="setView('tree')" id="tab-tree" ti="btn_tree">Tree</button>
+      <button class="view-tab" onclick="setView('raw')" id="tab-raw" ti="btn_raw">Raw</button>
+      <button class="view-tab" onclick="setView('table')" id="tab-table" ti="btn_table">Table</button>
     </div>
 
     <div class="toolbar-sep"></div>
 
     <!-- Expand/collapse -->
-    <button class="btn" onclick="expandAll()">Expand All</button>
-    <button class="btn" onclick="collapseAll()">Collapse All</button>
-    <button class="btn" onclick="expandToDepth(1)">D1</button>
-    <button class="btn" onclick="expandToDepth(2)">D2</button>
-    <button class="btn" onclick="expandToDepth(3)">D3</button>
-    <button class="btn" onclick="expandToDepth(5)">D5</button>
-    <button class="btn" onclick="expandToDepth(10)">D10</button>
+    <button class="btn" onclick="expandAll()" ti="btn_expand_all">Expand All</button>
+    <button class="btn" onclick="collapseAll()" ti="btn_collapse_all">Collapse All</button>
+    <button class="btn" onclick="expandToDepth(1)" ti="btn_d1">D1</button>
+    <button class="btn" onclick="expandToDepth(2)" ti="btn_d2">D2</button>
+    <button class="btn" onclick="expandToDepth(3)" ti="btn_d3">D3</button>
+    <button class="btn" onclick="expandToDepth(5)" ti="btn_d5">D5</button>
+    <button class="btn" onclick="expandToDepth(10)" ti="btn_d10">D10</button>
 
     <div class="toolbar-sep"></div>
 
     <!-- Search -->
-    <input class="search-input" id="search-input" type="text" placeholder="Search key or value..." oninput="onSearch()">
+    <input class="search-input" id="search-input" type="text" tp="placeholder_search_key_or_value" placeholder="Search key or value..." oninput="onSearch()">
     <span class="match-count" id="match-count"></span>
   </div>
 
@@ -586,6 +588,16 @@
 
 <div id="toast"></div>
 
+
+<script>var _LANG={'title_json_viewer':["JSON Viewer", "JSON 查看器"],'metadesc_view_format_and_explore_j':["View, format, and explore JSON data with syntax highlighting. Collapse and expand nodes, validate structure, and copy formatted output.", "使用语法高亮显示查看、格式化和浏览 JSON 数据。折叠和展开节点，验证结构，并复制格式化的输出。"],'h1_json_viewer':["JSON Viewer", "JSON 查看器"],'btn_parse':["Parse", "解析"],'btn_format':["Format", "格式"],'btn_clear':["Clear", "清除"],'btn_sample':["Sample", "样本"],'btn_fetch':["Fetch", "拿来"],'btn_tree':["Tree", "树"],'btn_raw':["Raw", "生的"],'btn_table':["Table", "桌子"],'btn_expand_all':["Expand All", "全部展开"],'btn_collapse_all':["Collapse All", "全部收起"],'btn_d1':["D1", "D1"],'btn_d2':["D2", "D2"],'btn_d3':["D3", "D3"],'btn_d5':["D5", "D5"],'btn_d10':["D10", "D10"],'placeholder_paste_json_here_e_g_name':["Paste JSON here, e.g. {\"name\":\"Alice\",\"scores\":[1,2,3]}", "请在此处粘贴 JSON 数据，例如 {&quot;name&quot;:&quot;Alice&quot;,&quot;scores&quot;:[1,2,3]}"],'placeholder_https_api_example_com_dat':["https://api.example.com/data.json", "https://api.example.com/data.json"],'placeholder_search_key_or_value':["Search key or value...", "搜索键或值..."],'strong_related_tools':["Related Tools", "相关工具"],'th_index':["index", "指数"],'th_value':["value", "价值"],'th_eschtml_k':["${escHtml(k)}", "${escHtml(k)}"],'th_key':["Key", "钥匙"],'th_value_2':["Value", "价值"],'th_type':["Type", "类型"],'label_paste_json':["Paste JSON:", "粘贴JSON："],'label_load_url':["Load URL:", "加载网址："],'footer_dev_vault':["← Dev Vault", "← 开发者宝库"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'jtc_null':["null", "无效的"],'jtc_copy_path':["copy path", "复制路径"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 // ==================== State ====================
 let parsedData = null;
@@ -782,7 +794,7 @@ function renderTable() {
   if (keys.length === 0) {
     // Simple array
     const tbl = document.createElement('table');
-    tbl.innerHTML = '<tr><th>index</th><th>value</th></tr>';
+    tbl.innerHTML = '<tr><th ti="th_index">index</th><th ti="th_value">value</th></tr>';
     data.slice(0, 1000).forEach((v, i) => {
       const tr = document.createElement('tr');
       tr.innerHTML = `<td style="color:var(--text2)">[${i}]</td><td>${cellValue(v)}</td>`;
@@ -795,7 +807,7 @@ function renderTable() {
 
   const tbl = document.createElement('table');
   const htr = document.createElement('tr');
-  htr.innerHTML = '<th>#</th>' + keys.map(k => `<th>${escHtml(k)}</th>`).join('');
+  htr.innerHTML = '<th>#</th>' + keys.map(k => `<th ti="th_eschtml_k">${escHtml(k)}</th>`).join('');
   tbl.appendChild(htr);
   const limit = Math.min(data.length, 2000);
   for (let i = 0; i < limit; i++) {
@@ -818,7 +830,7 @@ function renderTable() {
 function renderObjectTable(obj, container) {
   if (!obj || typeof obj !== 'object') return;
   const tbl = document.createElement('table');
-  tbl.innerHTML = '<tr><th>Key</th><th>Value</th><th>Type</th></tr>';
+  tbl.innerHTML = '<tr><th ti="th_key">Key</th><th ti="th_value_2">Value</th><th ti="th_type">Type</th></tr>';
   Object.entries(obj).forEach(([k, v]) => {
     const tr = document.createElement('tr');
     tr.innerHTML = `<td style="color:var(--text)">${escHtml(k)}</td><td>${cellValue(v)}</td><td style="color:var(--text2)">${typeName(v)}</td>`;
@@ -1043,7 +1055,7 @@ function createNodeEl(node, idx) {
     const v = node.val;
     if (v === null) {
       valSpan.className = 'val-null';
-      valSpan.textContent = 'null';
+      valSpan.textContent=T("jtc_null");
     } else if (typeof v === 'string') {
       valSpan.className = 'val-string';
       const display = v.length > 200 ? v.slice(0, 200) + '…' : v;
@@ -1073,7 +1085,7 @@ function createNodeEl(node, idx) {
   // Copy path button
   const copyBtn = document.createElement('button');
   copyBtn.className = 'copy-path-btn';
-  copyBtn.textContent = 'copy path';
+  copyBtn.textContent=T("jtc_copy_path");
   copyBtn.title = node.path;
   copyBtn.onclick = (e) => { e.stopPropagation(); copyToClipboard(node.path); };
   row.appendChild(copyBtn);
@@ -1298,12 +1310,30 @@ document.getElementById('json-input').addEventListener('paste', () => {
 });
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/json-format/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Format</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-diff/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Diff</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-path/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON Path</a>
 <a href="https://gokuscraper.github.io/dev-vault/json-to-ts/" style="color:#4da6ff;text-decoration:none;margin:0 8px">JSON → TS</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

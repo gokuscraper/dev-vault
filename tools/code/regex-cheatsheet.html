@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_regex_cheatsheet" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -270,29 +270,33 @@
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 
 <a href="https://gokuscraper.github.io/dev-vault/" class="back-link">← Dev Vault</a>
 
 <header>
-  <h1>Regex Cheatsheet</h1>
-  <p class="subtitle">Searchable reference for regular expressions — click any card to copy the pattern</p>
+  <h1 ti="title_regex_cheatsheet" ti="h1_regex_cheatsheet" ti="title_regex_cheatsheet" ti="h1_regex_cheatsheet">Regex Cheatsheet</h1>
+  <p class="subtitle" ti="subtitle_searchable_reference_for" ti="subtitle_searchable_reference_for">Searchable reference for regular expressions — click any card to copy the pattern</p>
 </header>
 
 <div class="controls">
   <div class="search-wrapper">
     <span class="search-icon">⌕</span>
-    <input type="text" id="search" placeholder="Search patterns, descriptions, examples…" autocomplete="off" spellcheck="false">
+    <input type="text" id="search" tp="placeholder_search_patterns_descripti" tp="placeholder_search_patterns_descripti" placeholder="Search patterns, descriptions, examples…" autocomplete="off" spellcheck="false">
   </div>
   <div class="filter-row">
-    <button class="filter-btn active" data-cat="all">All</button>
-    <button class="filter-btn" data-cat="Basics">Basics</button>
-    <button class="filter-btn" data-cat="Quantifiers">Quantifiers</button>
-    <button class="filter-btn" data-cat="Groups">Groups</button>
-    <button class="filter-btn" data-cat="Anchors">Anchors</button>
-    <button class="filter-btn" data-cat="Classes">Classes</button>
-    <button class="filter-btn" data-cat="Lookaround">Lookaround</button>
-    <button class="filter-btn" data-cat="Flags">Flags</button>
-    <button class="filter-btn" data-cat="Common Patterns">Common Patterns</button>
+    <button class="filter-btn active" data-cat="all" ti="btn_all" ti="btn_all">All</button>
+    <button class="filter-btn" data-cat="Basics" ti="btn_basics" ti="btn_basics">Basics</button>
+    <button class="filter-btn" data-cat="Quantifiers" ti="btn_quantifiers" ti="btn_quantifiers">Quantifiers</button>
+    <button class="filter-btn" data-cat="Groups" ti="btn_groups" ti="btn_groups">Groups</button>
+    <button class="filter-btn" data-cat="Anchors" ti="btn_anchors" ti="btn_anchors">Anchors</button>
+    <button class="filter-btn" data-cat="Classes" ti="btn_classes" ti="btn_classes">Classes</button>
+    <button class="filter-btn" data-cat="Lookaround" ti="btn_lookaround" ti="btn_lookaround">Lookaround</button>
+    <button class="filter-btn" data-cat="Flags" ti="btn_flags" ti="btn_flags">Flags</button>
+    <button class="filter-btn" data-cat="Common Patterns" ti="btn_common_patterns" ti="btn_common_patterns">Common Patterns</button>
     <span class="result-count" id="result-count"></span>
   </div>
 </div>
@@ -301,6 +305,26 @@
 <div class="no-results" id="no-results">No patterns match your search.</div>
 <div class="toast" id="toast">Copied to clipboard</div>
 
+
+
+<script>var _LANG={'title_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'metadesc_quick_reference_regex_che':["Quick-reference regex cheatsheet with searchable patterns. Covers character classes, quantifiers, anchors, groups, and lookaheads with examples.", "正则表达式速查表，包含可搜索的模式。涵盖字符类、量词、锚点、分组和前瞻断言，并附有示例。"],'h1_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'subtitle_searchable_reference_for':["Searchable reference for regular expressions — click any card to copy the pattern", "正则表达式可搜索参考——点击任意卡片即可复制模式"],'btn_all':["All", "全部"],'btn_basics':["Basics", "基础知识"],'btn_quantifiers':["Quantifiers", "量词"],'btn_groups':["Groups", "团体"],'btn_anchors':["Anchors", "锚"],'btn_classes':["Classes", "课程"],'btn_lookaround':["Lookaround", "环顾四周"],'btn_flags':["Flags", "旗帜"],'btn_common_patterns':["Common Patterns", "常见模式"],'placeholder_search_patterns_descripti':["Search patterns, descriptions, examples…", "搜索模式、描述、示例……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
+<script>var _LANG={'title_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'metadesc_quick_reference_regex_che':["Quick-reference regex cheatsheet with searchable patterns. Covers character classes, quantifiers, anchors, groups, and lookaheads with examples.", "正则表达式速查表，包含可搜索的模式。涵盖字符类、量词、锚点、分组和前瞻断言，并附有示例。"],'h1_regex_cheatsheet':["Regex Cheatsheet", "正则表达式速查表"],'subtitle_searchable_reference_for':["Searchable reference for regular expressions — click any card to copy the pattern", "正则表达式可搜索参考——点击任意卡片即可复制模式"],'btn_all':["All", "全部"],'btn_basics':["Basics", "基础知识"],'btn_quantifiers':["Quantifiers", "量词"],'btn_groups':["Groups", "团体"],'btn_anchors':["Anchors", "锚"],'btn_classes':["Classes", "课程"],'btn_lookaround':["Lookaround", "环顾四周"],'btn_flags':["Flags", "旗帜"],'btn_common_patterns':["Common Patterns", "常见模式"],'placeholder_search_patterns_descripti':["Search patterns, descriptions, examples…", "搜索模式、描述、示例……"],'strong_related_tools':["Related Tools", "相关工具"],'footer_dev_vault_101_free_tools':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"],'footer_dev_vault_101_free_tools_2':["Dev Vault — 101 free tools", "开发者宝库——101 个免费工具"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const DATA = [
   // ── Basics ───────────────────────────────────────────────────────────────
@@ -1046,12 +1070,48 @@ document.getElementById('search').addEventListener('input', e => {
 update();
 </script>
 <footer style="text-align:center;padding:32px 16px;border-top:1px solid #1a1a1a;margin-top:40px;color:#555;font-size:0.78rem">
-<div style="margin-bottom:12px"><strong style="color:#888">Related Tools</strong></div>
+<div style="margin-bottom:12px"><strong style="color:#888" ti="strong_related_tools" ti="strong_related_tools">Related Tools</strong></div>
 <a href="https://gokuscraper.github.io/dev-vault/regex-test/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Test</a>
 <a href="https://gokuscraper.github.io/dev-vault/regex-replace/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Regex Replace</a>
 <a href="https://gokuscraper.github.io/dev-vault/git-cheatsheet/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Git Cheatsheet</a>
 <a href="https://gokuscraper.github.io/dev-vault/text-transform/" style="color:#4da6ff;text-decoration:none;margin:0 8px">Text Transform</a>
-<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none">Dev Vault — 101 free tools</a></div>
+<div style="margin-top:12px"><a href="https://gokuscraper.github.io/dev-vault/" style="color:#666;text-decoration:none" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2" ti="footer_dev_vault_101_free_tools" ti="footer_dev_vault_101_free_tools_2">Dev Vault — 101 free tools</a></div>
 </footer>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
+</script>
 </body>
 </html>

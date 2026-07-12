@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_github_profile_readme_gen" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -41,62 +41,64 @@ textarea{min-height:60px;resize:vertical;font-family:'Fira Code',monospace}
 </style>
 </head>
 <body>
-<div class="container">
-<h1>GitHub Profile README Gen</h1>
-<p class="sub">Build your GitHub profile README visually</p>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
+<div class="container" style="position:relative">
+<h1 ti="h1_github_profile_readme_gen">GitHub Profile README Gen</h1>
+<p class="sub" ti="subtitle_build_your_github_profile">Build your GitHub profile README visually</p>
 
 <div class="section">
-<h3>About</h3>
+<h3 ti="h3_about">About</h3>
 <div class="row">
-<div class="col"><label>Display Name</label><input id="name" value="Your Name" oninput="gen()"></div>
-<div class="col"><label>GitHub Username</label><input id="username" value="username" oninput="gen()"></div>
+<div class="col"><label ti="label_display_name">Display Name</label><input id="name" value="Your Name" oninput="gen()"></div>
+<div class="col"><label ti="label_github_username">GitHub Username</label><input id="username" value="username" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Tagline</label><input id="tagline" value="Full Stack Developer | Open Source Enthusiast" oninput="gen()"></div>
+<div class="col"><label ti="label_tagline">Tagline</label><input id="tagline" value="Full Stack Developer | Open Source Enthusiast" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Bio (short paragraph)</label><textarea id="bio" rows="2" oninput="gen()">I build things with code. Passionate about open source, developer tools, and clean architecture.</textarea></div>
+<div class="col"><label ti="label_bio_short_paragraph">Bio (short paragraph)</label><textarea id="bio" rows="2" oninput="gen()">I build things with code. Passionate about open source, developer tools, and clean architecture.</textarea></div>
 </div>
 <div class="row">
-<div class="col"><label>Currently Working On</label><input id="workingOn" value="an awesome project" oninput="gen()"></div>
-<div class="col"><label>Currently Learning</label><input id="learning" value="Rust, WebAssembly" oninput="gen()"></div>
+<div class="col"><label ti="label_currently_working_on">Currently Working On</label><input id="workingOn" value="an awesome project" oninput="gen()"></div>
+<div class="col"><label ti="label_currently_learning">Currently Learning</label><input id="learning" value="Rust, WebAssembly" oninput="gen()"></div>
 </div>
 <div class="row">
-<div class="col"><label>Fun Fact</label><input id="funFact" value="" oninput="gen()" placeholder="I love coffee and mechanical keyboards"></div>
+<div class="col"><label ti="label_fun_fact">Fun Fact</label><input id="funFact" value="" oninput="gen()" tp="placeholder_i_love_coffee_and_mechani" placeholder="I love coffee and mechanical keyboards"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Skills & Technologies</h3>
+<h3 ti="h3_skills_technologies">Skills & Technologies</h3>
 <p style="font-size:0.78rem;color:#666;margin-bottom:8px">Click to toggle</p>
 <div class="skill-grid" id="skillGrid"></div>
 </div>
 
 <div class="section">
-<h3>Social Links</h3>
+<h3 ti="h3_social_links">Social Links</h3>
 <div class="row">
-<div class="col"><label>Twitter/X</label><input id="twitter" value="" oninput="gen()" placeholder="username"></div>
-<div class="col"><label>LinkedIn</label><input id="linkedin" value="" oninput="gen()" placeholder="username"></div>
+<div class="col"><label ti="label_twitter_x">Twitter/X</label><input id="twitter" value="" oninput="gen()" tp="placeholder_username" tp="placeholder_username_2" tp="placeholder_username_3" placeholder="username"></div>
+<div class="col"><label ti="label_linkedin">LinkedIn</label><input id="linkedin" value="" oninput="gen()" placeholder="username"></div>
 </div>
 <div class="row">
-<div class="col"><label>Website/Blog</label><input id="website" value="" oninput="gen()" placeholder="https://example.com"></div>
-<div class="col"><label>Email</label><input id="email" value="" oninput="gen()" placeholder="you@example.com"></div>
+<div class="col"><label ti="label_website_blog">Website/Blog</label><input id="website" value="" oninput="gen()" tp="placeholder_https_example_com" placeholder="https://example.com"></div>
+<div class="col"><label ti="label_email">Email</label><input id="email" value="" oninput="gen()" tp="placeholder_you_example_com" placeholder="you@example.com"></div>
 </div>
 <div class="row">
-<div class="col"><label>Dev.to</label><input id="devto" value="" oninput="gen()" placeholder="username"></div>
-<div class="col"><label>Medium</label><input id="medium" value="" oninput="gen()" placeholder="@username"></div>
+<div class="col"><label ti="label_dev_to">Dev.to</label><input id="devto" value="" oninput="gen()" placeholder="username"></div>
+<div class="col"><label ti="label_medium">Medium</label><input id="medium" value="" oninput="gen()" tp="placeholder_username_4" placeholder="@username"></div>
 </div>
 </div>
 
 <div class="section">
-<h3>Widgets</h3>
-<div class="check-row"><input type="checkbox" id="ghStats" checked onchange="gen()"><label for="ghStats">GitHub Stats Card</label></div>
-<div class="check-row"><input type="checkbox" id="topLangs" checked onchange="gen()"><label for="topLangs">Top Languages Card</label></div>
-<div class="check-row"><input type="checkbox" id="streak" onchange="gen()"><label for="streak">Streak Stats</label></div>
-<div class="check-row"><input type="checkbox" id="trophies" onchange="gen()"><label for="trophies">GitHub Trophies</label></div>
-<div class="check-row"><input type="checkbox" id="visitors" onchange="gen()"><label for="visitors">Visitor Count Badge</label></div>
+<h3 ti="h3_widgets">Widgets</h3>
+<div class="check-row"><input type="checkbox" id="ghStats" checked onchange="gen()"><label for="ghStats" ti="label_github_stats_card">GitHub Stats Card</label></div>
+<div class="check-row"><input type="checkbox" id="topLangs" checked onchange="gen()"><label for="topLangs" ti="label_top_languages_card">Top Languages Card</label></div>
+<div class="check-row"><input type="checkbox" id="streak" onchange="gen()"><label for="streak" ti="label_streak_stats">Streak Stats</label></div>
+<div class="check-row"><input type="checkbox" id="trophies" onchange="gen()"><label for="trophies" ti="label_github_trophies">GitHub Trophies</label></div>
+<div class="check-row"><input type="checkbox" id="visitors" onchange="gen()"><label for="visitors" ti="label_visitor_count_badge">Visitor Count Badge</label></div>
 <div class="row" style="margin-top:8px">
-<div class="col"><label>Stats Theme</label><select id="statsTheme" onchange="gen()">
+<div class="col"><label ti="label_stats_theme">Stats Theme</label><select id="statsTheme" onchange="gen()">
 <option value="dark">Dark</option>
 <option value="radical">Radical</option>
 <option value="tokyonight">Tokyo Night</option>
@@ -108,15 +110,25 @@ textarea{min-height:60px;resize:vertical;font-family:'Fira Code',monospace}
 </div>
 
 <div class="output">
-<button class="copy-btn" onclick="copyOut()">Copy</button>
+<button class="copy-btn" onclick="copyOut()" ti="btn_copy">Copy</button>
 <pre id="out"></pre>
 </div>
 
-<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/">Dev Vault</a></div>
-<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/gh-card/">GH Card</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-gen/">README Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tags/">Meta Tags</a></div>
+<div class="footer"><a href="https://gokuscraper.github.io/dev-vault/" ti="footer_dev_vault" ti="link_dev_vault">Dev Vault</a></div>
+<div class="related">Related: <a href="https://gokuscraper.github.io/dev-vault/gh-card/" ti="link_gh_card">GH Card</a> | <a href="https://gokuscraper.github.io/dev-vault/readme-gen/" ti="link_readme_gen">README Gen</a> | <a href="https://gokuscraper.github.io/dev-vault/meta-tags/" ti="link_meta_tags">Meta Tags</a></div>
 </div>
 <div class="toast" id="toast">Copied!</div>
 
+
+<script>var _LANG={'title_github_profile_readme_gen':["GitHub Profile README Generator — Build Your Profile Visually", "GitHub 个人资料 README 生成器 — 可视化构建您的个人资料"],'metadesc_generate_github_profile_r':["Generate GitHub profile README.md visually. Badges, stats, skills, social links. 6 layout templates. Markdown output. No signup.", "以可视化方式生成 GitHub 个人资料 README.md 文件。包含徽章、统计数据、技能和社交链接。提供 6 种布局模板。支持 Markdown 输出。无需注册。"],'h1_github_profile_readme_gen':["GitHub Profile README Gen", "GitHub 个人资料 README 生成器"],'h3_about':["About", "关于"],'h3_skills_technologies':["Skills & Technologies", "技能与技术"],'h3_social_links':["Social Links", "社交链接"],'h3_widgets':["Widgets", "小部件"],'subtitle_build_your_github_profile':["Build your GitHub profile README visually", "以可视化方式构建您的 GitHub 个人资料 README 文件。"],'btn_copy':["Copy", "复制"],'placeholder_i_love_coffee_and_mechani':["I love coffee and mechanical keyboards", "我喜欢咖啡和机械键盘。"],'placeholder_username':["username", "用户名"],'placeholder_username_2':["username", "用户名"],'placeholder_https_example_com':["https://example.com", "https://example.com"],'placeholder_you_example_com':["you@example.com", "you@example.com"],'placeholder_username_3':["username", "用户名"],'placeholder_username_4':["@username", "@用户名"],'label_display_name':["Display Name", "显示名称"],'label_github_username':["GitHub Username", "GitHub 用户名"],'label_tagline':["Tagline", "标语"],'label_bio_short_paragraph':["Bio (short paragraph)", "个人简介（简短段落）"],'label_currently_working_on':["Currently Working On", "目前正在进行"],'label_currently_learning':["Currently Learning", "目前正在学习"],'label_fun_fact':["Fun Fact", "有趣的事实"],'label_twitter_x':["Twitter/X", "Twitter/X"],'label_linkedin':["LinkedIn", "LinkedIn"],'label_website_blog':["Website/Blog", "网站/博客"],'label_email':["Email", "电子邮件"],'label_dev_to':["Dev.to", "开发"],'label_medium':["Medium", "中等的"],'label_github_stats_card':["GitHub Stats Card", "GitHub 统计卡"],'label_top_languages_card':["Top Languages Card", "热门语言卡"],'label_streak_stats':["Streak Stats", "连胜统计"],'label_github_trophies':["GitHub Trophies", "GitHub奖杯"],'label_visitor_count_badge':["Visitor Count Badge", "访客计数徽章"],'label_stats_theme':["Stats Theme", "统计主题"],'footer_dev_vault':["Dev Vault", "开发者宝库"],'link_dev_vault':["Dev Vault", "开发者宝库"],'link_gh_card':["GH Card", "GH卡"],'link_readme_gen':["README Gen", "README Gen"],'link_meta_tags':["Meta Tags", "元标签"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SKILLS=[
   'JavaScript','TypeScript','Python','Go','Rust','Java','C++','C#','PHP','Ruby','Swift','Kotlin',
@@ -244,6 +256,24 @@ function copyOut(){
 
 initSkills();
 gen();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

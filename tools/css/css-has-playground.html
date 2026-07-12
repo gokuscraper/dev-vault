@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_css_has_selector_playgrou" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -150,6 +150,8 @@ footer a:hover{text-decoration:underline}
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <div class="app">
   <header>
     <h1>CSS <span>:has()</span> Selector Playground</h1>
@@ -161,18 +163,18 @@ footer a:hover{text-decoration:underline}
   </header>
 
   <div class="presets" id="presets">
-    <button class="preset-btn active" data-preset="form">Form Validation</button>
-    <button class="preset-btn" data-preset="checked">Checked Parent</button>
-    <button class="preset-btn" data-preset="image">Image Card</button>
-    <button class="preset-btn" data-preset="empty">Empty State</button>
-    <button class="preset-btn" data-preset="focus">Focus Within</button>
-    <button class="preset-btn" data-preset="quantity">Quantity Query</button>
+    <button class="preset-btn active" data-preset="form" ti="btn_form_validation">Form Validation</button>
+    <button class="preset-btn" data-preset="checked" ti="btn_checked_parent">Checked Parent</button>
+    <button class="preset-btn" data-preset="image" ti="btn_image_card">Image Card</button>
+    <button class="preset-btn" data-preset="empty" ti="btn_empty_state">Empty State</button>
+    <button class="preset-btn" data-preset="focus" ti="btn_focus_within">Focus Within</button>
+    <button class="preset-btn" data-preset="quantity" ti="btn_quantity_query">Quantity Query</button>
   </div>
 
   <div class="panels">
     <div class="demo-panel">
       <div class="panel-header">
-        <strong>Interactive Demo</strong>
+        <strong ti="strong_interactive_demo">Interactive Demo</strong>
         <span id="demoHint">Try typing in the fields below</span>
       </div>
       <div class="demo-content" id="demoContent"></div>
@@ -180,21 +182,21 @@ footer a:hover{text-decoration:underline}
 
     <div class="code-panel">
       <div class="panel-header">
-        <strong>Code</strong>
-        <button class="copy-btn" id="copyBtn" title="Copy CSS">Copy CSS</button>
+        <strong ti="strong_code">Code</strong>
+        <button class="copy-btn" id="copyBtn" title="Copy CSS" ti="btn_copy_css">Copy CSS</button>
       </div>
       <div id="explanationBox" class="explanation" style="display:none"></div>
       <div class="custom-row">
-        <label for="customInput">Custom selector:</label>
-        <input type="text" class="custom-input" id="customInput" placeholder=".parent:has(.child) { color: red; }">
+        <label for="customInput" ti="label_custom_selector">Custom selector:</label>
+        <input type="text" class="custom-input" id="customInput" tp="placeholder_parent_has_child_color_r" placeholder=".parent:has(.child) { color: red; }">
       </div>
       <div class="code-sections">
         <div class="code-section">
-          <label>CSS</label>
+          <label ti="label_css">CSS</label>
           <pre id="cssCode"></pre>
         </div>
         <div class="code-section">
-          <label>HTML</label>
+          <label ti="label_html">HTML</label>
           <pre id="htmlCode"></pre>
         </div>
       </div>
@@ -207,6 +209,16 @@ footer a:hover{text-decoration:underline}
 
 <style id="custom-style"></style>
 
+
+<script>var _LANG={'title_css_has_selector_playgrou':["CSS :has() Selector Playground — Dev Vault", "CSS :has() 选择器练习场 — 开发者宝库"],'metadesc_interactive_css_has_playg':["Interactive CSS :has() playground. The parent selector, finally. Try form validation, checked states, quantity queries, and more.", "交互式 CSS :has() 示例。父选择器终于上线了！试试表单验证、选中状态、数量查询等等。"],'h3_article_with_image':["Article with image", "带图片的文章"],'h3_text_only_article':["Text-only article", "纯文本文章"],'h3_another_image_article':["Another image article", "另一篇图片文章"],'btn_form_validation':["Form Validation", "表单验证"],'btn_checked_parent':["Checked Parent", "已勾选的家长"],'btn_image_card':["Image Card", "图片卡"],'btn_empty_state':["Empty State", "空状态"],'btn_focus_within':["Focus Within", "专注"],'btn_quantity_query':["Quantity Query", "数量查询"],'btn_copy_css':["Copy CSS", "复制 CSS"],'btn_add_item':["+ Add item", "+ 添加项目"],'placeholder_parent_has_child_color_r':[".parent:has(.child) { color: red; }", ".parent:has(.child) { color: red; }"],'placeholder_you_example_com':["you@example.com", "you@example.com"],'placeholder_username':["username", "用户名"],'placeholder_https':["https://...", "https://..."],'placeholder_search':["Search...", "搜索..."],'strong_interactive_demo':["Interactive Demo", "交互式演示"],'strong_code':["Code", "代码"],'label_custom_selector':["Custom selector:", "自定义选择器："],'label_css':["CSS", "CSS"],'label_html':["HTML", "HTML"],'label_email_required':["Email (required)", "电子邮箱（必填）"],'label_username_min_3_chars':["Username (min 3 chars)", "用户名（至少 3 个字符）"],'label_website_url':["Website (URL)", "网站（URL）"],'footer_css_has_selector_playgrou':["CSS :has() Selector Playground — Dev Vault", "CSS :has() 选择器练习场 — 开发者宝库"],'jtc_copied':["Copied!", "已复制！"],'jtc_copy_css':["Copy CSS", "复制 CSS"],'jtc_has_is_supported_in_your':[":has() is supported in your browser", "您的浏览器支持 :has() 函数"],'jtc_has_is_not_supported_try':[":has() is NOT supported — try Chrome 105+, Safari 15.4+, or Firefox 121+", ":has() 函数不受支持——请尝试使用 Chrome 105+、Safari 15.4+ 或 Firefox 121+。"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const presets = {
   form: {
@@ -223,16 +235,16 @@ const presets = {
 }`,
     html: `<form class="demo-form">
   <div class="field">
-    <label>Email (required)</label>
-    <input type="email" required placeholder="you@example.com">
+    <label ti="label_email_required">Email (required)</label>
+    <input type="email" required tp="placeholder_you_example_com" placeholder="you@example.com">
   </div>
   <div class="field">
-    <label>Username (min 3 chars)</label>
-    <input type="text" minlength="3" required placeholder="username">
+    <label ti="label_username_min_3_chars">Username (min 3 chars)</label>
+    <input type="text" minlength="3" required tp="placeholder_username" placeholder="username">
   </div>
   <div class="field">
-    <label>Website (URL)</label>
-    <input type="url" placeholder="https://...">
+    <label ti="label_website_url">Website (URL)</label>
+    <input type="url" tp="placeholder_https" placeholder="https://...">
   </div>
 </form>`,
     render() {
@@ -280,14 +292,14 @@ const presets = {
     html: `<div class="demo-articles">
   <article>
     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect fill='%233b82f6' width='120' height='80' rx='6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12'%3EIMG%3C/text%3E%3C/svg%3E" alt="placeholder">
-    <div><h3>Article with image</h3><p>Gets a horizontal two-column layout via :has(img)</p></div>
+    <div><h3 ti="h3_article_with_image">Article with image</h3><p>Gets a horizontal two-column layout via :has(img)</p></div>
   </article>
   <article>
-    <div><h3>Text-only article</h3><p>No image, so it stays in the default single-column layout</p></div>
+    <div><h3 ti="h3_text_only_article">Text-only article</h3><p>No image, so it stays in the default single-column layout</p></div>
   </article>
   <article>
     <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='80'%3E%3Crect fill='%238b5cf6' width='120' height='80' rx='6'/%3E%3Ctext x='50%25' y='50%25' dominant-baseline='middle' text-anchor='middle' fill='white' font-size='12'%3EIMG%3C/text%3E%3C/svg%3E" alt="placeholder">
-    <div><h3>Another image article</h3><p>Also gets the grid layout automatically</p></div>
+    <div><h3 ti="h3_another_image_article">Another image article</h3><p>Also gets the grid layout automatically</p></div>
   </article>
 </div>`,
     render() {
@@ -309,7 +321,7 @@ const presets = {
   </div>
   <div class="empty-msg">No items. Add some!</div>
   <div class="list-controls">
-    <button onclick="addListItem()">+ Add item</button>
+    <button onclick="addListItem()" ti="btn_add_item">+ Add item</button>
   </div>
 </div>`,
     render() {
@@ -333,7 +345,7 @@ const presets = {
   <div>
     <div class="search">
       <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-      <input type="text" placeholder="Search...">
+      <input type="text" tp="placeholder_search" placeholder="Search...">
     </div>
     <div class="search-hint">Click the input to expand</div>
   </div>
@@ -438,8 +450,8 @@ document.getElementById('copyBtn').addEventListener('click', () => {
   const text = custom ? p.css + '\n\n/* Custom */\n' + custom : p.css;
   navigator.clipboard.writeText(text).then(() => {
     const btn = document.getElementById('copyBtn');
-    btn.textContent = 'Copied!';
-    setTimeout(() => btn.textContent = 'Copy CSS', 1500);
+    btn.textContent=T("jtc_copied");
+    setTimeout(() => btn.textContent=T("jtc_copy_css"), 1500);
   });
 });
 
@@ -496,16 +508,34 @@ function checkSupport() {
   try {
     document.querySelector(':has(*)');
     dot.classList.add('yes');
-    text.textContent = ':has() is supported in your browser';
+    text.textContent=T("jtc_has_is_supported_in_your");
   } catch {
     dot.classList.add('no');
-    text.textContent = ':has() is NOT supported — try Chrome 105+, Safari 15.4+, or Firefox 121+';
+    text.textContent=T("jtc_has_is_not_supported_try");
   }
 }
 
 // Init
 checkSupport();
 loadPreset('form');
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>

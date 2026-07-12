@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html tk="title_js_module_resolution_visu" lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -62,30 +62,42 @@ select{padding:6px 10px;border:1px solid #3a3a6a;border-radius:6px;background:#1
 </style>
 </head>
 <body>
+<div class="lb" style="position:absolute;top:12px;right:12px;display:flex;gap:4px;z-index:100;font-size:0.75rem"><button class="lb" dl="en" onclick="sL('en')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">EN</button><button class="lb" dl="zh" onclick="sL('zh')" style="padding:3px 8px;border-radius:5px;border:1px solid #444;background:transparent;color:#888;cursor:pointer;font-weight:600">中</button></div><style>.lb.a{background:#1a2744!important;color:#4da6ff!important;border-color:#2a4a7a!important}</style>
+
 <header>
-<h1>JS Module Resolution</h1>
+<h1 ti="h1_js_module_resolution">JS Module Resolution</h1>
 <select id="scenarioSelect"></select>
 <div class="controls">
-<button onclick="stepBack()">← Back</button>
-<button onclick="stepForward()" class="primary">Step →</button>
-<button onclick="autoPlay()">▶ Auto</button>
-<button onclick="reset()">Reset</button>
+<button onclick="stepBack()" ti="btn_back">← Back</button>
+<button onclick="stepForward()" class="primary" ti="btn_step">Step →</button>
+<button onclick="autoPlay()" ti="btn_auto">▶ Auto</button>
+<button onclick="reset()" ti="btn_reset">Reset</button>
 </div>
 </header>
 <div class="main">
 <div class="vis-col">
 <div class="panel" id="importPanel"></div>
-<div class="panel"><h3>File System</h3><ul class="tree" id="fileTree"></ul></div>
-<div class="panel"><h3>Resolution Steps</h3><div id="resolveSteps"></div></div>
+<div class="panel"><h3 ti="h3_file_system">File System</h3><ul class="tree" id="fileTree"></ul></div>
+<div class="panel"><h3 ti="h3_resolution_steps">Resolution Steps</h3><div id="resolveSteps"></div></div>
 </div>
 <div class="sidebar">
 <div class="tab-bar">
-<button class="active" onclick="switchTab('detail')">Details</button>
-<button onclick="switchTab('reference')">Reference</button>
+<button class="active" onclick="switchTab('detail')" ti="btn_details">Details</button>
+<button onclick="switchTab('reference')" ti="btn_reference">Reference</button>
 </div>
 <div class="tab-content" id="tabContent"></div>
 </div>
 </div>
+
+<script>var _LANG={'title_js_module_resolution_visu':["JS Module Resolution Visualizer", "JS 模块分辨率可视化工具"],'metadesc_interactive_javascript_mo':["Interactive JavaScript module resolution algorithm visualizer. CJS require() vs ESM import, node_modules traversal, package.json exports, conditional exports, barrel files.", "交互式 JavaScript 模块解析算法可视化工具。CJS require() 与 ESM 导入对比、node_modules 遍历、package.json 导出、条件导出、桶形文件。"],'h1_js_module_resolution':["JS Module Resolution", "JS 模块解析"],'h3_file_system':["File System", "文件系统"],'h3_resolution_steps':["Resolution Steps", "解决方法"],'h3_s_type_esm_esm_import_cj':["${s.type==='esm'?'ESM Import':'CJS Require'}", "${s.type===&#39;esm&#39;?&#39;ESM 导入&#39;:&#39;CJS Require&#39;}"],'btn_back':["← Back", "← 返回"],'btn_step':["Step →", "步骤 →"],'btn_auto':["▶ Auto", "▶ 自动"],'btn_reset':["Reset", "重置"],'btn_details':["Details", "细节"],'btn_reference':["Reference", "参考"],'th_field':["Field", "场地"],'th_used_by':["Used by", "使用者"],'th_purpose':["Purpose", "目的"],'th_condition':["Condition", "健康）状况"],'th_matched_by':["Matched by", "匹配"],'jtlword_field':["Field", "场地"],'jtlword_purpose':["Purpose", "目的"],'jtlword_cjs':["CJS", "CJS"],'jtlword_bundlers':["Bundlers", "捆绑商"],'jtlword_esm':["ESM", "欧洲空间站"],'jtlword_bundlers_2':["Bundlers", "捆绑商"],'jtlword_typescript':["TypeScript", "TypeScript"],'jtlword_condition':["Condition", "健康）状况"],'jtlword_typescript_2':["TypeScript", "TypeScript"]};
+</script>
+
+<script>
+try{var _l=JSON.parse(localStorage.getItem('_dv_lang')||'""');if(_l!=='zh')_l='en'}catch(e){_l='en'}
+var _L=_l;
+function T(k){var a=_LANG&&_LANG[k];return a?a[_L==='zh'?1:0]:k}
+function sL(l){try{localStorage.setItem('_dv_lang',l)}catch(e){}location.reload()}
+</script>
 <script>
 const SCENARIOS=[
 {name:'CJS: require("./utils")',
@@ -249,7 +261,7 @@ function reset(){
 function render(){
   const s=SCENARIOS[curScenario];
   // Import statement
-  document.getElementById('importPanel').innerHTML=`<h3>${s.type==='esm'?'ESM Import':'CJS Require'}</h3><div class="import-stmt">${formatImport(s.importCode)}</div>`;
+  document.getElementById('importPanel').innerHTML=`<h3 ti="h3_s_type_esm_esm_import_cj">${s.type==='esm'?'ESM Import':'CJS Require'}</h3><div class="import-stmt">${formatImport(s.importCode)}</div>`;
   // File tree
   const step=s.steps[curStep];
   document.getElementById('fileTree').innerHTML=renderTree(s.tree,step);
@@ -331,7 +343,7 @@ function renderTab(){
     </div>
     <div class="info-card"><h4>package.json Fields</h4>
     <table class="ref-table">
-    <tr><th>Field</th><th>Used by</th><th>Purpose</th></tr>
+    <tr><th ti="th_field">Field</th><th ti="th_used_by">Used by</th><th ti="th_purpose">Purpose</th></tr>
     <tr><td>"main"</td><td>CJS</td><td>Entry point for require()</td></tr>
     <tr><td>"module"</td><td>Bundlers</td><td>ESM entry (not Node.js)</td></tr>
     <tr><td>"exports"</td><td>ESM+CJS</td><td>Conditional entry points. Overrides "main"</td></tr>
@@ -342,7 +354,7 @@ function renderTab(){
     </table></div>
     <div class="info-card"><h4>Export Conditions</h4>
     <table class="ref-table">
-    <tr><th>Condition</th><th>Matched by</th></tr>
+    <tr><th ti="th_condition">Condition</th><th ti="th_matched_by">Matched by</th></tr>
     <tr><td>"import"</td><td>ESM import statement</td></tr>
     <tr><td>"require"</td><td>CJS require() call</td></tr>
     <tr><td>"node"</td><td>Node.js runtime</td></tr>
@@ -383,6 +395,24 @@ function switchTab(t){
 }
 function esc(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;')}
 init();
+</script>
+
+
+<script>
+(function(){var L=_L;
+if(typeof _LANG==='undefined'){_LANG={}}
+document.documentElement.lang=L;
+var tk=document.documentElement.getAttribute('tk');if(tk&&_LANG[tk])document.title=T(tk);
+document.querySelectorAll('[ti]').forEach(function(e){
+  var k=e.getAttribute('ti');if(!k||!_LANG[k])return;
+  e.textContent=T(k);
+});
+document.querySelectorAll('[tp]').forEach(function(e){
+  var k=e.getAttribute('tp');if(!k||!_LANG[k])return;
+  e.placeholder=T(k);
+});
+document.querySelectorAll('.lb').forEach(function(b){b.classList.toggle('a',b.getAttribute('dl')===L)});
+})();
 </script>
 </body>
 </html>
