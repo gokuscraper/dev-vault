@@ -71,7 +71,7 @@ node tests/run.mjs
 
 ## 🙏 致谢
 
-部分内容来源于 [yurukusa/dev-toolkit](https://github.com/yurukusa/dev-toolkit)，部分设计参考了 [CorentinTh/it-tools](https://github.com/CorentinTh/it-tools)。
+设计参考了 [CorentinTh/it-tools](https://github.com/CorentinTh/it-tools)。
 
 ---
 

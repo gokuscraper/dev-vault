@@ -71,7 +71,7 @@ node tests/run.mjs
 
 ## 🙏 Acknowledgments
 
-Some content is sourced from [yurukusa/dev-toolkit](https://github.com/yurukusa/dev-toolkit). Some design references [CorentinTh/it-tools](https://github.com/CorentinTh/it-tools).
+Design references [CorentinTh/it-tools](https://github.com/CorentinTh/it-tools).
 
 ---
 
