@@ -232,7 +232,6 @@ const CUSTOM_CFG = {
   // Tools with console errors (skip completely)
   'color-blind-sim': { skipAll: true },
   'html-escape': { skipAll: true },
-  'html-minifier': { skipAll: true },
   'ip-info': { skipAll: true },
   'form-builder': { skipAll: true },
   'history-api-visualizer': { skipAll: true },
